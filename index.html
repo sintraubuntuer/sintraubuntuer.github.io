@@ -154,7 +154,7 @@
 <br/>
 <br/>
     <div class="container-fluid">
-      
+
 
 
              <div class="row">
@@ -195,7 +195,7 @@
 
 
 
-      
+
 
 
 
@@ -235,7 +235,7 @@
 
 
 
-      
+
 
 
 
@@ -401,11 +401,38 @@
     <script type="text/javascript">
 
         $(document).ready(function(){
+
             $(".banner-image").backstretch('./theme/images/banner.jpg');
 
         });
 
     </script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            checkWindowSize();
+
+            $(window).resize(function() {
+                checkWindowSize();
+            } );
+
+            function checkWindowSize() {
+                var windowsize = $(window).width();
+                if (windowsize < 768) {
+                    $("#sepImage img").attr("src", "./theme/images/deepIdeas_smallScreen.png" );
+                }
+                else {
+                    $("#sepImage img").attr("src", "./theme/images/deepIdeas___.png" );
+                }
+            }
+
+        }) ;
+
+    </script>
+
 
 
 </body>
