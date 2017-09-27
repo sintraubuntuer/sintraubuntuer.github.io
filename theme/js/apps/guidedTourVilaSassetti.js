@@ -11001,6 +11001,10 @@ var _user$project$Types$CheckAnswerData = F8(
 	function (a, b, c, d, e, f, g, h) {
 		return {mbMaxNrTries: a, answerCase: b, answerSpaces: c, correctIncorrectFeedback: d, correctAnsTextDict: e, incorrectAnsTextDict: f, lnewAttrs: g, lotherInterAttrs: h};
 	});
+var _user$project$Types$CheckBkendAnswerData = F6(
+	function (a, b, c, d, e, f) {
+		return {mbMaxNrTries: a, correctIncorrectFeedback: b, correctAnsTextDict: c, incorrectAnsTextDict: d, lnewAttrs: e, lotherInterAttrs: f};
+	});
 var _user$project$Types$TheEnd = F2(
 	function (a, b) {
 		return {ctor: 'TheEnd', _0: a, _1: b};
@@ -13422,6 +13426,7 @@ var _user$project$Engine$aliststringstring = _user$project$Types$AListStringStri
 var _user$project$Engine$aliststring = _user$project$Types$AListString;
 var _user$project$Engine$astring = _user$project$Types$Astring;
 var _user$project$Engine$checkOptionData = _user$project$Types$CheckOptionData;
+var _user$project$Engine$checkBkendAnswerData = _user$project$Types$CheckBkendAnswerData;
 var _user$project$Engine$checkAnswerData = _user$project$Types$CheckAnswerData;
 var _user$project$Engine$addChoiceLanguage = _user$project$Types$AddChoiceLanguage;
 var _user$project$Engine$moveItemOffScreen = _user$project$Types$MoveItemOffScreen;
@@ -13464,6 +13469,21 @@ var _user$project$Engine$increaseCounter = _user$project$Types$IncreaseCounter;
 var _user$project$Engine$createCounterIfNotExists = _user$project$Types$CreateCounterIfNotExists;
 var _user$project$Engine$processChosenOptionEqualTo = _user$project$Types$ProcessChosenOptionEqualTo;
 var _user$project$Engine$checkAndAct_IfChosenOptionIs = _user$project$Types$CheckAndAct_IfChosenOptionIs;
+var _user$project$Engine$simpleCheck_IfAnswerCorrectUsingBackend = F3(
+	function (strUrl, mbNrTries, interactableId) {
+		return A3(
+			_user$project$Types$Check_IfAnswerCorrectUsingBackend,
+			strUrl,
+			A6(
+				_user$project$Types$CheckBkendAnswerData,
+				mbNrTries,
+				true,
+				_elm_lang$core$Dict$empty,
+				_elm_lang$core$Dict$empty,
+				{ctor: '[]'},
+				{ctor: '[]'}),
+			interactableId);
+	});
 var _user$project$Engine$check_IfAnswerCorrectUsingBackend = _user$project$Types$Check_IfAnswerCorrectUsingBackend;
 var _user$project$Engine$simpleCheck_IfAnswerCorrect = F3(
 	function (lcorrectAnswers, mbNrTries, interactableId) {
@@ -13574,74 +13594,63 @@ var _user$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 				return _user$project$Types$NoChange;
 			case 'Ans':
 				var _p6 = _p5._0;
-				if (_p6.maxTriesReached) {
-					return A2(
-						_user$project$Types$WriteTextToItem,
-						A2(
+				var checkAnswerData = A8(_user$project$Types$CheckAnswerData, cAnswerData.mbMaxNrTries, _user$project$Types$CaseInsensitiveAnswer, _user$project$Types$AnswerSpacesDontMatter, cAnswerData.correctIncorrectFeedback, cAnswerData.correctAnsTextDict, cAnswerData.incorrectAnsTextDict, cAnswerData.lnewAttrs, cAnswerData.lotherInterAttrs);
+				var newCheckAnswerData = _elm_lang$core$Native_Utils.update(
+					checkAnswerData,
+					{
+						lnewAttrs: A2(
 							_elm_lang$core$Basics_ops['++'],
-							'  \n',
-							A2(
-								_elm_lang$core$Basics_ops['++'],
-								' ',
-								A2(
-									_elm_lang$core$Basics_ops['++'],
-									'___MAX_TRIES_ON_BACKEND___',
-									A2(
-										_elm_lang$core$Basics_ops['++'],
-										' ,  ',
-										A2(
-											_elm_lang$core$Basics_ops['++'],
-											'  \n , ',
-											A2(
-												_elm_lang$core$Basics_ops['++'],
-												'___your_answer___',
-												A2(_elm_lang$core$Basics_ops['++'], ' ', _p6.playerAnswer))))))),
-						interactableId);
-				} else {
-					if (_p6.answered && _p6.correctAnswer) {
-						var newCheckAnswerData = _elm_lang$core$Native_Utils.update(
-							cAnswerData,
-							{
-								lnewAttrs: A2(
-									_elm_lang$core$Basics_ops['++'],
-									cAnswerData.lnewAttrs,
-									{
-										ctor: '::',
-										_0: {
-											ctor: '_Tuple2',
-											_0: 'bonusText',
-											_1: _user$project$Types$Astring(_p6.additionalText)
-										},
-										_1: {ctor: '[]'}
-									})
-							});
-						return A4(
-							_user$project$Types$CheckIfAnswerCorrect,
+							cAnswerData.lnewAttrs,
 							{
 								ctor: '::',
-								_0: _p6.playerAnswer,
-								_1: {ctor: '[]'}
-							},
-							_p6.playerAnswer,
-							newCheckAnswerData,
-							interactableId);
-					} else {
-						if (_p6.answered && _p6.incorrectAnswer) {
-							return A4(
-								_user$project$Types$CheckIfAnswerCorrect,
-								{
-									ctor: '::',
-									_0: A2(_elm_lang$core$Basics_ops['++'], _p6.playerAnswer, 'something'),
-									_1: {ctor: '[]'}
+								_0: {
+									ctor: '_Tuple2',
+									_0: 'bonusText',
+									_1: _user$project$Types$Astring(_p6.additionalText)
 								},
-								_p6.playerAnswer,
-								cAnswerData,
-								interactableId);
-						} else {
-							return _user$project$Types$NoChange;
-						}
-					}
-				}
+								_1: {ctor: '[]'}
+							})
+					});
+				return _p6.maxTriesReached ? A2(
+					_user$project$Types$WriteTextToItem,
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'  \n',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							' ',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								'___MAX_TRIES_ON_BACKEND___',
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									' ,  ',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										'  \n , ',
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											'___YOUR_ANSWER___',
+											A2(_elm_lang$core$Basics_ops['++'], ' ', _p6.playerAnswer))))))),
+					interactableId) : ((_p6.answered && _p6.correctAnswer) ? A4(
+					_user$project$Types$CheckIfAnswerCorrect,
+					{
+						ctor: '::',
+						_0: _p6.playerAnswer,
+						_1: {ctor: '[]'}
+					},
+					_p6.playerAnswer,
+					newCheckAnswerData,
+					interactableId) : ((_p6.answered && _p6.incorrectAnswer) ? A4(
+					_user$project$Types$CheckIfAnswerCorrect,
+					{
+						ctor: '::',
+						_0: A2(_elm_lang$core$Basics_ops['++'], _p6.playerAnswer, 'something'),
+						_1: {ctor: '[]'}
+					},
+					_p6.playerAnswer,
+					checkAnswerData,
+					interactableId) : _user$project$Types$NoChange));
 			default:
 				return A2(
 					_user$project$Types$WriteTextToItem,
@@ -15180,7 +15189,7 @@ var _user$project$OurStory2_Narrative$theStagesDict = _elm_lang$core$Dict$fromLi
 									_0: '\n![pic500](img/arcadas.png)\n          ',
 									_1: {ctor: '[]'}
 								},
-								stageName: 'Stage 3 - o corredor'
+								stageName: 'Stage 3 - arcade'
 							}
 						},
 						_1: {
@@ -15194,7 +15203,7 @@ var _user$project$OurStory2_Narrative$theStagesDict = _elm_lang$core$Dict$fromLi
 										_0: '\n![pic500](img/arcadas.png)\n          ',
 										_1: {ctor: '[]'}
 									},
-									stageName: 'Stage 3 - corridor '
+									stageName: 'Stage 3 - arcade '
 								}
 							},
 							_1: {
@@ -18343,6 +18352,16 @@ var _user$project$Theme_Storyline$view = F6(
 				var _p1 = _p0;
 				var _p7 = _p1.interactableName;
 				var _p6 = _p1.interactableId;
+				var options = function () {
+					var dOptions = _evancz$elm_markdown$Markdown$defaultOptions;
+					return _elm_lang$core$Native_Utils.update(
+						dOptions,
+						{sanitize: true});
+				}();
+				var markdownToSanitizedHtml = F2(
+					function (lattrs, userInput) {
+						return A3(_evancz$elm_markdown$Markdown$toHtmlWith, options, lattrs, userInput);
+					});
 				var viewMbSuggestedInteraction = function () {
 					if (_elm_lang$core$Native_Utils.eq(i, 0)) {
 						var _p2 = _p1.mbSuggestedInteractionId;
@@ -18535,7 +18554,7 @@ var _user$project$Theme_Storyline$view = F6(
 								_1: {
 									ctor: '::',
 									_0: A2(
-										_evancz$elm_markdown$Markdown$toHtml,
+										markdownToSanitizedHtml,
 										{
 											ctor: '::',
 											_0: _elm_lang$html$Html_Attributes$class('Storyline__Item__Narrative markdown-body'),
@@ -20174,6 +20193,9 @@ var _user$project$Main$backendAnswerDecoder = F2(
 	});
 var _user$project$Main$getBackendAnswerInfo = F3(
 	function (interactableId, interactionExtraInfo, strUrl) {
+		var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
+			interactionExtraInfo,
+			{mbInputText: _elm_lang$core$Maybe$Nothing});
 		var request = _elm_lang$http$Http$request(
 			{
 				method: 'GET',
@@ -20194,7 +20216,7 @@ var _user$project$Main$getBackendAnswerInfo = F3(
 			});
 		return A2(
 			_elm_lang$http$Http$send,
-			A2(_user$project$ClientTypes$AnswerChecked, interactableId, interactionExtraInfo),
+			A2(_user$project$ClientTypes$AnswerChecked, interactableId, newInteractionExtraInfo),
 			request);
 	});
 var _user$project$Main$getNewCoords = F4(
@@ -20375,7 +20397,7 @@ var _user$project$Main$view = function (model) {
 	return model.displayStartScreen ? A2(_user$project$Main$viewStartScreen, model.baseImgUrl, model) : (model.displayEndScreen ? _user$project$Theme_EndScreen$view(model.baseImgUrl) : _user$project$Main$viewMainGame(model));
 };
 var _user$project$Main$init = function (flags) {
-	var debugMode = true;
+	var debugMode_ = false;
 	var settingsmodel = _user$project$Theme_Settings$init(_user$project$OurStory2_Narrative$initialChoiceLanguages);
 	var displaylanguage = settingsmodel.displayLanguage;
 	var answerboxmodel = _user$project$Theme_AnswerBox$init;
@@ -20407,7 +20429,7 @@ var _user$project$Main$init = function (flags) {
 		ctor: '_Tuple2',
 		_0: {
 			engineModel: engineModel,
-			debugMode: false,
+			debugMode: debugMode_,
 			baseImgUrl: flags.baseImgUrl,
 			baseSoundUrl: flags.baseSoundUrl,
 			itemsLocationsAndCharacters: A2(
@@ -20418,7 +20440,7 @@ var _user$project$Main$init = function (flags) {
 			answerBoxModel: answerboxmodel,
 			settingsModel: settingsmodel,
 			mbSentText: _elm_lang$core$Maybe$Nothing,
-			alertMessages: debugMode ? allPossibleIncidentsAboutCwcmds : {ctor: '[]'},
+			alertMessages: debugMode_ ? allPossibleIncidentsAboutCwcmds : {ctor: '[]'},
 			geoLocation: _elm_lang$core$Maybe$Nothing,
 			geoDistances: {ctor: '[]'},
 			defaultZoneRadius: 50.0,
@@ -20858,7 +20880,7 @@ var _user$project$Main$update = F2(
 							} else {
 								var newInteractionExtraInfoTwo = _elm_lang$core$Native_Utils.update(
 									newInteractionExtraInfo,
-									{mbInputText: _elm_lang$core$Maybe$Nothing, bkAnsStatus: _user$project$Types$WaitingForInfoRequested});
+									{bkAnsStatus: _user$project$Types$WaitingForInfoRequested});
 								var newAnswerBoxModel = A2(_user$project$Theme_AnswerBox$update, '', model.answerBoxModel);
 								return {
 									ctor: '_Tuple2',
@@ -20879,7 +20901,7 @@ var _user$project$Main$update = F2(
 											},
 											answerBoxModel: newAnswerBoxModel
 										}),
-									_1: A3(_user$project$Main$getBackendAnswerInfo, _p18, newInteractionExtraInfo, thestrUrl)
+									_1: A3(_user$project$Main$getBackendAnswerInfo, _p18, newInteractionExtraInfoTwo, thestrUrl)
 								};
 							}
 						} else {
