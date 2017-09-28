@@ -15675,7 +15675,7 @@ var _user$project$OurStory2_Narrative$theQuestionsDict = _elm_lang$core$Dict$fro
 				_1: {
 					questionBody: 'Near the entrance of Vila Sassetti is also the entrance to another Park . What\'s that Park ? ',
 					questionName: 'question 1',
-					additionalTextIfCorrectAnswer: 'Well Done ! The entrance to Parque das Merendas is located right next to the entrance to Vila Sassetti !\n\n![pic500](img/parqueDasMerendas.png)\n              ',
+					additionalTextIfCorrectAnswer: 'Well Done ! The entrance to Parque das Merendas is located right next to the entrance to Vila Sassetti !\n              ',
 					additionalTextIfIncorrectAnswer: '',
 					availableChoices: {ctor: '[]'},
 					questionAnswers: {ctor: '[]'}
