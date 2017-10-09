@@ -1141,7 +1141,7 @@ a.back-to-top {
     left: 50%;
     margin-left: -50px;
     position: absolute;
-    z-index: 999;
+		z-index: 999;
     //width: 75px;
 }
 
