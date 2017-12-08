@@ -11078,9 +11078,9 @@ var _user$project$Types$AnswerInfo = function (a) {
 		};
 	};
 };
-var _user$project$Types$InteractionExtraInfo = F4(
-	function (a, b, c, d) {
-		return {mbInputText: a, geolocationInfoText: b, bkAnsStatus: c, mbMatchedRuleId: d};
+var _user$project$Types$InteractionExtraInfo = F5(
+	function (a, b, c, d, e) {
+		return {mbInputText: a, geolocationInfoText: b, currentLocation: c, bkAnsStatus: d, mbMatchedRuleId: e};
 	});
 var _user$project$Types$Rule_ = F3(
 	function (a, b, c) {
@@ -11389,9 +11389,9 @@ var _user$project$Types$CaseSensitiveAnswer = {ctor: 'CaseSensitiveAnswer'};
 var _user$project$Types$AnswerSpacesDontMatter = {ctor: 'AnswerSpacesDontMatter'};
 var _user$project$Types$AnswerSpacesMatter = {ctor: 'AnswerSpacesMatter'};
 
-var _user$project$ClientTypes$SaveHistoryRecord = F4(
-	function (a, b, c, d) {
-		return {interactableId: a, inputText: b, geolocationInfoText: c, mbMatchedRuleId: d};
+var _user$project$ClientTypes$SaveHistoryRecord = F5(
+	function (a, b, c, d, e) {
+		return {interactableId: a, inputText: b, geolocationInfoText: c, currentLocation: d, mbMatchedRuleId: e};
 	});
 var _user$project$ClientTypes$SettingsModel = function (a) {
 	return function (b) {
@@ -16129,7 +16129,7 @@ var _user$project$OurStory_NarrativeEnglish$findingPinholeCameraEn = {
 };
 var _user$project$OurStory_NarrativeEnglish$lookAtWiseNotesEn = {
 	ctor: '::',
-	_0: '\nSome notes you wrote on a piece of paper while listening to Sintra Wise Man helpful advice :\n\n\n- Go West towards Colares. In Colares you should meet the local Wise Man. If you get him in a good mood he\'ll certainly help you on your quest ! I heard is an antiques collector ...\n\n\n\n- Interact with other people and listen carefully ( and to the end ) to what they have to say . That will be very helpful on your quest ...\n\n\n\n- You will find some questions along the way : Think carefully before answering because you have a limited number of tries to get the answer right.\n\n- if the maximum number of tries is reached before you provide a correct answer you will have to restart the game ( because you have to answer every question correctly in order to be able to finish the game)\n\n- do not press the browser\'s back or forward button . Narrative (game) takes place on a single page . If you leave game will be restarted when you return .\n      ',
+	_0: '\nSome notes you wrote on a piece of paper while listening to Sintra Wise Man helpful advice :\n\n- Go West towards Colares. In Colares you should meet the local Wise Man. If you get him in a good mood he\'ll certainly help you on your quest ! I heard is an antiques collector ...\n\n- Interact with other people and listen carefully ( and to the end ) to what they have to say . That will be very helpful on your quest ...\n\n- You will find some questions along the way : Think carefully before answering because you have a limited number of tries to get the answer right.\n\n- if the maximum number of tries is reached before you provide a correct answer you will have to restart the game ( because you have to answer every question correctly in order to be able to finish the game)\n\n- do not press the browser\'s back or forward button . Narrative (game) takes place on a single page . If you leave game will be restarted when you return .\n      ',
 	_1: {ctor: '[]'}
 };
 var _user$project$OurStory_NarrativeEnglish$lookAtGpsEn = {
@@ -16630,7 +16630,7 @@ var _user$project$OurStory_Narrative$findingPinholeCameraDict = _elm_lang$core$D
 	});
 var _user$project$OurStory_Narrative$lookAtWiseNotes = {
 	ctor: '::',
-	_0: '\napontamentos recolhidos durante a conversa com o sábio :\n\n\n- Viaja em direcção a Oeste. Em Colares deves procurar o Sábio local. Se o encontrares num bom estado de espírito certamente te ajudará na resolução do mistério ! Ouvi dizer que é um coleccionador de antiguidades ...\n\n\n\n- Interage com outras pessoas  e ouve cuidadosamente  ( até ao final ) aquilo que te dizem . Revelar-se-à de grande utilidade na tua demanda ...\n\n\n\n- Ao longo do caminho ser-te-ão colocadas algumas questões : pensa cuidadosamente antes de responder porque tens um número limitado de tentativas.\n\n- se o número máximo de tentativas for atingido antes de responderes correctamente terás que reiniciar o jogo (  deves responder correctamente a todas as perguntas por forma a poder terminar o jogo )\n\n- não pressiones botões do browser como back ou forward. A narrativa (jogo) decorre numa única página e se saires da mesma quando voltares a reentrar o jogo será reiniciado ...\n    ',
+	_0: '\napontamentos recolhidos durante a conversa com o sábio :\n\n- Viaja em direcção a Oeste. Em Colares deves procurar o Sábio local. Se o encontrares num bom estado de espírito certamente te ajudará na resolução do mistério ! Ouvi dizer que é um coleccionador de antiguidades ...\n\n- Interage com outras pessoas  e ouve cuidadosamente  ( até ao final ) aquilo que te dizem . Revelar-se-à de grande utilidade na tua demanda ...\n\n- Ao longo do caminho ser-te-ão colocadas algumas questões : pensa cuidadosamente antes de responder porque tens um número limitado de tentativas.\n\n- se o número máximo de tentativas for atingido antes de responderes correctamente terás que reiniciar o jogo (  deves responder correctamente a todas as perguntas por forma a poder terminar o jogo )\n\n- não pressiones botões do browser como back ou forward. A narrativa (jogo) decorre numa única página e se saires da mesma quando voltares a reentrar o jogo será reiniciado ...\n    ',
 	_1: {ctor: '[]'}
 };
 var _user$project$OurStory_Narrative$lookAtWiseNotesDict = _elm_lang$core$Dict$fromList(
@@ -17155,6 +17155,32 @@ var _user$project$OurStory_Narrative$enteringEugariaDict = _elm_lang$core$Dict$f
 		_1: {
 			ctor: '::',
 			_0: {ctor: '_Tuple2', _0: 'en', _1: _user$project$OurStory_NarrativeEnglish$enteringEugariaEn},
+			_1: {ctor: '[]'}
+		}
+	});
+var _user$project$OurStory_Narrative$viewQuestionWhenNotAtTheRightLocationDict = _elm_lang$core$Dict$fromList(
+	{
+		ctor: '::',
+		_0: {
+			ctor: '_Tuple2',
+			_0: 'pt',
+			_1: {
+				ctor: '::',
+				_0: 'Por Favor diriga-se para o local onde a pergunta originalmente se encontra por forma a poder responder !',
+				_1: {ctor: '[]'}
+			}
+		},
+		_1: {
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple2',
+				_0: 'en',
+				_1: {
+					ctor: '::',
+					_0: 'Please move to the point where the question is located in order to be able to answer it !',
+					_1: {ctor: '[]'}
+				}
+			},
 			_1: {ctor: '[]'}
 		}
 	});
@@ -19046,32 +19072,64 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																				_1: {
 																					ctor: '::',
 																					_0: A3(
-																						_user$project$OurStory_Rules$ruleWithQuasiChange,
-																						'view questionAtlimiteSaoMartinhoColares2',
+																						_user$project$OurStory_Rules$rule,
+																						'view questionlimiteSaoMartinhoColaresOneNotAtCorrectLocation',
 																						{
-																							interaction: _user$project$Engine$with('questionSaoMartinhoColares2'),
+																							interaction: _user$project$Engine$with('questionSaoMartinhoColares1'),
 																							conditions: {
 																								ctor: '::',
-																								_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', 'limiteSaoMartinhoColares'),
-																								_1: {
+																								_0: A2(_user$project$Engine$characterIsNotInLocation, 'playerOne', 'limiteSaoMartinhoColares'),
+																								_1: {ctor: '[]'}
+																							},
+																							changes: {ctor: '[]'}
+																						},
+																						_user$project$OurStory_Narrative$viewQuestionWhenNotAtTheRightLocationDict),
+																					_1: {
+																						ctor: '::',
+																						_0: A3(
+																							_user$project$OurStory_Rules$ruleWithQuasiChange,
+																							'view questionAtlimiteSaoMartinhoColares2',
+																							{
+																								interaction: _user$project$Engine$with('questionSaoMartinhoColares2'),
+																								conditions: {
 																									ctor: '::',
-																									_0: A2(_user$project$Engine$itemIsInLocation, 'questionSaoMartinhoColares2', 'limiteSaoMartinhoColares'),
+																									_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', 'limiteSaoMartinhoColares'),
+																									_1: {
+																										ctor: '::',
+																										_0: A2(_user$project$Engine$itemIsInLocation, 'questionSaoMartinhoColares2', 'limiteSaoMartinhoColares'),
+																										_1: {ctor: '[]'}
+																									}
+																								},
+																								changes: {ctor: '[]'},
+																								quasiChanges: {
+																									ctor: '::',
+																									_0: A3(
+																										_user$project$Engine$simpleCheck_IfAnswerCorrectUsingBackend,
+																										A2(_elm_lang$core$Basics_ops['++'], _user$project$OurStory_Rules$backendAnswerCheckerUrl, 'questionSaoMartinhoColares2/'),
+																										_elm_lang$core$Maybe$Just(3),
+																										'questionSaoMartinhoColares2'),
 																									_1: {ctor: '[]'}
 																								}
 																							},
-																							changes: {ctor: '[]'},
-																							quasiChanges: {
-																								ctor: '::',
-																								_0: A3(
-																									_user$project$Engine$simpleCheck_IfAnswerCorrectUsingBackend,
-																									A2(_elm_lang$core$Basics_ops['++'], _user$project$OurStory_Rules$backendAnswerCheckerUrl, 'questionSaoMartinhoColares2/'),
-																									_elm_lang$core$Maybe$Just(3),
-																									'questionSaoMartinhoColares2'),
-																								_1: {ctor: '[]'}
-																							}
-																						},
-																						_user$project$OurStory_Narrative$viewQuestionTwoAtLimiteSaoMartinhoColaresDict),
-																					_1: {ctor: '[]'}
+																							_user$project$OurStory_Narrative$viewQuestionTwoAtLimiteSaoMartinhoColaresDict),
+																						_1: {
+																							ctor: '::',
+																							_0: A3(
+																								_user$project$OurStory_Rules$rule,
+																								'view questionlimiteSaoMartinhoColaresTwoNotAtCorrectLocation',
+																								{
+																									interaction: _user$project$Engine$with('questionSaoMartinhoColares2'),
+																									conditions: {
+																										ctor: '::',
+																										_0: A2(_user$project$Engine$characterIsNotInLocation, 'playerOne', 'limiteSaoMartinhoColares'),
+																										_1: {ctor: '[]'}
+																									},
+																									changes: {ctor: '[]'}
+																								},
+																								_user$project$OurStory_Narrative$viewQuestionWhenNotAtTheRightLocationDict),
+																							_1: {ctor: '[]'}
+																						}
+																					}
 																				}
 																			}
 																		},
@@ -19623,34 +19681,22 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																																ctor: '::',
 																																_0: A3(
 																																	_user$project$OurStory_Rules$rule,
-																																	'talk to wiseMan colares after questionColares appears , questionColares not yet correctly answered',
+																																	'view questionColaresNotAtCorrectLocation',
 																																	{
-																																		interaction: _user$project$Engine$with('wiseManColares'),
+																																		interaction: _user$project$Engine$with('questionColares'),
 																																		conditions: {
 																																			ctor: '::',
-																																			_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
-																																			_1: {
-																																				ctor: '::',
-																																				_0: A2(_user$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
-																																				_1: {
-																																					ctor: '::',
-																																					_0: A2(_user$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
-																																					_1: {
-																																						ctor: '::',
-																																						_0: _user$project$Engine$itemIsNotCorrectlyAnswered('questionColares'),
-																																						_1: {ctor: '[]'}
-																																					}
-																																				}
-																																			}
+																																			_0: A2(_user$project$Engine$characterIsNotInLocation, 'playerOne', 'colares'),
+																																			_1: {ctor: '[]'}
 																																		},
 																																		changes: {ctor: '[]'}
 																																	},
-																																	_user$project$OurStory_Narrative$talkToWiseManAfterQuestionColaresAppearsDict),
+																																	_user$project$OurStory_Narrative$viewQuestionWhenNotAtTheRightLocationDict),
 																																_1: {
 																																	ctor: '::',
 																																	_0: A3(
 																																		_user$project$OurStory_Rules$rule,
-																																		'talk to wiseMan colares after questionColares correctly answered somer questions not yet answered',
+																																		'talk to wiseMan colares after questionColares appears , questionColares not yet correctly answered',
 																																		{
 																																			interaction: _user$project$Engine$with('wiseManColares'),
 																																			conditions: {
@@ -19664,7 +19710,7 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																																						_0: A2(_user$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
 																																						_1: {
 																																							ctor: '::',
-																																							_0: _user$project$Engine$itemIsCorrectlyAnswered('questionColares'),
+																																							_0: _user$project$Engine$itemIsNotCorrectlyAnswered('questionColares'),
 																																							_1: {ctor: '[]'}
 																																						}
 																																					}
@@ -19672,12 +19718,12 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																																			},
 																																			changes: {ctor: '[]'}
 																																		},
-																																		_user$project$OurStory_Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredButStillSomeTasksToDoDict),
+																																		_user$project$OurStory_Narrative$talkToWiseManAfterQuestionColaresAppearsDict),
 																																	_1: {
 																																		ctor: '::',
 																																		_0: A3(
 																																			_user$project$OurStory_Rules$rule,
-																																			'talk to wiseMan colares after questionColares correctly answered and all other questions answered',
+																																			'talk to wiseMan colares after questionColares correctly answered somer questions not yet answered',
 																																			{
 																																				interaction: _user$project$Engine$with('wiseManColares'),
 																																				conditions: {
@@ -19688,47 +19734,75 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																																						_0: A2(_user$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
 																																						_1: {
 																																							ctor: '::',
-																																							_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																																							_0: A2(_user$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
 																																							_1: {
 																																								ctor: '::',
-																																								_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
+																																								_0: _user$project$Engine$itemIsCorrectlyAnswered('questionColares'),
+																																								_1: {ctor: '[]'}
+																																							}
+																																						}
+																																					}
+																																				},
+																																				changes: {ctor: '[]'}
+																																			},
+																																			_user$project$OurStory_Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredButStillSomeTasksToDoDict),
+																																		_1: {
+																																			ctor: '::',
+																																			_0: A3(
+																																				_user$project$OurStory_Rules$rule,
+																																				'talk to wiseMan colares after questionColares correctly answered and all other questions answered',
+																																				{
+																																					interaction: _user$project$Engine$with('wiseManColares'),
+																																					conditions: {
+																																						ctor: '::',
+																																						_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																																						_1: {
+																																							ctor: '::',
+																																							_0: A2(_user$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
+																																							_1: {
+																																								ctor: '::',
+																																								_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
 																																								_1: {
 																																									ctor: '::',
-																																									_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtFonteMataAlva'),
+																																									_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
 																																									_1: {
 																																										ctor: '::',
-																																										_0: _user$project$Engine$itemIsCorrectlyAnswered('questionSaoMartinhoColares1'),
+																																										_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtFonteMataAlva'),
 																																										_1: {
 																																											ctor: '::',
-																																											_0: _user$project$Engine$itemIsCorrectlyAnswered('questionSaoMartinhoColares2'),
+																																											_0: _user$project$Engine$itemIsCorrectlyAnswered('questionSaoMartinhoColares1'),
 																																											_1: {
 																																												ctor: '::',
-																																												_0: A3(
-																																													_user$project$Engine$attrValueIsEqualTo,
-																																													_user$project$Engine$abool(true),
-																																													'isOfferedToGeocacher',
-																																													'birdsNest'),
+																																												_0: _user$project$Engine$itemIsCorrectlyAnswered('questionSaoMartinhoColares2'),
 																																												_1: {
 																																													ctor: '::',
 																																													_0: A3(
 																																														_user$project$Engine$attrValueIsEqualTo,
 																																														_user$project$Engine$abool(true),
-																																														'isOfferedToWiseManColares',
-																																														'bocagePoemsBook'),
+																																														'isOfferedToGeocacher',
+																																														'birdsNest'),
 																																													_1: {
 																																														ctor: '::',
 																																														_0: A3(
 																																															_user$project$Engine$attrValueIsEqualTo,
 																																															_user$project$Engine$abool(true),
 																																															'isOfferedToWiseManColares',
-																																															'cameraAndPhotography1Sintra1914'),
+																																															'bocagePoemsBook'),
 																																														_1: {
 																																															ctor: '::',
-																																															_0: A2(_user$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
+																																															_0: A3(
+																																																_user$project$Engine$attrValueIsEqualTo,
+																																																_user$project$Engine$abool(true),
+																																																'isOfferedToWiseManColares',
+																																																'cameraAndPhotography1Sintra1914'),
 																																															_1: {
 																																																ctor: '::',
-																																																_0: _user$project$Engine$itemIsCorrectlyAnswered('questionColares'),
-																																																_1: {ctor: '[]'}
+																																																_0: A2(_user$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
+																																																_1: {
+																																																	ctor: '::',
+																																																	_0: _user$project$Engine$itemIsCorrectlyAnswered('questionColares'),
+																																																	_1: {ctor: '[]'}
+																																																}
 																																															}
 																																														}
 																																													}
@@ -19739,67 +19813,67 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																																								}
 																																							}
 																																						}
-																																					}
-																																				},
-																																				changes: {
-																																					ctor: '::',
-																																					_0: A3(
-																																						_user$project$Engine$setAttributeValue,
-																																						_user$project$Engine$abool(true),
-																																						'gameHasEnded',
-																																						'gameStateItem'),
-																																					_1: {
-																																						ctor: '::',
-																																						_0: A3(
-																																							_user$project$Engine$setAttributeValue,
-																																							_user$project$Engine$astring('finalPieceOfPaper'),
-																																							'suggestedInteraction',
-																																							'wiseManColares'),
-																																						_1: {
-																																							ctor: '::',
-																																							_0: A4(_user$project$Engine$createOrSetAttributeValueFromOtherInterAttr, 'additionalTextDict', 'bonusText', 'questionColares', 'finalPieceOfPaper'),
-																																							_1: {
-																																								ctor: '::',
-																																								_0: A2(_user$project$Engine$moveItemToLocation, 'finalPieceOfPaper', 'colares'),
-																																								_1: {ctor: '[]'}
-																																							}
-																																						}
-																																					}
-																																				}
-																																			},
-																																			_user$project$OurStory_Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredDict),
-																																		_1: {
-																																			ctor: '::',
-																																			_0: A3(
-																																				_user$project$OurStory_Rules$rule,
-																																				'game has ended',
-																																				{
-																																					interaction: _user$project$Engine$withAnyLocationAnyCharacterAfterGameEnded,
-																																					conditions: {
-																																						ctor: '::',
-																																						_0: A3(
-																																							_user$project$Engine$attrValueIsEqualTo,
-																																							_user$project$Engine$abool(true),
-																																							'gameHasEnded',
-																																							'gameStateItem'),
-																																						_1: {ctor: '[]'}
 																																					},
 																																					changes: {
 																																						ctor: '::',
-																																						_0: A2(_user$project$Engine$endStory, 'notFreezingEnd', 'The End'),
+																																						_0: A3(
+																																							_user$project$Engine$setAttributeValue,
+																																							_user$project$Engine$abool(true),
+																																							'gameHasEnded',
+																																							'gameStateItem'),
 																																						_1: {
 																																							ctor: '::',
-																																							_0: A2(_user$project$Engine$removeAttributeIfExists, 'suggestedInteraction', 'wiseManColares'),
+																																							_0: A3(
+																																								_user$project$Engine$setAttributeValue,
+																																								_user$project$Engine$astring('finalPieceOfPaper'),
+																																								'suggestedInteraction',
+																																								'wiseManColares'),
 																																							_1: {
 																																								ctor: '::',
-																																								_0: A2(_user$project$Engine$removeAttributeIfExists, 'suggestedInteraction', 'questionColares'),
-																																								_1: {ctor: '[]'}
+																																								_0: A4(_user$project$Engine$createOrSetAttributeValueFromOtherInterAttr, 'additionalTextDict', 'bonusText', 'questionColares', 'finalPieceOfPaper'),
+																																								_1: {
+																																									ctor: '::',
+																																									_0: A2(_user$project$Engine$moveItemToLocation, 'finalPieceOfPaper', 'colares'),
+																																									_1: {ctor: '[]'}
+																																								}
 																																							}
 																																						}
 																																					}
 																																				},
-																																				_user$project$OurStory_Narrative$gameHasEndedDict),
-																																			_1: {ctor: '[]'}
+																																				_user$project$OurStory_Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredDict),
+																																			_1: {
+																																				ctor: '::',
+																																				_0: A3(
+																																					_user$project$OurStory_Rules$rule,
+																																					'game has ended',
+																																					{
+																																						interaction: _user$project$Engine$withAnyLocationAnyCharacterAfterGameEnded,
+																																						conditions: {
+																																							ctor: '::',
+																																							_0: A3(
+																																								_user$project$Engine$attrValueIsEqualTo,
+																																								_user$project$Engine$abool(true),
+																																								'gameHasEnded',
+																																								'gameStateItem'),
+																																							_1: {ctor: '[]'}
+																																						},
+																																						changes: {
+																																							ctor: '::',
+																																							_0: A2(_user$project$Engine$endStory, 'notFreezingEnd', 'The End'),
+																																							_1: {
+																																								ctor: '::',
+																																								_0: A2(_user$project$Engine$removeAttributeIfExists, 'suggestedInteraction', 'wiseManColares'),
+																																								_1: {
+																																									ctor: '::',
+																																									_0: A2(_user$project$Engine$removeAttributeIfExists, 'suggestedInteraction', 'questionColares'),
+																																									_1: {ctor: '[]'}
+																																								}
+																																							}
+																																						}
+																																					},
+																																					_user$project$OurStory_Narrative$gameHasEndedDict),
+																																				_1: {ctor: '[]'}
+																																			}
 																																		}
 																																	}
 																																}
@@ -22667,10 +22741,11 @@ var _user$project$Main$convertToListIdExtraInfo = function (lobjs) {
 			return {
 				ctor: '_Tuple2',
 				_0: x.interactableId,
-				_1: A4(
+				_1: A5(
 					_user$project$Types$InteractionExtraInfo,
 					_user$project$Main$helperEmptyStringToNothing(x.inputText),
 					x.geolocationInfoText,
+					x.currentLocation,
 					_user$project$Types$CommunicationFailure,
 					_user$project$Main$helperEmptyStringToNothing(x.mbMatchedRuleId))
 			};
@@ -22698,17 +22773,16 @@ var _user$project$Main$findEntity = F2(
 	});
 var _user$project$Main$getExtraInfoFromModel = F2(
 	function (model, interactableId) {
+		var currLocationStrId = _user$project$Engine$getCurrentLocation(model.engineModel);
 		var currLocNameAndCoords = A2(
 			_user$project$Components$getDictLgNamesAndCoords,
 			_user$project$OurStory_Narrative$desiredLanguages,
-			A2(
-				_user$project$Main$findEntity,
-				model,
-				_user$project$Engine$getCurrentLocation(model.engineModel)));
-		return A4(
+			A2(_user$project$Main$findEntity, model, currLocationStrId));
+		return A5(
 			_user$project$Types$InteractionExtraInfo,
 			model.mbSentText,
 			A4(_user$project$GpsUtils$getCurrentGeoReportAsText, currLocNameAndCoords, model.geoLocation, model.geoDistances, 3),
+			currLocationStrId,
 			A2(
 				_elm_lang$core$Maybe$withDefault,
 				_user$project$Types$NoInfoYet,
@@ -22839,7 +22913,7 @@ var _user$project$Main$view = function (model) {
 	return model.displayStartScreen ? A2(_user$project$Main$viewStartScreen, model.baseImgUrl, model) : (model.displayEndScreen ? A2(_user$project$Theme_EndScreen$view, model.baseImgUrl, model.endScreenInfo) : _user$project$Main$viewMainGame(model));
 };
 var _user$project$Main$init = function (flags) {
-	var debugMode_ = true;
+	var debugMode_ = false;
 	var settingsmodel = _user$project$Theme_Settings$init(_user$project$OurStory_Narrative$initialChoiceLanguages);
 	var displaylanguage = settingsmodel.displayLanguage;
 	var answerboxmodel = _user$project$Theme_AnswerBox$init;
@@ -22924,7 +22998,7 @@ var _user$project$Main$saveHistoryToStorage = _elm_lang$core$Native_Platform.out
 			playerName: v.playerName,
 			lInteractions: _elm_lang$core$Native_List.toArray(v.lInteractions).map(
 				function (v) {
-					return {interactableId: v.interactableId, inputText: v.inputText, geolocationInfoText: v.geolocationInfoText, mbMatchedRuleId: v.mbMatchedRuleId};
+					return {interactableId: v.interactableId, inputText: v.inputText, geolocationInfoText: v.geolocationInfoText, currentLocation: v.currentLocation, mbMatchedRuleId: v.mbMatchedRuleId};
 				})
 		};
 	});
@@ -22946,6 +23020,7 @@ var _user$project$Main$saveHistoryToStorageHelper = function (model) {
 					return _.geolocationInfoText;
 				}(
 					_elm_lang$core$Tuple$second(x)),
+				currentLocation: _user$project$Engine$getCurrentLocation(model.engineModel),
 				mbMatchedRuleId: A2(
 					_elm_lang$core$Maybe$withDefault,
 					'',
@@ -22997,11 +23072,16 @@ var _user$project$Main$getHistoryFromStorage = _elm_lang$core$Native_Platform.in
 											function (geolocationInfoText) {
 												return A2(
 													_elm_lang$core$Json_Decode$andThen,
-													function (mbMatchedRuleId) {
-														return _elm_lang$core$Json_Decode$succeed(
-															{interactableId: interactableId, inputText: inputText, geolocationInfoText: geolocationInfoText, mbMatchedRuleId: mbMatchedRuleId});
+													function (currentLocation) {
+														return A2(
+															_elm_lang$core$Json_Decode$andThen,
+															function (mbMatchedRuleId) {
+																return _elm_lang$core$Json_Decode$succeed(
+																	{interactableId: interactableId, inputText: inputText, geolocationInfoText: geolocationInfoText, currentLocation: currentLocation, mbMatchedRuleId: mbMatchedRuleId});
+															},
+															A2(_elm_lang$core$Json_Decode$field, 'mbMatchedRuleId', _elm_lang$core$Json_Decode$string));
 													},
-													A2(_elm_lang$core$Json_Decode$field, 'mbMatchedRuleId', _elm_lang$core$Json_Decode$string));
+													A2(_elm_lang$core$Json_Decode$field, 'currentLocation', _elm_lang$core$Json_Decode$string));
 											},
 											A2(_elm_lang$core$Json_Decode$field, 'geolocationInfoText', _elm_lang$core$Json_Decode$string));
 									},
@@ -23391,7 +23471,7 @@ var _user$project$Main$update = F2(
 							var interactionIncidents = model.debugMode ? lInteractionIncidents : {ctor: '[]'};
 							var _p18 = mbUrlForBkendQry;
 							if (_p18.ctor === 'Nothing') {
-								var _v18 = A2(_user$project$ClientTypes$InteractStepThree, _p19, newInteractionExtraInfo.mbMatchedRuleId),
+								var _v18 = A2(_user$project$ClientTypes$InteractStepThree, _p19, newInteractionExtraInfo),
 									_v19 = _elm_lang$core$Native_Utils.update(
 									newModel,
 									{
@@ -23563,15 +23643,6 @@ var _user$project$Main$update = F2(
 								return _elm_lang$core$Maybe$Nothing;
 							}
 						};
-						var updatedContent = A2(
-							_elm_lang$core$Maybe$withDefault,
-							model.languageNarrativeContents,
-							A2(
-								_elm_lang$core$Maybe$map,
-								function (id) {
-									return A3(_elm_lang$core$Dict$update, id, updateNarrativeLgsDict, model.languageNarrativeContents);
-								},
-								_p29));
 						var mbsuggestInteractionId = A2(
 							_user$project$TypeConverterHelper$mbAttributeToMbString,
 							model.debugMode,
@@ -23653,6 +23724,31 @@ var _user$project$Main$update = F2(
 													'',
 													A2(_elm_lang$core$Dict$get, lgId, additionalTextDict))))));
 							});
+						var newSettingsModel = A2(
+							_user$project$Theme_Settings$update,
+							_user$project$ClientTypes$SetAvailableLanguages(
+								_user$project$Engine$getChoiceLanguages(newEngineModel)),
+							model.settingsModel);
+						var newSettingsModel2 = (hasEnded && (!model.settingsModel.showExitToFinalScreenButton)) ? A2(_user$project$Theme_Settings$update, _user$project$ClientTypes$SettingsShowExitToFinalScreenButton, newSettingsModel) : newSettingsModel;
+						var displayLanguage = model.settingsModel.displayLanguage;
+						var getAlertMessage2 = function (x) {
+							return (!_elm_lang$core$Native_Utils.eq(x, '')) ? {
+								ctor: '::',
+								_0: x,
+								_1: {ctor: '[]'}
+							} : {ctor: '[]'};
+						}(
+							A2(
+								_elm_lang$core$Maybe$withDefault,
+								'',
+								A2(
+									_elm_lang$core$Dict$get,
+									displayLanguage,
+									A2(
+										_user$project$TypeConverterHelper$mbAttributeToDictStringString,
+										model.debugMode,
+										A3(_user$project$Engine$getInteractableAttribute, 'warningMessage', _p28, model.engineModel)))));
+						var maybeMatchedRuleId = _p29.mbMatchedRuleId;
 						var narrativesForThisInteraction = {
 							interactableNames: A2(
 								_user$project$Components$getDictLgNames,
@@ -23699,7 +23795,7 @@ var _user$project$Main$update = F2(
 											function (ruleId) {
 												return A2(_elm_lang$core$Dict$get, ruleId, model.languageNarrativeContents);
 											},
-											_p29)));
+											maybeMatchedRuleId)));
 								return A2(_user$project$Components$mergeDicts, dict2, dict1);
 							}(),
 							audios: A2(
@@ -23720,7 +23816,7 @@ var _user$project$Main$update = F2(
 										function (ruleId) {
 											return A2(_elm_lang$core$Dict$get, ruleId, model.languageAudioContents);
 										},
-										_p29))),
+										maybeMatchedRuleId))),
 							mbSuggestedInteractionId: mbsuggestInteractionId,
 							suggestedInteractionNameDict: (!_elm_lang$core$Native_Utils.eq(mbsuggestInteractionId, _elm_lang$core$Maybe$Nothing)) ? A2(
 								_user$project$Components$getDictLgNames,
@@ -23747,7 +23843,9 @@ var _user$project$Main$update = F2(
 													A2(_elm_lang$core$Dict$get, 'en', nfti.interactableNames)),
 												A2(_elm_lang$core$Dict$get, lgId, nfti.interactableNames)),
 											interactableId: _p28,
-											isWritable: A2(_user$project$Engine$isWritable, _p28, model.engineModel),
+											isWritable: A2(_user$project$Engine$isWritable, _p28, model.engineModel) && _elm_lang$core$Native_Utils.eq(
+												_p29.currentLocation,
+												_user$project$Engine$getCurrentLocation(model.engineModel)),
 											interactableCssSelector: nfti.interactableCssSelector,
 											narrative: A2(
 												_elm_lang$core$Maybe$withDefault,
@@ -23779,13 +23877,6 @@ var _user$project$Main$update = F2(
 								model.languageStoryLines,
 								llgssnippets);
 						}();
-						var newSettingsModel = A2(
-							_user$project$Theme_Settings$update,
-							_user$project$ClientTypes$SetAvailableLanguages(
-								_user$project$Engine$getChoiceLanguages(newEngineModel)),
-							model.settingsModel);
-						var newSettingsModel2 = (hasEnded && (!model.settingsModel.showExitToFinalScreenButton)) ? A2(_user$project$Theme_Settings$update, _user$project$ClientTypes$SettingsShowExitToFinalScreenButton, newSettingsModel) : newSettingsModel;
-						var displayLanguage = model.settingsModel.displayLanguage;
 						var getAlertMessage1 = function () {
 							var _p27 = A2(_elm_lang$core$Dict$get, displayLanguage, narrativesForThisInteraction.narratives);
 							if (_p27.ctor === 'Nothing') {
@@ -23798,23 +23889,15 @@ var _user$project$Main$update = F2(
 								return {ctor: '[]'};
 							}
 						}();
-						var getAlertMessage2 = function (x) {
-							return (!_elm_lang$core$Native_Utils.eq(x, '')) ? {
-								ctor: '::',
-								_0: x,
-								_1: {ctor: '[]'}
-							} : {ctor: '[]'};
-						}(
+						var updatedContent = A2(
+							_elm_lang$core$Maybe$withDefault,
+							model.languageNarrativeContents,
 							A2(
-								_elm_lang$core$Maybe$withDefault,
-								'',
-								A2(
-									_elm_lang$core$Dict$get,
-									displayLanguage,
-									A2(
-										_user$project$TypeConverterHelper$mbAttributeToDictStringString,
-										model.debugMode,
-										A3(_user$project$Engine$getInteractableAttribute, 'warningMessage', _p28, model.engineModel)))));
+								_elm_lang$core$Maybe$map,
+								function (id) {
+									return A3(_elm_lang$core$Dict$update, id, updateNarrativeLgsDict, model.languageNarrativeContents);
+								},
+								maybeMatchedRuleId));
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
