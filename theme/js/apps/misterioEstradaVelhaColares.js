@@ -11078,17 +11078,17 @@ var _user$project$Types$AnswerInfo = function (a) {
 		};
 	};
 };
-var _user$project$Types$InteractionExtraInfo = F5(
-	function (a, b, c, d, e) {
-		return {mbInputText: a, geolocationInfoText: b, currentLocation: c, bkAnsStatus: d, mbMatchedRuleId: e};
+var _user$project$Types$InteractionExtraInfo = F6(
+	function (a, b, c, d, e, f) {
+		return {mbInputText: a, mbInputTextForBackend: b, geolocationInfoText: c, currentLocation: d, bkAnsStatus: e, mbMatchedRuleId: f};
 	});
 var _user$project$Types$Rule_ = F3(
 	function (a, b, c) {
 		return {interaction: a, conditions: b, changes: c};
 	});
-var _user$project$Types$Rule = F4(
-	function (a, b, c, d) {
-		return {interaction: a, conditions: b, changes: c, quasiChanges: d};
+var _user$project$Types$Rule = F5(
+	function (a, b, c, d, e) {
+		return {interaction: a, conditions: b, changes: c, quasiChanges: d, quasiChangeWithBkend: e};
 	});
 var _user$project$Types$CheckOptionData = F4(
 	function (a, b, c, d) {
@@ -11151,6 +11151,10 @@ var _user$project$Types$Location = function (a) {
 var _user$project$Types$Item = function (a) {
 	return {ctor: 'Item', _0: a};
 };
+var _user$project$Types$AnswerInfoToQuestionNeeded = function (a) {
+	return {ctor: 'AnswerInfoToQuestionNeeded', _0: a};
+};
+var _user$project$Types$NoInfoNeeded = {ctor: 'NoInfoNeeded'};
 var _user$project$Types$CommunicationFailure = {ctor: 'CommunicationFailure'};
 var _user$project$Types$Ans = function (a) {
 	return {ctor: 'Ans', _0: a};
@@ -11375,10 +11379,12 @@ var _user$project$Types$Check_IfAnswerCorrect = F3(
 	function (a, b, c) {
 		return {ctor: 'Check_IfAnswerCorrect', _0: a, _1: b, _2: c};
 	});
+var _user$project$Types$NoQuasiChange = {ctor: 'NoQuasiChange'};
 var _user$project$Types$Check_IfAnswerCorrectUsingBackend = F3(
 	function (a, b, c) {
 		return {ctor: 'Check_IfAnswerCorrectUsingBackend', _0: a, _1: b, _2: c};
 	});
+var _user$project$Types$NoQuasiChangeWithBackend = {ctor: 'NoQuasiChangeWithBackend'};
 var _user$project$Types$HeaderAnswerAndCorrectIncorrect = {ctor: 'HeaderAnswerAndCorrectIncorrect'};
 var _user$project$Types$HeaderAndAnswer = {ctor: 'HeaderAndAnswer'};
 var _user$project$Types$JustPlayerAnswer = {ctor: 'JustPlayerAnswer'};
@@ -11389,9 +11395,9 @@ var _user$project$Types$CaseSensitiveAnswer = {ctor: 'CaseSensitiveAnswer'};
 var _user$project$Types$AnswerSpacesDontMatter = {ctor: 'AnswerSpacesDontMatter'};
 var _user$project$Types$AnswerSpacesMatter = {ctor: 'AnswerSpacesMatter'};
 
-var _user$project$ClientTypes$SaveHistoryRecord = F5(
-	function (a, b, c, d, e) {
-		return {interactableId: a, inputText: b, geolocationInfoText: c, currentLocation: d, mbMatchedRuleId: e};
+var _user$project$ClientTypes$SaveHistoryRecord = F6(
+	function (a, b, c, d, e, f) {
+		return {interactableId: a, inputText: b, inputTextForBackend: c, geolocationInfoText: d, currentLocation: e, mbMatchedRuleId: f};
 	});
 var _user$project$ClientTypes$SettingsModel = function (a) {
 	return function (b) {
@@ -13489,7 +13495,7 @@ var _user$project$Engine_Rules$findMatchingRule = F3(
 				return {
 					ctor: '_Tuple2',
 					_0: _p17.id,
-					_1: {interaction: _p17.interaction, conditions: _p17.conditions, changes: _p17.changes, quasiChanges: _p17.quasiChanges}
+					_1: {interaction: _p17.interaction, conditions: _p17.conditions, changes: _p17.changes, quasiChanges: _p17.quasiChanges, quasiChangeWithBkend: _p17.quasiChangeWithBkend}
 				};
 			},
 			A2(
@@ -13502,7 +13508,7 @@ var _user$project$Engine_Rules$findMatchingRule = F3(
 					_elm_lang$core$List$map,
 					function (_p18) {
 						var _p19 = _p18;
-						return {id: _p19._0, interaction: _p19._1.interaction, conditions: _p19._1.conditions, changes: _p19._1.changes, quasiChanges: _p19._1.quasiChanges};
+						return {id: _p19._0, interaction: _p19._1.interaction, conditions: _p19._1.conditions, changes: _p19._1.changes, quasiChanges: _p19._1.quasiChanges, quasiChangeWithBkend: _p19._1.quasiChangeWithBkend};
 					},
 					A2(
 						_elm_lang$core$List$filter,
@@ -13526,6 +13532,8 @@ var _user$project$Engine$endStory = F2(
 		return _elm_lang$core$Native_Utils.eq(endingtypeStr, 'notFreezingEnd') ? A2(_user$project$Types$EndStory, _user$project$Types$NotFreezingEnd, ending) : A2(_user$project$Types$EndStory, _user$project$Types$FreezingEnd, ending);
 	});
 var _user$project$Engine$loadScene = _user$project$Types$LoadScene;
+var _user$project$Engine$noQuasiChangeWithBackend = _user$project$Types$NoQuasiChangeWithBackend;
+var _user$project$Engine$noQuasiChange = _user$project$Types$NoQuasiChange;
 var _user$project$Engine$noFeedback = _user$project$Types$NoFeedback;
 var _user$project$Engine$headerAnswerAndCorrectIncorrect = _user$project$Types$HeaderAnswerAndCorrectIncorrect;
 var _user$project$Engine$answerSpacesDontMatter = _user$project$Types$AnswerSpacesDontMatter;
@@ -13533,12 +13541,13 @@ var _user$project$Engine$answerSpacesMatter = _user$project$Types$AnswerSpacesMa
 var _user$project$Engine$caseInsensitiveAnswer = _user$project$Types$CaseInsensitiveAnswer;
 var _user$project$Engine$caseSensitiveAnswer = _user$project$Types$CaseSensitiveAnswer;
 var _user$project$Engine$completeTheRule = function (ruleData) {
-	return A4(
+	return A5(
 		_user$project$Types$Rule,
 		ruleData.interaction,
 		ruleData.conditions,
 		ruleData.changes,
-		{ctor: '[]'});
+		{ctor: '[]'},
+		_user$project$Types$NoQuasiChangeWithBackend);
 };
 var _user$project$Engine$aDictStringLSS = _user$project$Types$ADictStringLSS;
 var _user$project$Engine$aDictStringString = _user$project$Types$ADictStringString;
@@ -13815,8 +13824,8 @@ var _user$project$Engine$replaceQuasiCwCmdsWithCwcommands = F2(
 	function (extraInfo, quasiCwCommand) {
 		var _p7 = quasiCwCommand;
 		switch (_p7.ctor) {
-			case 'Check_IfAnswerCorrectUsingBackend':
-				return A4(_user$project$Engine$replaceCheckIfAnswerCorrectUsingBackend, extraInfo.bkAnsStatus, _p7._0, _p7._1, _p7._2);
+			case 'NoQuasiChange':
+				return _user$project$Types$NoChange;
 			case 'Check_IfAnswerCorrect':
 				return A4(_user$project$Engine$replaceCheckIfAnswerCorrect, extraInfo.mbInputText, _p7._0, _p7._1, _p7._2);
 			case 'CheckAndAct_IfChosenOptionIs':
@@ -13827,129 +13836,125 @@ var _user$project$Engine$replaceQuasiCwCmdsWithCwcommands = F2(
 				return A2(_user$project$Engine$replaceWriteGpsInfoToItem, extraInfo.geolocationInfoText, _p7._0);
 		}
 	});
-var _user$project$Engine$getListStrUrls = function (qcwcommands) {
-	var helperFunc = function (cwcommand) {
-		var _p8 = cwcommand;
-		if (_p8.ctor === 'Check_IfAnswerCorrectUsingBackend') {
-			return _p8._0;
+var _user$project$Engine$replaceBkendQuasiCwCmdsWithCwcommands = F2(
+	function (extraInfo, quasiBkendCwCommand) {
+		var _p8 = quasiBkendCwCommand;
+		if (_p8.ctor === 'NoQuasiChangeWithBackend') {
+			return _user$project$Types$NoChange;
 		} else {
-			return '';
+			return A4(_user$project$Engine$replaceCheckIfAnswerCorrectUsingBackend, extraInfo.bkAnsStatus, _p8._0, _p8._1, _p8._2);
 		}
-	};
-	return A2(
-		_elm_lang$core$List$filter,
-		function (x) {
-			return !_elm_lang$core$Native_Utils.eq(x, '');
-		},
-		A2(
-			_elm_lang$core$List$map,
-			function (cwcmd) {
-				return helperFunc(cwcmd);
-			},
-			qcwcommands));
+	});
+var _user$project$Engine$getInfoNeeded = function (qcwcommand) {
+	var _p9 = qcwcommand;
+	if (_p9.ctor === 'Check_IfAnswerCorrectUsingBackend') {
+		return _user$project$Types$AnswerInfoToQuestionNeeded(_p9._0);
+	} else {
+		return _user$project$Types$NoInfoNeeded;
+	}
 };
-var _user$project$Engine$getStoryRules = function (_p9) {
-	var _p10 = _p9;
-	return _p10._0.rules;
+var _user$project$Engine$getStoryRules = function (_p10) {
+	var _p11 = _p10;
+	return _p11._0.rules;
 };
-var _user$project$Engine$getHistory = function (_p11) {
-	var _p12 = _p11;
-	return _p12._0.history;
+var _user$project$Engine$getHistory = function (_p12) {
+	var _p13 = _p12;
+	return _p13._0.history;
 };
 var _user$project$Engine$isItemCorrectlyAnswered = F2(
-	function (id, _p13) {
-		var _p14 = _p13;
-		return A2(_user$project$Engine_Manifest$itemIsCorrectlyAnswered, id, _p14._0.manifest);
+	function (id, _p14) {
+		var _p15 = _p14;
+		return A2(_user$project$Engine_Manifest$itemIsCorrectlyAnswered, id, _p15._0.manifest);
 	});
-var _user$project$Engine$hasEnded = function (_p15) {
-	var _p16 = _p15;
-	var _p17 = _p16._0.theEnd;
-	if (_p17.ctor === 'Nothing') {
+var _user$project$Engine$hasEnded = function (_p16) {
+	var _p17 = _p16;
+	var _p18 = _p17._0.theEnd;
+	if (_p18.ctor === 'Nothing') {
 		return false;
 	} else {
 		return true;
 	}
 };
-var _user$project$Engine$hasFreezingEnd = function (_p18) {
-	var _p19 = _p18;
-	var _p20 = _p19._0.theEnd;
-	if (_p20.ctor === 'Nothing') {
+var _user$project$Engine$hasFreezingEnd = function (_p19) {
+	var _p20 = _p19;
+	var _p21 = _p20._0.theEnd;
+	if (_p21.ctor === 'Nothing') {
 		return false;
 	} else {
-		var _p21 = _p20._0;
-		if (_p21._0.ctor === 'FreezingEnd') {
+		var _p22 = _p21._0;
+		if (_p22._0.ctor === 'FreezingEnd') {
 			return true;
 		} else {
 			return false;
 		}
 	}
 };
-var _user$project$Engine$getEndingText = function (_p22) {
-	var _p23 = _p22;
-	var _p24 = _p23._0.theEnd;
-	if (_p24.ctor === 'Nothing') {
+var _user$project$Engine$getEndingText = function (_p23) {
+	var _p24 = _p23;
+	var _p25 = _p24._0.theEnd;
+	if (_p25.ctor === 'Nothing') {
 		return _elm_lang$core$Maybe$Nothing;
 	} else {
-		var _p25 = _p24._0;
-		return _elm_lang$core$Maybe$Just(_p25._1);
+		var _p26 = _p25._0;
+		return _elm_lang$core$Maybe$Just(_p26._1);
 	}
 };
-var _user$project$Engine$getLocations = function (_p26) {
-	var _p27 = _p26;
-	return _user$project$Engine_Manifest$getLocations(_p27._0.manifest);
+var _user$project$Engine$getLocations = function (_p27) {
+	var _p28 = _p27;
+	return _user$project$Engine_Manifest$getLocations(_p28._0.manifest);
 };
 var _user$project$Engine$isWritable = F2(
-	function (interactableId, _p28) {
-		var _p29 = _p28;
-		return A2(_user$project$Engine_Manifest$isWritable, interactableId, _p29._0.manifest);
+	function (interactableId, _p29) {
+		var _p30 = _p29;
+		return A2(_user$project$Engine_Manifest$isWritable, interactableId, _p30._0.manifest);
 	});
 var _user$project$Engine$getInteractableAttribute = F3(
-	function (attrId, interactableId, _p30) {
-		var _p31 = _p30;
+	function (attrId, interactableId, _p31) {
+		var _p32 = _p31;
 		return A2(
 			_user$project$Engine_Manifest$getInteractableAttribute,
 			attrId,
-			A2(_elm_lang$core$Dict$get, interactableId, _p31._0.manifest));
+			A2(_elm_lang$core$Dict$get, interactableId, _p32._0.manifest));
 	});
 var _user$project$Engine$getItemWrittenContent = F2(
-	function (id, _p32) {
-		var _p33 = _p32;
-		var theManifest = _p33._0.manifest;
+	function (id, _p33) {
+		var _p34 = _p33;
+		var theManifest = _p34._0.manifest;
 		var mbinteractable = A2(_elm_lang$core$Dict$get, id, theManifest);
 		return _user$project$Engine_Manifest$getItemWrittenContent(mbinteractable);
 	});
-var _user$project$Engine$getItemsInInventory = function (_p34) {
-	var _p35 = _p34;
-	return _user$project$Engine_Manifest$getItemsInInventory(_p35._0.manifest);
+var _user$project$Engine$getItemsInInventory = function (_p35) {
+	var _p36 = _p35;
+	return _user$project$Engine_Manifest$getItemsInInventory(_p36._0.manifest);
 };
-var _user$project$Engine$getCharactersInCurrentLocation = function (_p36) {
-	var _p37 = _p36;
-	var _p38 = _p37._0;
-	return A2(_user$project$Engine_Manifest$getCharactersInLocation, _p38.currentLocation, _p38.manifest);
+var _user$project$Engine$getCharactersInCurrentLocation = function (_p37) {
+	var _p38 = _p37;
+	var _p39 = _p38._0;
+	return A2(_user$project$Engine_Manifest$getCharactersInLocation, _p39.currentLocation, _p39.manifest);
 };
-var _user$project$Engine$areThereWritableItemsInLocation = function (_p39) {
-	var _p40 = _p39;
-	var _p41 = _p40._0;
+var _user$project$Engine$areThereWritableItemsInLocation = function (_p40) {
+	var _p41 = _p40;
+	var _p42 = _p41._0;
 	return (_elm_lang$core$Native_Utils.cmp(
-		A2(_user$project$Engine_Manifest$countWritableItemsInLocation, _p41.currentLocation, _p41.manifest),
+		A2(_user$project$Engine_Manifest$countWritableItemsInLocation, _p42.currentLocation, _p42.manifest),
 		0) > 0) ? true : false;
 };
-var _user$project$Engine$getItemsInCurrentLocation = function (_p42) {
-	var _p43 = _p42;
-	var _p44 = _p43._0;
-	return A2(_user$project$Engine_Manifest$getItemsInLocation, _p44.currentLocation, _p44.manifest);
+var _user$project$Engine$getItemsInCurrentLocation = function (_p43) {
+	var _p44 = _p43;
+	var _p45 = _p44._0;
+	return A2(_user$project$Engine_Manifest$getItemsInLocation, _p45.currentLocation, _p45.manifest);
 };
-var _user$project$Engine$getChoiceLanguages = function (_p45) {
-	var _p46 = _p45;
-	return _p46._0.choiceLanguages;
+var _user$project$Engine$getChoiceLanguages = function (_p46) {
+	var _p47 = _p46;
+	return _p47._0.choiceLanguages;
 };
-var _user$project$Engine$getCurrentLocation = function (_p47) {
-	var _p48 = _p47;
-	return _p48._0.currentLocation;
+var _user$project$Engine$getCurrentLocation = function (_p48) {
+	var _p49 = _p48;
+	return _p49._0.currentLocation;
 };
-var _user$project$Engine$getCurrentScene = function (_p49) {
-	var _p50 = _p49;
-	return _p50._0.currentScene;
+var _user$project$Engine$getCurrentScene = function (_p50) {
+	var _p51 = _p50;
+	return _p51._0.currentScene;
 };
 var _user$project$Engine$Model = function (a) {
 	return {ctor: 'Model', _0: a};
@@ -13968,82 +13973,82 @@ var _user$project$Engine$init = F3(
 			});
 	});
 var _user$project$Engine$changeWorld = F2(
-	function (changes, _p51) {
-		var _p52 = _p51;
+	function (changes, _p52) {
+		var _p53 = _p52;
 		var doChange = F2(
-			function (change, _p53) {
-				var _p54 = _p53;
-				var _p58 = _p54._0;
-				var _p57 = _p54._1;
-				var _p55 = change;
-				switch (_p55.ctor) {
+			function (change, _p54) {
+				var _p55 = _p54;
+				var _p59 = _p55._0;
+				var _p58 = _p55._1;
+				var _p56 = change;
+				switch (_p56.ctor) {
 					case 'MoveTo':
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
-								_p58,
-								{currentLocation: _p55._0}),
-							_1: _p57
+								_p59,
+								{currentLocation: _p56._0}),
+							_1: _p58
 						};
 					case 'LoadScene':
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
-								_p58,
-								{currentScene: _p55._0}),
-							_1: _p57
+								_p59,
+								{currentScene: _p56._0}),
+							_1: _p58
 						};
 					case 'EndStory':
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
-								_p58,
+								_p59,
 								{
 									theEnd: _elm_lang$core$Maybe$Just(
-										A2(_user$project$Types$TheEnd, _p55._0, _p55._1))
+										A2(_user$project$Types$TheEnd, _p56._0, _p56._1))
 								}),
-							_1: _p57
+							_1: _p58
 						};
 					case 'SetChoiceLanguages':
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
-								_p58,
-								{choiceLanguages: _p55._0}),
-							_1: _p57
+								_p59,
+								{choiceLanguages: _p56._0}),
+							_1: _p58
 						};
 					case 'AddChoiceLanguage':
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
-								_p58,
+								_p59,
 								{
-									choiceLanguages: A3(_elm_lang$core$Dict$insert, _p55._0, _p55._1, _p58.choiceLanguages)
+									choiceLanguages: A3(_elm_lang$core$Dict$insert, _p56._0, _p56._1, _p59.choiceLanguages)
 								}),
-							_1: _p57
+							_1: _p58
 						};
 					default:
-						var _p56 = A2(
+						var _p57 = A2(
 							_user$project$Engine_Manifest$update,
 							change,
-							{ctor: '_Tuple2', _0: _p58.manifest, _1: _p57});
-						var newManifest = _p56._0;
-						var newIncidents = _p56._1;
+							{ctor: '_Tuple2', _0: _p59.manifest, _1: _p58});
+						var newManifest = _p57._0;
+						var newIncidents = _p57._1;
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
-								_p58,
+								_p59,
 								{manifest: newManifest}),
 							_1: newIncidents
 						};
 				}
 			});
-		return function (_p59) {
-			var _p60 = _p59;
+		return function (_p60) {
+			var _p61 = _p60;
 			return {
 				ctor: '_Tuple2',
-				_0: _user$project$Engine$Model(_p60._0),
-				_1: _p60._1
+				_0: _user$project$Engine$Model(_p61._0),
+				_1: _p61._1
 			};
 		}(
 			A3(
@@ -14054,26 +14059,26 @@ var _user$project$Engine$changeWorld = F2(
 					}),
 				{
 					ctor: '_Tuple2',
-					_0: _p52._0,
+					_0: _p53._0,
 					_1: {ctor: '[]'}
 				},
 				changes));
 	});
 var _user$project$Engine$update = F3(
-	function (interactableId, extraInfo, _p61) {
-		var _p62 = _p61;
-		var _p72 = _p62._0;
-		var _p71 = _p62;
-		var addHistory = function (_p63) {
-			var _p64 = _p63;
-			var _p65 = _p64._0;
+	function (interactableId, extraInfo, _p62) {
+		var _p63 = _p62;
+		var _p76 = _p63._0;
+		var _p75 = _p63;
+		var addHistory = function (_p64) {
+			var _p65 = _p64;
+			var _p66 = _p65._0;
 			return _user$project$Engine$Model(
 				_elm_lang$core$Native_Utils.update(
-					_p65,
+					_p66,
 					{
 						history: A2(
 							_elm_lang$core$Basics_ops['++'],
-							_p65.history,
+							_p66.history,
 							{
 								ctor: '::',
 								_0: {ctor: '_Tuple2', _0: interactableId, _1: extraInfo},
@@ -14082,17 +14087,17 @@ var _user$project$Engine$update = F3(
 					}));
 		};
 		var matchingRule = function () {
-			var _p66 = extraInfo.mbMatchedRuleId;
-			if (_p66.ctor === 'Nothing') {
-				return A3(_user$project$Engine_Rules$findMatchingRule, _p72, extraInfo.mbInputText, interactableId);
+			var _p67 = extraInfo.mbMatchedRuleId;
+			if (_p67.ctor === 'Nothing') {
+				return A3(_user$project$Engine_Rules$findMatchingRule, _p76, extraInfo.mbInputText, interactableId);
 			} else {
-				var _p67 = _p66._0;
+				var _p68 = _p67._0;
 				return A2(
 					_elm_lang$core$Maybe$map,
 					function (x) {
-						return {ctor: '_Tuple2', _0: _p67, _1: x};
+						return {ctor: '_Tuple2', _0: _p68, _1: x};
 					},
-					A2(_elm_lang$core$Dict$get, _p67, _p72.rules));
+					A2(_elm_lang$core$Dict$get, _p68, _p76.rules));
 			}
 		}();
 		var lquasicwcmds = A2(
@@ -14100,23 +14105,43 @@ var _user$project$Engine$update = F3(
 			{ctor: '[]'},
 			A2(
 				_elm_lang$core$Maybe$map,
-				function (_p68) {
+				function (_p69) {
 					return function (_) {
 						return _.quasiChanges;
 					}(
-						_elm_lang$core$Tuple$second(_p68));
+						_elm_lang$core$Tuple$second(_p69));
 				},
 				matchingRule));
-		var lstrUrls = _user$project$Engine$getListStrUrls(lquasicwcmds);
 		var changesFromQuasi = A2(
 			_elm_lang$core$List$map,
 			_user$project$Engine$replaceQuasiCwCmdsWithCwcommands(extraInfo),
 			lquasicwcmds);
-		var defaultChanges = A2(_user$project$Engine_Manifest$isLocation, interactableId, _p72.manifest) ? {
+		var mbBkQuasicwcmd = A2(
+			_elm_lang$core$Maybe$map,
+			function (_p70) {
+				return function (_) {
+					return _.quasiChangeWithBkend;
+				}(
+					_elm_lang$core$Tuple$second(_p70));
+			},
+			matchingRule);
+		var infoNeeded = function () {
+			var _p71 = mbBkQuasicwcmd;
+			if (_p71.ctor === 'Nothing') {
+				return _user$project$Types$NoInfoNeeded;
+			} else {
+				return _user$project$Engine$getInfoNeeded(_p71._0);
+			}
+		}();
+		var mbChangeFromQuasi = A2(
+			_elm_lang$core$Maybe$map,
+			_user$project$Engine$replaceBkendQuasiCwCmdsWithCwcommands(extraInfo),
+			mbBkQuasicwcmd);
+		var defaultChanges = A2(_user$project$Engine_Manifest$isLocation, interactableId, _p76.manifest) ? {
 			ctor: '::',
 			_0: _user$project$Types$MoveTo(interactableId),
 			_1: {ctor: '[]'}
-		} : (A2(_user$project$Engine_Manifest$isItem, interactableId, _p72.manifest) ? {
+		} : (A2(_user$project$Engine_Manifest$isItem, interactableId, _p76.manifest) ? {
 			ctor: '::',
 			_0: _user$project$Types$MoveItemToInventory(interactableId),
 			_1: {ctor: '[]'}
@@ -14126,47 +14151,54 @@ var _user$project$Engine$update = F3(
 			defaultChanges,
 			A2(
 				_elm_lang$core$Maybe$map,
-				function (_p69) {
+				function (_p72) {
 					return function (_) {
 						return _.changes;
 					}(
-						_elm_lang$core$Tuple$second(_p69));
+						_elm_lang$core$Tuple$second(_p72));
 				},
 				matchingRule));
-		var changes = A2(_elm_lang$core$List$append, changesFromQuasi, somechanges);
-		if ((_elm_lang$core$Native_Utils.cmp(
-			_elm_lang$core$List$length(lstrUrls),
-			0) > 0) && (_elm_lang$core$Native_Utils.eq(extraInfo.bkAnsStatus, _user$project$Types$NoInfoYet) && ((!_elm_lang$core$Native_Utils.eq(extraInfo.mbInputText, _elm_lang$core$Maybe$Nothing)) && (!_elm_lang$core$Native_Utils.eq(
-			extraInfo.mbInputText,
+		var changes = function () {
+			var _p73 = mbChangeFromQuasi;
+			if (_p73.ctor === 'Nothing') {
+				return A2(_elm_lang$core$Basics_ops['++'], somechanges, changesFromQuasi);
+			} else {
+				return {
+					ctor: '::',
+					_0: _p73._0,
+					_1: A2(_elm_lang$core$Basics_ops['++'], somechanges, changesFromQuasi)
+				};
+			}
+		}();
+		if ((!_elm_lang$core$Native_Utils.eq(infoNeeded, _user$project$Types$NoInfoNeeded)) && (_elm_lang$core$Native_Utils.eq(extraInfo.bkAnsStatus, _user$project$Types$NoInfoYet) && ((!_elm_lang$core$Native_Utils.eq(extraInfo.mbInputTextForBackend, _elm_lang$core$Maybe$Nothing)) && (!_elm_lang$core$Native_Utils.eq(
+			extraInfo.mbInputTextForBackend,
 			_elm_lang$core$Maybe$Just('')))))) {
 			return {
 				ctor: '_Tuple4',
-				_0: _p71,
+				_0: _p75,
 				_1: A2(_elm_lang$core$Maybe$map, _elm_lang$core$Tuple$first, matchingRule),
 				_2: {ctor: '[]'},
-				_3: _elm_lang$core$List$head(lstrUrls)
+				_3: infoNeeded
 			};
 		} else {
-			if ((_elm_lang$core$Native_Utils.cmp(
-				_elm_lang$core$List$length(lstrUrls),
-				0) > 0) && _elm_lang$core$Native_Utils.eq(extraInfo.bkAnsStatus, _user$project$Types$WaitingForInfoRequested)) {
+			if ((!_elm_lang$core$Native_Utils.eq(infoNeeded, _user$project$Types$NoInfoNeeded)) && _elm_lang$core$Native_Utils.eq(extraInfo.bkAnsStatus, _user$project$Types$WaitingForInfoRequested)) {
 				return {
 					ctor: '_Tuple4',
-					_0: _p71,
+					_0: _p75,
 					_1: A2(_elm_lang$core$Maybe$map, _elm_lang$core$Tuple$first, matchingRule),
 					_2: {ctor: '[]'},
-					_3: _elm_lang$core$Maybe$Nothing
+					_3: _user$project$Types$NoInfoNeeded
 				};
 			} else {
-				var _p70 = A2(_user$project$Engine$changeWorld, changes, _p71);
-				var newModel = _p70._0;
-				var lincidents = _p70._1;
+				var _p74 = A2(_user$project$Engine$changeWorld, changes, _p75);
+				var newModel = _p74._0;
+				var lincidents = _p74._1;
 				return {
 					ctor: '_Tuple4',
 					_0: addHistory(newModel),
 					_1: A2(_elm_lang$core$Maybe$map, _elm_lang$core$Tuple$first, matchingRule),
 					_2: lincidents,
-					_3: _elm_lang$core$Maybe$Nothing
+					_3: _user$project$Types$NoInfoNeeded
 				};
 			}
 		}
@@ -14395,7 +14427,8 @@ var _user$project$Components$getRuleData = function (_p0) {
 			interaction: _user$project$Engine$with(''),
 			conditions: {ctor: '[]'},
 			changes: {ctor: '[]'},
-			quasiChanges: {ctor: '[]'}
+			quasiChanges: {ctor: '[]'},
+			quasiChangeWithBkend: _user$project$Engine$noQuasiChangeWithBackend
 		};
 	}
 };
@@ -15156,6 +15189,9 @@ var _user$project$GpsUtils$getDistance = F2(
 		}
 	});
 
+var _user$project$InfoForBkendApiRequests$getApiKey = 'RFV762GI39cd395a-689e-4e1f-9f37-c6845ba65a9eO4qh4234cv56';
+var _user$project$InfoForBkendApiRequests$backendAnswerCheckerUrl = 'https://questionanswerntapp.herokuapp.com/questions/';
+
 var _user$project$OurStory_Manifest$locations = {
 	ctor: '::',
 	_0: A2(
@@ -15613,11 +15649,11 @@ var _user$project$OurStory_Manifest$characters = {
 		_user$project$Components$addLgDisplayInfo,
 		'pt',
 		'investigador',
-		'famoso investigador determinado a esclarecer o mistério da Estrada Velha de Colares ',
+		'investigador determinado  em busca da Verdade ...',
 		A3(
 			_user$project$Components$addDisplayInfo,
 			'investigator',
-			'famoso investigador determinado a esclarecer o mistério da Estrada Velha de Colares ',
+			'relentless investigator searching for the Truth ...',
 			_user$project$Components$entity('playerOne'))),
 	_1: {
 		ctor: '::',
@@ -16585,7 +16621,7 @@ var _user$project$OurStory_Narrative$gameHasEndedDict = _elm_lang$core$Dict$from
 	});
 var _user$project$OurStory_Narrative$creditsInformation = {
 	ctor: '::',
-	_0: '\n### Location Info : ###\n\nwww.serradesintra.net\n\nriodasmacas.blogspot.com\n\nProfessora Teresa Ferreira do Amaral\n\nParques de Sintra\n(www.parquesdesintra.pt)\n\nwww.geocaching.com\n\n\n### Elm Narrative Engine : ###\n\nJeff Schomay ( that in no way endorses this particular extension or narrative)\n\n\n\n### extensions to the Narrative Engine : ###\n\nNuno Torres\n\n\n\n### Mistério da Estrada Velha de Colares Game-Narrative ###\n\nNuno Torres\n\n    ',
+	_0: '\n### Location Info : ###\n\nwww.serradesintra.net\n\nriodasmacas.blogspot.com\n\nProfessora Teresa Ferreira do Amaral\n\nParques de Sintra\n(www.parquesdesintra.pt)\n\nwww.geocaching.com\n\n### Elm Language and package ecosystem ###\n\nEvan Czaplicki ,  Richard Feldman , Werner de Groot , Dave Keen ...\n\n### Elm Narrative Engine : ###\n\nJeff Schomay\n\n( the persons above in no way endorse this particular extension or narrative)\n\n### extensions to the Narrative Engine : ###\n\nNuno Torres\n\n\n### Mistério da Estrada Velha de Colares Game-Narrative ###\n\nNuno Torres\n\n    ',
 	_1: {ctor: '[]'}
 };
 var _user$project$OurStory_Narrative$theCreditsInformationDict = _elm_lang$core$Dict$fromList(
@@ -16848,6 +16884,32 @@ var _user$project$OurStory_Narrative$offerCameraAndPhotography1Sintra1914ToWiseM
 					_1: {ctor: '[]'}
 				}
 			}
+		}
+	});
+var _user$project$OurStory_Narrative$talkToWiseManColaresWhenNotInColaresDict = _elm_lang$core$Dict$fromList(
+	{
+		ctor: '::',
+		_0: {
+			ctor: '_Tuple2',
+			_0: 'pt',
+			_1: {
+				ctor: '::',
+				_0: 'Por favor dirige-te para Colares por forma a poderes falar com o Sábio de Colares',
+				_1: {ctor: '[]'}
+			}
+		},
+		_1: {
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple2',
+				_0: 'en',
+				_1: {
+					ctor: '::',
+					_0: 'Please move to Colares in order to be able to speak with wiseManColares',
+					_1: {ctor: '[]'}
+				}
+			},
+			_1: {ctor: '[]'}
 		}
 	});
 var _user$project$OurStory_Narrative$talkToWiseManColares = {
@@ -17668,7 +17730,7 @@ var _user$project$OurStory_Narrative$leavingWithoutGpsDict = _elm_lang$core$Dict
 	});
 var _user$project$OurStory_Narrative$interactingWithPlayerOne = {
 	ctor: '::',
-	_0: '\ndeterminado investigador em busca da Verdade ...\n      ',
+	_0: '\ninvestigador determinado  em busca da Verdade ...\n      ',
 	_1: {ctor: '[]'}
 };
 var _user$project$OurStory_Narrative$interactingWithPlayerOneDict = _elm_lang$core$Dict$fromList(
@@ -17758,7 +17820,6 @@ var _user$project$OurStory_Rules$ruleWithAudioContent = F4(
 			audiodict,
 			A3(_user$project$OurStory_Rules$rule, id, ruleData, narratives));
 	});
-var _user$project$OurStory_Rules$backendAnswerCheckerUrl = 'https://questionanswerntapp.herokuapp.com/questions/';
 var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 	A2(
 		_elm_lang$core$Basics_ops['++'],
@@ -18083,7 +18144,8 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 															_elm_lang$core$Maybe$Nothing,
 															'questionAtVillaRoma'),
 														_1: {ctor: '[]'}
-													}
+													},
+													quasiChangeWithBkend: _user$project$Engine$noQuasiChangeWithBackend
 												},
 												_user$project$OurStory_Narrative$viewQuestionAtVillaRomaDict),
 											_1: {ctor: '[]'}
@@ -18250,7 +18312,8 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																	_elm_lang$core$Maybe$Nothing,
 																	'questionAtSeteaisAboutVillaRoma'),
 																_1: {ctor: '[]'}
-															}
+															},
+															quasiChangeWithBkend: _user$project$Engine$noQuasiChangeWithBackend
 														},
 														_user$project$OurStory_Narrative$viewQuestionAtSeteaisAboutVillaRomaDict),
 													_1: {
@@ -18741,7 +18804,8 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																					{ctor: '[]'}),
 																				'questionAtFonteMataAlva'),
 																			_1: {ctor: '[]'}
-																		}
+																		},
+																		quasiChangeWithBkend: _user$project$Engine$noQuasiChangeWithBackend
 																	},
 																	_user$project$OurStory_Narrative$viewQuestionAtFonteMataAlvaDict),
 																_1: {ctor: '[]'}
@@ -19058,15 +19122,12 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																							}
 																						},
 																						changes: {ctor: '[]'},
-																						quasiChanges: {
-																							ctor: '::',
-																							_0: A3(
-																								_user$project$Engine$simpleCheck_IfAnswerCorrectUsingBackend,
-																								A2(_elm_lang$core$Basics_ops['++'], _user$project$OurStory_Rules$backendAnswerCheckerUrl, 'questionSaoMartinhoColares1/'),
-																								_elm_lang$core$Maybe$Just(3),
-																								'questionSaoMartinhoColares1'),
-																							_1: {ctor: '[]'}
-																						}
+																						quasiChanges: {ctor: '[]'},
+																						quasiChangeWithBkend: A3(
+																							_user$project$Engine$simpleCheck_IfAnswerCorrectUsingBackend,
+																							A2(_elm_lang$core$Basics_ops['++'], _user$project$InfoForBkendApiRequests$backendAnswerCheckerUrl, 'questionSaoMartinhoColares1/'),
+																							_elm_lang$core$Maybe$Just(3),
+																							'questionSaoMartinhoColares1')
 																					},
 																					_user$project$OurStory_Narrative$viewQuestionOneAtLimiteSaoMartinhoColaresDict),
 																				_1: {
@@ -19101,15 +19162,12 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																									}
 																								},
 																								changes: {ctor: '[]'},
-																								quasiChanges: {
-																									ctor: '::',
-																									_0: A3(
-																										_user$project$Engine$simpleCheck_IfAnswerCorrectUsingBackend,
-																										A2(_elm_lang$core$Basics_ops['++'], _user$project$OurStory_Rules$backendAnswerCheckerUrl, 'questionSaoMartinhoColares2/'),
-																										_elm_lang$core$Maybe$Just(3),
-																										'questionSaoMartinhoColares2'),
-																									_1: {ctor: '[]'}
-																								}
+																								quasiChanges: {ctor: '[]'},
+																								quasiChangeWithBkend: A3(
+																									_user$project$Engine$simpleCheck_IfAnswerCorrectUsingBackend,
+																									A2(_elm_lang$core$Basics_ops['++'], _user$project$InfoForBkendApiRequests$backendAnswerCheckerUrl, 'questionSaoMartinhoColares2/'),
+																									_elm_lang$core$Maybe$Just(3),
+																									'questionSaoMartinhoColares2')
 																							},
 																							_user$project$OurStory_Narrative$viewQuestionTwoAtLimiteSaoMartinhoColaresDict),
 																						_1: {
@@ -19295,7 +19353,11 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																								'talk to wiseMan colares',
 																								{
 																									interaction: _user$project$Engine$with('wiseManColares'),
-																									conditions: {ctor: '[]'},
+																									conditions: {
+																										ctor: '::',
+																										_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																										_1: {ctor: '[]'}
+																									},
 																									changes: {ctor: '[]'}
 																								},
 																								_user$project$OurStory_Narrative$talkToWiseManColaresDict),
@@ -19303,42 +19365,22 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																								ctor: '::',
 																								_0: A3(
 																									_user$project$OurStory_Rules$rule,
-																									'offer cameraAndPhotography1Sintra1914 to wiseMan Colares , poem book not yet offered',
+																									'talk to wiseMan colares when not in colares',
 																									{
-																										interaction: _user$project$Engine$with('cameraAndPhotography1Sintra1914'),
+																										interaction: _user$project$Engine$with('wiseManColares'),
 																										conditions: {
 																											ctor: '::',
-																											_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
-																											_1: {
-																												ctor: '::',
-																												_0: A2(_user$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
-																												_1: {
-																													ctor: '::',
-																													_0: _user$project$Engine$itemIsInInventory('cameraAndPhotography1Sintra1914'),
-																													_1: {ctor: '[]'}
-																												}
-																											}
+																											_0: A2(_user$project$Engine$characterIsNotInLocation, 'playerOne', 'colares'),
+																											_1: {ctor: '[]'}
 																										},
-																										changes: {
-																											ctor: '::',
-																											_0: _user$project$Engine$moveItemOffScreen('cameraAndPhotography1Sintra1914'),
-																											_1: {
-																												ctor: '::',
-																												_0: A3(
-																													_user$project$Engine$createAttributeIfNotExists,
-																													_user$project$Engine$abool(true),
-																													'isOfferedToWiseManColares',
-																													'cameraAndPhotography1Sintra1914'),
-																												_1: {ctor: '[]'}
-																											}
-																										}
+																										changes: {ctor: '[]'}
 																									},
-																									_user$project$OurStory_Narrative$offerCameraAndPhotography1Sintra1914ToWiseManColaresDict),
+																									_user$project$OurStory_Narrative$talkToWiseManColaresWhenNotInColaresDict),
 																								_1: {
 																									ctor: '::',
 																									_0: A3(
 																										_user$project$OurStory_Rules$rule,
-																										'offer cameraAndPhotography1Sintra1914 to wiseMan Colares , poem book already offered',
+																										'offer cameraAndPhotography1Sintra1914 to wiseMan Colares , poem book not yet offered',
 																										{
 																											interaction: _user$project$Engine$with('cameraAndPhotography1Sintra1914'),
 																											conditions: {
@@ -19350,15 +19392,7 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																													_1: {
 																														ctor: '::',
 																														_0: _user$project$Engine$itemIsInInventory('cameraAndPhotography1Sintra1914'),
-																														_1: {
-																															ctor: '::',
-																															_0: A3(
-																																_user$project$Engine$attrValueIsEqualTo,
-																																_user$project$Engine$abool(true),
-																																'isOfferedToWiseManColares',
-																																'bocagePoemsBook'),
-																															_1: {ctor: '[]'}
-																														}
+																														_1: {ctor: '[]'}
 																													}
 																												}
 																											},
@@ -19368,19 +19402,11 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																												_1: {
 																													ctor: '::',
 																													_0: A3(
-																														_user$project$Engine$setAttributeValue,
-																														_user$project$Engine$astring('wiseManColares'),
-																														'suggestedInteraction',
+																														_user$project$Engine$createAttributeIfNotExists,
+																														_user$project$Engine$abool(true),
+																														'isOfferedToWiseManColares',
 																														'cameraAndPhotography1Sintra1914'),
-																													_1: {
-																														ctor: '::',
-																														_0: A3(
-																															_user$project$Engine$createAttributeIfNotExists,
-																															_user$project$Engine$abool(true),
-																															'isOfferedToWiseManColares',
-																															'cameraAndPhotography1Sintra1914'),
-																														_1: {ctor: '[]'}
-																													}
+																													_1: {ctor: '[]'}
 																												}
 																											}
 																										},
@@ -19389,9 +19415,9 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																										ctor: '::',
 																										_0: A3(
 																											_user$project$OurStory_Rules$rule,
-																											'offer poemsBook to wiseMan Colares , photography not yet offered',
+																											'offer cameraAndPhotography1Sintra1914 to wiseMan Colares , poem book already offered',
 																											{
-																												interaction: _user$project$Engine$with('bocagePoemsBook'),
+																												interaction: _user$project$Engine$with('cameraAndPhotography1Sintra1914'),
 																												conditions: {
 																													ctor: '::',
 																													_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
@@ -19400,31 +19426,47 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																														_0: A2(_user$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
 																														_1: {
 																															ctor: '::',
-																															_0: _user$project$Engine$itemIsInInventory('bocagePoemsBook'),
-																															_1: {ctor: '[]'}
+																															_0: _user$project$Engine$itemIsInInventory('cameraAndPhotography1Sintra1914'),
+																															_1: {
+																																ctor: '::',
+																																_0: A3(
+																																	_user$project$Engine$attrValueIsEqualTo,
+																																	_user$project$Engine$abool(true),
+																																	'isOfferedToWiseManColares',
+																																	'bocagePoemsBook'),
+																																_1: {ctor: '[]'}
+																															}
 																														}
 																													}
 																												},
 																												changes: {
 																													ctor: '::',
-																													_0: _user$project$Engine$moveItemOffScreen('bocagePoemsBook'),
+																													_0: _user$project$Engine$moveItemOffScreen('cameraAndPhotography1Sintra1914'),
 																													_1: {
 																														ctor: '::',
 																														_0: A3(
-																															_user$project$Engine$createAttributeIfNotExists,
-																															_user$project$Engine$abool(true),
-																															'isOfferedToWiseManColares',
-																															'bocagePoemsBook'),
-																														_1: {ctor: '[]'}
+																															_user$project$Engine$setAttributeValue,
+																															_user$project$Engine$astring('wiseManColares'),
+																															'suggestedInteraction',
+																															'cameraAndPhotography1Sintra1914'),
+																														_1: {
+																															ctor: '::',
+																															_0: A3(
+																																_user$project$Engine$createAttributeIfNotExists,
+																																_user$project$Engine$abool(true),
+																																'isOfferedToWiseManColares',
+																																'cameraAndPhotography1Sintra1914'),
+																															_1: {ctor: '[]'}
+																														}
 																													}
 																												}
 																											},
-																											_user$project$OurStory_Narrative$offerPoemsBookToWiseManColaresDict),
+																											_user$project$OurStory_Narrative$offerCameraAndPhotography1Sintra1914ToWiseManColaresDict),
 																										_1: {
 																											ctor: '::',
 																											_0: A3(
 																												_user$project$OurStory_Rules$rule,
-																												'offer poemsBook to wiseMan Colares , photography already offered',
+																												'offer poemsBook to wiseMan Colares , photography not yet offered',
 																												{
 																													interaction: _user$project$Engine$with('bocagePoemsBook'),
 																													conditions: {
@@ -19436,15 +19478,7 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																															_1: {
 																																ctor: '::',
 																																_0: _user$project$Engine$itemIsInInventory('bocagePoemsBook'),
-																																_1: {
-																																	ctor: '::',
-																																	_0: A3(
-																																		_user$project$Engine$attrValueIsEqualTo,
-																																		_user$project$Engine$abool(true),
-																																		'isOfferedToWiseManColares',
-																																		'cameraAndPhotography1Sintra1914'),
-																																	_1: {ctor: '[]'}
-																																}
+																																_1: {ctor: '[]'}
 																															}
 																														}
 																													},
@@ -19458,15 +19492,7 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																																_user$project$Engine$abool(true),
 																																'isOfferedToWiseManColares',
 																																'bocagePoemsBook'),
-																															_1: {
-																																ctor: '::',
-																																_0: A3(
-																																	_user$project$Engine$setAttributeValue,
-																																	_user$project$Engine$astring('wiseManColares'),
-																																	'suggestedInteraction',
-																																	'bocagePoemsBook'),
-																																_1: {ctor: '[]'}
-																															}
+																															_1: {ctor: '[]'}
 																														}
 																													}
 																												},
@@ -19475,9 +19501,9 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																												ctor: '::',
 																												_0: A3(
 																													_user$project$OurStory_Rules$rule,
-																													'talk to wiseMan colares having fullfilled all tasks besides some questions but not enough nr interactions',
+																													'offer poemsBook to wiseMan Colares , photography already offered',
 																													{
-																														interaction: _user$project$Engine$with('wiseManColares'),
+																														interaction: _user$project$Engine$with('bocagePoemsBook'),
 																														conditions: {
 																															ctor: '::',
 																															_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
@@ -19486,59 +19512,47 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																																_0: A2(_user$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
 																																_1: {
 																																	ctor: '::',
-																																	_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																																	_0: _user$project$Engine$itemIsInInventory('bocagePoemsBook'),
 																																	_1: {
 																																		ctor: '::',
-																																		_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
-																																		_1: {
-																																			ctor: '::',
-																																			_0: A3(
-																																				_user$project$Engine$attrValueIsEqualTo,
-																																				_user$project$Engine$abool(true),
-																																				'isOfferedToGeocacher',
-																																				'birdsNest'),
-																																			_1: {
-																																				ctor: '::',
-																																				_0: A3(
-																																					_user$project$Engine$attrValueIsEqualTo,
-																																					_user$project$Engine$abool(true),
-																																					'isOfferedToWiseManColares',
-																																					'bocagePoemsBook'),
-																																				_1: {
-																																					ctor: '::',
-																																					_0: A3(
-																																						_user$project$Engine$attrValueIsEqualTo,
-																																						_user$project$Engine$abool(true),
-																																						'isOfferedToWiseManColares',
-																																						'cameraAndPhotography1Sintra1914'),
-																																					_1: {
-																																						ctor: '::',
-																																						_0: _user$project$Engine$itemIsNotCorrectlyAnswered('questionColares'),
-																																						_1: {
-																																							ctor: '::',
-																																							_0: A3(_user$project$Engine$counterLessThen, 4, 'nrInteractionsWiseManAfterOffers', 'wiseManColares'),
-																																							_1: {ctor: '[]'}
-																																						}
-																																					}
-																																				}
-																																			}
-																																		}
+																																		_0: A3(
+																																			_user$project$Engine$attrValueIsEqualTo,
+																																			_user$project$Engine$abool(true),
+																																			'isOfferedToWiseManColares',
+																																			'cameraAndPhotography1Sintra1914'),
+																																		_1: {ctor: '[]'}
 																																	}
 																																}
 																															}
 																														},
 																														changes: {
 																															ctor: '::',
-																															_0: A2(_user$project$Engine$increaseCounter, 'nrInteractionsWiseManAfterOffers', 'wiseManColares'),
-																															_1: {ctor: '[]'}
+																															_0: _user$project$Engine$moveItemOffScreen('bocagePoemsBook'),
+																															_1: {
+																																ctor: '::',
+																																_0: A3(
+																																	_user$project$Engine$createAttributeIfNotExists,
+																																	_user$project$Engine$abool(true),
+																																	'isOfferedToWiseManColares',
+																																	'bocagePoemsBook'),
+																																_1: {
+																																	ctor: '::',
+																																	_0: A3(
+																																		_user$project$Engine$setAttributeValue,
+																																		_user$project$Engine$astring('wiseManColares'),
+																																		'suggestedInteraction',
+																																		'bocagePoemsBook'),
+																																	_1: {ctor: '[]'}
+																																}
+																															}
 																														}
 																													},
-																													_user$project$OurStory_Narrative$wiseManTalksAboutSintraDict),
+																													_user$project$OurStory_Narrative$offerPoemsBookToWiseManColaresDict),
 																												_1: {
 																													ctor: '::',
 																													_0: A3(
 																														_user$project$OurStory_Rules$rule,
-																														'talk to wiseMan colares having fullfilled all tasks besides some questions and enough nr of interactions with wiseman',
+																														'talk to wiseMan colares having fullfilled all tasks besides some questions but not enough nr interactions',
 																														{
 																															interaction: _user$project$Engine$with('wiseManColares'),
 																															conditions: {
@@ -19579,12 +19593,8 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																																							_0: _user$project$Engine$itemIsNotCorrectlyAnswered('questionColares'),
 																																							_1: {
 																																								ctor: '::',
-																																								_0: _user$project$Engine$itemIsOffScreen('questionColares'),
-																																								_1: {
-																																									ctor: '::',
-																																									_0: A3(_user$project$Engine$counterGreaterThenOrEqualTo, 4, 'nrInteractionsWiseManAfterOffers', 'wiseManColares'),
-																																									_1: {ctor: '[]'}
-																																								}
+																																								_0: A3(_user$project$Engine$counterLessThen, 4, 'nrInteractionsWiseManAfterOffers', 'wiseManColares'),
+																																								_1: {ctor: '[]'}
 																																							}
 																																						}
 																																					}
@@ -19597,67 +19607,133 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																															changes: {
 																																ctor: '::',
 																																_0: A2(_user$project$Engine$increaseCounter, 'nrInteractionsWiseManAfterOffers', 'wiseManColares'),
-																																_1: {
-																																	ctor: '::',
-																																	_0: A2(_user$project$Engine$addChoiceLanguage, 'vi', 'viewer1'),
-																																	_1: {
-																																		ctor: '::',
-																																		_0: A2(_user$project$Engine$addChoiceLanguage, 'vw', 'viewer2'),
-																																		_1: {
-																																			ctor: '::',
-																																			_0: A2(_user$project$Engine$moveItemToLocationFixed, 'questionColares', 'colares'),
-																																			_1: {
-																																				ctor: '::',
-																																				_0: A2(_user$project$Engine$moveItemToLocationFixed, 'photosEstradaVelhaColares', 'colares'),
-																																				_1: {ctor: '[]'}
-																																			}
-																																		}
-																																	}
-																																}
+																																_1: {ctor: '[]'}
 																															}
 																														},
-																														_user$project$OurStory_Narrative$wiseManShowsFinalQuestionDict),
+																														_user$project$OurStory_Narrative$wiseManTalksAboutSintraDict),
 																													_1: {
 																														ctor: '::',
 																														_0: A3(
 																															_user$project$OurStory_Rules$rule,
-																															'view photosEstradaVelhaColares',
+																															'talk to wiseMan colares having fullfilled all tasks besides some questions and enough nr of interactions with wiseman',
 																															{
-																																interaction: _user$project$Engine$with('photosEstradaVelhaColares'),
+																																interaction: _user$project$Engine$with('wiseManColares'),
 																																conditions: {
 																																	ctor: '::',
 																																	_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
 																																	_1: {
 																																		ctor: '::',
-																																		_0: A2(_user$project$Engine$itemIsInLocation, 'photosEstradaVelhaColares', 'colares'),
-																																		_1: {ctor: '[]'}
+																																		_0: A2(_user$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
+																																		_1: {
+																																			ctor: '::',
+																																			_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																																			_1: {
+																																				ctor: '::',
+																																				_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
+																																				_1: {
+																																					ctor: '::',
+																																					_0: A3(
+																																						_user$project$Engine$attrValueIsEqualTo,
+																																						_user$project$Engine$abool(true),
+																																						'isOfferedToGeocacher',
+																																						'birdsNest'),
+																																					_1: {
+																																						ctor: '::',
+																																						_0: A3(
+																																							_user$project$Engine$attrValueIsEqualTo,
+																																							_user$project$Engine$abool(true),
+																																							'isOfferedToWiseManColares',
+																																							'bocagePoemsBook'),
+																																						_1: {
+																																							ctor: '::',
+																																							_0: A3(
+																																								_user$project$Engine$attrValueIsEqualTo,
+																																								_user$project$Engine$abool(true),
+																																								'isOfferedToWiseManColares',
+																																								'cameraAndPhotography1Sintra1914'),
+																																							_1: {
+																																								ctor: '::',
+																																								_0: _user$project$Engine$itemIsNotCorrectlyAnswered('questionColares'),
+																																								_1: {
+																																									ctor: '::',
+																																									_0: _user$project$Engine$itemIsOffScreen('questionColares'),
+																																									_1: {
+																																										ctor: '::',
+																																										_0: A3(_user$project$Engine$counterGreaterThenOrEqualTo, 4, 'nrInteractionsWiseManAfterOffers', 'wiseManColares'),
+																																										_1: {ctor: '[]'}
+																																									}
+																																								}
+																																							}
+																																						}
+																																					}
+																																				}
+																																			}
+																																		}
 																																	}
 																																},
-																																changes: {ctor: '[]'}
+																																changes: {
+																																	ctor: '::',
+																																	_0: A2(_user$project$Engine$increaseCounter, 'nrInteractionsWiseManAfterOffers', 'wiseManColares'),
+																																	_1: {
+																																		ctor: '::',
+																																		_0: A2(_user$project$Engine$addChoiceLanguage, 'vi', 'viewer1'),
+																																		_1: {
+																																			ctor: '::',
+																																			_0: A2(_user$project$Engine$addChoiceLanguage, 'vw', 'viewer2'),
+																																			_1: {
+																																				ctor: '::',
+																																				_0: A2(_user$project$Engine$moveItemToLocationFixed, 'questionColares', 'colares'),
+																																				_1: {
+																																					ctor: '::',
+																																					_0: A2(_user$project$Engine$moveItemToLocationFixed, 'photosEstradaVelhaColares', 'colares'),
+																																					_1: {ctor: '[]'}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
 																															},
-																															_user$project$OurStory_Narrative$viewPhotosEstradaVelhaColaresDict),
+																															_user$project$OurStory_Narrative$wiseManShowsFinalQuestionDict),
 																														_1: {
 																															ctor: '::',
 																															_0: A3(
-																																_user$project$OurStory_Rules$ruleWithQuasiChange,
-																																'view questionColares',
+																																_user$project$OurStory_Rules$rule,
+																																'view photosEstradaVelhaColares',
 																																{
-																																	interaction: _user$project$Engine$with('questionColares'),
+																																	interaction: _user$project$Engine$with('photosEstradaVelhaColares'),
 																																	conditions: {
 																																		ctor: '::',
 																																		_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
 																																		_1: {
 																																			ctor: '::',
-																																			_0: A2(_user$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
+																																			_0: A2(_user$project$Engine$itemIsInLocation, 'photosEstradaVelhaColares', 'colares'),
 																																			_1: {ctor: '[]'}
 																																		}
 																																	},
-																																	changes: {ctor: '[]'},
-																																	quasiChanges: {
-																																		ctor: '::',
-																																		_0: A3(
+																																	changes: {ctor: '[]'}
+																																},
+																																_user$project$OurStory_Narrative$viewPhotosEstradaVelhaColaresDict),
+																															_1: {
+																																ctor: '::',
+																																_0: A3(
+																																	_user$project$OurStory_Rules$ruleWithQuasiChange,
+																																	'view questionColares',
+																																	{
+																																		interaction: _user$project$Engine$with('questionColares'),
+																																		conditions: {
+																																			ctor: '::',
+																																			_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																																			_1: {
+																																				ctor: '::',
+																																				_0: A2(_user$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
+																																				_1: {ctor: '[]'}
+																																			}
+																																		},
+																																		changes: {ctor: '[]'},
+																																		quasiChanges: {ctor: '[]'},
+																																		quasiChangeWithBkend: A3(
 																																			_user$project$Engine$check_IfAnswerCorrectUsingBackend,
-																																			A2(_elm_lang$core$Basics_ops['++'], _user$project$OurStory_Rules$backendAnswerCheckerUrl, 'questionColares/'),
+																																			A2(_elm_lang$core$Basics_ops['++'], _user$project$InfoForBkendApiRequests$backendAnswerCheckerUrl, 'questionColares/'),
 																																			A4(
 																																				_user$project$Engine$checkBkendAnswerData,
 																																				_elm_lang$core$Maybe$Just(5),
@@ -19672,58 +19748,29 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																																					_1: {ctor: '[]'}
 																																				},
 																																				{ctor: '[]'}),
-																																			'questionColares'),
-																																		_1: {ctor: '[]'}
-																																	}
-																																},
-																																_user$project$OurStory_Narrative$viewQuestionAtColaresDict),
-																															_1: {
-																																ctor: '::',
-																																_0: A3(
-																																	_user$project$OurStory_Rules$rule,
-																																	'view questionColaresNotAtCorrectLocation',
-																																	{
-																																		interaction: _user$project$Engine$with('questionColares'),
-																																		conditions: {
-																																			ctor: '::',
-																																			_0: A2(_user$project$Engine$characterIsNotInLocation, 'playerOne', 'colares'),
-																																			_1: {ctor: '[]'}
-																																		},
-																																		changes: {ctor: '[]'}
+																																			'questionColares')
 																																	},
-																																	_user$project$OurStory_Narrative$viewQuestionWhenNotAtTheRightLocationDict),
+																																	_user$project$OurStory_Narrative$viewQuestionAtColaresDict),
 																																_1: {
 																																	ctor: '::',
 																																	_0: A3(
 																																		_user$project$OurStory_Rules$rule,
-																																		'talk to wiseMan colares after questionColares appears , questionColares not yet correctly answered',
+																																		'view questionColaresNotAtCorrectLocation',
 																																		{
-																																			interaction: _user$project$Engine$with('wiseManColares'),
+																																			interaction: _user$project$Engine$with('questionColares'),
 																																			conditions: {
 																																				ctor: '::',
-																																				_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
-																																				_1: {
-																																					ctor: '::',
-																																					_0: A2(_user$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
-																																					_1: {
-																																						ctor: '::',
-																																						_0: A2(_user$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
-																																						_1: {
-																																							ctor: '::',
-																																							_0: _user$project$Engine$itemIsNotCorrectlyAnswered('questionColares'),
-																																							_1: {ctor: '[]'}
-																																						}
-																																					}
-																																				}
+																																				_0: A2(_user$project$Engine$characterIsNotInLocation, 'playerOne', 'colares'),
+																																				_1: {ctor: '[]'}
 																																			},
 																																			changes: {ctor: '[]'}
 																																		},
-																																		_user$project$OurStory_Narrative$talkToWiseManAfterQuestionColaresAppearsDict),
+																																		_user$project$OurStory_Narrative$viewQuestionWhenNotAtTheRightLocationDict),
 																																	_1: {
 																																		ctor: '::',
 																																		_0: A3(
 																																			_user$project$OurStory_Rules$rule,
-																																			'talk to wiseMan colares after questionColares correctly answered somer questions not yet answered',
+																																			'talk to wiseMan colares after questionColares appears , questionColares not yet correctly answered',
 																																			{
 																																				interaction: _user$project$Engine$with('wiseManColares'),
 																																				conditions: {
@@ -19737,7 +19784,7 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																																							_0: A2(_user$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
 																																							_1: {
 																																								ctor: '::',
-																																								_0: _user$project$Engine$itemIsCorrectlyAnswered('questionColares'),
+																																								_0: _user$project$Engine$itemIsNotCorrectlyAnswered('questionColares'),
 																																								_1: {ctor: '[]'}
 																																							}
 																																						}
@@ -19745,12 +19792,12 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																																				},
 																																				changes: {ctor: '[]'}
 																																			},
-																																			_user$project$OurStory_Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredButStillSomeTasksToDoDict),
+																																			_user$project$OurStory_Narrative$talkToWiseManAfterQuestionColaresAppearsDict),
 																																		_1: {
 																																			ctor: '::',
 																																			_0: A3(
 																																				_user$project$OurStory_Rules$rule,
-																																				'talk to wiseMan colares after questionColares correctly answered and all other questions answered',
+																																				'talk to wiseMan colares after questionColares correctly answered somer questions not yet answered',
 																																				{
 																																					interaction: _user$project$Engine$with('wiseManColares'),
 																																					conditions: {
@@ -19761,47 +19808,75 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																																							_0: A2(_user$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
 																																							_1: {
 																																								ctor: '::',
-																																								_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																																								_0: A2(_user$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
 																																								_1: {
 																																									ctor: '::',
-																																									_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
+																																									_0: _user$project$Engine$itemIsCorrectlyAnswered('questionColares'),
+																																									_1: {ctor: '[]'}
+																																								}
+																																							}
+																																						}
+																																					},
+																																					changes: {ctor: '[]'}
+																																				},
+																																				_user$project$OurStory_Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredButStillSomeTasksToDoDict),
+																																			_1: {
+																																				ctor: '::',
+																																				_0: A3(
+																																					_user$project$OurStory_Rules$rule,
+																																					'talk to wiseMan colares after questionColares correctly answered and all other questions answered',
+																																					{
+																																						interaction: _user$project$Engine$with('wiseManColares'),
+																																						conditions: {
+																																							ctor: '::',
+																																							_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																																							_1: {
+																																								ctor: '::',
+																																								_0: A2(_user$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
+																																								_1: {
+																																									ctor: '::',
+																																									_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
 																																									_1: {
 																																										ctor: '::',
-																																										_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtFonteMataAlva'),
+																																										_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
 																																										_1: {
 																																											ctor: '::',
-																																											_0: _user$project$Engine$itemIsCorrectlyAnswered('questionSaoMartinhoColares1'),
+																																											_0: _user$project$Engine$itemIsCorrectlyAnswered('questionAtFonteMataAlva'),
 																																											_1: {
 																																												ctor: '::',
-																																												_0: _user$project$Engine$itemIsCorrectlyAnswered('questionSaoMartinhoColares2'),
+																																												_0: _user$project$Engine$itemIsCorrectlyAnswered('questionSaoMartinhoColares1'),
 																																												_1: {
 																																													ctor: '::',
-																																													_0: A3(
-																																														_user$project$Engine$attrValueIsEqualTo,
-																																														_user$project$Engine$abool(true),
-																																														'isOfferedToGeocacher',
-																																														'birdsNest'),
+																																													_0: _user$project$Engine$itemIsCorrectlyAnswered('questionSaoMartinhoColares2'),
 																																													_1: {
 																																														ctor: '::',
 																																														_0: A3(
 																																															_user$project$Engine$attrValueIsEqualTo,
 																																															_user$project$Engine$abool(true),
-																																															'isOfferedToWiseManColares',
-																																															'bocagePoemsBook'),
+																																															'isOfferedToGeocacher',
+																																															'birdsNest'),
 																																														_1: {
 																																															ctor: '::',
 																																															_0: A3(
 																																																_user$project$Engine$attrValueIsEqualTo,
 																																																_user$project$Engine$abool(true),
 																																																'isOfferedToWiseManColares',
-																																																'cameraAndPhotography1Sintra1914'),
+																																																'bocagePoemsBook'),
 																																															_1: {
 																																																ctor: '::',
-																																																_0: A2(_user$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
+																																																_0: A3(
+																																																	_user$project$Engine$attrValueIsEqualTo,
+																																																	_user$project$Engine$abool(true),
+																																																	'isOfferedToWiseManColares',
+																																																	'cameraAndPhotography1Sintra1914'),
 																																																_1: {
 																																																	ctor: '::',
-																																																	_0: _user$project$Engine$itemIsCorrectlyAnswered('questionColares'),
-																																																	_1: {ctor: '[]'}
+																																																	_0: A2(_user$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
+																																																	_1: {
+																																																		ctor: '::',
+																																																		_0: _user$project$Engine$itemIsCorrectlyAnswered('questionColares'),
+																																																		_1: {ctor: '[]'}
+																																																	}
 																																																}
 																																															}
 																																														}
@@ -19812,67 +19887,67 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																																									}
 																																								}
 																																							}
-																																						}
-																																					},
-																																					changes: {
-																																						ctor: '::',
-																																						_0: A3(
-																																							_user$project$Engine$setAttributeValue,
-																																							_user$project$Engine$abool(true),
-																																							'gameHasEnded',
-																																							'gameStateItem'),
-																																						_1: {
-																																							ctor: '::',
-																																							_0: A3(
-																																								_user$project$Engine$setAttributeValue,
-																																								_user$project$Engine$astring('finalPieceOfPaper'),
-																																								'suggestedInteraction',
-																																								'wiseManColares'),
-																																							_1: {
-																																								ctor: '::',
-																																								_0: A4(_user$project$Engine$createOrSetAttributeValueFromOtherInterAttr, 'additionalTextDict', 'bonusText', 'questionColares', 'finalPieceOfPaper'),
-																																								_1: {
-																																									ctor: '::',
-																																									_0: A2(_user$project$Engine$moveItemToLocation, 'finalPieceOfPaper', 'colares'),
-																																									_1: {ctor: '[]'}
-																																								}
-																																							}
-																																						}
-																																					}
-																																				},
-																																				_user$project$OurStory_Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredDict),
-																																			_1: {
-																																				ctor: '::',
-																																				_0: A3(
-																																					_user$project$OurStory_Rules$rule,
-																																					'game has ended',
-																																					{
-																																						interaction: _user$project$Engine$withAnyLocationAnyCharacterAfterGameEnded,
-																																						conditions: {
-																																							ctor: '::',
-																																							_0: A3(
-																																								_user$project$Engine$attrValueIsEqualTo,
-																																								_user$project$Engine$abool(true),
-																																								'gameHasEnded',
-																																								'gameStateItem'),
-																																							_1: {ctor: '[]'}
 																																						},
 																																						changes: {
 																																							ctor: '::',
-																																							_0: A2(_user$project$Engine$endStory, 'notFreezingEnd', 'The End'),
+																																							_0: A3(
+																																								_user$project$Engine$setAttributeValue,
+																																								_user$project$Engine$abool(true),
+																																								'gameHasEnded',
+																																								'gameStateItem'),
 																																							_1: {
 																																								ctor: '::',
-																																								_0: A2(_user$project$Engine$removeAttributeIfExists, 'suggestedInteraction', 'wiseManColares'),
+																																								_0: A3(
+																																									_user$project$Engine$setAttributeValue,
+																																									_user$project$Engine$astring('finalPieceOfPaper'),
+																																									'suggestedInteraction',
+																																									'wiseManColares'),
 																																								_1: {
 																																									ctor: '::',
-																																									_0: A2(_user$project$Engine$removeAttributeIfExists, 'suggestedInteraction', 'questionColares'),
-																																									_1: {ctor: '[]'}
+																																									_0: A4(_user$project$Engine$createOrSetAttributeValueFromOtherInterAttr, 'additionalTextDict', 'bonusText', 'questionColares', 'finalPieceOfPaper'),
+																																									_1: {
+																																										ctor: '::',
+																																										_0: A2(_user$project$Engine$moveItemToLocation, 'finalPieceOfPaper', 'colares'),
+																																										_1: {ctor: '[]'}
+																																									}
 																																								}
 																																							}
 																																						}
 																																					},
-																																					_user$project$OurStory_Narrative$gameHasEndedDict),
-																																				_1: {ctor: '[]'}
+																																					_user$project$OurStory_Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredDict),
+																																				_1: {
+																																					ctor: '::',
+																																					_0: A3(
+																																						_user$project$OurStory_Rules$rule,
+																																						'game has ended',
+																																						{
+																																							interaction: _user$project$Engine$withAnyLocationAnyCharacterAfterGameEnded,
+																																							conditions: {
+																																								ctor: '::',
+																																								_0: A3(
+																																									_user$project$Engine$attrValueIsEqualTo,
+																																									_user$project$Engine$abool(true),
+																																									'gameHasEnded',
+																																									'gameStateItem'),
+																																								_1: {ctor: '[]'}
+																																							},
+																																							changes: {
+																																								ctor: '::',
+																																								_0: A2(_user$project$Engine$endStory, 'notFreezingEnd', 'The End'),
+																																								_1: {
+																																									ctor: '::',
+																																									_0: A2(_user$project$Engine$removeAttributeIfExists, 'suggestedInteraction', 'wiseManColares'),
+																																									_1: {
+																																										ctor: '::',
+																																										_0: A2(_user$project$Engine$removeAttributeIfExists, 'suggestedInteraction', 'questionColares'),
+																																										_1: {ctor: '[]'}
+																																									}
+																																								}
+																																							}
+																																						},
+																																						_user$project$OurStory_Narrative$gameHasEndedDict),
+																																					_1: {ctor: '[]'}
+																																				}
 																																			}
 																																		}
 																																	}
@@ -19924,7 +19999,8 @@ var _user$project$OurStory_Rules$rules = _elm_lang$core$Dict$fromList(
 																										ctor: '::',
 																										_0: _user$project$Engine$write_GpsInfoToItem('gps'),
 																										_1: {ctor: '[]'}
-																									}
+																									},
+																									quasiChangeWithBkend: _user$project$Engine$noQuasiChangeWithBackend
 																								},
 																								_user$project$OurStory_Narrative$lookAtGpsDict),
 																							_1: {
@@ -22155,12 +22231,8 @@ var _user$project$Theme_Layout$viewExtraInfo = F2(
 					_0: A3(_user$project$Theme_Inventory$view, displayState.itemsInInventory, displayState.settingsModel.displayLanguage, displayState.settingsModel.layoutWithSidebar),
 					_1: {
 						ctor: '::',
-						_0: displayState.boolTextBoxInSidebar ? A6(_user$project$Theme_AnswerBox$view, displayState.answerBoxMbText, displayState.settingsModel.displayLanguage, true, _elm_lang$core$Maybe$Nothing, _elm_lang$core$Maybe$Nothing, 'AnswerBox') : _elm_lang$html$Html$text(''),
-						_1: {
-							ctor: '::',
-							_0: displayState.settingsModel.layoutWithSidebar ? _user$project$Theme_Settings$view(displayState.settingsModel) : _elm_lang$html$Html$text(''),
-							_1: {ctor: '[]'}
-						}
+						_0: displayState.settingsModel.layoutWithSidebar ? _user$project$Theme_Settings$view(displayState.settingsModel) : _elm_lang$html$Html$text(''),
+						_1: {ctor: '[]'}
 					}
 				}
 			});
@@ -22274,9 +22346,7 @@ var _user$project$Theme_Layout$DisplayState = function (a) {
 													return function (n) {
 														return function (o) {
 															return function (p) {
-																return function (q) {
-																	return {currentLocation: a, itemsInCurrentLocation: b, charactersInCurrentLocation: c, exits: d, itemsInInventory: e, answerBoxMbText: f, mbAudioFileInfo: g, audioAutoplay: h, answerOptionsDict: i, layoutWithSidebar: j, boolTextBoxInSidebar: k, boolTextBoxInStoryline: l, mbTextBoxPlaceholderText: m, settingsModel: n, alertMessages: o, ending: p, storyLine: q};
-																};
+																return {currentLocation: a, itemsInCurrentLocation: b, charactersInCurrentLocation: c, exits: d, itemsInInventory: e, answerBoxMbText: f, mbAudioFileInfo: g, audioAutoplay: h, answerOptionsDict: i, layoutWithSidebar: j, boolTextBoxInStoryline: k, mbTextBoxPlaceholderText: l, settingsModel: m, alertMessages: n, ending: o, storyLine: p};
 															};
 														};
 													};
@@ -22724,6 +22794,46 @@ var _user$project$Main$viewStartScreen = F2(
 	function (baseImgUrl, model) {
 		return A3(_user$project$Theme_StartScreen$view, baseImgUrl, model.startScreenInfo, model.answerBoxModel);
 	});
+var _user$project$Main$getNewModelAndInteractionExtraInfoByEngineUpdate = F3(
+	function (interactableId, interactionExtraInfo, model) {
+		if (_elm_lang$core$Native_Utils.eq(
+			A2(_elm_lang$core$Dict$get, interactableId, model.bkendAnswerStatusDict),
+			_elm_lang$core$Maybe$Just(_user$project$Types$WaitingForInfoRequested))) {
+			return {
+				ctor: '_Tuple2',
+				_0: interactionExtraInfo,
+				_1: _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						alertMessages: {ctor: '::', _0: 'Please Wait ... \n', _1: model.alertMessages}
+					})
+			};
+		} else {
+			var _p0 = A3(_user$project$Engine$update, interactableId, interactionExtraInfo, model.engineModel);
+			var newEngineModel = _p0._0;
+			var maybeMatchedRuleId = _p0._1;
+			var lInteractionIncidents = _p0._2;
+			var mbUrlForBkendQry = _p0._3;
+			var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
+				interactionExtraInfo,
+				{mbMatchedRuleId: maybeMatchedRuleId});
+			var interactionIncidents = model.debugMode ? lInteractionIncidents : {ctor: '[]'};
+			var newModel = _elm_lang$core$Native_Utils.update(
+				model,
+				{
+					engineModel: newEngineModel,
+					bkendAnswerStatusDict: A3(
+						_elm_lang$core$Dict$update,
+						interactableId,
+						function (x) {
+							return _elm_lang$core$Maybe$Just(_user$project$Types$NoInfoYet);
+						},
+						model.bkendAnswerStatusDict),
+					alertMessages: interactionIncidents
+				});
+			return {ctor: '_Tuple2', _0: newInteractionExtraInfo, _1: newModel};
+		}
+	});
 var _user$project$Main$getNewCoords = F4(
 	function (interactableId, mbGpsZone, bval, interactionExtraInfo) {
 		return A2(
@@ -22741,9 +22851,10 @@ var _user$project$Main$convertToListIdExtraInfo = function (lobjs) {
 			return {
 				ctor: '_Tuple2',
 				_0: x.interactableId,
-				_1: A5(
+				_1: A6(
 					_user$project$Types$InteractionExtraInfo,
 					_user$project$Main$helperEmptyStringToNothing(x.inputText),
+					_user$project$Main$helperEmptyStringToNothing(x.inputTextForBackend),
 					x.geolocationInfoText,
 					x.currentLocation,
 					_user$project$Types$CommunicationFailure,
@@ -22760,14 +22871,14 @@ var _user$project$Main$findEntity = F2(
 			_elm_lang$core$List$head(
 				A2(
 					_elm_lang$core$List$filter,
-					function (_p0) {
+					function (_p1) {
 						return A2(
 							F2(
 								function (x, y) {
 									return _elm_lang$core$Native_Utils.eq(x, y);
 								}),
 							id,
-							_elm_lang$core$Tuple$first(_p0));
+							_elm_lang$core$Tuple$first(_p1));
 					},
 					model.itemsLocationsAndCharacters)));
 	});
@@ -22778,8 +22889,9 @@ var _user$project$Main$getExtraInfoFromModel = F2(
 			_user$project$Components$getDictLgNamesAndCoords,
 			_user$project$OurStory_Narrative$desiredLanguages,
 			A2(_user$project$Main$findEntity, model, currLocationStrId));
-		return A5(
+		return A6(
 			_user$project$Types$InteractionExtraInfo,
+			model.mbSentText,
 			model.mbSentText,
 			A4(_user$project$GpsUtils$getCurrentGeoReportAsText, currLocNameAndCoords, model.geoLocation, model.geoDistances, 3),
 			currLocationStrId,
@@ -22831,12 +22943,12 @@ var _user$project$Main$viewMainGame = function (model) {
 			_user$project$Engine$getCharactersInCurrentLocation(model.engineModel)),
 		exits: A2(
 			_elm_lang$core$List$map,
-			function (_p1) {
-				var _p2 = _p1;
+			function (_p2) {
+				var _p3 = _p2;
 				return {
 					ctor: '_Tuple2',
-					_0: _p2._0,
-					_1: A2(_user$project$Main$findEntity, model, _p2._1)
+					_0: _p3._0,
+					_1: A2(_user$project$Main$findEntity, model, _p3._1)
 				};
 			},
 			_user$project$Components$getExits(currentLocation)),
@@ -22868,27 +22980,26 @@ var _user$project$Main$viewMainGame = function (model) {
 					},
 					mbInteactableIdAtTop))),
 		layoutWithSidebar: model.settingsModel.layoutWithSidebar,
-		boolTextBoxInSidebar: false,
 		boolTextBoxInStoryline: function () {
-			var _p3 = mbInteactableIdAtTop;
-			if (_p3.ctor === 'Nothing') {
+			var _p4 = mbInteactableIdAtTop;
+			if (_p4.ctor === 'Nothing') {
 				return false;
 			} else {
-				var _p4 = _p3._0;
-				return A2(_user$project$Engine$isWritable, _p4, model.engineModel) && (!_elm_lang$core$Native_Utils.eq(
-					A2(_elm_lang$core$Dict$get, _p4, model.bkendAnswerStatusDict),
+				var _p5 = _p4._0;
+				return A2(_user$project$Engine$isWritable, _p5, model.engineModel) && (!_elm_lang$core$Native_Utils.eq(
+					A2(_elm_lang$core$Dict$get, _p5, model.bkendAnswerStatusDict),
 					_elm_lang$core$Maybe$Just(_user$project$Types$WaitingForInfoRequested)));
 			}
 		}(),
 		mbTextBoxPlaceholderText: function () {
-			var _p5 = mbInteactableIdAtTop;
-			if (_p5.ctor === 'Nothing') {
+			var _p6 = mbInteactableIdAtTop;
+			if (_p6.ctor === 'Nothing') {
 				return _elm_lang$core$Maybe$Nothing;
 			} else {
 				return A2(
 					_user$project$TypeConverterHelper$mbAttributeToMbString,
 					model.debugMode,
-					A3(_user$project$Engine$getInteractableAttribute, 'placeholderText', _p5._0, model.engineModel));
+					A3(_user$project$Engine$getInteractableAttribute, 'placeholderText', _p6._0, model.engineModel));
 			}
 		}(),
 		settingsModel: model.settingsModel,
@@ -22918,7 +23029,7 @@ var _user$project$Main$init = function (flags) {
 	var displaylanguage = settingsmodel.displayLanguage;
 	var answerboxmodel = _user$project$Theme_AnswerBox$init;
 	var dictEntities = _user$project$OurStory_Rules$rules;
-	var _p6 = A2(
+	var _p7 = A2(
 		_user$project$Engine$changeWorld,
 		_user$project$OurStory_Rules$startingState,
 		A3(
@@ -22933,8 +23044,8 @@ var _user$project$Main$init = function (flags) {
 				_elm_lang$core$Dict$map,
 				_elm_lang$core$Basics$curry(_user$project$Components$getRuleData),
 				dictEntities)));
-	var engineModel = _p6._0;
-	var lincidents = _p6._1;
+	var engineModel = _p7._0;
+	var lincidents = _p7._1;
 	var startLincidents = {
 		ctor: '::',
 		_0: {ctor: '_Tuple2', _0: 'startingState ', _1: lincidents},
@@ -22998,7 +23109,7 @@ var _user$project$Main$saveHistoryToStorage = _elm_lang$core$Native_Platform.out
 			playerName: v.playerName,
 			lInteractions: _elm_lang$core$Native_List.toArray(v.lInteractions).map(
 				function (v) {
-					return {interactableId: v.interactableId, inputText: v.inputText, geolocationInfoText: v.geolocationInfoText, currentLocation: v.currentLocation, mbMatchedRuleId: v.mbMatchedRuleId};
+					return {interactableId: v.interactableId, inputText: v.inputText, inputTextForBackend: v.inputTextForBackend, geolocationInfoText: v.geolocationInfoText, currentLocation: v.currentLocation, mbMatchedRuleId: v.mbMatchedRuleId};
 				})
 		};
 	});
@@ -23014,6 +23125,13 @@ var _user$project$Main$saveHistoryToStorageHelper = function (model) {
 					'',
 					function (_) {
 						return _.mbInputText;
+					}(
+						_elm_lang$core$Tuple$second(x))),
+				inputTextForBackend: A2(
+					_elm_lang$core$Maybe$withDefault,
+					'',
+					function (_) {
+						return _.mbInputTextForBackend;
 					}(
 						_elm_lang$core$Tuple$second(x))),
 				geolocationInfoText: function (_) {
@@ -23069,21 +23187,26 @@ var _user$project$Main$getHistoryFromStorage = _elm_lang$core$Native_Platform.in
 									function (inputText) {
 										return A2(
 											_elm_lang$core$Json_Decode$andThen,
-											function (geolocationInfoText) {
+											function (inputTextForBackend) {
 												return A2(
 													_elm_lang$core$Json_Decode$andThen,
-													function (currentLocation) {
+													function (geolocationInfoText) {
 														return A2(
 															_elm_lang$core$Json_Decode$andThen,
-															function (mbMatchedRuleId) {
-																return _elm_lang$core$Json_Decode$succeed(
-																	{interactableId: interactableId, inputText: inputText, geolocationInfoText: geolocationInfoText, currentLocation: currentLocation, mbMatchedRuleId: mbMatchedRuleId});
+															function (currentLocation) {
+																return A2(
+																	_elm_lang$core$Json_Decode$andThen,
+																	function (mbMatchedRuleId) {
+																		return _elm_lang$core$Json_Decode$succeed(
+																			{interactableId: interactableId, inputText: inputText, inputTextForBackend: inputTextForBackend, geolocationInfoText: geolocationInfoText, currentLocation: currentLocation, mbMatchedRuleId: mbMatchedRuleId});
+																	},
+																	A2(_elm_lang$core$Json_Decode$field, 'mbMatchedRuleId', _elm_lang$core$Json_Decode$string));
 															},
-															A2(_elm_lang$core$Json_Decode$field, 'mbMatchedRuleId', _elm_lang$core$Json_Decode$string));
+															A2(_elm_lang$core$Json_Decode$field, 'currentLocation', _elm_lang$core$Json_Decode$string));
 													},
-													A2(_elm_lang$core$Json_Decode$field, 'currentLocation', _elm_lang$core$Json_Decode$string));
+													A2(_elm_lang$core$Json_Decode$field, 'geolocationInfoText', _elm_lang$core$Json_Decode$string));
 											},
-											A2(_elm_lang$core$Json_Decode$field, 'geolocationInfoText', _elm_lang$core$Json_Decode$string));
+											A2(_elm_lang$core$Json_Decode$field, 'inputTextForBackend', _elm_lang$core$Json_Decode$string));
 									},
 									A2(_elm_lang$core$Json_Decode$field, 'inputText', _elm_lang$core$Json_Decode$string));
 							},
@@ -23194,13 +23317,14 @@ var _user$project$Main$getBackendAnswerInfo = F3(
 	function (interactableId, interactionExtraInfo, strUrl) {
 		var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
 			interactionExtraInfo,
-			{mbInputText: _elm_lang$core$Maybe$Nothing});
+			{mbInputTextForBackend: _elm_lang$core$Maybe$Nothing});
+		var apiKey = _user$project$InfoForBkendApiRequests$getApiKey;
 		var request = _elm_lang$http$Http$request(
 			{
 				method: 'GET',
 				headers: {
 					ctor: '::',
-					_0: A2(_elm_lang$http$Http$header, 'x-api-key', 'RFV762GI39cd395a-689e-4e1f-9f37-c6845ba65a9eO4qh4234cv56'),
+					_0: A2(_elm_lang$http$Http$header, 'x-api-key', apiKey),
 					_1: {ctor: '[]'}
 				},
 				url: strUrl,
@@ -23209,7 +23333,7 @@ var _user$project$Main$getBackendAnswerInfo = F3(
 					A2(
 						_user$project$Main$backendAnswerDecoder,
 						interactableId,
-						A2(_elm_lang$core$Maybe$withDefault, '', interactionExtraInfo.mbInputText))),
+						A2(_elm_lang$core$Maybe$withDefault, '', interactionExtraInfo.mbInputTextForBackend))),
 				timeout: _elm_lang$core$Maybe$Nothing,
 				withCredentials: false
 			});
@@ -23226,12 +23350,12 @@ var _user$project$Main$update = F2(
 	function (msg, model) {
 		update:
 		while (true) {
-			var _p7 = _user$project$Engine$hasFreezingEnd(model.engineModel);
-			if (_p7 === true) {
+			var _p8 = _user$project$Engine$hasFreezingEnd(model.engineModel);
+			if (_p8 === true) {
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			} else {
-				var _p8 = msg;
-				switch (_p8.ctor) {
+				var _p9 = msg;
+				switch (_p9.ctor) {
 					case 'StartMainGame':
 						return {
 							ctor: '_Tuple2',
@@ -23241,12 +23365,12 @@ var _user$project$Main$update = F2(
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					case 'StartMainGameNewPlayerName':
-						var _p9 = _p8._0;
-						if (!_elm_lang$core$Native_Utils.eq(_p9, '')) {
+						var _p10 = _p9._0;
+						if (!_elm_lang$core$Native_Utils.eq(_p10, '')) {
 							var newAnswerBoxModel = A2(_user$project$Theme_AnswerBox$update, '', model.answerBoxModel);
 							var newPlayerOneEntity = A2(
 								_user$project$Components$updateAllLgsDisplayName,
-								_p9,
+								_p10,
 								A2(_user$project$Main$findEntity, model, 'playerOne'));
 							var newEntities = A2(
 								_elm_lang$core$List$map,
@@ -23258,7 +23382,7 @@ var _user$project$Main$update = F2(
 								model.itemsLocationsAndCharacters);
 							var newModel = _elm_lang$core$Native_Utils.update(
 								model,
-								{itemsLocationsAndCharacters: newEntities, playerName: _p9, answerBoxModel: newAnswerBoxModel});
+								{itemsLocationsAndCharacters: newEntities, playerName: _p10, answerBoxModel: newAnswerBoxModel});
 							var _v5 = _user$project$ClientTypes$StartMainGame,
 								_v6 = newModel;
 							msg = _v5;
@@ -23277,25 +23401,25 @@ var _user$project$Main$update = F2(
 							model,
 							{
 								mbSentText: _elm_lang$core$Maybe$Just(
-									_elm_lang$core$String$trim(_p8._1)),
+									_elm_lang$core$String$trim(_p9._1)),
 								answerBoxModel: newAnswerBoxModel
 							});
-						var _v9 = _user$project$ClientTypes$Interact(_p8._0),
+						var _v9 = _user$project$ClientTypes$Interact(_p9._0),
 							_v10 = newModel;
 						msg = _v9;
 						model = _v10;
 						continue update;
 					case 'Interact':
-						var _p11 = _p8._0;
+						var _p12 = _p9._0;
 						var nModel = _elm_lang$core$Native_Utils.update(
 							model,
 							{
 								alertMessages: {ctor: '[]'},
 								mbSentText: _elm_lang$core$Maybe$Nothing
 							});
-						var interactionExtraInfo = A2(_user$project$Main$getExtraInfoFromModel, model, _p11);
+						var interactionExtraInfo = A2(_user$project$Main$getExtraInfoFromModel, model, _p12);
 						var mbGpsZone = _user$project$Components$getNeedsToBeInGpsZone(
-							A2(_user$project$Main$findEntity, model, _p11));
+							A2(_user$project$Main$findEntity, model, _p12));
 						var needsToBeInZone = A2(
 							_elm_lang$core$Maybe$withDefault,
 							false,
@@ -23306,33 +23430,33 @@ var _user$project$Main$update = F2(
 								},
 								mbGpsZone)) && (!model.settingsModel.dontNeedToBeInZone);
 						var needCoords = _user$project$Components$getNeedsGpsCoords(
-							A2(_user$project$Main$findEntity, model, _p11));
-						var _p10 = (needCoords && (!needsToBeInZone)) ? {
+							A2(_user$project$Main$findEntity, model, _p12));
+						var _p11 = (needCoords && (!needsToBeInZone)) ? {
 							ctor: '_Tuple2',
 							_0: nModel,
-							_1: A4(_user$project$Main$getNewCoords, _p11, _elm_lang$core$Maybe$Nothing, false, interactionExtraInfo)
+							_1: A4(_user$project$Main$getNewCoords, _p12, _elm_lang$core$Maybe$Nothing, false, interactionExtraInfo)
 						} : (needsToBeInZone ? {
 							ctor: '_Tuple2',
 							_0: nModel,
-							_1: A4(_user$project$Main$getNewCoords, _p11, mbGpsZone, true, interactionExtraInfo)
+							_1: A4(_user$project$Main$getNewCoords, _p12, mbGpsZone, true, interactionExtraInfo)
 						} : A2(
 							_user$project$Main$update,
-							A2(_user$project$ClientTypes$InteractStepTwo, _p11, interactionExtraInfo),
+							A2(_user$project$ClientTypes$InteractStepTwo, _p12, interactionExtraInfo),
 							nModel));
-						var newModel = _p10._0;
-						var cmds = _p10._1;
+						var newModel = _p11._0;
+						var cmds = _p11._1;
 						return {ctor: '_Tuple2', _0: newModel, _1: cmds};
 					case 'NewCoordsForInterId':
-						if (_p8._4.ctor === 'Ok') {
-							var _p15 = _p8._2;
-							var _p14 = _p8._1;
-							var _p13 = _p8._4._0;
-							var _p12 = _p8._0;
-							var updatedInteractionExtraInfo = A2(_user$project$Main$updateInterExtraInfoWithGeoInfo, _p8._3, model);
+						if (_p9._4.ctor === 'Ok') {
+							var _p16 = _p9._2;
+							var _p15 = _p9._1;
+							var _p14 = _p9._4._0;
+							var _p13 = _p9._0;
+							var updatedInteractionExtraInfo = A2(_user$project$Main$updateInterExtraInfoWithGeoInfo, _p9._3, model);
 							var distanceToClosestLocations = A3(
 								_user$project$GpsUtils$getDistancesTo,
 								1000,
-								_p13,
+								_p14,
 								A2(
 									_elm_lang$core$List$map,
 									_elm_lang$core$Dict$get(model.settingsModel.displayLanguage),
@@ -23348,26 +23472,26 @@ var _user$project$Main$update = F2(
 							var newModel = _elm_lang$core$Native_Utils.update(
 								model,
 								{
-									geoLocation: _elm_lang$core$Maybe$Just(_p13),
+									geoLocation: _elm_lang$core$Maybe$Just(_p14),
 									geoDistances: distanceToClosestLocations
 								});
-							var theDistance = A2(_user$project$GpsUtils$getDistance, _p13, _p14);
-							var inDistance = A3(_user$project$GpsUtils$checkIfInDistance, _p14, theDistance, model.defaultZoneRadius);
-							if ((!_p15) || (_p15 && inDistance)) {
-								var _v11 = A2(_user$project$ClientTypes$InteractStepTwo, _p12, updatedInteractionExtraInfo),
+							var theDistance = A2(_user$project$GpsUtils$getDistance, _p14, _p15);
+							var inDistance = A3(_user$project$GpsUtils$checkIfInDistance, _p15, theDistance, model.defaultZoneRadius);
+							if ((!_p16) || (_p16 && inDistance)) {
+								var _v11 = A2(_user$project$ClientTypes$InteractStepTwo, _p13, updatedInteractionExtraInfo),
 									_v12 = newModel;
 								msg = _v11;
 								model = _v12;
 								continue update;
 							} else {
-								var _v13 = A4(_user$project$ClientTypes$NotInTheZone, _p12, _p14, _p13, theDistance),
+								var _v13 = A4(_user$project$ClientTypes$NotInTheZone, _p13, _p15, _p14, theDistance),
 									_v14 = newModel;
 								msg = _v13;
 								model = _v14;
 								continue update;
 							}
 						} else {
-							var updatedInteractionExtraInfo = A2(_user$project$Main$updateInterExtraInfoWithGeoInfo, _p8._3, model);
+							var updatedInteractionExtraInfo = A2(_user$project$Main$updateInterExtraInfoWithGeoInfo, _p9._3, model);
 							var newModel = _elm_lang$core$Native_Utils.update(
 								model,
 								{
@@ -23379,8 +23503,8 @@ var _user$project$Main$update = F2(
 										_1: {ctor: '[]'}
 									}
 								});
-							if (!_p8._2) {
-								var _v15 = A2(_user$project$ClientTypes$InteractStepTwo, _p8._0, updatedInteractionExtraInfo),
+							if (!_p9._2) {
+								var _v15 = A2(_user$project$ClientTypes$InteractStepTwo, _p9._0, updatedInteractionExtraInfo),
 									_v16 = newModel;
 								msg = _v15;
 								model = _v16;
@@ -23390,21 +23514,21 @@ var _user$project$Main$update = F2(
 							}
 						}
 					case 'NotInTheZone':
-						var _p16 = _p8._2;
+						var _p17 = _p9._2;
 						var theName = function (_) {
 							return _.name;
 						}(
 							A2(
 								_user$project$Components$getSingleLgDisplayInfo,
 								model.settingsModel.displayLanguage,
-								A2(_user$project$Main$findEntity, model, _p8._0)));
+								A2(_user$project$Main$findEntity, model, _p9._0)));
 						var zoneCoordsStr = A2(
 							_elm_lang$core$Maybe$withDefault,
 							'',
 							A2(
 								_elm_lang$core$Maybe$map,
 								_user$project$GpsUtils$convertDecimalTupleToGps,
-								_user$project$GpsUtils$getMbGpsZoneLatLon(_p8._1)));
+								_user$project$GpsUtils$getMbGpsZoneLatLon(_p9._1)));
 						var linfoStr = {
 							ctor: '::',
 							_0: A2(
@@ -23420,7 +23544,7 @@ var _user$project$Main$update = F2(
 										_elm_lang$core$Basics_ops['++'],
 										'You are at : ',
 										_user$project$GpsUtils$convertDecimalTupleToGps(
-											{ctor: '_Tuple2', _0: _p16.latitude, _1: _p16.longitude})),
+											{ctor: '_Tuple2', _0: _p17.latitude, _1: _p17.longitude})),
 									_1: {
 										ctor: '::',
 										_0: A2(_elm_lang$core$Basics_ops['++'], 'Please move closer to ', zoneCoordsStr),
@@ -23432,7 +23556,7 @@ var _user$project$Main$update = F2(
 												A2(
 													_elm_lang$core$Basics_ops['++'],
 													_elm_lang$core$Basics$toString(
-														_elm_lang$core$Basics$round(_p8._3)),
+														_elm_lang$core$Basics$round(_p9._3)),
 													' meters')),
 											_1: {ctor: '[]'}
 										}
@@ -23445,39 +23569,51 @@ var _user$project$Main$update = F2(
 							{alertMessages: linfoStr});
 						return {ctor: '_Tuple2', _0: newModel, _1: _elm_lang$core$Platform_Cmd$none};
 					case 'InteractStepTwo':
-						var _p20 = _p8._1;
-						var _p19 = _p8._0;
-						if (!_elm_lang$core$Native_Utils.eq(
-							A2(_elm_lang$core$Dict$get, _p19, model.bkendAnswerStatusDict),
+						var _p21 = _p9._1;
+						var _p20 = _p9._0;
+						if (_elm_lang$core$Native_Utils.eq(
+							A2(_elm_lang$core$Dict$get, _p20, model.bkendAnswerStatusDict),
 							_elm_lang$core$Maybe$Just(_user$project$Types$WaitingForInfoRequested))) {
-							var _p17 = A3(_user$project$Engine$update, _p19, _p20, model.engineModel);
-							var newEngineModel = _p17._0;
-							var maybeMatchedRuleId = _p17._1;
-							var lInteractionIncidents = _p17._2;
-							var mbUrlForBkendQry = _p17._3;
+							return {
+								ctor: '_Tuple2',
+								_0: _elm_lang$core$Native_Utils.update(
+									model,
+									{
+										alertMessages: {ctor: '::', _0: 'Please Wait ... \n', _1: model.alertMessages}
+									}),
+								_1: _elm_lang$core$Platform_Cmd$none
+							};
+						} else {
+							var getTheUrl = function (strUrl) {
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									strUrl,
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										A2(_elm_lang$core$Maybe$withDefault, '', _p21.mbInputTextForBackend),
+										'/'));
+							};
+							var _p18 = A3(_user$project$Engine$update, _p20, _p21, model.engineModel);
+							var newEngineModel = _p18._0;
+							var maybeMatchedRuleId = _p18._1;
+							var lInteractionIncidents = _p18._2;
+							var infoNeeded = _p18._3;
 							var newModel = _elm_lang$core$Native_Utils.update(
 								model,
 								{engineModel: newEngineModel});
 							var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
-								_p20,
+								_p21,
 								{mbMatchedRuleId: maybeMatchedRuleId});
-							var thestrUrl = A2(
-								_elm_lang$core$Basics_ops['++'],
-								A2(_elm_lang$core$Maybe$withDefault, '', mbUrlForBkendQry),
-								A2(
-									_elm_lang$core$Basics_ops['++'],
-									A2(_elm_lang$core$Maybe$withDefault, '', _p20.mbInputText),
-									'/'));
 							var interactionIncidents = model.debugMode ? lInteractionIncidents : {ctor: '[]'};
-							var _p18 = mbUrlForBkendQry;
-							if (_p18.ctor === 'Nothing') {
-								var _v18 = A2(_user$project$ClientTypes$InteractStepThree, _p19, newInteractionExtraInfo),
+							var _p19 = infoNeeded;
+							if (_p19.ctor === 'NoInfoNeeded') {
+								var _v18 = A2(_user$project$ClientTypes$InteractStepThree, _p20, newInteractionExtraInfo),
 									_v19 = _elm_lang$core$Native_Utils.update(
 									newModel,
 									{
 										bkendAnswerStatusDict: A3(
 											_elm_lang$core$Dict$update,
-											_p19,
+											_p20,
 											function (x) {
 												return _elm_lang$core$Maybe$Just(_user$project$Types$NoInfoYet);
 											},
@@ -23488,7 +23624,7 @@ var _user$project$Main$update = F2(
 								model = _v19;
 								continue update;
 							} else {
-								if (_elm_lang$core$Native_Utils.eq(_p20.bkAnsStatus, _user$project$Types$NoInfoYet)) {
+								if (_elm_lang$core$Native_Utils.eq(_p21.bkAnsStatus, _user$project$Types$NoInfoYet)) {
 									var newInteractionExtraInfoTwo = _elm_lang$core$Native_Utils.update(
 										newInteractionExtraInfo,
 										{bkAnsStatus: _user$project$Types$WaitingForInfoRequested});
@@ -23500,7 +23636,7 @@ var _user$project$Main$update = F2(
 											{
 												bkendAnswerStatusDict: A3(
 													_elm_lang$core$Dict$update,
-													_p19,
+													_p20,
 													function (x) {
 														return _elm_lang$core$Maybe$Just(_user$project$Types$WaitingForInfoRequested);
 													},
@@ -23512,65 +23648,58 @@ var _user$project$Main$update = F2(
 												},
 												answerBoxModel: newAnswerBoxModel
 											}),
-										_1: A3(_user$project$Main$getBackendAnswerInfo, _p19, newInteractionExtraInfoTwo, thestrUrl)
+										_1: A3(
+											_user$project$Main$getBackendAnswerInfo,
+											_p20,
+											newInteractionExtraInfoTwo,
+											getTheUrl(_p19._0))
 									};
 								} else {
 									return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 								}
 							}
-						} else {
-							return {
-								ctor: '_Tuple2',
-								_0: _elm_lang$core$Native_Utils.update(
-									model,
-									{
-										alertMessages: {ctor: '::', _0: 'Please Wait ... \n', _1: model.alertMessages}
-									}),
-								_1: _elm_lang$core$Platform_Cmd$none
-							};
 						}
 					case 'AnswerChecked':
-						if (_p8._2.ctor === 'Ok') {
-							var _p22 = _p8._0;
-							var _p21 = _p8._2._0;
-							var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
-								_p8._1,
+						if (_p9._2.ctor === 'Ok') {
+							var _p24 = _p9._0;
+							var _p23 = _p9._2._0;
+							var nInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
+								_p9._1,
 								{
-									bkAnsStatus: _user$project$Types$Ans(_p21)
+									bkAnsStatus: _user$project$Types$Ans(_p23)
 								});
-							var newModel = _elm_lang$core$Native_Utils.update(
-								model,
-								{
-									bkendAnswerStatusDict: A3(
-										_elm_lang$core$Dict$update,
-										_p22,
-										function (val) {
-											return _elm_lang$core$Maybe$Just(
-												_user$project$Types$Ans(_p21));
-										},
-										model.bkendAnswerStatusDict),
-									alertMessages: {ctor: '[]'}
-								});
-							var _v20 = A2(_user$project$ClientTypes$InteractStepTwo, _p22, newInteractionExtraInfo),
-								_v21 = newModel;
-							msg = _v20;
-							model = _v21;
-							continue update;
-						} else {
-							var _p24 = _p8._0;
-							var _p23 = A2(
-								_elm_lang$core$Debug$log,
-								'error trying to check answer',
-								_elm_lang$core$Basics$toString(_p8._2._0));
-							var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
-								_p8._1,
-								{bkAnsStatus: _user$project$Types$CommunicationFailure});
-							var newModel = _elm_lang$core$Native_Utils.update(
+							var nModel = _elm_lang$core$Native_Utils.update(
 								model,
 								{
 									bkendAnswerStatusDict: A3(
 										_elm_lang$core$Dict$update,
 										_p24,
+										function (val) {
+											return _elm_lang$core$Maybe$Just(
+												_user$project$Types$Ans(_p23));
+										},
+										model.bkendAnswerStatusDict),
+									alertMessages: {ctor: '[]'}
+								});
+							var _p22 = A3(_user$project$Main$getNewModelAndInteractionExtraInfoByEngineUpdate, _p24, nInteractionExtraInfo, nModel);
+							var newInteractionExtraInfo2 = _p22._0;
+							var newModel2 = _p22._1;
+							var _v20 = A2(_user$project$ClientTypes$InteractStepThree, _p24, newInteractionExtraInfo2),
+								_v21 = newModel2;
+							msg = _v20;
+							model = _v21;
+							continue update;
+						} else {
+							var _p26 = _p9._0;
+							var nInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
+								_p9._1,
+								{bkAnsStatus: _user$project$Types$CommunicationFailure});
+							var nModel = _elm_lang$core$Native_Utils.update(
+								model,
+								{
+									bkendAnswerStatusDict: A3(
+										_elm_lang$core$Dict$update,
+										_p26,
 										function (val) {
 											return _elm_lang$core$Maybe$Just(_user$project$Types$CommunicationFailure);
 										},
@@ -23581,15 +23710,18 @@ var _user$project$Main$update = F2(
 										_1: {ctor: '[]'}
 									}
 								});
-							var _v22 = A2(_user$project$ClientTypes$InteractStepTwo, _p24, newInteractionExtraInfo),
-								_v23 = newModel;
+							var _p25 = A3(_user$project$Main$getNewModelAndInteractionExtraInfoByEngineUpdate, _p26, nInteractionExtraInfo, nModel);
+							var newInteractionExtraInfo2 = _p25._0;
+							var newModel2 = _p25._1;
+							var _v22 = A2(_user$project$ClientTypes$InteractStepThree, _p26, newInteractionExtraInfo2),
+								_v23 = newModel2;
 							msg = _v22;
 							model = _v23;
 							continue update;
 						}
 					case 'InteractStepThree':
-						var _p29 = _p8._1;
-						var _p28 = _p8._0;
+						var _p31 = _p9._1;
+						var _p30 = _p9._0;
 						var hasEnded = A2(
 							_user$project$TypeConverterHelper$mbAttributeToBool,
 							model.debugMode,
@@ -23625,8 +23757,8 @@ var _user$project$Main$update = F2(
 									_wernerdegroot$listzipper$List_Zipper$next(narrative));
 							});
 						var updateNarrativeLgsDict = function (mbDict) {
-							var _p25 = mbDict;
-							if (_p25.ctor === 'Just') {
+							var _p27 = mbDict;
+							if (_p27.ctor === 'Just') {
 								return _elm_lang$core$Maybe$Just(
 									A2(
 										_elm_lang$core$Dict$map,
@@ -23638,7 +23770,7 @@ var _user$project$Main$update = F2(
 													updateNarrativeContent(
 														_elm_lang$core$Maybe$Just(val)));
 											}),
-										_p25._0));
+										_p27._0));
 							} else {
 								return _elm_lang$core$Maybe$Nothing;
 							}
@@ -23646,14 +23778,14 @@ var _user$project$Main$update = F2(
 						var mbsuggestInteractionId = A2(
 							_user$project$TypeConverterHelper$mbAttributeToMbString,
 							model.debugMode,
-							A3(_user$project$Engine$getInteractableAttribute, 'suggestedInteraction', _p28, model.engineModel));
+							A3(_user$project$Engine$getInteractableAttribute, 'suggestedInteraction', _p30, model.engineModel));
 						var temporaryHackToSubstitueImgUrl = F2(
 							function (baseImgUrl, theStr) {
 								return (!_elm_lang$core$Native_Utils.eq(baseImgUrl, '')) ? A4(
 									_elm_lang$core$Regex$replace,
 									_elm_lang$core$Regex$All,
 									_elm_lang$core$Regex$regex('\\(img\\/'),
-									function (_p26) {
+									function (_p28) {
 										return A2(_elm_lang$core$Basics_ops['++'], '(', baseImgUrl);
 									},
 									theStr) : theStr;
@@ -23661,7 +23793,7 @@ var _user$project$Main$update = F2(
 						var additionalTextDict = A2(
 							_user$project$TypeConverterHelper$mbAttributeToDictStringString,
 							model.debugMode,
-							A3(_user$project$Engine$getInteractableAttribute, 'additionalTextDict', _p28, model.engineModel));
+							A3(_user$project$Engine$getInteractableAttribute, 'additionalTextDict', _p30, model.engineModel));
 						var isLastZip = function (val) {
 							return _elm_lang$core$Native_Utils.eq(
 								_wernerdegroot$listzipper$List_Zipper$next(val),
@@ -23683,7 +23815,7 @@ var _user$project$Main$update = F2(
 										A2(
 											_user$project$TypeConverterHelper$mbAttributeToString,
 											model.debugMode,
-											A3(_user$project$Engine$getInteractableAttribute, 'narrativeHeader', _p28, newEngineModel)))));
+											A3(_user$project$Engine$getInteractableAttribute, 'narrativeHeader', _p30, newEngineModel)))));
 						};
 						var getTheWrittenContent = function (languageId) {
 							return A2(
@@ -23700,7 +23832,7 @@ var _user$project$Main$update = F2(
 										A2(
 											_elm_lang$core$Maybe$withDefault,
 											'',
-											A2(_user$project$Engine$getItemWrittenContent, _p28, newEngineModel)))));
+											A2(_user$project$Engine$getItemWrittenContent, _p30, newEngineModel)))));
 						};
 						var wrapWithHeaderWrittenContentAndAdditionalText = F2(
 							function (lgId, mainContent) {
@@ -23747,15 +23879,15 @@ var _user$project$Main$update = F2(
 									A2(
 										_user$project$TypeConverterHelper$mbAttributeToDictStringString,
 										model.debugMode,
-										A3(_user$project$Engine$getInteractableAttribute, 'warningMessage', _p28, model.engineModel)))));
-						var maybeMatchedRuleId = _p29.mbMatchedRuleId;
+										A3(_user$project$Engine$getInteractableAttribute, 'warningMessage', _p30, model.engineModel)))));
+						var maybeMatchedRuleId = _p31.mbMatchedRuleId;
 						var narrativesForThisInteraction = {
 							interactableNames: A2(
 								_user$project$Components$getDictLgNames,
 								_user$project$OurStory_Narrative$desiredLanguages,
-								A2(_user$project$Main$findEntity, model, _p28)),
+								A2(_user$project$Main$findEntity, model, _p30)),
 							interactableCssSelector: _user$project$Components$getClassName(
-								A2(_user$project$Main$findEntity, model, _p28)),
+								A2(_user$project$Main$findEntity, model, _p30)),
 							narratives: function () {
 								var dict2 = A2(
 									_elm_lang$core$Dict$map,
@@ -23770,7 +23902,7 @@ var _user$project$Main$update = F2(
 									A2(
 										_user$project$Components$getDictLgDescriptions,
 										_user$project$OurStory_Narrative$desiredLanguages,
-										A2(_user$project$Main$findEntity, model, _p28)));
+										A2(_user$project$Main$findEntity, model, _p30)));
 								var dict1 = A2(
 									_elm_lang$core$Dict$map,
 									F2(
@@ -23842,9 +23974,9 @@ var _user$project$Main$update = F2(
 													'noName',
 													A2(_elm_lang$core$Dict$get, 'en', nfti.interactableNames)),
 												A2(_elm_lang$core$Dict$get, lgId, nfti.interactableNames)),
-											interactableId: _p28,
-											isWritable: A2(_user$project$Engine$isWritable, _p28, model.engineModel) && _elm_lang$core$Native_Utils.eq(
-												_p29.currentLocation,
+											interactableId: _p30,
+											isWritable: A2(_user$project$Engine$isWritable, _p30, model.engineModel) && _elm_lang$core$Native_Utils.eq(
+												_p31.currentLocation,
 												_user$project$Engine$getCurrentLocation(model.engineModel)),
 											interactableCssSelector: nfti.interactableCssSelector,
 											narrative: A2(
@@ -23878,8 +24010,8 @@ var _user$project$Main$update = F2(
 								llgssnippets);
 						}();
 						var getAlertMessage1 = function () {
-							var _p27 = A2(_elm_lang$core$Dict$get, displayLanguage, narrativesForThisInteraction.narratives);
-							if (_p27.ctor === 'Nothing') {
+							var _p29 = A2(_elm_lang$core$Dict$get, displayLanguage, narrativesForThisInteraction.narratives);
+							if (_p29.ctor === 'Nothing') {
 								return {
 									ctor: '::',
 									_0: 'No narrative content for this interaction in the current language. Maybe you want to try channging language !',
@@ -23913,7 +24045,7 @@ var _user$project$Main$update = F2(
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					case 'NewUserSubmitedText':
-						var newAnswerBoxModel = A2(_user$project$Theme_AnswerBox$update, _p8._0, model.answerBoxModel);
+						var newAnswerBoxModel = A2(_user$project$Theme_AnswerBox$update, _p9._0, model.answerBoxModel);
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
@@ -23924,7 +24056,7 @@ var _user$project$Main$update = F2(
 					case 'ChangeOptionDisplayLanguage':
 						var newSettingsModel = A2(
 							_user$project$Theme_Settings$update,
-							_user$project$ClientTypes$SetDisplayLanguage(_p8._0),
+							_user$project$ClientTypes$SetDisplayLanguage(_p9._0),
 							model.settingsModel);
 						return {
 							ctor: '_Tuple2',
@@ -23936,7 +24068,7 @@ var _user$project$Main$update = F2(
 					case 'ChangeOptionDontCheckGps':
 						var newSettingsModel = A2(
 							_user$project$Theme_Settings$update,
-							_user$project$ClientTypes$SetDontNeedToBeInZone(_p8._0),
+							_user$project$ClientTypes$SetDontNeedToBeInZone(_p9._0),
 							model.settingsModel);
 						return {
 							ctor: '_Tuple2',
@@ -23958,7 +24090,7 @@ var _user$project$Main$update = F2(
 					case 'ChangeOptionAudioAutoplay':
 						var newSettingsModel = A2(
 							_user$project$Theme_Settings$update,
-							_user$project$ClientTypes$SettingsChangeOptionAutoplay(_p8._0),
+							_user$project$ClientTypes$SettingsChangeOptionAutoplay(_p9._0),
 							model.settingsModel);
 						return {
 							ctor: '_Tuple2',
@@ -23970,7 +24102,7 @@ var _user$project$Main$update = F2(
 					case 'LayoutWithSideBar':
 						var newSettingsModel = A2(
 							_user$project$Theme_Settings$update,
-							_user$project$ClientTypes$SettingsLayoutWithSidebar(_p8._0),
+							_user$project$ClientTypes$SettingsLayoutWithSidebar(_p9._0),
 							model.settingsModel);
 						return {
 							ctor: '_Tuple2',
@@ -24006,13 +24138,13 @@ var _user$project$Main$update = F2(
 							_1: _user$project$Main$sendRequestForStoredHistory('')
 						};
 					case 'LoadHistory':
-						var _p31 = _p8._0;
-						var _p30 = _user$project$Main$init(
+						var _p33 = _p9._0;
+						var _p32 = _user$project$Main$init(
 							A2(_user$project$Main$Flags, model.baseImgUrl, model.baseSoundUrl));
-						var newModel = _p30._0;
-						var cmds = _p30._1;
+						var newModel = _p32._0;
+						var cmds = _p32._1;
 						var savedSettings = model.settingsModel;
-						var newlist = _user$project$Main$convertToListIdExtraInfo(_p31.lInteractions);
+						var newlist = _user$project$Main$convertToListIdExtraInfo(_p33.lInteractions);
 						var newModel_ = _elm_lang$core$Native_Utils.eq(
 							_elm_lang$core$List$length(newlist),
 							0) ? _elm_lang$core$Native_Utils.update(
@@ -24024,7 +24156,7 @@ var _user$project$Main$update = F2(
 							{
 								alertMessages: {ctor: '[]'}
 							});
-						var playerName = _p31.playerName;
+						var playerName = _p33.playerName;
 						return A3(
 							_ccapndave$elm_update_extra$Update_Extra$andThen,
 							_user$project$Main$update,
@@ -24035,34 +24167,34 @@ var _user$project$Main$update = F2(
 								_user$project$ClientTypes$StartMainGameNewPlayerName(playerName),
 								{ctor: '_Tuple2', _0: newModel_, _1: cmds}));
 					case 'ProcessLoadHistory':
-						var _p35 = _p8._1;
-						var _p32 = function () {
-							var _p33 = _p8._0;
-							if (_p33.ctor === '[]') {
+						var _p37 = _p9._1;
+						var _p34 = function () {
+							var _p35 = _p9._0;
+							if (_p35.ctor === '[]') {
 								return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 							} else {
-								var _p34 = _p33._0;
+								var _p36 = _p35._0;
 								return A3(
 									_ccapndave$elm_update_extra$Update_Extra$andThen,
 									_user$project$Main$update,
-									A2(_user$project$ClientTypes$ProcessLoadHistory, _p33._1, _p35),
+									A2(_user$project$ClientTypes$ProcessLoadHistory, _p35._1, _p37),
 									A3(
 										_ccapndave$elm_update_extra$Update_Extra$andThen,
 										_user$project$Main$update,
 										A2(
 											_user$project$ClientTypes$InteractStepTwo,
-											_elm_lang$core$Tuple$first(_p34),
-											_elm_lang$core$Tuple$second(_p34)),
+											_elm_lang$core$Tuple$first(_p36),
+											_elm_lang$core$Tuple$second(_p36)),
 										{ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none}));
 							}
 						}();
-						var newModel = _p32._0;
-						var cmds = _p32._1;
+						var newModel = _p34._0;
+						var cmds = _p34._1;
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
 								newModel,
-								{settingsModel: _p35}),
+								{settingsModel: _p37}),
 							_1: cmds
 						};
 					case 'ExitToFinalScreen':

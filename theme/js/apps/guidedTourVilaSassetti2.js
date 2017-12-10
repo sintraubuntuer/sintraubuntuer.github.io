@@ -11041,23 +11041,23 @@ var _evancz$elm_markdown$Markdown$Options = F4(
 		return {githubFlavored: a, defaultHighlighting: b, sanitize: c, smartypants: d};
 	});
 
-var _user$project$Types$Story = F7(
+var _sintraubuntuer$elm_game_narrative_starter$Types$Story = F7(
 	function (a, b, c, d, e, f, g) {
 		return {currentLocation: a, currentScene: b, history: c, manifest: d, rules: e, choiceLanguages: f, theEnd: g};
 	});
-var _user$project$Types$ItemData = F8(
+var _sintraubuntuer$elm_game_narrative_starter$Types$ItemData = F8(
 	function (a, b, c, d, e, f, g, h) {
 		return {interactableId: a, fixed: b, itemPlacement: c, isWritable: d, writtenContent: e, attributes: f, interactionErrors: g, interactionWarnings: h};
 	});
-var _user$project$Types$CharacterData = F5(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CharacterData = F5(
 	function (a, b, c, d, e) {
 		return {interactableId: a, characterPlacement: b, attributes: c, interactionErrors: d, interactionWarnings: e};
 	});
-var _user$project$Types$LocationData = F5(
+var _sintraubuntuer$elm_game_narrative_starter$Types$LocationData = F5(
 	function (a, b, c, d, e) {
 		return {interactableId: a, shown: b, attributes: c, interactionErrors: d, interactionWarnings: e};
 	});
-var _user$project$Types$AnswerInfo = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$AnswerInfo = function (a) {
 	return function (b) {
 		return function (c) {
 			return function (d) {
@@ -11078,322 +11078,328 @@ var _user$project$Types$AnswerInfo = function (a) {
 		};
 	};
 };
-var _user$project$Types$InteractionExtraInfo = F4(
-	function (a, b, c, d) {
-		return {mbInputText: a, geolocationInfoText: b, bkAnsStatus: c, mbMatchedRuleId: d};
+var _sintraubuntuer$elm_game_narrative_starter$Types$InteractionExtraInfo = F6(
+	function (a, b, c, d, e, f) {
+		return {mbInputText: a, mbInputTextForBackend: b, geolocationInfoText: c, currentLocation: d, bkAnsStatus: e, mbMatchedRuleId: f};
 	});
-var _user$project$Types$Rule_ = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Types$Rule_ = F3(
 	function (a, b, c) {
 		return {interaction: a, conditions: b, changes: c};
 	});
-var _user$project$Types$Rule = F4(
-	function (a, b, c, d) {
-		return {interaction: a, conditions: b, changes: c, quasiChanges: d};
+var _sintraubuntuer$elm_game_narrative_starter$Types$Rule = F5(
+	function (a, b, c, d, e) {
+		return {interaction: a, conditions: b, changes: c, quasiChanges: d, quasiChangeWithBkend: e};
 	});
-var _user$project$Types$CheckOptionData = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CheckOptionData = F4(
 	function (a, b, c, d) {
 		return {valueToMatch: a, successTextDict: b, lnewAttrs: c, lotherInterAttrs: d};
 	});
-var _user$project$Types$CheckAnswerData = F8(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CheckAnswerData = F8(
 	function (a, b, c, d, e, f, g, h) {
 		return {mbMaxNrTries: a, answerCase: b, answerSpaces: c, answerFeedback: d, correctAnsTextDict: e, incorrectAnsTextDict: f, lnewAttrs: g, lotherInterAttrs: h};
 	});
-var _user$project$Types$CheckBkendAnswerData = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CheckBkendAnswerData = F4(
 	function (a, b, c, d) {
 		return {mbMaxNrTries: a, answerFeedback: b, lnewAttrs: c, lotherInterAttrs: d};
 	});
-var _user$project$Types$TheEnd = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$TheEnd = F2(
 	function (a, b) {
 		return {ctor: 'TheEnd', _0: a, _1: b};
 	});
-var _user$project$Types$NotFreezingEnd = {ctor: 'NotFreezingEnd'};
-var _user$project$Types$FreezingEnd = {ctor: 'FreezingEnd'};
-var _user$project$Types$CharacterOffScreen = {ctor: 'CharacterOffScreen'};
-var _user$project$Types$CharacterInLocation = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$NotFreezingEnd = {ctor: 'NotFreezingEnd'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$FreezingEnd = {ctor: 'FreezingEnd'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$CharacterOffScreen = {ctor: 'CharacterOffScreen'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$CharacterInLocation = function (a) {
 	return {ctor: 'CharacterInLocation', _0: a};
 };
-var _user$project$Types$ItemOffScreen = {ctor: 'ItemOffScreen'};
-var _user$project$Types$ItemInInventory = {ctor: 'ItemInInventory'};
-var _user$project$Types$ItemInLocation = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$ItemOffScreen = {ctor: 'ItemOffScreen'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$ItemInInventory = {ctor: 'ItemInInventory'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$ItemInLocation = function (a) {
 	return {ctor: 'ItemInLocation', _0: a};
 };
-var _user$project$Types$IncorrectlyAnswered = {ctor: 'IncorrectlyAnswered'};
-var _user$project$Types$CorrectlyAnswered = {ctor: 'CorrectlyAnswered'};
-var _user$project$Types$NotAnswered = {ctor: 'NotAnswered'};
-var _user$project$Types$NotAnswerable = {ctor: 'NotAnswerable'};
-var _user$project$Types$Abool = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$IncorrectlyAnswered = {ctor: 'IncorrectlyAnswered'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$CorrectlyAnswered = {ctor: 'CorrectlyAnswered'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$NotAnswered = {ctor: 'NotAnswered'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$NotAnswerable = {ctor: 'NotAnswerable'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$Abool = function (a) {
 	return {ctor: 'Abool', _0: a};
 };
-var _user$project$Types$AnInt = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$AnInt = function (a) {
 	return {ctor: 'AnInt', _0: a};
 };
-var _user$project$Types$ADictStringLSS = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$ADictStringLSS = function (a) {
 	return {ctor: 'ADictStringLSS', _0: a};
 };
-var _user$project$Types$ADictStringString = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$ADictStringString = function (a) {
 	return {ctor: 'ADictStringString', _0: a};
 };
-var _user$project$Types$AListStringString = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$AListStringString = function (a) {
 	return {ctor: 'AListStringString', _0: a};
 };
-var _user$project$Types$AListString = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$AListString = function (a) {
 	return {ctor: 'AListString', _0: a};
 };
-var _user$project$Types$Astring = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$Astring = function (a) {
 	return {ctor: 'Astring', _0: a};
 };
-var _user$project$Types$Character = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$Character = function (a) {
 	return {ctor: 'Character', _0: a};
 };
-var _user$project$Types$Location = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$Location = function (a) {
 	return {ctor: 'Location', _0: a};
 };
-var _user$project$Types$Item = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$Item = function (a) {
 	return {ctor: 'Item', _0: a};
 };
-var _user$project$Types$CommunicationFailure = {ctor: 'CommunicationFailure'};
-var _user$project$Types$Ans = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$AnswerInfoToQuestionNeeded = function (a) {
+	return {ctor: 'AnswerInfoToQuestionNeeded', _0: a};
+};
+var _sintraubuntuer$elm_game_narrative_starter$Types$NoInfoNeeded = {ctor: 'NoInfoNeeded'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$CommunicationFailure = {ctor: 'CommunicationFailure'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$Ans = function (a) {
 	return {ctor: 'Ans', _0: a};
 };
-var _user$project$Types$WaitingForInfoRequested = {ctor: 'WaitingForInfoRequested'};
-var _user$project$Types$NoInfoYet = {ctor: 'NoInfoYet'};
-var _user$project$Types$With = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$WaitingForInfoRequested = {ctor: 'WaitingForInfoRequested'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$NoInfoYet = {ctor: 'NoInfoYet'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$With = function (a) {
 	return {ctor: 'With', _0: a};
 };
-var _user$project$Types$WithAnythingHighPriority = {ctor: 'WithAnythingHighPriority'};
-var _user$project$Types$WithAnythingAfterGameEnded = {ctor: 'WithAnythingAfterGameEnded'};
-var _user$project$Types$WithAnyLocationAnyCharacterAfterGameEnded = {ctor: 'WithAnyLocationAnyCharacterAfterGameEnded'};
-var _user$project$Types$WithAnyCharacter = {ctor: 'WithAnyCharacter'};
-var _user$project$Types$WithAnyLocation = {ctor: 'WithAnyLocation'};
-var _user$project$Types$WithAnyItem = {ctor: 'WithAnyItem'};
-var _user$project$Types$WithAnything = {ctor: 'WithAnything'};
-var _user$project$Types$ChoiceHasAlreadyBeenMade = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$WithAnythingHighPriority = {ctor: 'WithAnythingHighPriority'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$WithAnythingAfterGameEnded = {ctor: 'WithAnythingAfterGameEnded'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$WithAnyLocationAnyCharacterAfterGameEnded = {ctor: 'WithAnyLocationAnyCharacterAfterGameEnded'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$WithAnyCharacter = {ctor: 'WithAnyCharacter'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$WithAnyLocation = {ctor: 'WithAnyLocation'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$WithAnyItem = {ctor: 'WithAnyItem'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$WithAnything = {ctor: 'WithAnything'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$ChoiceHasAlreadyBeenMade = function (a) {
 	return {ctor: 'ChoiceHasAlreadyBeenMade', _0: a};
 };
-var _user$project$Types$NoChosenOptionYet = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$NoChosenOptionYet = function (a) {
 	return {ctor: 'NoChosenOptionYet', _0: a};
 };
-var _user$project$Types$ChosenOptionIsEqualTo = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$ChosenOptionIsEqualTo = F2(
 	function (a, b) {
 		return {ctor: 'ChosenOptionIsEqualTo', _0: a, _1: b};
 	});
-var _user$project$Types$AttrValueIsEqualTo = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Types$AttrValueIsEqualTo = F3(
 	function (a, b, c) {
 		return {ctor: 'AttrValueIsEqualTo', _0: a, _1: b, _2: c};
 	});
-var _user$project$Types$CounterGreaterThenOrEqualTo = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CounterGreaterThenOrEqualTo = F3(
 	function (a, b, c) {
 		return {ctor: 'CounterGreaterThenOrEqualTo', _0: a, _1: b, _2: c};
 	});
-var _user$project$Types$CounterLessThen = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CounterLessThen = F3(
 	function (a, b, c) {
 		return {ctor: 'CounterLessThen', _0: a, _1: b, _2: c};
 	});
-var _user$project$Types$CounterExists = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CounterExists = F2(
 	function (a, b) {
 		return {ctor: 'CounterExists', _0: a, _1: b};
 	});
-var _user$project$Types$CurrentSceneIs = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$CurrentSceneIs = function (a) {
 	return {ctor: 'CurrentSceneIs', _0: a};
 };
-var _user$project$Types$HasNotPreviouslyInteractedWith = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$HasNotPreviouslyInteractedWith = function (a) {
 	return {ctor: 'HasNotPreviouslyInteractedWith', _0: a};
 };
-var _user$project$Types$HasPreviouslyInteractedWith = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$HasPreviouslyInteractedWith = function (a) {
 	return {ctor: 'HasPreviouslyInteractedWith', _0: a};
 };
-var _user$project$Types$ItemIsNotCorrectlyAnswered = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsNotCorrectlyAnswered = function (a) {
 	return {ctor: 'ItemIsNotCorrectlyAnswered', _0: a};
 };
-var _user$project$Types$ItemIsCorrectlyAnswered = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsCorrectlyAnswered = function (a) {
 	return {ctor: 'ItemIsCorrectlyAnswered', _0: a};
 };
-var _user$project$Types$ItemIsInAnyLocationOrInventory = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsInAnyLocationOrInventory = function (a) {
 	return {ctor: 'ItemIsInAnyLocationOrInventory', _0: a};
 };
-var _user$project$Types$ItemIsOffScreen = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsOffScreen = function (a) {
 	return {ctor: 'ItemIsOffScreen', _0: a};
 };
-var _user$project$Types$ItemIsNotInLocation = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsNotInLocation = F2(
 	function (a, b) {
 		return {ctor: 'ItemIsNotInLocation', _0: a, _1: b};
 	});
-var _user$project$Types$ItemIsNotInInventory = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsNotInInventory = function (a) {
 	return {ctor: 'ItemIsNotInInventory', _0: a};
 };
-var _user$project$Types$ItemIsInLocation = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsInLocation = F2(
 	function (a, b) {
 		return {ctor: 'ItemIsInLocation', _0: a, _1: b};
 	});
-var _user$project$Types$CurrentLocationIsNot = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$CurrentLocationIsNot = function (a) {
 	return {ctor: 'CurrentLocationIsNot', _0: a};
 };
-var _user$project$Types$CurrentLocationIs = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$CurrentLocationIs = function (a) {
 	return {ctor: 'CurrentLocationIs', _0: a};
 };
-var _user$project$Types$CharacterIsNotInLocation = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CharacterIsNotInLocation = F2(
 	function (a, b) {
 		return {ctor: 'CharacterIsNotInLocation', _0: a, _1: b};
 	});
-var _user$project$Types$CharacterIsInLocation = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CharacterIsInLocation = F2(
 	function (a, b) {
 		return {ctor: 'CharacterIsInLocation', _0: a, _1: b};
 	});
-var _user$project$Types$ItemIsInInventory = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsInInventory = function (a) {
 	return {ctor: 'ItemIsInInventory', _0: a};
 };
-var _user$project$Types$ProcessChosenOptionEqualTo = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$ProcessChosenOptionEqualTo = F2(
 	function (a, b) {
 		return {ctor: 'ProcessChosenOptionEqualTo', _0: a, _1: b};
 	});
-var _user$project$Types$CheckAndActIfChosenOptionIs = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CheckAndActIfChosenOptionIs = F3(
 	function (a, b, c) {
 		return {ctor: 'CheckAndActIfChosenOptionIs', _0: a, _1: b, _2: c};
 	});
-var _user$project$Types$EndStory = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$EndStory = F2(
 	function (a, b) {
 		return {ctor: 'EndStory', _0: a, _1: b};
 	});
-var _user$project$Types$AddChoiceLanguage = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$AddChoiceLanguage = F2(
 	function (a, b) {
 		return {ctor: 'AddChoiceLanguage', _0: a, _1: b};
 	});
-var _user$project$Types$SetChoiceLanguages = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$SetChoiceLanguages = function (a) {
 	return {ctor: 'SetChoiceLanguages', _0: a};
 };
-var _user$project$Types$LoadScene = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$LoadScene = function (a) {
 	return {ctor: 'LoadScene', _0: a};
 };
-var _user$project$Types$MoveCharacterOffScreen = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$MoveCharacterOffScreen = function (a) {
 	return {ctor: 'MoveCharacterOffScreen', _0: a};
 };
-var _user$project$Types$MoveCharacterToLocation = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$MoveCharacterToLocation = F2(
 	function (a, b) {
 		return {ctor: 'MoveCharacterToLocation', _0: a, _1: b};
 	});
-var _user$project$Types$MoveItemOffScreen = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$MoveItemOffScreen = function (a) {
 	return {ctor: 'MoveItemOffScreen', _0: a};
 };
-var _user$project$Types$IncreaseCounter = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$IncreaseCounter = F2(
 	function (a, b) {
 		return {ctor: 'IncreaseCounter', _0: a, _1: b};
 	});
-var _user$project$Types$RemoveAttributeIfExists = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$RemoveAttributeIfExists = F2(
 	function (a, b) {
 		return {ctor: 'RemoveAttributeIfExists', _0: a, _1: b};
 	});
-var _user$project$Types$RemoveMultiChoiceOptions = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$RemoveMultiChoiceOptions = function (a) {
 	return {ctor: 'RemoveMultiChoiceOptions', _0: a};
 };
-var _user$project$Types$CreateAMultiChoice = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CreateAMultiChoice = F2(
 	function (a, b) {
 		return {ctor: 'CreateAMultiChoice', _0: a, _1: b};
 	});
-var _user$project$Types$CreateOrSetAttributeValueFromOtherInterAttr = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CreateOrSetAttributeValueFromOtherInterAttr = F4(
 	function (a, b, c, d) {
 		return {ctor: 'CreateOrSetAttributeValueFromOtherInterAttr', _0: a, _1: b, _2: c, _3: d};
 	});
-var _user$project$Types$CreateAttributeIfNotExistsAndOrSetValue = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CreateAttributeIfNotExistsAndOrSetValue = F3(
 	function (a, b, c) {
 		return {ctor: 'CreateAttributeIfNotExistsAndOrSetValue', _0: a, _1: b, _2: c};
 	});
-var _user$project$Types$SetAttributeValue = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Types$SetAttributeValue = F3(
 	function (a, b, c) {
 		return {ctor: 'SetAttributeValue', _0: a, _1: b, _2: c};
 	});
-var _user$project$Types$CreateAttributeIfNotExists = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CreateAttributeIfNotExists = F3(
 	function (a, b, c) {
 		return {ctor: 'CreateAttributeIfNotExists', _0: a, _1: b, _2: c};
 	});
-var _user$project$Types$CreateCounterIfNotExists = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CreateCounterIfNotExists = F2(
 	function (a, b) {
 		return {ctor: 'CreateCounterIfNotExists', _0: a, _1: b};
 	});
-var _user$project$Types$CheckIfAnswerCorrect = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CheckIfAnswerCorrect = F4(
 	function (a, b, c, d) {
 		return {ctor: 'CheckIfAnswerCorrect', _0: a, _1: b, _2: c, _3: d};
 	});
-var _user$project$Types$ClearWrittenText = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$ClearWrittenText = function (a) {
 	return {ctor: 'ClearWrittenText', _0: a};
 };
-var _user$project$Types$WriteGpsLocInfoToItem = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$WriteGpsLocInfoToItem = F2(
 	function (a, b) {
 		return {ctor: 'WriteGpsLocInfoToItem', _0: a, _1: b};
 	});
-var _user$project$Types$WriteForceTextToItemFromGivenItemAttr = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Types$WriteForceTextToItemFromGivenItemAttr = F3(
 	function (a, b, c) {
 		return {ctor: 'WriteForceTextToItemFromGivenItemAttr', _0: a, _1: b, _2: c};
 	});
-var _user$project$Types$WriteTextToItem = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$WriteTextToItem = F2(
 	function (a, b) {
 		return {ctor: 'WriteTextToItem', _0: a, _1: b};
 	});
-var _user$project$Types$MakeItUnanswerable = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$MakeItUnanswerable = function (a) {
 	return {ctor: 'MakeItUnanswerable', _0: a};
 };
-var _user$project$Types$MakeItemUnwritable = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$MakeItemUnwritable = function (a) {
 	return {ctor: 'MakeItemUnwritable', _0: a};
 };
-var _user$project$Types$MakeItemWritable = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$MakeItemWritable = function (a) {
 	return {ctor: 'MakeItemWritable', _0: a};
 };
-var _user$project$Types$MoveItemToInventory = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$MoveItemToInventory = function (a) {
 	return {ctor: 'MoveItemToInventory', _0: a};
 };
-var _user$project$Types$MoveItemToLocation = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$MoveItemToLocation = F2(
 	function (a, b) {
 		return {ctor: 'MoveItemToLocation', _0: a, _1: b};
 	});
-var _user$project$Types$MoveItemToLocationFixed = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$MoveItemToLocationFixed = F2(
 	function (a, b) {
 		return {ctor: 'MoveItemToLocationFixed', _0: a, _1: b};
 	});
-var _user$project$Types$RemoveChooseOptions = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$RemoveChooseOptions = function (a) {
 	return {ctor: 'RemoveChooseOptions', _0: a};
 };
-var _user$project$Types$RemoveLocation = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$RemoveLocation = function (a) {
 	return {ctor: 'RemoveLocation', _0: a};
 };
-var _user$project$Types$AddLocation = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$AddLocation = function (a) {
 	return {ctor: 'AddLocation', _0: a};
 };
-var _user$project$Types$MoveTo = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$MoveTo = function (a) {
 	return {ctor: 'MoveTo', _0: a};
 };
-var _user$project$Types$NoChange = {ctor: 'NoChange'};
-var _user$project$Types$Write_InputTextToItem = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$NoChange = {ctor: 'NoChange'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$Write_InputTextToItem = function (a) {
 	return {ctor: 'Write_InputTextToItem', _0: a};
 };
-var _user$project$Types$Write_GpsInfoToItem = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Types$Write_GpsInfoToItem = function (a) {
 	return {ctor: 'Write_GpsInfoToItem', _0: a};
 };
-var _user$project$Types$CheckAndAct_IfChosenOptionIs = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Types$CheckAndAct_IfChosenOptionIs = F2(
 	function (a, b) {
 		return {ctor: 'CheckAndAct_IfChosenOptionIs', _0: a, _1: b};
 	});
-var _user$project$Types$Check_IfAnswerCorrect = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Types$Check_IfAnswerCorrect = F3(
 	function (a, b, c) {
 		return {ctor: 'Check_IfAnswerCorrect', _0: a, _1: b, _2: c};
 	});
-var _user$project$Types$Check_IfAnswerCorrectUsingBackend = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Types$NoQuasiChange = {ctor: 'NoQuasiChange'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$Check_IfAnswerCorrectUsingBackend = F3(
 	function (a, b, c) {
 		return {ctor: 'Check_IfAnswerCorrectUsingBackend', _0: a, _1: b, _2: c};
 	});
-var _user$project$Types$HeaderAnswerAndCorrectIncorrect = {ctor: 'HeaderAnswerAndCorrectIncorrect'};
-var _user$project$Types$HeaderAndAnswer = {ctor: 'HeaderAndAnswer'};
-var _user$project$Types$JustPlayerAnswer = {ctor: 'JustPlayerAnswer'};
-var _user$project$Types$JustHeader = {ctor: 'JustHeader'};
-var _user$project$Types$NoFeedback = {ctor: 'NoFeedback'};
-var _user$project$Types$CaseInsensitiveAnswer = {ctor: 'CaseInsensitiveAnswer'};
-var _user$project$Types$CaseSensitiveAnswer = {ctor: 'CaseSensitiveAnswer'};
-var _user$project$Types$AnswerSpacesDontMatter = {ctor: 'AnswerSpacesDontMatter'};
-var _user$project$Types$AnswerSpacesMatter = {ctor: 'AnswerSpacesMatter'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$NoQuasiChangeWithBackend = {ctor: 'NoQuasiChangeWithBackend'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$HeaderAnswerAndCorrectIncorrect = {ctor: 'HeaderAnswerAndCorrectIncorrect'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$HeaderAndAnswer = {ctor: 'HeaderAndAnswer'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$JustPlayerAnswer = {ctor: 'JustPlayerAnswer'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$JustHeader = {ctor: 'JustHeader'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$NoFeedback = {ctor: 'NoFeedback'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$CaseInsensitiveAnswer = {ctor: 'CaseInsensitiveAnswer'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$CaseSensitiveAnswer = {ctor: 'CaseSensitiveAnswer'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$AnswerSpacesDontMatter = {ctor: 'AnswerSpacesDontMatter'};
+var _sintraubuntuer$elm_game_narrative_starter$Types$AnswerSpacesMatter = {ctor: 'AnswerSpacesMatter'};
 
-var _user$project$ClientTypes$SaveHistoryRecord = F4(
-	function (a, b, c, d) {
-		return {interactableId: a, inputText: b, geolocationInfoText: c, mbMatchedRuleId: d};
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$SaveHistoryRecord = F6(
+	function (a, b, c, d, e, f) {
+		return {interactableId: a, inputText: b, inputTextForBackend: c, geolocationInfoText: d, currentLocation: e, mbMatchedRuleId: f};
 	});
-var _user$project$ClientTypes$SettingsModel = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$SettingsModel = function (a) {
 	return function (b) {
 		return function (c) {
 			return function (d) {
@@ -11418,110 +11424,110 @@ var _user$project$ClientTypes$SettingsModel = function (a) {
 		};
 	};
 };
-var _user$project$ClientTypes$AudioFileInfo = F3(
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$AudioFileInfo = F3(
 	function (a, b, c) {
 		return {displayName: a, fileName: b, mbAbsoluteUrl: c};
 	});
-var _user$project$ClientTypes$StorySnippet = F9(
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$StorySnippet = F9(
 	function (a, b, c, d, e, f, g, h, i) {
 		return {interactableName: a, interactableId: b, isWritable: c, interactableCssSelector: d, narrative: e, mbAudio: f, mbSuggestedInteractionId: g, mbSuggestedInteractionName: h, isLastInZipper: i};
 	});
-var _user$project$ClientTypes$LanguageStorySnippets = F3(
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$LanguageStorySnippets = F3(
 	function (a, b, c) {
 		return {interactableName: a, interactableCssSelector: b, narrativesDict: c};
 	});
-var _user$project$ClientTypes$GpsZone = F4(
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$GpsZone = F4(
 	function (a, b, c, d) {
 		return {needsToBeIn: a, lat: b, lon: c, mbRadius: d};
 	});
-var _user$project$ClientTypes$StartScreenInfo = F6(
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$StartScreenInfo = F6(
 	function (a, b, c, d, e, f) {
 		return {mainImage: a, title_line1: b, title_line2: c, byLine: d, smallIntro: e, tboxNamePlaceholder: f};
 	});
-var _user$project$ClientTypes$EndScreenInfo = F4(
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$EndScreenInfo = F4(
 	function (a, b, c, d) {
 		return {mainImage: a, congratsMessage1: b, congratsMessage2: c, endScreenText: d};
 	});
-var _user$project$ClientTypes$Loaded = {ctor: 'Loaded'};
-var _user$project$ClientTypes$ExitToFinalScreen = {ctor: 'ExitToFinalScreen'};
-var _user$project$ClientTypes$ProcessLoadHistory = F2(
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$Loaded = {ctor: 'Loaded'};
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$ExitToFinalScreen = {ctor: 'ExitToFinalScreen'};
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$ProcessLoadHistory = F2(
 	function (a, b) {
 		return {ctor: 'ProcessLoadHistory', _0: a, _1: b};
 	});
-var _user$project$ClientTypes$LoadHistory = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$LoadHistory = function (a) {
 	return {ctor: 'LoadHistory', _0: a};
 };
-var _user$project$ClientTypes$RequestForStoredHistory = {ctor: 'RequestForStoredHistory'};
-var _user$project$ClientTypes$SaveHistory = {ctor: 'SaveHistory'};
-var _user$project$ClientTypes$ToggleShowHideSaveLoadBtns = {ctor: 'ToggleShowHideSaveLoadBtns'};
-var _user$project$ClientTypes$LayoutWithSideBar = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$RequestForStoredHistory = {ctor: 'RequestForStoredHistory'};
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$SaveHistory = {ctor: 'SaveHistory'};
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$ToggleShowHideSaveLoadBtns = {ctor: 'ToggleShowHideSaveLoadBtns'};
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$LayoutWithSideBar = function (a) {
 	return {ctor: 'LayoutWithSideBar', _0: a};
 };
-var _user$project$ClientTypes$ChangeOptionAudioAutoplay = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$ChangeOptionAudioAutoplay = function (a) {
 	return {ctor: 'ChangeOptionAudioAutoplay', _0: a};
 };
-var _user$project$ClientTypes$ToggleShowExpandedSettings = {ctor: 'ToggleShowExpandedSettings'};
-var _user$project$ClientTypes$CloseAlert = {ctor: 'CloseAlert'};
-var _user$project$ClientTypes$NotInTheZone = F4(
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$ToggleShowExpandedSettings = {ctor: 'ToggleShowExpandedSettings'};
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$CloseAlert = {ctor: 'CloseAlert'};
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$NotInTheZone = F4(
 	function (a, b, c, d) {
 		return {ctor: 'NotInTheZone', _0: a, _1: b, _2: c, _3: d};
 	});
-var _user$project$ClientTypes$NewCoordsForInterId = F5(
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$NewCoordsForInterId = F5(
 	function (a, b, c, d, e) {
 		return {ctor: 'NewCoordsForInterId', _0: a, _1: b, _2: c, _3: d, _4: e};
 	});
-var _user$project$ClientTypes$ChangeOptionDontCheckGps = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$ChangeOptionDontCheckGps = function (a) {
 	return {ctor: 'ChangeOptionDontCheckGps', _0: a};
 };
-var _user$project$ClientTypes$ChangeOptionDisplayLanguage = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$ChangeOptionDisplayLanguage = function (a) {
 	return {ctor: 'ChangeOptionDisplayLanguage', _0: a};
 };
-var _user$project$ClientTypes$NewUserSubmitedText = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$NewUserSubmitedText = function (a) {
 	return {ctor: 'NewUserSubmitedText', _0: a};
 };
-var _user$project$ClientTypes$AnswerChecked = F3(
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$AnswerChecked = F3(
 	function (a, b, c) {
 		return {ctor: 'AnswerChecked', _0: a, _1: b, _2: c};
 	});
-var _user$project$ClientTypes$InteractStepThree = F2(
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$InteractStepThree = F2(
 	function (a, b) {
 		return {ctor: 'InteractStepThree', _0: a, _1: b};
 	});
-var _user$project$ClientTypes$InteractStepTwo = F2(
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$InteractStepTwo = F2(
 	function (a, b) {
 		return {ctor: 'InteractStepTwo', _0: a, _1: b};
 	});
-var _user$project$ClientTypes$Interact = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$Interact = function (a) {
 	return {ctor: 'Interact', _0: a};
 };
-var _user$project$ClientTypes$InteractSendingText = F2(
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$InteractSendingText = F2(
 	function (a, b) {
 		return {ctor: 'InteractSendingText', _0: a, _1: b};
 	});
-var _user$project$ClientTypes$StartMainGameNewPlayerName = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$StartMainGameNewPlayerName = function (a) {
 	return {ctor: 'StartMainGameNewPlayerName', _0: a};
 };
-var _user$project$ClientTypes$StartMainGame = {ctor: 'StartMainGame'};
-var _user$project$ClientTypes$SettingsShowExitToFinalScreenButton = {ctor: 'SettingsShowExitToFinalScreenButton'};
-var _user$project$ClientTypes$SettingsLayoutWithSidebar = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$StartMainGame = {ctor: 'StartMainGame'};
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$SettingsShowExitToFinalScreenButton = {ctor: 'SettingsShowExitToFinalScreenButton'};
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$SettingsLayoutWithSidebar = function (a) {
 	return {ctor: 'SettingsLayoutWithSidebar', _0: a};
 };
-var _user$project$ClientTypes$SettingsToggleShowHideSaveLoadBtns = {ctor: 'SettingsToggleShowHideSaveLoadBtns'};
-var _user$project$ClientTypes$SettingsChangeOptionAutoplay = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$SettingsToggleShowHideSaveLoadBtns = {ctor: 'SettingsToggleShowHideSaveLoadBtns'};
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$SettingsChangeOptionAutoplay = function (a) {
 	return {ctor: 'SettingsChangeOptionAutoplay', _0: a};
 };
-var _user$project$ClientTypes$SettingsToggleShowExpanded = {ctor: 'SettingsToggleShowExpanded'};
-var _user$project$ClientTypes$SetAvailableLanguages = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$SettingsToggleShowExpanded = {ctor: 'SettingsToggleShowExpanded'};
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$SetAvailableLanguages = function (a) {
 	return {ctor: 'SetAvailableLanguages', _0: a};
 };
-var _user$project$ClientTypes$SetDisplayLanguage = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$SetDisplayLanguage = function (a) {
 	return {ctor: 'SetDisplayLanguage', _0: a};
 };
-var _user$project$ClientTypes$SetDontNeedToBeInZone = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$ClientTypes$SetDontNeedToBeInZone = function (a) {
 	return {ctor: 'SetDontNeedToBeInZone', _0: a};
 };
 
-var _user$project$Engine_Manifest$eliminateAllWhiteSpaces = function (theStr) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$eliminateAllWhiteSpaces = function (theStr) {
 	return A4(
 		_elm_lang$core$Regex$replace,
 		_elm_lang$core$Regex$All,
@@ -11531,25 +11537,25 @@ var _user$project$Engine_Manifest$eliminateAllWhiteSpaces = function (theStr) {
 		},
 		theStr);
 };
-var _user$project$Engine_Manifest$comparesEqual = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$comparesEqual = F4(
 	function (str1, str2, ansCase, ansSpaces) {
-		var _p1 = _elm_lang$core$Native_Utils.eq(ansCase, _user$project$Types$CaseInsensitiveAnswer) ? {
+		var _p1 = _elm_lang$core$Native_Utils.eq(ansCase, _sintraubuntuer$elm_game_narrative_starter$Types$CaseInsensitiveAnswer) ? {
 			ctor: '_Tuple2',
 			_0: _elm_lang$core$String$toLower(str1),
 			_1: _elm_lang$core$String$toLower(str2)
 		} : {ctor: '_Tuple2', _0: str1, _1: str2};
 		var str1_ = _p1._0;
 		var str2_ = _p1._1;
-		var _p2 = _elm_lang$core$Native_Utils.eq(ansSpaces, _user$project$Types$AnswerSpacesDontMatter) ? {
+		var _p2 = _elm_lang$core$Native_Utils.eq(ansSpaces, _sintraubuntuer$elm_game_narrative_starter$Types$AnswerSpacesDontMatter) ? {
 			ctor: '_Tuple2',
-			_0: _user$project$Engine_Manifest$eliminateAllWhiteSpaces(str1_),
-			_1: _user$project$Engine_Manifest$eliminateAllWhiteSpaces(str2_)
+			_0: _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$eliminateAllWhiteSpaces(str1_),
+			_1: _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$eliminateAllWhiteSpaces(str2_)
 		} : {ctor: '_Tuple2', _0: str1_, _1: str2_};
 		var str1Alt = _p2._0;
 		var str2Alt = _p2._1;
 		return _elm_lang$core$Native_Utils.eq(str1Alt, str2Alt) ? true : false;
 	});
-var _user$project$Engine_Manifest$comparesEqualToAtLeastOne = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$comparesEqualToAtLeastOne = F4(
 	function (str1, lstrs, ansCase, ansSpaces) {
 		return !_elm_lang$core$List$isEmpty(
 			A2(
@@ -11560,11 +11566,11 @@ var _user$project$Engine_Manifest$comparesEqualToAtLeastOne = F4(
 				A2(
 					_elm_lang$core$List$map,
 					function (x) {
-						return A4(_user$project$Engine_Manifest$comparesEqual, str1, x, ansCase, ansSpaces);
+						return A4(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$comparesEqual, str1, x, ansCase, ansSpaces);
 					},
 					lstrs)));
 	});
-var _user$project$Engine_Manifest$getReservedAttrIds = {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getReservedAttrIds = {
 	ctor: '::',
 	_0: 'playerAnswer',
 	_1: {
@@ -11593,7 +11599,7 @@ var _user$project$Engine_Manifest$getReservedAttrIds = {
 		}
 	}
 };
-var _user$project$Engine_Manifest$getInteractableAttribute = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getInteractableAttribute = F2(
 	function (attrId, mbinteractable) {
 		var _p3 = mbinteractable;
 		if (_p3.ctor === 'Just') {
@@ -11609,7 +11615,7 @@ var _user$project$Engine_Manifest$getInteractableAttribute = F2(
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$setAttributeValue = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$setAttributeValue = F3(
 	function (attrValue, attrId, mbinteractable) {
 		var getNewDataRecord = F3(
 			function (theattrValue, theattrId, dataRecord) {
@@ -11637,22 +11643,22 @@ var _user$project$Engine_Manifest$setAttributeValue = F3(
 			switch (_p6._0.ctor) {
 				case 'Item':
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Item(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 							A3(getNewDataRecord, attrValue, attrId, _p6._0._0)));
 				case 'Character':
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Character(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Character(
 							A3(getNewDataRecord, attrValue, attrId, _p6._0._0)));
 				default:
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Location(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Location(
 							A3(getNewDataRecord, attrValue, attrId, _p6._0._0)));
 			}
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$attrValueIsEqualTo = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$attrValueIsEqualTo = F4(
 	function (attrValue, attrId, interactableId, manifest) {
 		var _p7 = A2(_elm_lang$core$Dict$get, interactableId, manifest);
 		if (_p7.ctor === 'Nothing') {
@@ -11675,7 +11681,7 @@ var _user$project$Engine_Manifest$attrValueIsEqualTo = F4(
 			}
 		}
 	});
-var _user$project$Engine_Manifest$convertMbAttrTypeToMbInt = function (mbanint) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$convertMbAttrTypeToMbInt = function (mbanint) {
 	var _p9 = mbanint;
 	if (_p9.ctor === 'Nothing') {
 		return _elm_lang$core$Maybe$Nothing;
@@ -11688,25 +11694,25 @@ var _user$project$Engine_Manifest$convertMbAttrTypeToMbInt = function (mbanint) 
 		}
 	}
 };
-var _user$project$Engine_Manifest$getICounterValue = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getICounterValue = F2(
 	function (counterId, mbInteractable) {
 		var _p11 = mbInteractable;
 		if (_p11.ctor === 'Just') {
 			switch (_p11._0.ctor) {
 				case 'Item':
-					return _user$project$Engine_Manifest$convertMbAttrTypeToMbInt(
+					return _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$convertMbAttrTypeToMbInt(
 						A2(
 							_elm_lang$core$Dict$get,
 							A2(_elm_lang$core$Basics_ops['++'], 'counter_', counterId),
 							_p11._0._0.attributes));
 				case 'Character':
-					return _user$project$Engine_Manifest$convertMbAttrTypeToMbInt(
+					return _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$convertMbAttrTypeToMbInt(
 						A2(
 							_elm_lang$core$Dict$get,
 							A2(_elm_lang$core$Basics_ops['++'], 'counter_', counterId),
 							_p11._0._0.attributes));
 				default:
-					return _user$project$Engine_Manifest$convertMbAttrTypeToMbInt(
+					return _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$convertMbAttrTypeToMbInt(
 						A2(
 							_elm_lang$core$Dict$get,
 							A2(_elm_lang$core$Basics_ops['++'], 'counter_', counterId),
@@ -11716,14 +11722,14 @@ var _user$project$Engine_Manifest$getICounterValue = F2(
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$getCounterValue = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getCounterValue = F3(
 	function (counterId, interId, manifest) {
 		return A2(
-			_user$project$Engine_Manifest$getICounterValue,
+			_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getICounterValue,
 			counterId,
 			A2(_elm_lang$core$Dict$get, interId, manifest));
 	});
-var _user$project$Engine_Manifest$counterLessThen = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$counterLessThen = F4(
 	function (val, counterId, interId, manifest) {
 		var helperFunc = F2(
 			function (theCounterId, dataRecord) {
@@ -11756,7 +11762,7 @@ var _user$project$Engine_Manifest$counterLessThen = F4(
 			return false;
 		}
 	});
-var _user$project$Engine_Manifest$counterExists = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$counterExists = F3(
 	function (counterId, interId, manifest) {
 		var helperFunc = F2(
 			function (theCounterId, dataRecord) {
@@ -11784,11 +11790,11 @@ var _user$project$Engine_Manifest$counterExists = F3(
 			return false;
 		}
 	});
-var _user$project$Engine_Manifest$counterGreaterThenOrEqualTo = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$counterGreaterThenOrEqualTo = F4(
 	function (val, counterId, interId, manifest) {
-		return A3(_user$project$Engine_Manifest$counterExists, counterId, interId, manifest) && (!A4(_user$project$Engine_Manifest$counterLessThen, val, counterId, interId, manifest));
+		return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$counterExists, counterId, interId, manifest) && (!A4(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$counterLessThen, val, counterId, interId, manifest));
 	});
-var _user$project$Engine_Manifest$itemIsInAnyLocationOrInventory = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsInAnyLocationOrInventory = F2(
 	function (id, manifest) {
 		var _p17 = A2(_elm_lang$core$Dict$get, id, manifest);
 		if (_p17.ctor === 'Just') {
@@ -11810,13 +11816,13 @@ var _user$project$Engine_Manifest$itemIsInAnyLocationOrInventory = F2(
 			return false;
 		}
 	});
-var _user$project$Engine_Manifest$itemIsOffScreen = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsOffScreen = F2(
 	function (id, manifest) {
 		var _p20 = A2(_elm_lang$core$Dict$get, id, manifest);
 		if (_p20.ctor === 'Just') {
 			var _p21 = _p20._0;
 			if (_p21.ctor === 'Item') {
-				return _elm_lang$core$Native_Utils.eq(_p21._0.itemPlacement, _user$project$Types$ItemOffScreen) ? true : false;
+				return _elm_lang$core$Native_Utils.eq(_p21._0.itemPlacement, _sintraubuntuer$elm_game_narrative_starter$Types$ItemOffScreen) ? true : false;
 			} else {
 				return false;
 			}
@@ -11824,33 +11830,33 @@ var _user$project$Engine_Manifest$itemIsOffScreen = F2(
 			return false;
 		}
 	});
-var _user$project$Engine_Manifest$itemIsIncorrectlyAnswered = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsIncorrectlyAnswered = F2(
 	function (id, manifest) {
 		return A4(
-			_user$project$Engine_Manifest$attrValueIsEqualTo,
-			_user$project$Types$Abool(true),
+			_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$attrValueIsEqualTo,
+			_sintraubuntuer$elm_game_narrative_starter$Types$Abool(true),
 			'isIncorrectlyAnswered',
 			id,
 			manifest);
 	});
-var _user$project$Engine_Manifest$itemIsCorrectlyAnswered = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsCorrectlyAnswered = F2(
 	function (id, manifest) {
 		return A4(
-			_user$project$Engine_Manifest$attrValueIsEqualTo,
-			_user$project$Types$Abool(true),
+			_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$attrValueIsEqualTo,
+			_sintraubuntuer$elm_game_narrative_starter$Types$Abool(true),
 			'isCorrectlyAnswered',
 			id,
 			manifest);
 	});
-var _user$project$Engine_Manifest$itemIsNotCorrectlyAnswered = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsNotCorrectlyAnswered = F2(
 	function (id, manifest) {
-		return !A2(_user$project$Engine_Manifest$itemIsCorrectlyAnswered, id, manifest);
+		return !A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsCorrectlyAnswered, id, manifest);
 	});
-var _user$project$Engine_Manifest$itemIsNotAnswered = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsNotAnswered = F2(
 	function (id, manifest) {
-		return (!A2(_user$project$Engine_Manifest$itemIsCorrectlyAnswered, id, manifest)) && (!A2(_user$project$Engine_Manifest$itemIsIncorrectlyAnswered, id, manifest));
+		return (!A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsCorrectlyAnswered, id, manifest)) && (!A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsIncorrectlyAnswered, id, manifest));
 	});
-var _user$project$Engine_Manifest$getItemWrittenContent = function (mbInteractable) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getItemWrittenContent = function (mbInteractable) {
 	var _p22 = mbInteractable;
 	if ((_p22.ctor === 'Just') && (_p22._0.ctor === 'Item')) {
 		return _p22._0._0.writtenContent;
@@ -11858,7 +11864,7 @@ var _user$project$Engine_Manifest$getItemWrittenContent = function (mbInteractab
 		return _elm_lang$core$Maybe$Nothing;
 	}
 };
-var _user$project$Engine_Manifest$clearInteractionIncidents = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$clearInteractionIncidents = F2(
 	function (incidentType, mbInteractable) {
 		var clearHelper = F2(
 			function (theIncidentType, dataRecord) {
@@ -11877,22 +11883,22 @@ var _user$project$Engine_Manifest$clearInteractionIncidents = F2(
 			switch (_p23._0.ctor) {
 				case 'Item':
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Item(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 							A2(clearHelper, incidentType, _p23._0._0)));
 				case 'Character':
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Character(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Character(
 							A2(clearHelper, incidentType, _p23._0._0)));
 				default:
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Location(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Location(
 							A2(clearHelper, incidentType, _p23._0._0)));
 			}
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$writeInteractionIncident = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident = F3(
 	function (incidentType, incidentStr, mbInteractable) {
 		var writeHelper = F3(
 			function (theIncidentType, theIncidentStr, dataRecord) {
@@ -11915,22 +11921,22 @@ var _user$project$Engine_Manifest$writeInteractionIncident = F3(
 			switch (_p24._0.ctor) {
 				case 'Item':
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Item(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 							A3(writeHelper, incidentType, incidentStr, _p24._0._0)));
 				case 'Character':
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Character(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Character(
 							A3(writeHelper, incidentType, incidentStr, _p24._0._0)));
 				default:
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Location(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Location(
 							A3(writeHelper, incidentType, incidentStr, _p24._0._0)));
 			}
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$addLocation = function (mbInteractable) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$addLocation = function (mbInteractable) {
 	var _p25 = mbInteractable;
 	if (_p25.ctor === 'Just') {
 		if (_p25._0.ctor === 'Location') {
@@ -11938,15 +11944,15 @@ var _user$project$Engine_Manifest$addLocation = function (mbInteractable) {
 				_p25._0._0,
 				{shown: true});
 			return _elm_lang$core$Maybe$Just(
-				_user$project$Types$Location(newldata));
+				_sintraubuntuer$elm_game_narrative_starter$Types$Location(newldata));
 		} else {
-			return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use addLocation function with an interactable that is not a Location ! ', mbInteractable);
+			return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use addLocation function with an interactable that is not a Location ! ', mbInteractable);
 		}
 	} else {
 		return _elm_lang$core$Maybe$Nothing;
 	}
 };
-var _user$project$Engine_Manifest$removeLocation = function (mbInteractable) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeLocation = function (mbInteractable) {
 	var _p26 = mbInteractable;
 	if (_p26.ctor === 'Just') {
 		if (_p26._0.ctor === 'Location') {
@@ -11954,146 +11960,146 @@ var _user$project$Engine_Manifest$removeLocation = function (mbInteractable) {
 				_p26._0._0,
 				{shown: false});
 			return _elm_lang$core$Maybe$Just(
-				_user$project$Types$Location(newldata));
+				_sintraubuntuer$elm_game_narrative_starter$Types$Location(newldata));
 		} else {
-			return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use removeLocation function with an interactable that is not a Location ! ', mbInteractable);
+			return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use removeLocation function with an interactable that is not a Location ! ', mbInteractable);
 		}
 	} else {
 		return _elm_lang$core$Maybe$Nothing;
 	}
 };
-var _user$project$Engine_Manifest$moveItemToInventory = function (mbInteractable) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$moveItemToInventory = function (mbInteractable) {
 	var _p27 = mbInteractable;
 	if (_p27.ctor === 'Just') {
 		if (_p27._0.ctor === 'Item') {
 			var _p28 = _p27._0._0;
 			return (!_p28.fixed) ? _elm_lang$core$Maybe$Just(
-				_user$project$Types$Item(
+				_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 					_elm_lang$core$Native_Utils.update(
 						_p28,
-						{itemPlacement: _user$project$Types$ItemInInventory}))) : A3(_user$project$Engine_Manifest$writeInteractionIncident, 'warning', 'Trying to use moveItemToInventory function with an interactable that is an Item fixed to a Location . Can\'t be moved ! ', mbInteractable);
+						{itemPlacement: _sintraubuntuer$elm_game_narrative_starter$Types$ItemInInventory}))) : A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'warning', 'Trying to use moveItemToInventory function with an interactable that is an Item fixed to a Location . Can\'t be moved ! ', mbInteractable);
 		} else {
-			return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use moveItemToInventory function with an interactable that is not an Item ! ', mbInteractable);
+			return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use moveItemToInventory function with an interactable that is not an Item ! ', mbInteractable);
 		}
 	} else {
 		return _elm_lang$core$Maybe$Nothing;
 	}
 };
-var _user$project$Engine_Manifest$moveItemOffScreen = function (mbInteractable) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$moveItemOffScreen = function (mbInteractable) {
 	var _p29 = mbInteractable;
 	if (_p29.ctor === 'Just') {
 		if (_p29._0.ctor === 'Item') {
 			return _elm_lang$core$Maybe$Just(
-				_user$project$Types$Item(
+				_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 					_elm_lang$core$Native_Utils.update(
 						_p29._0._0,
-						{fixed: false, itemPlacement: _user$project$Types$ItemOffScreen})));
+						{fixed: false, itemPlacement: _sintraubuntuer$elm_game_narrative_starter$Types$ItemOffScreen})));
 		} else {
-			return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use moveItemOffScreen function with an interactable that is not an Item ! ', mbInteractable);
+			return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use moveItemOffScreen function with an interactable that is not an Item ! ', mbInteractable);
 		}
 	} else {
 		return _elm_lang$core$Maybe$Nothing;
 	}
 };
-var _user$project$Engine_Manifest$moveItemToLocationFixed = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$moveItemToLocationFixed = F2(
 	function (locationId, mbInteractable) {
 		var _p30 = mbInteractable;
 		if (_p30.ctor === 'Just') {
 			if (_p30._0.ctor === 'Item') {
 				return _elm_lang$core$Maybe$Just(
-					_user$project$Types$Item(
+					_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 						_elm_lang$core$Native_Utils.update(
 							_p30._0._0,
 							{
 								fixed: true,
-								itemPlacement: _user$project$Types$ItemInLocation(locationId)
+								itemPlacement: _sintraubuntuer$elm_game_narrative_starter$Types$ItemInLocation(locationId)
 							})));
 			} else {
-				return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use moveItemToLocationFixed function with an interactable that is not an Item ! ', mbInteractable);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use moveItemToLocationFixed function with an interactable that is not an Item ! ', mbInteractable);
 			}
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$moveItemToLocation = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$moveItemToLocation = F2(
 	function (locationId, mbInteractable) {
 		var _p31 = mbInteractable;
 		if (_p31.ctor === 'Just') {
 			if (_p31._0.ctor === 'Item') {
 				return _elm_lang$core$Maybe$Just(
-					_user$project$Types$Item(
+					_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 						_elm_lang$core$Native_Utils.update(
 							_p31._0._0,
 							{
 								fixed: false,
-								itemPlacement: _user$project$Types$ItemInLocation(locationId)
+								itemPlacement: _sintraubuntuer$elm_game_narrative_starter$Types$ItemInLocation(locationId)
 							})));
 			} else {
-				return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use moveItemToLocation function with an interactable that is not an Item ! ', mbInteractable);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use moveItemToLocation function with an interactable that is not an Item ! ', mbInteractable);
 			}
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$makeItemWritable = function (mbInteractable) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$makeItemWritable = function (mbInteractable) {
 	var _p32 = mbInteractable;
 	if (_p32.ctor === 'Just') {
 		if (_p32._0.ctor === 'Item') {
 			return _elm_lang$core$Maybe$Just(
-				_user$project$Types$Item(
+				_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 					_elm_lang$core$Native_Utils.update(
 						_p32._0._0,
 						{isWritable: true})));
 		} else {
-			return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use makeItemWritable function with an interactable that is not an Item ! ', mbInteractable);
+			return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use makeItemWritable function with an interactable that is not an Item ! ', mbInteractable);
 		}
 	} else {
 		return _elm_lang$core$Maybe$Nothing;
 	}
 };
-var _user$project$Engine_Manifest$makeItemUnwritable = function (mbInteractable) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$makeItemUnwritable = function (mbInteractable) {
 	var _p33 = mbInteractable;
 	if (_p33.ctor === 'Just') {
 		if (_p33._0.ctor === 'Item') {
 			return _elm_lang$core$Maybe$Just(
-				_user$project$Types$Item(
+				_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 					_elm_lang$core$Native_Utils.update(
 						_p33._0._0,
 						{isWritable: false})));
 		} else {
-			return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use makeItemUnwritable function with an interactable that is not an Item ! ', mbInteractable);
+			return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use makeItemUnwritable function with an interactable that is not an Item ! ', mbInteractable);
 		}
 	} else {
 		return _elm_lang$core$Maybe$Nothing;
 	}
 };
-var _user$project$Engine_Manifest$writeTextToItem = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeTextToItem = F2(
 	function (theText, mbinteractable) {
 		var _p34 = mbinteractable;
 		if (_p34.ctor === 'Just') {
 			if (_p34._0.ctor === 'Item') {
 				var _p35 = _p34._0._0;
 				return _p35.isWritable ? _elm_lang$core$Maybe$Just(
-					_user$project$Types$Item(
+					_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 						_elm_lang$core$Native_Utils.update(
 							_p35,
 							{
 								writtenContent: _elm_lang$core$Maybe$Just(theText)
-							}))) : A3(_user$project$Engine_Manifest$writeInteractionIncident, 'warning', 'Trying to use writeTextToItem function with an interactable that is a notWritable Item ! ', mbinteractable);
+							}))) : A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'warning', 'Trying to use writeTextToItem function with an interactable that is a notWritable Item ! ', mbinteractable);
 			} else {
-				return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use writeTextToItem function with an interactable that is not an Item ! ', mbinteractable);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use writeTextToItem function with an interactable that is not an Item ! ', mbinteractable);
 			}
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$writeForceTextToItemFromOtherInteractableAttrib = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeForceTextToItemFromOtherInteractableAttrib = F4(
 	function (attrid, intcId, manifest, mbinteractable) {
 		var _p36 = mbinteractable;
 		if (_p36.ctor === 'Just') {
 			if (_p36._0.ctor === 'Item') {
 				var theAttrVal = A2(
-					_user$project$Engine_Manifest$getInteractableAttribute,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getInteractableAttribute,
 					attrid,
 					A2(_elm_lang$core$Dict$get, intcId, manifest));
 				var theText = function () {
@@ -12118,90 +12124,90 @@ var _user$project$Engine_Manifest$writeForceTextToItemFromOtherInteractableAttri
 					return '';
 				}();
 				return _elm_lang$core$Maybe$Just(
-					_user$project$Types$Item(
+					_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 						_elm_lang$core$Native_Utils.update(
 							_p36._0._0,
 							{
 								writtenContent: _elm_lang$core$Maybe$Just(theText)
 							})));
 			} else {
-				return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use writeForceTextToItemFromOtherInteractableAttrib function with an interactable that is not an Item ! ', mbinteractable);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use writeForceTextToItemFromOtherInteractableAttrib function with an interactable that is not an Item ! ', mbinteractable);
 			}
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$writeGpsLocInfoToItem = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeGpsLocInfoToItem = F2(
 	function (infoText, mbInteractable) {
 		var _p38 = mbInteractable;
 		if (_p38.ctor === 'Just') {
 			if (_p38._0.ctor === 'Item') {
 				return _elm_lang$core$Maybe$Just(
-					_user$project$Types$Item(
+					_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 						_elm_lang$core$Native_Utils.update(
 							_p38._0._0,
 							{
 								writtenContent: _elm_lang$core$Maybe$Just(infoText)
 							})));
 			} else {
-				return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use writeGpsLocInfoToItem function with an interactable that is not an Item ! ', mbInteractable);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use writeGpsLocInfoToItem function with an interactable that is not an Item ! ', mbInteractable);
 			}
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$clearWrittenText = function (mbInteractable) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$clearWrittenText = function (mbInteractable) {
 	var _p39 = mbInteractable;
 	if (_p39.ctor === 'Just') {
 		if (_p39._0.ctor === 'Item') {
 			return _elm_lang$core$Maybe$Just(
-				_user$project$Types$Item(
+				_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 					_elm_lang$core$Native_Utils.update(
 						_p39._0._0,
 						{writtenContent: _elm_lang$core$Maybe$Nothing})));
 		} else {
-			return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use clearWrittenText function with an interactable that is not an Item ! ', mbInteractable);
+			return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use clearWrittenText function with an interactable that is not an Item ! ', mbInteractable);
 		}
 	} else {
 		return _elm_lang$core$Maybe$Nothing;
 	}
 };
-var _user$project$Engine_Manifest$moveCharacterToLocation = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$moveCharacterToLocation = F2(
 	function (locationId, mbInteractable) {
 		var _p40 = mbInteractable;
 		if (_p40.ctor === 'Just') {
 			if (_p40._0.ctor === 'Character') {
 				return _elm_lang$core$Maybe$Just(
-					_user$project$Types$Character(
+					_sintraubuntuer$elm_game_narrative_starter$Types$Character(
 						_elm_lang$core$Native_Utils.update(
 							_p40._0._0,
 							{
-								characterPlacement: _user$project$Types$CharacterInLocation(locationId)
+								characterPlacement: _sintraubuntuer$elm_game_narrative_starter$Types$CharacterInLocation(locationId)
 							})));
 			} else {
-				return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use moveCharacterToLocation function with an interactable that is not a Character ! ', mbInteractable);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use moveCharacterToLocation function with an interactable that is not a Character ! ', mbInteractable);
 			}
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$moveCharacterOffScreen = function (mbInteractable) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$moveCharacterOffScreen = function (mbInteractable) {
 	var _p41 = mbInteractable;
 	if (_p41.ctor === 'Just') {
 		if (_p41._0.ctor === 'Character') {
 			return _elm_lang$core$Maybe$Just(
-				_user$project$Types$Character(
+				_sintraubuntuer$elm_game_narrative_starter$Types$Character(
 					_elm_lang$core$Native_Utils.update(
 						_p41._0._0,
-						{characterPlacement: _user$project$Types$CharacterOffScreen})));
+						{characterPlacement: _sintraubuntuer$elm_game_narrative_starter$Types$CharacterOffScreen})));
 		} else {
-			return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use moveCharacterOffScreen function with an interactable that is not a Character ! ', mbInteractable);
+			return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use moveCharacterOffScreen function with an interactable that is not a Character ! ', mbInteractable);
 		}
 	} else {
 		return _elm_lang$core$Maybe$Nothing;
 	}
 };
-var _user$project$Engine_Manifest$removeAttributeIfExists = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeAttributeIfExists = F2(
 	function (attrId, mbinteractable) {
 		var _p42 = mbinteractable;
 		if (_p42.ctor === 'Just') {
@@ -12210,7 +12216,7 @@ var _user$project$Engine_Manifest$removeAttributeIfExists = F2(
 					var _p43 = _p42._0._0;
 					var newAttributes = A2(_elm_lang$core$Dict$remove, attrId, _p43.attributes);
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Item(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 							_elm_lang$core$Native_Utils.update(
 								_p43,
 								{attributes: newAttributes})));
@@ -12218,7 +12224,7 @@ var _user$project$Engine_Manifest$removeAttributeIfExists = F2(
 					var _p44 = _p42._0._0;
 					var newAttributes = A2(_elm_lang$core$Dict$remove, attrId, _p44.attributes);
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Character(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Character(
 							_elm_lang$core$Native_Utils.update(
 								_p44,
 								{attributes: newAttributes})));
@@ -12226,23 +12232,23 @@ var _user$project$Engine_Manifest$removeAttributeIfExists = F2(
 					var _p45 = _p42._0._0;
 					var newAttributes = A2(_elm_lang$core$Dict$remove, attrId, _p45.attributes);
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Location(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Location(
 							_elm_lang$core$Native_Utils.update(
 								_p45,
 								{attributes: newAttributes})));
 			}
 		} else {
-			return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to remove attribute from  interactable that doesnt exist ', mbinteractable);
+			return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to remove attribute from  interactable that doesnt exist ', mbinteractable);
 		}
 	});
-var _user$project$Engine_Manifest$removeChooseOptions = function (mbinteractable) {
-	return A2(_user$project$Engine_Manifest$removeAttributeIfExists, 'answerOptionsList', mbinteractable);
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeChooseOptions = function (mbinteractable) {
+	return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeAttributeIfExists, 'answerOptionsList', mbinteractable);
 };
-var _user$project$Engine_Manifest$makeItUnanswerable = function (mbinteractable) {
-	return _user$project$Engine_Manifest$removeChooseOptions(
-		_user$project$Engine_Manifest$makeItemUnwritable(mbinteractable));
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$makeItUnanswerable = function (mbinteractable) {
+	return _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeChooseOptions(
+		_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$makeItemUnwritable(mbinteractable));
 };
-var _user$project$Engine_Manifest$createAttributeIfNotExists = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExists = F3(
 	function (initialVal, attrId, mbinteractable) {
 		var getNewDataRecord = F3(
 			function (theInitialVal, theAttrId, dataRecord) {
@@ -12264,30 +12270,30 @@ var _user$project$Engine_Manifest$createAttributeIfNotExists = F3(
 			switch (_p47._0.ctor) {
 				case 'Item':
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Item(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 							A3(getNewDataRecord, initialVal, attrId, _p47._0._0)));
 				case 'Character':
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Character(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Character(
 							A3(getNewDataRecord, initialVal, attrId, _p47._0._0)));
 				default:
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Location(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Location(
 							A3(getNewDataRecord, initialVal, attrId, _p47._0._0)));
 			}
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue = F3(
 	function (theVal, attrId, mbinteractable) {
 		return A3(
-			_user$project$Engine_Manifest$setAttributeValue,
+			_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$setAttributeValue,
 			theVal,
 			attrId,
-			A3(_user$project$Engine_Manifest$createAttributeIfNotExists, theVal, attrId, mbinteractable));
+			A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExists, theVal, attrId, mbinteractable));
 	});
-var _user$project$Engine_Manifest$createAttributesIfNotExistsAndOrSetValue = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributesIfNotExistsAndOrSetValue = F2(
 	function (ltupattrs, mbinteractable) {
 		createAttributesIfNotExistsAndOrSetValue:
 		while (true) {
@@ -12298,7 +12304,7 @@ var _user$project$Engine_Manifest$createAttributesIfNotExistsAndOrSetValue = F2(
 				var _p49 = _p48._0;
 				var _v40 = _p48._1,
 					_v41 = A3(
-					_user$project$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
 					_elm_lang$core$Tuple$second(_p49),
 					_elm_lang$core$Tuple$first(_p49),
 					mbinteractable);
@@ -12308,7 +12314,7 @@ var _user$project$Engine_Manifest$createAttributesIfNotExistsAndOrSetValue = F2(
 			}
 		}
 	});
-var _user$project$Engine_Manifest$checkAndActIfChosenOptionIs = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$checkAndActIfChosenOptionIs = F3(
 	function (playerChoice, cOptionData, mbinteractable) {
 		var _p50 = mbinteractable;
 		if (_p50.ctor === 'Just') {
@@ -12321,21 +12327,21 @@ var _user$project$Engine_Manifest$checkAndActIfChosenOptionIs = F3(
 				var theMbInteractable = (_elm_lang$core$Native_Utils.eq(playerChoice, '') || (!_elm_lang$core$Native_Utils.eq(
 					A2(_elm_lang$core$Dict$get, 'chosenOption', _p51.attributes),
 					_elm_lang$core$Maybe$Nothing))) ? mbinteractable : (_elm_lang$core$Native_Utils.eq(playerChoice, cOptionData.valueToMatch) ? A2(
-					_user$project$Engine_Manifest$removeAttributeIfExists,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeAttributeIfExists,
 					'answerOptionsList',
 					A2(
-						_user$project$Engine_Manifest$createAttributesIfNotExistsAndOrSetValue,
+						_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributesIfNotExistsAndOrSetValue,
 						cOptionData.lnewAttrs,
 						A3(
-							_user$project$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
-							_user$project$Types$ADictStringString(cOptionData.successTextDict),
+							_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
+							_sintraubuntuer$elm_game_narrative_starter$Types$ADictStringString(cOptionData.successTextDict),
 							'additionalTextDict',
 							A3(
-								_user$project$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
-								_user$project$Types$Astring(playerChoice),
+								_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
+								_sintraubuntuer$elm_game_narrative_starter$Types$Astring(playerChoice),
 								'chosenOption',
 								_elm_lang$core$Maybe$Just(
-									_user$project$Types$Item(
+									_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 										_elm_lang$core$Native_Utils.update(
 											_p51,
 											{
@@ -12343,28 +12349,28 @@ var _user$project$Engine_Manifest$checkAndActIfChosenOptionIs = F3(
 											}))))))) : mbinteractable);
 				return theMbInteractable;
 			} else {
-				return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use checkIfAnswerCorrect function with an interactable that is not an Item ! ', mbinteractable);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use checkIfAnswerCorrect function with an interactable that is not an Item ! ', mbinteractable);
 			}
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$processChosenOptionEqualTo = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$processChosenOptionEqualTo = F2(
 	function (cOptionData, mbinteractable) {
-		return A3(_user$project$Engine_Manifest$checkAndActIfChosenOptionIs, cOptionData.valueToMatch, cOptionData, mbinteractable);
+		return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$checkAndActIfChosenOptionIs, cOptionData.valueToMatch, cOptionData, mbinteractable);
 	});
-var _user$project$Engine_Manifest$createOrSetAttributeValueFromOtherInterAttr = F5(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createOrSetAttributeValueFromOtherInterAttr = F5(
 	function (attrId, otherInterAtrrId, otherInterId, manifest, mbinteractable) {
 		var mbAttrVal = A2(
-			_user$project$Engine_Manifest$getInteractableAttribute,
+			_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getInteractableAttribute,
 			otherInterAtrrId,
 			A2(_elm_lang$core$Dict$get, otherInterId, manifest));
 		var _p52 = mbAttrVal;
 		if (_p52.ctor === 'Just') {
-			return A3(_user$project$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue, _p52._0, attrId, mbinteractable);
+			return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue, _p52._0, attrId, mbinteractable);
 		} else {
 			return A3(
-				_user$project$Engine_Manifest$writeInteractionIncident,
+				_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident,
 				'warning',
 				A2(
 					_elm_lang$core$Basics_ops['++'],
@@ -12376,7 +12382,7 @@ var _user$project$Engine_Manifest$createOrSetAttributeValueFromOtherInterAttr = 
 				mbinteractable);
 		}
 	});
-var _user$project$Engine_Manifest$increaseCounter = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$increaseCounter = F2(
 	function (counterId, mbinteractable) {
 		var getNewDataRecord = F2(
 			function (thecounterId, dataRecord) {
@@ -12393,7 +12399,7 @@ var _user$project$Engine_Manifest$increaseCounter = F2(
 								counterStrID,
 								function (_p55) {
 									return _elm_lang$core$Maybe$Just(
-										_user$project$Types$AnInt(_p54._0 + 1));
+										_sintraubuntuer$elm_game_narrative_starter$Types$AnInt(_p54._0 + 1));
 								},
 								dataRecord.attributes);
 						} else {
@@ -12411,22 +12417,22 @@ var _user$project$Engine_Manifest$increaseCounter = F2(
 			switch (_p56._0.ctor) {
 				case 'Item':
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Item(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 							A2(getNewDataRecord, counterId, _p56._0._0)));
 				case 'Character':
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Character(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Character(
 							A2(getNewDataRecord, counterId, _p56._0._0)));
 				default:
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Location(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Location(
 							A2(getNewDataRecord, counterId, _p56._0._0)));
 			}
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$createCounterIfNotExists = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createCounterIfNotExists = F2(
 	function (counterId, mbinteractable) {
 		var getNewDataRecord = F2(
 			function (thecounterId, dataRecord) {
@@ -12437,7 +12443,7 @@ var _user$project$Engine_Manifest$createCounterIfNotExists = F2(
 						return A3(
 							_elm_lang$core$Dict$insert,
 							counterStrID,
-							_user$project$Types$AnInt(0),
+							_sintraubuntuer$elm_game_narrative_starter$Types$AnInt(0),
 							dataRecord.attributes);
 					} else {
 						return dataRecord.attributes;
@@ -12453,22 +12459,22 @@ var _user$project$Engine_Manifest$createCounterIfNotExists = F2(
 			switch (_p58._0.ctor) {
 				case 'Item':
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Item(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 							A2(getNewDataRecord, counterId, _p58._0._0)));
 				case 'Character':
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Character(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Character(
 							A2(getNewDataRecord, counterId, _p58._0._0)));
 				default:
 					return _elm_lang$core$Maybe$Just(
-						_user$project$Types$Location(
+						_sintraubuntuer$elm_game_narrative_starter$Types$Location(
 							A2(getNewDataRecord, counterId, _p58._0._0)));
 			}
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$checkIfAnswerCorrect = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$checkIfAnswerCorrect = F4(
 	function (theCorrectAnswers, playerAnswer, checkAnsData, mbinteractable) {
 		var _p59 = mbinteractable;
 		if (_p59.ctor === 'Just') {
@@ -12479,15 +12485,15 @@ var _user$project$Engine_Manifest$checkIfAnswerCorrect = F4(
 						var nrtries = A2(
 							_elm_lang$core$Maybe$withDefault,
 							0,
-							A2(_user$project$Engine_Manifest$getICounterValue, 'nrIncorrectAnswers', mbinteractable));
-						return ((_elm_lang$core$Native_Utils.cmp(maxnr, 0) > 0) && (_elm_lang$core$Native_Utils.cmp(nrtries, maxnr) > -1)) ? _user$project$Engine_Manifest$makeItUnanswerable(mbinter) : mbinter;
+							A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getICounterValue, 'nrIncorrectAnswers', mbinteractable));
+						return ((_elm_lang$core$Native_Utils.cmp(maxnr, 0) > 0) && (_elm_lang$core$Native_Utils.cmp(nrtries, maxnr) > -1)) ? _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$makeItUnanswerable(mbinter) : mbinter;
 					});
 				var nrTries = A2(
 					_elm_lang$core$Maybe$withDefault,
 					0,
-					A2(_user$project$Engine_Manifest$getICounterValue, 'nrIncorrectAnswers', mbinteractable));
+					A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getICounterValue, 'nrIncorrectAnswers', mbinteractable));
 				var maxNrTries = A2(_elm_lang$core$Maybe$withDefault, -999, checkAnsData.mbMaxNrTries);
-				var playerAns = (_elm_lang$core$Native_Utils.eq(checkAnsData.answerFeedback, _user$project$Types$JustPlayerAnswer) || (_elm_lang$core$Native_Utils.eq(checkAnsData.answerFeedback, _user$project$Types$HeaderAndAnswer) || _elm_lang$core$Native_Utils.eq(checkAnsData.answerFeedback, _user$project$Types$HeaderAnswerAndCorrectIncorrect))) ? A2(
+				var playerAns = (_elm_lang$core$Native_Utils.eq(checkAnsData.answerFeedback, _sintraubuntuer$elm_game_narrative_starter$Types$JustPlayerAnswer) || (_elm_lang$core$Native_Utils.eq(checkAnsData.answerFeedback, _sintraubuntuer$elm_game_narrative_starter$Types$HeaderAndAnswer) || _elm_lang$core$Native_Utils.eq(checkAnsData.answerFeedback, _sintraubuntuer$elm_game_narrative_starter$Types$HeaderAnswerAndCorrectIncorrect))) ? A2(
 					_elm_lang$core$Basics_ops['++'],
 					'  \n ___YOUR_ANSWER___',
 					A2(_elm_lang$core$Basics_ops['++'], ' ', playerAnswer)) : '';
@@ -12517,72 +12523,72 @@ var _user$project$Engine_Manifest$checkIfAnswerCorrect = F4(
 						return A2(
 							_elm_lang$core$Basics_ops['++'],
 							playerAns,
-							_elm_lang$core$Native_Utils.eq(checkAnsData.answerFeedback, _user$project$Types$HeaderAnswerAndCorrectIncorrect) ? ansFeedback : '');
+							_elm_lang$core$Native_Utils.eq(checkAnsData.answerFeedback, _sintraubuntuer$elm_game_narrative_starter$Types$HeaderAnswerAndCorrectIncorrect) ? ansFeedback : '');
 					});
 				var correct = '  \n ___CORRECT_ANSWER___';
 				var answerFeedback = function (x) {
-					return _elm_lang$core$Native_Utils.eq(checkAnsData.answerFeedback, _user$project$Types$HeaderAnswerAndCorrectIncorrect) ? x : '';
+					return _elm_lang$core$Native_Utils.eq(checkAnsData.answerFeedback, _sintraubuntuer$elm_game_narrative_starter$Types$HeaderAnswerAndCorrectIncorrect) ? x : '';
 				}(
 					A2(_elm_lang$core$Basics_ops['++'], correct, '  \n'));
 				var ansRight = A2(_elm_lang$core$Basics_ops['++'], playerAns, answerFeedback);
-				var theMbInteractable = ((_elm_lang$core$Native_Utils.cmp(maxNrTries, 0) > 0) && (_elm_lang$core$Native_Utils.cmp(nrTries, maxNrTries) > -1)) ? _user$project$Engine_Manifest$makeItUnanswerable(mbinteractable) : ((_elm_lang$core$Native_Utils.eq(playerAnswer, '') || _elm_lang$core$Native_Utils.eq(
+				var theMbInteractable = ((_elm_lang$core$Native_Utils.cmp(maxNrTries, 0) > 0) && (_elm_lang$core$Native_Utils.cmp(nrTries, maxNrTries) > -1)) ? _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$makeItUnanswerable(mbinteractable) : ((_elm_lang$core$Native_Utils.eq(playerAnswer, '') || _elm_lang$core$Native_Utils.eq(
 					A2(_elm_lang$core$Dict$get, 'isCorrectlyAnswered', _p60.attributes),
 					_elm_lang$core$Maybe$Just(
-						_user$project$Types$Abool(true)))) ? mbinteractable : (A4(_user$project$Engine_Manifest$comparesEqualToAtLeastOne, playerAnswer, theCorrectAnswers, checkAnsData.answerCase, checkAnsData.answerSpaces) ? A2(
-					_user$project$Engine_Manifest$createAttributesIfNotExistsAndOrSetValue,
+						_sintraubuntuer$elm_game_narrative_starter$Types$Abool(true)))) ? mbinteractable : (A4(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$comparesEqualToAtLeastOne, playerAnswer, theCorrectAnswers, checkAnsData.answerCase, checkAnsData.answerSpaces) ? A2(
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributesIfNotExistsAndOrSetValue,
 					checkAnsData.lnewAttrs,
 					A3(
-						_user$project$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
-						_user$project$Types$ADictStringString(checkAnsData.correctAnsTextDict),
+						_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
+						_sintraubuntuer$elm_game_narrative_starter$Types$ADictStringString(checkAnsData.correctAnsTextDict),
 						'additionalTextDict',
 						A3(
-							_user$project$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
-							_user$project$Types$Astring('___QUESTION_ANSWERED___'),
+							_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
+							_sintraubuntuer$elm_game_narrative_starter$Types$Astring('___QUESTION_ANSWERED___'),
 							'narrativeHeader',
 							A2(
-								_user$project$Engine_Manifest$removeAttributeIfExists,
+								_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeAttributeIfExists,
 								'isIncorrectlyAnswered',
 								A3(
-									_user$project$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
-									_user$project$Types$Abool(true),
+									_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
+									_sintraubuntuer$elm_game_narrative_starter$Types$Abool(true),
 									'isCorrectlyAnswered',
 									A3(
-										_user$project$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
-										_user$project$Types$Astring(playerAnswer),
+										_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
+										_sintraubuntuer$elm_game_narrative_starter$Types$Astring(playerAnswer),
 										'playerAnswer',
-										_user$project$Engine_Manifest$makeItUnanswerable(
+										_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$makeItUnanswerable(
 											_elm_lang$core$Maybe$Just(
-												_user$project$Types$Item(
+												_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 													_elm_lang$core$Native_Utils.update(
 														_p60,
 														{
 															writtenContent: _elm_lang$core$Maybe$Just(ansRight)
 														})))))))))) : A2(
-					_user$project$Engine_Manifest$increaseCounter,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$increaseCounter,
 					'nrIncorrectAnswers',
 					A2(
 						makeItUnanswarableIfReachedMaxTries,
 						maxNrTries - 1,
 						A2(
-							_user$project$Engine_Manifest$createCounterIfNotExists,
+							_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createCounterIfNotExists,
 							'nrIncorrectAnswers',
 							A3(
-								_user$project$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
-								_user$project$Types$ADictStringString(checkAnsData.incorrectAnsTextDict),
+								_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
+								_sintraubuntuer$elm_game_narrative_starter$Types$ADictStringString(checkAnsData.incorrectAnsTextDict),
 								'additionalTextDict',
 								A2(
-									_user$project$Engine_Manifest$removeAttributeIfExists,
+									_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeAttributeIfExists,
 									'isCorrectlyAnswered',
 									A3(
-										_user$project$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
-										_user$project$Types$Abool(true),
+										_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
+										_sintraubuntuer$elm_game_narrative_starter$Types$Abool(true),
 										'isIncorrectlyAnswered',
 										A3(
-											_user$project$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
-											_user$project$Types$Astring(playerAnswer),
+											_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
+											_sintraubuntuer$elm_game_narrative_starter$Types$Astring(playerAnswer),
 											'playerAnswer',
 											_elm_lang$core$Maybe$Just(
-												_user$project$Types$Item(
+												_sintraubuntuer$elm_game_narrative_starter$Types$Item(
 													_elm_lang$core$Native_Utils.update(
 														_p60,
 														{
@@ -12591,13 +12597,13 @@ var _user$project$Engine_Manifest$checkIfAnswerCorrect = F4(
 														}))))))))))));
 				return theMbInteractable;
 			} else {
-				return A3(_user$project$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use checkIfAnswerCorrect function with an interactable that is not an Item ! ', mbinteractable);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeInteractionIncident, 'error', 'Trying to use checkIfAnswerCorrect function with an interactable that is not an Item ! ', mbinteractable);
 			}
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
-var _user$project$Engine_Manifest$getInteractionWarnings = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getInteractionWarnings = F2(
 	function (interactableId, manifest) {
 		var _p61 = A2(_elm_lang$core$Dict$get, interactableId, manifest);
 		if (_p61.ctor === 'Just') {
@@ -12613,7 +12619,7 @@ var _user$project$Engine_Manifest$getInteractionWarnings = F2(
 			return {ctor: '[]'};
 		}
 	});
-var _user$project$Engine_Manifest$getInteractionErrors = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getInteractionErrors = F2(
 	function (interactableId, manifest) {
 		var _p62 = A2(_elm_lang$core$Dict$get, interactableId, manifest);
 		if (_p62.ctor === 'Just') {
@@ -12629,21 +12635,21 @@ var _user$project$Engine_Manifest$getInteractionErrors = F2(
 			return {ctor: '[]'};
 		}
 	});
-var _user$project$Engine_Manifest$removeMultiChoiceOptions = function (mbInteractable) {
-	return A2(_user$project$Engine_Manifest$removeAttributeIfExists, 'answerOptionsList', mbInteractable);
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeMultiChoiceOptions = function (mbInteractable) {
+	return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeAttributeIfExists, 'answerOptionsList', mbInteractable);
 };
-var _user$project$Engine_Manifest$createAmultiChoice = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAmultiChoice = F2(
 	function (dslss, mbInteractable) {
 		return A2(
-			_user$project$Engine_Manifest$removeAttributeIfExists,
+			_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeAttributeIfExists,
 			'chosenOption',
 			A3(
-				_user$project$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
-				_user$project$Types$ADictStringLSS(dslss),
+				_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue,
+				_sintraubuntuer$elm_game_narrative_starter$Types$ADictStringLSS(dslss),
 				'answerOptionsList',
 				mbInteractable));
 	});
-var _user$project$Engine_Manifest$checkForNonExistantLocationId = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$checkForNonExistantLocationId = F3(
 	function (locationId, manifest, linteractionincidents) {
 		var _p63 = A2(_elm_lang$core$Dict$get, locationId, manifest);
 		if (_p63.ctor === 'Nothing') {
@@ -12662,7 +12668,7 @@ var _user$project$Engine_Manifest$checkForNonExistantLocationId = F3(
 			return linteractionincidents;
 		}
 	});
-var _user$project$Engine_Manifest$checkForNonExistantInteractableId = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$checkForNonExistantInteractableId = F3(
 	function (interactableId, manifest, linteractionincidents) {
 		var _p64 = A2(_elm_lang$core$Dict$get, interactableId, manifest);
 		if (_p64.ctor === 'Nothing') {
@@ -12681,11 +12687,11 @@ var _user$project$Engine_Manifest$checkForNonExistantInteractableId = F3(
 			return linteractionincidents;
 		}
 	});
-var _user$project$Engine_Manifest$manifestUpdate = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate = F3(
 	function (interactbaleId, updateFuncMbToMb, _p65) {
 		var _p66 = _p65;
 		var _p67 = _p66._0;
-		var newInteractionIncidents = A3(_user$project$Engine_Manifest$checkForNonExistantInteractableId, interactbaleId, _p67, _p66._1);
+		var newInteractionIncidents = A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$checkForNonExistantInteractableId, interactbaleId, _p67, _p66._1);
 		var incidentswithInterErrors = A2(
 			_elm_lang$core$List$append,
 			newInteractionIncidents,
@@ -12694,7 +12700,7 @@ var _user$project$Engine_Manifest$manifestUpdate = F3(
 				function (x) {
 					return A2(_elm_lang$core$Basics_ops['++'], 'Interaction Error : ', x);
 				},
-				A2(_user$project$Engine_Manifest$getInteractionErrors, interactbaleId, _p67)));
+				A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getInteractionErrors, interactbaleId, _p67)));
 		var incidentswithInterErrorsAndWarnings = A2(
 			_elm_lang$core$List$append,
 			incidentswithInterErrors,
@@ -12703,28 +12709,28 @@ var _user$project$Engine_Manifest$manifestUpdate = F3(
 				function (x) {
 					return A2(_elm_lang$core$Basics_ops['++'], 'Interaction Warning : ', x);
 				},
-				A2(_user$project$Engine_Manifest$getInteractionWarnings, interactbaleId, _p67)));
+				A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getInteractionWarnings, interactbaleId, _p67)));
 		var newManifest = A3(_elm_lang$core$Dict$update, interactbaleId, updateFuncMbToMb, _p67);
 		var newManifestUpdated = A3(
 			_elm_lang$core$Dict$update,
 			interactbaleId,
-			_user$project$Engine_Manifest$clearInteractionIncidents('error'),
+			_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$clearInteractionIncidents('error'),
 			A3(
 				_elm_lang$core$Dict$update,
 				interactbaleId,
-				_user$project$Engine_Manifest$clearInteractionIncidents('warning'),
+				_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$clearInteractionIncidents('warning'),
 				newManifest));
 		return {ctor: '_Tuple2', _0: newManifestUpdated, _1: incidentswithInterErrorsAndWarnings};
 	});
-var _user$project$Engine_Manifest$manifestUpdateWithLocCheck = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdateWithLocCheck = F4(
 	function (interactbaleId, locationId, updateFuncMbToMb, _p68) {
 		var _p69 = _p68;
 		var _p70 = _p69._0;
 		var newInteractionIncidents = A3(
-			_user$project$Engine_Manifest$checkForNonExistantLocationId,
+			_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$checkForNonExistantLocationId,
 			locationId,
 			_p70,
-			A3(_user$project$Engine_Manifest$checkForNonExistantInteractableId, interactbaleId, _p70, _p69._1));
+			A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$checkForNonExistantInteractableId, interactbaleId, _p70, _p69._1));
 		var incidentswithInterErrors = A2(
 			_elm_lang$core$List$append,
 			newInteractionIncidents,
@@ -12733,7 +12739,7 @@ var _user$project$Engine_Manifest$manifestUpdateWithLocCheck = F4(
 				function (x) {
 					return A2(_elm_lang$core$Basics_ops['++'], 'Interaction Error : ', x);
 				},
-				A2(_user$project$Engine_Manifest$getInteractionErrors, interactbaleId, _p70)));
+				A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getInteractionErrors, interactbaleId, _p70)));
 		var incidentswithInterErrorsAndWarnings = A2(
 			_elm_lang$core$List$append,
 			incidentswithInterErrors,
@@ -12742,20 +12748,20 @@ var _user$project$Engine_Manifest$manifestUpdateWithLocCheck = F4(
 				function (x) {
 					return A2(_elm_lang$core$Basics_ops['++'], 'Interaction Warning : ', x);
 				},
-				A2(_user$project$Engine_Manifest$getInteractionWarnings, interactbaleId, _p70)));
+				A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getInteractionWarnings, interactbaleId, _p70)));
 		var newManifest = A3(_elm_lang$core$Dict$update, interactbaleId, updateFuncMbToMb, _p70);
 		var newManifestUpdated = A3(
 			_elm_lang$core$Dict$update,
 			interactbaleId,
-			_user$project$Engine_Manifest$clearInteractionIncidents('error'),
+			_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$clearInteractionIncidents('error'),
 			A3(
 				_elm_lang$core$Dict$update,
 				interactbaleId,
-				_user$project$Engine_Manifest$clearInteractionIncidents('warning'),
+				_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$clearInteractionIncidents('warning'),
 				newManifest));
 		return {ctor: '_Tuple2', _0: newManifestUpdated, _1: incidentswithInterErrorsAndWarnings};
 	});
-var _user$project$Engine_Manifest$update = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$update = F2(
 	function (change, _p71) {
 		var _p72 = _p71;
 		var _p82 = _p72._0;
@@ -12766,196 +12772,196 @@ var _user$project$Engine_Manifest$update = F2(
 				return {ctor: '_Tuple2', _0: _p82, _1: _p81};
 			case 'MoveTo':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._0,
-					_user$project$Engine_Manifest$addLocation,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$addLocation,
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'AddLocation':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._0,
-					_user$project$Engine_Manifest$addLocation,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$addLocation,
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'RemoveLocation':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._0,
-					_user$project$Engine_Manifest$removeLocation,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeLocation,
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'MoveItemToInventory':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._0,
-					_user$project$Engine_Manifest$moveItemToInventory,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$moveItemToInventory,
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'MoveItemToLocation':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._0,
-					_user$project$Engine_Manifest$moveItemToLocation(_p73._1),
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$moveItemToLocation(_p73._1),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'MoveItemToLocationFixed':
 				var _p74 = _p73._1;
 				return A4(
-					_user$project$Engine_Manifest$manifestUpdateWithLocCheck,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdateWithLocCheck,
 					_p73._0,
 					_p74,
-					_user$project$Engine_Manifest$moveItemToLocationFixed(_p74),
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$moveItemToLocationFixed(_p74),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'MoveItemOffScreen':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._0,
-					_user$project$Engine_Manifest$moveItemOffScreen,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$moveItemOffScreen,
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'MoveCharacterToLocation':
 				var _p75 = _p73._1;
 				return A4(
-					_user$project$Engine_Manifest$manifestUpdateWithLocCheck,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdateWithLocCheck,
 					_p73._0,
 					_p75,
-					_user$project$Engine_Manifest$moveCharacterToLocation(_p75),
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$moveCharacterToLocation(_p75),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'MoveCharacterOffScreen':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._0,
-					_user$project$Engine_Manifest$moveCharacterOffScreen,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$moveCharacterOffScreen,
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'WriteTextToItem':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._1,
-					_user$project$Engine_Manifest$writeTextToItem(_p73._0),
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeTextToItem(_p73._0),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'WriteForceTextToItemFromGivenItemAttr':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._2,
-					A3(_user$project$Engine_Manifest$writeForceTextToItemFromOtherInteractableAttrib, _p73._0, _p73._1, _p82),
+					A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeForceTextToItemFromOtherInteractableAttrib, _p73._0, _p73._1, _p82),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'WriteGpsLocInfoToItem':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._1,
-					_user$project$Engine_Manifest$writeGpsLocInfoToItem(_p73._0),
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$writeGpsLocInfoToItem(_p73._0),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'ClearWrittenText':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._0,
-					_user$project$Engine_Manifest$clearWrittenText,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$clearWrittenText,
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'CheckIfAnswerCorrect':
 				var _p77 = _p73._3;
 				var _p76 = _p73._2;
 				return A3(
-					_user$project$Engine_Manifest$processCreateOrSetOtherInteractableAttributesIfAnswerCorrect,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$processCreateOrSetOtherInteractableAttributesIfAnswerCorrect,
 					_p76.lotherInterAttrs,
 					_p77,
 					A3(
-						_user$project$Engine_Manifest$manifestUpdate,
+						_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 						_p77,
-						A3(_user$project$Engine_Manifest$checkIfAnswerCorrect, _p73._0, _p73._1, _p76),
+						A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$checkIfAnswerCorrect, _p73._0, _p73._1, _p76),
 						{ctor: '_Tuple2', _0: _p82, _1: _p81}));
 			case 'CheckAndActIfChosenOptionIs':
 				var _p80 = _p73._0;
 				var _p79 = _p73._2;
 				var _p78 = _p73._1;
 				return A5(
-					_user$project$Engine_Manifest$processCreateOrSetOtherInteractableAttributesIfChosenOptionIs,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$processCreateOrSetOtherInteractableAttributesIfChosenOptionIs,
 					_p80,
 					_p78.valueToMatch,
 					_p78.lotherInterAttrs,
 					_p79,
 					A3(
-						_user$project$Engine_Manifest$manifestUpdate,
+						_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 						_p79,
-						A2(_user$project$Engine_Manifest$checkAndActIfChosenOptionIs, _p80, _p78),
+						A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$checkAndActIfChosenOptionIs, _p80, _p78),
 						{ctor: '_Tuple2', _0: _p82, _1: _p81}));
 			case 'ProcessChosenOptionEqualTo':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._1,
-					_user$project$Engine_Manifest$processChosenOptionEqualTo(_p73._0),
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$processChosenOptionEqualTo(_p73._0),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'CreateAMultiChoice':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._1,
-					_user$project$Engine_Manifest$createAmultiChoice(_p73._0),
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAmultiChoice(_p73._0),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'RemoveMultiChoiceOptions':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._0,
-					_user$project$Engine_Manifest$removeMultiChoiceOptions,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeMultiChoiceOptions,
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'CreateCounterIfNotExists':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._1,
-					_user$project$Engine_Manifest$createCounterIfNotExists(_p73._0),
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createCounterIfNotExists(_p73._0),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'IncreaseCounter':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._1,
-					_user$project$Engine_Manifest$increaseCounter(_p73._0),
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$increaseCounter(_p73._0),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'CreateAttributeIfNotExists':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._2,
-					A2(_user$project$Engine_Manifest$createAttributeIfNotExists, _p73._0, _p73._1),
+					A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExists, _p73._0, _p73._1),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'SetAttributeValue':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._2,
-					A2(_user$project$Engine_Manifest$setAttributeValue, _p73._0, _p73._1),
+					A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$setAttributeValue, _p73._0, _p73._1),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'CreateAttributeIfNotExistsAndOrSetValue':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._2,
-					A2(_user$project$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue, _p73._0, _p73._1),
+					A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createAttributeIfNotExistsAndOrSetValue, _p73._0, _p73._1),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'CreateOrSetAttributeValueFromOtherInterAttr':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._3,
-					A4(_user$project$Engine_Manifest$createOrSetAttributeValueFromOtherInterAttr, _p73._0, _p73._1, _p73._2, _p82),
+					A4(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$createOrSetAttributeValueFromOtherInterAttr, _p73._0, _p73._1, _p73._2, _p82),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'RemoveAttributeIfExists':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._1,
-					_user$project$Engine_Manifest$removeAttributeIfExists(_p73._0),
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeAttributeIfExists(_p73._0),
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'MakeItemWritable':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._0,
-					_user$project$Engine_Manifest$makeItemWritable,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$makeItemWritable,
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'MakeItemUnwritable':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._0,
-					_user$project$Engine_Manifest$makeItemUnwritable,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$makeItemUnwritable,
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'RemoveChooseOptions':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._0,
-					_user$project$Engine_Manifest$removeChooseOptions,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$removeChooseOptions,
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'MakeItUnanswerable':
 				return A3(
-					_user$project$Engine_Manifest$manifestUpdate,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$manifestUpdate,
 					_p73._0,
-					_user$project$Engine_Manifest$makeItUnanswerable,
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$makeItUnanswerable,
 					{ctor: '_Tuple2', _0: _p82, _1: _p81});
 			case 'LoadScene':
 				return {ctor: '_Tuple2', _0: _p82, _1: _p81};
@@ -12967,32 +12973,32 @@ var _user$project$Engine_Manifest$update = F2(
 				return {ctor: '_Tuple2', _0: _p82, _1: _p81};
 		}
 	});
-var _user$project$Engine_Manifest$processCreateOrSetOtherInteractableAttributesIfAnswerCorrect = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$processCreateOrSetOtherInteractableAttributesIfAnswerCorrect = F3(
 	function (lotherInterAttrs, interactableId, _p83) {
 		var _p84 = _p83;
 		var _p88 = _p84._0;
 		var _p87 = _p84._1;
 		return A4(
-			_user$project$Engine_Manifest$attrValueIsEqualTo,
-			_user$project$Types$Abool(true),
+			_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$attrValueIsEqualTo,
+			_sintraubuntuer$elm_game_narrative_starter$Types$Abool(true),
 			'isCorrectlyAnswered',
 			interactableId,
 			_p88) ? A3(
 			_elm_lang$core$List$foldl,
 			F2(
 				function (chg, tup) {
-					return A2(_user$project$Engine_Manifest$update, chg, tup);
+					return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$update, chg, tup);
 				}),
 			{ctor: '_Tuple2', _0: _p88, _1: _p87},
 			A2(
 				_elm_lang$core$List$map,
 				function (_p85) {
 					var _p86 = _p85;
-					return A3(_user$project$Types$CreateAttributeIfNotExistsAndOrSetValue, _p86._2, _p86._1, _p86._0);
+					return A3(_sintraubuntuer$elm_game_narrative_starter$Types$CreateAttributeIfNotExistsAndOrSetValue, _p86._2, _p86._1, _p86._0);
 				},
 				lotherInterAttrs)) : {ctor: '_Tuple2', _0: _p88, _1: _p87};
 	});
-var _user$project$Engine_Manifest$processCreateOrSetOtherInteractableAttributesIfChosenOptionIs = F5(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$processCreateOrSetOtherInteractableAttributesIfChosenOptionIs = F5(
 	function (playerChoice, valToMatch, lotherInterAttrs, interactableId, _p89) {
 		var _p90 = _p89;
 		var _p94 = _p90._0;
@@ -13001,24 +13007,24 @@ var _user$project$Engine_Manifest$processCreateOrSetOtherInteractableAttributesI
 			_elm_lang$core$List$foldl,
 			F2(
 				function (chg, tup) {
-					return A2(_user$project$Engine_Manifest$update, chg, tup);
+					return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$update, chg, tup);
 				}),
 			{ctor: '_Tuple2', _0: _p94, _1: _p93},
 			A2(
 				_elm_lang$core$List$map,
 				function (_p91) {
 					var _p92 = _p91;
-					return A3(_user$project$Types$CreateAttributeIfNotExistsAndOrSetValue, _p92._2, _p92._1, _p92._0);
+					return A3(_sintraubuntuer$elm_game_narrative_starter$Types$CreateAttributeIfNotExistsAndOrSetValue, _p92._2, _p92._1, _p92._0);
 				},
 				lotherInterAttrs)) : {ctor: '_Tuple2', _0: _p94, _1: _p93};
 	});
-var _user$project$Engine_Manifest$chosenOptionIsEqualTo = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$chosenOptionIsEqualTo = F2(
 	function (valueToMatch, mbInputText) {
 		return _elm_lang$core$Native_Utils.eq(
 			_elm_lang$core$Maybe$Just(valueToMatch),
 			mbInputText) ? true : false;
 	});
-var _user$project$Engine_Manifest$noChosenOptionYet = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$noChosenOptionYet = F2(
 	function (interactableId, manifest) {
 		return function (interactable) {
 			var _p95 = interactable;
@@ -13035,11 +13041,11 @@ var _user$project$Engine_Manifest$noChosenOptionYet = F2(
 		}(
 			A2(_elm_lang$core$Dict$get, interactableId, manifest));
 	});
-var _user$project$Engine_Manifest$choiceHasAlreadyBeenMade = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$choiceHasAlreadyBeenMade = F2(
 	function (interactableId, manifest) {
-		return !A2(_user$project$Engine_Manifest$noChosenOptionYet, interactableId, manifest);
+		return !A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$noChosenOptionYet, interactableId, manifest);
 	});
-var _user$project$Engine_Manifest$isCharacter = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$isCharacter = F2(
 	function (id, manifest) {
 		return function (interactable) {
 			var _p97 = interactable;
@@ -13051,7 +13057,7 @@ var _user$project$Engine_Manifest$isCharacter = F2(
 		}(
 			A2(_elm_lang$core$Dict$get, id, manifest));
 	});
-var _user$project$Engine_Manifest$isLocation = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$isLocation = F2(
 	function (id, manifest) {
 		return function (interactable) {
 			var _p98 = interactable;
@@ -13063,7 +13069,7 @@ var _user$project$Engine_Manifest$isLocation = F2(
 		}(
 			A2(_elm_lang$core$Dict$get, id, manifest));
 	});
-var _user$project$Engine_Manifest$isItem = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$isItem = F2(
 	function (id, manifest) {
 		return function (interactable) {
 			var _p99 = interactable;
@@ -13075,7 +13081,7 @@ var _user$project$Engine_Manifest$isItem = F2(
 		}(
 			A2(_elm_lang$core$Dict$get, id, manifest));
 	});
-var _user$project$Engine_Manifest$getItemsInLocationIncludeWrittenContent = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getItemsInLocationIncludeWrittenContent = F2(
 	function (locationId, manifest) {
 		var isInLocation = F2(
 			function (locationId, _p100) {
@@ -13099,7 +13105,7 @@ var _user$project$Engine_Manifest$getItemsInLocationIncludeWrittenContent = F2(
 			isInLocation(locationId),
 			_elm_lang$core$Dict$toList(manifest));
 	});
-var _user$project$Engine_Manifest$isWritable = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$isWritable = F2(
 	function (interactableId, manifest) {
 		return function (mbinteractable) {
 			var _p105 = mbinteractable;
@@ -13111,7 +13117,7 @@ var _user$project$Engine_Manifest$isWritable = F2(
 		}(
 			A2(_elm_lang$core$Dict$get, interactableId, manifest));
 	});
-var _user$project$Engine_Manifest$countWritableItemsInLocation = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$countWritableItemsInLocation = F2(
 	function (locationId, manifest) {
 		var isInLocationAndWritable = F2(
 			function (locationId, _p106) {
@@ -13135,7 +13141,7 @@ var _user$project$Engine_Manifest$countWritableItemsInLocation = F2(
 				isInLocationAndWritable(locationId),
 				_elm_lang$core$Dict$toList(manifest)));
 	});
-var _user$project$Engine_Manifest$getItemsInLocation = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getItemsInLocation = F2(
 	function (locationId, manifest) {
 		var isInLocation = F2(
 			function (locationId, _p111) {
@@ -13157,7 +13163,7 @@ var _user$project$Engine_Manifest$getItemsInLocation = F2(
 			isInLocation(locationId),
 			_elm_lang$core$Dict$toList(manifest));
 	});
-var _user$project$Engine_Manifest$itemIsInLocation = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsInLocation = F3(
 	function (item, currentLocation, manifest) {
 		return A2(
 			_elm_lang$core$List$any,
@@ -13165,13 +13171,13 @@ var _user$project$Engine_Manifest$itemIsInLocation = F3(
 				function (x, y) {
 					return _elm_lang$core$Native_Utils.eq(x, y);
 				})(item),
-			A2(_user$project$Engine_Manifest$getItemsInLocation, currentLocation, manifest));
+			A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getItemsInLocation, currentLocation, manifest));
 	});
-var _user$project$Engine_Manifest$itemIsNotInLocation = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsNotInLocation = F3(
 	function (item, currentLocation, manifest) {
-		return !A3(_user$project$Engine_Manifest$itemIsInLocation, item, currentLocation, manifest);
+		return !A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsInLocation, item, currentLocation, manifest);
 	});
-var _user$project$Engine_Manifest$getCharactersInLocation = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getCharactersInLocation = F2(
 	function (locationId, manifest) {
 		var isInLocation = F2(
 			function (locId, _p115) {
@@ -13193,7 +13199,7 @@ var _user$project$Engine_Manifest$getCharactersInLocation = F2(
 			isInLocation(locationId),
 			_elm_lang$core$Dict$toList(manifest));
 	});
-var _user$project$Engine_Manifest$characterIsInLocation = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$characterIsInLocation = F3(
 	function (character, currentLocation, manifest) {
 		return A2(
 			_elm_lang$core$List$any,
@@ -13201,9 +13207,9 @@ var _user$project$Engine_Manifest$characterIsInLocation = F3(
 				function (x, y) {
 					return _elm_lang$core$Native_Utils.eq(x, y);
 				})(character),
-			A2(_user$project$Engine_Manifest$getCharactersInLocation, currentLocation, manifest));
+			A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getCharactersInLocation, currentLocation, manifest));
 	});
-var _user$project$Engine_Manifest$getLocations = function (manifest) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getLocations = function (manifest) {
 	var isShownLocation = function (_p119) {
 		var _p120 = _p119;
 		var _p121 = _p120._1;
@@ -13218,13 +13224,13 @@ var _user$project$Engine_Manifest$getLocations = function (manifest) {
 		isShownLocation,
 		_elm_lang$core$Dict$toList(manifest));
 };
-var _user$project$Engine_Manifest$getItemsInInventoryIncludeWrittenContent = function (manifest) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getItemsInInventoryIncludeWrittenContent = function (manifest) {
 	var isInInventory = function (_p122) {
 		var _p123 = _p122;
 		var _p124 = _p123._1;
 		if (_p124.ctor === 'Item') {
 			var _p125 = _p124._0;
-			return _elm_lang$core$Native_Utils.eq(_p125.itemPlacement, _user$project$Types$ItemInInventory) ? _elm_lang$core$Maybe$Just(
+			return _elm_lang$core$Native_Utils.eq(_p125.itemPlacement, _sintraubuntuer$elm_game_narrative_starter$Types$ItemInInventory) ? _elm_lang$core$Maybe$Just(
 				{ctor: '_Tuple2', _0: _p123._0, _1: _p125.writtenContent}) : _elm_lang$core$Maybe$Nothing;
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
@@ -13235,12 +13241,12 @@ var _user$project$Engine_Manifest$getItemsInInventoryIncludeWrittenContent = fun
 		isInInventory,
 		_elm_lang$core$Dict$toList(manifest));
 };
-var _user$project$Engine_Manifest$getItemsInInventory = function (manifest) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getItemsInInventory = function (manifest) {
 	var isInInventory = function (_p126) {
 		var _p127 = _p126;
 		var _p128 = _p127._1;
 		if (_p128.ctor === 'Item') {
-			return _elm_lang$core$Native_Utils.eq(_p128._0.itemPlacement, _user$project$Types$ItemInInventory) ? _elm_lang$core$Maybe$Just(_p127._0) : _elm_lang$core$Maybe$Nothing;
+			return _elm_lang$core$Native_Utils.eq(_p128._0.itemPlacement, _sintraubuntuer$elm_game_narrative_starter$Types$ItemInInventory) ? _elm_lang$core$Maybe$Just(_p127._0) : _elm_lang$core$Maybe$Nothing;
 		} else {
 			return _elm_lang$core$Maybe$Nothing;
 		}
@@ -13250,7 +13256,7 @@ var _user$project$Engine_Manifest$getItemsInInventory = function (manifest) {
 		isInInventory,
 		_elm_lang$core$Dict$toList(manifest));
 };
-var _user$project$Engine_Manifest$itemIsInInventory = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsInInventory = F2(
 	function (id, manifest) {
 		return A2(
 			_elm_lang$core$List$any,
@@ -13258,42 +13264,42 @@ var _user$project$Engine_Manifest$itemIsInInventory = F2(
 				function (x, y) {
 					return _elm_lang$core$Native_Utils.eq(x, y);
 				})(id),
-			_user$project$Engine_Manifest$getItemsInInventory(manifest));
+			_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getItemsInInventory(manifest));
 	});
-var _user$project$Engine_Manifest$character = function (caharacterId) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$character = function (caharacterId) {
 	var characterData = A5(
-		_user$project$Types$CharacterData,
+		_sintraubuntuer$elm_game_narrative_starter$Types$CharacterData,
 		caharacterId,
-		_user$project$Types$CharacterOffScreen,
+		_sintraubuntuer$elm_game_narrative_starter$Types$CharacterOffScreen,
 		_elm_lang$core$Dict$empty,
 		{ctor: '[]'},
 		{ctor: '[]'});
-	return _user$project$Types$Character(characterData);
+	return _sintraubuntuer$elm_game_narrative_starter$Types$Character(characterData);
 };
-var _user$project$Engine_Manifest$location = function (locationId) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$location = function (locationId) {
 	var locationData = A5(
-		_user$project$Types$LocationData,
+		_sintraubuntuer$elm_game_narrative_starter$Types$LocationData,
 		locationId,
 		false,
 		_elm_lang$core$Dict$empty,
 		{ctor: '[]'},
 		{ctor: '[]'});
-	return _user$project$Types$Location(locationData);
+	return _sintraubuntuer$elm_game_narrative_starter$Types$Location(locationData);
 };
-var _user$project$Engine_Manifest$item = function (itemId) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$item = function (itemId) {
 	var itemData = A8(
-		_user$project$Types$ItemData,
+		_sintraubuntuer$elm_game_narrative_starter$Types$ItemData,
 		itemId,
 		false,
-		_user$project$Types$ItemOffScreen,
+		_sintraubuntuer$elm_game_narrative_starter$Types$ItemOffScreen,
 		false,
 		_elm_lang$core$Maybe$Nothing,
 		_elm_lang$core$Dict$empty,
 		{ctor: '[]'},
 		{ctor: '[]'});
-	return _user$project$Types$Item(itemData);
+	return _sintraubuntuer$elm_game_narrative_starter$Types$Item(itemData);
 };
-var _user$project$Engine_Manifest$init = function (_p129) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$init = function (_p129) {
 	var _p130 = _p129;
 	var insertFn = F3(
 		function (interactableConstructor, id, acc) {
@@ -13313,16 +13319,16 @@ var _user$project$Engine_Manifest$init = function (_p129) {
 		});
 	return A3(
 		foldFn,
-		_user$project$Engine_Manifest$character,
+		_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$character,
 		_p130.characters,
 		A3(
 			foldFn,
-			_user$project$Engine_Manifest$location,
+			_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$location,
 			_p130.locations,
-			A3(foldFn, _user$project$Engine_Manifest$item, _p130.items, _elm_lang$core$Dict$empty)));
+			A3(foldFn, _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$item, _p130.items, _elm_lang$core$Dict$empty)));
 };
 
-var _user$project$Engine_Rules$matchesCondition = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Rules$matchesCondition = F3(
 	function (_p0, mbInputText, condition) {
 		var _p1 = _p0;
 		var _p5 = _p1.manifest;
@@ -13331,27 +13337,27 @@ var _user$project$Engine_Rules$matchesCondition = F3(
 		var _p2 = condition;
 		switch (_p2.ctor) {
 			case 'ItemIsInInventory':
-				return A2(_user$project$Engine_Manifest$itemIsInInventory, _p2._0, _p5);
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsInInventory, _p2._0, _p5);
 			case 'CharacterIsInLocation':
-				return A3(_user$project$Engine_Manifest$characterIsInLocation, _p2._0, _p2._1, _p5);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$characterIsInLocation, _p2._0, _p2._1, _p5);
 			case 'ItemIsInLocation':
-				return A3(_user$project$Engine_Manifest$itemIsInLocation, _p2._0, _p2._1, _p5);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsInLocation, _p2._0, _p2._1, _p5);
 			case 'CurrentLocationIs':
 				return _elm_lang$core$Native_Utils.eq(_p3, _p2._0);
 			case 'ItemIsNotInInventory':
-				return !A2(_user$project$Engine_Manifest$itemIsInInventory, _p2._0, _p5);
+				return !A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsInInventory, _p2._0, _p5);
 			case 'CharacterIsNotInLocation':
-				return !A3(_user$project$Engine_Manifest$characterIsInLocation, _p2._0, _p2._1, _p5);
+				return !A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$characterIsInLocation, _p2._0, _p2._1, _p5);
 			case 'ItemIsNotInLocation':
-				return !A3(_user$project$Engine_Manifest$itemIsInLocation, _p2._0, _p2._1, _p5);
+				return !A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsInLocation, _p2._0, _p2._1, _p5);
 			case 'ItemIsOffScreen':
-				return A2(_user$project$Engine_Manifest$itemIsOffScreen, _p2._0, _p5);
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsOffScreen, _p2._0, _p5);
 			case 'ItemIsInAnyLocationOrInventory':
-				return A2(_user$project$Engine_Manifest$itemIsInAnyLocationOrInventory, _p2._0, _p5);
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsInAnyLocationOrInventory, _p2._0, _p5);
 			case 'ItemIsCorrectlyAnswered':
-				return A2(_user$project$Engine_Manifest$itemIsCorrectlyAnswered, _p2._0, _p5);
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsCorrectlyAnswered, _p2._0, _p5);
 			case 'ItemIsNotCorrectlyAnswered':
-				return A2(_user$project$Engine_Manifest$itemIsNotCorrectlyAnswered, _p2._0, _p5);
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsNotCorrectlyAnswered, _p2._0, _p5);
 			case 'CurrentLocationIsNot':
 				return !_elm_lang$core$Native_Utils.eq(_p3, _p2._0);
 			case 'HasPreviouslyInteractedWith':
@@ -13367,35 +13373,35 @@ var _user$project$Engine_Rules$matchesCondition = F3(
 			case 'CurrentSceneIs':
 				return _elm_lang$core$Native_Utils.eq(_p1.currentScene, _p2._0);
 			case 'CounterExists':
-				return A3(_user$project$Engine_Manifest$counterExists, _p2._0, _p2._1, _p5);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$counterExists, _p2._0, _p2._1, _p5);
 			case 'CounterLessThen':
-				return A4(_user$project$Engine_Manifest$counterLessThen, _p2._0, _p2._1, _p2._2, _p5);
+				return A4(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$counterLessThen, _p2._0, _p2._1, _p2._2, _p5);
 			case 'CounterGreaterThenOrEqualTo':
-				return A4(_user$project$Engine_Manifest$counterGreaterThenOrEqualTo, _p2._0, _p2._1, _p2._2, _p5);
+				return A4(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$counterGreaterThenOrEqualTo, _p2._0, _p2._1, _p2._2, _p5);
 			case 'AttrValueIsEqualTo':
-				return A4(_user$project$Engine_Manifest$attrValueIsEqualTo, _p2._0, _p2._1, _p2._2, _p5);
+				return A4(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$attrValueIsEqualTo, _p2._0, _p2._1, _p2._2, _p5);
 			case 'ChosenOptionIsEqualTo':
-				return A2(_user$project$Engine_Manifest$chosenOptionIsEqualTo, _p2._0, mbInputText);
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$chosenOptionIsEqualTo, _p2._0, mbInputText);
 			case 'NoChosenOptionYet':
-				return A2(_user$project$Engine_Manifest$noChosenOptionYet, _p2._0, _p5);
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$noChosenOptionYet, _p2._0, _p5);
 			default:
-				return A2(_user$project$Engine_Manifest$choiceHasAlreadyBeenMade, _p2._0, _p5);
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$choiceHasAlreadyBeenMade, _p2._0, _p5);
 		}
 	});
-var _user$project$Engine_Rules$matchesInteraction = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Rules$matchesInteraction = F3(
 	function (manifest, interactionMatcher, interactableId) {
 		var _p6 = interactionMatcher;
 		switch (_p6.ctor) {
 			case 'WithAnything':
 				return true;
 			case 'WithAnyItem':
-				return A2(_user$project$Engine_Manifest$isItem, interactableId, manifest);
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$isItem, interactableId, manifest);
 			case 'WithAnyLocation':
-				return A2(_user$project$Engine_Manifest$isLocation, interactableId, manifest);
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$isLocation, interactableId, manifest);
 			case 'WithAnyCharacter':
-				return A2(_user$project$Engine_Manifest$isCharacter, interactableId, manifest);
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$isCharacter, interactableId, manifest);
 			case 'WithAnyLocationAnyCharacterAfterGameEnded':
-				return A2(_user$project$Engine_Manifest$isLocation, interactableId, manifest) || A2(_user$project$Engine_Manifest$isCharacter, interactableId, manifest);
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$isLocation, interactableId, manifest) || A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$isCharacter, interactableId, manifest);
 			case 'WithAnythingAfterGameEnded':
 				return true;
 			case 'WithAnythingHighPriority':
@@ -13404,15 +13410,15 @@ var _user$project$Engine_Rules$matchesInteraction = F3(
 				return _elm_lang$core$Native_Utils.eq(_p6._0, interactableId);
 		}
 	});
-var _user$project$Engine_Rules$matchesRule = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Rules$matchesRule = F4(
 	function (_p7, mbInputText, interaction, rule) {
 		var _p8 = _p7;
-		return A3(_user$project$Engine_Rules$matchesInteraction, _p8.manifest, rule.interaction, interaction) && A2(
+		return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Rules$matchesInteraction, _p8.manifest, rule.interaction, interaction) && A2(
 			_elm_lang$core$List$all,
-			A2(_user$project$Engine_Rules$matchesCondition, _p8, mbInputText),
+			A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Rules$matchesCondition, _p8, mbInputText),
 			rule.conditions);
 	});
-var _user$project$Engine_Rules$specificityWeight = function (rule) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Rules$specificityWeight = function (rule) {
 	var _p9 = rule.interaction;
 	switch (_p9.ctor) {
 		case 'With':
@@ -13433,7 +13439,7 @@ var _user$project$Engine_Rules$specificityWeight = function (rule) {
 			return 0;
 	}
 };
-var _user$project$Engine_Rules$sceneConstraintWeight = function (rule) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Rules$sceneConstraintWeight = function (rule) {
 	var hasSceneConstraints = function (condition) {
 		var _p10 = condition;
 		if (_p10.ctor === 'CurrentSceneIs') {
@@ -13444,35 +13450,35 @@ var _user$project$Engine_Rules$sceneConstraintWeight = function (rule) {
 	};
 	return A2(_elm_lang$core$List$any, hasSceneConstraints, rule.conditions) ? 300 : 0;
 };
-var _user$project$Engine_Rules$numConstrictionsWeight = function (_p11) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Rules$numConstrictionsWeight = function (_p11) {
 	return _elm_lang$core$List$length(
 		function (_) {
 			return _.conditions;
 		}(_p11));
 };
-var _user$project$Engine_Rules$bestMatch = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Rules$bestMatch = F2(
 	function (heuristics, matchingRules) {
 		return _elm_lang$core$List$head(
 			_elm_lang$core$List$reverse(
 				A2(_elm_lang$core$List$sortBy, heuristics, matchingRules)));
 	});
-var _user$project$Engine_Rules_ops = _user$project$Engine_Rules_ops || {};
-_user$project$Engine_Rules_ops['+>'] = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Rules_ops = _sintraubuntuer$elm_game_narrative_starter$Engine_Rules_ops || {};
+_sintraubuntuer$elm_game_narrative_starter$Engine_Rules_ops['+>'] = F3(
 	function (f1, f2, a) {
 		return f1(a) + f2(a);
 	});
-var _user$project$Engine_Rules$chooseFrom = function (_p12) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Rules$chooseFrom = function (_p12) {
 	var _p13 = _p12;
 	return function (_p14) {
 		return A2(
-			_user$project$Engine_Rules$bestMatch,
-			A2(_user$project$Engine_Rules_ops['+>'], _user$project$Engine_Rules$numConstrictionsWeight, _user$project$Engine_Rules$sceneConstraintWeight),
+			_sintraubuntuer$elm_game_narrative_starter$Engine_Rules$bestMatch,
+			A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Rules_ops['+>'], _sintraubuntuer$elm_game_narrative_starter$Engine_Rules$numConstrictionsWeight, _sintraubuntuer$elm_game_narrative_starter$Engine_Rules$sceneConstraintWeight),
 			A2(
 				_elm_lang$core$List$filter,
 				function (_p15) {
 					return A2(
 						_elm_lang$core$List$all,
-						A2(_user$project$Engine_Rules$matchesCondition, _p13, _elm_lang$core$Maybe$Nothing),
+						A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Rules$matchesCondition, _p13, _elm_lang$core$Maybe$Nothing),
 						function (_) {
 							return _.conditions;
 						}(_p15));
@@ -13480,7 +13486,7 @@ var _user$project$Engine_Rules$chooseFrom = function (_p12) {
 				_p14));
 	};
 };
-var _user$project$Engine_Rules$findMatchingRule = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine_Rules$findMatchingRule = F3(
 	function (story, mbInputText, interaction) {
 		return A2(
 			_elm_lang$core$Maybe$map,
@@ -13489,26 +13495,26 @@ var _user$project$Engine_Rules$findMatchingRule = F3(
 				return {
 					ctor: '_Tuple2',
 					_0: _p17.id,
-					_1: {interaction: _p17.interaction, conditions: _p17.conditions, changes: _p17.changes, quasiChanges: _p17.quasiChanges}
+					_1: {interaction: _p17.interaction, conditions: _p17.conditions, changes: _p17.changes, quasiChanges: _p17.quasiChanges, quasiChangeWithBkend: _p17.quasiChangeWithBkend}
 				};
 			},
 			A2(
-				_user$project$Engine_Rules$bestMatch,
+				_sintraubuntuer$elm_game_narrative_starter$Engine_Rules$bestMatch,
 				A2(
-					_user$project$Engine_Rules_ops['+>'],
-					A2(_user$project$Engine_Rules_ops['+>'], _user$project$Engine_Rules$numConstrictionsWeight, _user$project$Engine_Rules$sceneConstraintWeight),
-					_user$project$Engine_Rules$specificityWeight),
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Rules_ops['+>'],
+					A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Rules_ops['+>'], _sintraubuntuer$elm_game_narrative_starter$Engine_Rules$numConstrictionsWeight, _sintraubuntuer$elm_game_narrative_starter$Engine_Rules$sceneConstraintWeight),
+					_sintraubuntuer$elm_game_narrative_starter$Engine_Rules$specificityWeight),
 				A2(
 					_elm_lang$core$List$map,
 					function (_p18) {
 						var _p19 = _p18;
-						return {id: _p19._0, interaction: _p19._1.interaction, conditions: _p19._1.conditions, changes: _p19._1.changes, quasiChanges: _p19._1.quasiChanges};
+						return {id: _p19._0, interaction: _p19._1.interaction, conditions: _p19._1.conditions, changes: _p19._1.changes, quasiChanges: _p19._1.quasiChanges, quasiChangeWithBkend: _p19._1.quasiChangeWithBkend};
 					},
 					A2(
 						_elm_lang$core$List$filter,
 						function (_p20) {
 							return A4(
-								_user$project$Engine_Rules$matchesRule,
+								_sintraubuntuer$elm_game_narrative_starter$Engine_Rules$matchesRule,
 								story,
 								mbInputText,
 								interaction,
@@ -13517,209 +13523,212 @@ var _user$project$Engine_Rules$findMatchingRule = F3(
 						_elm_lang$core$Dict$toList(story.rules)))));
 	});
 
-var _user$project$Engine$endStory_ = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$endStory_ = F2(
 	function (endingtype, ending) {
-		return A2(_user$project$Types$EndStory, endingtype, ending);
+		return A2(_sintraubuntuer$elm_game_narrative_starter$Types$EndStory, endingtype, ending);
 	});
-var _user$project$Engine$endStory = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$endStory = F2(
 	function (endingtypeStr, ending) {
-		return _elm_lang$core$Native_Utils.eq(endingtypeStr, 'notFreezingEnd') ? A2(_user$project$Types$EndStory, _user$project$Types$NotFreezingEnd, ending) : A2(_user$project$Types$EndStory, _user$project$Types$FreezingEnd, ending);
+		return _elm_lang$core$Native_Utils.eq(endingtypeStr, 'notFreezingEnd') ? A2(_sintraubuntuer$elm_game_narrative_starter$Types$EndStory, _sintraubuntuer$elm_game_narrative_starter$Types$NotFreezingEnd, ending) : A2(_sintraubuntuer$elm_game_narrative_starter$Types$EndStory, _sintraubuntuer$elm_game_narrative_starter$Types$FreezingEnd, ending);
 	});
-var _user$project$Engine$loadScene = _user$project$Types$LoadScene;
-var _user$project$Engine$noFeedback = _user$project$Types$NoFeedback;
-var _user$project$Engine$headerAnswerAndCorrectIncorrect = _user$project$Types$HeaderAnswerAndCorrectIncorrect;
-var _user$project$Engine$answerSpacesDontMatter = _user$project$Types$AnswerSpacesDontMatter;
-var _user$project$Engine$answerSpacesMatter = _user$project$Types$AnswerSpacesMatter;
-var _user$project$Engine$caseInsensitiveAnswer = _user$project$Types$CaseInsensitiveAnswer;
-var _user$project$Engine$caseSensitiveAnswer = _user$project$Types$CaseSensitiveAnswer;
-var _user$project$Engine$completeTheRule = function (ruleData) {
-	return A4(
-		_user$project$Types$Rule,
+var _sintraubuntuer$elm_game_narrative_starter$Engine$loadScene = _sintraubuntuer$elm_game_narrative_starter$Types$LoadScene;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$noQuasiChangeWithBackend = _sintraubuntuer$elm_game_narrative_starter$Types$NoQuasiChangeWithBackend;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$noQuasiChange = _sintraubuntuer$elm_game_narrative_starter$Types$NoQuasiChange;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$noFeedback = _sintraubuntuer$elm_game_narrative_starter$Types$NoFeedback;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$headerAnswerAndCorrectIncorrect = _sintraubuntuer$elm_game_narrative_starter$Types$HeaderAnswerAndCorrectIncorrect;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$answerSpacesDontMatter = _sintraubuntuer$elm_game_narrative_starter$Types$AnswerSpacesDontMatter;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$answerSpacesMatter = _sintraubuntuer$elm_game_narrative_starter$Types$AnswerSpacesMatter;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$caseInsensitiveAnswer = _sintraubuntuer$elm_game_narrative_starter$Types$CaseInsensitiveAnswer;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$caseSensitiveAnswer = _sintraubuntuer$elm_game_narrative_starter$Types$CaseSensitiveAnswer;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$completeTheRule = function (ruleData) {
+	return A5(
+		_sintraubuntuer$elm_game_narrative_starter$Types$Rule,
 		ruleData.interaction,
 		ruleData.conditions,
 		ruleData.changes,
-		{ctor: '[]'});
+		{ctor: '[]'},
+		_sintraubuntuer$elm_game_narrative_starter$Types$NoQuasiChangeWithBackend);
 };
-var _user$project$Engine$aDictStringLSS = _user$project$Types$ADictStringLSS;
-var _user$project$Engine$aDictStringString = _user$project$Types$ADictStringString;
-var _user$project$Engine$abool = _user$project$Types$Abool;
-var _user$project$Engine$anint = _user$project$Types$AnInt;
-var _user$project$Engine$aliststringstring = _user$project$Types$AListStringString;
-var _user$project$Engine$aliststring = _user$project$Types$AListString;
-var _user$project$Engine$astring = _user$project$Types$Astring;
-var _user$project$Engine$checkOptionData = _user$project$Types$CheckOptionData;
-var _user$project$Engine$checkBkendAnswerData = _user$project$Types$CheckBkendAnswerData;
-var _user$project$Engine$checkAnswerData = _user$project$Types$CheckAnswerData;
-var _user$project$Engine$addChoiceLanguage = _user$project$Types$AddChoiceLanguage;
-var _user$project$Engine$moveItemOffScreen = _user$project$Types$MoveItemOffScreen;
-var _user$project$Engine$moveItemToLocation = _user$project$Types$MoveItemToLocation;
-var _user$project$Engine$moveItemToLocationFixed = _user$project$Types$MoveItemToLocationFixed;
-var _user$project$Engine$moveCharacterOffScreen = _user$project$Types$MoveCharacterOffScreen;
-var _user$project$Engine$moveCharacterToLocation = _user$project$Types$MoveCharacterToLocation;
-var _user$project$Engine$removeAttributeIfExists = _user$project$Types$RemoveAttributeIfExists;
-var _user$project$Engine$setAttributeValue = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$aDictStringLSS = _sintraubuntuer$elm_game_narrative_starter$Types$ADictStringLSS;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$aDictStringString = _sintraubuntuer$elm_game_narrative_starter$Types$ADictStringString;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$abool = _sintraubuntuer$elm_game_narrative_starter$Types$Abool;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$anint = _sintraubuntuer$elm_game_narrative_starter$Types$AnInt;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$aliststringstring = _sintraubuntuer$elm_game_narrative_starter$Types$AListStringString;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$aliststring = _sintraubuntuer$elm_game_narrative_starter$Types$AListString;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$astring = _sintraubuntuer$elm_game_narrative_starter$Types$Astring;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$checkOptionData = _sintraubuntuer$elm_game_narrative_starter$Types$CheckOptionData;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$checkBkendAnswerData = _sintraubuntuer$elm_game_narrative_starter$Types$CheckBkendAnswerData;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$checkAnswerData = _sintraubuntuer$elm_game_narrative_starter$Types$CheckAnswerData;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$addChoiceLanguage = _sintraubuntuer$elm_game_narrative_starter$Types$AddChoiceLanguage;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$moveItemOffScreen = _sintraubuntuer$elm_game_narrative_starter$Types$MoveItemOffScreen;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$moveItemToLocation = _sintraubuntuer$elm_game_narrative_starter$Types$MoveItemToLocation;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$moveItemToLocationFixed = _sintraubuntuer$elm_game_narrative_starter$Types$MoveItemToLocationFixed;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$moveCharacterOffScreen = _sintraubuntuer$elm_game_narrative_starter$Types$MoveCharacterOffScreen;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$moveCharacterToLocation = _sintraubuntuer$elm_game_narrative_starter$Types$MoveCharacterToLocation;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$removeAttributeIfExists = _sintraubuntuer$elm_game_narrative_starter$Types$RemoveAttributeIfExists;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$setAttributeValue = F3(
 	function (val, attrId, interactableId) {
-		var reservedAttrIds = _user$project$Engine_Manifest$getReservedAttrIds;
+		var reservedAttrIds = _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getReservedAttrIds;
 		if (!A2(_elm_lang$core$List$member, attrId, reservedAttrIds)) {
-			return A3(_user$project$Types$CreateAttributeIfNotExistsAndOrSetValue, val, attrId, interactableId);
+			return A3(_sintraubuntuer$elm_game_narrative_starter$Types$CreateAttributeIfNotExistsAndOrSetValue, val, attrId, interactableId);
 		} else {
 			var _p0 = A2(_elm_lang$core$Debug$log, 'Sorry ! It was not possible to set attribute value . That\'s a \'reserved\' attributeId : ', attrId);
-			return _user$project$Types$NoChange;
+			return _sintraubuntuer$elm_game_narrative_starter$Types$NoChange;
 		}
 	});
-var _user$project$Engine$createOrSetAttributeValueFromOtherInterAttr = _user$project$Types$CreateOrSetAttributeValueFromOtherInterAttr;
-var _user$project$Engine$createAttributeIfNotExistsAndOrSetValue = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$createOrSetAttributeValueFromOtherInterAttr = _sintraubuntuer$elm_game_narrative_starter$Types$CreateOrSetAttributeValueFromOtherInterAttr;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$createAttributeIfNotExistsAndOrSetValue = F3(
 	function (val, attrId, interactableId) {
-		var reservedAttrIds = _user$project$Engine_Manifest$getReservedAttrIds;
+		var reservedAttrIds = _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getReservedAttrIds;
 		if (!A2(_elm_lang$core$List$member, attrId, reservedAttrIds)) {
-			return A3(_user$project$Types$CreateAttributeIfNotExistsAndOrSetValue, val, attrId, interactableId);
+			return A3(_sintraubuntuer$elm_game_narrative_starter$Types$CreateAttributeIfNotExistsAndOrSetValue, val, attrId, interactableId);
 		} else {
 			var _p1 = A2(_elm_lang$core$Debug$log, 'Sorry ! It was not possible to create or set attribute. That\'s a \'reserved\' attributeId : ', attrId);
-			return _user$project$Types$NoChange;
+			return _sintraubuntuer$elm_game_narrative_starter$Types$NoChange;
 		}
 	});
-var _user$project$Engine$createAttributeIfNotExists = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$createAttributeIfNotExists = F3(
 	function (val, attrId, interactableId) {
-		var reservedAttrIds = _user$project$Engine_Manifest$getReservedAttrIds;
+		var reservedAttrIds = _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getReservedAttrIds;
 		if (!A2(_elm_lang$core$List$member, attrId, reservedAttrIds)) {
-			return A3(_user$project$Types$CreateAttributeIfNotExists, val, attrId, interactableId);
+			return A3(_sintraubuntuer$elm_game_narrative_starter$Types$CreateAttributeIfNotExists, val, attrId, interactableId);
 		} else {
 			var _p2 = A2(_elm_lang$core$Debug$log, 'Sorry ! It was not possible to create attribute. That\'s a \'reserved\' attributeId : ', attrId);
-			return _user$project$Types$NoChange;
+			return _sintraubuntuer$elm_game_narrative_starter$Types$NoChange;
 		}
 	});
-var _user$project$Engine$increaseCounter = _user$project$Types$IncreaseCounter;
-var _user$project$Engine$createCounterIfNotExists = _user$project$Types$CreateCounterIfNotExists;
-var _user$project$Engine$processChosenOptionEqualTo = _user$project$Types$ProcessChosenOptionEqualTo;
-var _user$project$Engine$checkAndAct_IfChosenOptionIs = _user$project$Types$CheckAndAct_IfChosenOptionIs;
-var _user$project$Engine$simpleCheck_IfAnswerCorrectUsingBackend = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$increaseCounter = _sintraubuntuer$elm_game_narrative_starter$Types$IncreaseCounter;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$createCounterIfNotExists = _sintraubuntuer$elm_game_narrative_starter$Types$CreateCounterIfNotExists;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$processChosenOptionEqualTo = _sintraubuntuer$elm_game_narrative_starter$Types$ProcessChosenOptionEqualTo;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$checkAndAct_IfChosenOptionIs = _sintraubuntuer$elm_game_narrative_starter$Types$CheckAndAct_IfChosenOptionIs;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$simpleCheck_IfAnswerCorrectUsingBackend = F3(
 	function (strUrl, mbNrTries, interactableId) {
 		return A3(
-			_user$project$Types$Check_IfAnswerCorrectUsingBackend,
+			_sintraubuntuer$elm_game_narrative_starter$Types$Check_IfAnswerCorrectUsingBackend,
 			strUrl,
 			A4(
-				_user$project$Types$CheckBkendAnswerData,
+				_sintraubuntuer$elm_game_narrative_starter$Types$CheckBkendAnswerData,
 				mbNrTries,
-				_user$project$Types$HeaderAnswerAndCorrectIncorrect,
+				_sintraubuntuer$elm_game_narrative_starter$Types$HeaderAnswerAndCorrectIncorrect,
 				{ctor: '[]'},
 				{ctor: '[]'}),
 			interactableId);
 	});
-var _user$project$Engine$check_IfAnswerCorrectUsingBackend = _user$project$Types$Check_IfAnswerCorrectUsingBackend;
-var _user$project$Engine$simpleCheck_IfAnswerCorrect = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$check_IfAnswerCorrectUsingBackend = _sintraubuntuer$elm_game_narrative_starter$Types$Check_IfAnswerCorrectUsingBackend;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$simpleCheck_IfAnswerCorrect = F3(
 	function (lcorrectAnswers, mbNrTries, interactableId) {
 		return A3(
-			_user$project$Types$Check_IfAnswerCorrect,
+			_sintraubuntuer$elm_game_narrative_starter$Types$Check_IfAnswerCorrect,
 			lcorrectAnswers,
 			A8(
-				_user$project$Types$CheckAnswerData,
+				_sintraubuntuer$elm_game_narrative_starter$Types$CheckAnswerData,
 				mbNrTries,
-				_user$project$Types$CaseInsensitiveAnswer,
-				_user$project$Types$AnswerSpacesDontMatter,
-				_user$project$Types$HeaderAnswerAndCorrectIncorrect,
+				_sintraubuntuer$elm_game_narrative_starter$Types$CaseInsensitiveAnswer,
+				_sintraubuntuer$elm_game_narrative_starter$Types$AnswerSpacesDontMatter,
+				_sintraubuntuer$elm_game_narrative_starter$Types$HeaderAnswerAndCorrectIncorrect,
 				_elm_lang$core$Dict$empty,
 				_elm_lang$core$Dict$empty,
 				{ctor: '[]'},
 				{ctor: '[]'}),
 			interactableId);
 	});
-var _user$project$Engine$check_IfAnswerCorrect = _user$project$Types$Check_IfAnswerCorrect;
-var _user$project$Engine$write_GpsInfoToItem = _user$project$Types$Write_GpsInfoToItem;
-var _user$project$Engine$writeForceTextToItemFromGivenItemAttr = _user$project$Types$WriteForceTextToItemFromGivenItemAttr;
-var _user$project$Engine$clearWrittenText = _user$project$Types$ClearWrittenText;
-var _user$project$Engine$write_InputTextToItem = _user$project$Types$Write_InputTextToItem;
-var _user$project$Engine$writeTextToItem = _user$project$Types$WriteTextToItem;
-var _user$project$Engine$makeItemUnwritable = _user$project$Types$MakeItemUnwritable;
-var _user$project$Engine$makeItemWritable = _user$project$Types$MakeItemWritable;
-var _user$project$Engine$moveItemToInventory = _user$project$Types$MoveItemToInventory;
-var _user$project$Engine$removeLocation = _user$project$Types$RemoveLocation;
-var _user$project$Engine$addLocation = _user$project$Types$AddLocation;
-var _user$project$Engine$moveTo = _user$project$Types$MoveTo;
-var _user$project$Engine$removeMultiChoiceOptions = _user$project$Types$RemoveMultiChoiceOptions;
-var _user$project$Engine$createAmultiChoice = _user$project$Types$CreateAMultiChoice;
-var _user$project$Engine$choiceHasAlreadyBeenMade = _user$project$Types$ChoiceHasAlreadyBeenMade;
-var _user$project$Engine$noChosenOptionYet = _user$project$Types$NoChosenOptionYet;
-var _user$project$Engine$chosenOptionIsEqualTo = _user$project$Types$ChosenOptionIsEqualTo;
-var _user$project$Engine$counterGreaterThenOrEqualTo = _user$project$Types$CounterGreaterThenOrEqualTo;
-var _user$project$Engine$counterLessThen = _user$project$Types$CounterLessThen;
-var _user$project$Engine$counterExists = _user$project$Types$CounterExists;
-var _user$project$Engine$currentSceneIs = _user$project$Types$CurrentSceneIs;
-var _user$project$Engine$currentLocationIsNot = _user$project$Types$CurrentLocationIsNot;
-var _user$project$Engine$currentLocationIs = _user$project$Types$CurrentLocationIs;
-var _user$project$Engine$attrBValueIsEqualTo = function (bval) {
-	return _user$project$Types$AttrValueIsEqualTo(
-		_user$project$Types$Abool(bval));
+var _sintraubuntuer$elm_game_narrative_starter$Engine$check_IfAnswerCorrect = _sintraubuntuer$elm_game_narrative_starter$Types$Check_IfAnswerCorrect;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$write_GpsInfoToItem = _sintraubuntuer$elm_game_narrative_starter$Types$Write_GpsInfoToItem;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$writeForceTextToItemFromGivenItemAttr = _sintraubuntuer$elm_game_narrative_starter$Types$WriteForceTextToItemFromGivenItemAttr;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$clearWrittenText = _sintraubuntuer$elm_game_narrative_starter$Types$ClearWrittenText;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$write_InputTextToItem = _sintraubuntuer$elm_game_narrative_starter$Types$Write_InputTextToItem;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$writeTextToItem = _sintraubuntuer$elm_game_narrative_starter$Types$WriteTextToItem;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$makeItemUnwritable = _sintraubuntuer$elm_game_narrative_starter$Types$MakeItemUnwritable;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$makeItemWritable = _sintraubuntuer$elm_game_narrative_starter$Types$MakeItemWritable;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$moveItemToInventory = _sintraubuntuer$elm_game_narrative_starter$Types$MoveItemToInventory;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$removeLocation = _sintraubuntuer$elm_game_narrative_starter$Types$RemoveLocation;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$addLocation = _sintraubuntuer$elm_game_narrative_starter$Types$AddLocation;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$moveTo = _sintraubuntuer$elm_game_narrative_starter$Types$MoveTo;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$removeMultiChoiceOptions = _sintraubuntuer$elm_game_narrative_starter$Types$RemoveMultiChoiceOptions;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$createAmultiChoice = _sintraubuntuer$elm_game_narrative_starter$Types$CreateAMultiChoice;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$choiceHasAlreadyBeenMade = _sintraubuntuer$elm_game_narrative_starter$Types$ChoiceHasAlreadyBeenMade;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$noChosenOptionYet = _sintraubuntuer$elm_game_narrative_starter$Types$NoChosenOptionYet;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$chosenOptionIsEqualTo = _sintraubuntuer$elm_game_narrative_starter$Types$ChosenOptionIsEqualTo;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$counterGreaterThenOrEqualTo = _sintraubuntuer$elm_game_narrative_starter$Types$CounterGreaterThenOrEqualTo;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$counterLessThen = _sintraubuntuer$elm_game_narrative_starter$Types$CounterLessThen;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$counterExists = _sintraubuntuer$elm_game_narrative_starter$Types$CounterExists;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$currentSceneIs = _sintraubuntuer$elm_game_narrative_starter$Types$CurrentSceneIs;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$currentLocationIsNot = _sintraubuntuer$elm_game_narrative_starter$Types$CurrentLocationIsNot;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$currentLocationIs = _sintraubuntuer$elm_game_narrative_starter$Types$CurrentLocationIs;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$attrBValueIsEqualTo = function (bval) {
+	return _sintraubuntuer$elm_game_narrative_starter$Types$AttrValueIsEqualTo(
+		_sintraubuntuer$elm_game_narrative_starter$Types$Abool(bval));
 };
-var _user$project$Engine$attrValueIsEqualTo = _user$project$Types$AttrValueIsEqualTo;
-var _user$project$Engine$itemIsNotCorrectlyAnswered = _user$project$Types$ItemIsNotCorrectlyAnswered;
-var _user$project$Engine$itemIsCorrectlyAnswered = _user$project$Types$ItemIsCorrectlyAnswered;
-var _user$project$Engine$itemIsInAnyLocationOrInventory = _user$project$Types$ItemIsInAnyLocationOrInventory;
-var _user$project$Engine$itemIsOffScreen = _user$project$Types$ItemIsOffScreen;
-var _user$project$Engine$itemIsNotInLocation = _user$project$Types$ItemIsNotInLocation;
-var _user$project$Engine$itemIsInLocation = _user$project$Types$ItemIsInLocation;
-var _user$project$Engine$characterIsNotInLocation = _user$project$Types$CharacterIsNotInLocation;
-var _user$project$Engine$hasNotPreviouslyInteractedWith = _user$project$Types$HasNotPreviouslyInteractedWith;
-var _user$project$Engine$hasPreviouslyInteractedWith = _user$project$Types$HasPreviouslyInteractedWith;
-var _user$project$Engine$characterIsInLocation = _user$project$Types$CharacterIsInLocation;
-var _user$project$Engine$itemIsNotInInventory = _user$project$Types$ItemIsNotInInventory;
-var _user$project$Engine$itemIsInInventory = _user$project$Types$ItemIsInInventory;
-var _user$project$Engine$withAnything = _user$project$Types$WithAnything;
-var _user$project$Engine$withAnythingHighPriority = _user$project$Types$WithAnythingHighPriority;
-var _user$project$Engine$withAnythingAfterGameEnded = _user$project$Types$WithAnythingAfterGameEnded;
-var _user$project$Engine$withAnyLocationAnyCharacterAfterGameEnded = _user$project$Types$WithAnyLocationAnyCharacterAfterGameEnded;
-var _user$project$Engine$withAnyCharacter = _user$project$Types$WithAnyCharacter;
-var _user$project$Engine$withAnyLocation = _user$project$Types$WithAnyLocation;
-var _user$project$Engine$withAnyItem = _user$project$Types$WithAnyItem;
-var _user$project$Engine$with = function (id) {
-	return _user$project$Types$With(id);
+var _sintraubuntuer$elm_game_narrative_starter$Engine$attrValueIsEqualTo = _sintraubuntuer$elm_game_narrative_starter$Types$AttrValueIsEqualTo;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsNotCorrectlyAnswered = _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsNotCorrectlyAnswered;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsCorrectlyAnswered = _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsCorrectlyAnswered;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsInAnyLocationOrInventory = _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsInAnyLocationOrInventory;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsOffScreen = _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsOffScreen;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsNotInLocation = _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsNotInLocation;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsInLocation = _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsInLocation;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$characterIsNotInLocation = _sintraubuntuer$elm_game_narrative_starter$Types$CharacterIsNotInLocation;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$hasNotPreviouslyInteractedWith = _sintraubuntuer$elm_game_narrative_starter$Types$HasNotPreviouslyInteractedWith;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$hasPreviouslyInteractedWith = _sintraubuntuer$elm_game_narrative_starter$Types$HasPreviouslyInteractedWith;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$characterIsInLocation = _sintraubuntuer$elm_game_narrative_starter$Types$CharacterIsInLocation;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsNotInInventory = _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsNotInInventory;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsInInventory = _sintraubuntuer$elm_game_narrative_starter$Types$ItemIsInInventory;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$withAnything = _sintraubuntuer$elm_game_narrative_starter$Types$WithAnything;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$withAnythingHighPriority = _sintraubuntuer$elm_game_narrative_starter$Types$WithAnythingHighPriority;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$withAnythingAfterGameEnded = _sintraubuntuer$elm_game_narrative_starter$Types$WithAnythingAfterGameEnded;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$withAnyLocationAnyCharacterAfterGameEnded = _sintraubuntuer$elm_game_narrative_starter$Types$WithAnyLocationAnyCharacterAfterGameEnded;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$withAnyCharacter = _sintraubuntuer$elm_game_narrative_starter$Types$WithAnyCharacter;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$withAnyLocation = _sintraubuntuer$elm_game_narrative_starter$Types$WithAnyLocation;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$withAnyItem = _sintraubuntuer$elm_game_narrative_starter$Types$WithAnyItem;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$with = function (id) {
+	return _sintraubuntuer$elm_game_narrative_starter$Types$With(id);
 };
-var _user$project$Engine$chooseFrom = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$chooseFrom = F2(
 	function (_p3, choices) {
 		var _p4 = _p3;
-		return A2(_user$project$Engine_Rules$chooseFrom, _p4._0, choices);
+		return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Rules$chooseFrom, _p4._0, choices);
 	});
-var _user$project$Engine$replaceWriteGpsInfoToItem = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$replaceWriteGpsInfoToItem = F2(
 	function (geolocationInfoText, id) {
-		return A2(_user$project$Types$WriteGpsLocInfoToItem, geolocationInfoText, id);
+		return A2(_sintraubuntuer$elm_game_narrative_starter$Types$WriteGpsLocInfoToItem, geolocationInfoText, id);
 	});
-var _user$project$Engine$replaceWriteInputTextToItem = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$replaceWriteInputTextToItem = F2(
 	function (mbText, id) {
 		return A2(
-			_user$project$Types$WriteTextToItem,
+			_sintraubuntuer$elm_game_narrative_starter$Types$WriteTextToItem,
 			A2(_elm_lang$core$Maybe$withDefault, '', mbText),
 			id);
 	});
-var _user$project$Engine$replaceCheckAndActIfChosenOptionIs = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$replaceCheckAndActIfChosenOptionIs = F3(
 	function (mbInputText, cOptionData, itemid) {
 		var playerChoice = A2(_elm_lang$core$Maybe$withDefault, '', mbInputText);
-		return A3(_user$project$Types$CheckAndActIfChosenOptionIs, playerChoice, cOptionData, itemid);
+		return A3(_sintraubuntuer$elm_game_narrative_starter$Types$CheckAndActIfChosenOptionIs, playerChoice, cOptionData, itemid);
 	});
-var _user$project$Engine$replaceCheckIfAnswerCorrect = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$replaceCheckIfAnswerCorrect = F4(
 	function (mbInputText, theCorrectAnswers, cAnswerData, interactableId) {
 		if ((!_elm_lang$core$Native_Utils.eq(mbInputText, _elm_lang$core$Maybe$Nothing)) && (!_elm_lang$core$Native_Utils.eq(
 			mbInputText,
 			_elm_lang$core$Maybe$Just('')))) {
 			var playerAnswer = A2(_elm_lang$core$Maybe$withDefault, '', mbInputText);
-			return A4(_user$project$Types$CheckIfAnswerCorrect, theCorrectAnswers, playerAnswer, cAnswerData, interactableId);
+			return A4(_sintraubuntuer$elm_game_narrative_starter$Types$CheckIfAnswerCorrect, theCorrectAnswers, playerAnswer, cAnswerData, interactableId);
 		} else {
-			return _user$project$Types$NoChange;
+			return _sintraubuntuer$elm_game_narrative_starter$Types$NoChange;
 		}
 	});
-var _user$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 	function (bkendAnsStatus, strUrl, cAnswerData, interactableId) {
 		var _p5 = bkendAnsStatus;
 		switch (_p5.ctor) {
 			case 'NoInfoYet':
-				return _user$project$Types$NoChange;
+				return _sintraubuntuer$elm_game_narrative_starter$Types$NoChange;
 			case 'WaitingForInfoRequested':
-				return _user$project$Types$NoChange;
+				return _sintraubuntuer$elm_game_narrative_starter$Types$NoChange;
 			case 'Ans':
 				var _p6 = _p5._0;
 				var checkAnswerData = A8(
-					_user$project$Types$CheckAnswerData,
+					_sintraubuntuer$elm_game_narrative_starter$Types$CheckAnswerData,
 					cAnswerData.mbMaxNrTries,
-					_user$project$Types$CaseInsensitiveAnswer,
-					_user$project$Types$AnswerSpacesDontMatter,
+					_sintraubuntuer$elm_game_narrative_starter$Types$CaseInsensitiveAnswer,
+					_sintraubuntuer$elm_game_narrative_starter$Types$AnswerSpacesDontMatter,
 					cAnswerData.answerFeedback,
 					_elm_lang$core$Dict$fromList(
 						A2(
@@ -13748,7 +13757,7 @@ var _user$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 								_0: {
 									ctor: '_Tuple2',
 									_0: 'bonusText',
-									_1: _user$project$Types$ADictStringString(
+									_1: _sintraubuntuer$elm_game_narrative_starter$Types$ADictStringString(
 										_elm_lang$core$Dict$fromList(
 											A2(
 												_elm_lang$core$List$map,
@@ -13762,7 +13771,7 @@ var _user$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 					});
 				var newCheckAnswerDataIfInsuccess = checkAnswerData;
 				return _p6.maxTriesReached ? A2(
-					_user$project$Types$WriteTextToItem,
+					_sintraubuntuer$elm_game_narrative_starter$Types$WriteTextToItem,
 					A2(
 						_elm_lang$core$Basics_ops['++'],
 						'  \n',
@@ -13783,7 +13792,7 @@ var _user$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 											' ___YOUR_ANSWER___ ',
 											A2(_elm_lang$core$Basics_ops['++'], ' ', _p6.playerAnswer))))))),
 					interactableId) : ((_p6.answered && _p6.correctAnswer) ? A4(
-					_user$project$Types$CheckIfAnswerCorrect,
+					_sintraubuntuer$elm_game_narrative_starter$Types$CheckIfAnswerCorrect,
 					{
 						ctor: '::',
 						_0: _p6.playerAnswer,
@@ -13792,7 +13801,7 @@ var _user$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 					_p6.playerAnswer,
 					newCheckAnswerDataIfSuccess,
 					interactableId) : ((_p6.answered && _p6.incorrectAnswer) ? A4(
-					_user$project$Types$CheckIfAnswerCorrect,
+					_sintraubuntuer$elm_game_narrative_starter$Types$CheckIfAnswerCorrect,
 					{
 						ctor: '::',
 						_0: A2(_elm_lang$core$Basics_ops['++'], _p6.playerAnswer, 'something'),
@@ -13800,10 +13809,10 @@ var _user$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 					},
 					_p6.playerAnswer,
 					newCheckAnswerDataIfInsuccess,
-					interactableId) : _user$project$Types$NoChange));
+					interactableId) : _sintraubuntuer$elm_game_narrative_starter$Types$NoChange));
 			default:
 				return A2(
-					_user$project$Types$WriteTextToItem,
+					_sintraubuntuer$elm_game_narrative_starter$Types$WriteTextToItem,
 					A2(
 						_elm_lang$core$Basics_ops['++'],
 						'  \n',
@@ -13811,155 +13820,151 @@ var _user$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 					interactableId);
 		}
 	});
-var _user$project$Engine$replaceQuasiCwCmdsWithCwcommands = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$replaceQuasiCwCmdsWithCwcommands = F2(
 	function (extraInfo, quasiCwCommand) {
 		var _p7 = quasiCwCommand;
 		switch (_p7.ctor) {
-			case 'Check_IfAnswerCorrectUsingBackend':
-				return A4(_user$project$Engine$replaceCheckIfAnswerCorrectUsingBackend, extraInfo.bkAnsStatus, _p7._0, _p7._1, _p7._2);
+			case 'NoQuasiChange':
+				return _sintraubuntuer$elm_game_narrative_starter$Types$NoChange;
 			case 'Check_IfAnswerCorrect':
-				return A4(_user$project$Engine$replaceCheckIfAnswerCorrect, extraInfo.mbInputText, _p7._0, _p7._1, _p7._2);
+				return A4(_sintraubuntuer$elm_game_narrative_starter$Engine$replaceCheckIfAnswerCorrect, extraInfo.mbInputText, _p7._0, _p7._1, _p7._2);
 			case 'CheckAndAct_IfChosenOptionIs':
-				return A3(_user$project$Engine$replaceCheckAndActIfChosenOptionIs, extraInfo.mbInputText, _p7._0, _p7._1);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$Engine$replaceCheckAndActIfChosenOptionIs, extraInfo.mbInputText, _p7._0, _p7._1);
 			case 'Write_InputTextToItem':
-				return A2(_user$project$Engine$replaceWriteInputTextToItem, extraInfo.mbInputText, _p7._0);
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine$replaceWriteInputTextToItem, extraInfo.mbInputText, _p7._0);
 			default:
-				return A2(_user$project$Engine$replaceWriteGpsInfoToItem, extraInfo.geolocationInfoText, _p7._0);
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine$replaceWriteGpsInfoToItem, extraInfo.geolocationInfoText, _p7._0);
 		}
 	});
-var _user$project$Engine$getListStrUrls = function (qcwcommands) {
-	var helperFunc = function (cwcommand) {
-		var _p8 = cwcommand;
-		if (_p8.ctor === 'Check_IfAnswerCorrectUsingBackend') {
-			return _p8._0;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$replaceBkendQuasiCwCmdsWithCwcommands = F2(
+	function (extraInfo, quasiBkendCwCommand) {
+		var _p8 = quasiBkendCwCommand;
+		if (_p8.ctor === 'NoQuasiChangeWithBackend') {
+			return _sintraubuntuer$elm_game_narrative_starter$Types$NoChange;
 		} else {
-			return '';
+			return A4(_sintraubuntuer$elm_game_narrative_starter$Engine$replaceCheckIfAnswerCorrectUsingBackend, extraInfo.bkAnsStatus, _p8._0, _p8._1, _p8._2);
 		}
-	};
-	return A2(
-		_elm_lang$core$List$filter,
-		function (x) {
-			return !_elm_lang$core$Native_Utils.eq(x, '');
-		},
-		A2(
-			_elm_lang$core$List$map,
-			function (cwcmd) {
-				return helperFunc(cwcmd);
-			},
-			qcwcommands));
-};
-var _user$project$Engine$getStoryRules = function (_p9) {
-	var _p10 = _p9;
-	return _p10._0.rules;
-};
-var _user$project$Engine$getHistory = function (_p11) {
-	var _p12 = _p11;
-	return _p12._0.history;
-};
-var _user$project$Engine$isItemCorrectlyAnswered = F2(
-	function (id, _p13) {
-		var _p14 = _p13;
-		return A2(_user$project$Engine_Manifest$itemIsCorrectlyAnswered, id, _p14._0.manifest);
 	});
-var _user$project$Engine$hasEnded = function (_p15) {
-	var _p16 = _p15;
-	var _p17 = _p16._0.theEnd;
-	if (_p17.ctor === 'Nothing') {
+var _sintraubuntuer$elm_game_narrative_starter$Engine$getInfoNeeded = function (qcwcommand) {
+	var _p9 = qcwcommand;
+	if (_p9.ctor === 'Check_IfAnswerCorrectUsingBackend') {
+		return _sintraubuntuer$elm_game_narrative_starter$Types$AnswerInfoToQuestionNeeded(_p9._0);
+	} else {
+		return _sintraubuntuer$elm_game_narrative_starter$Types$NoInfoNeeded;
+	}
+};
+var _sintraubuntuer$elm_game_narrative_starter$Engine$getStoryRules = function (_p10) {
+	var _p11 = _p10;
+	return _p11._0.rules;
+};
+var _sintraubuntuer$elm_game_narrative_starter$Engine$getHistory = function (_p12) {
+	var _p13 = _p12;
+	return _p13._0.history;
+};
+var _sintraubuntuer$elm_game_narrative_starter$Engine$isItemCorrectlyAnswered = F2(
+	function (id, _p14) {
+		var _p15 = _p14;
+		return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$itemIsCorrectlyAnswered, id, _p15._0.manifest);
+	});
+var _sintraubuntuer$elm_game_narrative_starter$Engine$hasEnded = function (_p16) {
+	var _p17 = _p16;
+	var _p18 = _p17._0.theEnd;
+	if (_p18.ctor === 'Nothing') {
 		return false;
 	} else {
 		return true;
 	}
 };
-var _user$project$Engine$hasFreezingEnd = function (_p18) {
-	var _p19 = _p18;
-	var _p20 = _p19._0.theEnd;
-	if (_p20.ctor === 'Nothing') {
+var _sintraubuntuer$elm_game_narrative_starter$Engine$hasFreezingEnd = function (_p19) {
+	var _p20 = _p19;
+	var _p21 = _p20._0.theEnd;
+	if (_p21.ctor === 'Nothing') {
 		return false;
 	} else {
-		var _p21 = _p20._0;
-		if (_p21._0.ctor === 'FreezingEnd') {
+		var _p22 = _p21._0;
+		if (_p22._0.ctor === 'FreezingEnd') {
 			return true;
 		} else {
 			return false;
 		}
 	}
 };
-var _user$project$Engine$getEndingText = function (_p22) {
-	var _p23 = _p22;
-	var _p24 = _p23._0.theEnd;
-	if (_p24.ctor === 'Nothing') {
+var _sintraubuntuer$elm_game_narrative_starter$Engine$getEndingText = function (_p23) {
+	var _p24 = _p23;
+	var _p25 = _p24._0.theEnd;
+	if (_p25.ctor === 'Nothing') {
 		return _elm_lang$core$Maybe$Nothing;
 	} else {
-		var _p25 = _p24._0;
-		return _elm_lang$core$Maybe$Just(_p25._1);
+		var _p26 = _p25._0;
+		return _elm_lang$core$Maybe$Just(_p26._1);
 	}
 };
-var _user$project$Engine$getLocations = function (_p26) {
-	var _p27 = _p26;
-	return _user$project$Engine_Manifest$getLocations(_p27._0.manifest);
+var _sintraubuntuer$elm_game_narrative_starter$Engine$getLocations = function (_p27) {
+	var _p28 = _p27;
+	return _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getLocations(_p28._0.manifest);
 };
-var _user$project$Engine$isWritable = F2(
-	function (interactableId, _p28) {
-		var _p29 = _p28;
-		return A2(_user$project$Engine_Manifest$isWritable, interactableId, _p29._0.manifest);
+var _sintraubuntuer$elm_game_narrative_starter$Engine$isWritable = F2(
+	function (interactableId, _p29) {
+		var _p30 = _p29;
+		return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$isWritable, interactableId, _p30._0.manifest);
 	});
-var _user$project$Engine$getInteractableAttribute = F3(
-	function (attrId, interactableId, _p30) {
-		var _p31 = _p30;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$getInteractableAttribute = F3(
+	function (attrId, interactableId, _p31) {
+		var _p32 = _p31;
 		return A2(
-			_user$project$Engine_Manifest$getInteractableAttribute,
+			_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getInteractableAttribute,
 			attrId,
-			A2(_elm_lang$core$Dict$get, interactableId, _p31._0.manifest));
+			A2(_elm_lang$core$Dict$get, interactableId, _p32._0.manifest));
 	});
-var _user$project$Engine$getItemWrittenContent = F2(
-	function (id, _p32) {
-		var _p33 = _p32;
-		var theManifest = _p33._0.manifest;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$getItemWrittenContent = F2(
+	function (id, _p33) {
+		var _p34 = _p33;
+		var theManifest = _p34._0.manifest;
 		var mbinteractable = A2(_elm_lang$core$Dict$get, id, theManifest);
-		return _user$project$Engine_Manifest$getItemWrittenContent(mbinteractable);
+		return _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getItemWrittenContent(mbinteractable);
 	});
-var _user$project$Engine$getItemsInInventory = function (_p34) {
-	var _p35 = _p34;
-	return _user$project$Engine_Manifest$getItemsInInventory(_p35._0.manifest);
+var _sintraubuntuer$elm_game_narrative_starter$Engine$getItemsInInventory = function (_p35) {
+	var _p36 = _p35;
+	return _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getItemsInInventory(_p36._0.manifest);
 };
-var _user$project$Engine$getCharactersInCurrentLocation = function (_p36) {
-	var _p37 = _p36;
-	var _p38 = _p37._0;
-	return A2(_user$project$Engine_Manifest$getCharactersInLocation, _p38.currentLocation, _p38.manifest);
+var _sintraubuntuer$elm_game_narrative_starter$Engine$getCharactersInCurrentLocation = function (_p37) {
+	var _p38 = _p37;
+	var _p39 = _p38._0;
+	return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getCharactersInLocation, _p39.currentLocation, _p39.manifest);
 };
-var _user$project$Engine$areThereWritableItemsInLocation = function (_p39) {
-	var _p40 = _p39;
-	var _p41 = _p40._0;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$areThereWritableItemsInLocation = function (_p40) {
+	var _p41 = _p40;
+	var _p42 = _p41._0;
 	return (_elm_lang$core$Native_Utils.cmp(
-		A2(_user$project$Engine_Manifest$countWritableItemsInLocation, _p41.currentLocation, _p41.manifest),
+		A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$countWritableItemsInLocation, _p42.currentLocation, _p42.manifest),
 		0) > 0) ? true : false;
 };
-var _user$project$Engine$getItemsInCurrentLocation = function (_p42) {
-	var _p43 = _p42;
-	var _p44 = _p43._0;
-	return A2(_user$project$Engine_Manifest$getItemsInLocation, _p44.currentLocation, _p44.manifest);
+var _sintraubuntuer$elm_game_narrative_starter$Engine$getItemsInCurrentLocation = function (_p43) {
+	var _p44 = _p43;
+	var _p45 = _p44._0;
+	return A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$getItemsInLocation, _p45.currentLocation, _p45.manifest);
 };
-var _user$project$Engine$getChoiceLanguages = function (_p45) {
-	var _p46 = _p45;
-	return _p46._0.choiceLanguages;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$getChoiceLanguages = function (_p46) {
+	var _p47 = _p46;
+	return _p47._0.choiceLanguages;
 };
-var _user$project$Engine$getCurrentLocation = function (_p47) {
-	var _p48 = _p47;
-	return _p48._0.currentLocation;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$getCurrentLocation = function (_p48) {
+	var _p49 = _p48;
+	return _p49._0.currentLocation;
 };
-var _user$project$Engine$getCurrentScene = function (_p49) {
-	var _p50 = _p49;
-	return _p50._0.currentScene;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$getCurrentScene = function (_p50) {
+	var _p51 = _p50;
+	return _p51._0.currentScene;
 };
-var _user$project$Engine$Model = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Engine$Model = function (a) {
 	return {ctor: 'Model', _0: a};
 };
-var _user$project$Engine$init = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$init = F3(
 	function (manifest, llanguages, rules) {
-		return _user$project$Engine$Model(
+		return _sintraubuntuer$elm_game_narrative_starter$Engine$Model(
 			{
 				history: {ctor: '[]'},
-				manifest: _user$project$Engine_Manifest$init(manifest),
+				manifest: _sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$init(manifest),
 				rules: rules,
 				currentScene: '',
 				currentLocation: '',
@@ -13967,83 +13972,83 @@ var _user$project$Engine$init = F3(
 				theEnd: _elm_lang$core$Maybe$Nothing
 			});
 	});
-var _user$project$Engine$changeWorld = F2(
-	function (changes, _p51) {
-		var _p52 = _p51;
+var _sintraubuntuer$elm_game_narrative_starter$Engine$changeWorld = F2(
+	function (changes, _p52) {
+		var _p53 = _p52;
 		var doChange = F2(
-			function (change, _p53) {
-				var _p54 = _p53;
-				var _p58 = _p54._0;
-				var _p57 = _p54._1;
-				var _p55 = change;
-				switch (_p55.ctor) {
+			function (change, _p54) {
+				var _p55 = _p54;
+				var _p59 = _p55._0;
+				var _p58 = _p55._1;
+				var _p56 = change;
+				switch (_p56.ctor) {
 					case 'MoveTo':
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
-								_p58,
-								{currentLocation: _p55._0}),
-							_1: _p57
+								_p59,
+								{currentLocation: _p56._0}),
+							_1: _p58
 						};
 					case 'LoadScene':
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
-								_p58,
-								{currentScene: _p55._0}),
-							_1: _p57
+								_p59,
+								{currentScene: _p56._0}),
+							_1: _p58
 						};
 					case 'EndStory':
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
-								_p58,
+								_p59,
 								{
 									theEnd: _elm_lang$core$Maybe$Just(
-										A2(_user$project$Types$TheEnd, _p55._0, _p55._1))
+										A2(_sintraubuntuer$elm_game_narrative_starter$Types$TheEnd, _p56._0, _p56._1))
 								}),
-							_1: _p57
+							_1: _p58
 						};
 					case 'SetChoiceLanguages':
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
-								_p58,
-								{choiceLanguages: _p55._0}),
-							_1: _p57
+								_p59,
+								{choiceLanguages: _p56._0}),
+							_1: _p58
 						};
 					case 'AddChoiceLanguage':
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
-								_p58,
+								_p59,
 								{
-									choiceLanguages: A3(_elm_lang$core$Dict$insert, _p55._0, _p55._1, _p58.choiceLanguages)
+									choiceLanguages: A3(_elm_lang$core$Dict$insert, _p56._0, _p56._1, _p59.choiceLanguages)
 								}),
-							_1: _p57
+							_1: _p58
 						};
 					default:
-						var _p56 = A2(
-							_user$project$Engine_Manifest$update,
+						var _p57 = A2(
+							_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$update,
 							change,
-							{ctor: '_Tuple2', _0: _p58.manifest, _1: _p57});
-						var newManifest = _p56._0;
-						var newIncidents = _p56._1;
+							{ctor: '_Tuple2', _0: _p59.manifest, _1: _p58});
+						var newManifest = _p57._0;
+						var newIncidents = _p57._1;
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
-								_p58,
+								_p59,
 								{manifest: newManifest}),
 							_1: newIncidents
 						};
 				}
 			});
-		return function (_p59) {
-			var _p60 = _p59;
+		return function (_p60) {
+			var _p61 = _p60;
 			return {
 				ctor: '_Tuple2',
-				_0: _user$project$Engine$Model(_p60._0),
-				_1: _p60._1
+				_0: _sintraubuntuer$elm_game_narrative_starter$Engine$Model(_p61._0),
+				_1: _p61._1
 			};
 		}(
 			A3(
@@ -14054,26 +14059,26 @@ var _user$project$Engine$changeWorld = F2(
 					}),
 				{
 					ctor: '_Tuple2',
-					_0: _p52._0,
+					_0: _p53._0,
 					_1: {ctor: '[]'}
 				},
 				changes));
 	});
-var _user$project$Engine$update = F3(
-	function (interactableId, extraInfo, _p61) {
-		var _p62 = _p61;
-		var _p72 = _p62._0;
-		var _p71 = _p62;
-		var addHistory = function (_p63) {
-			var _p64 = _p63;
-			var _p65 = _p64._0;
-			return _user$project$Engine$Model(
+var _sintraubuntuer$elm_game_narrative_starter$Engine$update = F3(
+	function (interactableId, extraInfo, _p62) {
+		var _p63 = _p62;
+		var _p76 = _p63._0;
+		var _p75 = _p63;
+		var addHistory = function (_p64) {
+			var _p65 = _p64;
+			var _p66 = _p65._0;
+			return _sintraubuntuer$elm_game_narrative_starter$Engine$Model(
 				_elm_lang$core$Native_Utils.update(
-					_p65,
+					_p66,
 					{
 						history: A2(
 							_elm_lang$core$Basics_ops['++'],
-							_p65.history,
+							_p66.history,
 							{
 								ctor: '::',
 								_0: {ctor: '_Tuple2', _0: interactableId, _1: extraInfo},
@@ -14082,17 +14087,17 @@ var _user$project$Engine$update = F3(
 					}));
 		};
 		var matchingRule = function () {
-			var _p66 = extraInfo.mbMatchedRuleId;
-			if (_p66.ctor === 'Nothing') {
-				return A3(_user$project$Engine_Rules$findMatchingRule, _p72, extraInfo.mbInputText, interactableId);
+			var _p67 = extraInfo.mbMatchedRuleId;
+			if (_p67.ctor === 'Nothing') {
+				return A3(_sintraubuntuer$elm_game_narrative_starter$Engine_Rules$findMatchingRule, _p76, extraInfo.mbInputText, interactableId);
 			} else {
-				var _p67 = _p66._0;
+				var _p68 = _p67._0;
 				return A2(
 					_elm_lang$core$Maybe$map,
 					function (x) {
-						return {ctor: '_Tuple2', _0: _p67, _1: x};
+						return {ctor: '_Tuple2', _0: _p68, _1: x};
 					},
-					A2(_elm_lang$core$Dict$get, _p67, _p72.rules));
+					A2(_elm_lang$core$Dict$get, _p68, _p76.rules));
 			}
 		}();
 		var lquasicwcmds = A2(
@@ -14100,25 +14105,45 @@ var _user$project$Engine$update = F3(
 			{ctor: '[]'},
 			A2(
 				_elm_lang$core$Maybe$map,
-				function (_p68) {
+				function (_p69) {
 					return function (_) {
 						return _.quasiChanges;
 					}(
-						_elm_lang$core$Tuple$second(_p68));
+						_elm_lang$core$Tuple$second(_p69));
 				},
 				matchingRule));
-		var lstrUrls = _user$project$Engine$getListStrUrls(lquasicwcmds);
 		var changesFromQuasi = A2(
 			_elm_lang$core$List$map,
-			_user$project$Engine$replaceQuasiCwCmdsWithCwcommands(extraInfo),
+			_sintraubuntuer$elm_game_narrative_starter$Engine$replaceQuasiCwCmdsWithCwcommands(extraInfo),
 			lquasicwcmds);
-		var defaultChanges = A2(_user$project$Engine_Manifest$isLocation, interactableId, _p72.manifest) ? {
+		var mbBkQuasicwcmd = A2(
+			_elm_lang$core$Maybe$map,
+			function (_p70) {
+				return function (_) {
+					return _.quasiChangeWithBkend;
+				}(
+					_elm_lang$core$Tuple$second(_p70));
+			},
+			matchingRule);
+		var infoNeeded = function () {
+			var _p71 = mbBkQuasicwcmd;
+			if (_p71.ctor === 'Nothing') {
+				return _sintraubuntuer$elm_game_narrative_starter$Types$NoInfoNeeded;
+			} else {
+				return _sintraubuntuer$elm_game_narrative_starter$Engine$getInfoNeeded(_p71._0);
+			}
+		}();
+		var mbChangeFromQuasi = A2(
+			_elm_lang$core$Maybe$map,
+			_sintraubuntuer$elm_game_narrative_starter$Engine$replaceBkendQuasiCwCmdsWithCwcommands(extraInfo),
+			mbBkQuasicwcmd);
+		var defaultChanges = A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$isLocation, interactableId, _p76.manifest) ? {
 			ctor: '::',
-			_0: _user$project$Types$MoveTo(interactableId),
+			_0: _sintraubuntuer$elm_game_narrative_starter$Types$MoveTo(interactableId),
 			_1: {ctor: '[]'}
-		} : (A2(_user$project$Engine_Manifest$isItem, interactableId, _p72.manifest) ? {
+		} : (A2(_sintraubuntuer$elm_game_narrative_starter$Engine_Manifest$isItem, interactableId, _p76.manifest) ? {
 			ctor: '::',
-			_0: _user$project$Types$MoveItemToInventory(interactableId),
+			_0: _sintraubuntuer$elm_game_narrative_starter$Types$MoveItemToInventory(interactableId),
 			_1: {ctor: '[]'}
 		} : {ctor: '[]'});
 		var somechanges = A2(
@@ -14126,47 +14151,54 @@ var _user$project$Engine$update = F3(
 			defaultChanges,
 			A2(
 				_elm_lang$core$Maybe$map,
-				function (_p69) {
+				function (_p72) {
 					return function (_) {
 						return _.changes;
 					}(
-						_elm_lang$core$Tuple$second(_p69));
+						_elm_lang$core$Tuple$second(_p72));
 				},
 				matchingRule));
-		var changes = A2(_elm_lang$core$List$append, changesFromQuasi, somechanges);
-		if ((_elm_lang$core$Native_Utils.cmp(
-			_elm_lang$core$List$length(lstrUrls),
-			0) > 0) && (_elm_lang$core$Native_Utils.eq(extraInfo.bkAnsStatus, _user$project$Types$NoInfoYet) && ((!_elm_lang$core$Native_Utils.eq(extraInfo.mbInputText, _elm_lang$core$Maybe$Nothing)) && (!_elm_lang$core$Native_Utils.eq(
-			extraInfo.mbInputText,
+		var changes = function () {
+			var _p73 = mbChangeFromQuasi;
+			if (_p73.ctor === 'Nothing') {
+				return A2(_elm_lang$core$Basics_ops['++'], somechanges, changesFromQuasi);
+			} else {
+				return {
+					ctor: '::',
+					_0: _p73._0,
+					_1: A2(_elm_lang$core$Basics_ops['++'], somechanges, changesFromQuasi)
+				};
+			}
+		}();
+		if ((!_elm_lang$core$Native_Utils.eq(infoNeeded, _sintraubuntuer$elm_game_narrative_starter$Types$NoInfoNeeded)) && (_elm_lang$core$Native_Utils.eq(extraInfo.bkAnsStatus, _sintraubuntuer$elm_game_narrative_starter$Types$NoInfoYet) && ((!_elm_lang$core$Native_Utils.eq(extraInfo.mbInputTextForBackend, _elm_lang$core$Maybe$Nothing)) && (!_elm_lang$core$Native_Utils.eq(
+			extraInfo.mbInputTextForBackend,
 			_elm_lang$core$Maybe$Just('')))))) {
 			return {
 				ctor: '_Tuple4',
-				_0: _p71,
+				_0: _p75,
 				_1: A2(_elm_lang$core$Maybe$map, _elm_lang$core$Tuple$first, matchingRule),
 				_2: {ctor: '[]'},
-				_3: _elm_lang$core$List$head(lstrUrls)
+				_3: infoNeeded
 			};
 		} else {
-			if ((_elm_lang$core$Native_Utils.cmp(
-				_elm_lang$core$List$length(lstrUrls),
-				0) > 0) && _elm_lang$core$Native_Utils.eq(extraInfo.bkAnsStatus, _user$project$Types$WaitingForInfoRequested)) {
+			if ((!_elm_lang$core$Native_Utils.eq(infoNeeded, _sintraubuntuer$elm_game_narrative_starter$Types$NoInfoNeeded)) && _elm_lang$core$Native_Utils.eq(extraInfo.bkAnsStatus, _sintraubuntuer$elm_game_narrative_starter$Types$WaitingForInfoRequested)) {
 				return {
 					ctor: '_Tuple4',
-					_0: _p71,
+					_0: _p75,
 					_1: A2(_elm_lang$core$Maybe$map, _elm_lang$core$Tuple$first, matchingRule),
 					_2: {ctor: '[]'},
-					_3: _elm_lang$core$Maybe$Nothing
+					_3: _sintraubuntuer$elm_game_narrative_starter$Types$NoInfoNeeded
 				};
 			} else {
-				var _p70 = A2(_user$project$Engine$changeWorld, changes, _p71);
-				var newModel = _p70._0;
-				var lincidents = _p70._1;
+				var _p74 = A2(_sintraubuntuer$elm_game_narrative_starter$Engine$changeWorld, changes, _p75);
+				var newModel = _p74._0;
+				var lincidents = _p74._1;
 				return {
 					ctor: '_Tuple4',
 					_0: addHistory(newModel),
 					_1: A2(_elm_lang$core$Maybe$map, _elm_lang$core$Tuple$first, matchingRule),
 					_2: lincidents,
-					_3: _elm_lang$core$Maybe$Nothing
+					_3: _sintraubuntuer$elm_game_narrative_starter$Types$NoInfoNeeded
 				};
 			}
 		}
@@ -14360,7 +14392,7 @@ var _wernerdegroot$listzipper$List_Zipper$last = function (_p28) {
 	}
 };
 
-var _user$project$Components$mergeDicts = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Components$mergeDicts = F2(
 	function (dict1, dict2) {
 		var mergeRule = F2(
 			function (tup, dict) {
@@ -14385,21 +14417,22 @@ var _user$project$Components$mergeDicts = F2(
 			dict2,
 			ltups);
 	});
-var _user$project$Components$getRuleData = function (_p0) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$getRuleData = function (_p0) {
 	var _p1 = _p0;
 	var _p2 = A2(_elm_lang$core$Dict$get, 'ruleData', _p1._1);
 	if ((_p2.ctor === 'Just') && (_p2._0.ctor === 'RuleData')) {
 		return _p2._0._0;
 	} else {
 		return {
-			interaction: _user$project$Engine$with(''),
+			interaction: _sintraubuntuer$elm_game_narrative_starter$Engine$with(''),
 			conditions: {ctor: '[]'},
 			changes: {ctor: '[]'},
-			quasiChanges: {ctor: '[]'}
+			quasiChanges: {ctor: '[]'},
+			quasiChangeWithBkend: _sintraubuntuer$elm_game_narrative_starter$Engine$noQuasiChangeWithBackend
 		};
 	}
 };
-var _user$project$Components$getLanguagesNarrativeDict = function (_p3) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$getLanguagesNarrativeDict = function (_p3) {
 	var _p4 = _p3;
 	var _p5 = A2(_elm_lang$core$Dict$get, 'languageNarratives', _p4._1);
 	if ((_p5.ctor === 'Just') && (_p5._0.ctor === 'LanguageNarratives')) {
@@ -14408,7 +14441,7 @@ var _user$project$Components$getLanguagesNarrativeDict = function (_p3) {
 		return _elm_lang$core$Dict$empty;
 	}
 };
-var _user$project$Components$getLanguageNarrative = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Components$getLanguageNarrative = F2(
 	function (languageId, _p6) {
 		var _p7 = _p6;
 		var _p10 = _p7._0;
@@ -14424,7 +14457,7 @@ var _user$project$Components$getLanguageNarrative = F2(
 			return _wernerdegroot$listzipper$List_Zipper$singleton(_p10);
 		}
 	});
-var _user$project$Components$getNarrative = function (_p11) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$getNarrative = function (_p11) {
 	var _p12 = _p11;
 	var _p13 = A2(_elm_lang$core$Dict$get, 'narrative', _p12._1);
 	if ((_p13.ctor === 'Just') && (_p13._0.ctor === 'Narrative')) {
@@ -14433,7 +14466,7 @@ var _user$project$Components$getNarrative = function (_p11) {
 		return _wernerdegroot$listzipper$List_Zipper$singleton(_p12._0);
 	}
 };
-var _user$project$Components$getExits = function (_p14) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$getExits = function (_p14) {
 	var _p15 = _p14;
 	var _p16 = A2(_elm_lang$core$Dict$get, 'connectedLocations', _p15._1);
 	if ((_p16.ctor === 'Just') && (_p16._0.ctor === 'ConnectingLocations')) {
@@ -14442,7 +14475,7 @@ var _user$project$Components$getExits = function (_p14) {
 		return {ctor: '[]'};
 	}
 };
-var _user$project$Components$getClassName = function (_p17) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$getClassName = function (_p17) {
 	var _p18 = _p17;
 	var _p19 = A2(_elm_lang$core$Dict$get, 'className', _p18._1);
 	if ((_p19.ctor === 'Just') && (_p19._0.ctor === 'ClassName')) {
@@ -14451,7 +14484,7 @@ var _user$project$Components$getClassName = function (_p17) {
 		return '';
 	}
 };
-var _user$project$Components$getNeedsToBeInGpsZone = function (_p20) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$getNeedsToBeInGpsZone = function (_p20) {
 	var _p21 = _p20;
 	var _p22 = A2(_elm_lang$core$Dict$get, 'needsToBeInGpsZone', _p21._1);
 	if ((_p22.ctor === 'Just') && (_p22._0.ctor === 'NeedsToBeInGpsZone')) {
@@ -14461,7 +14494,7 @@ var _user$project$Components$getNeedsToBeInGpsZone = function (_p20) {
 		return _elm_lang$core$Maybe$Nothing;
 	}
 };
-var _user$project$Components$getNeedsGpsCoords = function (_p23) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$getNeedsGpsCoords = function (_p23) {
 	var _p24 = _p23;
 	var _p25 = A2(_elm_lang$core$Dict$get, 'needsGpsCoords', _p24._1);
 	if (((_p25.ctor === 'Just') && (_p25._0.ctor === 'NeedsGpsCoords')) && (_p25._0._0 === true)) {
@@ -14470,7 +14503,7 @@ var _user$project$Components$getNeedsGpsCoords = function (_p23) {
 		return false;
 	}
 };
-var _user$project$Components$getEntityCoords = function (_p26) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$getEntityCoords = function (_p26) {
 	var _p27 = _p26;
 	var _p28 = A2(_elm_lang$core$Dict$get, 'needsToBeInGpsZone', _p27._1);
 	if ((_p28.ctor === 'Just') && (_p28._0.ctor === 'NeedsToBeInGpsZone')) {
@@ -14480,7 +14513,7 @@ var _user$project$Components$getEntityCoords = function (_p26) {
 		return _elm_lang$core$Maybe$Nothing;
 	}
 };
-var _user$project$Components$getTheLgsDisplayInfo = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Components$getTheLgsDisplayInfo = F3(
 	function (ldesiredlanguageIds, priorDict, _p29) {
 		var _p30 = _p29;
 		var _p34 = _p30._0;
@@ -14510,7 +14543,7 @@ var _user$project$Components$getTheLgsDisplayInfo = F3(
 				return _elm_lang$core$Dict$empty;
 			}
 		}();
-		var mergedDict = A2(_user$project$Components$mergeDicts, dict1, priorDict);
+		var mergedDict = A2(_sintraubuntuer$elm_game_narrative_starter$Components$mergeDicts, dict1, priorDict);
 		return A3(
 			_elm_lang$core$List$foldl,
 			F2(
@@ -14520,20 +14553,20 @@ var _user$project$Components$getTheLgsDisplayInfo = F3(
 			mergedDict,
 			ldesiredlanguageIds);
 	});
-var _user$project$Components$getLgsDisplayInfo = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Components$getLgsDisplayInfo = F2(
 	function (ldesiredlanguageIds, _p35) {
 		var _p36 = _p35;
 		return A3(
-			_user$project$Components$getTheLgsDisplayInfo,
+			_sintraubuntuer$elm_game_narrative_starter$Components$getTheLgsDisplayInfo,
 			ldesiredlanguageIds,
 			_elm_lang$core$Dict$empty,
 			{ctor: '_Tuple2', _0: _p36._0, _1: _p36._1});
 	});
-var _user$project$Components$getDictLgNames = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Components$getDictLgNames = F2(
 	function (ldesiredlanguageIds, _p37) {
 		var _p38 = _p37;
 		var dict = A2(
-			_user$project$Components$getLgsDisplayInfo,
+			_sintraubuntuer$elm_game_narrative_starter$Components$getLgsDisplayInfo,
 			ldesiredlanguageIds,
 			{ctor: '_Tuple2', _0: _p38._0, _1: _p38._1});
 		return A2(
@@ -14544,14 +14577,14 @@ var _user$project$Components$getDictLgNames = F2(
 				}),
 			dict);
 	});
-var _user$project$Components$getDictLgNamesAndCoords = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Components$getDictLgNamesAndCoords = F2(
 	function (ldesiredlanguageIds, _p39) {
 		var _p40 = _p39;
 		var _p42 = _p40._1;
 		var _p41 = A2(_elm_lang$core$Dict$get, 'needsToBeInGpsZone', _p42);
 		if ((_p41.ctor === 'Just') && (_p41._0.ctor === 'NeedsToBeInGpsZone')) {
 			var dict = A2(
-				_user$project$Components$getLgsDisplayInfo,
+				_sintraubuntuer$elm_game_narrative_starter$Components$getLgsDisplayInfo,
 				ldesiredlanguageIds,
 				{ctor: '_Tuple2', _0: _p40._0, _1: _p42});
 			return A2(
@@ -14565,11 +14598,11 @@ var _user$project$Components$getDictLgNamesAndCoords = F2(
 			return _elm_lang$core$Dict$empty;
 		}
 	});
-var _user$project$Components$getDictLgDescriptions = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Components$getDictLgDescriptions = F2(
 	function (ldesiredlanguageIds, _p43) {
 		var _p44 = _p43;
 		var dict = A2(
-			_user$project$Components$getLgsDisplayInfo,
+			_sintraubuntuer$elm_game_narrative_starter$Components$getLgsDisplayInfo,
 			ldesiredlanguageIds,
 			{ctor: '_Tuple2', _0: _p44._0, _1: _p44._1});
 		return A2(
@@ -14580,11 +14613,11 @@ var _user$project$Components$getDictLgDescriptions = F2(
 				}),
 			dict);
 	});
-var _user$project$Components$getSingleLgDisplayInfo = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Components$getSingleLgDisplayInfo = F2(
 	function (lgId, _p45) {
 		var _p46 = _p45;
 		var theDict = A2(
-			_user$project$Components$getLgsDisplayInfo,
+			_sintraubuntuer$elm_game_narrative_starter$Components$getLgsDisplayInfo,
 			{
 				ctor: '::',
 				_0: lgId,
@@ -14596,29 +14629,29 @@ var _user$project$Components$getSingleLgDisplayInfo = F2(
 			{name: 'No Info', description: 'No Info'},
 			A2(_elm_lang$core$Dict$get, lgId, theDict));
 	});
-var _user$project$Components$getDisplayInfo = function (_p47) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$getDisplayInfo = function (_p47) {
 	var _p48 = _p47;
 	return A2(
-		_user$project$Components$getSingleLgDisplayInfo,
+		_sintraubuntuer$elm_game_narrative_starter$Components$getSingleLgDisplayInfo,
 		'en',
 		{ctor: '_Tuple2', _0: _p48._0, _1: _p48._1});
 };
-var _user$project$Components$zipTheStringList = function (narrative) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$zipTheStringList = function (narrative) {
 	return A2(
 		_wernerdegroot$listzipper$List_Zipper$withDefault,
 		'',
 		_wernerdegroot$listzipper$List_Zipper$fromList(narrative));
 };
-var _user$project$Components$makeZipNarrativesDict = function (narrativeDict) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$makeZipNarrativesDict = function (narrativeDict) {
 	return A2(
 		_elm_lang$core$Dict$map,
 		F2(
 			function (comparable, lstrs) {
-				return _user$project$Components$zipTheStringList(lstrs);
+				return _sintraubuntuer$elm_game_narrative_starter$Components$zipTheStringList(lstrs);
 			}),
 		narrativeDict);
 };
-var _user$project$Components$getLanguagesAudioDict = function (_p49) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$getLanguagesAudioDict = function (_p49) {
 	var _p50 = _p49;
 	var _p51 = A2(_elm_lang$core$Dict$get, 'audioContent', _p50._1);
 	if ((_p51.ctor === 'Just') && (_p51._0.ctor === 'AudioContent')) {
@@ -14627,7 +14660,7 @@ var _user$project$Components$getLanguagesAudioDict = function (_p49) {
 		return _elm_lang$core$Dict$empty;
 	}
 };
-var _user$project$Components$getMbSingleLgAudioContent = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Components$getMbSingleLgAudioContent = F2(
 	function (lgId, _p52) {
 		var _p53 = _p52;
 		var mbAudioComponent = A2(_elm_lang$core$Dict$get, 'audioContent', _p53._1);
@@ -14641,7 +14674,7 @@ var _user$project$Components$getMbSingleLgAudioContent = F2(
 		}();
 		return A2(_elm_lang$core$Dict$get, lgId, audioDict);
 	});
-var _user$project$Components$addComponent = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Components$addComponent = F3(
 	function (componentId, component, _p55) {
 		var _p56 = _p55;
 		return {
@@ -14650,55 +14683,55 @@ var _user$project$Components$addComponent = F3(
 			_1: A3(_elm_lang$core$Dict$insert, componentId, component, _p56._1)
 		};
 	});
-var _user$project$Components$entity = function (id) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$entity = function (id) {
 	return {ctor: '_Tuple2', _0: id, _1: _elm_lang$core$Dict$empty};
 };
-var _user$project$Components$AudioFileInfo = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Components$AudioFileInfo = F3(
 	function (a, b, c) {
 		return {displayName: a, fileName: b, mbAbsoluteUrl: c};
 	});
-var _user$project$Components$NeedsToBeInGpsZone = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Components$NeedsToBeInGpsZone = F4(
 	function (a, b, c, d) {
 		return {ctor: 'NeedsToBeInGpsZone', _0: a, _1: b, _2: c, _3: d};
 	});
-var _user$project$Components$addNeedsToBeInGpsZone = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Components$addNeedsToBeInGpsZone = F4(
 	function (bval, dlat, dlon, mbRadius) {
 		return A2(
-			_user$project$Components$addComponent,
+			_sintraubuntuer$elm_game_narrative_starter$Components$addComponent,
 			'needsToBeInGpsZone',
-			A4(_user$project$Components$NeedsToBeInGpsZone, bval, dlat, dlon, mbRadius));
+			A4(_sintraubuntuer$elm_game_narrative_starter$Components$NeedsToBeInGpsZone, bval, dlat, dlon, mbRadius));
 	});
-var _user$project$Components$NeedsGpsCoords = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$NeedsGpsCoords = function (a) {
 	return {ctor: 'NeedsGpsCoords', _0: a};
 };
-var _user$project$Components$addNeedsGpsInfo = function (bval) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$addNeedsGpsInfo = function (bval) {
 	return A2(
-		_user$project$Components$addComponent,
+		_sintraubuntuer$elm_game_narrative_starter$Components$addComponent,
 		'needsGpsCoords',
-		_user$project$Components$NeedsGpsCoords(bval));
+		_sintraubuntuer$elm_game_narrative_starter$Components$NeedsGpsCoords(bval));
 };
-var _user$project$Components$RuleData = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$RuleData = function (a) {
 	return {ctor: 'RuleData', _0: a};
 };
-var _user$project$Components$addRuleData = function (ruleData) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$addRuleData = function (ruleData) {
 	return A2(
-		_user$project$Components$addComponent,
+		_sintraubuntuer$elm_game_narrative_starter$Components$addComponent,
 		'ruleData',
-		_user$project$Components$RuleData(ruleData));
+		_sintraubuntuer$elm_game_narrative_starter$Components$RuleData(ruleData));
 };
-var _user$project$Components$AudioContent = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$AudioContent = function (a) {
 	return {ctor: 'AudioContent', _0: a};
 };
-var _user$project$Components$addAllLanguagesAudio = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Components$addAllLanguagesAudio = F2(
 	function (audioDict, _p57) {
 		var _p58 = _p57;
 		return A3(
-			_user$project$Components$addComponent,
+			_sintraubuntuer$elm_game_narrative_starter$Components$addComponent,
 			'audioContent',
-			_user$project$Components$AudioContent(audioDict),
+			_sintraubuntuer$elm_game_narrative_starter$Components$AudioContent(audioDict),
 			{ctor: '_Tuple2', _0: _p58._0, _1: _p58._1});
 	});
-var _user$project$Components$addLgAudioContent = F5(
+var _sintraubuntuer$elm_game_narrative_starter$Components$addLgAudioContent = F5(
 	function (lgId, audioName, audioFileName, mbAbsUrl, _p59) {
 		var _p60 = _p59;
 		var _p62 = _p60._1;
@@ -14708,67 +14741,67 @@ var _user$project$Components$addLgAudioContent = F5(
 				return A3(
 					_elm_lang$core$Dict$insert,
 					lgId,
-					A3(_user$project$Components$AudioFileInfo, audioName, audioFileName, mbAbsUrl),
+					A3(_sintraubuntuer$elm_game_narrative_starter$Components$AudioFileInfo, audioName, audioFileName, mbAbsUrl),
 					_p61._0._0);
 			} else {
 				return A3(
 					_elm_lang$core$Dict$insert,
 					lgId,
-					A3(_user$project$Components$AudioFileInfo, audioName, audioFileName, mbAbsUrl),
+					A3(_sintraubuntuer$elm_game_narrative_starter$Components$AudioFileInfo, audioName, audioFileName, mbAbsUrl),
 					_elm_lang$core$Dict$empty);
 			}
 		}();
 		return A3(
-			_user$project$Components$addComponent,
+			_sintraubuntuer$elm_game_narrative_starter$Components$addComponent,
 			'audioContent',
-			_user$project$Components$AudioContent(newDict),
+			_sintraubuntuer$elm_game_narrative_starter$Components$AudioContent(newDict),
 			{ctor: '_Tuple2', _0: _p60._0, _1: _p62});
 	});
-var _user$project$Components$LanguageNarratives = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$LanguageNarratives = function (a) {
 	return {ctor: 'LanguageNarratives', _0: a};
 };
-var _user$project$Components$addLanguageNarratives = function (narrativeDict) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$addLanguageNarratives = function (narrativeDict) {
 	return A2(
-		_user$project$Components$addComponent,
+		_sintraubuntuer$elm_game_narrative_starter$Components$addComponent,
 		'languageNarratives',
-		_user$project$Components$LanguageNarratives(
-			_user$project$Components$makeZipNarrativesDict(narrativeDict)));
+		_sintraubuntuer$elm_game_narrative_starter$Components$LanguageNarratives(
+			_sintraubuntuer$elm_game_narrative_starter$Components$makeZipNarrativesDict(narrativeDict)));
 };
-var _user$project$Components$Narrative = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$Narrative = function (a) {
 	return {ctor: 'Narrative', _0: a};
 };
-var _user$project$Components$addNarrative = function (narrative) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$addNarrative = function (narrative) {
 	return A2(
-		_user$project$Components$addComponent,
+		_sintraubuntuer$elm_game_narrative_starter$Components$addComponent,
 		'narrative',
-		_user$project$Components$Narrative(
+		_sintraubuntuer$elm_game_narrative_starter$Components$Narrative(
 			A2(
 				_wernerdegroot$listzipper$List_Zipper$withDefault,
 				'',
 				_wernerdegroot$listzipper$List_Zipper$fromList(narrative))));
 };
-var _user$project$Components$ConnectingLocations = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$ConnectingLocations = function (a) {
 	return {ctor: 'ConnectingLocations', _0: a};
 };
-var _user$project$Components$addConnectingLocations = function (exits) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$addConnectingLocations = function (exits) {
 	return A2(
-		_user$project$Components$addComponent,
+		_sintraubuntuer$elm_game_narrative_starter$Components$addComponent,
 		'connectedLocations',
-		_user$project$Components$ConnectingLocations(exits));
+		_sintraubuntuer$elm_game_narrative_starter$Components$ConnectingLocations(exits));
 };
-var _user$project$Components$ClassName = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$ClassName = function (a) {
 	return {ctor: 'ClassName', _0: a};
 };
-var _user$project$Components$addClassName = function (className) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$addClassName = function (className) {
 	return A2(
-		_user$project$Components$addComponent,
+		_sintraubuntuer$elm_game_narrative_starter$Components$addComponent,
 		'className',
-		_user$project$Components$ClassName(className));
+		_sintraubuntuer$elm_game_narrative_starter$Components$ClassName(className));
 };
-var _user$project$Components$DisplayInformation = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Components$DisplayInformation = function (a) {
 	return {ctor: 'DisplayInformation', _0: a};
 };
-var _user$project$Components$addLgDisplayInfo = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Components$addLgDisplayInfo = F4(
 	function (lgId, name, description, _p63) {
 		var _p64 = _p63;
 		var _p66 = _p64._1;
@@ -14789,22 +14822,22 @@ var _user$project$Components$addLgDisplayInfo = F4(
 			}
 		}();
 		return A3(
-			_user$project$Components$addComponent,
+			_sintraubuntuer$elm_game_narrative_starter$Components$addComponent,
 			'displayInfo',
-			_user$project$Components$DisplayInformation(newDict),
+			_sintraubuntuer$elm_game_narrative_starter$Components$DisplayInformation(newDict),
 			{ctor: '_Tuple2', _0: _p64._0, _1: _p66});
 	});
-var _user$project$Components$addDisplayInfo = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Components$addDisplayInfo = F3(
 	function (name, description, _p67) {
 		var _p68 = _p67;
 		return A4(
-			_user$project$Components$addLgDisplayInfo,
+			_sintraubuntuer$elm_game_narrative_starter$Components$addLgDisplayInfo,
 			'en',
 			name,
 			description,
 			{ctor: '_Tuple2', _0: _p68._0, _1: _p68._1});
 	});
-var _user$project$Components$updateAllLgsDisplayName = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Components$updateAllLgsDisplayName = F2(
 	function (newNameStr, _p69) {
 		var _p70 = _p69;
 		var _p72 = _p70._1;
@@ -14825,24 +14858,24 @@ var _user$project$Components$updateAllLgsDisplayName = F2(
 			}
 		}();
 		return A3(
-			_user$project$Components$addComponent,
+			_sintraubuntuer$elm_game_narrative_starter$Components$addComponent,
 			'displayInfo',
-			_user$project$Components$DisplayInformation(newDict),
+			_sintraubuntuer$elm_game_narrative_starter$Components$DisplayInformation(newDict),
 			{ctor: '_Tuple2', _0: _p70._0, _1: _p72});
 	});
-var _user$project$Components$West = {ctor: 'West'};
-var _user$project$Components$East = {ctor: 'East'};
-var _user$project$Components$SouthWest = {ctor: 'SouthWest'};
-var _user$project$Components$SouthEast = {ctor: 'SouthEast'};
-var _user$project$Components$South = {ctor: 'South'};
-var _user$project$Components$NorthWest = {ctor: 'NorthWest'};
-var _user$project$Components$NorthEast = {ctor: 'NorthEast'};
-var _user$project$Components$North = {ctor: 'North'};
-var _user$project$Components$bearingToDirection = function (angle) {
-	return ((_elm_lang$core$Native_Utils.cmp(angle, 22.5) > -1) && (_elm_lang$core$Native_Utils.cmp(angle, 67.5) < 0)) ? _user$project$Components$NorthEast : (((_elm_lang$core$Native_Utils.cmp(angle, 67.5) > -1) && (_elm_lang$core$Native_Utils.cmp(angle, 112.5) < 0)) ? _user$project$Components$East : (((_elm_lang$core$Native_Utils.cmp(angle, 112.5) > -1) && (_elm_lang$core$Native_Utils.cmp(angle, 157.5) < 0)) ? _user$project$Components$SouthEast : (((_elm_lang$core$Native_Utils.cmp(angle, 157.5) > -1) && (_elm_lang$core$Native_Utils.cmp(angle, 202.5) < 0)) ? _user$project$Components$South : (((_elm_lang$core$Native_Utils.cmp(angle, 202.5) > -1) && (_elm_lang$core$Native_Utils.cmp(angle, 247.5) < 0)) ? _user$project$Components$SouthWest : (((_elm_lang$core$Native_Utils.cmp(angle, 247.5) > -1) && (_elm_lang$core$Native_Utils.cmp(angle, 292.5) < 0)) ? _user$project$Components$West : (((_elm_lang$core$Native_Utils.cmp(angle, 292.5) > -1) && (_elm_lang$core$Native_Utils.cmp(angle, 337.5) < 0)) ? _user$project$Components$NorthWest : _user$project$Components$North))))));
+var _sintraubuntuer$elm_game_narrative_starter$Components$West = {ctor: 'West'};
+var _sintraubuntuer$elm_game_narrative_starter$Components$East = {ctor: 'East'};
+var _sintraubuntuer$elm_game_narrative_starter$Components$SouthWest = {ctor: 'SouthWest'};
+var _sintraubuntuer$elm_game_narrative_starter$Components$SouthEast = {ctor: 'SouthEast'};
+var _sintraubuntuer$elm_game_narrative_starter$Components$South = {ctor: 'South'};
+var _sintraubuntuer$elm_game_narrative_starter$Components$NorthWest = {ctor: 'NorthWest'};
+var _sintraubuntuer$elm_game_narrative_starter$Components$NorthEast = {ctor: 'NorthEast'};
+var _sintraubuntuer$elm_game_narrative_starter$Components$North = {ctor: 'North'};
+var _sintraubuntuer$elm_game_narrative_starter$Components$bearingToDirection = function (angle) {
+	return ((_elm_lang$core$Native_Utils.cmp(angle, 22.5) > -1) && (_elm_lang$core$Native_Utils.cmp(angle, 67.5) < 0)) ? _sintraubuntuer$elm_game_narrative_starter$Components$NorthEast : (((_elm_lang$core$Native_Utils.cmp(angle, 67.5) > -1) && (_elm_lang$core$Native_Utils.cmp(angle, 112.5) < 0)) ? _sintraubuntuer$elm_game_narrative_starter$Components$East : (((_elm_lang$core$Native_Utils.cmp(angle, 112.5) > -1) && (_elm_lang$core$Native_Utils.cmp(angle, 157.5) < 0)) ? _sintraubuntuer$elm_game_narrative_starter$Components$SouthEast : (((_elm_lang$core$Native_Utils.cmp(angle, 157.5) > -1) && (_elm_lang$core$Native_Utils.cmp(angle, 202.5) < 0)) ? _sintraubuntuer$elm_game_narrative_starter$Components$South : (((_elm_lang$core$Native_Utils.cmp(angle, 202.5) > -1) && (_elm_lang$core$Native_Utils.cmp(angle, 247.5) < 0)) ? _sintraubuntuer$elm_game_narrative_starter$Components$SouthWest : (((_elm_lang$core$Native_Utils.cmp(angle, 247.5) > -1) && (_elm_lang$core$Native_Utils.cmp(angle, 292.5) < 0)) ? _sintraubuntuer$elm_game_narrative_starter$Components$West : (((_elm_lang$core$Native_Utils.cmp(angle, 292.5) > -1) && (_elm_lang$core$Native_Utils.cmp(angle, 337.5) < 0)) ? _sintraubuntuer$elm_game_narrative_starter$Components$NorthWest : _sintraubuntuer$elm_game_narrative_starter$Components$North))))));
 };
 
-var _user$project$GpsUtils$calculateBearing = F2(
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$calculateBearing = F2(
 	function (_p1, _p0) {
 		var _p2 = _p1;
 		var _p3 = _p0;
@@ -14869,7 +14902,7 @@ var _user$project$GpsUtils$calculateBearing = F2(
 					toDegrees(
 						A2(_elm_lang$core$Basics$atan2, y, x)))));
 	});
-var _user$project$GpsUtils$calculateBearingsFromList = function (lcoords) {
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$calculateBearingsFromList = function (lcoords) {
 	var calcBearingsHelper = function (lc) {
 		var _p4 = lc;
 		if (_p4.ctor === '[]') {
@@ -14878,7 +14911,7 @@ var _user$project$GpsUtils$calculateBearingsFromList = function (lcoords) {
 			return {
 				ctor: '::',
 				_0: A2(
-					_user$project$GpsUtils$calculateBearing,
+					_sintraubuntuer$elm_game_narrative_starter$GpsUtils$calculateBearing,
 					{ctor: '_Tuple2', _0: _p4._0._0._0, _1: _p4._0._0._1},
 					{ctor: '_Tuple2', _0: _p4._0._1._0, _1: _p4._0._1._1}),
 				_1: calcBearingsHelper(_p4._1)
@@ -14893,7 +14926,7 @@ var _user$project$GpsUtils$calculateBearingsFromList = function (lcoords) {
 	var lzips = A2(_elm_community$list_extra$List_Extra$zip, l1, l2);
 	return calcBearingsHelper(lzips);
 };
-var _user$project$GpsUtils$addRightZeros = F2(
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$addRightZeros = F2(
 	function (desiredlength, theStr) {
 		addRightZeros:
 		while (true) {
@@ -14910,11 +14943,11 @@ var _user$project$GpsUtils$addRightZeros = F2(
 			}
 		}
 	});
-var _user$project$GpsUtils$roundit = F2(
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$roundit = F2(
 	function (nrplaces, nr) {
 		var intVal = _elm_lang$core$Basics$floor(nr);
 		var strdecPlaces = A2(
-			_user$project$GpsUtils$addRightZeros,
+			_sintraubuntuer$elm_game_narrative_starter$GpsUtils$addRightZeros,
 			3,
 			_elm_lang$core$Basics$toString(
 				_elm_lang$core$Basics$toFloat(
@@ -14927,7 +14960,7 @@ var _user$project$GpsUtils$roundit = F2(
 			strintVal,
 			A2(_elm_lang$core$Basics_ops['++'], '.', strdecPlaces));
 	});
-var _user$project$GpsUtils$addLeftZeros = F2(
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$addLeftZeros = F2(
 	function (desiredlength, theStr) {
 		addLeftZeros:
 		while (true) {
@@ -14944,12 +14977,12 @@ var _user$project$GpsUtils$addLeftZeros = F2(
 			}
 		}
 	});
-var _user$project$GpsUtils$convertDecimalToGps = F2(
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$convertDecimalToGps = F2(
 	function (theStr, theVal) {
 		var newVal = _elm_lang$core$Basics$abs(theVal);
 		var deg = _elm_lang$core$Basics$floor(newVal);
 		var strDeg = _elm_lang$core$Native_Utils.eq(theStr, 'longitude') ? A2(
-			_user$project$GpsUtils$addLeftZeros,
+			_sintraubuntuer$elm_game_narrative_starter$GpsUtils$addLeftZeros,
 			3,
 			_elm_lang$core$Basics$toString(deg)) : _elm_lang$core$Basics$toString(deg);
 		var minutes = (newVal - _elm_lang$core$Basics$toFloat(deg)) * 60;
@@ -14966,20 +14999,20 @@ var _user$project$GpsUtils$convertDecimalToGps = F2(
 					A2(
 						_elm_lang$core$Basics_ops['++'],
 						'º ',
-						A2(_user$project$GpsUtils$roundit, 3, minutes)))));
+						A2(_sintraubuntuer$elm_game_narrative_starter$GpsUtils$roundit, 3, minutes)))));
 		return fstr;
 	});
-var _user$project$GpsUtils$convertDecimalTupleToGps = function (_p5) {
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$convertDecimalTupleToGps = function (_p5) {
 	var _p6 = _p5;
-	var lon = A2(_user$project$GpsUtils$convertDecimalToGps, 'longitude', _p6._1);
-	var lat = A2(_user$project$GpsUtils$convertDecimalToGps, 'latitude', _p6._0);
+	var lon = A2(_sintraubuntuer$elm_game_narrative_starter$GpsUtils$convertDecimalToGps, 'longitude', _p6._1);
+	var lat = A2(_sintraubuntuer$elm_game_narrative_starter$GpsUtils$convertDecimalToGps, 'latitude', _p6._0);
 	var fstr = A2(
 		_elm_lang$core$Basics_ops['++'],
 		lat,
 		A2(_elm_lang$core$Basics_ops['++'], ' , ', lon));
 	return fstr;
 };
-var _user$project$GpsUtils$haversineInMeters = F2(
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$haversineInMeters = F2(
 	function (_p8, _p7) {
 		var _p9 = _p8;
 		var _p12 = _p9._0;
@@ -14998,7 +15031,7 @@ var _user$project$GpsUtils$haversineInMeters = F2(
 		return ((r * 2) * _elm_lang$core$Basics$asin(
 			_elm_lang$core$Basics$sqrt(a))) * 1000;
 	});
-var _user$project$GpsUtils$getMbGpsZoneLatLon = function (mbGpsZone) {
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$getMbGpsZoneLatLon = function (mbGpsZone) {
 	var _p13 = mbGpsZone;
 	if (_p13.ctor === 'Just') {
 		var _p14 = _p13._0;
@@ -15008,7 +15041,7 @@ var _user$project$GpsUtils$getMbGpsZoneLatLon = function (mbGpsZone) {
 		return _elm_lang$core$Maybe$Nothing;
 	}
 };
-var _user$project$GpsUtils$checkIfInDistance = F3(
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$checkIfInDistance = F3(
 	function (mbGpsZone, theDistance, defaultDistance) {
 		var _p15 = mbGpsZone;
 		if (_p15.ctor === 'Nothing') {
@@ -15022,17 +15055,17 @@ var _user$project$GpsUtils$checkIfInDistance = F3(
 			}
 		}
 	});
-var _user$project$GpsUtils$getCurrentGeoLocationAsText = function (mbGeolocationInfo) {
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$getCurrentGeoLocationAsText = function (mbGeolocationInfo) {
 	var _p17 = mbGeolocationInfo;
 	if (_p17.ctor === 'Nothing') {
 		return '\ngps info : not available ! ';
 	} else {
 		var _p18 = _p17._0;
-		return _user$project$GpsUtils$convertDecimalTupleToGps(
+		return _sintraubuntuer$elm_game_narrative_starter$GpsUtils$convertDecimalTupleToGps(
 			{ctor: '_Tuple2', _0: _p18.latitude, _1: _p18.longitude});
 	}
 };
-var _user$project$GpsUtils$getTextDistancesFromListDistances = F2(
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$getTextDistancesFromListDistances = F2(
 	function (nrdistances, ldistances) {
 		return A2(
 			_elm_lang$core$String$join,
@@ -15061,20 +15094,20 @@ var _user$project$GpsUtils$getTextDistancesFromListDistances = F2(
 					},
 					ldistances)));
 	});
-var _user$project$GpsUtils$getCurrentGeoReportAsText = F4(
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$getCurrentGeoReportAsText = F4(
 	function (currLocNameAndCoords, mbGeolocationInfo, lnameDistances, nrdistances) {
 		return A2(
 			_elm_lang$core$Basics_ops['++'],
 			'  \n',
 			A2(
 				_elm_lang$core$Basics_ops['++'],
-				_user$project$GpsUtils$getCurrentGeoLocationAsText(mbGeolocationInfo),
+				_sintraubuntuer$elm_game_narrative_starter$GpsUtils$getCurrentGeoLocationAsText(mbGeolocationInfo),
 				A2(
 					_elm_lang$core$Basics_ops['++'],
 					'  \n',
 					A2(
 						_elm_lang$core$Basics_ops['++'],
-						A2(_user$project$GpsUtils$getTextDistancesFromListDistances, nrdistances, lnameDistances),
+						A2(_sintraubuntuer$elm_game_narrative_starter$GpsUtils$getTextDistancesFromListDistances, nrdistances, lnameDistances),
 						A2(
 							_elm_lang$core$Basics_ops['++'],
 							'  \n',
@@ -15091,21 +15124,21 @@ var _user$project$GpsUtils$getCurrentGeoReportAsText = F4(
 											_elm_lang$core$Maybe$map,
 											function (_p21) {
 												var _p22 = _p21;
-												return _user$project$GpsUtils$convertDecimalTupleToGps(
+												return _sintraubuntuer$elm_game_narrative_starter$GpsUtils$convertDecimalTupleToGps(
 													{ctor: '_Tuple2', _0: _p22._1, _1: _p22._2});
 											},
 											A2(_elm_lang$core$Dict$get, 'en', currLocNameAndCoords))))))))));
 	});
-var _user$project$GpsUtils$getDistanceTo = F2(
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$getDistanceTo = F2(
 	function (location, _p23) {
 		var _p24 = _p23;
 		var theDistance = A2(
-			_user$project$GpsUtils$haversineInMeters,
+			_sintraubuntuer$elm_game_narrative_starter$GpsUtils$haversineInMeters,
 			{ctor: '_Tuple2', _0: location.latitude, _1: location.longitude},
 			{ctor: '_Tuple2', _0: _p24._1, _1: _p24._2});
 		return {ctor: '_Tuple2', _0: _p24._0, _1: theDistance};
 	});
-var _user$project$GpsUtils$getDistancesTo = F3(
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$getDistancesTo = F3(
 	function (nrdistances, location, lmbnamecoordTuples) {
 		return A2(
 			_elm_lang$core$List$sortBy,
@@ -15126,18 +15159,18 @@ var _user$project$GpsUtils$getDistancesTo = F3(
 						_elm_lang$core$List$map,
 						_elm_lang$core$Maybe$map(
 							function (x) {
-								return A2(_user$project$GpsUtils$getDistanceTo, location, x);
+								return A2(_sintraubuntuer$elm_game_narrative_starter$GpsUtils$getDistanceTo, location, x);
 							}),
 						lmbnamecoordTuples))));
 	});
-var _user$project$GpsUtils$getDistancesToAsText = F3(
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$getDistancesToAsText = F3(
 	function (nrdistances, location, lmbnamecoordTuples) {
 		return A2(
-			_user$project$GpsUtils$getTextDistancesFromListDistances,
+			_sintraubuntuer$elm_game_narrative_starter$GpsUtils$getTextDistancesFromListDistances,
 			nrdistances,
-			A3(_user$project$GpsUtils$getDistancesTo, nrdistances, location, lmbnamecoordTuples));
+			A3(_sintraubuntuer$elm_game_narrative_starter$GpsUtils$getDistancesTo, nrdistances, location, lmbnamecoordTuples));
 	});
-var _user$project$GpsUtils$getDistance = F2(
+var _sintraubuntuer$elm_game_narrative_starter$GpsUtils$getDistance = F2(
 	function (location, mbGpsZone) {
 		var _p27 = mbGpsZone;
 		if (_p27.ctor === 'Nothing') {
@@ -15147,7 +15180,7 @@ var _user$project$GpsUtils$getDistance = F2(
 			var _p28 = _p29.needsToBeIn;
 			if (_p28 === true) {
 				return A2(
-					_user$project$GpsUtils$haversineInMeters,
+					_sintraubuntuer$elm_game_narrative_starter$GpsUtils$haversineInMeters,
 					{ctor: '_Tuple2', _0: location.latitude, _1: location.longitude},
 					{ctor: '_Tuple2', _0: _p29.lat, _1: _p29.lon});
 			} else {
@@ -15156,114 +15189,117 @@ var _user$project$GpsUtils$getDistance = F2(
 		}
 	});
 
-var _user$project$OurStory2_Narrative$gameHasEndedEn = {
+var _sintraubuntuer$elm_game_narrative_starter$InfoForBkendApiRequests$getApiKey = 'some-api-key';
+var _sintraubuntuer$elm_game_narrative_starter$InfoForBkendApiRequests$backendAnswerCheckerUrl = 'http://127.0.0.1:5000/questions/';
+
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$gameHasEndedEn = {
 	ctor: '::',
 	_0: '\nGame has Ended ! You can take a look at your inventory items ( but game has ended ) ! Have Fun !\n      ',
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Narrative$gameHasEnded = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$gameHasEnded = {
 	ctor: '::',
 	_0: '\nEste jogo acabou ! Podes consultar todos os items no teu inventário ,\nmas o jogo chegou ao fim ! Diverte-te !\n      ',
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Narrative$gameHasEndedDict = _elm_lang$core$Dict$fromList(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$gameHasEndedDict = _elm_lang$core$Dict$fromList(
 	{
 		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'pt', _1: _user$project$OurStory2_Narrative$gameHasEnded},
+		_0: {ctor: '_Tuple2', _0: 'pt', _1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$gameHasEnded},
 		_1: {
 			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'en', _1: _user$project$OurStory2_Narrative$gameHasEndedEn},
+			_0: {ctor: '_Tuple2', _0: 'en', _1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$gameHasEndedEn},
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$OurStory2_Narrative$creditsInformation = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$creditsInformation = {
 	ctor: '::',
-	_0: '\n### Location Info : ###\nhttp://www.parquesdesintra.pt/\n\n\n### Elm Narrative Engine : ###\n\nJeff Schomay\n( that in no way endorses this particular extension or narrative)\n\n\n\n### extensions to the Narrative Engine : ###\n\nNuno Torres\n\n\n\n### Game-Narrative ###\n\nNuno Torres\n\n    ',
+	_0: '\n### Location Info : ###\nhttp://www.parquesdesintra.pt/\n\n\n### Elm Language and package ecosystem ###\n\nEvan Czaplicki ,  Richard Feldman , Werner de Groot , Dave Keen ...\n\n### Elm Narrative Engine : ###\n\nJeff Schomay\n\n( the persons above in no way endorse this particular extension or narrative)\n\n### extensions to the Narrative Engine : ###\n\nNuno Torres\n\n### Game-Narrative ###\n\nNuno Torres\n\n    ',
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Narrative$theCreditsInformationDict = _elm_lang$core$Dict$fromList(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$theCreditsInformationDict = _elm_lang$core$Dict$fromList(
 	{
 		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'pt', _1: _user$project$OurStory2_Narrative$creditsInformation},
+		_0: {ctor: '_Tuple2', _0: 'pt', _1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$creditsInformation},
 		_1: {
 			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'en', _1: _user$project$OurStory2_Narrative$creditsInformation},
+			_0: {ctor: '_Tuple2', _0: 'en', _1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$creditsInformation},
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$OurStory2_Narrative$interactingWithFinalPaperEn = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithFinalPaperEn = {
 	ctor: '::',
 	_0: '\nCongratulations ! You overcome all challenges.\nYou will find a nice surprise located at ...\n\n Game has ended !\n     ',
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Narrative$interactingWithFinalPaperPt = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithFinalPaperPt = {
 	ctor: '::',
 	_0: '\nParabéns ! Superaste todos os desafios propostos.\nEncontarás uma agradável surpresa em ...\n\n O jogo chegou ao fim !\n      ',
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Narrative$interactingWithFinalPaperDict = _elm_lang$core$Dict$fromList(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithFinalPaperDict = _elm_lang$core$Dict$fromList(
 	{
 		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'pt', _1: _user$project$OurStory2_Narrative$interactingWithFinalPaperPt},
+		_0: {ctor: '_Tuple2', _0: 'pt', _1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithFinalPaperPt},
 		_1: {
 			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'en', _1: _user$project$OurStory2_Narrative$interactingWithFinalPaperEn},
+			_0: {ctor: '_Tuple2', _0: 'en', _1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithFinalPaperEn},
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$OurStory2_Narrative$goodNewsMessageAfterAllQuestionsAnsweredEn = '\nAll questions have been answered . Look for an old paper in last stage ...\n       ';
-var _user$project$OurStory2_Narrative$goodNewsMessageAfterAllQuestionsAnsweredPt = '\nRespondeste a todas as perguntas ... Procura o papiro no ultimo nivel\n       ';
-var _user$project$OurStory2_Narrative$goodNewsMessageAfterAllQuestionsAnsweredDict = _elm_lang$core$Dict$fromList(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$goodNewsMessageAfterAllQuestionsAnsweredEn = '\nAll questions have been answered . Look for an old paper in last stage ...\n       ';
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$goodNewsMessageAfterAllQuestionsAnsweredPt = '\nRespondeste a todas as perguntas ... Procura o papiro no ultimo nivel\n       ';
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$goodNewsMessageAfterAllQuestionsAnsweredDict = _elm_lang$core$Dict$fromList(
 	{
 		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'pt', _1: _user$project$OurStory2_Narrative$goodNewsMessageAfterAllQuestionsAnsweredPt},
+		_0: {ctor: '_Tuple2', _0: 'pt', _1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$goodNewsMessageAfterAllQuestionsAnsweredPt},
 		_1: {
 			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'en', _1: _user$project$OurStory2_Narrative$goodNewsMessageAfterAllQuestionsAnsweredEn},
+			_0: {ctor: '_Tuple2', _0: 'en', _1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$goodNewsMessageAfterAllQuestionsAnsweredEn},
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$OurStory2_Narrative$lookAtGpsEn = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$lookAtGpsEn = {
 	ctor: '::',
 	_0: '\nYou look at your gps receiver device :\n    ',
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Narrative$lookAtGps = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$lookAtGps = {
 	ctor: '::',
 	_0: '\nConsultas o aparelho receptor de gps :\n    ',
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Narrative$lookAtGpsDict = _elm_lang$core$Dict$fromList(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$lookAtGpsDict = _elm_lang$core$Dict$fromList(
 	{
 		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'pt', _1: _user$project$OurStory2_Narrative$lookAtGps},
+		_0: {ctor: '_Tuple2', _0: 'pt', _1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$lookAtGps},
 		_1: {
 			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'en', _1: _user$project$OurStory2_Narrative$lookAtGpsEn},
+			_0: {ctor: '_Tuple2', _0: 'en', _1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$lookAtGpsEn},
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$OurStory2_Narrative$takeGpsEn = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$takeGpsEn = {
 	ctor: '::',
 	_0: '\nYou carefully pick up and store the gps receiver !\n     ',
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Narrative$takeGps = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$takeGps = {
 	ctor: '::',
 	_0: 'Guardas cuidadosamente o Gps ',
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Narrative$takeGpsDict = _elm_lang$core$Dict$fromList(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$takeGpsDict = _elm_lang$core$Dict$fromList(
 	{
 		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'pt', _1: _user$project$OurStory2_Narrative$takeGps},
+		_0: {ctor: '_Tuple2', _0: 'pt', _1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$takeGps},
 		_1: {
 			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'en', _1: _user$project$OurStory2_Narrative$takeGpsEn},
+			_0: {ctor: '_Tuple2', _0: 'en', _1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$takeGpsEn},
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$OurStory2_Narrative$additionalStageInfoAfterAllQuestionsAnsweredDict = _elm_lang$core$Dict$fromList(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalStageInfoAfterAllQuestionsAnsweredDict = _elm_lang$core$Dict$fromList(
 	{
 		ctor: '::',
 		_0: {ctor: '_Tuple2', _0: 'pt', _1: 'Todas as questões foram respondidas. Dirige-te para o ultimo nivel ... '},
@@ -15273,7 +15309,7 @@ var _user$project$OurStory2_Narrative$additionalStageInfoAfterAllQuestionsAnswer
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$OurStory2_Narrative$additionalStageInfoAfterQuestionAnsweredDict = _elm_lang$core$Dict$fromList(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalStageInfoAfterQuestionAnsweredDict = _elm_lang$core$Dict$fromList(
 	{
 		ctor: '::',
 		_0: {ctor: '_Tuple2', _0: 'pt', _1: 'A questão deste nivel já está respondida ... '},
@@ -15283,7 +15319,7 @@ var _user$project$OurStory2_Narrative$additionalStageInfoAfterQuestionAnsweredDi
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$OurStory2_Narrative$theStagesDict = _elm_lang$core$Dict$fromList(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$theStagesDict = _elm_lang$core$Dict$fromList(
 	{
 		ctor: '::',
 		_0: {
@@ -15585,14 +15621,14 @@ var _user$project$OurStory2_Narrative$theStagesDict = _elm_lang$core$Dict$fromLi
 			}
 		}
 	});
-var _user$project$OurStory2_Narrative$getTheStageInfo = F2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getTheStageInfo = F2(
 	function (stageNr, languageId) {
 		return A2(
 			_elm_lang$core$Dict$get,
 			{ctor: '_Tuple2', _0: stageNr, _1: languageId},
-			_user$project$OurStory2_Narrative$theStagesDict);
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$theStagesDict);
 	});
-var _user$project$OurStory2_Narrative$getStageName = F2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getStageName = F2(
 	function (stageNr, languageId) {
 		return A2(
 			_elm_lang$core$Maybe$withDefault,
@@ -15605,9 +15641,9 @@ var _user$project$OurStory2_Narrative$getStageName = F2(
 				function (_) {
 					return _.stageName;
 				},
-				A2(_user$project$OurStory2_Narrative$getTheStageInfo, stageNr, languageId)));
+				A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getTheStageInfo, stageNr, languageId)));
 	});
-var _user$project$OurStory2_Narrative$getStageRecord = F2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getStageRecord = F2(
 	function (stageNr, lgId) {
 		var getEnteringFromHigherStage = _elm_lang$core$Native_Utils.eq(lgId, 'pt') ? 'Para terminar o percurso deves seguir na direcção oposta' : 'To finish the course you should move in the opposite direction';
 		var getWithoutPreviousAnswered = _elm_lang$core$Native_Utils.eq(lgId, 'pt') ? {
@@ -15645,7 +15681,7 @@ var _user$project$OurStory2_Narrative$getStageRecord = F2(
 			function (_) {
 				return _.stageNarrative;
 			},
-			A2(_user$project$OurStory2_Narrative$getTheStageInfo, stageNr, lgId));
+			A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getTheStageInfo, stageNr, lgId));
 		var mbStandardQuestionRecord = function () {
 			var _p0 = theStageDescription;
 			if (_p0.ctor === 'Just') {
@@ -15671,7 +15707,7 @@ var _user$project$OurStory2_Narrative$getStageRecord = F2(
 		}();
 		return mbStandardQuestionRecord;
 	});
-var _user$project$OurStory2_Narrative$interactingWithStageN = F3(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithStageN = F3(
 	function (stageNr, lgId, fieldStr) {
 		var theRec = A2(
 			_elm_lang$core$Maybe$withDefault,
@@ -15697,11 +15733,11 @@ var _user$project$OurStory2_Narrative$interactingWithStageN = F3(
 					_1: {ctor: '[]'}
 				}
 			},
-			A2(_user$project$OurStory2_Narrative$getStageRecord, stageNr, lgId));
+			A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getStageRecord, stageNr, lgId));
 		var theLString = _elm_lang$core$Native_Utils.eq(fieldStr, 'withoutPreviousAnswered') ? theRec.withoutPreviousAnswered : (_elm_lang$core$Native_Utils.eq(fieldStr, 'defaultStageDescription') ? theRec.defaultStageDescription : (_elm_lang$core$Native_Utils.eq(fieldStr, 'enteringFromHigherStage') ? theRec.enteringFromHigherStage : theRec.noQuestionOrNotMandatory));
 		return theLString;
 	});
-var _user$project$OurStory2_Narrative$interactingWithStageNDict = F2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithStageNDict = F2(
 	function (n, fieldStr) {
 		return _elm_lang$core$Dict$fromList(
 			{
@@ -15709,20 +15745,20 @@ var _user$project$OurStory2_Narrative$interactingWithStageNDict = F2(
 				_0: {
 					ctor: '_Tuple2',
 					_0: 'pt',
-					_1: A3(_user$project$OurStory2_Narrative$interactingWithStageN, n, 'pt', fieldStr)
+					_1: A3(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithStageN, n, 'pt', fieldStr)
 				},
 				_1: {
 					ctor: '::',
 					_0: {
 						ctor: '_Tuple2',
 						_0: 'en',
-						_1: A3(_user$project$OurStory2_Narrative$interactingWithStageN, n, 'en', fieldStr)
+						_1: A3(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithStageN, n, 'en', fieldStr)
 					},
 					_1: {ctor: '[]'}
 				}
 			});
 	});
-var _user$project$OurStory2_Narrative$getQuestionsMaxNrTries = function (questionNr) {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionsMaxNrTries = function (questionNr) {
 	var dictMaxTries = _elm_lang$core$Dict$fromList(
 		{
 			ctor: '::',
@@ -15806,7 +15842,7 @@ var _user$project$OurStory2_Narrative$getQuestionsMaxNrTries = function (questio
 		_elm_lang$core$Maybe$Nothing,
 		A2(_elm_lang$core$Dict$get, questionNr, dictMaxTries));
 };
-var _user$project$OurStory2_Narrative$theQuestionsDict = _elm_lang$core$Dict$fromList(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$theQuestionsDict = _elm_lang$core$Dict$fromList(
 	{
 		ctor: '::',
 		_0: {
@@ -15837,7 +15873,7 @@ var _user$project$OurStory2_Narrative$theQuestionsDict = _elm_lang$core$Dict$fro
 				_1: {
 					questionBody: 'Near the entrance of Vila Sassetti is also the entrance to another Park . What\'s that Park ? ',
 					questionName: 'question 1',
-					additionalTextIfCorrectAnswer: 'Well Done ! The entrance to Parque das Merendas is located right next to the entrance to Vila Sassetti !\n              ',
+					additionalTextIfCorrectAnswer: 'Well Done ! The entrance to Parque das Merendas is located right next to the entrance to Vila Sassetti !\n\n![pic500](img/parqueDasMerendas.png)\n              ',
 					additionalTextIfIncorrectAnswer: '',
 					availableChoices: {ctor: '[]'},
 					questionAnswers: {ctor: '[]'}
@@ -16396,9 +16432,9 @@ var _user$project$OurStory2_Narrative$theQuestionsDict = _elm_lang$core$Dict$fro
 			}
 		}
 	});
-var _user$project$OurStory2_Narrative$getQuestionBody = F2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionBody = F2(
 	function (nr, lgId) {
-		var questionsDict = _user$project$OurStory2_Narrative$theQuestionsDict;
+		var questionsDict = _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$theQuestionsDict;
 		var question = A2(
 			_elm_lang$core$Dict$get,
 			{ctor: '_Tuple2', _0: nr, _1: lgId},
@@ -16422,40 +16458,40 @@ var _user$project$OurStory2_Narrative$getQuestionBody = F2(
 				},
 				question));
 	});
-var _user$project$OurStory2_Narrative$getQuestionBodyAsString = F2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionBodyAsString = F2(
 	function (nr, lgId) {
 		return A2(
 			_elm_lang$core$String$join,
 			' , ',
-			A2(_user$project$OurStory2_Narrative$getQuestionBody, nr, lgId));
+			A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionBody, nr, lgId));
 	});
-var _user$project$OurStory2_Narrative$interactingWithQuestion = F2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithQuestion = F2(
 	function (questionNr, lgId) {
-		return A2(_user$project$OurStory2_Narrative$getQuestionBody, questionNr, lgId);
+		return A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionBody, questionNr, lgId);
 	});
-var _user$project$OurStory2_Narrative$interactingWithQuestionNDict = function (nr) {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithQuestionNDict = function (nr) {
 	return _elm_lang$core$Dict$fromList(
 		{
 			ctor: '::',
 			_0: {
 				ctor: '_Tuple2',
 				_0: 'pt',
-				_1: A2(_user$project$OurStory2_Narrative$interactingWithQuestion, nr, 'pt')
+				_1: A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithQuestion, nr, 'pt')
 			},
 			_1: {
 				ctor: '::',
 				_0: {
 					ctor: '_Tuple2',
 					_0: 'en',
-					_1: A2(_user$project$OurStory2_Narrative$interactingWithQuestion, nr, 'en')
+					_1: A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithQuestion, nr, 'en')
 				},
 				_1: {ctor: '[]'}
 			}
 		});
 };
-var _user$project$OurStory2_Narrative$getQuestionName = F2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionName = F2(
 	function (nr, lgId) {
-		var questionsDict = _user$project$OurStory2_Narrative$theQuestionsDict;
+		var questionsDict = _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$theQuestionsDict;
 		var question = A2(
 			_elm_lang$core$Dict$get,
 			{ctor: '_Tuple2', _0: nr, _1: lgId},
@@ -16481,7 +16517,7 @@ var _user$project$OurStory2_Narrative$getQuestionName = F2(
 				},
 				question));
 	});
-var _user$project$OurStory2_Narrative$additionalTextIfAnswerCorrect = F2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalTextIfAnswerCorrect = F2(
 	function (questionNr, lgId) {
 		return A2(
 			_elm_lang$core$Maybe$withDefault,
@@ -16494,29 +16530,29 @@ var _user$project$OurStory2_Narrative$additionalTextIfAnswerCorrect = F2(
 				A2(
 					_elm_lang$core$Dict$get,
 					{ctor: '_Tuple2', _0: questionNr, _1: lgId},
-					_user$project$OurStory2_Narrative$theQuestionsDict)));
+					_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$theQuestionsDict)));
 	});
-var _user$project$OurStory2_Narrative$additionalTextIfAnswerCorrectDict = function (questionNr) {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalTextIfAnswerCorrectDict = function (questionNr) {
 	return _elm_lang$core$Dict$fromList(
 		{
 			ctor: '::',
 			_0: {
 				ctor: '_Tuple2',
 				_0: 'pt',
-				_1: A2(_user$project$OurStory2_Narrative$additionalTextIfAnswerCorrect, questionNr, 'pt')
+				_1: A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalTextIfAnswerCorrect, questionNr, 'pt')
 			},
 			_1: {
 				ctor: '::',
 				_0: {
 					ctor: '_Tuple2',
 					_0: 'en',
-					_1: A2(_user$project$OurStory2_Narrative$additionalTextIfAnswerCorrect, questionNr, 'en')
+					_1: A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalTextIfAnswerCorrect, questionNr, 'en')
 				},
 				_1: {ctor: '[]'}
 			}
 		});
 };
-var _user$project$OurStory2_Narrative$additionalTextIfAnswerIncorrect = F2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalTextIfAnswerIncorrect = F2(
 	function (questionNr, lgId) {
 		return A2(
 			_elm_lang$core$Maybe$withDefault,
@@ -16529,51 +16565,51 @@ var _user$project$OurStory2_Narrative$additionalTextIfAnswerIncorrect = F2(
 				A2(
 					_elm_lang$core$Dict$get,
 					{ctor: '_Tuple2', _0: questionNr, _1: lgId},
-					_user$project$OurStory2_Narrative$theQuestionsDict)));
+					_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$theQuestionsDict)));
 	});
-var _user$project$OurStory2_Narrative$additionalTextIfAnswerIncorrectDict = function (questionNr) {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalTextIfAnswerIncorrectDict = function (questionNr) {
 	return _elm_lang$core$Dict$fromList(
 		{
 			ctor: '::',
 			_0: {
 				ctor: '_Tuple2',
 				_0: 'pt',
-				_1: A2(_user$project$OurStory2_Narrative$additionalTextIfAnswerIncorrect, questionNr, 'pt')
+				_1: A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalTextIfAnswerIncorrect, questionNr, 'pt')
 			},
 			_1: {
 				ctor: '::',
 				_0: {
 					ctor: '_Tuple2',
 					_0: 'en',
-					_1: A2(_user$project$OurStory2_Narrative$additionalTextIfAnswerIncorrect, questionNr, 'en')
+					_1: A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalTextIfAnswerIncorrect, questionNr, 'en')
 				},
 				_1: {ctor: '[]'}
 			}
 		});
 };
-var _user$project$OurStory2_Narrative$interactingWithPlayerOneEn = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithPlayerOneEn = {
 	ctor: '::',
 	_0: '\nlocal researching his neighbourhood\n      ',
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Narrative$interactingWithPlayerOne = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithPlayerOne = {
 	ctor: '::',
 	_0: '\ndeterminado residente em investigação das redondezas ...\n      ',
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Narrative$interactingWithPlayerOneDict = _elm_lang$core$Dict$fromList(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithPlayerOneDict = _elm_lang$core$Dict$fromList(
 	{
 		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'pt', _1: _user$project$OurStory2_Narrative$interactingWithPlayerOne},
+		_0: {ctor: '_Tuple2', _0: 'pt', _1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithPlayerOne},
 		_1: {
 			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'en', _1: _user$project$OurStory2_Narrative$interactingWithPlayerOneEn},
+			_0: {ctor: '_Tuple2', _0: 'en', _1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithPlayerOneEn},
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$OurStory2_Narrative$startingNarrativeEn = {interactableName: 'Pedestrian Footpath...', interactableId: 'onceUponAtime', isWritable: false, interactableCssSelector: 'opening', narrative: 'On a shiny September day you find yourself in the magnificent Vila de Sintra\n             about to start Vila Sassetti ( Quinta da Amizade ) pedestrian footpath ...\n       ', mbAudio: _elm_lang$core$Maybe$Nothing, mbSuggestedInteractionId: _elm_lang$core$Maybe$Nothing, mbSuggestedInteractionName: _elm_lang$core$Maybe$Nothing, isLastInZipper: true};
-var _user$project$OurStory2_Narrative$startingNarrative = {interactableName: 'Percurso Pedestre Vila Sassetti...', interactableId: 'onceUponAtime', isWritable: false, interactableCssSelector: 'opening', narrative: 'Num  dia luminoso de Setembro encontras-te na\n            bela Vila de Sintra prestes a iniciar o percurso pedestre de Vila Sassetti\n            ( Quinta da Amizade )\n         ', mbAudio: _elm_lang$core$Maybe$Nothing, mbSuggestedInteractionId: _elm_lang$core$Maybe$Nothing, mbSuggestedInteractionName: _elm_lang$core$Maybe$Nothing, isLastInZipper: true};
-var _user$project$OurStory2_Narrative$startingNarratives = _elm_lang$core$Dict$fromList(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$startingNarrativeEn = {interactableName: 'Pedestrian Footpath...', interactableId: 'onceUponAtime', isWritable: false, interactableCssSelector: 'opening', narrative: 'On a shiny September day you find yourself in the magnificent Vila de Sintra\n             about to start Vila Sassetti ( Quinta da Amizade ) pedestrian footpath ...\n       ', mbAudio: _elm_lang$core$Maybe$Nothing, mbSuggestedInteractionId: _elm_lang$core$Maybe$Nothing, mbSuggestedInteractionName: _elm_lang$core$Maybe$Nothing, isLastInZipper: true};
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$startingNarrative = {interactableName: 'Percurso Pedestre Vila Sassetti...', interactableId: 'onceUponAtime', isWritable: false, interactableCssSelector: 'opening', narrative: 'Num  dia luminoso de Setembro encontras-te na\n            bela Vila de Sintra prestes a iniciar o percurso pedestre de Vila Sassetti\n            ( Quinta da Amizade )\n         ', mbAudio: _elm_lang$core$Maybe$Nothing, mbSuggestedInteractionId: _elm_lang$core$Maybe$Nothing, mbSuggestedInteractionName: _elm_lang$core$Maybe$Nothing, isLastInZipper: true};
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$startingNarratives = _elm_lang$core$Dict$fromList(
 	{
 		ctor: '::',
 		_0: {
@@ -16581,7 +16617,7 @@ var _user$project$OurStory2_Narrative$startingNarratives = _elm_lang$core$Dict$f
 			_0: 'pt',
 			_1: {
 				ctor: '::',
-				_0: _user$project$OurStory2_Narrative$startingNarrative,
+				_0: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$startingNarrative,
 				_1: {ctor: '[]'}
 			}
 		},
@@ -16592,16 +16628,16 @@ var _user$project$OurStory2_Narrative$startingNarratives = _elm_lang$core$Dict$f
 				_0: 'en',
 				_1: {
 					ctor: '::',
-					_0: _user$project$OurStory2_Narrative$startingNarrativeEn,
+					_0: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$startingNarrativeEn,
 					_1: {ctor: '[]'}
 				}
 			},
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$OurStory2_Narrative$endScreenInfo = {mainImage: 'finalImage.png', congratsMessage1: 'Congratulations ! You reached the End ! ...', congratsMessage2: 'You are now a hiking trail Master  :)', endScreenText: '....\n                        '};
-var _user$project$OurStory2_Narrative$startScreenInfo = {mainImage: 'introImage.png', title_line1: 'A Guided Tour Through Vila Sassetti - Sintra', title_line2: '', byLine: 'Uma história interactiva por Sintra Ubuntuer ', smallIntro: 'a guided tour through Vila Sassetti ( Quinta da Amizade ) - Sintra  ...\n             ', tboxNamePlaceholder: 'investigator'};
-var _user$project$OurStory2_Narrative$initialChoiceLanguages = _elm_lang$core$Dict$fromList(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$endScreenInfo = {mainImage: 'finalImage.png', congratsMessage1: 'Congratulations ! You reached the End ! ...', congratsMessage2: 'You are now a hiking trail Master  :)', endScreenText: '....\n                        '};
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$startScreenInfo = {mainImage: 'introImage.png', title_line1: 'A Guided Tour Through Vila Sassetti - Sintra', title_line2: '', byLine: 'An Interactive Story by Sintra Ubuntuer', smallIntro: ' a guided tour through Vila Sassetti ( Quinta da Amizade ) - Sintra\n                     ', tboxNamePlaceholder: 'investigator'};
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$initialChoiceLanguages = _elm_lang$core$Dict$fromList(
 	{
 		ctor: '::',
 		_0: {ctor: '_Tuple2', _0: 'pt', _1: 'portuguese'},
@@ -16611,7 +16647,7 @@ var _user$project$OurStory2_Narrative$initialChoiceLanguages = _elm_lang$core$Di
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$OurStory2_Narrative$desiredLanguages = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$desiredLanguages = {
 	ctor: '::',
 	_0: 'pt',
 	_1: {
@@ -16620,8 +16656,8 @@ var _user$project$OurStory2_Narrative$desiredLanguages = {
 		_1: {ctor: '[]'}
 	}
 };
-var _user$project$OurStory2_Narrative$getQuestionAnswers = function (questionNr) {
-	var questionsDict = _user$project$OurStory2_Narrative$theQuestionsDict;
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionAnswers = function (questionNr) {
+	var questionsDict = _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$theQuestionsDict;
 	var getLgAnswers = F2(
 		function (theQuestionNr, lgId) {
 			return function (x) {
@@ -16650,11 +16686,11 @@ var _user$project$OurStory2_Narrative$getQuestionAnswers = function (questionNr)
 					function (lgId) {
 						return A2(getLgAnswers, questionNr, lgId);
 					},
-					_user$project$OurStory2_Narrative$desiredLanguages))));
+					_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$desiredLanguages))));
 	return validAnswers;
 };
-var _user$project$OurStory2_Narrative$getQuestionAvailableChoicesDict = function (questionNr) {
-	var questionsDict = _user$project$OurStory2_Narrative$theQuestionsDict;
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionAvailableChoicesDict = function (questionNr) {
+	var questionsDict = _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$theQuestionsDict;
 	var getLgOptions = F2(
 		function (questionNr, lgId) {
 			return function (x) {
@@ -16686,132 +16722,132 @@ var _user$project$OurStory2_Narrative$getQuestionAvailableChoicesDict = function
 					d);
 			}),
 		_elm_lang$core$Dict$empty,
-		_user$project$OurStory2_Narrative$desiredLanguages);
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$desiredLanguages);
 	return availableChoicesDict;
 };
-var _user$project$OurStory2_Narrative$Question = F6(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$Question = F6(
 	function (a, b, c, d, e, f) {
 		return {questionBody: a, questionName: b, additionalTextIfCorrectAnswer: c, additionalTextIfIncorrectAnswer: d, availableChoices: e, questionAnswers: f};
 	});
 
-var _user$project$OurStory2_Rules$ruleWithQuasiChange = F3(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$ruleWithQuasiChange = F3(
 	function (id, ruleData, narratives) {
 		return A2(
-			_user$project$Components$addLanguageNarratives,
+			_sintraubuntuer$elm_game_narrative_starter$Components$addLanguageNarratives,
 			narratives,
 			A2(
-				_user$project$Components$addRuleData,
+				_sintraubuntuer$elm_game_narrative_starter$Components$addRuleData,
 				ruleData,
-				_user$project$Components$entity(id)));
+				_sintraubuntuer$elm_game_narrative_starter$Components$entity(id)));
 	});
-var _user$project$OurStory2_Rules$rule = F3(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$rule = F3(
 	function (id, ruleData, narratives) {
 		return A2(
-			_user$project$Components$addLanguageNarratives,
+			_sintraubuntuer$elm_game_narrative_starter$Components$addLanguageNarratives,
 			narratives,
 			A2(
-				_user$project$Components$addRuleData,
-				_user$project$Engine$completeTheRule(ruleData),
-				_user$project$Components$entity(id)));
+				_sintraubuntuer$elm_game_narrative_starter$Components$addRuleData,
+				_sintraubuntuer$elm_game_narrative_starter$Engine$completeTheRule(ruleData),
+				_sintraubuntuer$elm_game_narrative_starter$Components$entity(id)));
 	});
-var _user$project$OurStory2_Rules$ruleWithAudioContent = F4(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$ruleWithAudioContent = F4(
 	function (id, ruleData, narratives, audiodict) {
 		return A2(
-			_user$project$Components$addAllLanguagesAudio,
+			_sintraubuntuer$elm_game_narrative_starter$Components$addAllLanguagesAudio,
 			audiodict,
-			A3(_user$project$OurStory2_Rules$rule, id, ruleData, narratives));
+			A3(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$rule, id, ruleData, narratives));
 	});
-var _user$project$OurStory2_Rules$lRulesInteractingWithGps = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$lRulesInteractingWithGps = {
 	ctor: '::',
 	_0: A3(
-		_user$project$OurStory2_Rules$rule,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$rule,
 		'taking gps',
 		{
-			interaction: _user$project$Engine$with('gps'),
+			interaction: _sintraubuntuer$elm_game_narrative_starter$Engine$with('gps'),
 			conditions: {
 				ctor: '::',
-				_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', 'stage1'),
+				_0: A2(_sintraubuntuer$elm_game_narrative_starter$Engine$characterIsInLocation, 'playerOne', 'stage1'),
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Engine$itemIsInLocation, 'gps', 'stage1'),
+					_0: A2(_sintraubuntuer$elm_game_narrative_starter$Engine$itemIsInLocation, 'gps', 'stage1'),
 					_1: {ctor: '[]'}
 				}
 			},
 			changes: {
 				ctor: '::',
-				_0: _user$project$Engine$moveItemToInventory('gps'),
+				_0: _sintraubuntuer$elm_game_narrative_starter$Engine$moveItemToInventory('gps'),
 				_1: {ctor: '[]'}
 			}
 		},
-		_user$project$OurStory2_Narrative$takeGpsDict),
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$takeGpsDict),
 	_1: {
 		ctor: '::',
 		_0: A3(
-			_user$project$OurStory2_Rules$ruleWithQuasiChange,
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$ruleWithQuasiChange,
 			'looking at gps',
 			{
-				interaction: _user$project$Engine$with('gps'),
+				interaction: _sintraubuntuer$elm_game_narrative_starter$Engine$with('gps'),
 				conditions: {ctor: '[]'},
 				changes: {ctor: '[]'},
 				quasiChanges: {
 					ctor: '::',
-					_0: _user$project$Engine$write_GpsInfoToItem('gps'),
+					_0: _sintraubuntuer$elm_game_narrative_starter$Engine$write_GpsInfoToItem('gps'),
 					_1: {ctor: '[]'}
-				}
+				},
+				quasiChangeWithBkend: _sintraubuntuer$elm_game_narrative_starter$Engine$noQuasiChangeWithBackend
 			},
-			_user$project$OurStory2_Narrative$lookAtGpsDict),
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$lookAtGpsDict),
 		_1: {ctor: '[]'}
 	}
 };
-var _user$project$OurStory2_Rules$lRulesInteractingWithCreditsInfo = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$lRulesInteractingWithCreditsInfo = {
 	ctor: '::',
 	_0: A3(
-		_user$project$OurStory2_Rules$rule,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$rule,
 		'view creditsInfo',
 		{
-			interaction: _user$project$Engine$with('creditsInfo'),
+			interaction: _sintraubuntuer$elm_game_narrative_starter$Engine$with('creditsInfo'),
 			conditions: {ctor: '[]'},
 			changes: {ctor: '[]'}
 		},
-		_user$project$OurStory2_Narrative$theCreditsInformationDict),
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$theCreditsInformationDict),
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Rules$lRuleGameHasEnded = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$lRuleGameHasEnded = {
 	ctor: '::',
 	_0: A3(
-		_user$project$OurStory2_Rules$rule,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$rule,
 		'game has ended',
 		{
-			interaction: _user$project$Engine$withAnyLocationAnyCharacterAfterGameEnded,
+			interaction: _sintraubuntuer$elm_game_narrative_starter$Engine$withAnyLocationAnyCharacterAfterGameEnded,
 			conditions: {
 				ctor: '::',
 				_0: A3(
-					_user$project$Engine$attrValueIsEqualTo,
-					_user$project$Engine$abool(true),
+					_sintraubuntuer$elm_game_narrative_starter$Engine$attrValueIsEqualTo,
+					_sintraubuntuer$elm_game_narrative_starter$Engine$abool(true),
 					'gameHasEnded',
 					'gameStateItem'),
 				_1: {ctor: '[]'}
 			},
 			changes: {
 				ctor: '::',
-				_0: A2(_user$project$Engine$endStory, 'notFreezingEnd', 'The End'),
+				_0: A2(_sintraubuntuer$elm_game_narrative_starter$Engine$endStory, 'notFreezingEnd', 'The End'),
 				_1: {ctor: '[]'}
 			}
 		},
-		_user$project$OurStory2_Narrative$gameHasEndedDict),
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$gameHasEndedDict),
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Rules$backendAnswerCheckerUrl = 'http://127.0.0.1:5000/questions/';
-var _user$project$OurStory2_Rules$getStageId = function (nr) {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId = function (nr) {
 	return A2(
 		_elm_lang$core$Basics_ops['++'],
 		'stage',
 		_elm_lang$core$Basics$toString(nr));
 };
-var _user$project$OurStory2_Rules$standardRuleMoveToNplusOneNotRestricted = function (stageNr) {
-	var currLocationId = _elm_lang$core$Native_Utils.eq(stageNr, 0) ? 'onceUponAtime' : _user$project$OurStory2_Rules$getStageId(stageNr);
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$standardRuleMoveToNplusOneNotRestricted = function (stageNr) {
+	var currLocationId = _elm_lang$core$Native_Utils.eq(stageNr, 0) ? 'onceUponAtime' : _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(stageNr);
 	return A3(
-		_user$project$OurStory2_Rules$rule,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$rule,
 		A2(
 			_elm_lang$core$Basics_ops['++'],
 			'interacting with Stage ',
@@ -16820,39 +16856,39 @@ var _user$project$OurStory2_Rules$standardRuleMoveToNplusOneNotRestricted = func
 				_elm_lang$core$Basics$toString(stageNr + 1),
 				' from lower')),
 		{
-			interaction: _user$project$Engine$with(
-				_user$project$OurStory2_Rules$getStageId(stageNr + 1)),
+			interaction: _sintraubuntuer$elm_game_narrative_starter$Engine$with(
+				_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(stageNr + 1)),
 			conditions: {
 				ctor: '::',
-				_0: _user$project$Engine$currentLocationIs(currLocationId),
+				_0: _sintraubuntuer$elm_game_narrative_starter$Engine$currentLocationIs(currLocationId),
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', currLocationId),
+					_0: A2(_sintraubuntuer$elm_game_narrative_starter$Engine$characterIsInLocation, 'playerOne', currLocationId),
 					_1: {ctor: '[]'}
 				}
 			},
 			changes: {
 				ctor: '::',
-				_0: _user$project$Engine$moveTo(
-					_user$project$OurStory2_Rules$getStageId(stageNr + 1)),
+				_0: _sintraubuntuer$elm_game_narrative_starter$Engine$moveTo(
+					_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(stageNr + 1)),
 				_1: {
 					ctor: '::',
 					_0: A2(
-						_user$project$Engine$moveCharacterToLocation,
+						_sintraubuntuer$elm_game_narrative_starter$Engine$moveCharacterToLocation,
 						'playerOne',
-						_user$project$OurStory2_Rules$getStageId(stageNr + 1)),
+						_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(stageNr + 1)),
 					_1: {ctor: '[]'}
 				}
 			}
 		},
-		A2(_user$project$OurStory2_Narrative$interactingWithStageNDict, stageNr + 1, 'defaultStageDescription'));
+		A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithStageNDict, stageNr + 1, 'defaultStageDescription'));
 };
-var _user$project$OurStory2_Rules$standardRuleMoveToNminusOne = function (_p0) {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$standardRuleMoveToNminusOne = function (_p0) {
 	var _p1 = _p0;
 	var _p2 = _p1._0;
 	var ntype = 'enteringFromHigherStage';
 	return A3(
-		_user$project$OurStory2_Rules$rule,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$rule,
 		A2(
 			_elm_lang$core$Basics_ops['++'],
 			'interacting with Stage ',
@@ -16861,50 +16897,50 @@ var _user$project$OurStory2_Rules$standardRuleMoveToNminusOne = function (_p0) {
 				_elm_lang$core$Basics$toString(_p2 - 1),
 				' from higher')),
 		{
-			interaction: _user$project$Engine$with(
-				_user$project$OurStory2_Rules$getStageId(_p2 - 1)),
+			interaction: _sintraubuntuer$elm_game_narrative_starter$Engine$with(
+				_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(_p2 - 1)),
 			conditions: {
 				ctor: '::',
-				_0: _user$project$Engine$currentLocationIs(
-					_user$project$OurStory2_Rules$getStageId(_p2)),
+				_0: _sintraubuntuer$elm_game_narrative_starter$Engine$currentLocationIs(
+					_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(_p2)),
 				_1: {ctor: '[]'}
 			},
 			changes: {
 				ctor: '::',
-				_0: _user$project$Engine$moveTo(
-					_user$project$OurStory2_Rules$getStageId(_p2 - 1)),
+				_0: _sintraubuntuer$elm_game_narrative_starter$Engine$moveTo(
+					_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(_p2 - 1)),
 				_1: {
 					ctor: '::',
 					_0: A2(
-						_user$project$Engine$moveCharacterToLocation,
+						_sintraubuntuer$elm_game_narrative_starter$Engine$moveCharacterToLocation,
 						'playerOne',
-						_user$project$OurStory2_Rules$getStageId(_p2 - 1)),
+						_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(_p2 - 1)),
 					_1: {ctor: '[]'}
 				}
 			}
 		},
-		A2(_user$project$OurStory2_Narrative$interactingWithStageNDict, _p2 - 1, ntype));
+		A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithStageNDict, _p2 - 1, ntype));
 };
-var _user$project$OurStory2_Rules$getQuestionId = function (nr) {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getQuestionId = function (nr) {
 	return A2(
 		_elm_lang$core$Basics_ops['++'],
 		'question',
 		_elm_lang$core$Basics$toString(nr));
 };
-var _user$project$OurStory2_Rules$makeQuestionsAmultiChoice = function (lquestionNrs) {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$makeQuestionsAmultiChoice = function (lquestionNrs) {
 	var createForOneElem = function (questionNr) {
 		return A2(
-			_user$project$Engine$createAmultiChoice,
-			_user$project$OurStory2_Narrative$getQuestionAvailableChoicesDict(questionNr),
-			_user$project$OurStory2_Rules$getQuestionId(questionNr));
+			_sintraubuntuer$elm_game_narrative_starter$Engine$createAmultiChoice,
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionAvailableChoicesDict(questionNr),
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getQuestionId(questionNr));
 	};
 	return A2(_elm_lang$core$List$map, createForOneElem, lquestionNrs);
 };
-var _user$project$OurStory2_Rules$standardRuleTryMoveToNplusOneAndFail = function (_p3) {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$standardRuleTryMoveToNplusOneAndFail = function (_p3) {
 	var _p4 = _p3;
 	var _p5 = _p4._0;
 	return A3(
-		_user$project$OurStory2_Rules$rule,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$rule,
 		A2(
 			_elm_lang$core$Basics_ops['++'],
 			'interacting with higher Stage ',
@@ -16913,35 +16949,35 @@ var _user$project$OurStory2_Rules$standardRuleTryMoveToNplusOneAndFail = functio
 				_elm_lang$core$Basics$toString(_p5 + 1),
 				'  and failing because wrong answer')),
 		{
-			interaction: _user$project$Engine$with(
-				_user$project$OurStory2_Rules$getStageId(_p5 + 1)),
+			interaction: _sintraubuntuer$elm_game_narrative_starter$Engine$with(
+				_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(_p5 + 1)),
 			conditions: {
 				ctor: '::',
-				_0: _user$project$Engine$currentLocationIs(
-					_user$project$OurStory2_Rules$getStageId(_p5)),
+				_0: _sintraubuntuer$elm_game_narrative_starter$Engine$currentLocationIs(
+					_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(_p5)),
 				_1: {
 					ctor: '::',
 					_0: A2(
-						_user$project$Engine$characterIsInLocation,
+						_sintraubuntuer$elm_game_narrative_starter$Engine$characterIsInLocation,
 						'playerOne',
-						_user$project$OurStory2_Rules$getStageId(_p5)),
+						_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(_p5)),
 					_1: {
 						ctor: '::',
-						_0: _user$project$Engine$itemIsNotCorrectlyAnswered(
-							_user$project$OurStory2_Rules$getQuestionId(_p4._1)),
+						_0: _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsNotCorrectlyAnswered(
+							_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getQuestionId(_p4._1)),
 						_1: {ctor: '[]'}
 					}
 				}
 			},
 			changes: {ctor: '[]'}
 		},
-		A2(_user$project$OurStory2_Narrative$interactingWithStageNDict, _p5 + 1, 'withoutPreviousAnswered'));
+		A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithStageNDict, _p5 + 1, 'withoutPreviousAnswered'));
 };
-var _user$project$OurStory2_Rules$standardRuleMoveToNplusOneRestricted = function (_p6) {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$standardRuleMoveToNplusOneRestricted = function (_p6) {
 	var _p7 = _p6;
 	var _p8 = _p7._0;
 	return A3(
-		_user$project$OurStory2_Rules$rule,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$rule,
 		A2(
 			_elm_lang$core$Basics_ops['++'],
 			'interacting with Stage ',
@@ -16950,215 +16986,216 @@ var _user$project$OurStory2_Rules$standardRuleMoveToNplusOneRestricted = functio
 				_elm_lang$core$Basics$toString(_p8 + 1),
 				' from lower correct answer required')),
 		{
-			interaction: _user$project$Engine$with(
-				_user$project$OurStory2_Rules$getStageId(_p8 + 1)),
+			interaction: _sintraubuntuer$elm_game_narrative_starter$Engine$with(
+				_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(_p8 + 1)),
 			conditions: {
 				ctor: '::',
-				_0: _user$project$Engine$currentLocationIs(
-					_user$project$OurStory2_Rules$getStageId(_p8)),
+				_0: _sintraubuntuer$elm_game_narrative_starter$Engine$currentLocationIs(
+					_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(_p8)),
 				_1: {
 					ctor: '::',
 					_0: A2(
-						_user$project$Engine$characterIsInLocation,
+						_sintraubuntuer$elm_game_narrative_starter$Engine$characterIsInLocation,
 						'playerOne',
-						_user$project$OurStory2_Rules$getStageId(_p8)),
+						_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(_p8)),
 					_1: {
 						ctor: '::',
-						_0: _user$project$Engine$itemIsCorrectlyAnswered(
-							_user$project$OurStory2_Rules$getQuestionId(_p7._1)),
+						_0: _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsCorrectlyAnswered(
+							_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getQuestionId(_p7._1)),
 						_1: {ctor: '[]'}
 					}
 				}
 			},
 			changes: {
 				ctor: '::',
-				_0: _user$project$Engine$moveTo(
-					_user$project$OurStory2_Rules$getStageId(_p8 + 1)),
+				_0: _sintraubuntuer$elm_game_narrative_starter$Engine$moveTo(
+					_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(_p8 + 1)),
 				_1: {
 					ctor: '::',
 					_0: A2(
-						_user$project$Engine$moveCharacterToLocation,
+						_sintraubuntuer$elm_game_narrative_starter$Engine$moveCharacterToLocation,
 						'playerOne',
-						_user$project$OurStory2_Rules$getStageId(_p8 + 1)),
+						_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(_p8 + 1)),
 					_1: {ctor: '[]'}
 				}
 			}
 		},
-		A2(_user$project$OurStory2_Narrative$interactingWithStageNDict, _p8 + 1, 'defaultStageDescription'));
+		A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithStageNDict, _p8 + 1, 'defaultStageDescription'));
 };
-var _user$project$OurStory2_Rules$standardInteractionWithQuestionNr = function (questionNr) {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$standardInteractionWithQuestionNr = function (questionNr) {
 	var stageNr = questionNr;
-	var correctAnswers = _user$project$OurStory2_Narrative$getQuestionAnswers(questionNr);
+	var correctAnswers = _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionAnswers(questionNr);
 	return A3(
-		_user$project$OurStory2_Rules$ruleWithQuasiChange,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$ruleWithQuasiChange,
 		A2(
 			_elm_lang$core$Basics_ops['++'],
 			'view question',
 			_elm_lang$core$Basics$toString(questionNr)),
 		{
-			interaction: _user$project$Engine$with(
-				_user$project$OurStory2_Rules$getQuestionId(questionNr)),
+			interaction: _sintraubuntuer$elm_game_narrative_starter$Engine$with(
+				_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getQuestionId(questionNr)),
 			conditions: {ctor: '[]'},
 			changes: {ctor: '[]'},
 			quasiChanges: {
 				ctor: '::',
 				_0: A3(
-					_user$project$Engine$check_IfAnswerCorrect,
+					_sintraubuntuer$elm_game_narrative_starter$Engine$check_IfAnswerCorrect,
 					correctAnswers,
 					A8(
-						_user$project$Engine$checkAnswerData,
-						_user$project$OurStory2_Narrative$getQuestionsMaxNrTries(questionNr),
-						_user$project$Engine$caseInsensitiveAnswer,
-						_user$project$Engine$answerSpacesDontMatter,
-						_user$project$Engine$headerAnswerAndCorrectIncorrect,
-						_user$project$OurStory2_Narrative$additionalTextIfAnswerCorrectDict(questionNr),
-						_user$project$OurStory2_Narrative$additionalTextIfAnswerIncorrectDict(questionNr),
+						_sintraubuntuer$elm_game_narrative_starter$Engine$checkAnswerData,
+						_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionsMaxNrTries(questionNr),
+						_sintraubuntuer$elm_game_narrative_starter$Engine$caseInsensitiveAnswer,
+						_sintraubuntuer$elm_game_narrative_starter$Engine$answerSpacesDontMatter,
+						_sintraubuntuer$elm_game_narrative_starter$Engine$headerAnswerAndCorrectIncorrect,
+						_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalTextIfAnswerCorrectDict(questionNr),
+						_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalTextIfAnswerIncorrectDict(questionNr),
 						{ctor: '[]'},
 						{
 							ctor: '::',
 							_0: {
 								ctor: '_Tuple3',
-								_0: _user$project$OurStory2_Rules$getStageId(stageNr),
+								_0: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(stageNr),
 								_1: 'additionalTextDict',
-								_2: _user$project$Engine$aDictStringString(_user$project$OurStory2_Narrative$additionalStageInfoAfterQuestionAnsweredDict)
+								_2: _sintraubuntuer$elm_game_narrative_starter$Engine$aDictStringString(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalStageInfoAfterQuestionAnsweredDict)
 							},
 							_1: {ctor: '[]'}
 						}),
-					_user$project$OurStory2_Rules$getQuestionId(questionNr)),
+					_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getQuestionId(questionNr)),
 				_1: {ctor: '[]'}
-			}
+			},
+			quasiChangeWithBkend: _sintraubuntuer$elm_game_narrative_starter$Engine$noQuasiChangeWithBackend
 		},
-		_user$project$OurStory2_Narrative$interactingWithQuestionNDict(questionNr));
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithQuestionNDict(questionNr));
 };
-var _user$project$OurStory2_Rules$correctAnswerNotRequiredToMove = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$correctAnswerNotRequiredToMove = {
 	ctor: '::',
 	_0: 7,
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Rules$questionsOnEveryStageExcept = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$questionsOnEveryStageExcept = {
 	ctor: '::',
 	_0: 6,
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Rules$numberOfDesiredStages = 10;
-var _user$project$OurStory2_Rules$getLastStageId = A2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages = 10;
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getLastStageId = A2(
 	_elm_lang$core$Basics_ops['++'],
 	'stage',
-	_elm_lang$core$Basics$toString(_user$project$OurStory2_Rules$numberOfDesiredStages));
-var _user$project$OurStory2_Rules$getLastStageNr = _user$project$OurStory2_Rules$numberOfDesiredStages;
-var _user$project$OurStory2_Rules$getPenultimateStageId = A2(
+	_elm_lang$core$Basics$toString(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages));
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getLastStageNr = _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages;
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getPenultimateStageId = A2(
 	_elm_lang$core$Basics_ops['++'],
 	'stage',
-	_elm_lang$core$Basics$toString(_user$project$OurStory2_Rules$numberOfDesiredStages - 1));
-var _user$project$OurStory2_Rules$getPenultimateStageNr = _user$project$OurStory2_Rules$numberOfDesiredStages - 1;
-var _user$project$OurStory2_Rules$getListOfStageQuestions = A2(
+	_elm_lang$core$Basics$toString(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages - 1));
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getPenultimateStageNr = _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages - 1;
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getListOfStageQuestions = A2(
 	_elm_lang$core$List$map,
-	_user$project$OurStory2_Rules$getQuestionId,
+	_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getQuestionId,
 	A2(
 		_elm_lang$core$List$filter,
 		function (x) {
-			return !A2(_elm_lang$core$List$member, x, _user$project$OurStory2_Rules$questionsOnEveryStageExcept);
+			return !A2(_elm_lang$core$List$member, x, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$questionsOnEveryStageExcept);
 		},
-		A2(_elm_lang$core$List$range, 1, _user$project$OurStory2_Rules$numberOfDesiredStages)));
-var _user$project$OurStory2_Rules$getListOfConditionsAllQuestionsAnswered = A2(_elm_lang$core$List$map, _user$project$Engine$itemIsCorrectlyAnswered, _user$project$OurStory2_Rules$getListOfStageQuestions);
-var _user$project$OurStory2_Rules$lRulesMakeFinalPaperAppearAfterAllQuestionsAnswered = {
+		A2(_elm_lang$core$List$range, 1, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages)));
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getListOfConditionsAllQuestionsAnswered = A2(_elm_lang$core$List$map, _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsCorrectlyAnswered, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getListOfStageQuestions);
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$lRulesMakeFinalPaperAppearAfterAllQuestionsAnswered = {
 	ctor: '::',
 	_0: A3(
-		_user$project$OurStory2_Rules$rule,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$rule,
 		'final paper appears player moving from penultimate stage to last stage',
 		{
-			interaction: _user$project$Engine$with(_user$project$OurStory2_Rules$getLastStageId),
+			interaction: _sintraubuntuer$elm_game_narrative_starter$Engine$with(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getLastStageId),
 			conditions: A2(
 				_elm_lang$core$List$append,
 				{
 					ctor: '::',
-					_0: A2(_user$project$Engine$characterIsInLocation, 'playerOne', _user$project$OurStory2_Rules$getPenultimateStageId),
+					_0: A2(_sintraubuntuer$elm_game_narrative_starter$Engine$characterIsInLocation, 'playerOne', _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getPenultimateStageId),
 					_1: {ctor: '[]'}
 				},
 				A2(
 					_elm_lang$core$List$append,
 					{
 						ctor: '::',
-						_0: _user$project$Engine$currentLocationIs(_user$project$OurStory2_Rules$getPenultimateStageId),
+						_0: _sintraubuntuer$elm_game_narrative_starter$Engine$currentLocationIs(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getPenultimateStageId),
 						_1: {ctor: '[]'}
 					},
 					A2(
 						_elm_lang$core$List$append,
 						{
 							ctor: '::',
-							_0: _user$project$Engine$itemIsOffScreen('finalPaper'),
+							_0: _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsOffScreen('finalPaper'),
 							_1: {ctor: '[]'}
 						},
-						A2(_elm_lang$core$List$map, _user$project$Engine$itemIsCorrectlyAnswered, _user$project$OurStory2_Rules$getListOfStageQuestions)))),
+						A2(_elm_lang$core$List$map, _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsCorrectlyAnswered, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getListOfStageQuestions)))),
 			changes: {
 				ctor: '::',
-				_0: _user$project$Engine$moveTo(_user$project$OurStory2_Rules$getLastStageId),
+				_0: _sintraubuntuer$elm_game_narrative_starter$Engine$moveTo(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getLastStageId),
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Engine$moveCharacterToLocation, 'playerOne', _user$project$OurStory2_Rules$getLastStageId),
+					_0: A2(_sintraubuntuer$elm_game_narrative_starter$Engine$moveCharacterToLocation, 'playerOne', _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getLastStageId),
 					_1: {
 						ctor: '::',
-						_0: A2(_user$project$Engine$moveItemToLocation, 'finalPaper', _user$project$OurStory2_Rules$getLastStageId),
+						_0: A2(_sintraubuntuer$elm_game_narrative_starter$Engine$moveItemToLocation, 'finalPaper', _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getLastStageId),
 						_1: {ctor: '[]'}
 					}
 				}
 			}
 		},
-		A2(_user$project$OurStory2_Narrative$interactingWithStageNDict, _user$project$OurStory2_Rules$getLastStageNr, 'defaultStageDescription')),
+		A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithStageNDict, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getLastStageNr, 'defaultStageDescription')),
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Rules$lRuleInteractingWithFinalPaper = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$lRuleInteractingWithFinalPaper = {
 	ctor: '::',
 	_0: A3(
-		_user$project$OurStory2_Rules$rule,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$rule,
 		'interaction With Final Paper',
 		{
-			interaction: _user$project$Engine$with('finalPaper'),
-			conditions: A2(_elm_lang$core$List$map, _user$project$Engine$itemIsCorrectlyAnswered, _user$project$OurStory2_Rules$getListOfStageQuestions),
+			interaction: _sintraubuntuer$elm_game_narrative_starter$Engine$with('finalPaper'),
+			conditions: A2(_elm_lang$core$List$map, _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsCorrectlyAnswered, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getListOfStageQuestions),
 			changes: {
 				ctor: '::',
 				_0: A3(
-					_user$project$Engine$setAttributeValue,
-					_user$project$Engine$abool(true),
+					_sintraubuntuer$elm_game_narrative_starter$Engine$setAttributeValue,
+					_sintraubuntuer$elm_game_narrative_starter$Engine$abool(true),
 					'gameHasEnded',
 					'gameStateItem'),
 				_1: {
 					ctor: '::',
-					_0: _user$project$Engine$moveItemToInventory('finalPaper'),
+					_0: _sintraubuntuer$elm_game_narrative_starter$Engine$moveItemToInventory('finalPaper'),
 					_1: {ctor: '[]'}
 				}
 			}
 		},
-		_user$project$OurStory2_Narrative$interactingWithFinalPaperDict),
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithFinalPaperDict),
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Rules$getListOfStageQuestionNrs = A2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getListOfStageQuestionNrs = A2(
 	_elm_lang$core$List$filter,
 	function (x) {
-		return !A2(_elm_lang$core$List$member, x, _user$project$OurStory2_Rules$questionsOnEveryStageExcept);
+		return !A2(_elm_lang$core$List$member, x, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$questionsOnEveryStageExcept);
 	},
-	A2(_elm_lang$core$List$range, 1, _user$project$OurStory2_Rules$numberOfDesiredStages));
-var _user$project$OurStory2_Rules$getListOfStageIdWithQuestions = A2(
+	A2(_elm_lang$core$List$range, 1, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages));
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getListOfStageIdWithQuestions = A2(
 	_elm_lang$core$List$map,
-	_user$project$OurStory2_Rules$getStageId,
+	_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId,
 	A2(
 		_elm_lang$core$List$filter,
 		function (x) {
-			return !A2(_elm_lang$core$List$member, x, _user$project$OurStory2_Rules$questionsOnEveryStageExcept);
+			return !A2(_elm_lang$core$List$member, x, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$questionsOnEveryStageExcept);
 		},
-		A2(_elm_lang$core$List$range, 1, _user$project$OurStory2_Rules$numberOfDesiredStages)));
-var _user$project$OurStory2_Rules$getListOfStageNrsWithQuestions = A2(
+		A2(_elm_lang$core$List$range, 1, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages)));
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getListOfStageNrsWithQuestions = A2(
 	_elm_lang$core$List$filter,
 	function (x) {
-		return !A2(_elm_lang$core$List$member, x, _user$project$OurStory2_Rules$questionsOnEveryStageExcept);
+		return !A2(_elm_lang$core$List$member, x, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$questionsOnEveryStageExcept);
 	},
-	A2(_elm_lang$core$List$range, 1, _user$project$OurStory2_Rules$numberOfDesiredStages));
-var _user$project$OurStory2_Rules$moveQuestionsToStagesFixed = function () {
+	A2(_elm_lang$core$List$range, 1, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages));
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$moveQuestionsToStagesFixed = function () {
 	var moveItFixed = function (nr) {
 		return A2(
-			_user$project$Engine$moveItemToLocationFixed,
-			_user$project$OurStory2_Rules$getQuestionId(nr),
-			_user$project$OurStory2_Rules$getStageId(nr));
+			_sintraubuntuer$elm_game_narrative_starter$Engine$moveItemToLocationFixed,
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getQuestionId(nr),
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(nr));
 	};
 	return A2(
 		_elm_lang$core$List$map,
@@ -17166,14 +17203,14 @@ var _user$project$OurStory2_Rules$moveQuestionsToStagesFixed = function () {
 		A2(
 			_elm_lang$core$List$filter,
 			function (x) {
-				return !A2(_elm_lang$core$List$member, x, _user$project$OurStory2_Rules$questionsOnEveryStageExcept);
+				return !A2(_elm_lang$core$List$member, x, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$questionsOnEveryStageExcept);
 			},
-			A2(_elm_lang$core$List$range, 1, _user$project$OurStory2_Rules$numberOfDesiredStages)));
+			A2(_elm_lang$core$List$range, 1, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages)));
 }();
-var _user$project$OurStory2_Rules$makeQuestionsWritableExcept = function (lnotWritable) {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$makeQuestionsWritableExcept = function (lnotWritable) {
 	var makeItWritable = function (n) {
-		return _user$project$Engine$makeItemWritable(
-			_user$project$OurStory2_Rules$getQuestionId(n));
+		return _sintraubuntuer$elm_game_narrative_starter$Engine$makeItemWritable(
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getQuestionId(n));
 	};
 	return A2(
 		_elm_lang$core$List$map,
@@ -17186,24 +17223,24 @@ var _user$project$OurStory2_Rules$makeQuestionsWritableExcept = function (lnotWr
 			A2(
 				_elm_lang$core$List$filter,
 				function (x) {
-					return !A2(_elm_lang$core$List$member, x, _user$project$OurStory2_Rules$questionsOnEveryStageExcept);
+					return !A2(_elm_lang$core$List$member, x, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$questionsOnEveryStageExcept);
 				},
-				A2(_elm_lang$core$List$range, 1, _user$project$OurStory2_Rules$numberOfDesiredStages))));
+				A2(_elm_lang$core$List$range, 1, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages))));
 };
-var _user$project$OurStory2_Rules$startingState = A2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$startingState = A2(
 	_elm_lang$core$Basics_ops['++'],
 	{
 		ctor: '::',
-		_0: _user$project$Engine$moveTo('onceUponAtime'),
+		_0: _sintraubuntuer$elm_game_narrative_starter$Engine$moveTo('onceUponAtime'),
 		_1: {
 			ctor: '::',
-			_0: A2(_user$project$Engine$moveCharacterToLocation, 'playerOne', 'onceUponAtime'),
+			_0: A2(_sintraubuntuer$elm_game_narrative_starter$Engine$moveCharacterToLocation, 'playerOne', 'onceUponAtime'),
 			_1: {
 				ctor: '::',
-				_0: A2(_user$project$Engine$moveItemToLocation, 'gps', 'stage1'),
+				_0: A2(_sintraubuntuer$elm_game_narrative_starter$Engine$moveItemToLocation, 'gps', 'stage1'),
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Engine$moveItemToLocationFixed, 'creditsInfo', _user$project$OurStory2_Rules$getLastStageId),
+					_0: A2(_sintraubuntuer$elm_game_narrative_starter$Engine$moveItemToLocationFixed, 'creditsInfo', _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getLastStageId),
 					_1: {ctor: '[]'}
 				}
 			}
@@ -17211,10 +17248,10 @@ var _user$project$OurStory2_Rules$startingState = A2(
 	},
 	A2(
 		_elm_lang$core$Basics_ops['++'],
-		_user$project$OurStory2_Rules$moveQuestionsToStagesFixed,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$moveQuestionsToStagesFixed,
 		A2(
 			_elm_lang$core$Basics_ops['++'],
-			_user$project$OurStory2_Rules$makeQuestionsAmultiChoice(
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$makeQuestionsAmultiChoice(
 				{
 					ctor: '::',
 					_0: 2,
@@ -17232,7 +17269,7 @@ var _user$project$OurStory2_Rules$startingState = A2(
 						}
 					}
 				}),
-			_user$project$OurStory2_Rules$makeQuestionsWritableExcept(
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$makeQuestionsWritableExcept(
 				{
 					ctor: '::',
 					_0: 2,
@@ -17250,9 +17287,9 @@ var _user$project$OurStory2_Rules$startingState = A2(
 						}
 					}
 				}))));
-var _user$project$OurStory2_Rules$makeAllQuestionsWritable = _user$project$OurStory2_Rules$makeQuestionsWritableExcept(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$makeAllQuestionsWritable = _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$makeQuestionsWritableExcept(
 	{ctor: '[]'});
-var _user$project$OurStory2_Rules$interactionWithQuestionNrAllQuestionsAnsweredButThisOne = function (questionNr) {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$interactionWithQuestionNrAllQuestionsAnsweredButThisOne = function (questionNr) {
 	var additionalTextForStages = A2(
 		_elm_lang$core$List$map,
 		function (x) {
@@ -17260,26 +17297,26 @@ var _user$project$OurStory2_Rules$interactionWithQuestionNrAllQuestionsAnsweredB
 				ctor: '_Tuple3',
 				_0: x,
 				_1: 'additionalTextDict',
-				_2: _user$project$Engine$aDictStringString(_user$project$OurStory2_Narrative$additionalStageInfoAfterAllQuestionsAnsweredDict)
+				_2: _sintraubuntuer$elm_game_narrative_starter$Engine$aDictStringString(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalStageInfoAfterAllQuestionsAnsweredDict)
 			};
 		},
 		A2(
 			_elm_lang$core$List$map,
-			_user$project$OurStory2_Rules$getStageId,
-			A2(_elm_lang$core$List$range, 1, _user$project$OurStory2_Rules$numberOfDesiredStages - 1)));
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId,
+			A2(_elm_lang$core$List$range, 1, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages - 1)));
 	var stageNr = questionNr;
-	var lsuggestedInteractionIfLastStage = _elm_lang$core$Native_Utils.eq(stageNr, _user$project$OurStory2_Rules$getLastStageNr) ? {
+	var lsuggestedInteractionIfLastStage = _elm_lang$core$Native_Utils.eq(stageNr, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getLastStageNr) ? {
 		ctor: '::',
 		_0: {
 			ctor: '_Tuple2',
 			_0: 'suggestedInteraction',
-			_1: _user$project$Engine$astring('finalPaper')
+			_1: _sintraubuntuer$elm_game_narrative_starter$Engine$astring('finalPaper')
 		},
 		_1: {ctor: '[]'}
 	} : {ctor: '[]'};
-	var correctAnswers = _user$project$OurStory2_Narrative$getQuestionAnswers(questionNr);
+	var correctAnswers = _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionAnswers(questionNr);
 	return A3(
-		_user$project$OurStory2_Rules$ruleWithQuasiChange,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$ruleWithQuasiChange,
 		A2(
 			_elm_lang$core$Basics_ops['++'],
 			'view question',
@@ -17288,40 +17325,40 @@ var _user$project$OurStory2_Rules$interactionWithQuestionNrAllQuestionsAnsweredB
 				_elm_lang$core$Basics$toString(questionNr),
 				' all questions answered but this one ')),
 		{
-			interaction: _user$project$Engine$with(
-				_user$project$OurStory2_Rules$getQuestionId(questionNr)),
+			interaction: _sintraubuntuer$elm_game_narrative_starter$Engine$with(
+				_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getQuestionId(questionNr)),
 			conditions: A2(
 				_elm_lang$core$List$append,
 				{
 					ctor: '::',
-					_0: _user$project$Engine$itemIsOffScreen('finalPaper'),
+					_0: _sintraubuntuer$elm_game_narrative_starter$Engine$itemIsOffScreen('finalPaper'),
 					_1: {ctor: '[]'}
 				},
 				A2(
 					_elm_lang$core$List$map,
-					_user$project$Engine$itemIsCorrectlyAnswered,
+					_sintraubuntuer$elm_game_narrative_starter$Engine$itemIsCorrectlyAnswered,
 					A2(
 						_elm_lang$core$List$filter,
 						function (x) {
 							return !_elm_lang$core$Native_Utils.eq(
 								x,
-								_user$project$OurStory2_Rules$getQuestionId(questionNr));
+								_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getQuestionId(questionNr));
 						},
-						_user$project$OurStory2_Rules$getListOfStageQuestions))),
+						_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getListOfStageQuestions))),
 			changes: {ctor: '[]'},
 			quasiChanges: {
 				ctor: '::',
 				_0: A3(
-					_user$project$Engine$check_IfAnswerCorrect,
+					_sintraubuntuer$elm_game_narrative_starter$Engine$check_IfAnswerCorrect,
 					correctAnswers,
 					A8(
-						_user$project$Engine$checkAnswerData,
-						_user$project$OurStory2_Narrative$getQuestionsMaxNrTries(questionNr),
-						_user$project$Engine$caseInsensitiveAnswer,
-						_user$project$Engine$answerSpacesDontMatter,
-						_user$project$Engine$headerAnswerAndCorrectIncorrect,
-						_user$project$OurStory2_Narrative$additionalTextIfAnswerCorrectDict(questionNr),
-						_user$project$OurStory2_Narrative$additionalTextIfAnswerIncorrectDict(questionNr),
+						_sintraubuntuer$elm_game_narrative_starter$Engine$checkAnswerData,
+						_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionsMaxNrTries(questionNr),
+						_sintraubuntuer$elm_game_narrative_starter$Engine$caseInsensitiveAnswer,
+						_sintraubuntuer$elm_game_narrative_starter$Engine$answerSpacesDontMatter,
+						_sintraubuntuer$elm_game_narrative_starter$Engine$headerAnswerAndCorrectIncorrect,
+						_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalTextIfAnswerCorrectDict(questionNr),
+						_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$additionalTextIfAnswerIncorrectDict(questionNr),
 						A2(
 							_elm_lang$core$Basics_ops['++'],
 							{
@@ -17329,7 +17366,7 @@ var _user$project$OurStory2_Rules$interactionWithQuestionNrAllQuestionsAnsweredB
 								_0: {
 									ctor: '_Tuple2',
 									_0: 'warningMessage',
-									_1: _user$project$Engine$aDictStringString(_user$project$OurStory2_Narrative$goodNewsMessageAfterAllQuestionsAnsweredDict)
+									_1: _sintraubuntuer$elm_game_narrative_starter$Engine$aDictStringString(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$goodNewsMessageAfterAllQuestionsAnsweredDict)
 								},
 								_1: {ctor: '[]'}
 							},
@@ -17340,33 +17377,34 @@ var _user$project$OurStory2_Rules$interactionWithQuestionNrAllQuestionsAnsweredB
 						'question',
 						_elm_lang$core$Basics$toString(questionNr))),
 				_1: {ctor: '[]'}
-			}
+			},
+			quasiChangeWithBkend: _sintraubuntuer$elm_game_narrative_starter$Engine$noQuasiChangeWithBackend
 		},
-		_user$project$OurStory2_Narrative$interactingWithQuestionNDict(questionNr));
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithQuestionNDict(questionNr));
 };
-var _user$project$OurStory2_Rules$rules = function () {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$rules = function () {
 	var lRulesAboutQuestionsAllQuestionsAnsweredButOne = A2(
 		_elm_lang$core$List$map,
-		_user$project$OurStory2_Rules$interactionWithQuestionNrAllQuestionsAnsweredButThisOne,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$interactionWithQuestionNrAllQuestionsAnsweredButThisOne,
 		A2(
 			_elm_lang$core$List$filter,
 			function (x) {
-				return !A2(_elm_lang$core$List$member, x, _user$project$OurStory2_Rules$questionsOnEveryStageExcept);
+				return !A2(_elm_lang$core$List$member, x, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$questionsOnEveryStageExcept);
 			},
-			A2(_elm_lang$core$List$range, 1, _user$project$OurStory2_Rules$numberOfDesiredStages)));
+			A2(_elm_lang$core$List$range, 1, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages)));
 	var lRulesAboutQuestions = A2(
 		_elm_lang$core$List$map,
-		_user$project$OurStory2_Rules$standardInteractionWithQuestionNr,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$standardInteractionWithQuestionNr,
 		A2(
 			_elm_lang$core$List$filter,
 			function (x) {
-				return !A2(_elm_lang$core$List$member, x, _user$project$OurStory2_Rules$questionsOnEveryStageExcept);
+				return !A2(_elm_lang$core$List$member, x, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$questionsOnEveryStageExcept);
 			},
-			A2(_elm_lang$core$List$range, 1, _user$project$OurStory2_Rules$numberOfDesiredStages)));
-	var listOfStageNrs = A2(_elm_lang$core$List$range, 1, _user$project$OurStory2_Rules$numberOfDesiredStages);
+			A2(_elm_lang$core$List$range, 1, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages)));
+	var listOfStageNrs = A2(_elm_lang$core$List$range, 1, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages);
 	var lRulesToTryMoveToNextStageAndFail = A2(
 		_elm_lang$core$List$map,
-		_user$project$OurStory2_Rules$standardRuleTryMoveToNplusOneAndFail,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$standardRuleTryMoveToNplusOneAndFail,
 		A2(
 			_elm_lang$core$List$map,
 			function (x) {
@@ -17375,12 +17413,12 @@ var _user$project$OurStory2_Rules$rules = function () {
 			A2(
 				_elm_lang$core$List$filter,
 				function (x) {
-					return !A2(_elm_lang$core$List$member, x, _user$project$OurStory2_Rules$correctAnswerNotRequiredToMove);
+					return !A2(_elm_lang$core$List$member, x, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$correctAnswerNotRequiredToMove);
 				},
 				A2(
 					_elm_lang$core$List$filter,
 					function (x) {
-						return !A2(_elm_lang$core$List$member, x, _user$project$OurStory2_Rules$questionsOnEveryStageExcept);
+						return !A2(_elm_lang$core$List$member, x, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$questionsOnEveryStageExcept);
 					},
 					A2(
 						_elm_lang$core$List$take,
@@ -17388,7 +17426,7 @@ var _user$project$OurStory2_Rules$rules = function () {
 						listOfStageNrs)))));
 	var lRulesToMoveToNextStageRestricted = A2(
 		_elm_lang$core$List$map,
-		_user$project$OurStory2_Rules$standardRuleMoveToNplusOneRestricted,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$standardRuleMoveToNplusOneRestricted,
 		A2(
 			_elm_lang$core$List$map,
 			function (x) {
@@ -17397,12 +17435,12 @@ var _user$project$OurStory2_Rules$rules = function () {
 			A2(
 				_elm_lang$core$List$filter,
 				function (x) {
-					return !A2(_elm_lang$core$List$member, x, _user$project$OurStory2_Rules$correctAnswerNotRequiredToMove);
+					return !A2(_elm_lang$core$List$member, x, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$correctAnswerNotRequiredToMove);
 				},
 				A2(
 					_elm_lang$core$List$filter,
 					function (x) {
-						return !A2(_elm_lang$core$List$member, x, _user$project$OurStory2_Rules$questionsOnEveryStageExcept);
+						return !A2(_elm_lang$core$List$member, x, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$questionsOnEveryStageExcept);
 					},
 					A2(
 						_elm_lang$core$List$take,
@@ -17410,7 +17448,7 @@ var _user$project$OurStory2_Rules$rules = function () {
 						listOfStageNrs)))));
 	var lRulesToMoveToNextStageNotRestricted = A2(
 		_elm_lang$core$List$map,
-		_user$project$OurStory2_Rules$standardRuleMoveToNplusOneNotRestricted,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$standardRuleMoveToNplusOneNotRestricted,
 		A2(
 			_elm_lang$core$List$append,
 			{
@@ -17421,7 +17459,7 @@ var _user$project$OurStory2_Rules$rules = function () {
 			A2(
 				_elm_lang$core$List$filter,
 				function (x) {
-					return A2(_elm_lang$core$List$member, x, _user$project$OurStory2_Rules$questionsOnEveryStageExcept) || A2(_elm_lang$core$List$member, x, _user$project$OurStory2_Rules$correctAnswerNotRequiredToMove);
+					return A2(_elm_lang$core$List$member, x, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$questionsOnEveryStageExcept) || A2(_elm_lang$core$List$member, x, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$correctAnswerNotRequiredToMove);
 				},
 				A2(
 					_elm_lang$core$List$take,
@@ -17429,7 +17467,7 @@ var _user$project$OurStory2_Rules$rules = function () {
 					listOfStageNrs))));
 	var lRulesToMoveToPreviousStage = A2(
 		_elm_lang$core$List$map,
-		_user$project$OurStory2_Rules$standardRuleMoveToNminusOne,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$standardRuleMoveToNminusOne,
 		A2(
 			_elm_lang$core$List$map,
 			function (x) {
@@ -17441,22 +17479,22 @@ var _user$project$OurStory2_Rules$rules = function () {
 				_elm_lang$core$List$tail(listOfStageNrs))));
 	var lRules = A2(
 		_elm_lang$core$List$append,
-		_user$project$OurStory2_Rules$lRuleGameHasEnded,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$lRuleGameHasEnded,
 		A2(
 			_elm_lang$core$List$append,
-			_user$project$OurStory2_Rules$lRuleInteractingWithFinalPaper,
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$lRuleInteractingWithFinalPaper,
 			A2(
 				_elm_lang$core$List$append,
 				lRulesAboutQuestionsAllQuestionsAnsweredButOne,
 				A2(
 					_elm_lang$core$List$append,
-					_user$project$OurStory2_Rules$lRulesMakeFinalPaperAppearAfterAllQuestionsAnswered,
+					_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$lRulesMakeFinalPaperAppearAfterAllQuestionsAnswered,
 					A2(
 						_elm_lang$core$List$append,
-						_user$project$OurStory2_Rules$lRulesInteractingWithCreditsInfo,
+						_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$lRulesInteractingWithCreditsInfo,
 						A2(
 							_elm_lang$core$List$append,
-							_user$project$OurStory2_Rules$lRulesInteractingWithGps,
+							_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$lRulesInteractingWithGps,
 							A2(
 								_elm_lang$core$List$append,
 								lRulesAboutQuestions,
@@ -17470,7 +17508,7 @@ var _user$project$OurStory2_Rules$rules = function () {
 	return _elm_lang$core$Dict$fromList(lRules);
 }();
 
-var _user$project$OurStory2_Manifest$getStageCoordInfo = function (stageNr) {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$getStageCoordInfo = function (stageNr) {
 	var dictCoordInfo = _elm_lang$core$Dict$fromList(
 		{
 			ctor: '::',
@@ -17555,33 +17593,33 @@ var _user$project$OurStory2_Manifest$getStageCoordInfo = function (stageNr) {
 		});
 	return A2(_elm_lang$core$Dict$get, stageNr, dictCoordInfo);
 };
-var _user$project$OurStory2_Manifest$getListOfLocations = F2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$getListOfLocations = F2(
 	function (initLocations, nrLocations) {
 		var mbAddCoordInfo = F2(
 			function (stageNr, entity) {
-				var _p0 = _user$project$OurStory2_Manifest$getStageCoordInfo(stageNr);
+				var _p0 = _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$getStageCoordInfo(stageNr);
 				if (_p0.ctor === 'Nothing') {
 					return entity;
 				} else {
-					return A5(_user$project$Components$addNeedsToBeInGpsZone, true, _p0._0._0, _p0._0._1, _p0._0._2, entity);
+					return A5(_sintraubuntuer$elm_game_narrative_starter$Components$addNeedsToBeInGpsZone, true, _p0._0._0, _p0._0._1, _p0._0._2, entity);
 				}
 			});
 		var getDirection = F2(
 			function (s1, s2) {
 				var _p1 = {
 					ctor: '_Tuple2',
-					_0: _user$project$OurStory2_Manifest$getStageCoordInfo(s1),
-					_1: _user$project$OurStory2_Manifest$getStageCoordInfo(s2)
+					_0: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$getStageCoordInfo(s1),
+					_1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$getStageCoordInfo(s2)
 				};
 				if ((((_p1._0.ctor === 'Just') && (_p1._0._0.ctor === '_Tuple3')) && (_p1._1.ctor === 'Just')) && (_p1._1._0.ctor === '_Tuple3')) {
-					return _user$project$Components$bearingToDirection(
+					return _sintraubuntuer$elm_game_narrative_starter$Components$bearingToDirection(
 						_elm_lang$core$Basics$toFloat(
 							A2(
-								_user$project$GpsUtils$calculateBearing,
+								_sintraubuntuer$elm_game_narrative_starter$GpsUtils$calculateBearing,
 								{ctor: '_Tuple2', _0: _p1._0._0._0, _1: _p1._0._0._1},
 								{ctor: '_Tuple2', _0: _p1._1._0._0, _1: _p1._1._0._1})));
 				} else {
-					return (_elm_lang$core$Native_Utils.cmp(s2, s1) > -1) ? _user$project$Components$West : _user$project$Components$East;
+					return (_elm_lang$core$Native_Utils.cmp(s2, s1) > -1) ? _sintraubuntuer$elm_game_narrative_starter$Components$West : _sintraubuntuer$elm_game_narrative_starter$Components$East;
 				}
 			});
 		var getConnectingLocations = function (stageNr) {
@@ -17598,7 +17636,7 @@ var _user$project$OurStory2_Manifest$getListOfLocations = F2(
 				_0: {
 					ctor: '_Tuple2',
 					_0: A2(getDirection, nrLocations, nrLocations - 1),
-					_1: _user$project$OurStory2_Rules$getStageId(nrLocations - 1)
+					_1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(nrLocations - 1)
 				},
 				_1: {ctor: '[]'}
 			} : {
@@ -17606,14 +17644,14 @@ var _user$project$OurStory2_Manifest$getListOfLocations = F2(
 				_0: {
 					ctor: '_Tuple2',
 					_0: A2(getDirection, stageNr, stageNr + 1),
-					_1: _user$project$OurStory2_Rules$getStageId(stageNr + 1)
+					_1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(stageNr + 1)
 				},
 				_1: {
 					ctor: '::',
 					_0: {
 						ctor: '_Tuple2',
 						_0: A2(getDirection, stageNr, stageNr - 1),
-						_1: _user$project$OurStory2_Rules$getStageId(stageNr - 1)
+						_1: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(stageNr - 1)
 					},
 					_1: {ctor: '[]'}
 				}
@@ -17624,25 +17662,25 @@ var _user$project$OurStory2_Manifest$getListOfLocations = F2(
 				mbAddCoordInfo,
 				nr,
 				A2(
-					_user$project$Components$addConnectingLocations,
+					_sintraubuntuer$elm_game_narrative_starter$Components$addConnectingLocations,
 					getConnectingLocations(nr),
 					A4(
-						_user$project$Components$addLgDisplayInfo,
+						_sintraubuntuer$elm_game_narrative_starter$Components$addLgDisplayInfo,
 						'pt',
-						A2(_user$project$OurStory2_Narrative$getStageName, nr, 'pt'),
+						A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getStageName, nr, 'pt'),
 						A2(
 							_elm_lang$core$String$join,
 							' , ',
-							A3(_user$project$OurStory2_Narrative$interactingWithStageN, nr, 'pt', 'defaultStageDescription')),
+							A3(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithStageN, nr, 'pt', 'defaultStageDescription')),
 						A3(
-							_user$project$Components$addDisplayInfo,
-							A2(_user$project$OurStory2_Narrative$getStageName, nr, 'en'),
+							_sintraubuntuer$elm_game_narrative_starter$Components$addDisplayInfo,
+							A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getStageName, nr, 'en'),
 							A2(
 								_elm_lang$core$String$join,
 								' , ',
-								A3(_user$project$OurStory2_Narrative$interactingWithStageN, nr, 'en', 'defaultStageDescription')),
-							_user$project$Components$entity(
-								_user$project$OurStory2_Rules$getStageId(nr))))));
+								A3(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$interactingWithStageN, nr, 'en', 'defaultStageDescription')),
+							_sintraubuntuer$elm_game_narrative_starter$Components$entity(
+								_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getStageId(nr))))));
 		};
 		var moreLocations = A2(
 			_elm_lang$core$List$map,
@@ -17650,124 +17688,125 @@ var _user$project$OurStory2_Manifest$getListOfLocations = F2(
 			A2(_elm_lang$core$List$range, 1, nrLocations));
 		return A2(_elm_lang$core$List$append, initLocations, moreLocations);
 	});
-var _user$project$OurStory2_Manifest$initialLocations = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$initialLocations = {
 	ctor: '::',
 	_0: A2(
-		_user$project$Components$addConnectingLocations,
+		_sintraubuntuer$elm_game_narrative_starter$Components$addConnectingLocations,
 		{
 			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: _user$project$Components$West, _1: 'stage1'},
+			_0: {ctor: '_Tuple2', _0: _sintraubuntuer$elm_game_narrative_starter$Components$West, _1: 'stage1'},
 			_1: {ctor: '[]'}
 		},
 		A4(
-			_user$project$Components$addLgDisplayInfo,
+			_sintraubuntuer$elm_game_narrative_starter$Components$addLgDisplayInfo,
 			'pt',
 			'Era Uma Vez ...',
 			'Era Uma Vez ...',
 			A3(
-				_user$project$Components$addDisplayInfo,
+				_sintraubuntuer$elm_game_narrative_starter$Components$addDisplayInfo,
 				'Once Upon a Time',
 				'Once Upon a Time',
-				_user$project$Components$entity('onceUponAtime')))),
+				_sintraubuntuer$elm_game_narrative_starter$Components$entity('onceUponAtime')))),
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Manifest$locations = A2(_user$project$OurStory2_Manifest$getListOfLocations, _user$project$OurStory2_Manifest$initialLocations, _user$project$OurStory2_Rules$numberOfDesiredStages);
-var _user$project$OurStory2_Manifest$characters = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$locations = A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$getListOfLocations, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$initialLocations, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages);
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$characters = {
 	ctor: '::',
 	_0: A4(
-		_user$project$Components$addLgDisplayInfo,
+		_sintraubuntuer$elm_game_narrative_starter$Components$addLgDisplayInfo,
 		'pt',
 		'investigador',
 		'Tu ...',
 		A3(
-			_user$project$Components$addDisplayInfo,
+			_sintraubuntuer$elm_game_narrative_starter$Components$addDisplayInfo,
 			'investigator',
 			'You ...',
-			_user$project$Components$entity('playerOne'))),
+			_sintraubuntuer$elm_game_narrative_starter$Components$entity('playerOne'))),
 	_1: {ctor: '[]'}
 };
-var _user$project$OurStory2_Manifest$getListOfItems = F2(
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$getListOfItems = F2(
 	function (initItems, nrQuestions) {
 		var createEntity = function (nr) {
 			return A4(
-				_user$project$Components$addLgDisplayInfo,
+				_sintraubuntuer$elm_game_narrative_starter$Components$addLgDisplayInfo,
 				'pt',
-				A2(_user$project$OurStory2_Narrative$getQuestionName, nr, 'pt'),
-				A2(_user$project$OurStory2_Narrative$getQuestionBodyAsString, nr, 'pt'),
+				A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionName, nr, 'pt'),
+				A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionBodyAsString, nr, 'pt'),
 				A3(
-					_user$project$Components$addDisplayInfo,
-					A2(_user$project$OurStory2_Narrative$getQuestionName, nr, 'en'),
-					A2(_user$project$OurStory2_Narrative$getQuestionBodyAsString, nr, 'en'),
-					_user$project$Components$entity(
-						_user$project$OurStory2_Rules$getQuestionId(nr))));
+					_sintraubuntuer$elm_game_narrative_starter$Components$addDisplayInfo,
+					A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionName, nr, 'en'),
+					A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$getQuestionBodyAsString, nr, 'en'),
+					_sintraubuntuer$elm_game_narrative_starter$Components$entity(
+						_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getQuestionId(nr))));
 		};
-		var moreItems = A2(_elm_lang$core$List$map, createEntity, _user$project$OurStory2_Rules$getListOfStageQuestionNrs);
+		var moreItems = A2(_elm_lang$core$List$map, createEntity, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$getListOfStageQuestionNrs);
 		return A2(_elm_lang$core$List$append, initItems, moreItems);
 	});
-var _user$project$OurStory2_Manifest$initialItems = {
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$initialItems = {
 	ctor: '::',
-	_0: _user$project$Components$entity('gameStateItem'),
+	_0: _sintraubuntuer$elm_game_narrative_starter$Components$entity('gameStateItem'),
 	_1: {
 		ctor: '::',
 		_0: A2(
-			_user$project$Components$addNeedsGpsInfo,
+			_sintraubuntuer$elm_game_narrative_starter$Components$addNeedsGpsInfo,
 			true,
 			A4(
-				_user$project$Components$addLgDisplayInfo,
+				_sintraubuntuer$elm_game_narrative_starter$Components$addLgDisplayInfo,
 				'pt',
 				'GPSr',
 				'Instrumento mágico que te ajuda a navegar no terreno.',
 				A3(
-					_user$project$Components$addDisplayInfo,
+					_sintraubuntuer$elm_game_narrative_starter$Components$addDisplayInfo,
 					'GPSr',
 					'Magical Instrument that helps you navigate',
-					_user$project$Components$entity('gps')))),
+					_sintraubuntuer$elm_game_narrative_starter$Components$entity('gps')))),
 		_1: {
 			ctor: '::',
 			_0: A4(
-				_user$project$Components$addLgDisplayInfo,
+				_sintraubuntuer$elm_game_narrative_starter$Components$addLgDisplayInfo,
 				'pt',
 				'questão',
 				'descrição da questão',
 				A3(
-					_user$project$Components$addDisplayInfo,
+					_sintraubuntuer$elm_game_narrative_starter$Components$addDisplayInfo,
 					'question',
 					'question Description',
-					_user$project$Components$entity('standardQuestion'))),
+					_sintraubuntuer$elm_game_narrative_starter$Components$entity('standardQuestion'))),
 			_1: {
 				ctor: '::',
 				_0: A4(
-					_user$project$Components$addLgDisplayInfo,
+					_sintraubuntuer$elm_game_narrative_starter$Components$addLgDisplayInfo,
 					'pt',
 					'credits',
 					'credits Info',
 					A3(
-						_user$project$Components$addDisplayInfo,
+						_sintraubuntuer$elm_game_narrative_starter$Components$addDisplayInfo,
 						'credits',
 						'credits Info',
-						_user$project$Components$entity('creditsInfo'))),
+						_sintraubuntuer$elm_game_narrative_starter$Components$entity('creditsInfo'))),
 				_1: {
 					ctor: '::',
 					_0: A4(
-						_user$project$Components$addLgDisplayInfo,
+						_sintraubuntuer$elm_game_narrative_starter$Components$addLgDisplayInfo,
 						'pt',
 						'papiro',
 						'papiro com alguma informação escrita',
 						A3(
-							_user$project$Components$addDisplayInfo,
+							_sintraubuntuer$elm_game_narrative_starter$Components$addDisplayInfo,
 							'old paper',
 							'old paper with some info written in it',
-							_user$project$Components$entity('finalPaper'))),
+							_sintraubuntuer$elm_game_narrative_starter$Components$entity('finalPaper'))),
 					_1: {ctor: '[]'}
 				}
 			}
 		}
 	}
 };
-var _user$project$OurStory2_Manifest$items = A2(_user$project$OurStory2_Manifest$getListOfItems, _user$project$OurStory2_Manifest$initialItems, _user$project$OurStory2_Rules$numberOfDesiredStages);
+var _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$items = A2(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$getListOfItems, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$initialItems, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$numberOfDesiredStages);
 
-var _user$project$TranslationHelper$getInLanguage = F2(
+var _sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage = F2(
 	function (lgId, theStr) {
+		var lgId_ = (_elm_lang$core$Native_Utils.eq(lgId, 'vi') || _elm_lang$core$Native_Utils.eq(lgId, 'vw')) ? 'en' : lgId;
 		var translationDict = _elm_lang$core$Dict$fromList(
 			{
 				ctor: '::',
@@ -18252,7 +18291,7 @@ var _user$project$TranslationHelper$getInLanguage = F2(
 			});
 		var _p0 = A2(
 			_elm_lang$core$Dict$get,
-			{ctor: '_Tuple2', _0: theStr, _1: lgId},
+			{ctor: '_Tuple2', _0: theStr, _1: lgId_},
 			translationDict);
 		if (_p0.ctor === 'Nothing') {
 			return theStr;
@@ -18261,7 +18300,7 @@ var _user$project$TranslationHelper$getInLanguage = F2(
 		}
 	});
 
-var _user$project$Theme_CurrentSummary$view = F5(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_CurrentSummary$view = F5(
 	function (currentLocation, props, characters, lAlertMessages, lgId) {
 		var format = function (list) {
 			var interactables = (_elm_lang$core$Native_Utils.cmp(
@@ -18278,7 +18317,7 @@ var _user$project$Theme_CurrentSummary$view = F5(
 				{
 					ctor: '::',
 					_0: _elm_lang$html$Html$text(
-						A2(_user$project$TranslationHelper$getInLanguage, lgId, '__and__')),
+						A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, lgId, '__and__')),
 					_1: A2(
 						_elm_lang$core$List$drop,
 						_elm_lang$core$List$length(list) - 1,
@@ -18286,7 +18325,7 @@ var _user$project$Theme_CurrentSummary$view = F5(
 				}) : A2(
 				_elm_lang$core$List$intersperse,
 				_elm_lang$html$Html$text(
-					A2(_user$project$TranslationHelper$getInLanguage, lgId, '__and__')),
+					A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, lgId, '__and__')),
 				list);
 			return A2(
 				_elm_lang$core$Basics_ops['++'],
@@ -18318,7 +18357,7 @@ var _user$project$Theme_CurrentSummary$view = F5(
 							function (_) {
 								return _.name;
 							}(
-								A2(_user$project$Components$getSingleLgDisplayInfo, lgId, entity))),
+								A2(_sintraubuntuer$elm_game_narrative_starter$Components$getSingleLgDisplayInfo, lgId, entity))),
 						_1: {ctor: '[]'}
 					});
 			});
@@ -18331,11 +18370,11 @@ var _user$project$Theme_CurrentSummary$view = F5(
 						return {ctor: '::', _0: x, _1: y};
 					}),
 				_elm_lang$html$Html$text(
-					A2(_user$project$TranslationHelper$getInLanguage, lgId, '__Characters_here__')),
+					A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, lgId, '__Characters_here__')),
 				format(
 					A2(
 						_elm_lang$core$List$map,
-						interactableView(_user$project$ClientTypes$Interact),
+						interactableView(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$Interact),
 						characters)))) : A2(
 			_elm_lang$html$Html$span,
 			{ctor: '[]'},
@@ -18349,11 +18388,11 @@ var _user$project$Theme_CurrentSummary$view = F5(
 						return {ctor: '::', _0: x, _1: y};
 					}),
 				_elm_lang$html$Html$text(
-					A2(_user$project$TranslationHelper$getInLanguage, lgId, '__Items_here__')),
+					A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, lgId, '__Items_here__')),
 				format(
 					A2(
 						_elm_lang$core$List$map,
-						interactableView(_user$project$ClientTypes$Interact),
+						interactableView(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$Interact),
 						props)))) : A2(
 			_elm_lang$html$Html$span,
 			{ctor: '[]'},
@@ -18388,7 +18427,7 @@ var _user$project$Theme_CurrentSummary$view = F5(
 								function (_) {
 									return _.name;
 								}(
-									A2(_user$project$Components$getSingleLgDisplayInfo, lgId, currentLocation))),
+									A2(_sintraubuntuer$elm_game_narrative_starter$Components$getSingleLgDisplayInfo, lgId, currentLocation))),
 							_1: {ctor: '[]'}
 						}),
 					_1: {ctor: '[]'}
@@ -18396,7 +18435,7 @@ var _user$project$Theme_CurrentSummary$view = F5(
 				isEmpty ? {
 					ctor: '::',
 					_0: _elm_lang$html$Html$text(
-						A2(_user$project$TranslationHelper$getInLanguage, lgId, '__Nothing_here__')),
+						A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, lgId, '__Nothing_here__')),
 					_1: {ctor: '[]'}
 				} : {
 					ctor: '::',
@@ -18409,7 +18448,7 @@ var _user$project$Theme_CurrentSummary$view = F5(
 				}));
 	});
 
-var _user$project$Theme_AnswerBox$view = F6(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_AnswerBox$view = F6(
 	function (answerboxtext, lgId, showHeaders, mbInteractableId, mbPlaceHolderText, className) {
 		var placeHolderText = function () {
 			var _p0 = mbPlaceHolderText;
@@ -18446,7 +18485,7 @@ var _user$project$Theme_AnswerBox$view = F6(
 							_1: {
 								ctor: '::',
 								_0: _elm_lang$html$Html_Attributes$placeholder(
-									A2(_user$project$TranslationHelper$getInLanguage, lgId, placeHolderText)),
+									A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, lgId, placeHolderText)),
 								_1: {
 									ctor: '::',
 									_0: _elm_lang$html$Html_Attributes$autofocus(true),
@@ -18456,7 +18495,7 @@ var _user$project$Theme_AnswerBox$view = F6(
 											A2(_elm_lang$core$Maybe$withDefault, '', answerboxtext)),
 										_1: {
 											ctor: '::',
-											_0: _elm_lang$html$Html_Events$onInput(_user$project$ClientTypes$NewUserSubmitedText),
+											_0: _elm_lang$html$Html_Events$onInput(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$NewUserSubmitedText),
 											_1: {ctor: '[]'}
 										}
 									}
@@ -18475,7 +18514,7 @@ var _user$project$Theme_AnswerBox$view = F6(
 										ctor: '::',
 										_0: _elm_lang$html$Html_Events$onClick(
 											A2(
-												_user$project$ClientTypes$InteractSendingText,
+												_sintraubuntuer$elm_game_narrative_starter$ClientTypes$InteractSendingText,
 												_p1._0,
 												A2(_elm_lang$core$Maybe$withDefault, '', answerboxtext))),
 										_1: {ctor: '[]'}
@@ -18494,7 +18533,7 @@ var _user$project$Theme_AnswerBox$view = F6(
 				}
 			});
 	});
-var _user$project$Theme_AnswerBox$update = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_AnswerBox$update = F2(
 	function (theText, model) {
 		return _elm_lang$core$Native_Utils.eq(theText, '') ? _elm_lang$core$Native_Utils.update(
 			model,
@@ -18504,12 +18543,12 @@ var _user$project$Theme_AnswerBox$update = F2(
 				answerBoxText: _elm_lang$core$Maybe$Just(theText)
 			});
 	});
-var _user$project$Theme_AnswerBox$init = {answerBoxText: _elm_lang$core$Maybe$Nothing};
-var _user$project$Theme_AnswerBox$Model = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Theme_AnswerBox$init = {answerBoxText: _elm_lang$core$Maybe$Nothing};
+var _sintraubuntuer$elm_game_narrative_starter$Theme_AnswerBox$Model = function (a) {
 	return {answerBoxText: a};
 };
 
-var _user$project$Theme_Storyline$view = F7(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Storyline$view = F7(
 	function (storyLine, lgId, showTextBoxInStoryline, mbplaceholdertext, mbanswerboxtext, answerOptionsDict, ending) {
 		var storyLi = F2(
 			function (i, _p0) {
@@ -18550,7 +18589,7 @@ var _user$project$Theme_Storyline$view = F7(
 										{
 											ctor: '::',
 											_0: _elm_lang$html$Html$text(
-												A2(_user$project$TranslationHelper$getInLanguage, lgId, '___SUGGESTED_INTERACTION___')),
+												A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, lgId, '___SUGGESTED_INTERACTION___')),
 											_1: {ctor: '[]'}
 										}),
 									_1: {
@@ -18563,7 +18602,7 @@ var _user$project$Theme_Storyline$view = F7(
 												_1: {
 													ctor: '::',
 													_0: _elm_lang$html$Html_Events$onClick(
-														_user$project$ClientTypes$Interact(_p3)),
+														_sintraubuntuer$elm_game_narrative_starter$ClientTypes$Interact(_p3)),
 													_1: {ctor: '[]'}
 												}
 											},
@@ -18606,14 +18645,14 @@ var _user$project$Theme_Storyline$view = F7(
 									_1: {
 										ctor: '::',
 										_0: _elm_lang$html$Html_Events$onClick(
-											_user$project$ClientTypes$Interact(_p6)),
+											_sintraubuntuer$elm_game_narrative_starter$ClientTypes$Interact(_p6)),
 										_1: {ctor: '[]'}
 									}
 								},
 								{
 									ctor: '::',
 									_0: _elm_lang$html$Html$text(
-										A2(_user$project$TranslationHelper$getInLanguage, lgId, '___more___')),
+										A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, lgId, '___more___')),
 									_1: {ctor: '[]'}
 								}),
 							_1: {ctor: '[]'}
@@ -18635,7 +18674,7 @@ var _user$project$Theme_Storyline$view = F7(
 								{
 									ctor: '::',
 									_0: _elm_lang$html$Html_Events$onClick(
-										A2(_user$project$ClientTypes$InteractSendingText, _p6, _p5._0)),
+										A2(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$InteractSendingText, _p6, _p5._0)),
 									_1: {ctor: '[]'}
 								},
 								{
@@ -18656,7 +18695,7 @@ var _user$project$Theme_Storyline$view = F7(
 						_1: {ctor: '[]'}
 					});
 				var viewMbAnswerBox = (_elm_lang$core$Native_Utils.eq(i, 0) && (_p1.isWritable && showTextBoxInStoryline)) ? A6(
-					_user$project$Theme_AnswerBox$view,
+					_sintraubuntuer$elm_game_narrative_starter$Theme_AnswerBox$view,
 					mbanswerboxtext,
 					lgId,
 					false,
@@ -18773,57 +18812,9 @@ var _user$project$Theme_Storyline$view = F7(
 			A2(_elm_lang$core$List$indexedMap, storyLi, storyLine));
 	});
 
-var _user$project$Theme_Locations$view = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Locations$view = F4(
 	function (exits, currentLocation, lgId, bWithSidebar) {
 		var locationsClass = bWithSidebar ? 'Locations' : 'Locations__NoSidebar';
-		var exitsList = A2(
-			_elm_lang$html$Html$div,
-			{ctor: '[]'},
-			A2(
-				_elm_lang$core$List$map,
-				function (_p0) {
-					var _p1 = _p0;
-					var _p2 = _p1._1;
-					return (bWithSidebar ? _elm_lang$html$Html$p(
-						{ctor: '[]'}) : _elm_lang$html$Html$span(
-						{ctor: '[]'}))(
-						{
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$span,
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$class('CurrentSummary__StoryElement u-selectable'),
-									_1: {
-										ctor: '::',
-										_0: _elm_lang$html$Html_Events$onClick(
-											_user$project$ClientTypes$Interact(
-												_elm_lang$core$Tuple$first(_p2))),
-										_1: {ctor: '[]'}
-									}
-								},
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html$text(
-										A2(
-											_elm_lang$core$Basics_ops['++'],
-											function (_) {
-												return _.name;
-											}(
-												A2(_user$project$Components$getSingleLgDisplayInfo, lgId, _p2)),
-											A2(
-												_elm_lang$core$Basics_ops['++'],
-												' is to the ',
-												A2(
-													_elm_lang$core$Basics_ops['++'],
-													_elm_lang$core$Basics$toString(_p1._0),
-													'.')))),
-									_1: {ctor: '[]'}
-								}),
-							_1: {ctor: '[]'}
-						});
-				},
-				exits));
 		var formatIt = F2(
 			function (bWithSidebar, list) {
 				var interactables = bWithSidebar ? A2(
@@ -18848,7 +18839,7 @@ var _user$project$Theme_Locations$view = F4(
 								return {ctor: '::', _0: x, _1: y};
 							}),
 						_elm_lang$html$Html$text(
-							A2(_user$project$TranslationHelper$getInLanguage, lgId, 'Connecting locations : ')),
+							A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, lgId, 'Connecting locations : ')),
 						A2(
 							_elm_lang$core$Basics_ops['++'],
 							interactables,
@@ -18884,7 +18875,7 @@ var _user$project$Theme_Locations$view = F4(
 									function (_) {
 										return _.name;
 									}(
-										A2(_user$project$Components$getSingleLgDisplayInfo, lgId, entity))),
+										A2(_sintraubuntuer$elm_game_narrative_starter$Components$getSingleLgDisplayInfo, lgId, entity))),
 								_1: {ctor: '[]'}
 							}),
 						_1: {
@@ -18903,9 +18894,9 @@ var _user$project$Theme_Locations$view = F4(
 			bWithSidebar,
 			A2(
 				_elm_lang$core$List$map,
-				function (_p3) {
-					var _p4 = _p3;
-					return A3(interactableView, _user$project$ClientTypes$Interact, _p4._1, _p4._0);
+				function (_p0) {
+					var _p1 = _p0;
+					return A3(interactableView, _sintraubuntuer$elm_game_narrative_starter$ClientTypes$Interact, _p1._1, _p1._0);
 				},
 				exits)) : A2(
 			_elm_lang$html$Html$span,
@@ -18947,7 +18938,7 @@ var _user$project$Theme_Locations$view = F4(
 			});
 	});
 
-var _user$project$Theme_Inventory$view = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Inventory$view = F3(
 	function (items, lgId, bWithSidebar) {
 		var inventoryClass = bWithSidebar ? 'Inventory' : 'Inventory__NoSidebar';
 		var elem = bWithSidebar ? _elm_lang$html$Html$li : _elm_lang$html$Html$span;
@@ -18971,7 +18962,7 @@ var _user$project$Theme_Inventory$view = F3(
 							_1: {
 								ctor: '::',
 								_0: _elm_lang$html$Html_Events$onClick(
-									_user$project$ClientTypes$Interact(
+									_sintraubuntuer$elm_game_narrative_starter$ClientTypes$Interact(
 										_elm_lang$core$Tuple$first(entity))),
 								_1: {ctor: '[]'}
 							}
@@ -18982,7 +18973,7 @@ var _user$project$Theme_Inventory$view = F3(
 								function (_) {
 									return _.name;
 								}(
-									A2(_user$project$Components$getSingleLgDisplayInfo, lgId, entity))),
+									A2(_sintraubuntuer$elm_game_narrative_starter$Components$getSingleLgDisplayInfo, lgId, entity))),
 							_1: {ctor: '[]'}
 						})
 				};
@@ -19002,7 +18993,7 @@ var _user$project$Theme_Inventory$view = F3(
 					{
 						ctor: '::',
 						_0: _elm_lang$html$Html$text(
-							A2(_user$project$TranslationHelper$getInLanguage, lgId, '__Inventory__')),
+							A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, lgId, '__Inventory__')),
 						_1: {ctor: '[]'}
 					}) : _elm_lang$html$Html$text(''),
 				_1: {
@@ -19030,7 +19021,7 @@ var _user$project$Theme_Inventory$view = F3(
 									_elm_lang$html$Html$text(
 										A2(
 											_elm_lang$core$Basics_ops['++'],
-											A2(_user$project$TranslationHelper$getInLanguage, lgId, '__Inventory__'),
+											A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, lgId, '__Inventory__'),
 											' : ')),
 									A2(
 										_elm_lang$core$List$intersperse,
@@ -19046,7 +19037,7 @@ var _user$project$Theme_Inventory$view = F3(
 			});
 	});
 
-var _user$project$Theme_Settings$viewShowHideSaveLoad = function (model) {
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$viewShowHideSaveLoad = function (model) {
 	var theText = model.showSaveLoad ? 'Hide' : 'Show';
 	return A2(
 		_elm_lang$html$Html$div,
@@ -19060,7 +19051,7 @@ var _user$project$Theme_Settings$viewShowHideSaveLoad = function (model) {
 					_0: _elm_lang$html$Html_Attributes$class('showHideBtn'),
 					_1: {
 						ctor: '::',
-						_0: _elm_lang$html$Html_Events$onClick(_user$project$ClientTypes$ToggleShowHideSaveLoadBtns),
+						_0: _elm_lang$html$Html_Events$onClick(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$ToggleShowHideSaveLoadBtns),
 						_1: {ctor: '[]'}
 					}
 				},
@@ -19072,7 +19063,7 @@ var _user$project$Theme_Settings$viewShowHideSaveLoad = function (model) {
 			_1: {ctor: '[]'}
 		});
 };
-var _user$project$Theme_Settings$radio = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$radio = F4(
 	function (frommodel, opt, name, msg) {
 		return {
 			ctor: '::',
@@ -19103,7 +19094,7 @@ var _user$project$Theme_Settings$radio = F4(
 			}
 		};
 	});
-var _user$project$Theme_Settings$optionLanguagesView = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$optionLanguagesView = F2(
 	function (availableLanguages, displayLanguageId) {
 		return A2(
 			_elm_lang$html$Html$div,
@@ -19124,7 +19115,7 @@ var _user$project$Theme_Settings$optionLanguagesView = F2(
 					{
 						ctor: '::',
 						_0: _elm_lang$html$Html$text(
-							A2(_user$project$TranslationHelper$getInLanguage, displayLanguageId, '___Language___')),
+							A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, displayLanguageId, '___Language___')),
 						_1: {ctor: '[]'}
 					}),
 				_1: {
@@ -19149,18 +19140,18 @@ var _user$project$Theme_Settings$optionLanguagesView = F2(
 												_1: {ctor: '[]'}
 											},
 											A4(
-												_user$project$Theme_Settings$radio,
+												_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$radio,
 												displayLanguageId,
 												lgId,
 												lg,
-												_user$project$ClientTypes$ChangeOptionDisplayLanguage(lgId)));
+												_sintraubuntuer$elm_game_narrative_starter$ClientTypes$ChangeOptionDisplayLanguage(lgId)));
 									}),
 								availableLanguages))),
 					_1: {ctor: '[]'}
 				}
 			});
 	});
-var _user$project$Theme_Settings$optionGpsCheckZone = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$optionGpsCheckZone = F2(
 	function (bdontcheck, displayLanguageId) {
 		return A2(
 			_elm_lang$html$Html$div,
@@ -19181,7 +19172,7 @@ var _user$project$Theme_Settings$optionGpsCheckZone = F2(
 					{
 						ctor: '::',
 						_0: _elm_lang$html$Html$text(
-							A2(_user$project$TranslationHelper$getInLanguage, displayLanguageId, '___Check_gps_coords___')),
+							A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, displayLanguageId, '___Check_gps_coords___')),
 						_1: {ctor: '[]'}
 					}),
 				_1: {
@@ -19199,11 +19190,11 @@ var _user$project$Theme_Settings$optionGpsCheckZone = F2(
 									_1: {ctor: '[]'}
 								},
 								A4(
-									_user$project$Theme_Settings$radio,
+									_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$radio,
 									bdontcheck,
 									true,
 									'dont check gps',
-									_user$project$ClientTypes$ChangeOptionDontCheckGps(true))),
+									_sintraubuntuer$elm_game_narrative_starter$ClientTypes$ChangeOptionDontCheckGps(true))),
 							_1: {
 								ctor: '::',
 								_0: A2(
@@ -19214,11 +19205,11 @@ var _user$project$Theme_Settings$optionGpsCheckZone = F2(
 										_1: {ctor: '[]'}
 									},
 									A4(
-										_user$project$Theme_Settings$radio,
+										_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$radio,
 										bdontcheck,
 										false,
 										'check',
-										_user$project$ClientTypes$ChangeOptionDontCheckGps(false))),
+										_sintraubuntuer$elm_game_narrative_starter$ClientTypes$ChangeOptionDontCheckGps(false))),
 								_1: {ctor: '[]'}
 							}
 						}),
@@ -19226,7 +19217,7 @@ var _user$project$Theme_Settings$optionGpsCheckZone = F2(
 				}
 			});
 	});
-var _user$project$Theme_Settings$optionAudioAutoplay = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$optionAudioAutoplay = F2(
 	function (bautoplay, displayLanguageId) {
 		return A2(
 			_elm_lang$html$Html$div,
@@ -19247,7 +19238,7 @@ var _user$project$Theme_Settings$optionAudioAutoplay = F2(
 					{
 						ctor: '::',
 						_0: _elm_lang$html$Html$text(
-							A2(_user$project$TranslationHelper$getInLanguage, displayLanguageId, '___AUDIO___')),
+							A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, displayLanguageId, '___AUDIO___')),
 						_1: {ctor: '[]'}
 					}),
 				_1: {
@@ -19265,11 +19256,11 @@ var _user$project$Theme_Settings$optionAudioAutoplay = F2(
 									_1: {ctor: '[]'}
 								},
 								A4(
-									_user$project$Theme_Settings$radio,
+									_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$radio,
 									bautoplay,
 									true,
 									'autoplay',
-									_user$project$ClientTypes$ChangeOptionAudioAutoplay(true))),
+									_sintraubuntuer$elm_game_narrative_starter$ClientTypes$ChangeOptionAudioAutoplay(true))),
 							_1: {
 								ctor: '::',
 								_0: A2(
@@ -19280,11 +19271,11 @@ var _user$project$Theme_Settings$optionAudioAutoplay = F2(
 										_1: {ctor: '[]'}
 									},
 									A4(
-										_user$project$Theme_Settings$radio,
+										_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$radio,
 										bautoplay,
 										false,
 										'dont autoplay',
-										_user$project$ClientTypes$ChangeOptionAudioAutoplay(false))),
+										_sintraubuntuer$elm_game_narrative_starter$ClientTypes$ChangeOptionAudioAutoplay(false))),
 								_1: {ctor: '[]'}
 							}
 						}),
@@ -19292,7 +19283,7 @@ var _user$project$Theme_Settings$optionAudioAutoplay = F2(
 				}
 			});
 	});
-var _user$project$Theme_Settings$optionLayout = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$optionLayout = F2(
 	function (bWithSidebar, displayLanguageId) {
 		return A2(
 			_elm_lang$html$Html$div,
@@ -19313,7 +19304,7 @@ var _user$project$Theme_Settings$optionLayout = F2(
 					{
 						ctor: '::',
 						_0: _elm_lang$html$Html$text(
-							A2(_user$project$TranslationHelper$getInLanguage, displayLanguageId, '___LAYOUT_OPTIONS___')),
+							A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, displayLanguageId, '___LAYOUT_OPTIONS___')),
 						_1: {ctor: '[]'}
 					}),
 				_1: {
@@ -19331,11 +19322,11 @@ var _user$project$Theme_Settings$optionLayout = F2(
 									_1: {ctor: '[]'}
 								},
 								A4(
-									_user$project$Theme_Settings$radio,
+									_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$radio,
 									bWithSidebar,
 									true,
 									'with Sidebar',
-									_user$project$ClientTypes$LayoutWithSideBar(true))),
+									_sintraubuntuer$elm_game_narrative_starter$ClientTypes$LayoutWithSideBar(true))),
 							_1: {
 								ctor: '::',
 								_0: A2(
@@ -19346,11 +19337,11 @@ var _user$project$Theme_Settings$optionLayout = F2(
 										_1: {ctor: '[]'}
 									},
 									A4(
-										_user$project$Theme_Settings$radio,
+										_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$radio,
 										bWithSidebar,
 										false,
 										'no Sidebar',
-										_user$project$ClientTypes$LayoutWithSideBar(false))),
+										_sintraubuntuer$elm_game_narrative_starter$ClientTypes$LayoutWithSideBar(false))),
 								_1: {ctor: '[]'}
 							}
 						}),
@@ -19358,7 +19349,7 @@ var _user$project$Theme_Settings$optionLayout = F2(
 				}
 			});
 	});
-var _user$project$Theme_Settings$viewSaveLoadButtons = function (model) {
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$viewSaveLoadButtons = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{ctor: '[]'},
@@ -19370,7 +19361,7 @@ var _user$project$Theme_Settings$viewSaveLoadButtons = function (model) {
 				{
 					ctor: '::',
 					_0: _elm_lang$html$Html$text(
-						A2(_user$project$TranslationHelper$getInLanguage, model.displayLanguage, '___SAVE_LOAD___')),
+						A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, model.displayLanguage, '___SAVE_LOAD___')),
 					_1: {ctor: '[]'}
 				}) : A2(
 				_elm_lang$html$Html$label,
@@ -19382,12 +19373,12 @@ var _user$project$Theme_Settings$viewSaveLoadButtons = function (model) {
 				{
 					ctor: '::',
 					_0: _elm_lang$html$Html$text(
-						A2(_user$project$TranslationHelper$getInLanguage, model.displayLanguage, '___SAVE_LOAD___')),
+						A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, model.displayLanguage, '___SAVE_LOAD___')),
 					_1: {ctor: '[]'}
 				}),
 			_1: {
 				ctor: '::',
-				_0: _user$project$Theme_Settings$viewShowHideSaveLoad(model),
+				_0: _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$viewShowHideSaveLoad(model),
 				_1: {
 					ctor: '::',
 					_0: model.showSaveLoad ? A2(
@@ -19411,7 +19402,7 @@ var _user$project$Theme_Settings$viewSaveLoadButtons = function (model) {
 											_0: _elm_lang$html$Html_Attributes$class('saveBtn'),
 											_1: {
 												ctor: '::',
-												_0: _elm_lang$html$Html_Events$onClick(_user$project$ClientTypes$SaveHistory),
+												_0: _elm_lang$html$Html_Events$onClick(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$SaveHistory),
 												_1: {ctor: '[]'}
 											}
 										},
@@ -19440,7 +19431,7 @@ var _user$project$Theme_Settings$viewSaveLoadButtons = function (model) {
 												_0: _elm_lang$html$Html_Attributes$class('loadBtn'),
 												_1: {
 													ctor: '::',
-													_0: _elm_lang$html$Html_Events$onClick(_user$project$ClientTypes$RequestForStoredHistory),
+													_0: _elm_lang$html$Html_Events$onClick(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$RequestForStoredHistory),
 													_1: {ctor: '[]'}
 												}
 											},
@@ -19466,29 +19457,29 @@ var _user$project$Theme_Settings$viewSaveLoadButtons = function (model) {
 			}
 		});
 };
-var _user$project$Theme_Settings$viewLanguageGpsAudioAndLayoutOptions = function (model) {
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$viewLanguageGpsAudioAndLayoutOptions = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{ctor: '[]'},
 		{
 			ctor: '::',
-			_0: A2(_user$project$Theme_Settings$optionLanguagesView, model.availableLanguages, model.displayLanguage),
+			_0: A2(_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$optionLanguagesView, model.availableLanguages, model.displayLanguage),
 			_1: {
 				ctor: '::',
-				_0: model.gpsOptionsEnabled ? A2(_user$project$Theme_Settings$optionGpsCheckZone, model.dontNeedToBeInZone, model.displayLanguage) : _elm_lang$html$Html$text(''),
+				_0: model.gpsOptionsEnabled ? A2(_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$optionGpsCheckZone, model.dontNeedToBeInZone, model.displayLanguage) : _elm_lang$html$Html$text(''),
 				_1: {
 					ctor: '::',
-					_0: model.audioOptionsEnabled ? A2(_user$project$Theme_Settings$optionAudioAutoplay, model.audioAutoplay, model.displayLanguage) : _elm_lang$html$Html$text(''),
+					_0: model.audioOptionsEnabled ? A2(_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$optionAudioAutoplay, model.audioAutoplay, model.displayLanguage) : _elm_lang$html$Html$text(''),
 					_1: {
 						ctor: '::',
-						_0: A2(_user$project$Theme_Settings$optionLayout, model.layoutWithSidebar, model.displayLanguage),
+						_0: A2(_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$optionLayout, model.layoutWithSidebar, model.displayLanguage),
 						_1: {ctor: '[]'}
 					}
 				}
 			}
 		});
 };
-var _user$project$Theme_Settings$viewShowHideSettingsOptions = function (model) {
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$viewShowHideSettingsOptions = function (model) {
 	var theText = model.showExpandedSettings ? '(Hide)' : '(Show)';
 	return A2(
 		_elm_lang$html$Html$a,
@@ -19497,7 +19488,7 @@ var _user$project$Theme_Settings$viewShowHideSettingsOptions = function (model) 
 			_0: _elm_lang$html$Html_Attributes$class('u-selectable'),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html_Events$onClick(_user$project$ClientTypes$ToggleShowExpandedSettings),
+				_0: _elm_lang$html$Html_Events$onClick(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$ToggleShowExpandedSettings),
 				_1: {ctor: '[]'}
 			}
 		},
@@ -19507,7 +19498,7 @@ var _user$project$Theme_Settings$viewShowHideSettingsOptions = function (model) 
 			_1: {ctor: '[]'}
 		});
 };
-var _user$project$Theme_Settings$viewExitToFinalScreenButton = function (model) {
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$viewExitToFinalScreenButton = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{ctor: '[]'},
@@ -19523,7 +19514,7 @@ var _user$project$Theme_Settings$viewExitToFinalScreenButton = function (model) 
 				{
 					ctor: '::',
 					_0: _elm_lang$html$Html$text(
-						A2(_user$project$TranslationHelper$getInLanguage, model.displayLanguage, '___EXIT___')),
+						A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, model.displayLanguage, '___EXIT___')),
 					_1: {ctor: '[]'}
 				}),
 			_1: {
@@ -19535,7 +19526,7 @@ var _user$project$Theme_Settings$viewExitToFinalScreenButton = function (model) 
 						_0: _elm_lang$html$Html_Attributes$class('showHideBtn'),
 						_1: {
 							ctor: '::',
-							_0: _elm_lang$html$Html_Events$onClick(_user$project$ClientTypes$ExitToFinalScreen),
+							_0: _elm_lang$html$Html_Events$onClick(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$ExitToFinalScreen),
 							_1: {ctor: '[]'}
 						}
 					},
@@ -19548,7 +19539,7 @@ var _user$project$Theme_Settings$viewExitToFinalScreenButton = function (model) 
 			}
 		});
 };
-var _user$project$Theme_Settings$view = function (model) {
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$view = function (model) {
 	var settingsClassStr = model.layoutWithSidebar ? 'Settings' : 'Settings__NoSidebar';
 	return A2(
 		_elm_lang$html$Html$div,
@@ -19559,7 +19550,7 @@ var _user$project$Theme_Settings$view = function (model) {
 		},
 		{
 			ctor: '::',
-			_0: model.showExitToFinalScreenButton ? _user$project$Theme_Settings$viewExitToFinalScreenButton(model) : _elm_lang$html$Html$text(''),
+			_0: model.showExitToFinalScreenButton ? _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$viewExitToFinalScreenButton(model) : _elm_lang$html$Html$text(''),
 			_1: {
 				ctor: '::',
 				_0: A2(
@@ -19572,13 +19563,13 @@ var _user$project$Theme_Settings$view = function (model) {
 					{
 						ctor: '::',
 						_0: _elm_lang$html$Html$text(
-							A2(_user$project$TranslationHelper$getInLanguage, model.displayLanguage, '___Settings___')),
+							A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, model.displayLanguage, '___Settings___')),
 						_1: {
 							ctor: '::',
 							_0: _elm_lang$html$Html$text('  '),
 							_1: {
 								ctor: '::',
-								_0: _user$project$Theme_Settings$viewShowHideSettingsOptions(model),
+								_0: _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$viewShowHideSettingsOptions(model),
 								_1: {ctor: '[]'}
 							}
 						}
@@ -19590,7 +19581,7 @@ var _user$project$Theme_Settings$view = function (model) {
 						{ctor: '[]'},
 						{
 							ctor: '::',
-							_0: _user$project$Theme_Settings$viewLanguageGpsAudioAndLayoutOptions(model),
+							_0: _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$viewLanguageGpsAudioAndLayoutOptions(model),
 							_1: {
 								ctor: '::',
 								_0: A2(
@@ -19599,7 +19590,7 @@ var _user$project$Theme_Settings$view = function (model) {
 									{ctor: '[]'}),
 								_1: {
 									ctor: '::',
-									_0: model.saveLoadEnabled ? _user$project$Theme_Settings$viewSaveLoadButtons(model) : _elm_lang$html$Html$text(''),
+									_0: model.saveLoadEnabled ? _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$viewSaveLoadButtons(model) : _elm_lang$html$Html$text(''),
 									_1: {ctor: '[]'}
 								}
 							}
@@ -19609,7 +19600,7 @@ var _user$project$Theme_Settings$view = function (model) {
 			}
 		});
 };
-var _user$project$Theme_Settings$update = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$update = F2(
 	function (msg, model) {
 		var _p1 = msg;
 		switch (_p1.ctor) {
@@ -19647,11 +19638,11 @@ var _user$project$Theme_Settings$update = F2(
 					{showExitToFinalScreenButton: !model.showExitToFinalScreenButton});
 		}
 	});
-var _user$project$Theme_Settings$init = function (theLanguages) {
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$init = function (theLanguages) {
 	return {availableLanguages: theLanguages, displayLanguage: 'pt', gpsOptionsEnabled: true, dontNeedToBeInZone: false, audioOptionsEnabled: true, audioAutoplay: false, layoutWithSidebar: true, showAnswerBoxInSideBar: false, showExpandedSettings: false, saveLoadEnabled: true, showSaveLoad: false, showExitToFinalScreenButton: false};
 };
 
-var _user$project$Theme_AlertMessages$viewAlertMessages = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_AlertMessages$viewAlertMessages = F2(
 	function (lAlertMessages, lgId) {
 		return (!_elm_lang$core$Native_Utils.eq(
 			_elm_lang$core$List$length(lAlertMessages),
@@ -19674,7 +19665,7 @@ var _user$project$Theme_AlertMessages$viewAlertMessages = F2(
 						_elm_lang$core$List$map,
 						function (x) {
 							return _elm_lang$html$Html$text(
-								A2(_user$project$TranslationHelper$getInLanguage, lgId, x));
+								A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, lgId, x));
 						},
 						lAlertMessages)),
 				{
@@ -19686,7 +19677,7 @@ var _user$project$Theme_AlertMessages$viewAlertMessages = F2(
 							_0: _elm_lang$html$Html_Attributes$class('close'),
 							_1: {
 								ctor: '::',
-								_0: _elm_lang$html$Html_Events$onClick(_user$project$ClientTypes$CloseAlert),
+								_0: _elm_lang$html$Html_Events$onClick(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$CloseAlert),
 								_1: {ctor: '[]'}
 							}
 						},
@@ -19699,7 +19690,7 @@ var _user$project$Theme_AlertMessages$viewAlertMessages = F2(
 				})) : _elm_lang$html$Html$text('');
 	});
 
-var _user$project$Theme_Layout$viewMbAudioFile = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Layout$viewMbAudioFile = F2(
 	function (mbAudioFileInfo, audioAutoplay) {
 		var audioHtml = A2(
 			_elm_lang$core$Maybe$withDefault,
@@ -19760,7 +19751,7 @@ var _user$project$Theme_Layout$viewMbAudioFile = F2(
 			});
 		return out;
 	});
-var _user$project$Theme_Layout$viewExtraInfo = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Layout$viewExtraInfo = F2(
 	function (displayState, layoutClassStr) {
 		return A2(
 			_elm_lang$html$Html$div,
@@ -19771,23 +19762,19 @@ var _user$project$Theme_Layout$viewExtraInfo = F2(
 			},
 			{
 				ctor: '::',
-				_0: A4(_user$project$Theme_Locations$view, displayState.exits, displayState.currentLocation, displayState.settingsModel.displayLanguage, displayState.settingsModel.layoutWithSidebar),
+				_0: A4(_sintraubuntuer$elm_game_narrative_starter$Theme_Locations$view, displayState.exits, displayState.currentLocation, displayState.settingsModel.displayLanguage, displayState.settingsModel.layoutWithSidebar),
 				_1: {
 					ctor: '::',
-					_0: A3(_user$project$Theme_Inventory$view, displayState.itemsInInventory, displayState.settingsModel.displayLanguage, displayState.settingsModel.layoutWithSidebar),
+					_0: A3(_sintraubuntuer$elm_game_narrative_starter$Theme_Inventory$view, displayState.itemsInInventory, displayState.settingsModel.displayLanguage, displayState.settingsModel.layoutWithSidebar),
 					_1: {
 						ctor: '::',
-						_0: displayState.boolTextBoxInSidebar ? A6(_user$project$Theme_AnswerBox$view, displayState.answerBoxMbText, displayState.settingsModel.displayLanguage, true, _elm_lang$core$Maybe$Nothing, _elm_lang$core$Maybe$Nothing, 'AnswerBox') : _elm_lang$html$Html$text(''),
-						_1: {
-							ctor: '::',
-							_0: displayState.settingsModel.layoutWithSidebar ? _user$project$Theme_Settings$view(displayState.settingsModel) : _elm_lang$html$Html$text(''),
-							_1: {ctor: '[]'}
-						}
+						_0: displayState.settingsModel.layoutWithSidebar ? _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$view(displayState.settingsModel) : _elm_lang$html$Html$text(''),
+						_1: {ctor: '[]'}
 					}
 				}
 			});
 	});
-var _user$project$Theme_Layout$view = function (displayState) {
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Layout$view = function (displayState) {
 	var _p0 = displayState.layoutWithSidebar ? {ctor: '_Tuple2', _0: 'Layout', _1: 'Layout__Main'} : {ctor: '_Tuple2', _0: 'Layout__NoSidebar', _1: 'Layout__Main__NoSidebar'};
 	var layoutClass = _p0._0;
 	var layoutMainClass = _p0._1;
@@ -19799,7 +19786,7 @@ var _user$project$Theme_Layout$view = function (displayState) {
 				A2(
 					_elm_lang$core$Basics_ops['++'],
 					'GamePage GamePage--',
-					_user$project$Components$getClassName(displayState.currentLocation))),
+					_sintraubuntuer$elm_game_narrative_starter$Components$getClassName(displayState.currentLocation))),
 			_1: {ctor: '[]'}
 		},
 		{
@@ -19812,7 +19799,7 @@ var _user$project$Theme_Layout$view = function (displayState) {
 						A2(
 							_elm_lang$core$Basics_ops['++'],
 							'GamePage__background GamePage__background--',
-							_user$project$Components$getClassName(displayState.currentLocation))),
+							_sintraubuntuer$elm_game_narrative_starter$Components$getClassName(displayState.currentLocation))),
 					_1: {ctor: '[]'}
 				},
 				{ctor: '[]'}),
@@ -19845,24 +19832,24 @@ var _user$project$Theme_Layout$view = function (displayState) {
 									},
 									{
 										ctor: '::',
-										_0: _user$project$Theme_Settings$view(displayState.settingsModel),
+										_0: _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$view(displayState.settingsModel),
 										_1: {ctor: '[]'}
 									}) : _elm_lang$html$Html$text(''),
 								_1: {
 									ctor: '::',
-									_0: A5(_user$project$Theme_CurrentSummary$view, displayState.currentLocation, displayState.itemsInCurrentLocation, displayState.charactersInCurrentLocation, displayState.alertMessages, displayState.settingsModel.displayLanguage),
+									_0: A5(_sintraubuntuer$elm_game_narrative_starter$Theme_CurrentSummary$view, displayState.currentLocation, displayState.itemsInCurrentLocation, displayState.charactersInCurrentLocation, displayState.alertMessages, displayState.settingsModel.displayLanguage),
 									_1: {
 										ctor: '::',
-										_0: (!displayState.layoutWithSidebar) ? A2(_user$project$Theme_Layout$viewExtraInfo, displayState, 'Layout__NoSidebar__ExtraInfo') : _elm_lang$html$Html$text(''),
+										_0: (!displayState.layoutWithSidebar) ? A2(_sintraubuntuer$elm_game_narrative_starter$Theme_Layout$viewExtraInfo, displayState, 'Layout__NoSidebar__ExtraInfo') : _elm_lang$html$Html$text(''),
 										_1: {
 											ctor: '::',
-											_0: A2(_user$project$Theme_Layout$viewMbAudioFile, displayState.mbAudioFileInfo, displayState.audioAutoplay),
+											_0: A2(_sintraubuntuer$elm_game_narrative_starter$Theme_Layout$viewMbAudioFile, displayState.mbAudioFileInfo, displayState.audioAutoplay),
 											_1: {
 												ctor: '::',
-												_0: A2(_user$project$Theme_AlertMessages$viewAlertMessages, displayState.alertMessages, displayState.settingsModel.displayLanguage),
+												_0: A2(_sintraubuntuer$elm_game_narrative_starter$Theme_AlertMessages$viewAlertMessages, displayState.alertMessages, displayState.settingsModel.displayLanguage),
 												_1: {
 													ctor: '::',
-													_0: A7(_user$project$Theme_Storyline$view, displayState.storyLine, displayState.settingsModel.displayLanguage, displayState.boolTextBoxInStoryline, displayState.mbTextBoxPlaceholderText, displayState.answerBoxMbText, displayState.answerOptionsDict, displayState.ending),
+													_0: A7(_sintraubuntuer$elm_game_narrative_starter$Theme_Storyline$view, displayState.storyLine, displayState.settingsModel.displayLanguage, displayState.boolTextBoxInStoryline, displayState.mbTextBoxPlaceholderText, displayState.answerBoxMbText, displayState.answerOptionsDict, displayState.ending),
 													_1: {ctor: '[]'}
 												}
 											}
@@ -19872,7 +19859,7 @@ var _user$project$Theme_Layout$view = function (displayState) {
 							}),
 						_1: {
 							ctor: '::',
-							_0: displayState.layoutWithSidebar ? A2(_user$project$Theme_Layout$viewExtraInfo, displayState, 'Layout__Sidebar') : _elm_lang$html$Html$text(''),
+							_0: displayState.layoutWithSidebar ? A2(_sintraubuntuer$elm_game_narrative_starter$Theme_Layout$viewExtraInfo, displayState, 'Layout__Sidebar') : _elm_lang$html$Html$text(''),
 							_1: {ctor: '[]'}
 						}
 					}),
@@ -19880,7 +19867,7 @@ var _user$project$Theme_Layout$view = function (displayState) {
 			}
 		});
 };
-var _user$project$Theme_Layout$DisplayState = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Theme_Layout$DisplayState = function (a) {
 	return function (b) {
 		return function (c) {
 			return function (d) {
@@ -19896,9 +19883,7 @@ var _user$project$Theme_Layout$DisplayState = function (a) {
 													return function (n) {
 														return function (o) {
 															return function (p) {
-																return function (q) {
-																	return {currentLocation: a, itemsInCurrentLocation: b, charactersInCurrentLocation: c, exits: d, itemsInInventory: e, answerBoxMbText: f, mbAudioFileInfo: g, audioAutoplay: h, answerOptionsDict: i, layoutWithSidebar: j, boolTextBoxInSidebar: k, boolTextBoxInStoryline: l, mbTextBoxPlaceholderText: m, settingsModel: n, alertMessages: o, ending: p, storyLine: q};
-																};
+																return {currentLocation: a, itemsInCurrentLocation: b, charactersInCurrentLocation: c, exits: d, itemsInInventory: e, answerBoxMbText: f, mbAudioFileInfo: g, audioAutoplay: h, answerOptionsDict: i, layoutWithSidebar: j, boolTextBoxInStoryline: k, mbTextBoxPlaceholderText: l, settingsModel: m, alertMessages: n, ending: o, storyLine: p};
 															};
 														};
 													};
@@ -19916,7 +19901,7 @@ var _user$project$Theme_Layout$DisplayState = function (a) {
 	};
 };
 
-var _user$project$Theme_StartScreen$view = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_StartScreen$view = F3(
 	function (baseImgUrl, startScreenInfo, answerBoxModel) {
 		var imgUrl = _elm_lang$core$Native_Utils.eq(baseImgUrl, '') ? A2(_elm_lang$core$Basics_ops['++'], 'img/', startScreenInfo.mainImage) : A2(_elm_lang$core$Basics_ops['++'], baseImgUrl, startScreenInfo.mainImage);
 		return A2(
@@ -20023,7 +20008,7 @@ var _user$project$Theme_StartScreen$view = F3(
 									_1: {
 										ctor: '::',
 										_0: A6(
-											_user$project$Theme_AnswerBox$view,
+											_sintraubuntuer$elm_game_narrative_starter$Theme_AnswerBox$view,
 											answerBoxModel.answerBoxText,
 											'pt',
 											false,
@@ -20043,7 +20028,7 @@ var _user$project$Theme_StartScreen$view = F3(
 										_1: {
 											ctor: '::',
 											_0: _elm_lang$html$Html_Events$onClick(
-												_user$project$ClientTypes$StartMainGameNewPlayerName(
+												_sintraubuntuer$elm_game_narrative_starter$ClientTypes$StartMainGameNewPlayerName(
 													A2(
 														_elm_lang$core$Maybe$withDefault,
 														'',
@@ -20069,7 +20054,7 @@ var _user$project$Theme_StartScreen$view = F3(
 			});
 	});
 
-var _user$project$Theme_EndScreen$view = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Theme_EndScreen$view = F2(
 	function (baseImgUrl, endScreenInfo) {
 		var imgUrl = _elm_lang$core$Native_Utils.eq(baseImgUrl, '') ? A2(_elm_lang$core$Basics_ops['++'], 'img/', endScreenInfo.mainImage) : A2(_elm_lang$core$Basics_ops['++'], baseImgUrl, endScreenInfo.mainImage);
 		return A2(
@@ -20145,7 +20130,7 @@ var _user$project$Theme_EndScreen$view = F2(
 			});
 	});
 
-var _user$project$TypeConverterHelper$sendToDebug = F3(
+var _sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$sendToDebug = F3(
 	function (doDebug, valStr, returnVal) {
 		var _p0 = doDebug;
 		if (_p0 === true) {
@@ -20155,7 +20140,7 @@ var _user$project$TypeConverterHelper$sendToDebug = F3(
 			return returnVal;
 		}
 	});
-var _user$project$TypeConverterHelper$mbAttributeToMbBool = F2(
+var _sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToMbBool = F2(
 	function (doDebug, mbAttrVal) {
 		var _p2 = mbAttrVal;
 		if (_p2.ctor === 'Nothing') {
@@ -20164,18 +20149,18 @@ var _user$project$TypeConverterHelper$mbAttributeToMbBool = F2(
 			if (_p2._0.ctor === 'Abool') {
 				return _elm_lang$core$Maybe$Just(_p2._0._0);
 			} else {
-				return A3(_user$project$TypeConverterHelper$sendToDebug, doDebug, 'Trying to convert an attribute which is not of type Astring to a string', _elm_lang$core$Maybe$Nothing);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$sendToDebug, doDebug, 'Trying to convert an attribute which is not of type Astring to a string', _elm_lang$core$Maybe$Nothing);
 			}
 		}
 	});
-var _user$project$TypeConverterHelper$mbAttributeToBool = F2(
+var _sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToBool = F2(
 	function (doDebug, mbAttrVal) {
 		return A2(
 			_elm_lang$core$Maybe$withDefault,
 			false,
-			A2(_user$project$TypeConverterHelper$mbAttributeToMbBool, doDebug, mbAttrVal));
+			A2(_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToMbBool, doDebug, mbAttrVal));
 	});
-var _user$project$TypeConverterHelper$mbAttributeToMbString = F2(
+var _sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToMbString = F2(
 	function (doDebug, mbAttrVal) {
 		var _p3 = mbAttrVal;
 		if (_p3.ctor === 'Nothing') {
@@ -20184,18 +20169,18 @@ var _user$project$TypeConverterHelper$mbAttributeToMbString = F2(
 			if (_p3._0.ctor === 'Astring') {
 				return _elm_lang$core$Maybe$Just(_p3._0._0);
 			} else {
-				return A3(_user$project$TypeConverterHelper$sendToDebug, doDebug, 'Trying to convert an attribute which is not of type Astring to a string', _elm_lang$core$Maybe$Nothing);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$sendToDebug, doDebug, 'Trying to convert an attribute which is not of type Astring to a string', _elm_lang$core$Maybe$Nothing);
 			}
 		}
 	});
-var _user$project$TypeConverterHelper$mbAttributeToString = F2(
+var _sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToString = F2(
 	function (doDebug, mbAttrVal) {
 		return A2(
 			_elm_lang$core$Maybe$withDefault,
 			'',
-			A2(_user$project$TypeConverterHelper$mbAttributeToMbString, doDebug, mbAttrVal));
+			A2(_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToMbString, doDebug, mbAttrVal));
 	});
-var _user$project$TypeConverterHelper$mbAttributeToMbListString = F2(
+var _sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToMbListString = F2(
 	function (doDebug, mbAttrVal) {
 		var _p4 = mbAttrVal;
 		if (_p4.ctor === 'Nothing') {
@@ -20204,18 +20189,18 @@ var _user$project$TypeConverterHelper$mbAttributeToMbListString = F2(
 			if (_p4._0.ctor === 'AListString') {
 				return _elm_lang$core$Maybe$Just(_p4._0._0);
 			} else {
-				return A3(_user$project$TypeConverterHelper$sendToDebug, doDebug, 'Trying to convert an attribute which is not of type AListString to a List of strings', _elm_lang$core$Maybe$Nothing);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$sendToDebug, doDebug, 'Trying to convert an attribute which is not of type AListString to a List of strings', _elm_lang$core$Maybe$Nothing);
 			}
 		}
 	});
-var _user$project$TypeConverterHelper$mbAttributeToListString = F2(
+var _sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToListString = F2(
 	function (doDebug, mbAttrVal) {
 		return A2(
 			_elm_lang$core$Maybe$withDefault,
 			{ctor: '[]'},
-			A2(_user$project$TypeConverterHelper$mbAttributeToMbListString, doDebug, mbAttrVal));
+			A2(_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToMbListString, doDebug, mbAttrVal));
 	});
-var _user$project$TypeConverterHelper$mbAttributeToMbListStringString = F2(
+var _sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToMbListStringString = F2(
 	function (doDebug, mbAttrVal) {
 		var _p5 = mbAttrVal;
 		if (_p5.ctor === 'Nothing') {
@@ -20224,18 +20209,18 @@ var _user$project$TypeConverterHelper$mbAttributeToMbListStringString = F2(
 			if (_p5._0.ctor === 'AListStringString') {
 				return _elm_lang$core$Maybe$Just(_p5._0._0);
 			} else {
-				return A3(_user$project$TypeConverterHelper$sendToDebug, doDebug, 'Trying to convert an attribute which is not of type AListStringString to a List of tuples (string , string )', _elm_lang$core$Maybe$Nothing);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$sendToDebug, doDebug, 'Trying to convert an attribute which is not of type AListStringString to a List of tuples (string , string )', _elm_lang$core$Maybe$Nothing);
 			}
 		}
 	});
-var _user$project$TypeConverterHelper$mbAttributeToListStringString = F2(
+var _sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToListStringString = F2(
 	function (doDebug, mbAttrVal) {
 		return A2(
 			_elm_lang$core$Maybe$withDefault,
 			{ctor: '[]'},
-			A2(_user$project$TypeConverterHelper$mbAttributeToMbListStringString, doDebug, mbAttrVal));
+			A2(_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToMbListStringString, doDebug, mbAttrVal));
 	});
-var _user$project$TypeConverterHelper$mbAttributeToMbDictStringString = F2(
+var _sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToMbDictStringString = F2(
 	function (doDebug, mbAttrVal) {
 		var _p6 = mbAttrVal;
 		if (_p6.ctor === 'Nothing') {
@@ -20244,18 +20229,18 @@ var _user$project$TypeConverterHelper$mbAttributeToMbDictStringString = F2(
 			if (_p6._0.ctor === 'ADictStringString') {
 				return _elm_lang$core$Maybe$Just(_p6._0._0);
 			} else {
-				return A3(_user$project$TypeConverterHelper$sendToDebug, doDebug, 'Trying to convert an attribute which is not of type ADictStringString to a Dict String String', _elm_lang$core$Maybe$Nothing);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$sendToDebug, doDebug, 'Trying to convert an attribute which is not of type ADictStringString to a Dict String String', _elm_lang$core$Maybe$Nothing);
 			}
 		}
 	});
-var _user$project$TypeConverterHelper$mbAttributeToDictStringString = F2(
+var _sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToDictStringString = F2(
 	function (doDebug, mbAttrVal) {
 		return A2(
 			_elm_lang$core$Maybe$withDefault,
 			_elm_lang$core$Dict$empty,
-			A2(_user$project$TypeConverterHelper$mbAttributeToMbDictStringString, doDebug, mbAttrVal));
+			A2(_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToMbDictStringString, doDebug, mbAttrVal));
 	});
-var _user$project$TypeConverterHelper$mbAttributeToMbDictStringListStringString = F2(
+var _sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToMbDictStringListStringString = F2(
 	function (doDebug, mbAttrVal) {
 		var _p7 = mbAttrVal;
 		if (_p7.ctor === 'Nothing') {
@@ -20264,19 +20249,19 @@ var _user$project$TypeConverterHelper$mbAttributeToMbDictStringListStringString 
 			if (_p7._0.ctor === 'ADictStringLSS') {
 				return _elm_lang$core$Maybe$Just(_p7._0._0);
 			} else {
-				return A3(_user$project$TypeConverterHelper$sendToDebug, doDebug, 'Trying to convert an attribute which is not of type ADictStringLSS to a Dict String (List (String , String )) ', _elm_lang$core$Maybe$Nothing);
+				return A3(_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$sendToDebug, doDebug, 'Trying to convert an attribute which is not of type ADictStringLSS to a Dict String (List (String , String )) ', _elm_lang$core$Maybe$Nothing);
 			}
 		}
 	});
-var _user$project$TypeConverterHelper$mbAttributeToDictStringListStringString = F2(
+var _sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToDictStringListStringString = F2(
 	function (doDebug, mbAttrVal) {
 		return A2(
 			_elm_lang$core$Maybe$withDefault,
 			_elm_lang$core$Dict$empty,
-			A2(_user$project$TypeConverterHelper$mbAttributeToMbDictStringListStringString, doDebug, mbAttrVal));
+			A2(_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToMbDictStringListStringString, doDebug, mbAttrVal));
 	});
 
-var _user$project$SomeTests$getaListStringOfPossibleIncidents = F2(
+var _sintraubuntuer$elm_game_narrative_starter$SomeTests$getaListStringOfPossibleIncidents = F2(
 	function (lstartincidents, ltups) {
 		var getAString = function (elem) {
 			return function (x) {
@@ -20303,11 +20288,11 @@ var _user$project$SomeTests$getaListStringOfPossibleIncidents = F2(
 				getAString,
 				A2(_elm_lang$core$List$append, lstartincidents, ltups)));
 	});
-var _user$project$SomeTests$getListIncidents = function (engineModel) {
+var _sintraubuntuer$elm_game_narrative_starter$SomeTests$getListIncidents = function (engineModel) {
 	var getListIncidents = F2(
 		function (lcwcmds, enginemodel) {
 			return _elm_lang$core$Tuple$second(
-				A2(_user$project$Engine$changeWorld, lcwcmds, enginemodel));
+				A2(_sintraubuntuer$elm_game_narrative_starter$Engine$changeWorld, lcwcmds, enginemodel));
 		});
 	return _elm_lang$core$Dict$toList(
 		A2(
@@ -20322,9 +20307,9 @@ var _user$project$SomeTests$getListIncidents = function (engineModel) {
 					function (id, v) {
 						return v.changes;
 					}),
-				_user$project$Engine$getStoryRules(engineModel))));
+				_sintraubuntuer$elm_game_narrative_starter$Engine$getStoryRules(engineModel))));
 };
-var _user$project$SomeTests$getAllPossibleIncidentsAboutCwcmds = F2(
+var _sintraubuntuer$elm_game_narrative_starter$SomeTests$getAllPossibleIncidentsAboutCwcmds = F2(
 	function (engineModel, lstartincidents) {
 		var headerInfo = {
 			ctor: '::',
@@ -20337,96 +20322,138 @@ var _user$project$SomeTests$getAllPossibleIncidentsAboutCwcmds = F2(
 				0) > 0) ? A2(_elm_lang$core$List$append, headerInfo, x) : {ctor: '[]'};
 		}(
 			A2(
-				_user$project$SomeTests$getaListStringOfPossibleIncidents,
+				_sintraubuntuer$elm_game_narrative_starter$SomeTests$getaListStringOfPossibleIncidents,
 				lstartincidents,
-				_user$project$SomeTests$getListIncidents(engineModel)));
+				_sintraubuntuer$elm_game_narrative_starter$SomeTests$getListIncidents(engineModel)));
 	});
 
-var _user$project$Main$viewStartScreen = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Main$viewStartScreen = F2(
 	function (baseImgUrl, model) {
-		return A3(_user$project$Theme_StartScreen$view, baseImgUrl, model.startScreenInfo, model.answerBoxModel);
+		return A3(_sintraubuntuer$elm_game_narrative_starter$Theme_StartScreen$view, baseImgUrl, model.startScreenInfo, model.answerBoxModel);
 	});
-var _user$project$Main$getNewCoords = F4(
+var _sintraubuntuer$elm_game_narrative_starter$Main$getNewModelAndInteractionExtraInfoByEngineUpdate = F3(
+	function (interactableId, interactionExtraInfo, model) {
+		if (_elm_lang$core$Native_Utils.eq(
+			A2(_elm_lang$core$Dict$get, interactableId, model.bkendAnswerStatusDict),
+			_elm_lang$core$Maybe$Just(_sintraubuntuer$elm_game_narrative_starter$Types$WaitingForInfoRequested))) {
+			return {
+				ctor: '_Tuple2',
+				_0: interactionExtraInfo,
+				_1: _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						alertMessages: {ctor: '::', _0: 'Please Wait ... \n', _1: model.alertMessages}
+					})
+			};
+		} else {
+			var _p0 = A3(_sintraubuntuer$elm_game_narrative_starter$Engine$update, interactableId, interactionExtraInfo, model.engineModel);
+			var newEngineModel = _p0._0;
+			var maybeMatchedRuleId = _p0._1;
+			var lInteractionIncidents = _p0._2;
+			var mbUrlForBkendQry = _p0._3;
+			var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
+				interactionExtraInfo,
+				{mbMatchedRuleId: maybeMatchedRuleId});
+			var interactionIncidents = model.debugMode ? lInteractionIncidents : {ctor: '[]'};
+			var newModel = _elm_lang$core$Native_Utils.update(
+				model,
+				{
+					engineModel: newEngineModel,
+					bkendAnswerStatusDict: A3(
+						_elm_lang$core$Dict$update,
+						interactableId,
+						function (x) {
+							return _elm_lang$core$Maybe$Just(_sintraubuntuer$elm_game_narrative_starter$Types$NoInfoYet);
+						},
+						model.bkendAnswerStatusDict),
+					alertMessages: interactionIncidents
+				});
+			return {ctor: '_Tuple2', _0: newInteractionExtraInfo, _1: newModel};
+		}
+	});
+var _sintraubuntuer$elm_game_narrative_starter$Main$getNewCoords = F4(
 	function (interactableId, mbGpsZone, bval, interactionExtraInfo) {
 		return A2(
 			_elm_lang$core$Task$attempt,
-			A4(_user$project$ClientTypes$NewCoordsForInterId, interactableId, mbGpsZone, bval, interactionExtraInfo),
+			A4(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$NewCoordsForInterId, interactableId, mbGpsZone, bval, interactionExtraInfo),
 			_elm_lang$geolocation$Geolocation$now);
 	});
-var _user$project$Main$helperEmptyStringToNothing = function (theStr) {
+var _sintraubuntuer$elm_game_narrative_starter$Main$helperEmptyStringToNothing = function (theStr) {
 	return _elm_lang$core$Native_Utils.eq(theStr, '') ? _elm_lang$core$Maybe$Nothing : _elm_lang$core$Maybe$Just(theStr);
 };
-var _user$project$Main$convertToListIdExtraInfo = function (lobjs) {
+var _sintraubuntuer$elm_game_narrative_starter$Main$convertToListIdExtraInfo = function (lobjs) {
 	return A2(
 		_elm_lang$core$List$map,
 		function (x) {
 			return {
 				ctor: '_Tuple2',
 				_0: x.interactableId,
-				_1: A4(
-					_user$project$Types$InteractionExtraInfo,
-					_user$project$Main$helperEmptyStringToNothing(x.inputText),
+				_1: A6(
+					_sintraubuntuer$elm_game_narrative_starter$Types$InteractionExtraInfo,
+					_sintraubuntuer$elm_game_narrative_starter$Main$helperEmptyStringToNothing(x.inputText),
+					_sintraubuntuer$elm_game_narrative_starter$Main$helperEmptyStringToNothing(x.inputTextForBackend),
 					x.geolocationInfoText,
-					_user$project$Types$CommunicationFailure,
-					_user$project$Main$helperEmptyStringToNothing(x.mbMatchedRuleId))
+					x.currentLocation,
+					_sintraubuntuer$elm_game_narrative_starter$Types$CommunicationFailure,
+					_sintraubuntuer$elm_game_narrative_starter$Main$helperEmptyStringToNothing(x.mbMatchedRuleId))
 			};
 		},
 		lobjs);
 };
-var _user$project$Main$findEntity = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Main$findEntity = F2(
 	function (model, id) {
 		return A2(
 			_elm_lang$core$Maybe$withDefault,
-			_user$project$Components$entity(id),
+			_sintraubuntuer$elm_game_narrative_starter$Components$entity(id),
 			_elm_lang$core$List$head(
 				A2(
 					_elm_lang$core$List$filter,
-					function (_p0) {
+					function (_p1) {
 						return A2(
 							F2(
 								function (x, y) {
 									return _elm_lang$core$Native_Utils.eq(x, y);
 								}),
 							id,
-							_elm_lang$core$Tuple$first(_p0));
+							_elm_lang$core$Tuple$first(_p1));
 					},
 					model.itemsLocationsAndCharacters)));
 	});
-var _user$project$Main$getExtraInfoFromModel = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Main$getExtraInfoFromModel = F2(
 	function (model, interactableId) {
+		var currLocationStrId = _sintraubuntuer$elm_game_narrative_starter$Engine$getCurrentLocation(model.engineModel);
 		var currLocNameAndCoords = A2(
-			_user$project$Components$getDictLgNamesAndCoords,
-			_user$project$OurStory2_Narrative$desiredLanguages,
-			A2(
-				_user$project$Main$findEntity,
-				model,
-				_user$project$Engine$getCurrentLocation(model.engineModel)));
-		return A4(
-			_user$project$Types$InteractionExtraInfo,
+			_sintraubuntuer$elm_game_narrative_starter$Components$getDictLgNamesAndCoords,
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$desiredLanguages,
+			A2(_sintraubuntuer$elm_game_narrative_starter$Main$findEntity, model, currLocationStrId));
+		return A6(
+			_sintraubuntuer$elm_game_narrative_starter$Types$InteractionExtraInfo,
 			model.mbSentText,
-			A4(_user$project$GpsUtils$getCurrentGeoReportAsText, currLocNameAndCoords, model.geoLocation, model.geoDistances, 3),
+			model.mbSentText,
+			A4(_sintraubuntuer$elm_game_narrative_starter$GpsUtils$getCurrentGeoReportAsText, currLocNameAndCoords, model.geoLocation, model.geoDistances, 3),
+			currLocationStrId,
 			A2(
 				_elm_lang$core$Maybe$withDefault,
-				_user$project$Types$NoInfoYet,
+				_sintraubuntuer$elm_game_narrative_starter$Types$NoInfoYet,
 				A2(_elm_lang$core$Dict$get, interactableId, model.bkendAnswerStatusDict)),
 			_elm_lang$core$Maybe$Nothing);
 	});
-var _user$project$Main$updateInterExtraInfoWithGeoInfo = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Main$updateInterExtraInfoWithGeoInfo = F2(
 	function (extraInforecord, model) {
 		var currLocNameAndCoords = A2(
-			_user$project$Components$getDictLgNamesAndCoords,
-			_user$project$OurStory2_Narrative$desiredLanguages,
+			_sintraubuntuer$elm_game_narrative_starter$Components$getDictLgNamesAndCoords,
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$desiredLanguages,
 			A2(
-				_user$project$Main$findEntity,
+				_sintraubuntuer$elm_game_narrative_starter$Main$findEntity,
 				model,
-				_user$project$Engine$getCurrentLocation(model.engineModel)));
+				_sintraubuntuer$elm_game_narrative_starter$Engine$getCurrentLocation(model.engineModel)));
 		return _elm_lang$core$Native_Utils.update(
 			extraInforecord,
 			{
-				geolocationInfoText: A4(_user$project$GpsUtils$getCurrentGeoReportAsText, currLocNameAndCoords, model.geoLocation, model.geoDistances, 3)
+				geolocationInfoText: A4(_sintraubuntuer$elm_game_narrative_starter$GpsUtils$getCurrentGeoReportAsText, currLocNameAndCoords, model.geoLocation, model.geoDistances, 3)
 			});
 	});
-var _user$project$Main$viewMainGame = function (model) {
+var _sintraubuntuer$elm_game_narrative_starter$Main$viewMainGame = function (model) {
 	var theStoryLine = A2(
 		_elm_lang$core$Maybe$withDefault,
 		{ctor: '[]'},
@@ -20438,34 +20465,34 @@ var _user$project$Main$viewMainGame = function (model) {
 		},
 		_elm_lang$core$List$head(theStoryLine));
 	var currentLocation = A2(
-		_user$project$Main$findEntity,
+		_sintraubuntuer$elm_game_narrative_starter$Main$findEntity,
 		model,
-		_user$project$Engine$getCurrentLocation(model.engineModel));
+		_sintraubuntuer$elm_game_narrative_starter$Engine$getCurrentLocation(model.engineModel));
 	var displayState = {
 		currentLocation: currentLocation,
 		itemsInCurrentLocation: A2(
 			_elm_lang$core$List$map,
-			_user$project$Main$findEntity(model),
-			_user$project$Engine$getItemsInCurrentLocation(model.engineModel)),
+			_sintraubuntuer$elm_game_narrative_starter$Main$findEntity(model),
+			_sintraubuntuer$elm_game_narrative_starter$Engine$getItemsInCurrentLocation(model.engineModel)),
 		charactersInCurrentLocation: A2(
 			_elm_lang$core$List$map,
-			_user$project$Main$findEntity(model),
-			_user$project$Engine$getCharactersInCurrentLocation(model.engineModel)),
+			_sintraubuntuer$elm_game_narrative_starter$Main$findEntity(model),
+			_sintraubuntuer$elm_game_narrative_starter$Engine$getCharactersInCurrentLocation(model.engineModel)),
 		exits: A2(
 			_elm_lang$core$List$map,
-			function (_p1) {
-				var _p2 = _p1;
+			function (_p2) {
+				var _p3 = _p2;
 				return {
 					ctor: '_Tuple2',
-					_0: _p2._0,
-					_1: A2(_user$project$Main$findEntity, model, _p2._1)
+					_0: _p3._0,
+					_1: A2(_sintraubuntuer$elm_game_narrative_starter$Main$findEntity, model, _p3._1)
 				};
 			},
-			_user$project$Components$getExits(currentLocation)),
+			_sintraubuntuer$elm_game_narrative_starter$Components$getExits(currentLocation)),
 		itemsInInventory: A2(
 			_elm_lang$core$List$map,
-			_user$project$Main$findEntity(model),
-			_user$project$Engine$getItemsInInventory(model.engineModel)),
+			_sintraubuntuer$elm_game_narrative_starter$Main$findEntity(model),
+			_sintraubuntuer$elm_game_narrative_starter$Engine$getItemsInInventory(model.engineModel)),
 		answerBoxMbText: model.answerBoxModel.answerBoxText,
 		mbAudioFileInfo: A2(
 			_elm_lang$core$Maybe$withDefault,
@@ -20482,40 +20509,39 @@ var _user$project$Main$viewMainGame = function (model) {
 			_elm_lang$core$Dict$empty,
 			A2(
 				_elm_lang$core$Maybe$map,
-				_user$project$TypeConverterHelper$mbAttributeToDictStringListStringString(model.debugMode),
+				_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToDictStringListStringString(model.debugMode),
 				A2(
 					_elm_lang$core$Maybe$map,
 					function (x) {
-						return A3(_user$project$Engine$getInteractableAttribute, 'answerOptionsList', x, model.engineModel);
+						return A3(_sintraubuntuer$elm_game_narrative_starter$Engine$getInteractableAttribute, 'answerOptionsList', x, model.engineModel);
 					},
 					mbInteactableIdAtTop))),
 		layoutWithSidebar: model.settingsModel.layoutWithSidebar,
-		boolTextBoxInSidebar: false,
 		boolTextBoxInStoryline: function () {
-			var _p3 = mbInteactableIdAtTop;
-			if (_p3.ctor === 'Nothing') {
+			var _p4 = mbInteactableIdAtTop;
+			if (_p4.ctor === 'Nothing') {
 				return false;
 			} else {
-				var _p4 = _p3._0;
-				return A2(_user$project$Engine$isWritable, _p4, model.engineModel) && (!_elm_lang$core$Native_Utils.eq(
-					A2(_elm_lang$core$Dict$get, _p4, model.bkendAnswerStatusDict),
-					_elm_lang$core$Maybe$Just(_user$project$Types$WaitingForInfoRequested)));
+				var _p5 = _p4._0;
+				return A2(_sintraubuntuer$elm_game_narrative_starter$Engine$isWritable, _p5, model.engineModel) && (!_elm_lang$core$Native_Utils.eq(
+					A2(_elm_lang$core$Dict$get, _p5, model.bkendAnswerStatusDict),
+					_elm_lang$core$Maybe$Just(_sintraubuntuer$elm_game_narrative_starter$Types$WaitingForInfoRequested)));
 			}
 		}(),
 		mbTextBoxPlaceholderText: function () {
-			var _p5 = mbInteactableIdAtTop;
-			if (_p5.ctor === 'Nothing') {
+			var _p6 = mbInteactableIdAtTop;
+			if (_p6.ctor === 'Nothing') {
 				return _elm_lang$core$Maybe$Nothing;
 			} else {
 				return A2(
-					_user$project$TypeConverterHelper$mbAttributeToMbString,
+					_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToMbString,
 					model.debugMode,
-					A3(_user$project$Engine$getInteractableAttribute, 'placeholderText', _p5._0, model.engineModel));
+					A3(_sintraubuntuer$elm_game_narrative_starter$Engine$getInteractableAttribute, 'placeholderText', _p6._0, model.engineModel));
 			}
 		}(),
 		settingsModel: model.settingsModel,
 		alertMessages: model.alertMessages,
-		ending: _user$project$Engine$getEndingText(model.engineModel),
+		ending: _sintraubuntuer$elm_game_narrative_starter$Engine$getEndingText(model.engineModel),
 		storyLine: theStoryLine
 	};
 	return (!model.loaded) ? A2(
@@ -20529,40 +20555,40 @@ var _user$project$Main$viewMainGame = function (model) {
 			ctor: '::',
 			_0: _elm_lang$html$Html$text('Loading...'),
 			_1: {ctor: '[]'}
-		}) : _user$project$Theme_Layout$view(displayState);
+		}) : _sintraubuntuer$elm_game_narrative_starter$Theme_Layout$view(displayState);
 };
-var _user$project$Main$view = function (model) {
-	return model.displayStartScreen ? A2(_user$project$Main$viewStartScreen, model.baseImgUrl, model) : (model.displayEndScreen ? A2(_user$project$Theme_EndScreen$view, model.baseImgUrl, model.endScreenInfo) : _user$project$Main$viewMainGame(model));
+var _sintraubuntuer$elm_game_narrative_starter$Main$view = function (model) {
+	return model.displayStartScreen ? A2(_sintraubuntuer$elm_game_narrative_starter$Main$viewStartScreen, model.baseImgUrl, model) : (model.displayEndScreen ? A2(_sintraubuntuer$elm_game_narrative_starter$Theme_EndScreen$view, model.baseImgUrl, model.endScreenInfo) : _sintraubuntuer$elm_game_narrative_starter$Main$viewMainGame(model));
 };
-var _user$project$Main$init = function (flags) {
-	var debugMode_ = true;
-	var settingsmodel = _user$project$Theme_Settings$init(_user$project$OurStory2_Narrative$initialChoiceLanguages);
+var _sintraubuntuer$elm_game_narrative_starter$Main$init = function (flags) {
+	var debugMode_ = false;
+	var settingsmodel = _sintraubuntuer$elm_game_narrative_starter$Theme_Settings$init(_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$initialChoiceLanguages);
 	var displaylanguage = settingsmodel.displayLanguage;
-	var answerboxmodel = _user$project$Theme_AnswerBox$init;
-	var dictEntities = _user$project$OurStory2_Rules$rules;
-	var _p6 = A2(
-		_user$project$Engine$changeWorld,
-		_user$project$OurStory2_Rules$startingState,
+	var answerboxmodel = _sintraubuntuer$elm_game_narrative_starter$Theme_AnswerBox$init;
+	var dictEntities = _sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$rules;
+	var _p7 = A2(
+		_sintraubuntuer$elm_game_narrative_starter$Engine$changeWorld,
+		_sintraubuntuer$elm_game_narrative_starter$OurStory2_Rules$startingState,
 		A3(
-			_user$project$Engine$init,
+			_sintraubuntuer$elm_game_narrative_starter$Engine$init,
 			{
-				items: A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _user$project$OurStory2_Manifest$items),
-				locations: A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _user$project$OurStory2_Manifest$locations),
-				characters: A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _user$project$OurStory2_Manifest$characters)
+				items: A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$items),
+				locations: A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$locations),
+				characters: A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$characters)
 			},
-			_user$project$OurStory2_Narrative$initialChoiceLanguages,
+			_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$initialChoiceLanguages,
 			A2(
 				_elm_lang$core$Dict$map,
-				_elm_lang$core$Basics$curry(_user$project$Components$getRuleData),
+				_elm_lang$core$Basics$curry(_sintraubuntuer$elm_game_narrative_starter$Components$getRuleData),
 				dictEntities)));
-	var engineModel = _p6._0;
-	var lincidents = _p6._1;
+	var engineModel = _p7._0;
+	var lincidents = _p7._1;
 	var startLincidents = {
 		ctor: '::',
 		_0: {ctor: '_Tuple2', _0: 'startingState ', _1: lincidents},
 		_1: {ctor: '[]'}
 	};
-	var allPossibleIncidentsAboutCwcmds = A2(_user$project$SomeTests$getAllPossibleIncidentsAboutCwcmds, engineModel, startLincidents);
+	var allPossibleIncidentsAboutCwcmds = A2(_sintraubuntuer$elm_game_narrative_starter$SomeTests$getAllPossibleIncidentsAboutCwcmds, engineModel, startLincidents);
 	return {
 		ctor: '_Tuple2',
 		_0: {
@@ -20572,8 +20598,8 @@ var _user$project$Main$init = function (flags) {
 			baseSoundUrl: flags.baseSoundUrl,
 			itemsLocationsAndCharacters: A2(
 				_elm_lang$core$Basics_ops['++'],
-				_user$project$OurStory2_Manifest$items,
-				A2(_elm_lang$core$Basics_ops['++'], _user$project$OurStory2_Manifest$locations, _user$project$OurStory2_Manifest$characters)),
+				_sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$items,
+				A2(_elm_lang$core$Basics_ops['++'], _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$locations, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$characters)),
 			playerName: '___investigator___',
 			answerBoxModel: answerboxmodel,
 			settingsModel: settingsmodel,
@@ -20586,46 +20612,46 @@ var _user$project$Main$init = function (flags) {
 				A2(
 					_elm_lang$core$List$map,
 					function (interactableId) {
-						return {ctor: '_Tuple2', _0: interactableId, _1: _user$project$Types$NoInfoYet};
+						return {ctor: '_Tuple2', _0: interactableId, _1: _sintraubuntuer$elm_game_narrative_starter$Types$NoInfoYet};
 					},
 					A2(
 						_elm_lang$core$List$map,
 						_elm_lang$core$Tuple$first,
 						A2(
 							_elm_lang$core$Basics_ops['++'],
-							_user$project$OurStory2_Manifest$items,
-							A2(_elm_lang$core$Basics_ops['++'], _user$project$OurStory2_Manifest$locations, _user$project$OurStory2_Manifest$characters))))),
+							_sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$items,
+							A2(_elm_lang$core$Basics_ops['++'], _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$locations, _sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$characters))))),
 			loaded: true,
-			languageStoryLines: _user$project$OurStory2_Narrative$startingNarratives,
+			languageStoryLines: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$startingNarratives,
 			languageNarrativeContents: A2(
 				_elm_lang$core$Dict$map,
-				_elm_lang$core$Basics$curry(_user$project$Components$getLanguagesNarrativeDict),
+				_elm_lang$core$Basics$curry(_sintraubuntuer$elm_game_narrative_starter$Components$getLanguagesNarrativeDict),
 				dictEntities),
 			languageAudioContents: A2(
 				_elm_lang$core$Dict$map,
-				_elm_lang$core$Basics$curry(_user$project$Components$getLanguagesAudioDict),
+				_elm_lang$core$Basics$curry(_sintraubuntuer$elm_game_narrative_starter$Components$getLanguagesAudioDict),
 				dictEntities),
 			displayStartScreen: true,
-			startScreenInfo: _user$project$OurStory2_Narrative$startScreenInfo,
+			startScreenInfo: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$startScreenInfo,
 			displayEndScreen: false,
-			endScreenInfo: _user$project$OurStory2_Narrative$endScreenInfo
+			endScreenInfo: _sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$endScreenInfo
 		},
 		_1: _elm_lang$core$Platform_Cmd$none
 	};
 };
-var _user$project$Main$saveHistoryToStorage = _elm_lang$core$Native_Platform.outgoingPort(
+var _sintraubuntuer$elm_game_narrative_starter$Main$saveHistoryToStorage = _elm_lang$core$Native_Platform.outgoingPort(
 	'saveHistoryToStorage',
 	function (v) {
 		return {
 			playerName: v.playerName,
 			lInteractions: _elm_lang$core$Native_List.toArray(v.lInteractions).map(
 				function (v) {
-					return {interactableId: v.interactableId, inputText: v.inputText, geolocationInfoText: v.geolocationInfoText, mbMatchedRuleId: v.mbMatchedRuleId};
+					return {interactableId: v.interactableId, inputText: v.inputText, inputTextForBackend: v.inputTextForBackend, geolocationInfoText: v.geolocationInfoText, currentLocation: v.currentLocation, mbMatchedRuleId: v.mbMatchedRuleId};
 				})
 		};
 	});
-var _user$project$Main$saveHistoryToStorageHelper = function (model) {
-	var storyHistory = _user$project$Engine$getHistory(model.engineModel);
+var _sintraubuntuer$elm_game_narrative_starter$Main$saveHistoryToStorageHelper = function (model) {
+	var storyHistory = _sintraubuntuer$elm_game_narrative_starter$Engine$getHistory(model.engineModel);
 	var lToSave = A2(
 		_elm_lang$core$List$map,
 		function (x) {
@@ -20638,10 +20664,18 @@ var _user$project$Main$saveHistoryToStorageHelper = function (model) {
 						return _.mbInputText;
 					}(
 						_elm_lang$core$Tuple$second(x))),
+				inputTextForBackend: A2(
+					_elm_lang$core$Maybe$withDefault,
+					'',
+					function (_) {
+						return _.mbInputTextForBackend;
+					}(
+						_elm_lang$core$Tuple$second(x))),
 				geolocationInfoText: function (_) {
 					return _.geolocationInfoText;
 				}(
 					_elm_lang$core$Tuple$second(x)),
+				currentLocation: _sintraubuntuer$elm_game_narrative_starter$Engine$getCurrentLocation(model.engineModel),
 				mbMatchedRuleId: A2(
 					_elm_lang$core$Maybe$withDefault,
 					'',
@@ -20653,21 +20687,21 @@ var _user$project$Main$saveHistoryToStorageHelper = function (model) {
 		},
 		storyHistory);
 	var infoToSave = {
-		playerName: A2(_user$project$TranslationHelper$getInLanguage, model.settingsModel.displayLanguage, model.playerName),
+		playerName: A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, model.settingsModel.displayLanguage, model.playerName),
 		lInteractions: lToSave
 	};
 	return {
 		ctor: '_Tuple2',
 		_0: model,
-		_1: _user$project$Main$saveHistoryToStorage(infoToSave)
+		_1: _sintraubuntuer$elm_game_narrative_starter$Main$saveHistoryToStorage(infoToSave)
 	};
 };
-var _user$project$Main$sendRequestForStoredHistory = _elm_lang$core$Native_Platform.outgoingPort(
+var _sintraubuntuer$elm_game_narrative_starter$Main$sendRequestForStoredHistory = _elm_lang$core$Native_Platform.outgoingPort(
 	'sendRequestForStoredHistory',
 	function (v) {
 		return v;
 	});
-var _user$project$Main$getHistoryFromStorage = _elm_lang$core$Native_Platform.incomingPort(
+var _sintraubuntuer$elm_game_narrative_starter$Main$getHistoryFromStorage = _elm_lang$core$Native_Platform.incomingPort(
 	'getHistoryFromStorage',
 	A2(
 		_elm_lang$core$Json_Decode$andThen,
@@ -20690,27 +20724,37 @@ var _user$project$Main$getHistoryFromStorage = _elm_lang$core$Native_Platform.in
 									function (inputText) {
 										return A2(
 											_elm_lang$core$Json_Decode$andThen,
-											function (geolocationInfoText) {
+											function (inputTextForBackend) {
 												return A2(
 													_elm_lang$core$Json_Decode$andThen,
-													function (mbMatchedRuleId) {
-														return _elm_lang$core$Json_Decode$succeed(
-															{interactableId: interactableId, inputText: inputText, geolocationInfoText: geolocationInfoText, mbMatchedRuleId: mbMatchedRuleId});
+													function (geolocationInfoText) {
+														return A2(
+															_elm_lang$core$Json_Decode$andThen,
+															function (currentLocation) {
+																return A2(
+																	_elm_lang$core$Json_Decode$andThen,
+																	function (mbMatchedRuleId) {
+																		return _elm_lang$core$Json_Decode$succeed(
+																			{interactableId: interactableId, inputText: inputText, inputTextForBackend: inputTextForBackend, geolocationInfoText: geolocationInfoText, currentLocation: currentLocation, mbMatchedRuleId: mbMatchedRuleId});
+																	},
+																	A2(_elm_lang$core$Json_Decode$field, 'mbMatchedRuleId', _elm_lang$core$Json_Decode$string));
+															},
+															A2(_elm_lang$core$Json_Decode$field, 'currentLocation', _elm_lang$core$Json_Decode$string));
 													},
-													A2(_elm_lang$core$Json_Decode$field, 'mbMatchedRuleId', _elm_lang$core$Json_Decode$string));
+													A2(_elm_lang$core$Json_Decode$field, 'geolocationInfoText', _elm_lang$core$Json_Decode$string));
 											},
-											A2(_elm_lang$core$Json_Decode$field, 'geolocationInfoText', _elm_lang$core$Json_Decode$string));
+											A2(_elm_lang$core$Json_Decode$field, 'inputTextForBackend', _elm_lang$core$Json_Decode$string));
 									},
 									A2(_elm_lang$core$Json_Decode$field, 'inputText', _elm_lang$core$Json_Decode$string));
 							},
 							A2(_elm_lang$core$Json_Decode$field, 'interactableId', _elm_lang$core$Json_Decode$string)))));
 		},
 		A2(_elm_lang$core$Json_Decode$field, 'playerName', _elm_lang$core$Json_Decode$string)));
-var _user$project$Main$subscriptions = function (a) {
-	return _user$project$Main$getHistoryFromStorage(_user$project$ClientTypes$LoadHistory);
+var _sintraubuntuer$elm_game_narrative_starter$Main$subscriptions = function (a) {
+	return _sintraubuntuer$elm_game_narrative_starter$Main$getHistoryFromStorage(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$LoadHistory);
 };
-var _user$project$Main$loaded = _elm_lang$core$Native_Platform.incomingPort('loaded', _elm_lang$core$Json_Decode$bool);
-var _user$project$Main$Model = function (a) {
+var _sintraubuntuer$elm_game_narrative_starter$Main$loaded = _elm_lang$core$Native_Platform.incomingPort('loaded', _elm_lang$core$Json_Decode$bool);
+var _sintraubuntuer$elm_game_narrative_starter$Main$Model = function (a) {
 	return function (b) {
 		return function (c) {
 			return function (d) {
@@ -20755,29 +20799,29 @@ var _user$project$Main$Model = function (a) {
 		};
 	};
 };
-var _user$project$Main$LgTxt = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Main$LgTxt = F2(
 	function (a, b) {
 		return {lgId: a, text: b};
 	});
-var _user$project$Main$textInLanguagesDecoder = A3(
+var _sintraubuntuer$elm_game_narrative_starter$Main$textInLanguagesDecoder = A3(
 	_elm_lang$core$Json_Decode$map2,
-	_user$project$Main$LgTxt,
+	_sintraubuntuer$elm_game_narrative_starter$Main$LgTxt,
 	A2(_elm_lang$core$Json_Decode$field, 'lgId', _elm_lang$core$Json_Decode$string),
 	A2(_elm_lang$core$Json_Decode$field, 'text', _elm_lang$core$Json_Decode$string));
-var _user$project$Main$backendAnswerDecoder = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Main$backendAnswerDecoder = F2(
 	function (interactableId, playerAnswer) {
 		return A3(
 			_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
 			'lInsuccessTextDicts',
-			_elm_lang$core$Json_Decode$list(_user$project$Main$textInLanguagesDecoder),
+			_elm_lang$core$Json_Decode$list(_sintraubuntuer$elm_game_narrative_starter$Main$textInLanguagesDecoder),
 			A3(
 				_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
 				'lSuccessTextDicts',
-				_elm_lang$core$Json_Decode$list(_user$project$Main$textInLanguagesDecoder),
+				_elm_lang$core$Json_Decode$list(_sintraubuntuer$elm_game_narrative_starter$Main$textInLanguagesDecoder),
 				A3(
 					_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
 					'lSecretTextDicts',
-					_elm_lang$core$Json_Decode$list(_user$project$Main$textInLanguagesDecoder),
+					_elm_lang$core$Json_Decode$list(_sintraubuntuer$elm_game_narrative_starter$Main$textInLanguagesDecoder),
 					A3(
 						_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
 						'incorrectAnswer',
@@ -20804,50 +20848,51 @@ var _user$project$Main$backendAnswerDecoder = F2(
 												_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
 												'maxTriesReached',
 												_elm_lang$core$Json_Decode$bool,
-												_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Types$AnswerInfo)))))))))));
+												_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_sintraubuntuer$elm_game_narrative_starter$Types$AnswerInfo)))))))))));
 	});
-var _user$project$Main$getBackendAnswerInfo = F3(
+var _sintraubuntuer$elm_game_narrative_starter$Main$getBackendAnswerInfo = F3(
 	function (interactableId, interactionExtraInfo, strUrl) {
 		var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
 			interactionExtraInfo,
-			{mbInputText: _elm_lang$core$Maybe$Nothing});
+			{mbInputTextForBackend: _elm_lang$core$Maybe$Nothing});
+		var apiKey = _sintraubuntuer$elm_game_narrative_starter$InfoForBkendApiRequests$getApiKey;
 		var request = _elm_lang$http$Http$request(
 			{
 				method: 'GET',
 				headers: {
 					ctor: '::',
-					_0: A2(_elm_lang$http$Http$header, 'x-api-key', 'RFV762GI39cd395a-689e-4e1f-9f37-c6845ba65a9eO4qh4234cv56'),
+					_0: A2(_elm_lang$http$Http$header, 'x-api-key', apiKey),
 					_1: {ctor: '[]'}
 				},
 				url: strUrl,
 				body: _elm_lang$http$Http$emptyBody,
 				expect: _elm_lang$http$Http$expectJson(
 					A2(
-						_user$project$Main$backendAnswerDecoder,
+						_sintraubuntuer$elm_game_narrative_starter$Main$backendAnswerDecoder,
 						interactableId,
-						A2(_elm_lang$core$Maybe$withDefault, '', interactionExtraInfo.mbInputText))),
+						A2(_elm_lang$core$Maybe$withDefault, '', interactionExtraInfo.mbInputTextForBackend))),
 				timeout: _elm_lang$core$Maybe$Nothing,
 				withCredentials: false
 			});
 		return A2(
 			_elm_lang$http$Http$send,
-			A2(_user$project$ClientTypes$AnswerChecked, interactableId, newInteractionExtraInfo),
+			A2(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$AnswerChecked, interactableId, newInteractionExtraInfo),
 			request);
 	});
-var _user$project$Main$Flags = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Main$Flags = F2(
 	function (a, b) {
 		return {baseImgUrl: a, baseSoundUrl: b};
 	});
-var _user$project$Main$update = F2(
+var _sintraubuntuer$elm_game_narrative_starter$Main$update = F2(
 	function (msg, model) {
 		update:
 		while (true) {
-			var _p7 = _user$project$Engine$hasFreezingEnd(model.engineModel);
-			if (_p7 === true) {
+			var _p8 = _sintraubuntuer$elm_game_narrative_starter$Engine$hasFreezingEnd(model.engineModel);
+			if (_p8 === true) {
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			} else {
-				var _p8 = msg;
-				switch (_p8.ctor) {
+				var _p9 = msg;
+				switch (_p9.ctor) {
 					case 'StartMainGame':
 						return {
 							ctor: '_Tuple2',
@@ -20857,13 +20902,13 @@ var _user$project$Main$update = F2(
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					case 'StartMainGameNewPlayerName':
-						var _p9 = _p8._0;
-						if (!_elm_lang$core$Native_Utils.eq(_p9, '')) {
-							var newAnswerBoxModel = A2(_user$project$Theme_AnswerBox$update, '', model.answerBoxModel);
+						var _p10 = _p9._0;
+						if (!_elm_lang$core$Native_Utils.eq(_p10, '')) {
+							var newAnswerBoxModel = A2(_sintraubuntuer$elm_game_narrative_starter$Theme_AnswerBox$update, '', model.answerBoxModel);
 							var newPlayerOneEntity = A2(
-								_user$project$Components$updateAllLgsDisplayName,
-								_p9,
-								A2(_user$project$Main$findEntity, model, 'playerOne'));
+								_sintraubuntuer$elm_game_narrative_starter$Components$updateAllLgsDisplayName,
+								_p10,
+								A2(_sintraubuntuer$elm_game_narrative_starter$Main$findEntity, model, 'playerOne'));
 							var newEntities = A2(
 								_elm_lang$core$List$map,
 								function (x) {
@@ -20874,44 +20919,44 @@ var _user$project$Main$update = F2(
 								model.itemsLocationsAndCharacters);
 							var newModel = _elm_lang$core$Native_Utils.update(
 								model,
-								{itemsLocationsAndCharacters: newEntities, playerName: _p9, answerBoxModel: newAnswerBoxModel});
-							var _v5 = _user$project$ClientTypes$StartMainGame,
+								{itemsLocationsAndCharacters: newEntities, playerName: _p10, answerBoxModel: newAnswerBoxModel});
+							var _v5 = _sintraubuntuer$elm_game_narrative_starter$ClientTypes$StartMainGame,
 								_v6 = newModel;
 							msg = _v5;
 							model = _v6;
 							continue update;
 						} else {
-							var _v7 = _user$project$ClientTypes$StartMainGame,
+							var _v7 = _sintraubuntuer$elm_game_narrative_starter$ClientTypes$StartMainGame,
 								_v8 = model;
 							msg = _v7;
 							model = _v8;
 							continue update;
 						}
 					case 'InteractSendingText':
-						var newAnswerBoxModel = A2(_user$project$Theme_AnswerBox$update, '', model.answerBoxModel);
+						var newAnswerBoxModel = A2(_sintraubuntuer$elm_game_narrative_starter$Theme_AnswerBox$update, '', model.answerBoxModel);
 						var newModel = _elm_lang$core$Native_Utils.update(
 							model,
 							{
 								mbSentText: _elm_lang$core$Maybe$Just(
-									_elm_lang$core$String$trim(_p8._1)),
+									_elm_lang$core$String$trim(_p9._1)),
 								answerBoxModel: newAnswerBoxModel
 							});
-						var _v9 = _user$project$ClientTypes$Interact(_p8._0),
+						var _v9 = _sintraubuntuer$elm_game_narrative_starter$ClientTypes$Interact(_p9._0),
 							_v10 = newModel;
 						msg = _v9;
 						model = _v10;
 						continue update;
 					case 'Interact':
-						var _p11 = _p8._0;
+						var _p12 = _p9._0;
 						var nModel = _elm_lang$core$Native_Utils.update(
 							model,
 							{
 								alertMessages: {ctor: '[]'},
 								mbSentText: _elm_lang$core$Maybe$Nothing
 							});
-						var interactionExtraInfo = A2(_user$project$Main$getExtraInfoFromModel, model, _p11);
-						var mbGpsZone = _user$project$Components$getNeedsToBeInGpsZone(
-							A2(_user$project$Main$findEntity, model, _p11));
+						var interactionExtraInfo = A2(_sintraubuntuer$elm_game_narrative_starter$Main$getExtraInfoFromModel, model, _p12);
+						var mbGpsZone = _sintraubuntuer$elm_game_narrative_starter$Components$getNeedsToBeInGpsZone(
+							A2(_sintraubuntuer$elm_game_narrative_starter$Main$findEntity, model, _p12));
 						var needsToBeInZone = A2(
 							_elm_lang$core$Maybe$withDefault,
 							false,
@@ -20921,69 +20966,69 @@ var _user$project$Main$update = F2(
 									return _.needsToBeIn;
 								},
 								mbGpsZone)) && (!model.settingsModel.dontNeedToBeInZone);
-						var needCoords = _user$project$Components$getNeedsGpsCoords(
-							A2(_user$project$Main$findEntity, model, _p11));
-						var _p10 = (needCoords && (!needsToBeInZone)) ? {
+						var needCoords = _sintraubuntuer$elm_game_narrative_starter$Components$getNeedsGpsCoords(
+							A2(_sintraubuntuer$elm_game_narrative_starter$Main$findEntity, model, _p12));
+						var _p11 = (needCoords && (!needsToBeInZone)) ? {
 							ctor: '_Tuple2',
 							_0: nModel,
-							_1: A4(_user$project$Main$getNewCoords, _p11, _elm_lang$core$Maybe$Nothing, false, interactionExtraInfo)
+							_1: A4(_sintraubuntuer$elm_game_narrative_starter$Main$getNewCoords, _p12, _elm_lang$core$Maybe$Nothing, false, interactionExtraInfo)
 						} : (needsToBeInZone ? {
 							ctor: '_Tuple2',
 							_0: nModel,
-							_1: A4(_user$project$Main$getNewCoords, _p11, mbGpsZone, true, interactionExtraInfo)
+							_1: A4(_sintraubuntuer$elm_game_narrative_starter$Main$getNewCoords, _p12, mbGpsZone, true, interactionExtraInfo)
 						} : A2(
-							_user$project$Main$update,
-							A2(_user$project$ClientTypes$InteractStepTwo, _p11, interactionExtraInfo),
+							_sintraubuntuer$elm_game_narrative_starter$Main$update,
+							A2(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$InteractStepTwo, _p12, interactionExtraInfo),
 							nModel));
-						var newModel = _p10._0;
-						var cmds = _p10._1;
+						var newModel = _p11._0;
+						var cmds = _p11._1;
 						return {ctor: '_Tuple2', _0: newModel, _1: cmds};
 					case 'NewCoordsForInterId':
-						if (_p8._4.ctor === 'Ok') {
-							var _p15 = _p8._2;
-							var _p14 = _p8._1;
-							var _p13 = _p8._4._0;
-							var _p12 = _p8._0;
-							var updatedInteractionExtraInfo = A2(_user$project$Main$updateInterExtraInfoWithGeoInfo, _p8._3, model);
+						if (_p9._4.ctor === 'Ok') {
+							var _p16 = _p9._2;
+							var _p15 = _p9._1;
+							var _p14 = _p9._4._0;
+							var _p13 = _p9._0;
+							var updatedInteractionExtraInfo = A2(_sintraubuntuer$elm_game_narrative_starter$Main$updateInterExtraInfoWithGeoInfo, _p9._3, model);
 							var distanceToClosestLocations = A3(
-								_user$project$GpsUtils$getDistancesTo,
+								_sintraubuntuer$elm_game_narrative_starter$GpsUtils$getDistancesTo,
 								1000,
-								_p13,
+								_p14,
 								A2(
 									_elm_lang$core$List$map,
 									_elm_lang$core$Dict$get(model.settingsModel.displayLanguage),
 									A2(
 										_elm_lang$core$List$map,
-										_user$project$Components$getDictLgNamesAndCoords(
+										_sintraubuntuer$elm_game_narrative_starter$Components$getDictLgNamesAndCoords(
 											{
 												ctor: '::',
 												_0: model.settingsModel.displayLanguage,
 												_1: {ctor: '[]'}
 											}),
-										_user$project$OurStory2_Manifest$locations)));
+										_sintraubuntuer$elm_game_narrative_starter$OurStory2_Manifest$locations)));
 							var newModel = _elm_lang$core$Native_Utils.update(
 								model,
 								{
-									geoLocation: _elm_lang$core$Maybe$Just(_p13),
+									geoLocation: _elm_lang$core$Maybe$Just(_p14),
 									geoDistances: distanceToClosestLocations
 								});
-							var theDistance = A2(_user$project$GpsUtils$getDistance, _p13, _p14);
-							var inDistance = A3(_user$project$GpsUtils$checkIfInDistance, _p14, theDistance, model.defaultZoneRadius);
-							if ((!_p15) || (_p15 && inDistance)) {
-								var _v11 = A2(_user$project$ClientTypes$InteractStepTwo, _p12, updatedInteractionExtraInfo),
+							var theDistance = A2(_sintraubuntuer$elm_game_narrative_starter$GpsUtils$getDistance, _p14, _p15);
+							var inDistance = A3(_sintraubuntuer$elm_game_narrative_starter$GpsUtils$checkIfInDistance, _p15, theDistance, model.defaultZoneRadius);
+							if ((!_p16) || (_p16 && inDistance)) {
+								var _v11 = A2(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$InteractStepTwo, _p13, updatedInteractionExtraInfo),
 									_v12 = newModel;
 								msg = _v11;
 								model = _v12;
 								continue update;
 							} else {
-								var _v13 = A4(_user$project$ClientTypes$NotInTheZone, _p12, _p14, _p13, theDistance),
+								var _v13 = A4(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$NotInTheZone, _p13, _p15, _p14, theDistance),
 									_v14 = newModel;
 								msg = _v13;
 								model = _v14;
 								continue update;
 							}
 						} else {
-							var updatedInteractionExtraInfo = A2(_user$project$Main$updateInterExtraInfoWithGeoInfo, _p8._3, model);
+							var updatedInteractionExtraInfo = A2(_sintraubuntuer$elm_game_narrative_starter$Main$updateInterExtraInfoWithGeoInfo, _p9._3, model);
 							var newModel = _elm_lang$core$Native_Utils.update(
 								model,
 								{
@@ -20995,8 +21040,8 @@ var _user$project$Main$update = F2(
 										_1: {ctor: '[]'}
 									}
 								});
-							if (!_p8._2) {
-								var _v15 = A2(_user$project$ClientTypes$InteractStepTwo, _p8._0, updatedInteractionExtraInfo),
+							if (!_p9._2) {
+								var _v15 = A2(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$InteractStepTwo, _p9._0, updatedInteractionExtraInfo),
 									_v16 = newModel;
 								msg = _v15;
 								model = _v16;
@@ -21006,21 +21051,21 @@ var _user$project$Main$update = F2(
 							}
 						}
 					case 'NotInTheZone':
-						var _p16 = _p8._2;
+						var _p17 = _p9._2;
 						var theName = function (_) {
 							return _.name;
 						}(
 							A2(
-								_user$project$Components$getSingleLgDisplayInfo,
+								_sintraubuntuer$elm_game_narrative_starter$Components$getSingleLgDisplayInfo,
 								model.settingsModel.displayLanguage,
-								A2(_user$project$Main$findEntity, model, _p8._0)));
+								A2(_sintraubuntuer$elm_game_narrative_starter$Main$findEntity, model, _p9._0)));
 						var zoneCoordsStr = A2(
 							_elm_lang$core$Maybe$withDefault,
 							'',
 							A2(
 								_elm_lang$core$Maybe$map,
-								_user$project$GpsUtils$convertDecimalTupleToGps,
-								_user$project$GpsUtils$getMbGpsZoneLatLon(_p8._1)));
+								_sintraubuntuer$elm_game_narrative_starter$GpsUtils$convertDecimalTupleToGps,
+								_sintraubuntuer$elm_game_narrative_starter$GpsUtils$getMbGpsZoneLatLon(_p9._1)));
 						var linfoStr = {
 							ctor: '::',
 							_0: A2(
@@ -21035,8 +21080,8 @@ var _user$project$Main$update = F2(
 									_0: A2(
 										_elm_lang$core$Basics_ops['++'],
 										'You are at : ',
-										_user$project$GpsUtils$convertDecimalTupleToGps(
-											{ctor: '_Tuple2', _0: _p16.latitude, _1: _p16.longitude})),
+										_sintraubuntuer$elm_game_narrative_starter$GpsUtils$convertDecimalTupleToGps(
+											{ctor: '_Tuple2', _0: _p17.latitude, _1: _p17.longitude})),
 									_1: {
 										ctor: '::',
 										_0: A2(_elm_lang$core$Basics_ops['++'], 'Please move closer to ', zoneCoordsStr),
@@ -21048,7 +21093,7 @@ var _user$project$Main$update = F2(
 												A2(
 													_elm_lang$core$Basics_ops['++'],
 													_elm_lang$core$Basics$toString(
-														_elm_lang$core$Basics$round(_p8._3)),
+														_elm_lang$core$Basics$round(_p9._3)),
 													' meters')),
 											_1: {ctor: '[]'}
 										}
@@ -21061,80 +21106,11 @@ var _user$project$Main$update = F2(
 							{alertMessages: linfoStr});
 						return {ctor: '_Tuple2', _0: newModel, _1: _elm_lang$core$Platform_Cmd$none};
 					case 'InteractStepTwo':
-						var _p20 = _p8._1;
-						var _p19 = _p8._0;
-						if (!_elm_lang$core$Native_Utils.eq(
-							A2(_elm_lang$core$Dict$get, _p19, model.bkendAnswerStatusDict),
-							_elm_lang$core$Maybe$Just(_user$project$Types$WaitingForInfoRequested))) {
-							var _p17 = A3(_user$project$Engine$update, _p19, _p20, model.engineModel);
-							var newEngineModel = _p17._0;
-							var maybeMatchedRuleId = _p17._1;
-							var lInteractionIncidents = _p17._2;
-							var mbUrlForBkendQry = _p17._3;
-							var newModel = _elm_lang$core$Native_Utils.update(
-								model,
-								{engineModel: newEngineModel});
-							var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
-								_p20,
-								{mbMatchedRuleId: maybeMatchedRuleId});
-							var thestrUrl = A2(
-								_elm_lang$core$Basics_ops['++'],
-								A2(_elm_lang$core$Maybe$withDefault, '', mbUrlForBkendQry),
-								A2(
-									_elm_lang$core$Basics_ops['++'],
-									A2(_elm_lang$core$Maybe$withDefault, '', _p20.mbInputText),
-									'/'));
-							var interactionIncidents = model.debugMode ? lInteractionIncidents : {ctor: '[]'};
-							var _p18 = mbUrlForBkendQry;
-							if (_p18.ctor === 'Nothing') {
-								var _v18 = A2(_user$project$ClientTypes$InteractStepThree, _p19, newInteractionExtraInfo.mbMatchedRuleId),
-									_v19 = _elm_lang$core$Native_Utils.update(
-									newModel,
-									{
-										bkendAnswerStatusDict: A3(
-											_elm_lang$core$Dict$update,
-											_p19,
-											function (x) {
-												return _elm_lang$core$Maybe$Just(_user$project$Types$NoInfoYet);
-											},
-											model.bkendAnswerStatusDict),
-										alertMessages: interactionIncidents
-									});
-								msg = _v18;
-								model = _v19;
-								continue update;
-							} else {
-								if (_elm_lang$core$Native_Utils.eq(_p20.bkAnsStatus, _user$project$Types$NoInfoYet)) {
-									var newInteractionExtraInfoTwo = _elm_lang$core$Native_Utils.update(
-										newInteractionExtraInfo,
-										{bkAnsStatus: _user$project$Types$WaitingForInfoRequested});
-									var newAnswerBoxModel = A2(_user$project$Theme_AnswerBox$update, '', model.answerBoxModel);
-									return {
-										ctor: '_Tuple2',
-										_0: _elm_lang$core$Native_Utils.update(
-											newModel,
-											{
-												bkendAnswerStatusDict: A3(
-													_elm_lang$core$Dict$update,
-													_p19,
-													function (x) {
-														return _elm_lang$core$Maybe$Just(_user$project$Types$WaitingForInfoRequested);
-													},
-													model.bkendAnswerStatusDict),
-												alertMessages: {
-													ctor: '::',
-													_0: '___Checking_Answer___',
-													_1: {ctor: '[]'}
-												},
-												answerBoxModel: newAnswerBoxModel
-											}),
-										_1: A3(_user$project$Main$getBackendAnswerInfo, _p19, newInteractionExtraInfoTwo, thestrUrl)
-									};
-								} else {
-									return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-								}
-							}
-						} else {
+						var _p21 = _p9._1;
+						var _p20 = _p9._0;
+						if (_elm_lang$core$Native_Utils.eq(
+							A2(_elm_lang$core$Dict$get, _p20, model.bkendAnswerStatusDict),
+							_elm_lang$core$Maybe$Just(_sintraubuntuer$elm_game_narrative_starter$Types$WaitingForInfoRequested))) {
 							return {
 								ctor: '_Tuple2',
 								_0: _elm_lang$core$Native_Utils.update(
@@ -21144,51 +21120,125 @@ var _user$project$Main$update = F2(
 									}),
 								_1: _elm_lang$core$Platform_Cmd$none
 							};
-						}
-					case 'AnswerChecked':
-						if (_p8._2.ctor === 'Ok') {
-							var _p22 = _p8._0;
-							var _p21 = _p8._2._0;
-							var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
-								_p8._1,
-								{
-									bkAnsStatus: _user$project$Types$Ans(_p21)
-								});
+						} else {
+							var getTheUrl = function (strUrl) {
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									strUrl,
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										A2(_elm_lang$core$Maybe$withDefault, '', _p21.mbInputTextForBackend),
+										'/'));
+							};
+							var _p18 = A3(_sintraubuntuer$elm_game_narrative_starter$Engine$update, _p20, _p21, model.engineModel);
+							var newEngineModel = _p18._0;
+							var maybeMatchedRuleId = _p18._1;
+							var lInteractionIncidents = _p18._2;
+							var infoNeeded = _p18._3;
 							var newModel = _elm_lang$core$Native_Utils.update(
 								model,
-								{
-									bkendAnswerStatusDict: A3(
-										_elm_lang$core$Dict$update,
-										_p22,
-										function (val) {
-											return _elm_lang$core$Maybe$Just(
-												_user$project$Types$Ans(_p21));
-										},
-										model.bkendAnswerStatusDict),
-									alertMessages: {ctor: '[]'}
-								});
-							var _v20 = A2(_user$project$ClientTypes$InteractStepTwo, _p22, newInteractionExtraInfo),
-								_v21 = newModel;
-							msg = _v20;
-							model = _v21;
-							continue update;
-						} else {
-							var _p24 = _p8._0;
-							var _p23 = A2(
-								_elm_lang$core$Debug$log,
-								'error trying to check answer',
-								_elm_lang$core$Basics$toString(_p8._2._0));
+								{engineModel: newEngineModel});
 							var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
-								_p8._1,
-								{bkAnsStatus: _user$project$Types$CommunicationFailure});
-							var newModel = _elm_lang$core$Native_Utils.update(
+								_p21,
+								{mbMatchedRuleId: maybeMatchedRuleId});
+							var interactionIncidents = model.debugMode ? lInteractionIncidents : {ctor: '[]'};
+							var _p19 = infoNeeded;
+							if (_p19.ctor === 'NoInfoNeeded') {
+								var _v18 = A2(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$InteractStepThree, _p20, newInteractionExtraInfo),
+									_v19 = _elm_lang$core$Native_Utils.update(
+									newModel,
+									{
+										bkendAnswerStatusDict: A3(
+											_elm_lang$core$Dict$update,
+											_p20,
+											function (x) {
+												return _elm_lang$core$Maybe$Just(_sintraubuntuer$elm_game_narrative_starter$Types$NoInfoYet);
+											},
+											model.bkendAnswerStatusDict),
+										alertMessages: interactionIncidents
+									});
+								msg = _v18;
+								model = _v19;
+								continue update;
+							} else {
+								if (_elm_lang$core$Native_Utils.eq(_p21.bkAnsStatus, _sintraubuntuer$elm_game_narrative_starter$Types$NoInfoYet)) {
+									var newInteractionExtraInfoTwo = _elm_lang$core$Native_Utils.update(
+										newInteractionExtraInfo,
+										{bkAnsStatus: _sintraubuntuer$elm_game_narrative_starter$Types$WaitingForInfoRequested});
+									var newAnswerBoxModel = A2(_sintraubuntuer$elm_game_narrative_starter$Theme_AnswerBox$update, '', model.answerBoxModel);
+									return {
+										ctor: '_Tuple2',
+										_0: _elm_lang$core$Native_Utils.update(
+											newModel,
+											{
+												bkendAnswerStatusDict: A3(
+													_elm_lang$core$Dict$update,
+													_p20,
+													function (x) {
+														return _elm_lang$core$Maybe$Just(_sintraubuntuer$elm_game_narrative_starter$Types$WaitingForInfoRequested);
+													},
+													model.bkendAnswerStatusDict),
+												alertMessages: {
+													ctor: '::',
+													_0: '___Checking_Answer___',
+													_1: {ctor: '[]'}
+												},
+												answerBoxModel: newAnswerBoxModel
+											}),
+										_1: A3(
+											_sintraubuntuer$elm_game_narrative_starter$Main$getBackendAnswerInfo,
+											_p20,
+											newInteractionExtraInfoTwo,
+											getTheUrl(_p19._0))
+									};
+								} else {
+									return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+								}
+							}
+						}
+					case 'AnswerChecked':
+						if (_p9._2.ctor === 'Ok') {
+							var _p24 = _p9._0;
+							var _p23 = _p9._2._0;
+							var nInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
+								_p9._1,
+								{
+									bkAnsStatus: _sintraubuntuer$elm_game_narrative_starter$Types$Ans(_p23)
+								});
+							var nModel = _elm_lang$core$Native_Utils.update(
 								model,
 								{
 									bkendAnswerStatusDict: A3(
 										_elm_lang$core$Dict$update,
 										_p24,
 										function (val) {
-											return _elm_lang$core$Maybe$Just(_user$project$Types$CommunicationFailure);
+											return _elm_lang$core$Maybe$Just(
+												_sintraubuntuer$elm_game_narrative_starter$Types$Ans(_p23));
+										},
+										model.bkendAnswerStatusDict),
+									alertMessages: {ctor: '[]'}
+								});
+							var _p22 = A3(_sintraubuntuer$elm_game_narrative_starter$Main$getNewModelAndInteractionExtraInfoByEngineUpdate, _p24, nInteractionExtraInfo, nModel);
+							var newInteractionExtraInfo2 = _p22._0;
+							var newModel2 = _p22._1;
+							var _v20 = A2(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$InteractStepThree, _p24, newInteractionExtraInfo2),
+								_v21 = newModel2;
+							msg = _v20;
+							model = _v21;
+							continue update;
+						} else {
+							var _p26 = _p9._0;
+							var nInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
+								_p9._1,
+								{bkAnsStatus: _sintraubuntuer$elm_game_narrative_starter$Types$CommunicationFailure});
+							var nModel = _elm_lang$core$Native_Utils.update(
+								model,
+								{
+									bkendAnswerStatusDict: A3(
+										_elm_lang$core$Dict$update,
+										_p26,
+										function (val) {
+											return _elm_lang$core$Maybe$Just(_sintraubuntuer$elm_game_narrative_starter$Types$CommunicationFailure);
 										},
 										model.bkendAnswerStatusDict),
 									alertMessages: {
@@ -21197,20 +21247,23 @@ var _user$project$Main$update = F2(
 										_1: {ctor: '[]'}
 									}
 								});
-							var _v22 = A2(_user$project$ClientTypes$InteractStepTwo, _p24, newInteractionExtraInfo),
-								_v23 = newModel;
+							var _p25 = A3(_sintraubuntuer$elm_game_narrative_starter$Main$getNewModelAndInteractionExtraInfoByEngineUpdate, _p26, nInteractionExtraInfo, nModel);
+							var newInteractionExtraInfo2 = _p25._0;
+							var newModel2 = _p25._1;
+							var _v22 = A2(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$InteractStepThree, _p26, newInteractionExtraInfo2),
+								_v23 = newModel2;
 							msg = _v22;
 							model = _v23;
 							continue update;
 						}
 					case 'InteractStepThree':
-						var _p28 = _p8._1;
-						var _p27 = _p8._0;
+						var _p31 = _p9._1;
+						var _p30 = _p9._0;
 						var hasEnded = A2(
-							_user$project$TypeConverterHelper$mbAttributeToBool,
+							_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToBool,
 							model.debugMode,
-							A3(_user$project$Engine$getInteractableAttribute, 'gameHasEnded', 'gameStateItem', model.engineModel));
-						var newAnswerBoxModel = A2(_user$project$Theme_AnswerBox$update, '', model.answerBoxModel);
+							A3(_sintraubuntuer$elm_game_narrative_starter$Engine$getInteractableAttribute, 'gameHasEnded', 'gameStateItem', model.engineModel));
+						var newAnswerBoxModel = A2(_sintraubuntuer$elm_game_narrative_starter$Theme_AnswerBox$update, '', model.answerBoxModel);
 						var mergeToDictStoryLine = F2(
 							function (tup, storyLinesDict) {
 								var newStorySnippet = _elm_lang$core$Tuple$second(tup);
@@ -21241,8 +21294,8 @@ var _user$project$Main$update = F2(
 									_wernerdegroot$listzipper$List_Zipper$next(narrative));
 							});
 						var updateNarrativeLgsDict = function (mbDict) {
-							var _p25 = mbDict;
-							if (_p25.ctor === 'Just') {
+							var _p27 = mbDict;
+							if (_p27.ctor === 'Just') {
 								return _elm_lang$core$Maybe$Just(
 									A2(
 										_elm_lang$core$Dict$map,
@@ -21254,39 +21307,30 @@ var _user$project$Main$update = F2(
 													updateNarrativeContent(
 														_elm_lang$core$Maybe$Just(val)));
 											}),
-										_p25._0));
+										_p27._0));
 							} else {
 								return _elm_lang$core$Maybe$Nothing;
 							}
 						};
-						var updatedContent = A2(
-							_elm_lang$core$Maybe$withDefault,
-							model.languageNarrativeContents,
-							A2(
-								_elm_lang$core$Maybe$map,
-								function (id) {
-									return A3(_elm_lang$core$Dict$update, id, updateNarrativeLgsDict, model.languageNarrativeContents);
-								},
-								_p28));
 						var mbsuggestInteractionId = A2(
-							_user$project$TypeConverterHelper$mbAttributeToMbString,
+							_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToMbString,
 							model.debugMode,
-							A3(_user$project$Engine$getInteractableAttribute, 'suggestedInteraction', _p27, model.engineModel));
+							A3(_sintraubuntuer$elm_game_narrative_starter$Engine$getInteractableAttribute, 'suggestedInteraction', _p30, model.engineModel));
 						var temporaryHackToSubstitueImgUrl = F2(
 							function (baseImgUrl, theStr) {
 								return (!_elm_lang$core$Native_Utils.eq(baseImgUrl, '')) ? A4(
 									_elm_lang$core$Regex$replace,
 									_elm_lang$core$Regex$All,
 									_elm_lang$core$Regex$regex('\\(img\\/'),
-									function (_p26) {
+									function (_p28) {
 										return A2(_elm_lang$core$Basics_ops['++'], '(', baseImgUrl);
 									},
 									theStr) : theStr;
 							});
 						var additionalTextDict = A2(
-							_user$project$TypeConverterHelper$mbAttributeToDictStringString,
+							_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToDictStringString,
 							model.debugMode,
-							A3(_user$project$Engine$getInteractableAttribute, 'additionalTextDict', _p27, model.engineModel));
+							A3(_sintraubuntuer$elm_game_narrative_starter$Engine$getInteractableAttribute, 'additionalTextDict', _p30, model.engineModel));
 						var isLastZip = function (val) {
 							return _elm_lang$core$Native_Utils.eq(
 								_wernerdegroot$listzipper$List_Zipper$next(val),
@@ -21300,15 +21344,15 @@ var _user$project$Main$update = F2(
 								A2(
 									_elm_lang$core$List$map,
 									function (x) {
-										return A2(_user$project$TranslationHelper$getInLanguage, languageId, x);
+										return A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, languageId, x);
 									},
 									A2(
 										_elm_lang$core$String$split,
 										' ',
 										A2(
-											_user$project$TypeConverterHelper$mbAttributeToString,
+											_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToString,
 											model.debugMode,
-											A3(_user$project$Engine$getInteractableAttribute, 'narrativeHeader', _p27, newEngineModel)))));
+											A3(_sintraubuntuer$elm_game_narrative_starter$Engine$getInteractableAttribute, 'narrativeHeader', _p30, newEngineModel)))));
 						};
 						var getTheWrittenContent = function (languageId) {
 							return A2(
@@ -21317,7 +21361,7 @@ var _user$project$Main$update = F2(
 								A2(
 									_elm_lang$core$List$map,
 									function (x) {
-										return A2(_user$project$TranslationHelper$getInLanguage, languageId, x);
+										return A2(_sintraubuntuer$elm_game_narrative_starter$TranslationHelper$getInLanguage, languageId, x);
 									},
 									A2(
 										_elm_lang$core$String$split,
@@ -21325,7 +21369,7 @@ var _user$project$Main$update = F2(
 										A2(
 											_elm_lang$core$Maybe$withDefault,
 											'',
-											A2(_user$project$Engine$getItemWrittenContent, _p27, newEngineModel)))));
+											A2(_sintraubuntuer$elm_game_narrative_starter$Engine$getItemWrittenContent, _p30, newEngineModel)))));
 						};
 						var wrapWithHeaderWrittenContentAndAdditionalText = F2(
 							function (lgId, mainContent) {
@@ -21349,13 +21393,38 @@ var _user$project$Main$update = F2(
 													'',
 													A2(_elm_lang$core$Dict$get, lgId, additionalTextDict))))));
 							});
+						var newSettingsModel = A2(
+							_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$update,
+							_sintraubuntuer$elm_game_narrative_starter$ClientTypes$SetAvailableLanguages(
+								_sintraubuntuer$elm_game_narrative_starter$Engine$getChoiceLanguages(newEngineModel)),
+							model.settingsModel);
+						var newSettingsModel2 = (hasEnded && (!model.settingsModel.showExitToFinalScreenButton)) ? A2(_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$update, _sintraubuntuer$elm_game_narrative_starter$ClientTypes$SettingsShowExitToFinalScreenButton, newSettingsModel) : newSettingsModel;
+						var displayLanguage = model.settingsModel.displayLanguage;
+						var getAlertMessage2 = function (x) {
+							return (!_elm_lang$core$Native_Utils.eq(x, '')) ? {
+								ctor: '::',
+								_0: x,
+								_1: {ctor: '[]'}
+							} : {ctor: '[]'};
+						}(
+							A2(
+								_elm_lang$core$Maybe$withDefault,
+								'',
+								A2(
+									_elm_lang$core$Dict$get,
+									displayLanguage,
+									A2(
+										_sintraubuntuer$elm_game_narrative_starter$TypeConverterHelper$mbAttributeToDictStringString,
+										model.debugMode,
+										A3(_sintraubuntuer$elm_game_narrative_starter$Engine$getInteractableAttribute, 'warningMessage', _p30, model.engineModel)))));
+						var maybeMatchedRuleId = _p31.mbMatchedRuleId;
 						var narrativesForThisInteraction = {
 							interactableNames: A2(
-								_user$project$Components$getDictLgNames,
-								_user$project$OurStory2_Narrative$desiredLanguages,
-								A2(_user$project$Main$findEntity, model, _p27)),
-							interactableCssSelector: _user$project$Components$getClassName(
-								A2(_user$project$Main$findEntity, model, _p27)),
+								_sintraubuntuer$elm_game_narrative_starter$Components$getDictLgNames,
+								_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$desiredLanguages,
+								A2(_sintraubuntuer$elm_game_narrative_starter$Main$findEntity, model, _p30)),
+							interactableCssSelector: _sintraubuntuer$elm_game_narrative_starter$Components$getClassName(
+								A2(_sintraubuntuer$elm_game_narrative_starter$Main$findEntity, model, _p30)),
 							narratives: function () {
 								var dict2 = A2(
 									_elm_lang$core$Dict$map,
@@ -21368,9 +21437,9 @@ var _user$project$Main$update = F2(
 											};
 										}),
 									A2(
-										_user$project$Components$getDictLgDescriptions,
-										_user$project$OurStory2_Narrative$desiredLanguages,
-										A2(_user$project$Main$findEntity, model, _p27)));
+										_sintraubuntuer$elm_game_narrative_starter$Components$getDictLgDescriptions,
+										_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$desiredLanguages,
+										A2(_sintraubuntuer$elm_game_narrative_starter$Main$findEntity, model, _p30)));
 								var dict1 = A2(
 									_elm_lang$core$Dict$map,
 									F2(
@@ -21395,8 +21464,8 @@ var _user$project$Main$update = F2(
 											function (ruleId) {
 												return A2(_elm_lang$core$Dict$get, ruleId, model.languageNarrativeContents);
 											},
-											_p28)));
-								return A2(_user$project$Components$mergeDicts, dict2, dict1);
+											maybeMatchedRuleId)));
+								return A2(_sintraubuntuer$elm_game_narrative_starter$Components$mergeDicts, dict2, dict1);
 							}(),
 							audios: A2(
 								_elm_lang$core$Dict$map,
@@ -21416,13 +21485,13 @@ var _user$project$Main$update = F2(
 										function (ruleId) {
 											return A2(_elm_lang$core$Dict$get, ruleId, model.languageAudioContents);
 										},
-										_p28))),
+										maybeMatchedRuleId))),
 							mbSuggestedInteractionId: mbsuggestInteractionId,
 							suggestedInteractionNameDict: (!_elm_lang$core$Native_Utils.eq(mbsuggestInteractionId, _elm_lang$core$Maybe$Nothing)) ? A2(
-								_user$project$Components$getDictLgNames,
-								_user$project$OurStory2_Narrative$desiredLanguages,
+								_sintraubuntuer$elm_game_narrative_starter$Components$getDictLgNames,
+								_sintraubuntuer$elm_game_narrative_starter$OurStory2_Narrative$desiredLanguages,
 								A2(
-									_user$project$Main$findEntity,
+									_sintraubuntuer$elm_game_narrative_starter$Main$findEntity,
 									model,
 									A2(_elm_lang$core$Maybe$withDefault, '', mbsuggestInteractionId))) : _elm_lang$core$Dict$empty
 						};
@@ -21442,8 +21511,10 @@ var _user$project$Main$update = F2(
 													'noName',
 													A2(_elm_lang$core$Dict$get, 'en', nfti.interactableNames)),
 												A2(_elm_lang$core$Dict$get, lgId, nfti.interactableNames)),
-											interactableId: _p27,
-											isWritable: A2(_user$project$Engine$isWritable, _p27, model.engineModel),
+											interactableId: _p30,
+											isWritable: A2(_sintraubuntuer$elm_game_narrative_starter$Engine$isWritable, _p30, model.engineModel) && _elm_lang$core$Native_Utils.eq(
+												_p31.currentLocation,
+												_sintraubuntuer$elm_game_narrative_starter$Engine$getCurrentLocation(model.engineModel)),
 											interactableCssSelector: nfti.interactableCssSelector,
 											narrative: A2(
 												_elm_lang$core$Maybe$withDefault,
@@ -21475,39 +21546,43 @@ var _user$project$Main$update = F2(
 								model.languageStoryLines,
 								llgssnippets);
 						}();
-						var newSettingsModel = A2(
-							_user$project$Theme_Settings$update,
-							_user$project$ClientTypes$SetAvailableLanguages(
-								_user$project$Engine$getChoiceLanguages(newEngineModel)),
-							model.settingsModel);
-						var newSettingsModel2 = (hasEnded && (!model.settingsModel.showExitToFinalScreenButton)) ? A2(_user$project$Theme_Settings$update, _user$project$ClientTypes$SettingsShowExitToFinalScreenButton, newSettingsModel) : newSettingsModel;
-						var displayLanguage = model.settingsModel.displayLanguage;
-						var getAlertMessage = function (x) {
-							return (!_elm_lang$core$Native_Utils.eq(x, '')) ? {
-								ctor: '::',
-								_0: x,
-								_1: {ctor: '[]'}
-							} : {ctor: '[]'};
-						}(
+						var getAlertMessage1 = function () {
+							var _p29 = A2(_elm_lang$core$Dict$get, displayLanguage, narrativesForThisInteraction.narratives);
+							if (_p29.ctor === 'Nothing') {
+								return {
+									ctor: '::',
+									_0: 'No narrative content for this interaction in the current language. Maybe you want to try channging language !',
+									_1: {ctor: '[]'}
+								};
+							} else {
+								return {ctor: '[]'};
+							}
+						}();
+						var updatedContent = A2(
+							_elm_lang$core$Maybe$withDefault,
+							model.languageNarrativeContents,
 							A2(
-								_elm_lang$core$Maybe$withDefault,
-								'',
-								A2(
-									_elm_lang$core$Dict$get,
-									displayLanguage,
-									A2(
-										_user$project$TypeConverterHelper$mbAttributeToDictStringString,
-										model.debugMode,
-										A3(_user$project$Engine$getInteractableAttribute, 'warningMessage', _p27, model.engineModel)))));
+								_elm_lang$core$Maybe$map,
+								function (id) {
+									return A3(_elm_lang$core$Dict$update, id, updateNarrativeLgsDict, model.languageNarrativeContents);
+								},
+								maybeMatchedRuleId));
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
 								model,
-								{engineModel: newEngineModel, alertMessages: getAlertMessage, answerBoxModel: newAnswerBoxModel, languageStoryLines: newLanguageStoryLines, languageNarrativeContents: updatedContent, settingsModel: newSettingsModel2}),
+								{
+									engineModel: newEngineModel,
+									alertMessages: A2(_elm_lang$core$Basics_ops['++'], getAlertMessage1, getAlertMessage2),
+									answerBoxModel: newAnswerBoxModel,
+									languageStoryLines: newLanguageStoryLines,
+									languageNarrativeContents: updatedContent,
+									settingsModel: newSettingsModel2
+								}),
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					case 'NewUserSubmitedText':
-						var newAnswerBoxModel = A2(_user$project$Theme_AnswerBox$update, _p8._0, model.answerBoxModel);
+						var newAnswerBoxModel = A2(_sintraubuntuer$elm_game_narrative_starter$Theme_AnswerBox$update, _p9._0, model.answerBoxModel);
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
@@ -21517,8 +21592,8 @@ var _user$project$Main$update = F2(
 						};
 					case 'ChangeOptionDisplayLanguage':
 						var newSettingsModel = A2(
-							_user$project$Theme_Settings$update,
-							_user$project$ClientTypes$SetDisplayLanguage(_p8._0),
+							_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$update,
+							_sintraubuntuer$elm_game_narrative_starter$ClientTypes$SetDisplayLanguage(_p9._0),
 							model.settingsModel);
 						return {
 							ctor: '_Tuple2',
@@ -21529,8 +21604,8 @@ var _user$project$Main$update = F2(
 						};
 					case 'ChangeOptionDontCheckGps':
 						var newSettingsModel = A2(
-							_user$project$Theme_Settings$update,
-							_user$project$ClientTypes$SetDontNeedToBeInZone(_p8._0),
+							_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$update,
+							_sintraubuntuer$elm_game_narrative_starter$ClientTypes$SetDontNeedToBeInZone(_p9._0),
 							model.settingsModel);
 						return {
 							ctor: '_Tuple2',
@@ -21551,8 +21626,8 @@ var _user$project$Main$update = F2(
 						};
 					case 'ChangeOptionAudioAutoplay':
 						var newSettingsModel = A2(
-							_user$project$Theme_Settings$update,
-							_user$project$ClientTypes$SettingsChangeOptionAutoplay(_p8._0),
+							_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$update,
+							_sintraubuntuer$elm_game_narrative_starter$ClientTypes$SettingsChangeOptionAutoplay(_p9._0),
 							model.settingsModel);
 						return {
 							ctor: '_Tuple2',
@@ -21563,8 +21638,8 @@ var _user$project$Main$update = F2(
 						};
 					case 'LayoutWithSideBar':
 						var newSettingsModel = A2(
-							_user$project$Theme_Settings$update,
-							_user$project$ClientTypes$SettingsLayoutWithSidebar(_p8._0),
+							_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$update,
+							_sintraubuntuer$elm_game_narrative_starter$ClientTypes$SettingsLayoutWithSidebar(_p9._0),
 							model.settingsModel);
 						return {
 							ctor: '_Tuple2',
@@ -21574,7 +21649,7 @@ var _user$project$Main$update = F2(
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					case 'ToggleShowExpandedSettings':
-						var newSettingsModel = A2(_user$project$Theme_Settings$update, _user$project$ClientTypes$SettingsToggleShowExpanded, model.settingsModel);
+						var newSettingsModel = A2(_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$update, _sintraubuntuer$elm_game_narrative_starter$ClientTypes$SettingsToggleShowExpanded, model.settingsModel);
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
@@ -21583,7 +21658,7 @@ var _user$project$Main$update = F2(
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					case 'ToggleShowHideSaveLoadBtns':
-						var newSettingsModel = A2(_user$project$Theme_Settings$update, _user$project$ClientTypes$SettingsToggleShowHideSaveLoadBtns, model.settingsModel);
+						var newSettingsModel = A2(_sintraubuntuer$elm_game_narrative_starter$Theme_Settings$update, _sintraubuntuer$elm_game_narrative_starter$ClientTypes$SettingsToggleShowHideSaveLoadBtns, model.settingsModel);
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
@@ -21592,21 +21667,21 @@ var _user$project$Main$update = F2(
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					case 'SaveHistory':
-						return _user$project$Main$saveHistoryToStorageHelper(model);
+						return _sintraubuntuer$elm_game_narrative_starter$Main$saveHistoryToStorageHelper(model);
 					case 'RequestForStoredHistory':
 						return {
 							ctor: '_Tuple2',
 							_0: model,
-							_1: _user$project$Main$sendRequestForStoredHistory('')
+							_1: _sintraubuntuer$elm_game_narrative_starter$Main$sendRequestForStoredHistory('')
 						};
 					case 'LoadHistory':
-						var _p30 = _p8._0;
-						var _p29 = _user$project$Main$init(
-							A2(_user$project$Main$Flags, model.baseImgUrl, model.baseSoundUrl));
-						var newModel = _p29._0;
-						var cmds = _p29._1;
+						var _p33 = _p9._0;
+						var _p32 = _sintraubuntuer$elm_game_narrative_starter$Main$init(
+							A2(_sintraubuntuer$elm_game_narrative_starter$Main$Flags, model.baseImgUrl, model.baseSoundUrl));
+						var newModel = _p32._0;
+						var cmds = _p32._1;
 						var savedSettings = model.settingsModel;
-						var newlist = _user$project$Main$convertToListIdExtraInfo(_p30.lInteractions);
+						var newlist = _sintraubuntuer$elm_game_narrative_starter$Main$convertToListIdExtraInfo(_p33.lInteractions);
 						var newModel_ = _elm_lang$core$Native_Utils.eq(
 							_elm_lang$core$List$length(newlist),
 							0) ? _elm_lang$core$Native_Utils.update(
@@ -21618,45 +21693,45 @@ var _user$project$Main$update = F2(
 							{
 								alertMessages: {ctor: '[]'}
 							});
-						var playerName = _p30.playerName;
+						var playerName = _p33.playerName;
 						return A3(
 							_ccapndave$elm_update_extra$Update_Extra$andThen,
-							_user$project$Main$update,
-							A2(_user$project$ClientTypes$ProcessLoadHistory, newlist, savedSettings),
+							_sintraubuntuer$elm_game_narrative_starter$Main$update,
+							A2(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$ProcessLoadHistory, newlist, savedSettings),
 							A3(
 								_ccapndave$elm_update_extra$Update_Extra$andThen,
-								_user$project$Main$update,
-								_user$project$ClientTypes$StartMainGameNewPlayerName(playerName),
+								_sintraubuntuer$elm_game_narrative_starter$Main$update,
+								_sintraubuntuer$elm_game_narrative_starter$ClientTypes$StartMainGameNewPlayerName(playerName),
 								{ctor: '_Tuple2', _0: newModel_, _1: cmds}));
 					case 'ProcessLoadHistory':
-						var _p34 = _p8._1;
-						var _p31 = function () {
-							var _p32 = _p8._0;
-							if (_p32.ctor === '[]') {
+						var _p37 = _p9._1;
+						var _p34 = function () {
+							var _p35 = _p9._0;
+							if (_p35.ctor === '[]') {
 								return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 							} else {
-								var _p33 = _p32._0;
+								var _p36 = _p35._0;
 								return A3(
 									_ccapndave$elm_update_extra$Update_Extra$andThen,
-									_user$project$Main$update,
-									A2(_user$project$ClientTypes$ProcessLoadHistory, _p32._1, _p34),
+									_sintraubuntuer$elm_game_narrative_starter$Main$update,
+									A2(_sintraubuntuer$elm_game_narrative_starter$ClientTypes$ProcessLoadHistory, _p35._1, _p37),
 									A3(
 										_ccapndave$elm_update_extra$Update_Extra$andThen,
-										_user$project$Main$update,
+										_sintraubuntuer$elm_game_narrative_starter$Main$update,
 										A2(
-											_user$project$ClientTypes$InteractStepTwo,
-											_elm_lang$core$Tuple$first(_p33),
-											_elm_lang$core$Tuple$second(_p33)),
+											_sintraubuntuer$elm_game_narrative_starter$ClientTypes$InteractStepTwo,
+											_elm_lang$core$Tuple$first(_p36),
+											_elm_lang$core$Tuple$second(_p36)),
 										{ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none}));
 							}
 						}();
-						var newModel = _p31._0;
-						var cmds = _p31._1;
+						var newModel = _p34._0;
+						var cmds = _p34._1;
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
 								newModel,
-								{settingsModel: _p34}),
+								{settingsModel: _p37}),
 							_1: cmds
 						};
 					case 'ExitToFinalScreen':
@@ -21679,8 +21754,8 @@ var _user$project$Main$update = F2(
 			}
 		}
 	});
-var _user$project$Main$main = _elm_lang$html$Html$programWithFlags(
-	{init: _user$project$Main$init, view: _user$project$Main$view, update: _user$project$Main$update, subscriptions: _user$project$Main$subscriptions})(
+var _sintraubuntuer$elm_game_narrative_starter$Main$main = _elm_lang$html$Html$programWithFlags(
+	{init: _sintraubuntuer$elm_game_narrative_starter$Main$init, view: _sintraubuntuer$elm_game_narrative_starter$Main$view, update: _sintraubuntuer$elm_game_narrative_starter$Main$update, subscriptions: _sintraubuntuer$elm_game_narrative_starter$Main$subscriptions})(
 	A2(
 		_elm_lang$core$Json_Decode$andThen,
 		function (baseImgUrl) {
@@ -21696,8 +21771,8 @@ var _user$project$Main$main = _elm_lang$html$Html$programWithFlags(
 
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};
-if (typeof _user$project$Main$main !== 'undefined') {
-    _user$project$Main$main(Elm['Main'], 'Main', undefined);
+if (typeof _sintraubuntuer$elm_game_narrative_starter$Main$main !== 'undefined') {
+    _sintraubuntuer$elm_game_narrative_starter$Main$main(Elm['Main'], 'Main', undefined);
 }
 
 if (typeof define === "function" && define['amd'])
