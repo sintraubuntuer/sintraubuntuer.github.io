@@ -280,6 +280,11 @@ a.suggestedInteractionLink {
         margin-right: 2px;
      }
 
+    .TitlePage__Prologue {
+        margin-bottom: 50px;
+        padding: 0px 5px;
+    }
+
     .Storyline {
       margin: 0 2px;
     }
