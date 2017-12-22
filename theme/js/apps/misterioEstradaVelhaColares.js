@@ -16336,7 +16336,7 @@ var _user$project$OurStory_NarrativeEnglish$helpfulNotesAppearEn = {
 };
 var _user$project$OurStory_NarrativeEnglish$talkToSintraWiseManEn = {
 	ctor: '::',
-	_0: '\n\nSintra Wise Man is known for being an expert about this region , so you decide to ask him  :\n\"Do you know wether this Rua Barbosa du Bocage that starts over here is the famous Estrada Velha de Colares ? ...\"\n      ',
+	_0: '\n\nSintra Wise Man is known for being an expert about this region , so you decide to ask him  :\n\"Do you know whether this Rua Barbosa du Bocage that starts over here is the famous Estrada Velha de Colares ? ...\"\n      ',
 	_1: {
 		ctor: '::',
 		_0: '\nWise Man answers : \"Yes , this is in fact the road that heads to  Colares and is known as Estrada Velha de Colares ....\"\n     ',
