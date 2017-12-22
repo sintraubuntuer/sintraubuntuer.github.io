@@ -15221,7 +15221,7 @@ var _user$project$GpsUtils$getDistance = F2(
 	});
 
 var _user$project$InfoForBkendApiRequests$getApiKey = 'RFV762GI39cd395a-689e-4e1f-9f37-c6845ba65a9eO4qh4234cv56';
-var _user$project$InfoForBkendApiRequests$backendAnswerCheckerUrl = 'http://127.0.0.1:5000/answerchecker/';
+var _user$project$InfoForBkendApiRequests$backendAnswerCheckerUrl = 'https://questionanswerntapp.herokuapp.com/answerchecker/';
 
 var _user$project$OurStory_Manifest$locations = {
 	ctor: '::',
