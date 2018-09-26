@@ -270,7 +270,7 @@
 
                     var saveName = "misterioEstradaVelhaColares" + "_historyStr" ;
 
-                        var elmApp = var elmApp = Elm.Main.embed( node1 , {  baseImgUrl : "https://sintraubuntuer.github.io/theme/images/estradaVelhaColaresAppImages/"
+                        var elmApp  = Elm.Main.embed( node1 , {  baseImgUrl : "https://sintraubuntuer.github.io/theme/images/estradaVelhaColaresAppImages/"
                                                   , baseSoundUrl : "https://sintraubuntuer.github.io/theme/sound/estradaVelhaColaresAppSound/"
                                                 }
 
@@ -290,7 +290,6 @@
                    });
 
 
-       
 
                            elmApp.ports.setView.subscribe(function(data){
                                 mymap.setView.apply(mymap, data);

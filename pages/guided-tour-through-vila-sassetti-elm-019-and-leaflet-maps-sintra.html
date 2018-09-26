@@ -270,7 +270,7 @@
 
                     var saveName = "guidedTourVilaSassetti" + "_historyStr" ;
 
-                        var elmApp = var elmApp = Elm.Main.embed( node1 , {  baseImgUrl : "https://sintraubuntuer.github.io/theme/images/guidedTourVilaSassettiAppImages/"
+                        var elmApp  = Elm.Main.embed( node1 , {  baseImgUrl : "https://sintraubuntuer.github.io/theme/images/guidedTourVilaSassettiAppImages/"
                                                   , baseSoundUrl : "https://sintraubuntuer.github.io/theme/sound/guidedTourVilaSassettiAppSound/"
                                                 }
 
@@ -290,7 +290,6 @@
                    });
 
 
-       
 
                            elmApp.ports.setView.subscribe(function(data){
                                 mymap.setView.apply(mymap, data);
