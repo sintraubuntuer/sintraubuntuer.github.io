@@ -283,35 +283,6 @@
 
 
 
-                         elmApp.ports.sendRequestForGeolocation.subscribe(function(interactableId) {
-                             if (!navigator.geolocation){
-                                 console.log("Geolocation is not supported by your browser");
-                                 var failed_geolocation_info =   { "interactableId" : interactableId  , "latitude" : -999 ,  "longitude" : -999 }  ;
-
-                                elmApp.ports.getGeolocationFromBrowser.send(failed_geolocation_info) ;
-                                 //return ;
-                            }  else {
-
-                                navigator.geolocation.getCurrentPosition(success, error);
-                            }
-
-                            function success(position) {
-                                var latitude  = position.coords.latitude;
-                                var longitude = position.coords.longitude;
-
-                                var geolocation_info =   { "interactableId" : interactableId  , "latitude" : latitude ,  "longitude" : longitude }  ;
-                                elmApp.ports.getGeolocationFromBrowser.send(geolocation_info) ;
-
-                            }
-
-                            function error() {
-                                //output.innerHTML = "Unable to retrieve your location";
-                                console.log("Unable to retrieve your location") ;
-                            }
-                         });
-
-
-
 
 
       </script>
