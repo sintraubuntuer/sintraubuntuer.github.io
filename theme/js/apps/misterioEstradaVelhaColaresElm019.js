@@ -586,11 +586,11 @@ function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
 
 function _Debug_regionToString(region)
 {
-	if (region.aU.aa === region.a4.aa)
+	if (region.aQ.aa === region.a$.aa)
 	{
-		return 'on line ' + region.aU.aa;
+		return 'on line ' + region.aQ.aa;
 	}
-	return 'on lines ' + region.aU.aa + ' through ' + region.a4.aa;
+	return 'on lines ' + region.aQ.aa + ' through ' + region.a$.aa;
 }
 
 
@@ -1924,9 +1924,9 @@ var _Platform_worker = F4(function(impl, flagDecoder, debugMetadata, args)
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.cp,
-		impl.dB,
-		impl.ds,
+		impl.ch,
+		impl.dl,
+		impl.dc,
 		function() { return function() {} }
 	);
 });
@@ -2398,21 +2398,21 @@ var _Http_toTask = F2(function(request, maybeProgress)
 			callback(_Scheduler_fail(elm$http$Http$Timeout));
 		});
 		xhr.addEventListener('load', function() {
-			callback(_Http_handleResponse(xhr, request.cd.a));
+			callback(_Http_handleResponse(xhr, request.b5.a));
 		});
 
 		try
 		{
-			xhr.open(request.cT, request.dC, true);
+			xhr.open(request.cL, request.dm, true);
 		}
 		catch (e)
 		{
-			return callback(_Scheduler_fail(elm$http$Http$BadUrl(request.dC)));
+			return callback(_Scheduler_fail(elm$http$Http$BadUrl(request.dm)));
 		}
 
 		_Http_configureRequest(xhr, request);
 
-		var body = request.bM;
+		var body = request.bF;
 		xhr.send(elm$http$Http$Internal$isStringBody(body)
 			? (xhr.setRequestHeader('Content-Type', body.a), body.b)
 			: body.a
@@ -2435,23 +2435,23 @@ function _Http_configureProgress(xhr, maybeProgress)
 			return;
 		}
 		_Scheduler_rawSpawn(maybeProgress.a({
-			bQ: event.loaded,
-			bR: event.total
+			bJ: event.loaded,
+			bK: event.total
 		}));
 	});
 }
 
 function _Http_configureRequest(xhr, request)
 {
-	for (var headers = request.cj; headers.b; headers = headers.b) // WHILE_CONS
+	for (var headers = request.cb; headers.b; headers = headers.b) // WHILE_CONS
 	{
 		xhr.setRequestHeader(headers.a.a, headers.a.b);
 	}
 
-	xhr.responseType = request.cd.b;
-	xhr.withCredentials = request.dE;
+	xhr.responseType = request.b5.b;
+	xhr.withCredentials = request.$7;
 
-	elm$core$Maybe$isJust(request.dx) && (xhr.timeout = request.dx.a);
+	elm$core$Maybe$isJust(request.dh) && (xhr.timeout = request.dh.a);
 }
 
 
@@ -2483,10 +2483,10 @@ function _Http_handleResponse(xhr, responseToResult)
 function _Http_toResponse(xhr)
 {
 	return {
-		dC: xhr.responseURL,
-		dp: { bX: xhr.status, u: xhr.statusText },
-		cj: _Http_parseHeaders(xhr.getAllResponseHeaders()),
-		bM: xhr.response
+		dm: xhr.responseURL,
+		c9: { bQ: xhr.status, u: xhr.statusText },
+		cb: _Http_parseHeaders(xhr.getAllResponseHeaders()),
+		bF: xhr.response
 	};
 }
 
@@ -2569,8 +2569,8 @@ var _Regex_never = /.^/;
 var _Regex_fromStringWith = F2(function(options, string)
 {
 	var flags = 'g';
-	if (options.bh) { flags += 'm'; }
-	if (options.a0) { flags += 'i'; }
+	if (options.bc) { flags += 'm'; }
+	if (options.aX) { flags += 'i'; }
 
 	try
 	{
@@ -3010,8 +3010,8 @@ var _VirtualDom_mapEventRecord = F2(function(func, record)
 {
 	return {
 		u: func(record.u),
-		aW: record.aW,
-		aR: record.aR
+		aS: record.aS,
+		aN: record.aN
 	}
 });
 
@@ -3280,10 +3280,10 @@ function _VirtualDom_makeCallback(eventNode, initialHandler)
 
 		var value = result.a;
 		var message = !tag ? value : tag < 3 ? value.a : value.u;
-		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.aW;
+		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.aS;
 		var currentEventNode = (
 			stopPropagation && event.stopPropagation(),
-			(tag == 2 ? value.b : tag == 3 && value.aR) && event.preventDefault(),
+			(tag == 2 ? value.b : tag == 3 && value.aN) && event.preventDefault(),
 			eventNode
 		);
 		var tagger;
@@ -4290,9 +4290,9 @@ function _Markdown_formatOptions(options)
 {
 	function toHighlight(code, lang)
 	{
-		if (!lang && elm$core$Maybe$isJust(options.a3))
+		if (!lang && elm$core$Maybe$isJust(options.a_))
 		{
-			lang = options.a3.a;
+			lang = options.a_.a;
 		}
 
 		if (typeof hljs !== 'undefined' && lang && hljs.listLanguages().indexOf(lang) >= 0)
@@ -4303,15 +4303,15 @@ function _Markdown_formatOptions(options)
 		return code;
 	}
 
-	var gfm = options.a7.a;
+	var gfm = options.a2.a;
 
 	return {
 		highlight: toHighlight,
 		gfm: gfm,
-		tables: gfm && gfm.dv,
-		breaks: gfm && gfm.bO,
-		sanitize: options.de,
-		smartypants: options.bu
+		tables: gfm && gfm.df,
+		breaks: gfm && gfm.bH,
+		sanitize: options.c$,
+		smartypants: options.bp
 	};
 }
 
@@ -4328,11 +4328,11 @@ var _Browser_element = _Debugger_element || F4(function(impl, flagDecoder, debug
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.cp,
-		impl.dB,
-		impl.ds,
+		impl.ch,
+		impl.dl,
+		impl.dc,
 		function(sendToApp, initialModel) {
-			var view = impl.dD;
+			var view = impl.dn;
 			/**/
 			var domNode = args['node'];
 			//*/
@@ -4364,12 +4364,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.cp,
-		impl.dB,
-		impl.ds,
+		impl.ch,
+		impl.dl,
+		impl.dc,
 		function(sendToApp, initialModel) {
 			var divertHrefToApp = impl.ae && impl.ae(sendToApp)
-			var view = impl.dD;
+			var view = impl.dn;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
 			var currNode = _VirtualDom_virtualize(bodyNode);
@@ -4377,12 +4377,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 			{
 				_VirtualDom_divertHrefToApp = divertHrefToApp;
 				var doc = view(model);
-				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.bM);
+				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.bF);
 				var patches = _VirtualDom_diff(currNode, nextNode);
 				bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
 				currNode = nextNode;
 				_VirtualDom_divertHrefToApp = 0;
-				(title !== doc.dy) && (_VirtualDom_doc.title = title = doc.dy);
+				(title !== doc.di) && (_VirtualDom_doc.title = title = doc.di);
 			});
 		}
 	);
@@ -4433,8 +4433,8 @@ function _Browser_makeAnimator(model, draw)
 
 function _Browser_application(impl)
 {
-	var onUrlChange = impl.cZ;
-	var onUrlRequest = impl.c_;
+	var onUrlChange = impl.cR;
+	var onUrlRequest = impl.cS;
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
@@ -4454,9 +4454,9 @@ function _Browser_application(impl)
 					var next = elm$url$Url$fromString(href).a;
 					sendToApp(onUrlRequest(
 						(next
-							&& curr.bp === next.bp
-							&& curr.a8 === next.a8
-							&& curr.bm.a === next.bm.a
+							&& curr.bk === next.bk
+							&& curr.a3 === next.a3
+							&& curr.bh.a === next.bh.a
 						)
 							? elm$browser$Browser$Internal(next)
 							: elm$browser$Browser$External(href)
@@ -4464,13 +4464,13 @@ function _Browser_application(impl)
 				}
 			});
 		},
-		cp: function(flags)
+		ch: function(flags)
 		{
-			return A3(impl.cp, flags, _Browser_getUrl(), key);
+			return A3(impl.ch, flags, _Browser_getUrl(), key);
 		},
-		dD: impl.dD,
-		dB: impl.dB,
-		ds: impl.ds
+		dn: impl.dn,
+		dl: impl.dl,
+		dc: impl.dc
 	});
 }
 
@@ -4536,17 +4536,17 @@ var _Browser_decodeEvent = F2(function(decoder, event)
 function _Browser_visibilityInfo()
 {
 	return (typeof _VirtualDom_doc.hidden !== 'undefined')
-		? { ck: 'hidden', W: 'visibilitychange' }
+		? { cc: 'hidden', W: 'visibilitychange' }
 		:
 	(typeof _VirtualDom_doc.mozHidden !== 'undefined')
-		? { ck: 'mozHidden', W: 'mozvisibilitychange' }
+		? { cc: 'mozHidden', W: 'mozvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.msHidden !== 'undefined')
-		? { ck: 'msHidden', W: 'msvisibilitychange' }
+		? { cc: 'msHidden', W: 'msvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.webkitHidden !== 'undefined')
-		? { ck: 'webkitHidden', W: 'webkitvisibilitychange' }
-		: { ck: 'hidden', W: 'visibilitychange' };
+		? { cc: 'webkitHidden', W: 'webkitvisibilitychange' }
+		: { cc: 'hidden', W: 'visibilitychange' };
 }
 
 
@@ -4627,10 +4627,10 @@ var _Browser_call = F2(function(functionName, id)
 function _Browser_getViewport()
 {
 	return {
-		bt: _Browser_getScene(),
-		by: {
-			ax: _Browser_window.pageXOffset,
-			ay: _Browser_window.pageYOffset,
+		bo: _Browser_getScene(),
+		bt: {
+			aw: _Browser_window.pageXOffset,
+			ax: _Browser_window.pageYOffset,
 			T: _Browser_doc.documentElement.clientWidth,
 			I: _Browser_doc.documentElement.clientHeight
 		}
@@ -4666,13 +4666,13 @@ function _Browser_getViewportOf(id)
 	return _Browser_withNode(id, function(node)
 	{
 		return {
-			bt: {
+			bo: {
 				T: node.scrollWidth,
 				I: node.scrollHeight
 			},
-			by: {
-				ax: node.scrollLeft,
-				ay: node.scrollTop,
+			bt: {
+				aw: node.scrollLeft,
+				ax: node.scrollTop,
 				T: node.clientWidth,
 				I: node.clientHeight
 			}
@@ -4704,16 +4704,16 @@ function _Browser_getElement(id)
 		var x = _Browser_window.pageXOffset;
 		var y = _Browser_window.pageYOffset;
 		return {
-			bt: _Browser_getScene(),
-			by: {
-				ax: x,
-				ay: y,
+			bo: _Browser_getScene(),
+			bt: {
+				aw: x,
+				ax: y,
 				T: _Browser_doc.documentElement.clientWidth,
 				I: _Browser_doc.documentElement.clientHeight
 			},
-			b9: {
-				ax: x + rect.left,
-				ay: y + rect.top,
+			b1: {
+				aw: x + rect.left,
+				ax: y + rect.top,
 				T: rect.width,
 				I: rect.height
 			}
@@ -5264,7 +5264,7 @@ var author$project$Components$getNeedsToBeInGpsZone = function (_n0) {
 		var dlon = _n2.c;
 		var mbRadius = _n2.d;
 		return elm$core$Maybe$Just(
-			{cA: dlat, cE: dlon, cP: mbRadius, cW: bval});
+			{cs: dlat, cw: dlon, cH: mbRadius, cO: bval});
 	} else {
 		return elm$core$Maybe$Nothing;
 	}
@@ -5286,11 +5286,11 @@ var author$project$Components$getRuleData = function (_n0) {
 		return rule;
 	} else {
 		return {
-			bS: _List_Nil,
-			bY: _List_Nil,
-			ct: author$project$Engine$with(''),
-			c5: author$project$Engine$noQuasiChangeWithBackend,
-			c6: _List_Nil
+			bL: _List_Nil,
+			bR: _List_Nil,
+			cl: author$project$Engine$with(''),
+			cW: author$project$Engine$noQuasiChangeWithBackend,
+			cX: _List_Nil
 		};
 	}
 };
@@ -5417,7 +5417,7 @@ var author$project$Engine$getChoiceLanguages = function (_n0) {
 };
 var author$project$Engine$getCurrentLocation = function (_n0) {
 	var story = _n0;
-	return story.b2;
+	return story.bX;
 };
 var author$project$Engine$Manifest$getInteractableAttribute = F2(
 	function (attrId, mbinteractable) {
@@ -5495,7 +5495,7 @@ var author$project$Types$Character = function (a) {
 };
 var author$project$Types$CharacterData = F6(
 	function (interactableId, characterPlacement, attributes, newCWCmds, interactionErrors, interactionWarnings) {
-		return {a: attributes, aB: characterPlacement, bb: interactableId, J: interactionErrors, K: interactionWarnings, O: newCWCmds};
+		return {a: attributes, aA: characterPlacement, a6: interactableId, J: interactionErrors, K: interactionWarnings, O: newCWCmds};
 	});
 var author$project$Types$CharacterOffScreen = {$: 1};
 var author$project$Engine$Manifest$character = function (_n0) {
@@ -5509,7 +5509,7 @@ var author$project$Types$Item = function (a) {
 };
 var author$project$Types$ItemData = F9(
 	function (interactableId, fixed, itemPlacement, isWritable, writtenContent, attributes, newCWCmds, interactionErrors, interactionWarnings) {
-		return {a: attributes, ap: fixed, bb: interactableId, J: interactionErrors, K: interactionWarnings, cw: isWritable, n: itemPlacement, O: newCWCmds, p: writtenContent};
+		return {a: attributes, ao: fixed, a6: interactableId, J: interactionErrors, K: interactionWarnings, co: isWritable, n: itemPlacement, O: newCWCmds, p: writtenContent};
 	});
 var author$project$Types$ItemOffScreen = {$: 2};
 var author$project$Engine$Manifest$item = function (_n0) {
@@ -5523,7 +5523,7 @@ var author$project$Types$Location = function (a) {
 };
 var author$project$Types$LocationData = F6(
 	function (interactableId, shown, attributes, newCWCmds, interactionErrors, interactionWarnings) {
-		return {a: attributes, bb: interactableId, J: interactionErrors, K: interactionWarnings, O: newCWCmds, aT: shown};
+		return {a: attributes, a6: interactableId, J: interactionErrors, K: interactionWarnings, O: newCWCmds, aP: shown};
 	});
 var author$project$Engine$Manifest$location = function (_n0) {
 	var locationId = _n0.a;
@@ -5532,9 +5532,9 @@ var author$project$Engine$Manifest$location = function (_n0) {
 	return author$project$Types$Location(locationData);
 };
 var author$project$Engine$Manifest$init = function (_n0) {
-	var items = _n0.cx;
-	var locations = _n0.cD;
-	var characters = _n0.bT;
+	var items = _n0.cp;
+	var locations = _n0.cv;
+	var characters = _n0.bM;
 	var insertInterFn = F3(
 		function (interactableConstructor, _n2, acc) {
 			var interId = _n2.a;
@@ -5575,13 +5575,13 @@ var author$project$Engine$init = F5(
 	function (itemsCharactersLocationsRecord, playerId, llanguages, rules, lprandom_floats) {
 		return {
 			X: llanguages,
-			b2: '',
-			aC: '',
-			aq: _List_Nil,
+			bX: '',
+			aB: '',
+			ap: _List_Nil,
 			A: lprandom_floats,
 			j: author$project$Engine$Manifest$init(itemsCharactersLocationsRecord),
-			aQ: playerId,
-			aS: rules,
+			aM: playerId,
+			aO: rules,
 			ag: elm$core$Maybe$Nothing
 		};
 	});
@@ -5590,7 +5590,7 @@ var author$project$Engine$Manifest$isWritable = F2(
 		return function (mbinteractable) {
 			if ((!mbinteractable.$) && (!mbinteractable.a.$)) {
 				var idata = mbinteractable.a.a;
-				return idata.cw;
+				return idata.co;
 			} else {
 				return false;
 			}
@@ -5614,7 +5614,7 @@ var author$project$Engine$Manifest$writeInteractionIncident = F3(
 	function (incidentType, incidentStr, mbInteractable) {
 		var writeHelper = F3(
 			function (theIncidentType, theIncidentStr, dataRecord) {
-				var descriptionStr = theIncidentStr + ('InteractableId : ' + dataRecord.bb);
+				var descriptionStr = theIncidentStr + ('InteractableId : ' + dataRecord.a6);
 				return (theIncidentType === 'warning') ? _Utils_update(
 					dataRecord,
 					{
@@ -5653,7 +5653,7 @@ var author$project$Engine$Manifest$addLocation = function (mbInteractable) {
 			var ldata = mbInteractable.a.a;
 			var newldata = _Utils_update(
 				ldata,
-				{aT: true});
+				{aP: true});
 			return elm$core$Maybe$Just(
 				author$project$Types$Location(newldata));
 		} else {
@@ -6264,7 +6264,7 @@ var author$project$Engine$Manifest$makeItemUnwritable = function (mbInteractable
 				author$project$Types$Item(
 					_Utils_update(
 						idata,
-						{cw: false})));
+						{co: false})));
 		} else {
 			return A3(author$project$Engine$Manifest$writeInteractionIncident, 'error', 'Trying to use makeItemUnwritable function with an interactable that is not an Item ! ', mbInteractable);
 		}
@@ -6393,7 +6393,7 @@ var author$project$Engine$Manifest$checkAndActIfChosenOptionIs = F5(
 					A2(
 						elm$core$List$filter,
 						function (x) {
-							return choiceComparesEqualToValToMatch(x.bW);
+							return choiceComparesEqualToValToMatch(x.bP);
 						},
 						lcOptionData));
 				var theMbInteractable = function () {
@@ -6410,7 +6410,7 @@ var author$project$Engine$Manifest$checkAndActIfChosenOptionIs = F5(
 							if (!_Utils_eq(mbFindMatched, elm$core$Maybe$Nothing)) {
 								if (!mbFindMatched.$) {
 									var cOptionData = mbFindMatched.a;
-									var theTextDict = A3(author$project$Engine$Manifest$generateFeedbackTextDict, cOptionData.bV, playerChoice, manifest);
+									var theTextDict = A3(author$project$Engine$Manifest$generateFeedbackTextDict, cOptionData.bO, playerChoice, manifest);
 									var otherInterAttribsRelatedCWcmds = A3(
 										elm$core$List$foldl,
 										F2(
@@ -6429,7 +6429,7 @@ var author$project$Engine$Manifest$checkAndActIfChosenOptionIs = F5(
 													y);
 											}),
 										_List_Nil,
-										cOptionData.cF);
+										cOptionData.cx);
 									return function (mbinter) {
 										return _Utils_eq(
 											isResetPossible,
@@ -6446,10 +6446,10 @@ var author$project$Engine$Manifest$checkAndActIfChosenOptionIs = F5(
 												'answerOptionsList',
 												A2(
 													author$project$Engine$Manifest$setNextChangeWorldCommandsToBeExecuted,
-													A2(elm$core$List$append, cOptionData.cC, otherInterAttribsRelatedCWcmds),
+													A2(elm$core$List$append, cOptionData.cu, otherInterAttribsRelatedCWcmds),
 													A2(
 														author$project$Engine$Manifest$createAttributesIfNotExistsAndOrSetValue,
-														cOptionData.aK,
+														cOptionData.aH,
 														A4(
 															author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
 															author$project$Types$ADictStringListString(theTextDict),
@@ -6708,15 +6708,15 @@ var author$project$Engine$Manifest$checkIfAnswerCorrect = F5(
 		if (!mbinteractable.$) {
 			if (!mbinteractable.a.$) {
 				var idata = mbinteractable.a.a;
-				var thesuccessTextDict = A3(author$project$Engine$Manifest$generateFeedbackTextDict, checkAnsData.b0, playerAnswer, manifest);
-				var theInsuccessTextDict = A3(author$project$Engine$Manifest$generateFeedbackTextDict, checkAnsData.cm, playerAnswer, manifest);
+				var thesuccessTextDict = A3(author$project$Engine$Manifest$generateFeedbackTextDict, checkAnsData.bV, playerAnswer, manifest);
+				var theInsuccessTextDict = A3(author$project$Engine$Manifest$generateFeedbackTextDict, checkAnsData.ce, playerAnswer, manifest);
 				var reach_max_nr_tries = '___REACH_MAX_NR_TRIES___';
-				var playerAns = ((checkAnsData.bF === 2) || ((checkAnsData.bF === 3) || (checkAnsData.bF === 4))) ? ('  \n ___YOUR_ANSWER___' + (' ' + playerAnswer)) : '';
+				var playerAns = ((checkAnsData.by === 2) || ((checkAnsData.by === 3) || (checkAnsData.by === 4))) ? ('  \n ___YOUR_ANSWER___' + (' ' + playerAnswer)) : '';
 				var nrTries = A2(
 					elm$core$Maybe$withDefault,
 					0,
 					A2(author$project$Engine$Manifest$getICounterValue, 'nrIncorrectAnswers', mbinteractable));
-				var maxNrTries = A2(elm$core$Maybe$withDefault, -999, checkAnsData.cN);
+				var maxNrTries = A2(elm$core$Maybe$withDefault, -999, checkAnsData.cF);
 				var makeItUnanswarableIfReachedMaxTries = F2(
 					function (maxnr, mbinter) {
 						var nrtries = A2(
@@ -6733,11 +6733,11 @@ var author$project$Engine$Manifest$checkIfAnswerCorrect = F5(
 							(theMax > 0) ? ('  \n' + (' ' + ('___NR_TRIES_LEFT___' + (' ' + elm$core$String$fromInt((theMax - 1) - nrTriesArg))))) : '');
 						return _Utils_ap(
 							playerAns,
-							(checkAnsData.bF === 4) ? ansFeedback : '');
+							(checkAnsData.by === 4) ? ansFeedback : '');
 					});
 				var correct = '  \n ___CORRECT_ANSWER___';
 				var answerFeedback = function (x) {
-					return (checkAnsData.bF === 4) ? x : '';
+					return (checkAnsData.by === 4) ? x : '';
 				}(correct + '  \n');
 				var ansRight = _Utils_ap(playerAns, answerFeedback);
 				var _n1 = function () {
@@ -6764,9 +6764,9 @@ var author$project$Engine$Manifest$checkIfAnswerCorrect = F5(
 				var theMbInteractable = ((maxNrTries > 0) && (_Utils_cmp(nrTries, maxNrTries) > -1)) ? author$project$Engine$Manifest$makeItUnanswerable(mbinteractable) : (((playerAnswer === '') || _Utils_eq(
 					A2(elm$core$Dict$get, 'isCorrectlyAnswered', idata.a),
 					elm$core$Maybe$Just(
-						author$project$Types$Abool(true)))) ? mbinteractable : ((((elm$core$List$length(theCorrectAnswers) > 0) && A4(author$project$Engine$Manifest$comparesEqualToAtLeastOne, playerAnswer, theCorrectAnswers, checkAnsData.bE, checkAnsData.bH)) || bEval) ? A2(
+						author$project$Types$Abool(true)))) ? mbinteractable : ((((elm$core$List$length(theCorrectAnswers) > 0) && A4(author$project$Engine$Manifest$comparesEqualToAtLeastOne, playerAnswer, theCorrectAnswers, checkAnsData.bx, checkAnsData.bA)) || bEval) ? A2(
 					author$project$Engine$Manifest$createAttributesIfNotExistsAndOrSetValue,
-					checkAnsData.aK,
+					checkAnsData.aH,
 					A4(
 						author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
 						author$project$Types$ADictStringListString(thesuccessTextDict),
@@ -6900,7 +6900,7 @@ var author$project$Engine$Manifest$makeItemWritable = function (mbInteractable) 
 				author$project$Types$Item(
 					_Utils_update(
 						idata,
-						{cw: true})));
+						{co: true})));
 		} else {
 			return A3(author$project$Engine$Manifest$writeInteractionIncident, 'error', 'Trying to use makeItemWritable function with an interactable that is not an Item ! ', mbInteractable);
 		}
@@ -7088,7 +7088,7 @@ var author$project$Engine$Manifest$moveCharacterOffScreen = function (mbInteract
 				author$project$Types$Character(
 					_Utils_update(
 						cdata,
-						{aB: author$project$Types$CharacterOffScreen})));
+						{aA: author$project$Types$CharacterOffScreen})));
 		} else {
 			return A3(author$project$Engine$Manifest$writeInteractionIncident, 'error', 'Trying to use moveCharacterOffScreen function with an interactable that is not a Character ! ', mbInteractable);
 		}
@@ -7109,7 +7109,7 @@ var author$project$Engine$Manifest$moveCharacterToLocation = F2(
 						_Utils_update(
 							cdata,
 							{
-								aB: author$project$Types$CharacterInLocation(locationId)
+								aA: author$project$Types$CharacterInLocation(locationId)
 							})));
 			} else {
 				return A3(author$project$Engine$Manifest$writeInteractionIncident, 'error', 'Trying to use moveCharacterToLocation function with an interactable that is not a Character ! ', mbInteractable);
@@ -7126,7 +7126,7 @@ var author$project$Engine$Manifest$moveItemOffScreen = function (mbInteractable)
 				author$project$Types$Item(
 					_Utils_update(
 						idata,
-						{ap: false, n: author$project$Types$ItemOffScreen})));
+						{ao: false, n: author$project$Types$ItemOffScreen})));
 		} else {
 			return A3(author$project$Engine$Manifest$writeInteractionIncident, 'error', 'Trying to use moveItemOffScreen function with an interactable that is not an Item ! ', mbInteractable);
 		}
@@ -7142,7 +7142,7 @@ var author$project$Engine$Manifest$moveItemToCharacterInventory = F3(
 		if (!mbInteractable.$) {
 			if (!mbInteractable.a.$) {
 				var idata = mbInteractable.a.a;
-				if (!idata.ap) {
+				if (!idata.ao) {
 					var _n1 = A2(elm$core$Dict$get, charId, manifest);
 					if (!_n1.$) {
 						var acharacter = _n1.a;
@@ -7179,7 +7179,7 @@ var author$project$Engine$Manifest$moveItemToLocation = F2(
 						_Utils_update(
 							idata,
 							{
-								ap: false,
+								ao: false,
 								n: author$project$Types$ItemInLocation(locationId)
 							})));
 			} else {
@@ -7199,7 +7199,7 @@ var author$project$Engine$Manifest$moveItemToLocationFixed = F2(
 						_Utils_update(
 							idata,
 							{
-								ap: true,
+								ao: true,
 								n: author$project$Types$ItemInLocation(locationId)
 							})));
 			} else {
@@ -7215,7 +7215,7 @@ var author$project$Engine$Manifest$removeLocation = function (mbInteractable) {
 			var ldata = mbInteractable.a.a;
 			var newldata = _Utils_update(
 				ldata,
-				{aT: false});
+				{aP: false});
 			return elm$core$Maybe$Just(
 				author$project$Types$Location(newldata));
 		} else {
@@ -7343,7 +7343,7 @@ var author$project$Engine$Manifest$writeTextToItem = F2(
 		if (!mbinteractable.$) {
 			if (!mbinteractable.a.$) {
 				var idata = mbinteractable.a.a;
-				return idata.cw ? elm$core$Maybe$Just(
+				return idata.co ? elm$core$Maybe$Just(
 					author$project$Types$Item(
 						_Utils_update(
 							idata,
@@ -7552,7 +7552,7 @@ var author$project$Engine$Manifest$update = F2(
 				var interactableId = change.d;
 				return A3(
 					author$project$Engine$Manifest$processCreateOrSetOtherInteractableAttributesIfAnswerCorrect,
-					cAnswerData.cF,
+					cAnswerData.cx,
 					interactableId,
 					A3(
 						author$project$Engine$Manifest$manifestUpdate,
@@ -7743,14 +7743,14 @@ var author$project$Engine$changeWorld = F2(
 						return _Utils_Tuple2(
 							_Utils_update(
 								storyRecord,
-								{b2: location}),
+								{bX: location}),
 							linteractionIncidents);
 					case 29:
 						var sceneName = change.a;
 						return _Utils_Tuple2(
 							_Utils_update(
 								storyRecord,
-								{aC: sceneName}),
+								{aB: sceneName}),
 							linteractionIncidents);
 					case 32:
 						var endingtype = change.a;
@@ -7810,7 +7810,7 @@ var author$project$Engine$changeWorld = F2(
 	});
 var author$project$Types$CheckAnswerData = F8(
 	function (mbMaxNrTries, answerCase, answerSpaces, answerFeedback, correctAnsTextDict, incorrectAnsTextDict, lnewAttrs, lotherInterAttrs) {
-		return {bE: answerCase, bF: answerFeedback, bH: answerSpaces, b0: correctAnsTextDict, cm: incorrectAnsTextDict, aK: lnewAttrs, cF: lotherInterAttrs, cN: mbMaxNrTries};
+		return {bx: answerCase, by: answerFeedback, bA: answerSpaces, bV: correctAnsTextDict, ce: incorrectAnsTextDict, aH: lnewAttrs, cx: lotherInterAttrs, cF: mbMaxNrTries};
 	});
 var author$project$Types$CheckIfAnswerCorrect = F4(
 	function (a, b, c, d) {
@@ -7851,40 +7851,40 @@ var author$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 				var answerinfo = bkendAnsStatus.a;
 				var checkAnswerDataRec = A8(
 					author$project$Types$CheckAnswerData,
-					cAnswerData.cN,
+					cAnswerData.cF,
 					1,
 					1,
-					cAnswerData.bF,
+					cAnswerData.by,
 					elm$core$Dict$fromList(
 						A2(
 							elm$core$List$map,
 							function (x) {
 								return _Utils_Tuple2(
-									x.aJ,
+									x.aG,
 									author$project$Types$SimpleText(
 										_List_fromArray(
-											[x.aX])));
+											[x.aT])));
 							},
-							answerinfo.dt)),
+							answerinfo.dd)),
 					elm$core$Dict$fromList(
 						A2(
 							elm$core$List$map,
 							function (x) {
 								return _Utils_Tuple2(
-									x.aJ,
+									x.aG,
 									author$project$Types$SimpleText(
 										_List_fromArray(
-											[x.aX])));
+											[x.aT])));
 							},
-							answerinfo.cs)),
-					cAnswerData.aK,
-					cAnswerData.cF);
+							answerinfo.ck)),
+					cAnswerData.aH,
+					cAnswerData.cx);
 				var newCheckAnswerDataIfInsuccess = checkAnswerDataRec;
 				var newCheckAnswerDataIfSuccess = _Utils_update(
 					checkAnswerDataRec,
 					{
-						aK: _Utils_ap(
-							cAnswerData.aK,
+						aH: _Utils_ap(
+							cAnswerData.aH,
 							_List_fromArray(
 								[
 									_Utils_Tuple2(
@@ -7895,14 +7895,14 @@ var author$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 												elm$core$List$map,
 												function (x) {
 													return _Utils_Tuple2(
-														x.aJ,
+														x.aG,
 														_List_fromArray(
-															[x.aX]));
+															[x.aT]));
 												},
-												answerinfo.dg))))
+												answerinfo.c1))))
 								]))
 					});
-				return answerinfo.cI ? A2(author$project$Types$WriteTextToItem, '  \n' + (' ' + (' ___MAX_TRIES_ON_BACKEND___ ' + (' ,  ' + ('  \n , ' + (' ___YOUR_ANSWER___ ' + (' ' + answerinfo.ac)))))), interactableId) : ((answerinfo.a_ && answerinfo.b1) ? A4(
+				return answerinfo.cA ? A2(author$project$Types$WriteTextToItem, '  \n' + (' ' + (' ___MAX_TRIES_ON_BACKEND___ ' + (' ,  ' + ('  \n , ' + (' ___YOUR_ANSWER___ ' + (' ' + answerinfo.ac)))))), interactableId) : ((answerinfo.aV && answerinfo.bW) ? A4(
 					author$project$Types$CheckIfAnswerCorrect,
 					A2(
 						author$project$Types$ListOfAnswersAndFunctions,
@@ -7911,7 +7911,7 @@ var author$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 						_List_Nil),
 					answerinfo.ac,
 					newCheckAnswerDataIfSuccess,
-					interactableId) : ((answerinfo.a_ && answerinfo.cn) ? A4(
+					interactableId) : ((answerinfo.aV && answerinfo.cf) ? A4(
 					author$project$Types$CheckIfAnswerCorrect,
 					A2(
 						author$project$Types$ListOfAnswersAndFunctions,
@@ -7933,7 +7933,7 @@ var author$project$Engine$replaceBkendQuasiCwCmdsWithCwcommands = F2(
 			var strUrl = quasiBkendCwCommand.a;
 			var cAnswerData = quasiBkendCwCommand.b;
 			var interactableId = quasiBkendCwCommand.c;
-			return A4(author$project$Engine$replaceCheckIfAnswerCorrectUsingBackend, extraInfo.aA, strUrl, cAnswerData, interactableId);
+			return A4(author$project$Engine$replaceCheckIfAnswerCorrectUsingBackend, extraInfo.az, strUrl, cAnswerData, interactableId);
 		}
 	});
 var elm$core$Maybe$map = F2(
@@ -7949,17 +7949,17 @@ var elm$core$Maybe$map = F2(
 var author$project$Engine$completeTheUpdate = F3(
 	function (interactableId, extraInfoWithPendingChanges, model) {
 		var story = model;
-		var extraInfo = extraInfoWithPendingChanges.cu;
+		var extraInfo = extraInfoWithPendingChanges.cm;
 		var mbChangeFromQuasi = A2(
 			elm$core$Maybe$map,
 			author$project$Engine$replaceBkendQuasiCwCmdsWithCwcommands(extraInfo),
-			extraInfoWithPendingChanges.cO);
+			extraInfoWithPendingChanges.cG);
 		var allChanges = function () {
 			if (mbChangeFromQuasi.$ === 1) {
-				return extraInfoWithPendingChanges.bk;
+				return extraInfoWithPendingChanges.bf;
 			} else {
 				var chg = mbChangeFromQuasi.a;
-				return A2(elm$core$List$cons, chg, extraInfoWithPendingChanges.bk);
+				return A2(elm$core$List$cons, chg, extraInfoWithPendingChanges.bf);
 			}
 		}();
 		var addHistory = function (_n1) {
@@ -7967,8 +7967,8 @@ var author$project$Engine$completeTheUpdate = F3(
 			return _Utils_update(
 				storyrec,
 				{
-					aq: _Utils_ap(
-						storyrec.aq,
+					ap: _Utils_ap(
+						storyrec.ap,
 						_List_fromArray(
 							[
 								_Utils_Tuple2(interactableId, extraInfo)
@@ -8205,23 +8205,23 @@ var author$project$Engine$replaceQuasiCwCmdsWithCwcommands = F3(
 				var cAnswerData = quasiCwCommand.b;
 				var interactableId = quasiCwCommand.c;
 				return _Utils_Tuple2(
-					A4(author$project$Engine$replaceCheckIfAnswerCorrect, extraInfo.aw, theCorrectAnswers, cAnswerData, interactableId),
+					A4(author$project$Engine$replaceCheckIfAnswerCorrect, extraInfo.av, theCorrectAnswers, cAnswerData, interactableId),
 					lfloats);
 			case 2:
 				var lcOptionData = quasiCwCommand.a;
 				var itemid = quasiCwCommand.b;
 				return _Utils_Tuple2(
-					A3(author$project$Engine$replaceCheckAndActIfChosenOptionIs, extraInfo.aw, lcOptionData, itemid),
+					A3(author$project$Engine$replaceCheckAndActIfChosenOptionIs, extraInfo.av, lcOptionData, itemid),
 					lfloats);
 			case 4:
 				var interactableId = quasiCwCommand.a;
 				return _Utils_Tuple2(
-					A2(author$project$Engine$replaceWriteInputTextToItem, extraInfo.aw, interactableId),
+					A2(author$project$Engine$replaceWriteInputTextToItem, extraInfo.av, interactableId),
 					lfloats);
 			case 3:
 				var interactableId = quasiCwCommand.a;
 				return _Utils_Tuple2(
-					A2(author$project$Engine$replaceWriteGpsInfoToItem, extraInfo.ch, interactableId),
+					A2(author$project$Engine$replaceWriteGpsInfoToItem, extraInfo.b9, interactableId),
 					lfloats);
 			case 5:
 				var func = quasiCwCommand.a;
@@ -8299,7 +8299,7 @@ var author$project$Engine$Manifest$getCharactersInLocation = F2(
 				var interactable = _n2.b;
 				if (interactable.$ === 2) {
 					var cdata = interactable.a;
-					var _n1 = cdata.aB;
+					var _n1 = cdata.aA;
 					if (!_n1.$) {
 						var alocation = _n1.a;
 						return _Utils_eq(alocation, locId) ? elm$core$Maybe$Just(id) : elm$core$Maybe$Nothing;
@@ -8551,9 +8551,9 @@ var author$project$Engine$Manifest$itemIsOffScreen = F2(
 	});
 var author$project$Engine$Rules$matchesCondition = F3(
 	function (_n0, mbInputText, condition) {
-		var history = _n0.aq;
-		var currentLocation = _n0.b2;
-		var currentScene = _n0.aC;
+		var history = _n0.ap;
+		var currentLocation = _n0.bX;
+		var currentScene = _n0.aB;
 		var manifest = _n0.j;
 		switch (condition.$) {
 			case 0:
@@ -8696,14 +8696,14 @@ var elm$core$List$all = F2(
 	});
 var author$project$Engine$Rules$matchesRule = F4(
 	function (story, mbInputText, interaction, rule) {
-		var currentLocation = story.b2;
-		var currentScene = story.aC;
+		var currentLocation = story.bX;
+		var currentScene = story.aB;
 		var manifest = story.j;
-		var history = story.aq;
-		return A3(author$project$Engine$Rules$matchesInteraction, manifest, rule.ct, interaction) && A2(
+		var history = story.ap;
+		return A3(author$project$Engine$Rules$matchesInteraction, manifest, rule.cl, interaction) && A2(
 			elm$core$List$all,
 			A2(author$project$Engine$Rules$matchesCondition, story, mbInputText),
-			rule.bY);
+			rule.bR);
 	});
 var elm$core$Basics$composeR = F3(
 	function (f, g, x) {
@@ -8713,7 +8713,7 @@ var elm$core$Basics$composeR = F3(
 var author$project$Engine$Rules$numConstrictionsWeight = A2(
 	elm$core$Basics$composeR,
 	function ($) {
-		return $.bY;
+		return $.bR;
 	},
 	elm$core$List$length);
 var author$project$Engine$Rules$sceneConstraintWeight = function (rule) {
@@ -8724,10 +8724,10 @@ var author$project$Engine$Rules$sceneConstraintWeight = function (rule) {
 			return false;
 		}
 	};
-	return A2(elm$core$List$any, hasSceneConstraints, rule.bY) ? 300 : 0;
+	return A2(elm$core$List$any, hasSceneConstraints, rule.bR) ? 300 : 0;
 };
 var author$project$Engine$Rules$specificityWeight = function (rule) {
-	var _n0 = rule.ct;
+	var _n0 = rule.cl;
 	switch (_n0.$) {
 		case 7:
 			return 200;
@@ -8755,15 +8755,15 @@ var author$project$Engine$Rules$findMatchingRule = F3(
 		return A2(
 			elm$core$Maybe$map,
 			function (_n1) {
-				var id = _n1.a9;
-				var interaction = _n1.ct;
-				var conditions = _n1.bY;
-				var changes = _n1.bS;
-				var quasiChanges = _n1.c6;
-				var quasiChangeWithBkend = _n1.c5;
+				var id = _n1.a4;
+				var interaction = _n1.cl;
+				var conditions = _n1.bR;
+				var changes = _n1.bL;
+				var quasiChanges = _n1.cX;
+				var quasiChangeWithBkend = _n1.cW;
 				return _Utils_Tuple2(
 					id,
-					{bS: changes, bY: conditions, ct: interaction, c5: quasiChangeWithBkend, c6: quasiChanges});
+					{bL: changes, bR: conditions, cl: interaction, cW: quasiChangeWithBkend, cX: quasiChanges});
 			},
 			A2(
 				author$project$Engine$Rules$bestMatch,
@@ -8772,12 +8772,12 @@ var author$project$Engine$Rules$findMatchingRule = F3(
 					elm$core$List$map,
 					function (_n0) {
 						var id = _n0.a;
-						var interaction = _n0.b.ct;
-						var conditions = _n0.b.bY;
-						var changes = _n0.b.bS;
-						var quasiChanges = _n0.b.c6;
-						var quasiChangeWithBkend = _n0.b.c5;
-						return {bS: changes, bY: conditions, a9: id, ct: interaction, c5: quasiChangeWithBkend, c6: quasiChanges};
+						var interaction = _n0.b.cl;
+						var conditions = _n0.b.bR;
+						var changes = _n0.b.bL;
+						var quasiChanges = _n0.b.cX;
+						var quasiChangeWithBkend = _n0.b.cW;
+						return {bL: changes, bR: conditions, a4: id, cl: interaction, cW: quasiChangeWithBkend, cX: quasiChanges};
 					},
 					A2(
 						elm$core$List$filter,
@@ -8785,11 +8785,11 @@ var author$project$Engine$Rules$findMatchingRule = F3(
 							elm$core$Basics$composeR,
 							elm$core$Tuple$second,
 							A3(author$project$Engine$Rules$matchesRule, story, mbInputText, interactionStr)),
-						elm$core$Dict$toList(story.aS)))));
+						elm$core$Dict$toList(story.aO)))));
 	});
 var author$project$Types$ExtraInfoWithPendingChanges = F3(
 	function (interactionExtraInfo, pendingChanges, mbQuasiCwCmdWithBk) {
-		return {cu: interactionExtraInfo, cO: mbQuasiCwCmdWithBk, bk: pendingChanges};
+		return {cm: interactionExtraInfo, cG: mbQuasiCwCmdWithBk, bf: pendingChanges};
 	});
 var author$project$Types$MoveItemToCharacterInventory = F2(
 	function (a, b) {
@@ -8804,9 +8804,9 @@ var author$project$Engine$preUpdate = F3(
 	function (interactableId, extraInfo, model) {
 		var story = model;
 		var matchingRule = function () {
-			var _n3 = extraInfo.cM;
+			var _n3 = extraInfo.cE;
 			if (_n3.$ === 1) {
-				return A3(author$project$Engine$Rules$findMatchingRule, story, extraInfo.aw, interactableId);
+				return A3(author$project$Engine$Rules$findMatchingRule, story, extraInfo.av, interactableId);
 			} else {
 				var matchedRuleId = _n3.a;
 				return A2(
@@ -8814,7 +8814,7 @@ var author$project$Engine$preUpdate = F3(
 					function (x) {
 						return _Utils_Tuple2(matchedRuleId, x);
 					},
-					A2(elm$core$Dict$get, matchedRuleId, story.aS));
+					A2(elm$core$Dict$get, matchedRuleId, story.aO));
 			}
 		}();
 		var mbQuasiCwCmdWithBk = A2(
@@ -8823,13 +8823,13 @@ var author$project$Engine$preUpdate = F3(
 				elm$core$Basics$composeR,
 				elm$core$Tuple$second,
 				function ($) {
-					return $.c5;
+					return $.cW;
 				}),
 			matchingRule);
 		var newExtraInfo = _Utils_update(
 			extraInfo,
 			{
-				cM: A2(elm$core$Maybe$map, elm$core$Tuple$first, matchingRule)
+				cE: A2(elm$core$Maybe$map, elm$core$Tuple$first, matchingRule)
 			});
 		var lquasicwcmds = A2(
 			elm$core$Maybe$withDefault,
@@ -8840,7 +8840,7 @@ var author$project$Engine$preUpdate = F3(
 					elm$core$Basics$composeR,
 					elm$core$Tuple$second,
 					function ($) {
-						return $.c6;
+						return $.cX;
 					}),
 				matchingRule));
 		var infoNeeded = function () {
@@ -8856,7 +8856,7 @@ var author$project$Engine$preUpdate = F3(
 				author$project$Types$MoveTo(interactableId)
 			]) : (A2(author$project$Engine$Manifest$isItem, interactableId, story.j) ? _List_fromArray(
 			[
-				A2(author$project$Types$MoveItemToCharacterInventory, story.aQ, interactableId)
+				A2(author$project$Types$MoveItemToCharacterInventory, story.aM, interactableId)
 			]) : _List_Nil);
 		var somechanges = A2(
 			elm$core$Maybe$withDefault,
@@ -8867,7 +8867,7 @@ var author$project$Engine$preUpdate = F3(
 					elm$core$Basics$composeR,
 					elm$core$Tuple$second,
 					function ($) {
-						return $.bS;
+						return $.bL;
 					}),
 				matchingRule));
 		var _n0 = A3(
@@ -8897,10 +8897,10 @@ var author$project$Engine$preUpdate = F3(
 		var newModel = _Utils_update(
 			story,
 			{A: newLfloats});
-		return ((!_Utils_eq(infoNeeded, author$project$Types$NoInfoNeeded)) && (_Utils_eq(extraInfo.aA, author$project$Types$NoInfoYet) && ((!_Utils_eq(extraInfo.bf, elm$core$Maybe$Nothing)) && (!_Utils_eq(
-			extraInfo.bf,
+		return ((!_Utils_eq(infoNeeded, author$project$Types$NoInfoNeeded)) && (_Utils_eq(extraInfo.az, author$project$Types$NoInfoYet) && ((!_Utils_eq(extraInfo.ba, elm$core$Maybe$Nothing)) && (!_Utils_eq(
+			extraInfo.ba,
 			elm$core$Maybe$Just('')))))) ? author$project$Engine$EnginePreResponse(
-			_Utils_Tuple3(newModel, extraInfoWithPendingChanges, infoNeeded)) : (((!_Utils_eq(infoNeeded, author$project$Types$NoInfoNeeded)) && _Utils_eq(extraInfo.aA, author$project$Types$WaitingForInfoRequested)) ? author$project$Engine$EnginePreResponse(
+			_Utils_Tuple3(newModel, extraInfoWithPendingChanges, infoNeeded)) : (((!_Utils_eq(infoNeeded, author$project$Types$NoInfoNeeded)) && _Utils_eq(extraInfo.az, author$project$Types$WaitingForInfoRequested)) ? author$project$Engine$EnginePreResponse(
 			_Utils_Tuple3(
 				newModel,
 				A3(author$project$Types$ExtraInfoWithPendingChanges, extraInfo, _List_Nil, elm$core$Maybe$Nothing),
@@ -8922,7 +8922,7 @@ var author$project$Engine$update = F2(
 	});
 var author$project$GpsUtils$GeolocationInfo = F2(
 	function (latitude, longitude) {
-		return {at: latitude, av: longitude};
+		return {as: latitude, au: longitude};
 	});
 var author$project$GpsUtils$checkIfInDistance = F3(
 	function (mbGpsZone, theDistance, defaultDistance) {
@@ -8930,7 +8930,7 @@ var author$project$GpsUtils$checkIfInDistance = F3(
 			return true;
 		} else {
 			var gpszone = mbGpsZone.a;
-			var _n1 = gpszone.cP;
+			var _n1 = gpszone.cH;
 			if (!_n1.$) {
 				var radius = _n1.a;
 				return (_Utils_cmp(theDistance, radius) < 1) ? true : false;
@@ -9030,12 +9030,12 @@ var author$project$GpsUtils$getDistance = F2(
 			return 0.0;
 		} else {
 			var gpszone = mbGpsZone.a;
-			var _n1 = gpszone.cW;
+			var _n1 = gpszone.cO;
 			if (_n1) {
 				return A2(
 					author$project$GpsUtils$haversineInMeters,
-					_Utils_Tuple2(location.at, location.av),
-					_Utils_Tuple2(gpszone.cA, gpszone.cE));
+					_Utils_Tuple2(location.as, location.au),
+					_Utils_Tuple2(gpszone.cs, gpszone.cw));
 			} else {
 				return 0.0;
 			}
@@ -9048,7 +9048,7 @@ var author$project$GpsUtils$getDistanceTo = F2(
 		var lon = _n0.c;
 		var theDistance = A2(
 			author$project$GpsUtils$haversineInMeters,
-			_Utils_Tuple2(location.at, location.av),
+			_Utils_Tuple2(location.as, location.au),
 			_Utils_Tuple2(lat, lon));
 		return _Utils_Tuple2(name, theDistance);
 	});
@@ -9082,7 +9082,7 @@ var author$project$GpsUtils$getMbGpsZoneLatLon = function (mbGpsZone) {
 	if (!mbGpsZone.$) {
 		var gpszone = mbGpsZone.a;
 		return elm$core$Maybe$Just(
-			_Utils_Tuple2(gpszone.cA, gpszone.cE));
+			_Utils_Tuple2(gpszone.cs, gpszone.cw));
 	} else {
 		return elm$core$Maybe$Nothing;
 	}
@@ -9461,7 +9461,7 @@ var author$project$Leaflet$Ports$filterMarkersCmdPort = _Platform_outgoingPort(
 									elm$json$Json$Encode$float(a),
 									elm$json$Json$Encode$float(b)
 								]));
-					}($.c4)),
+					}($.cV)),
 					_Utils_Tuple2(
 					'stageMarkerInfo',
 					elm$json$Json$Encode$list(
@@ -9482,15 +9482,15 @@ var author$project$Leaflet$Ports$filterMarkersCmdPort = _Platform_outgoingPort(
 														elm$json$Json$Encode$float(a),
 														elm$json$Json$Encode$float(b)
 													]));
-										}($.b$)),
+										}($.bU)),
 										_Utils_Tuple2(
 										'marker_type',
-										elm$json$Json$Encode$string($.cG)),
+										elm$json$Json$Encode$string($.cy)),
 										_Utils_Tuple2(
 										'stageName',
-										elm$json$Json$Encode$string($.dn))
+										elm$json$Json$Encode$string($.c8))
 									]));
-						})($.dm))
+						})($.c7))
 				]));
 	});
 var elm$json$Json$Encode$bool = _Json_wrap;
@@ -9525,7 +9525,7 @@ var author$project$Leaflet$Ports$setView = _Platform_outgoingPort(
 							[
 								_Utils_Tuple2(
 								'animate',
-								elm$json$Json$Encode$bool($.az)),
+								elm$json$Json$Encode$bool($.ay)),
 								_Utils_Tuple2(
 								'pan',
 								function ($) {
@@ -9534,21 +9534,21 @@ var author$project$Leaflet$Ports$setView = _Platform_outgoingPort(
 											[
 												_Utils_Tuple2(
 												'animate',
-												elm$json$Json$Encode$bool($.az)),
+												elm$json$Json$Encode$bool($.ay)),
 												_Utils_Tuple2(
 												'duration',
-												elm$json$Json$Encode$float($.b7)),
+												elm$json$Json$Encode$float($.b$)),
 												_Utils_Tuple2(
 												'easeLinearity',
-												elm$json$Json$Encode$float($.b8)),
+												elm$json$Json$Encode$float($.b0)),
 												_Utils_Tuple2(
 												'noMoveStart',
-												elm$json$Json$Encode$bool($.cX))
+												elm$json$Json$Encode$bool($.cP))
 											]));
-								}($.c3)),
+								}($.cU)),
 								_Utils_Tuple2(
 								'reset',
-								elm$json$Json$Encode$bool($.db)),
+								elm$json$Json$Encode$bool($.cZ)),
 								_Utils_Tuple2(
 								'zoom',
 								function ($) {
@@ -9557,16 +9557,16 @@ var author$project$Leaflet$Ports$setView = _Platform_outgoingPort(
 											[
 												_Utils_Tuple2(
 												'animate',
-												elm$json$Json$Encode$bool($.az))
+												elm$json$Json$Encode$bool($.ay))
 											]));
-								}($.dG))
+								}($.dq))
 							]));
 				}(c)
 				]));
 	});
-var author$project$Leaflet$Types$defaultPanOptions = {az: true, b7: 0.25, b8: 0.25, cX: false};
-var author$project$Leaflet$Types$defaultZoomOptions = {az: true};
-var author$project$Leaflet$Types$defaultZoomPanOptions = {az: true, c3: author$project$Leaflet$Types$defaultPanOptions, db: false, dG: author$project$Leaflet$Types$defaultZoomOptions};
+var author$project$Leaflet$Types$defaultPanOptions = {ay: true, b$: 0.25, b0: 0.25, cP: false};
+var author$project$Leaflet$Types$defaultZoomOptions = {ay: true};
+var author$project$Leaflet$Types$defaultZoomPanOptions = {ay: true, cU: author$project$Leaflet$Types$defaultPanOptions, cZ: false, dq: author$project$Leaflet$Types$defaultZoomOptions};
 var author$project$Main$Flags = F2(
 	function (baseImgUrl, baseSoundUrl) {
 		return {q: baseImgUrl, y: baseSoundUrl};
@@ -9742,22 +9742,22 @@ var author$project$Main$helperEmptyStringToNothing = function (theStr) {
 var author$project$Types$CommunicationFailure = {$: 3};
 var author$project$Types$InteractionExtraInfo = F6(
 	function (mbInputText, mbInputTextForBackend, geolocationInfoText, currentLocation, bkAnsStatus, mbMatchedRuleId) {
-		return {aA: bkAnsStatus, b2: currentLocation, ch: geolocationInfoText, aw: mbInputText, bf: mbInputTextForBackend, cM: mbMatchedRuleId};
+		return {az: bkAnsStatus, bX: currentLocation, b9: geolocationInfoText, av: mbInputText, ba: mbInputTextForBackend, cE: mbMatchedRuleId};
 	});
 var author$project$Main$convertToListIdExtraInfo = function (lobjs) {
 	return A2(
 		elm$core$List$map,
 		function (x) {
 			return _Utils_Tuple2(
-				x.bb,
+				x.a6,
 				A6(
 					author$project$Types$InteractionExtraInfo,
-					author$project$Main$helperEmptyStringToNothing(x.cq),
-					author$project$Main$helperEmptyStringToNothing(x.cr),
-					x.ch,
-					x.b2,
+					author$project$Main$helperEmptyStringToNothing(x.ci),
+					author$project$Main$helperEmptyStringToNothing(x.cj),
+					x.b9,
+					x.bX,
 					author$project$Types$CommunicationFailure,
-					author$project$Main$helperEmptyStringToNothing(x.cM)));
+					author$project$Main$helperEmptyStringToNothing(x.cE)));
 		},
 		lobjs);
 };
@@ -9782,7 +9782,7 @@ var author$project$ClientTypes$AnswerChecked = F3(
 	function (a, b, c) {
 		return {$: 6, a: a, b: b, c: c};
 	});
-var author$project$InfoForBkendApiRequests$getApiKey = 'some-api-key';
+var author$project$InfoForBkendApiRequests$getApiKey = 'RFV762GI39cd395a-689e-4e1f-9f37-c6845ba65a9eO4qh4234cv56';
 var elm$json$Json$Decode$map2 = _Json_map2;
 var NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$custom = elm$json$Json$Decode$map2(elm$core$Basics$apR);
 var elm$json$Json$Decode$succeed = _Json_succeed;
@@ -9797,7 +9797,7 @@ var NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required = F3(
 	});
 var author$project$Main$LgTxt = F2(
 	function (lgId, text) {
-		return {aJ: lgId, aX: text};
+		return {aG: lgId, aT: text};
 	});
 var elm$json$Json$Decode$string = _Json_decodeString;
 var author$project$Main$textInLanguagesDecoder = A3(
@@ -9815,7 +9815,7 @@ var author$project$Types$AnswerInfo = function (maxTriesReached) {
 							return function (secretTextList) {
 								return function (successTextList) {
 									return function (insuccessTextList) {
-										return {a_: answered, b1: correctAnswer, cn: incorrectAnswer, cs: insuccessTextList, bb: interactableId, cI: maxTriesReached, ac: playerAnswer, c8: questionBody, dg: secretTextList, dt: successTextList};
+										return {aV: answered, bW: correctAnswer, cf: incorrectAnswer, ck: insuccessTextList, a6: interactableId, cA: maxTriesReached, ac: playerAnswer, cY: questionBody, c1: secretTextList, dd: successTextList};
 									};
 								};
 							};
@@ -9885,13 +9885,13 @@ var author$project$Main$playerAnswerEncoder = F2(
 	});
 var author$project$TypesUpdateHelper$updateNestedMbInputTextBk = F2(
 	function (extraInfoWithPendingChanges, mbInputTextForBackend) {
-		var interactionExtraInfo_ = extraInfoWithPendingChanges.cu;
+		var interactionExtraInfo_ = extraInfoWithPendingChanges.cm;
 		var newinteractionExtraInfo = _Utils_update(
 			interactionExtraInfo_,
-			{bf: mbInputTextForBackend});
+			{ba: mbInputTextForBackend});
 		var newExtraInfoWithPendingChanges = _Utils_update(
 			extraInfoWithPendingChanges,
-			{cu: newinteractionExtraInfo});
+			{cm: newinteractionExtraInfo});
 		return newExtraInfoWithPendingChanges;
 	});
 var elm$core$Maybe$isJust = function (maybe) {
@@ -9939,7 +9939,7 @@ var elm$json$Json$Decode$decodeString = _Json_runOnString;
 var elm$http$Http$expectJson = function (decoder) {
 	return elm$http$Http$expectStringResponse(
 		function (response) {
-			var _n0 = A2(elm$json$Json$Decode$decodeString, decoder, response.bM);
+			var _n0 = A2(elm$json$Json$Decode$decodeString, decoder, response.bF);
 			if (_n0.$ === 1) {
 				var decodeError = _n0.a;
 				return elm$core$Result$Err(
@@ -10069,24 +10069,24 @@ var author$project$Main$getBackendAnswerInfo = F3(
 		var apiKey = author$project$InfoForBkendApiRequests$getApiKey;
 		var request = elm$http$Http$request(
 			{
-				bM: elm$http$Http$jsonBody(
+				bF: elm$http$Http$jsonBody(
 					A2(
 						author$project$Main$playerAnswerEncoder,
 						interactableId,
-						A2(elm$core$Maybe$withDefault, '', extraInfoWithPendingChanges.cu.bf))),
-				cd: elm$http$Http$expectJson(
+						A2(elm$core$Maybe$withDefault, '', extraInfoWithPendingChanges.cm.ba))),
+				b5: elm$http$Http$expectJson(
 					A2(
 						author$project$Main$backendAnswerDecoder,
 						interactableId,
-						A2(elm$core$Maybe$withDefault, '', extraInfoWithPendingChanges.cu.bf))),
-				cj: _List_fromArray(
+						A2(elm$core$Maybe$withDefault, '', extraInfoWithPendingChanges.cm.ba))),
+				cb: _List_fromArray(
 					[
 						A2(elm$http$Http$header, 'x-api-key', apiKey)
 					]),
-				cT: 'POST',
-				dx: elm$core$Maybe$Nothing,
-				dC: strUrl,
-				dE: false
+				cL: 'POST',
+				dh: elm$core$Maybe$Nothing,
+				dm: strUrl,
+				$7: false
 			});
 		return A2(
 			elm$http$Http$send,
@@ -10099,7 +10099,7 @@ var author$project$GpsUtils$getCurrentGeoLocationAsText = function (mbGeolocatio
 	} else {
 		var gInfo = mbGeolocationInfo.a;
 		return author$project$GpsUtils$convertDecimalTupleToGps(
-			_Utils_Tuple2(gInfo.at, gInfo.av));
+			_Utils_Tuple2(gInfo.as, gInfo.au));
 	}
 };
 var author$project$GpsUtils$getTextDistancesFromListDistances = F2(
@@ -10188,970 +10188,137 @@ var author$project$Engine$setRandomFloatElems = F2(
 			{A: lfloats});
 		return newStory;
 	});
+var author$project$Engine$abool = author$project$Types$Abool;
+var author$project$Types$CreateAMultiChoice = F2(
+	function (a, b) {
+		return {$: 21, a: a, b: b};
+	});
+var author$project$Engine$createAmultiChoice = author$project$Types$CreateAMultiChoice;
+var author$project$Types$CreateAttributeIfNotExists = F4(
+	function (a, b, c, d) {
+		return {$: 17, a: a, b: b, c: c, d: d};
+	});
+var author$project$Engine$createAttributeIfNotExists = F3(
+	function (val, attrId, interactableId) {
+		return A4(author$project$Types$CreateAttributeIfNotExists, val, attrId, elm$core$Maybe$Nothing, interactableId);
+	});
+var author$project$Types$CreateCounterIfNotExists = F2(
+	function (a, b) {
+		return {$: 16, a: a, b: b};
+	});
+var author$project$Engine$createCounterIfNotExists = author$project$Types$CreateCounterIfNotExists;
+var author$project$Types$MakeItemWritable = function (a) {
+	return {$: 8, a: a};
+};
+var author$project$Engine$makeItemWritable = author$project$Types$MakeItemWritable;
 var author$project$Types$MoveCharacterToLocation = F2(
 	function (a, b) {
 		return {$: 27, a: a, b: b};
 	});
 var author$project$Engine$moveCharacterToLocation = author$project$Types$MoveCharacterToLocation;
-var author$project$Engine$moveItemToCharacterInventory = author$project$Types$MoveItemToCharacterInventory;
+var author$project$Types$MoveItemToLocation = F2(
+	function (a, b) {
+		return {$: 6, a: a, b: b};
+	});
+var author$project$Engine$moveItemToLocation = author$project$Types$MoveItemToLocation;
 var author$project$Types$MoveItemToLocationFixed = F2(
 	function (a, b) {
 		return {$: 5, a: a, b: b};
 	});
 var author$project$Engine$moveItemToLocationFixed = author$project$Types$MoveItemToLocationFixed;
 var author$project$Engine$moveTo = author$project$Types$MoveTo;
-var author$project$OurStory$NarrativeDataStructures$numberOfDesiredStages = 10;
-var author$project$OurStory$NarrativeDSFuncs$getNumberOfDesiredStages = author$project$OurStory$NarrativeDataStructures$numberOfDesiredStages;
-var author$project$Types$CreateAMultiChoice = F2(
-	function (a, b) {
-		return {$: 21, a: a, b: b};
-	});
-var author$project$Engine$createAmultiChoice = author$project$Types$CreateAMultiChoice;
-var author$project$Types$MakeItemUnwritable = function (a) {
-	return {$: 9, a: a};
-};
-var author$project$Engine$makeItemUnwritable = author$project$Types$MakeItemUnwritable;
-var author$project$Types$NoFeedbackText = {$: 0};
-var author$project$OurStory$NarrativeDataStructures$theQuestionsDict = elm$core$Dict$fromList(
-	_List_fromArray(
-		[
-			_Utils_Tuple2(
-			_Utils_Tuple2(101, 'pt'),
-			{
-				bA: author$project$Types$SimpleText(
-					_List_fromArray(
-						['Muito Bem ! A entrada do parque das merendas fica de facto ao lado da entrada para Vila Sassetti !\n              '])),
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_Nil,
-				c7: _List_fromArray(
-					['Parque das Merendas', 'Merendas']),
-				c8: 'Próximo da entrada da Vila Sassetti está também a entrada para um outro Parque. De que parque se trata ?',
-				c9: 'questão 1'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(101, 'en'),
-			{
-				bA: author$project$Types$SimpleText(
-					_List_fromArray(
-						['Well Done ! The entrance to Parque das Merendas is located right next to the entrance to Vila Sassetti !\n              '])),
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_Nil,
-				c7: _List_Nil,
-				c8: 'Near the entrance of Vila Sassetti is also the entrance to another Park . What\'s that Park ? ',
-				c9: 'question 1'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(201, 'pt'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$SimpleText(
-					_List_fromArray(
-						['Vá lá ... Não é uma pergunta difícil ! '])),
-				am: _List_fromArray(
-					[
-						_Utils_Tuple2('18', 'Dezoito (18)'),
-						_Utils_Tuple2('19', 'Dezanove (19)'),
-						_Utils_Tuple2('20', 'Vinte (20)'),
-						_Utils_Tuple2('21', 'Vinte e um (21)'),
-						_Utils_Tuple2('22', 'Vinte e dois (22)'),
-						_Utils_Tuple2('23', 'Vinte e três (23)')
-					]),
-				c7: _List_fromArray(
-					['21', 'vinte e um']),
-				c8: 'quantos azulejos observas no maior banco  ?',
-				c9: 'questão 2'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(201, 'en'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$SimpleText(
-					_List_fromArray(
-						['Come on ... That\'s is not a tough question ! '])),
-				am: _List_fromArray(
-					[
-						_Utils_Tuple2('18', 'Eighteen (18)'),
-						_Utils_Tuple2('19', 'Nineteen (19)'),
-						_Utils_Tuple2('20', 'Twenty (20)'),
-						_Utils_Tuple2('21', 'Twenty One (21)'),
-						_Utils_Tuple2('22', 'Twenty Two (22)'),
-						_Utils_Tuple2('23', 'Twenty Three (23)'),
-						_Utils_Tuple2('24', 'Twenty Four (24)'),
-						_Utils_Tuple2('25', 'Twenty Five (25)')
-					]),
-				c7: _List_fromArray(
-					['twenty one']),
-				c8: 'How many tiles do you see on the biggest seat  ?',
-				c9: 'question 2'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(202, 'pt'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$SimpleText(
-					_List_fromArray(
-						['Vá lá ... Não é uma pergunta difícil ! '])),
-				am: _List_fromArray(
-					[
-						_Utils_Tuple2('2', 'Dois (2)'),
-						_Utils_Tuple2('3', 'Três (3)'),
-						_Utils_Tuple2('4', 'Quatro (4)'),
-						_Utils_Tuple2('5', 'Cinco (5)'),
-						_Utils_Tuple2('6', 'Seis (6)')
-					]),
-				c7: _List_fromArray(
-					['5', 'cinco']),
-				c8: 'quantos circulos estão sobre a coroa   ?',
-				c9: 'questão 22'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(202, 'en'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$SimpleText(
-					_List_fromArray(
-						['Come on ... That is not a tough question ! '])),
-				am: _List_fromArray(
-					[
-						_Utils_Tuple2('2', 'Two (2)'),
-						_Utils_Tuple2('3', 'Three (3)'),
-						_Utils_Tuple2('4', 'Four (4)'),
-						_Utils_Tuple2('5', 'Five (5)'),
-						_Utils_Tuple2('6', 'Six (6)')
-					]),
-				c7: _List_fromArray(
-					['five']),
-				c8: 'How many circles over the crown  ?',
-				c9: 'question 22'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(301, 'pt'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_fromArray(
-					[
-						_Utils_Tuple2('9', 'Nove (9)'),
-						_Utils_Tuple2('11', 'Onze (11)'),
-						_Utils_Tuple2('13', 'Treze (13)'),
-						_Utils_Tuple2('15', 'Quinze (15)'),
-						_Utils_Tuple2('17', 'Dezassete (17)')
-					]),
-				c7: _List_fromArray(
-					['15', 'quinze']),
-				c8: 'Quantos pilares consegues contar até ao placard que indica "Casa do Caseiro , Casa Principal , etc ..." ',
-				c9: 'questão 3'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(301, 'en'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_fromArray(
-					[
-						_Utils_Tuple2('9', 'Nine (9)'),
-						_Utils_Tuple2('11', 'Eleven (11)'),
-						_Utils_Tuple2('13', 'Thirteen (13)'),
-						_Utils_Tuple2('15', 'Fifteen (15)'),
-						_Utils_Tuple2('17', 'Seventeen (17)')
-					]),
-				c7: _List_fromArray(
-					['fifteen']),
-				c8: 'How many pillars can you count from here to the placard with "Casa do Caseiro , Casa Principal , etc ..." written on it ',
-				c9: 'question 3'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(401, 'pt'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_fromArray(
-					[
-						_Utils_Tuple2('1 a 12', '1 a 12'),
-						_Utils_Tuple2('8 a 12', '8 a 12'),
-						_Utils_Tuple2('1 a 8', '1 a 8'),
-						_Utils_Tuple2('8 a 4', '8 a 4')
-					]),
-				c7: _List_fromArray(
-					['8 a 4', '8 as 4', '8-4']),
-				c8: 'O relógio de sol indica de que horas a que horas (ex: 9 a 10)?',
-				c9: 'questão 4'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(401, 'en'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_fromArray(
-					[
-						_Utils_Tuple2('1 to 12', '1 to 12'),
-						_Utils_Tuple2('8 to 12', '8 to 12'),
-						_Utils_Tuple2('1 to 8', '1 to 8'),
-						_Utils_Tuple2('8 to 4', '8 to 4')
-					]),
-				c7: _List_fromArray(
-					['8 to 4']),
-				c8: 'The sun clock tells the time from what hour of the day to what hour (ex: 9 to 10)?',
-				c9: 'question 4'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(402, 'pt'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_fromArray(
-					[
-						_Utils_Tuple2('18', 'Dezoito (18)'),
-						_Utils_Tuple2('19', 'Dezanove (19)'),
-						_Utils_Tuple2('20', 'Vinte (20)'),
-						_Utils_Tuple2('21', 'Vinte e um (21)'),
-						_Utils_Tuple2('22', 'Vinte e dois (22)'),
-						_Utils_Tuple2('23', 'Vinte e três (23)')
-					]),
-				c7: _List_fromArray(
-					['21', 'vinte e um']),
-				c8: 'Á tua direita quantos degraus podes observar ?',
-				c9: 'questão 42'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(402, 'en'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_fromArray(
-					[
-						_Utils_Tuple2('18', 'Eighteen (18)'),
-						_Utils_Tuple2('19', 'Nineteen (19)'),
-						_Utils_Tuple2('20', 'Twenty (20)'),
-						_Utils_Tuple2('21', 'Twenty One (21)'),
-						_Utils_Tuple2('22', 'Twenty Two (22)'),
-						_Utils_Tuple2('23', 'Twenty Three (23)')
-					]),
-				c7: _List_fromArray(
-					['twenty one']),
-				c8: 'How many steps do you see to the right ?',
-				c9: 'question 42'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(501, 'pt'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_Nil,
-				c7: _List_fromArray(
-					['Camellia Japonica', 'Camellia Japonica L.', 'THEACEAE']),
-				c8: 'Qual o nome da planta que se encontra indicado ?',
-				c9: 'questão 5'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(501, 'en'),
-			{bA: author$project$Types$NoFeedbackText, bB: author$project$Types$NoFeedbackText, am: _List_Nil, c7: _List_Nil, c8: 'What\'s the name of the plant ( written on the sign ) ?', c9: 'question 5'}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(601, 'pt'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_Nil,
-				c7: _List_fromArray(
-					['sim', 'não', 'nao']),
-				c8: 'Parece-te uma cadeira confortável ?',
-				c9: 'questão 6'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(601, 'en'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_Nil,
-				c7: _List_fromArray(
-					['yes', 'no']),
-				c8: 'Does it seem like a comfortable chair  ?',
-				c9: 'question 6'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(701, 'pt'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_fromArray(
-					[
-						_Utils_Tuple2('2', 'Dois (2)'),
-						_Utils_Tuple2('3', 'Tres (3)'),
-						_Utils_Tuple2('4', 'Quatro (4)'),
-						_Utils_Tuple2('5', 'Cinco (5)')
-					]),
-				c7: _List_fromArray(
-					['2', 'dois']),
-				c8: 'Quantos troncos ( cortados ) podes observar junto ao rochedo ?',
-				c9: 'questão 7'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(701, 'en'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_fromArray(
-					[
-						_Utils_Tuple2('2', 'Two (2)'),
-						_Utils_Tuple2('3', 'Three (3)'),
-						_Utils_Tuple2('4', 'Four (4)'),
-						_Utils_Tuple2('5', 'Five (5)')
-					]),
-				c7: _List_fromArray(
-					['two']),
-				c8: 'how many ( chopped ) logs can you see near the big rock',
-				c9: 'question 7'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(801, 'pt'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_Nil,
-				c7: _List_fromArray(
-					['115', 'cento e quinze']),
-				c8: 'Qual a distância indicada ( em metros ) para o Penedo da Amizade ?',
-				c9: 'questão 8'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(801, 'en'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_Nil,
-				c7: _List_fromArray(
-					['hundred and fifteen']),
-				c8: 'What\'s the distance ( in meters ) to Penedo da Amizade ( Cliff of Amizade ) shown on the sign  ?',
-				c9: 'question 8'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(901, 'pt'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_Nil,
-				c7: _List_fromArray(
-					['Funk da Serra']),
-				c8: 'No topoguia informativo sobre as vias de escalada no Penedo da Amizade qual o Nome da via Nº 7 ?',
-				c9: 'questão 9'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(901, 'en'),
-			{bA: author$project$Types$NoFeedbackText, bB: author$project$Types$NoFeedbackText, am: _List_Nil, c7: _List_Nil, c8: 'What\'s the name of climbing route Nº 7 shown on  Penedo da Amizade Rock climbing guide  ?', c9: 'question 9'}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(1001, 'pt'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_Nil,
-				c7: _List_fromArray(
-					['495', 'quatrocentos e noventa e cinco']),
-				c8: 'Logo após a porta de saída está um placard informativo. Qual a distância ( em metros ) para o Palácio da Pena ? ',
-				c9: 'questão 10'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(1001, 'en'),
-			{
-				bA: author$project$Types$NoFeedbackText,
-				bB: author$project$Types$NoFeedbackText,
-				am: _List_Nil,
-				c7: _List_fromArray(
-					['four hundred and ninety five']),
-				c8: 'right after the door there\'s an informative sign. What\'s the distance ( in meters ) to Parque da Pena ( Park of Pena )  ?',
-				c9: 'question 10'
-			})
-		]));
-var author$project$OurStory$NarrativeDSFuncs$getQuestionAvailableChoicesDict = function (questionNr) {
-	var questionsDict = author$project$OurStory$NarrativeDataStructures$theQuestionsDict;
-	var getLgOptions = F2(
-		function (questionNrArg, lgId) {
-			return function (x) {
-				if (x.$ === 1) {
-					return _List_Nil;
-				} else {
-					var lopt = x.a;
-					return lopt;
-				}
-			}(
-				A2(
-					elm$core$Maybe$map,
-					function ($) {
-						return $.am;
-					},
-					A2(
-						elm$core$Dict$get,
-						_Utils_Tuple2(questionNrArg, lgId),
-						questionsDict)));
-		});
-	var availableChoicesDict = A3(
-		elm$core$List$foldl,
-		F2(
-			function (lgId, d) {
-				return A3(
-					elm$core$Dict$insert,
-					lgId,
-					A2(getLgOptions, questionNr, lgId),
-					d);
-			}),
-		elm$core$Dict$empty,
-		author$project$OurStory$Narrative$desiredLanguages);
-	return availableChoicesDict;
-};
-var author$project$OurStory$NarrativeDSFuncs$getQuestionId = function (nr) {
-	return 'question' + elm$core$String$fromInt(nr);
-};
-var elm$core$List$concat = function (lists) {
-	return A3(elm$core$List$foldr, elm$core$List$append, _List_Nil, lists);
-};
-var author$project$OurStory$Rules$makeQuestionsAmultiChoice = function (ltupQuestionNrs) {
-	var createForOneElem = function (_n0) {
-		var questionNr = _n0.a;
-		var bmakeUnwritable = _n0.b;
-		return _Utils_ap(
-			_List_fromArray(
-				[
-					A2(
-					author$project$Engine$createAmultiChoice,
-					author$project$OurStory$NarrativeDSFuncs$getQuestionAvailableChoicesDict(questionNr),
-					author$project$OurStory$NarrativeDSFuncs$getQuestionId(questionNr))
-				]),
-			bmakeUnwritable ? _List_fromArray(
-				[
-					author$project$Engine$makeItemUnwritable(
-					author$project$OurStory$NarrativeDSFuncs$getQuestionId(questionNr))
-				]) : _List_Nil);
-	};
-	return elm$core$List$concat(
-		A2(elm$core$List$map, createForOneElem, ltupQuestionNrs));
-};
-var author$project$Types$MakeItemWritable = function (a) {
-	return {$: 8, a: a};
-};
-var author$project$Engine$makeItemWritable = author$project$Types$MakeItemWritable;
-var author$project$OurStory$NarrativeDSFuncs$getAllStageNrs = A2(elm$core$List$range, 1, author$project$OurStory$NarrativeDataStructures$numberOfDesiredStages);
-var author$project$OurStory$NarrativeDataStructures$theStagesExtraInfo = elm$core$Dict$fromList(
-	_List_fromArray(
-		[
-			_Utils_Tuple2(
-			1,
-			{
-				c2: _List_fromArray(
-					[101]),
-				da: _List_fromArray(
-					[101])
-			}),
-			_Utils_Tuple2(
-			2,
-			{
-				c2: _List_fromArray(
-					[201]),
-				da: _List_fromArray(
-					[201, 202])
-			}),
-			_Utils_Tuple2(
-			3,
-			{
-				c2: _List_fromArray(
-					[301]),
-				da: _List_fromArray(
-					[301])
-			}),
-			_Utils_Tuple2(
-			4,
-			{
-				c2: _List_fromArray(
-					[401]),
-				da: _List_fromArray(
-					[401, 402])
-			}),
-			_Utils_Tuple2(
-			5,
-			{
-				c2: _List_Nil,
-				da: _List_fromArray(
-					[501])
-			}),
-			_Utils_Tuple2(
-			6,
-			{
-				c2: _List_fromArray(
-					[601]),
-				da: _List_fromArray(
-					[601])
-			}),
-			_Utils_Tuple2(
-			7,
-			{
-				c2: _List_Nil,
-				da: _List_fromArray(
-					[701])
-			}),
-			_Utils_Tuple2(
-			8,
-			{
-				c2: _List_Nil,
-				da: _List_fromArray(
-					[801])
-			}),
-			_Utils_Tuple2(
-			9,
-			{
-				c2: _List_Nil,
-				da: _List_fromArray(
-					[901])
-			}),
-			_Utils_Tuple2(
-			10,
-			{
-				c2: _List_Nil,
-				da: _List_fromArray(
-					[1001])
-			})
-		]));
-var author$project$OurStory$NarrativeDSFuncs$getTheStagesExtraInfo = author$project$OurStory$NarrativeDataStructures$theStagesExtraInfo;
-var author$project$OurStory$NarrativeDSFuncs$getQuestionNrsByStageNr = function (stageNr) {
-	return A2(
-		elm$core$Maybe$withDefault,
-		_List_Nil,
-		A2(
-			elm$core$Maybe$map,
-			function ($) {
-				return $.da;
-			},
-			A2(elm$core$Dict$get, stageNr, author$project$OurStory$NarrativeDSFuncs$getTheStagesExtraInfo)));
-};
-var author$project$OurStory$NarrativeDataStructures$questionsAndOrOptionsOnEveryStageExcept = _List_Nil;
-var author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept = author$project$OurStory$NarrativeDataStructures$questionsAndOrOptionsOnEveryStageExcept;
-var author$project$OurStory$NarrativeDSFuncs$getFilteredStageQuestionNrs = elm$core$List$concat(
-	A2(
-		elm$core$List$map,
-		author$project$OurStory$NarrativeDSFuncs$getQuestionNrsByStageNr,
-		A2(
-			elm$core$List$filter,
-			function (x) {
-				return !A2(elm$core$List$member, x, author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept);
-			},
-			author$project$OurStory$NarrativeDSFuncs$getAllStageNrs)));
-var author$project$OurStory$Rules$makeStageQuestionsWritableExcept = function (lnotWritable) {
-	var makeItWritable = function (n) {
-		return author$project$Engine$makeItemWritable(
-			author$project$OurStory$NarrativeDSFuncs$getQuestionId(n));
-	};
-	return A2(
-		elm$core$List$map,
-		makeItWritable,
-		A2(
-			elm$core$List$filter,
-			function (x) {
-				return !A2(elm$core$List$member, x, lnotWritable);
-			},
-			author$project$OurStory$NarrativeDSFuncs$getFilteredStageQuestionNrs));
-};
-var author$project$Engine$abool = author$project$Types$Abool;
-var author$project$Engine$createAttributeIfNotExistsAndOrSetValue = F3(
-	function (val, attrId, interactableId) {
-		return A4(author$project$Types$CreateAttributeIfNotExistsAndOrSetValue, val, attrId, elm$core$Maybe$Nothing, interactableId);
-	});
-var author$project$OurStory$Narrative$suggestedDeletedChoiceCaptionDict = elm$core$Dict$fromList(
-	_List_fromArray(
-		[
-			_Utils_Tuple2('pt', 'alterar escolha : '),
-			_Utils_Tuple2('en', 'alter choice : ')
-		]));
-var author$project$OurStory$NarrativeDataStructures$theMultiOptionParams = elm$core$Dict$fromList(
-	_List_fromArray(
-		[
-			_Utils_Tuple2(
-			101,
-			{b5: true, dc: true}),
-			_Utils_Tuple2(
-			201,
-			{b5: true, dc: true}),
-			_Utils_Tuple2(
-			301,
-			{b5: true, dc: true}),
-			_Utils_Tuple2(
-			401,
-			{b5: true, dc: false}),
-			_Utils_Tuple2(
-			601,
-			{b5: true, dc: false})
-		]));
-var author$project$OurStory$NarrativeDSFuncs$getDisplayOptionButtonsOptionParam = function (optionNr) {
-	return A2(
-		elm$core$Maybe$map,
-		function (x) {
-			return x.b5;
-		},
-		A2(elm$core$Dict$get, optionNr, author$project$OurStory$NarrativeDataStructures$theMultiOptionParams));
-};
-var author$project$OurStory$NarrativeDataStructures$theMultiOptionsDict = elm$core$Dict$fromList(
-	_List_fromArray(
-		[
-			_Utils_Tuple2(
-			_Utils_Tuple2(101, 'pt'),
-			{
-				am: _List_fromArray(
-					[
-						_Utils_Tuple3(
-						'yes',
-						'Sim',
-						author$project$Types$SimpleText(
-							_List_fromArray(
-								['boa escolha , o percurso de Vila Sassetti é muito interessante']))),
-						_Utils_Tuple3('no', 'Não', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('maybe', 'talvez', author$project$Types$NoFeedbackText)
-					]),
-				c0: 'o percurso de Vila Sassetti parece-te interessante ? ',
-				c1: 'opcao1'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(101, 'en'),
-			{
-				am: _List_fromArray(
-					[
-						_Utils_Tuple3('yes', 'yes', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('no', 'no', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('maybe', 'maybe', author$project$Types$NoFeedbackText)
-					]),
-				c0: 'Does the footpath seem interesting ? ',
-				c1: 'option1'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(201, 'pt'),
-			{
-				am: _List_fromArray(
-					[
-						_Utils_Tuple3('yes', 'Sim', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('no', 'Não', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('maybe', 'talvez', author$project$Types$NoFeedbackText)
-					]),
-				c0: 'a cadeira parece-te um pouco esquisita ?',
-				c1: 'opcao21'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(201, 'en'),
-			{
-				am: _List_fromArray(
-					[
-						_Utils_Tuple3('yes', 'yes', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('no', 'no', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('maybe', 'maybe', author$project$Types$NoFeedbackText)
-					]),
-				c0: 'Do you find the seat a bit odd ?',
-				c1: 'option21'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(301, 'pt'),
-			{
-				am: _List_fromArray(
-					[
-						_Utils_Tuple3('yes', 'Sim', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('no', 'Não', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('maybe', 'talvez', author$project$Types$NoFeedbackText)
-					]),
-				c0: 'estás a gostar do percurso ?',
-				c1: 'opcao31'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(301, 'en'),
-			{
-				am: _List_fromArray(
-					[
-						_Utils_Tuple3('yes', 'yes', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('no', 'no', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('maybe', 'maybe', author$project$Types$NoFeedbackText)
-					]),
-				c0: 'Are you enjoying the trail ?',
-				c1: 'option31'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(401, 'pt'),
-			{
-				am: _List_fromArray(
-					[
-						_Utils_Tuple3('fenomenal', 'fenomenal', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('engraçado', 'engraçado', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('esquisito', 'esquisito', author$project$Types$NoFeedbackText)
-					]),
-				c0: 'qual a tua opinião sobre o relógio',
-				c1: 'opcao41'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(401, 'en'),
-			{
-				am: _List_fromArray(
-					[
-						_Utils_Tuple3('phenomenal', 'phenomenal', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('nice', 'nice', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('weird', 'weird', author$project$Types$NoFeedbackText)
-					]),
-				c0: 'What do you think about the clock ? ',
-				c1: 'option41'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(601, 'pt'),
-			{
-				am: _List_fromArray(
-					[
-						_Utils_Tuple3('muito util', 'muito útil', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('artistica', 'artística', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('esquisita', 'esquisita', author$project$Types$NoFeedbackText)
-					]),
-				c0: 'O que pensas da cadeira ?',
-				c1: 'opcao61'
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(601, 'en'),
-			{
-				am: _List_fromArray(
-					[
-						_Utils_Tuple3('very useful', 'very useful', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('artistic', 'artistic', author$project$Types$NoFeedbackText),
-						_Utils_Tuple3('weird', 'weird', author$project$Types$NoFeedbackText)
-					]),
-				c0: 'What do you think of the chair ?',
-				c1: 'option61'
-			})
-		]));
-var author$project$OurStory$NarrativeDSFuncs$getMultiOptionAvailableChoicesDict = function (nr) {
-	var optionDict = author$project$OurStory$NarrativeDataStructures$theMultiOptionsDict;
-	var getLgOptions = F3(
-		function (theNr, lgId, optDict) {
-			return function (x) {
-				if (x.$ === 1) {
-					return _List_Nil;
-				} else {
-					var lopt = x.a;
-					return A2(
-						elm$core$List$map,
-						function (_n1) {
-							var k = _n1.a;
-							var v = _n1.b;
-							var stext = _n1.c;
-							return _Utils_Tuple2(k, v);
-						},
-						lopt);
-				}
-			}(
-				A2(
-					elm$core$Maybe$map,
-					function ($) {
-						return $.am;
-					},
-					A2(
-						elm$core$Dict$get,
-						_Utils_Tuple2(theNr, lgId),
-						optDict)));
-		});
-	var availableChoicesDict = A3(
-		elm$core$List$foldl,
-		F2(
-			function (lgId, d) {
-				return A3(
-					elm$core$Dict$insert,
-					lgId,
-					A3(getLgOptions, nr, lgId, optionDict),
-					d);
-			}),
-		elm$core$Dict$empty,
-		author$project$OurStory$Narrative$desiredLanguages);
-	return availableChoicesDict;
-};
-var author$project$OurStory$NarrativeDSFuncs$getOptionId = function (nr) {
-	return 'option' + elm$core$String$fromInt(nr);
-};
-var author$project$OurStory$NarrativeDSFuncs$getOptionNrsByStageNr = function (stageNr) {
-	return A2(
-		elm$core$Maybe$withDefault,
-		_List_Nil,
-		A2(
-			elm$core$Maybe$map,
-			function ($) {
-				return $.c2;
-			},
-			A2(elm$core$Dict$get, stageNr, author$project$OurStory$NarrativeDSFuncs$getTheStagesExtraInfo)));
-};
-var author$project$OurStory$NarrativeDSFuncs$getOptionIdsByStageNr = function (stageNr) {
-	return A2(
-		elm$core$List$map,
-		author$project$OurStory$NarrativeDSFuncs$getOptionId,
-		author$project$OurStory$NarrativeDSFuncs$getOptionNrsByStageNr(stageNr));
-};
-var author$project$OurStory$NarrativeDSFuncs$getResetPossibleOptionParam = function (optionNr) {
-	return A2(
-		elm$core$Maybe$map,
-		function (x) {
-			return x.dc;
-		},
-		A2(elm$core$Dict$get, optionNr, author$project$OurStory$NarrativeDataStructures$theMultiOptionParams));
-};
-var author$project$OurStory$NarrativeDSFuncs$getStageId = function (nr) {
-	return 'stage' + elm$core$String$fromInt(nr);
-};
-var elm$core$List$concatMap = F2(
-	function (f, list) {
-		return elm$core$List$concat(
-			A2(elm$core$List$map, f, list));
-	});
-var author$project$OurStory$Rules$moveMultiOptionsToStagesFixed = function () {
-	var moveMultiOptionsToStageNr = function (stageNr) {
-		var stageId = author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr);
-		var loptionIds = author$project$OurStory$NarrativeDSFuncs$getOptionIdsByStageNr(stageNr);
-		var lIdAndNrs = A2(
-			elm$core$List$map,
-			function (x) {
-				return _Utils_Tuple2(
-					author$project$OurStory$NarrativeDSFuncs$getOptionId(x),
-					x);
-			},
-			author$project$OurStory$NarrativeDSFuncs$getOptionNrsByStageNr(stageNr));
-		var cwcmds3 = A2(
-			elm$core$List$map,
-			function (oid) {
-				return A3(
-					author$project$Engine$createAttributeIfNotExistsAndOrSetValue,
-					author$project$Engine$aDictStringString(author$project$OurStory$Narrative$suggestedDeletedChoiceCaptionDict),
-					'suggestedInteractionCaption',
-					oid);
-			},
-			loptionIds);
-		var cwcmds2 = A2(
-			elm$core$List$concatMap,
-			function (_n0) {
-				var id = _n0.a;
-				var nr = _n0.b;
-				return A2(
-					elm$core$Maybe$withDefault,
-					true,
-					author$project$OurStory$NarrativeDSFuncs$getDisplayOptionButtonsOptionParam(nr)) ? _List_fromArray(
-					[
-						A2(
-						author$project$Engine$createAmultiChoice,
-						author$project$OurStory$NarrativeDSFuncs$getMultiOptionAvailableChoicesDict(nr),
-						id),
-						A3(
-						author$project$Engine$createAttributeIfNotExistsAndOrSetValue,
-						author$project$Engine$abool(true),
-						'displayOptionButtons',
-						id),
-						A3(
-						author$project$Engine$createAttributeIfNotExistsAndOrSetValue,
-						author$project$Engine$abool(
-							A2(
-								elm$core$Maybe$withDefault,
-								false,
-								author$project$OurStory$NarrativeDSFuncs$getResetPossibleOptionParam(nr))),
-						'isResetOptionPossible',
-						id)
-					]) : _List_fromArray(
-					[
-						author$project$Engine$makeItemWritable(id),
-						A3(
-						author$project$Engine$createAttributeIfNotExistsAndOrSetValue,
-						author$project$Engine$abool(false),
-						'displayOptionButtons',
-						id),
-						A3(
-						author$project$Engine$createAttributeIfNotExistsAndOrSetValue,
-						author$project$Engine$abool(
-							A2(
-								elm$core$Maybe$withDefault,
-								false,
-								author$project$OurStory$NarrativeDSFuncs$getResetPossibleOptionParam(nr))),
-						'isResetOptionPossible',
-						id)
-					]);
-			},
-			lIdAndNrs);
-		var cwcmds1 = A2(
-			elm$core$List$map,
-			function (id) {
-				return A2(author$project$Engine$moveItemToLocationFixed, id, stageId);
-			},
-			loptionIds);
-		return A2(
-			elm$core$List$append,
-			cwcmds3,
-			A2(elm$core$List$append, cwcmds2, cwcmds1));
-	};
-	return elm$core$List$concat(
-		A2(
-			elm$core$List$map,
-			moveMultiOptionsToStageNr,
-			A2(
-				elm$core$List$filter,
-				function (x) {
-					return !A2(elm$core$List$member, x, author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept);
-				},
-				author$project$OurStory$NarrativeDSFuncs$getAllStageNrs)));
-}();
-var author$project$OurStory$NarrativeDSFuncs$getQuestionIdsByStageNr = function (stageNr) {
-	return A2(
-		elm$core$List$map,
-		author$project$OurStory$NarrativeDSFuncs$getQuestionId,
-		author$project$OurStory$NarrativeDSFuncs$getQuestionNrsByStageNr(stageNr));
-};
-var author$project$OurStory$Rules$moveQuestionsToStagesFixed = function () {
-	var moveQuestionsToStageNr = function (stageNr) {
-		var stageId = author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr);
-		var lquestionIds = author$project$OurStory$NarrativeDSFuncs$getQuestionIdsByStageNr(stageNr);
-		return A2(
-			elm$core$List$map,
-			function (x) {
-				return A2(author$project$Engine$moveItemToLocationFixed, x, stageId);
-			},
-			lquestionIds);
-	};
-	return elm$core$List$concat(
-		A2(
-			elm$core$List$map,
-			moveQuestionsToStageNr,
-			A2(
-				elm$core$List$filter,
-				function (x) {
-					return !A2(elm$core$List$member, x, author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept);
-				},
-				author$project$OurStory$NarrativeDSFuncs$getAllStageNrs)));
-}();
-var author$project$OurStory$Rules$useGoalStatusReport = true;
 var author$project$OurStory$Rules$startingState = _Utils_ap(
 	_List_fromArray(
 		[
-			author$project$Engine$moveTo('onceUponAtime'),
-			A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'onceUponAtime'),
-			A2(author$project$Engine$moveItemToCharacterInventory, 'playerOne', 'gps'),
-			A2(
-			author$project$Engine$moveItemToLocationFixed,
-			'creditsInfo',
-			'stage' + elm$core$String$fromInt(author$project$OurStory$NarrativeDSFuncs$getNumberOfDesiredStages))
+			author$project$Engine$moveTo('largoDrCarlosFranca'),
+			A2(author$project$Engine$moveItemToLocation, 'gps', 'largoDrCarlosFranca'),
+			A2(author$project$Engine$moveItemToLocationFixed, 'questionAtVillaRoma', 'villaRoma'),
+			A2(author$project$Engine$moveItemToLocationFixed, 'questionAtSeteaisAboutVillaRoma', 'palacioSeteais'),
+			A2(author$project$Engine$moveItemToLocationFixed, 'questionAtFonteMataAlva', 'fonteDeMataAlva'),
+			author$project$Engine$makeItemWritable('questionAtFonteMataAlva'),
+			A2(author$project$Engine$moveItemToLocationFixed, 'questionSaoMartinhoColares1', 'limiteSaoMartinhoColares'),
+			author$project$Engine$makeItemWritable('questionSaoMartinhoColares1'),
+			A2(author$project$Engine$moveItemToLocationFixed, 'questionSaoMartinhoColares2', 'limiteSaoMartinhoColares'),
+			author$project$Engine$makeItemWritable('questionSaoMartinhoColares2'),
+			author$project$Engine$makeItemWritable('questionColares'),
+			A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'largoDrCarlosFranca'),
+			A2(author$project$Engine$moveCharacterToLocation, 'sintraWiseMan', 'largoDrCarlosFranca'),
+			A2(author$project$Engine$moveCharacterToLocation, 'turistsBarbosaduBocage', 'ruaBarbosaDoBocageInicio'),
+			A2(author$project$Engine$moveCharacterToLocation, 'catOne', 'ruaTrindadeCoelho'),
+			A2(author$project$Engine$moveCharacterToLocation, 'turistOne', 'palacioSeteais'),
+			A2(author$project$Engine$moveCharacterToLocation, 'photographer', 'desvioQuintaSequoias'),
+			A2(author$project$Engine$moveCharacterToLocation, 'totemShaper', 'quintinhaMonserrate'),
+			A2(author$project$Engine$moveCharacterToLocation, 'severalAnimals', 'quintinhaMonserrate'),
+			A2(author$project$Engine$moveCharacterToLocation, 'turistTwo', 'parquePalacioMonserrate'),
+			A2(author$project$Engine$moveCharacterToLocation, 'turistThree', 'parquePalacioMonserrate'),
+			A2(author$project$Engine$moveCharacterToLocation, 'geocacher', 'eugaria'),
+			A2(author$project$Engine$moveCharacterToLocation, 'wiseManColares', 'colares'),
+			A2(author$project$Engine$moveItemToLocationFixed, 'sinalCuidadoComOGato', 'ruaTrindadeCoelho'),
+			A2(author$project$Engine$moveItemToLocationFixed, 'totem', 'quintinhaMonserrate'),
+			A2(author$project$Engine$moveItemToLocationFixed, 'byronsPoem', 'parquePalacioMonserrate'),
+			A2(author$project$Engine$moveItemToLocationFixed, 'infoPanelMonserrate', 'parquePalacioMonserrate'),
+			A2(author$project$Engine$moveItemToLocationFixed, 'creditsInfo', 'colares'),
+			A2(author$project$Engine$moveItemToLocation, 'waterContainer', 'fonteDeMataAlva'),
+			A2(author$project$Engine$createCounterIfNotExists, 'nrTimesTalkTo', 'sintraWiseMan'),
+			A3(
+			author$project$Engine$createAttributeIfNotExists,
+			author$project$Engine$abool(false),
+			'gameHasEnded',
+			'gameStateItem'),
+			A2(author$project$Engine$createCounterIfNotExists, 'nrPhotographiesCreated', 'pinholeCamera'),
+			A2(author$project$Engine$createCounterIfNotExists, 'nrPhotographiesCreatedInSintra1914', 'pinholeCamera'),
+			A2(author$project$Engine$createCounterIfNotExists, 'nrPhotographiesCreatedInQuintaVinagre', 'pinholeCamera'),
+			A2(author$project$Engine$createCounterIfNotExists, 'nrTimesTalkTo', 'totemShaper'),
+			A2(author$project$Engine$createCounterIfNotExists, 'nrInteractionsWiseManAfterOffers', 'wiseManColares')
 		]),
-	_Utils_ap(
-		author$project$OurStory$Rules$moveQuestionsToStagesFixed,
-		_Utils_ap(
-			author$project$OurStory$Rules$makeQuestionsAmultiChoice(
+	_List_fromArray(
+		[
+			A2(
+			author$project$Engine$createAmultiChoice,
+			elm$core$Dict$fromList(
 				_List_fromArray(
 					[
-						_Utils_Tuple2(201, true),
-						_Utils_Tuple2(202, true),
-						_Utils_Tuple2(301, true),
-						_Utils_Tuple2(401, true),
-						_Utils_Tuple2(402, true),
-						_Utils_Tuple2(701, true)
+						_Utils_Tuple2(
+						'pt',
+						_List_fromArray(
+							[
+								_Utils_Tuple2('General Carlos Roma du Bocage', 'A'),
+								_Utils_Tuple2('Carlos Morato Roma', 'B')
+							])),
+						_Utils_Tuple2(
+						'en',
+						_List_fromArray(
+							[
+								_Utils_Tuple2('General Carlos Roma du Bocage', 'A'),
+								_Utils_Tuple2('Carlos Morato Roma', 'B')
+							]))
 					])),
-			_Utils_ap(
-				author$project$OurStory$Rules$makeStageQuestionsWritableExcept(
-					_List_fromArray(
-						[201, 202, 301, 401, 402, 701])),
-				_Utils_ap(
-					author$project$OurStory$Rules$moveMultiOptionsToStagesFixed,
-					author$project$OurStory$Rules$useGoalStatusReport ? _List_fromArray(
-						[
-							A2(author$project$Engine$moveItemToCharacterInventory, 'playerOne', 'goalsStatusPaper')
-						]) : _List_Nil)))));
+			'questionAtVillaRoma'),
+			A2(
+			author$project$Engine$createAmultiChoice,
+			elm$core$Dict$fromList(
+				_List_fromArray(
+					[
+						_Utils_Tuple2(
+						'pt',
+						_List_fromArray(
+							[
+								_Utils_Tuple2('Dr. José Vicente Barbosa du Bocage', 'A'),
+								_Utils_Tuple2('Manuel Maria Barbosa du Bocage', 'B')
+							])),
+						_Utils_Tuple2(
+						'en',
+						_List_fromArray(
+							[
+								_Utils_Tuple2('Dr. José Vicente Barbosa du Bocage', 'A'),
+								_Utils_Tuple2('Manuel Maria Barbosa du Bocage', 'B')
+							]))
+					])),
+			'questionAtSeteaisAboutVillaRoma')
+		]));
 var author$project$Engine$getStoryRules = function (_n0) {
 	var story = _n0;
-	return story.aS;
+	return story.aO;
 };
 var author$project$SomeTests$getListIncidents = function (engineModel) {
 	var getLIncidents = F2(
@@ -11169,7 +10336,7 @@ var author$project$SomeTests$getListIncidents = function (engineModel) {
 				elm$core$Dict$map,
 				F2(
 					function (id, v) {
-						return v.bS;
+						return v.bL;
 					}),
 				author$project$Engine$getStoryRules(engineModel))));
 };
@@ -11230,14 +10397,14 @@ var author$project$Main$getNewModelAndInteractionExtraInfoByEngineUpdate = F3(
 			A2(elm$core$Dict$get, interactableId, model.i),
 			elm$core$Maybe$Just(author$project$Types$WaitingForInfoRequested))) {
 			return _Utils_Tuple2(
-				extraInfoWithPendingChanges.cu,
+				extraInfoWithPendingChanges.cm,
 				_Utils_update(
 					model,
 					{
 						d: A2(elm$core$List$cons, 'Please Wait ... \n', model.d)
 					}));
 		} else {
-			var newInteractionExtraInfo = extraInfoWithPendingChanges.cu;
+			var newInteractionExtraInfo = extraInfoWithPendingChanges.cm;
 			var _n0 = function () {
 				var _n1 = A2(
 					author$project$Engine$update,
@@ -11313,10 +10480,10 @@ var author$project$Theme$AnswerBox$update = F2(
 	function (theText, model) {
 		return (theText === '') ? _Utils_update(
 			model,
-			{bD: elm$core$Maybe$Nothing}) : _Utils_update(
+			{bw: elm$core$Maybe$Nothing}) : _Utils_update(
 			model,
 			{
-				bD: elm$core$Maybe$Just(theText)
+				bw: elm$core$Maybe$Just(theText)
 			});
 	});
 var author$project$Main$setPlayerName = F2(
@@ -11352,13 +10519,13 @@ var author$project$Main$mbSetPlayerName = F2(
 	});
 var elm$regex$Regex$Match = F4(
 	function (match, index, number, submatches) {
-		return {co: index, cH: match, cY: number, dr: submatches};
+		return {cg: index, cz: match, cQ: number, db: submatches};
 	});
 var elm$regex$Regex$fromStringWith = _Regex_fromStringWith;
 var elm$regex$Regex$fromString = function (string) {
 	return A2(
 		elm$regex$Regex$fromStringWith,
-		{a0: false, bh: false},
+		{aX: false, bc: false},
 		string);
 };
 var elm$regex$Regex$replace = _Regex_replaceAtMost(_Regex_infinity);
@@ -11374,7 +10541,7 @@ var author$project$Main$regexUserReplace = F3(
 	});
 var author$project$Engine$getHistory = function (_n0) {
 	var story = _n0;
-	return story.aq;
+	return story.ap;
 };
 var author$project$Main$saveHistoryToStorage = _Platform_outgoingPort(
 	'saveHistoryToStorage',
@@ -11391,27 +10558,27 @@ var author$project$Main$saveHistoryToStorage = _Platform_outgoingPort(
 									[
 										_Utils_Tuple2(
 										'currentLocation',
-										elm$json$Json$Encode$string($.b2)),
+										elm$json$Json$Encode$string($.bX)),
 										_Utils_Tuple2(
 										'geolocationInfoText',
-										elm$json$Json$Encode$string($.ch)),
+										elm$json$Json$Encode$string($.b9)),
 										_Utils_Tuple2(
 										'inputText',
-										elm$json$Json$Encode$string($.cq)),
+										elm$json$Json$Encode$string($.ci)),
 										_Utils_Tuple2(
 										'inputTextForBackend',
-										elm$json$Json$Encode$string($.cr)),
+										elm$json$Json$Encode$string($.cj)),
 										_Utils_Tuple2(
 										'interactableId',
-										elm$json$Json$Encode$string($.bb)),
+										elm$json$Json$Encode$string($.a6)),
 										_Utils_Tuple2(
 										'mbMatchedRuleId',
-										elm$json$Json$Encode$string($.cM))
+										elm$json$Json$Encode$string($.cE))
 									]));
-						})($.ar)),
+						})($.aq)),
 					_Utils_Tuple2(
 					'lPrandomFloats',
-					elm$json$Json$Encode$list(elm$json$Json$Encode$float)($.as)),
+					elm$json$Json$Encode$list(elm$json$Json$Encode$float)($.ar)),
 					_Utils_Tuple2(
 					'playerName',
 					elm$json$Json$Encode$string($.w))
@@ -11621,19 +10788,19 @@ var author$project$Main$saveHistoryToStorageHelper = function (model) {
 		elm$core$List$map,
 		function (x) {
 			return {
-				b2: author$project$Engine$getCurrentLocation(model.b),
-				ch: x.b.ch,
-				cq: A2(elm$core$Maybe$withDefault, '', x.b.aw),
-				cr: A2(elm$core$Maybe$withDefault, '', x.b.bf),
-				bb: x.a,
-				cM: A2(elm$core$Maybe$withDefault, '', x.b.cM)
+				bX: author$project$Engine$getCurrentLocation(model.b),
+				b9: x.b.b9,
+				ci: A2(elm$core$Maybe$withDefault, '', x.b.av),
+				cj: A2(elm$core$Maybe$withDefault, '', x.b.ba),
+				a6: x.a,
+				cE: A2(elm$core$Maybe$withDefault, '', x.b.cE)
 			};
 		},
 		storyHistory);
 	var infoToSave = {
-		ar: lToSave,
-		as: model.L,
-		w: A2(author$project$TranslationHelper$getInLanguage, model.c.b3, model.w)
+		aq: lToSave,
+		ar: model.L,
+		w: A2(author$project$TranslationHelper$getInLanguage, model.c.bY, model.w)
 	};
 	return _Utils_Tuple2(
 		model,
@@ -11667,7 +10834,7 @@ var author$project$Main$updateInterExtraInfoWithGeoInfo = F2(
 		return _Utils_update(
 			extraInforecord,
 			{
-				ch: A4(author$project$GpsUtils$getCurrentGeoReportAsText, currLocNameAndCoords, model.B, model.H, 3)
+				b9: A4(author$project$GpsUtils$getCurrentGeoReportAsText, currLocNameAndCoords, model.B, model.H, 3)
 			});
 	});
 var author$project$Components$addLgDisplayInfo = F4(
@@ -11714,174 +10881,148 @@ var author$project$OurStory$Manifest$characters = _List_fromArray(
 		author$project$Components$addLgDisplayInfo,
 		'pt',
 		'investigador',
-		'Tu ...',
+		'investigador determinado  em busca da Verdade ...',
 		A3(
 			author$project$Components$addDisplayInfo,
 			'investigator',
-			'You ...',
-			author$project$Components$entity('playerOne')))
+			'relentless investigator searching for the Truth ...',
+			author$project$Components$entity('playerOne'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'vw',
+		'Sintra Enlightened Man',
+		'the Sintra Enlightened Man',
+		A4(
+			author$project$Components$addLgDisplayInfo,
+			'vi',
+			'Crazy man pretending to be a Wise Man',
+			'Man with crazy revolutionary ideas',
+			A4(
+				author$project$Components$addLgDisplayInfo,
+				'pt',
+				'Sábio de Sintra',
+				'residente de Sintra. Conhecedor da região',
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Sintra Wise Man',
+					'residente de Sintra. Conhecedor da região',
+					author$project$Components$entity('sintraWiseMan'))))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'turistas',
+		'grupo de turistas em visita a Sintra',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'turists',
+			'Group of turists visiting Sintra',
+			author$project$Components$entity('turistsBarbosaduBocage'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'gato',
+		'Bonito gato',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'cat',
+			'a pretty cat',
+			author$project$Components$entity('catOne'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'um turista',
+		'Um turista em visita a Sintra',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'a turist',
+			'a turist visiting Sintra',
+			author$project$Components$entity('turistOne'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'vw',
+		'Light Specialist aka photographer',
+		'specialist on matters of the Light',
+		A4(
+			author$project$Components$addLgDisplayInfo,
+			'vi',
+			'Witch pretending to be a photographer',
+			'weird looking guy',
+			A4(
+				author$project$Components$addLgDisplayInfo,
+				'pt',
+				'um fotógrafo',
+				'Um fotógrafo',
+				A3(
+					author$project$Components$addDisplayInfo,
+					'photographer',
+					'a photographer',
+					author$project$Components$entity('photographer'))))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'Escultora de madeira',
+		'artista que esculpe em Madeira com motoserra.',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'totemShaper',
+			'artist that carves wood with a chainsaw',
+			author$project$Components$entity('totemShaper'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'vários animais',
+		'vários animais da Quintinha de Monserrate - Burros , cabras , galos , galinhas ...',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'several animals',
+			'several animals from Quintinha de Monserrate - donkey , goat  , sheep , cock , chicken ...',
+			author$project$Components$entity('severalAnimals'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'Visitante',
+		'Turista a entrar no Parque de Monserrate',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'Visitor',
+			'Turist entering Parque de Monserrate',
+			author$project$Components$entity('turistTwo'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'Turista',
+		'Turista a consultar um guia turístico',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'Turist',
+			'Turist checking her turist guide',
+			author$project$Components$entity('turistThree'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'vi',
+		'Polluter that calls himself a geocacher',
+		'person who pollutes the environment with suspicious looking devices',
+		A4(
+			author$project$Components$addLgDisplayInfo,
+			'pt',
+			'Geocacher',
+			'Um geocacher em reconhecimento da zona',
+			A3(
+				author$project$Components$addDisplayInfo,
+				'Geocacher',
+				'a geocacher researching the area',
+				author$project$Components$entity('geocacher')))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'Sabio de Colares',
+		'Sábio de Colares, coleccionador de antiguidades e fotografia estenopeica , e conhecedor de segredos da região',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'Colares Wise Man',
+			'Colares Wise Man, collector of antiques and pinhole camera photography , and bearer of a lot of the region\'s secrets',
+			author$project$Components$entity('wiseManColares')))
 	]);
-var author$project$OurStory$NarrativeDSFuncs$getMultiOptionBody = F2(
-	function (nr, lgId) {
-		var moptionDict = author$project$OurStory$NarrativeDataStructures$theMultiOptionsDict;
-		var optionRec = A2(
-			elm$core$Dict$get,
-			_Utils_Tuple2(nr, lgId),
-			moptionDict);
-		return function (x) {
-			if (x.$ === 1) {
-				return _List_Nil;
-			} else {
-				var obody = x.a;
-				return _List_fromArray(
-					[obody]);
-			}
-		}(
-			A2(
-				elm$core$Maybe$map,
-				function ($) {
-					return $.c0;
-				},
-				optionRec));
-	});
-var author$project$OurStory$NarrativeDSFuncs$getMultiOptionBodyAsString = F2(
-	function (nr, lgId) {
-		return A2(
-			elm$core$String$join,
-			' , ',
-			A2(author$project$OurStory$NarrativeDSFuncs$getMultiOptionBody, nr, lgId));
-	});
-var author$project$OurStory$NarrativeDSFuncs$getMultiOptionName = F2(
-	function (nr, lgId) {
-		var optionRec = A2(
-			elm$core$Dict$get,
-			_Utils_Tuple2(nr, lgId),
-			author$project$OurStory$NarrativeDataStructures$theMultiOptionsDict);
-		return function (x) {
-			if (x.$ === 1) {
-				return (lgId === 'pt') ? ('opção ' + elm$core$String$fromInt(nr)) : ('option ' + elm$core$String$fromInt(nr));
-			} else {
-				var oname = x.a;
-				return oname;
-			}
-		}(
-			A2(
-				elm$core$Maybe$map,
-				function ($) {
-					return $.c1;
-				},
-				optionRec));
-	});
-var author$project$OurStory$NarrativeDSFuncs$getQuestionBody = F2(
-	function (nr, lgId) {
-		var questionsDict = author$project$OurStory$NarrativeDataStructures$theQuestionsDict;
-		var question = A2(
-			elm$core$Dict$get,
-			_Utils_Tuple2(nr, lgId),
-			questionsDict);
-		return function (x) {
-			if (x.$ === 1) {
-				return _List_Nil;
-			} else {
-				var qbody = x.a;
-				return _List_fromArray(
-					[qbody]);
-			}
-		}(
-			A2(
-				elm$core$Maybe$map,
-				function ($) {
-					return $.c8;
-				},
-				question));
-	});
-var author$project$OurStory$NarrativeDSFuncs$getQuestionBodyAsString = F2(
-	function (nr, lgId) {
-		return A2(
-			elm$core$String$join,
-			' , ',
-			A2(author$project$OurStory$NarrativeDSFuncs$getQuestionBody, nr, lgId));
-	});
-var author$project$OurStory$NarrativeDSFuncs$getQuestionName = F2(
-	function (nr, lgId) {
-		var questionsDict = author$project$OurStory$NarrativeDataStructures$theQuestionsDict;
-		var question = A2(
-			elm$core$Dict$get,
-			_Utils_Tuple2(nr, lgId),
-			questionsDict);
-		return function (x) {
-			if (x.$ === 1) {
-				return (lgId === 'pt') ? ('questão ' + elm$core$String$fromInt(nr)) : ('question ' + elm$core$String$fromInt(nr));
-			} else {
-				var qname = x.a;
-				return qname;
-			}
-		}(
-			A2(
-				elm$core$Maybe$map,
-				function ($) {
-					return $.c9;
-				},
-				question));
-	});
-var author$project$OurStory$Manifest$getListOfItems = F3(
-	function (initItems, lQuestionNrs, lMultiOptionNrs) {
-		var createResetMultiOptionEntity = F2(
-			function (index, nr) {
-				return A3(
-					author$project$Components$addDisplayInfo,
-					'reset_' + A2(author$project$OurStory$NarrativeDSFuncs$getMultiOptionName, nr, 'pt'),
-					'reset_' + A2(author$project$OurStory$NarrativeDSFuncs$getMultiOptionBodyAsString, nr, 'pt'),
-					A3(
-						author$project$Components$addDisplayInfo,
-						'reset_' + A2(author$project$OurStory$NarrativeDSFuncs$getMultiOptionName, nr, 'en'),
-						'reset_' + A2(author$project$OurStory$NarrativeDSFuncs$getMultiOptionBodyAsString, nr, 'en'),
-						author$project$Components$entity(
-							'reset_' + author$project$OurStory$NarrativeDSFuncs$getOptionId(nr))));
-			});
-		var multiOptionResets = A2(
-			elm$core$List$indexedMap,
-			F2(
-				function (index, nr) {
-					return A2(createResetMultiOptionEntity, index, nr);
-				}),
-			lMultiOptionNrs);
-		var createQuestionEntity = function (nr) {
-			return A4(
-				author$project$Components$addLgDisplayInfo,
-				'pt',
-				A2(author$project$OurStory$NarrativeDSFuncs$getQuestionName, nr, 'pt'),
-				A2(author$project$OurStory$NarrativeDSFuncs$getQuestionBodyAsString, nr, 'pt'),
-				A3(
-					author$project$Components$addDisplayInfo,
-					A2(author$project$OurStory$NarrativeDSFuncs$getQuestionName, nr, 'en'),
-					A2(author$project$OurStory$NarrativeDSFuncs$getQuestionBodyAsString, nr, 'en'),
-					author$project$Components$entity(
-						author$project$OurStory$NarrativeDSFuncs$getQuestionId(nr))));
-		};
-		var moreQuestionItems = A2(elm$core$List$map, createQuestionEntity, lQuestionNrs);
-		var createMultiOptionEntity = function (nr) {
-			return A4(
-				author$project$Components$addLgDisplayInfo,
-				'pt',
-				A2(author$project$OurStory$NarrativeDSFuncs$getMultiOptionName, nr, 'pt'),
-				A2(author$project$OurStory$NarrativeDSFuncs$getMultiOptionBodyAsString, nr, 'pt'),
-				A3(
-					author$project$Components$addDisplayInfo,
-					A2(author$project$OurStory$NarrativeDSFuncs$getMultiOptionName, nr, 'en'),
-					A2(author$project$OurStory$NarrativeDSFuncs$getMultiOptionBodyAsString, nr, 'en'),
-					author$project$Components$entity(
-						author$project$OurStory$NarrativeDSFuncs$getOptionId(nr))));
-		};
-		var moreMultiOptionItems = A2(elm$core$List$map, createMultiOptionEntity, lMultiOptionNrs);
-		return A2(
-			elm$core$List$append,
-			multiOptionResets,
-			A2(
-				elm$core$List$append,
-				moreMultiOptionItems,
-				A2(elm$core$List$append, initItems, moreQuestionItems)));
-	});
 var author$project$Components$NeedsGpsCoords = function (a) {
 	return {$: 7, a: a};
 };
@@ -11891,7 +11032,7 @@ var author$project$Components$addNeedsGpsInfo = function (bval) {
 		'needsGpsCoords',
 		author$project$Components$NeedsGpsCoords(bval));
 };
-var author$project$OurStory$Manifest$initialItems = _List_fromArray(
+var author$project$OurStory$Manifest$items = _List_fromArray(
 	[
 		author$project$Components$entity('gameStateItem'),
 		A2(
@@ -11910,55 +11051,248 @@ var author$project$OurStory$Manifest$initialItems = _List_fromArray(
 		A4(
 		author$project$Components$addLgDisplayInfo,
 		'pt',
-		'goals report',
-		'goals report',
+		'notas sábias',
+		'apontamentos recolhidos durante a conversa com o sábio',
 		A3(
 			author$project$Components$addDisplayInfo,
-			'goals report',
-			'goals report',
-			author$project$Components$entity('goalsStatusPaper'))),
+			'wise notes',
+			'some notes you wrote on a piece of paper while listening to Sintra Wise Man helpful advice',
+			author$project$Components$entity('notasSabias'))),
 		A4(
 		author$project$Components$addLgDisplayInfo,
 		'pt',
 		'questão',
-		'descrição da questão',
+		'Quem construiu Villa Roma ?',
 		A3(
 			author$project$Components$addDisplayInfo,
 			'question',
-			'question Description',
-			author$project$Components$entity('standardQuestion'))),
+			'Who built Villa Roma ?',
+			author$project$Components$entity('questionAtVillaRoma'))),
 		A4(
 		author$project$Components$addLgDisplayInfo,
 		'pt',
-		'credits',
-		'credits Info',
+		'questão2',
+		'Quem viveu em Villa Roma ?',
 		A3(
 			author$project$Components$addDisplayInfo,
-			'credits',
-			'credits Info',
+			'question2',
+			'Who lived in Villa Roma ?',
+			author$project$Components$entity('questionAtSeteaisAboutVillaRoma'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'sinal',
+		'Curioso Sinal com o seguinte aviso : \nCuidado com o Gato',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'warning signal',
+			'Curious warning signal : \nBeware of The Cat',
+			author$project$Components$entity('sinalCuidadoComOGato'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'Lata',
+		'Uma simples lata',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'tincan',
+			'a common tincan',
+			author$project$Components$entity('tinCan'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'vi',
+		'suspicious device',
+		'a very suspicious device',
+		A4(
+			author$project$Components$addLgDisplayInfo,
+			'pt',
+			'Camara Estenopeica',
+			'Camara Estenopeica',
+			A3(
+				author$project$Components$addDisplayInfo,
+				'pinhole camera',
+				'pinhole camera',
+				author$project$Components$entity('pinholeCamera')))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'Totem',
+		'Curiosa escultura em madeira com 7,5m de altura e 3m de diâmetro médio, esculpida com motosserra',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'Totem',
+			'Curious 24,5ft high and 10ft wide wood sculpture , which has been cretaed with a chainsaw',
+			author$project$Components$entity('totem'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'Casa ninho de pássaro',
+		'Casa ninho de pássaro muito bem trabalhado com vários materiais',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'Bird\'s nest',
+			'Bird\'s nest carved on some very fine materials',
+			author$project$Components$entity('birdsNest'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'Cantil',
+		'cantil - atenção à informação apresentada nas fontes sobre a qualidade da água',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'water canteen',
+			'water canteen - pay attention to the water quality info displayed on the fountains',
+			author$project$Components$entity('waterContainer'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'questão',
+		'Em que ano foi restaurada a Fonte de Mata-Alva ?',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'question',
+			'What year was the fountain restored ?',
+			author$project$Components$entity('questionAtFonteMataAlva'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'poema',
+		'poema de Byron sobre Monserrate',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'Poem',
+			'Childe Harold\'s Pilgrimage Byron Poem about Monserrate',
+			author$project$Components$entity('byronsPoem'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'Info',
+		'Painel informativo sobre o Parque e Palácio de Monserrate',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'Info',
+			'Panel with information about Parque e Palácio de Monserrate',
+			author$project$Components$entity('infoPanelMonserrate'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'vw',
+		'work of art',
+		'artist managed to depict the truth in a simple tiny paper',
+		A4(
+			author$project$Components$addLgDisplayInfo,
+			'vi',
+			'suspicious device',
+			'a very suspicious device',
+			A4(
+				author$project$Components$addLgDisplayInfo,
+				'pt',
+				'Camara estenopeica com negativo',
+				'camara estenopeica com um negativo no seu interior',
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Pinhole Camera with  negative',
+					'Pinhole Camera with photography negative inside',
+					author$project$Components$entity('cameraAndPhotography1Sintra1914'))))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'Fotografia',
+		'Uma fotografia obtida com a camara estenopeica',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'photography',
+			'A very creative photography obtained with the pinhole camera',
+			author$project$Components$entity('photography2Fonte1914'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'questão',
+		'Qual o nome e data indicados no placard Leve Colares No Coração',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'question',
+			'What\'s the name and date on Leve Colares No Coracao sign',
+			author$project$Components$entity('questionSaoMartinhoColares1'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'questão2',
+		'Qual o nome e data indicados nas placas toponímicas',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'question2',
+			'What\'s the name and date on the road signs ',
+			author$project$Components$entity('questionSaoMartinhoColares2'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'Fotografia',
+		'Uma fotografia obtida com a camara estenopeica',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'a photography',
+			'Quinta do Vinagre photography obtained with the pinhole camera',
+			author$project$Components$entity('photography1QuintaVinagre'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'Livro de Poemas de Bocage',
+		'Antigo livro de poemas de Bocage em bom estado de conservação !',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'Bocage Poem Book',
+			'Ancient Poems Book by Bocage',
+			author$project$Components$entity('bocagePoemsBook'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'Credits',
+		'algumas pessoas ou instituições que directa ou indirectamente auxiliaram ( ou de onde informação foi recolhida ) a produzir o fantástico Mistério da Estrada Velha de Colares !',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'Credits',
+			'some persons or institutions that directly or indirectly have helped ( or where some information was gathered from )  to produce  the marvelous Mistério da Estrada Velha de Colares !',
 			author$project$Components$entity('creditsInfo'))),
 		A4(
 		author$project$Components$addLgDisplayInfo,
 		'pt',
-		'papiro',
-		'papiro com alguma informação escrita',
+		'Questão Final',
+		'Qual é a resposta',
 		A3(
 			author$project$Components$addDisplayInfo,
-			'old paper',
-			'old paper with some info written in it',
-			author$project$Components$entity('finalPaper')))
+			'Final Question',
+			'What do you think is the answer ?',
+			author$project$Components$entity('questionColares'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'fotografias',
+		'Fotografias da Estrada Velha de Colares',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'photos',
+			'photos of Estrada Velha de Colares',
+			author$project$Components$entity('photosEstradaVelhaColares'))),
+		A4(
+		author$project$Components$addLgDisplayInfo,
+		'pt',
+		'Papel antigo',
+		'Um papel antigo com algo escrito : ',
+		A3(
+			author$project$Components$addDisplayInfo,
+			'piece of Paper',
+			'An ancient piece of paper with something written in it : ',
+			author$project$Components$entity('finalPieceOfPaper')))
 	]);
-var author$project$OurStory$NarrativeDSFuncs$getFilteredStageMultiOptionNrs = elm$core$List$concat(
-	A2(
-		elm$core$List$map,
-		author$project$OurStory$NarrativeDSFuncs$getOptionNrsByStageNr,
-		A2(
-			elm$core$List$filter,
-			function (x) {
-				return !A2(elm$core$List$member, x, author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept);
-			},
-			author$project$OurStory$NarrativeDSFuncs$getAllStageNrs)));
-var author$project$OurStory$Manifest$items = A3(author$project$OurStory$Manifest$getListOfItems, author$project$OurStory$Manifest$initialItems, author$project$OurStory$NarrativeDSFuncs$getFilteredStageQuestionNrs, author$project$OurStory$NarrativeDSFuncs$getFilteredStageMultiOptionNrs);
+var author$project$Components$ClassName = function (a) {
+	return {$: 1, a: a};
+};
+var author$project$Components$addClassName = function (className) {
+	return A2(
+		author$project$Components$addComponent,
+		'className',
+		author$project$Components$ClassName(className));
+};
 var author$project$Components$ConnectingLocations = function (a) {
 	return {$: 2, a: a};
 };
@@ -11980,410 +11314,363 @@ var author$project$Components$addNeedsToBeInGpsZone = F4(
 			A4(author$project$Components$NeedsToBeInGpsZone, bval, dlat, dlon, mbRadius));
 	});
 var author$project$GpsUtils$East = 6;
-var author$project$GpsUtils$West = 7;
-var author$project$GpsUtils$North = 0;
 var author$project$GpsUtils$NorthEast = 1;
 var author$project$GpsUtils$NorthWest = 2;
-var author$project$GpsUtils$South = 3;
 var author$project$GpsUtils$SouthEast = 4;
 var author$project$GpsUtils$SouthWest = 5;
-var author$project$GpsUtils$bearingToDirection = function (angle) {
-	return ((angle >= 22.5) && (angle < 67.5)) ? 1 : (((angle >= 67.5) && (angle < 112.5)) ? 6 : (((angle >= 112.5) && (angle < 157.5)) ? 4 : (((angle >= 157.5) && (angle < 202.5)) ? 3 : (((angle >= 202.5) && (angle < 247.5)) ? 5 : (((angle >= 247.5) && (angle < 292.5)) ? 7 : (((angle >= 292.5) && (angle < 337.5)) ? 2 : 0))))));
-};
-var elm$core$Basics$atan2 = _Basics_atan2;
-var author$project$GpsUtils$calculateBearing = F2(
-	function (_n0, _n1) {
-		var lat1 = _n0.a;
-		var lon1 = _n0.b;
-		var lat2 = _n1.a;
-		var lon2 = _n1.b;
-		var toDegrees = function (rad) {
-			return (rad * 180) / elm$core$Basics$pi;
-		};
-		var longitude2 = lon2;
-		var longitude1 = lon1;
-		var longDiff = elm$core$Basics$degrees(longitude2 - longitude1);
-		var latitude2 = elm$core$Basics$degrees(lat2);
-		var y = elm$core$Basics$sin(longDiff) * elm$core$Basics$cos(latitude2);
-		var latitude1 = elm$core$Basics$degrees(lat1);
-		var x = (elm$core$Basics$cos(latitude1) * elm$core$Basics$sin(latitude2)) - ((elm$core$Basics$sin(latitude1) * elm$core$Basics$cos(latitude2)) * elm$core$Basics$cos(longDiff));
-		return function (v) {
-			return v % 360;
-		}(
-			elm$core$Basics$round(
-				360 + toDegrees(
-					A2(elm$core$Basics$atan2, y, x))));
-	});
-var author$project$OurStory$Manifest$getStageCoordInfo = function (stageNr) {
-	var dictCoordInfo = elm$core$Dict$fromList(
-		_List_fromArray(
-			[
-				_Utils_Tuple2(
-				1,
-				_Utils_Tuple3(38.7952, -9.391733, elm$core$Maybe$Nothing)),
-				_Utils_Tuple2(
-				2,
-				_Utils_Tuple3(38.795033, -9.391517, elm$core$Maybe$Nothing)),
-				_Utils_Tuple2(
-				3,
-				_Utils_Tuple3(38.79475, -9.3914, elm$core$Maybe$Nothing)),
-				_Utils_Tuple2(
-				4,
-				_Utils_Tuple3(38.7943, -9.391567, elm$core$Maybe$Nothing)),
-				_Utils_Tuple2(
-				5,
-				_Utils_Tuple3(38.79395, -9.391267, elm$core$Maybe$Nothing)),
-				_Utils_Tuple2(
-				6,
-				_Utils_Tuple3(38.793717, -9.391167, elm$core$Maybe$Nothing)),
-				_Utils_Tuple2(
-				7,
-				_Utils_Tuple3(38.793733, -9.39095, elm$core$Maybe$Nothing)),
-				_Utils_Tuple2(
-				8,
-				_Utils_Tuple3(38.793367, -9.391167, elm$core$Maybe$Nothing)),
-				_Utils_Tuple2(
-				9,
-				_Utils_Tuple3(38.792367, -9.391267, elm$core$Maybe$Nothing)),
-				_Utils_Tuple2(
-				10,
-				_Utils_Tuple3(38.7922, -9.3913, elm$core$Maybe$Nothing))
-			]));
-	return A2(elm$core$Dict$get, stageNr, dictCoordInfo);
-};
-var author$project$OurStory$NarrativeDataStructures$theStagesDict = elm$core$Dict$fromList(
-	_List_fromArray(
-		[
-			_Utils_Tuple2(
-			_Utils_Tuple2(1, 'pt'),
-			{
-				dn: 'Stage 1 - Inicio ',
-				$7: _List_fromArray(
-					['\n![pic500](img/entradaVilaSassetti.png)\n\nEstás na bonita Vila de Sintra próximo da entrada do percurso pedestre\nda Vila Sassetti ( Quinta da Amizade ) ...\n\n"Este percurso pedestre permite o acesso ao Palácio Nacional da Pena e ao Castelo dos Mouros, desde o Centro Histórico de Sintra.\n\nA Vila Sassetti está integrada na Paisagem Cultural de Sintra, classificada como Património da Humanidade pela UNESCO.\n\nO jardim, concebido pelo arquiteto Luigi Manini, procura obedecer a uma estética naturalista, sendo estruturado por um caminho sinuoso que é atravessado por uma linha de água artificial. O jardim expressa a relação de harmonia entre a arquitetura e a paisagem, que assim parecem fundir-se naturalmente."\n\n![pic500](img/entradaVilaSassetti2.png)\n\n![pic500](img/entradaVilaSassetti3.png)\n            '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(1, 'en'),
-			{
-				dn: 'Stage 1 - Start',
-				$7: _List_fromArray(
-					['\n![pic500](img/entradaVilaSassetti.png)\n\nYou are in the beautiful village of Sintra near the start of Vila Sassetti Pedestrian Footpath ...\n\n"The Footpath  provides access to the National Palace of Pena and the Moorish Castle from the Historical Centre of Sintra.\n\nVilla Sassetti is integrated into the Cultural Landscape of Sintra, classified as UNESCO World Heritage.\n\nThe garden, designed by the architect Luigi Manini, strives to obey a naturalist aesthetic structured around a twisting pathway criss-crossed by an artificial watercourse. The garden expresses the harmonious relationship between architecture and the landscape that seem able to naturally merge into each other. "\n\n![pic500](img/entradaVilaSassetti2.png)\n\n![pic500](img/entradaVilaSassetti3.png)\n    '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(2, 'pt'),
-			{
-				dn: 'Stage 2 - o largo ',
-				$7: _List_fromArray(
-					['\n![pic500](img/largo.png)\n\nEstás agora num pequeno largo ... À esquerda ( de quem sobe ) é possível observar um extenso banco com vários pequenos azulejos\ne à direita ( de quem sobe ) é possível observar uma espécie de trono\n\n![pic500](img/largo2.png)\n\n          '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(2, 'en'),
-			{
-				dn: 'Stage 2',
-				$7: _List_fromArray(
-					['\n![pic500](img/largo.png)\n\nyou are now on a small round space ... To the left ( when going up ) one can observe a large bank with several small tiles\nand to the right ( when going up ) one can observe a sort of throne chair ...\n\n![pic500](img/largo2.png)\n\n          '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(3, 'pt'),
-			{
-				dn: 'Stage 3 - arcade',
-				$7: _List_fromArray(
-					['\n![pic500](img/arcadas.png)\n          '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(3, 'en'),
-			{
-				dn: 'Stage 3 - arcade ',
-				$7: _List_fromArray(
-					['\n![pic500](img/arcadas.png)\n          '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(4, 'pt'),
-			{
-				dn: 'Stage 4 - Edificio Principal',
-				$7: _List_fromArray(
-					['Estás agora junto ao Edifício Principal ...\n\n![pic500](img/casaPrincipal.png)\n\n" O edifício principal distingue-se pela torre circular central de três pisos ,\na partir da qual se estendem outros corpos de geometria variável\n, empregando o granito de Sintra como revestimento exterior principal\n, as faixas de terracota características do estilo Românico Lombardo e diversas\npeças da coleção de antiquária do comitente "\n\n![pic500](img/casaPrincipalRelogio.png)\n            '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(4, 'en'),
-			{
-				dn: 'Stage 4 - Main Building',
-				$7: _List_fromArray(
-					['You are now next to the Main Building ...\n\n![pic500](img/casaPrincipal.png)\n\n"The main building stands out for its central circular tower spanning three storeys\n, out of which extend other constructions with variable geometries\n, applying Sintra granite as the main exterior finishing material with rows of terracotta\ncharacteristic of the Lombard Romanesque\n, alongside diverse pieces from the antiques collection of the owner"\n\n![pic500](img/casaPrincipalRelogio.png)\n          '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(5, 'pt'),
-			{
-				dn: 'Stage 5 - a Planta',
-				$7: _List_fromArray(
-					['Estás agora em 5 ... À tua volta vês ...\n\n![pic500](img/camelliaJaponica.png)\n            '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(5, 'en'),
-			{
-				dn: 'Stage 5 - the Plant',
-				$7: _List_fromArray(
-					['You are now in stage 5 ... You look around and see ...\n\n![pic500](img/camelliaJaponica.png)\n            '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(6, 'pt'),
-			{
-				dn: 'Stage 6 - a cadeira',
-				$7: _List_fromArray(
-					['reparas que estás junto a uma enigmática cadeira ...\n\n![pic500](img/cadeira.png)\n            '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(6, 'en'),
-			{
-				dn: 'Stage 6 - the Chair',
-				$7: _List_fromArray(
-					['You notice an enigmatic chair right next to you\n![pic500](img/cadeira.png)\n            '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(7, 'pt'),
-			{
-				dn: 'Stage 7 - o Rochedo',
-				$7: _List_fromArray(
-					['\n![pic500](img/rochedo1.png)\n\n![pic500](img/rochedo2.png)\n          '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(7, 'en'),
-			{
-				dn: 'Stage 7 - the Rock',
-				$7: _List_fromArray(
-					['\n![pic500](img/rochedo1.png)\n\n![pic500](img/rochedo2.png)\n          '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(8, 'pt'),
-			{
-				dn: 'Stage 8 - placard informativo',
-				$7: _List_fromArray(
-					['\n![pic500](img/portaSaida_.png)\n\n![pic500](img/placardProximoSaida1.png)\n             '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(8, 'en'),
-			{
-				dn: 'Stage 8 - info',
-				$7: _List_fromArray(
-					['\n![pic500](img/portaSaida_.png)\n\n![pic500](img/placardProximoSaida1.png)\n          '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(9, 'pt'),
-			{
-				dn: 'Stage 9 - Topoguia',
-				$7: _List_fromArray(
-					['Estás agora junto a um topoguia sobre as vias de escalada do Penedo da Amizade\n\n![pic500](img/viasPenedoDaAmizade.png)\n          '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(9, 'en'),
-			{
-				dn: 'Stage 9 - Rock climbing guide',
-				$7: _List_fromArray(
-					['You are now next to a rock climbing guide that presents some info about Penedo da Amizade climbing routes\n\n![pic500](img/viasPenedoDaAmizade.png)\n          '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(10, 'pt'),
-			{
-				dn: 'Stage 10 - Penedo da Amizade',
-				$7: _List_fromArray(
-					['Passaste pela  última porta e encontras-te agora no Penedo da Amizade ...\n\n![pic500](img/portaSaida.png)\n\nÀ tua esquerda encontra-se um placard informativo com distâncias relativamente a alguns pontos de interesse\n\n![pic500](img/placardProximoSaidaDistancias.png)\n          '])
-			}),
-			_Utils_Tuple2(
-			_Utils_Tuple2(10, 'en'),
-			{
-				dn: 'Stage 10 - Penedo da Amizade',
-				$7: _List_fromArray(
-					['You\'ve gone through the last door and are now in Penedo da Amizade ...\n\n![pic500](img/portaSaida.png)\n\nTo your left there\'s info on distances to some Points of Interest\n\n![pic500](img/placardProximoSaidaDistancias.png)\n          '])
-			})
-		]));
-var author$project$OurStory$NarrativeDSFuncs$getTheStageInfo = F2(
-	function (stageNr, languageId) {
-		return A2(
-			elm$core$Dict$get,
-			_Utils_Tuple2(stageNr, languageId),
-			author$project$OurStory$NarrativeDataStructures$theStagesDict);
-	});
-var author$project$OurStory$NarrativeDSFuncs$getStageName = F2(
-	function (stageNr, languageId) {
-		return A2(
-			elm$core$Maybe$withDefault,
-			'Stage ' + elm$core$String$fromInt(stageNr),
-			A2(
-				elm$core$Maybe$map,
-				function ($) {
-					return $.dn;
-				},
-				A2(author$project$OurStory$NarrativeDSFuncs$getTheStageInfo, stageNr, languageId)));
-	});
-var author$project$OurStory$NarrativeDSFuncs$getStageRecord = F2(
-	function (stageNr, lgId) {
-		var theStageDescription = A2(
-			elm$core$Maybe$map,
-			function ($) {
-				return $.$7;
-			},
-			A2(author$project$OurStory$NarrativeDSFuncs$getTheStageInfo, stageNr, lgId));
-		var getWithoutPreviousAnswered = (lgId === 'pt') ? _List_fromArray(
-			[
-				'Deves responder a todas as perguntas e opções da etapa ' + (elm$core$String$fromInt(stageNr - 1) + (' antes de entrar na etapa ' + elm$core$String$fromInt(stageNr)))
-			]) : _List_fromArray(
-			[
-				'You have to answer all stage ' + (elm$core$String$fromInt(stageNr - 1) + (' questions and options ' + (' before being allowed in stage ' + elm$core$String$fromInt(stageNr))))
-			]);
-		var getEnteringFromHigherStage = (lgId === 'pt') ? 'Para terminar o percurso deves seguir na direcção oposta' : 'To finish the course you should move in the opposite direction';
-		var mbStandardQuestionRecord = function () {
-			if (!theStageDescription.$) {
-				var stageDescription = theStageDescription.a;
-				return elm$core$Maybe$Just(
-					{
-						aD: stageDescription,
-						aG: A2(
-							elm$core$List$map,
-							function (x) {
-								return getEnteringFromHigherStage + ('  \n' + x);
-							},
-							stageDescription),
-						aO: stageDescription,
-						aY: getWithoutPreviousAnswered
-					});
-			} else {
-				return elm$core$Maybe$Nothing;
-			}
-		}();
-		return mbStandardQuestionRecord;
-	});
-var author$project$OurStory$NarrativeDSFuncs$interactingWithStageN = F3(
-	function (stageNr, lgId, fieldStr) {
-		var theRec = A2(
-			elm$core$Maybe$withDefault,
-			{
-				aD: _List_fromArray(
-					['']),
-				aG: _List_fromArray(
-					['']),
-				aO: _List_fromArray(
-					['']),
-				aY: _List_fromArray(
-					[''])
-			},
-			A2(author$project$OurStory$NarrativeDSFuncs$getStageRecord, stageNr, lgId));
-		var theListString = (fieldStr === 'withoutPreviousAnswered') ? theRec.aY : ((fieldStr === 'defaultStageDescription') ? theRec.aD : ((fieldStr === 'enteringFromHigherStage') ? theRec.aG : theRec.aO));
-		return theListString;
-	});
-var author$project$OurStory$Manifest$getListOfLocations = F2(
-	function (initLocations, nrLocations) {
-		var mbAddCoordInfo = F2(
-			function (stageNr, entity) {
-				var _n3 = author$project$OurStory$Manifest$getStageCoordInfo(stageNr);
-				if (_n3.$ === 1) {
-					return entity;
-				} else {
-					var _n4 = _n3.a;
-					var lat = _n4.a;
-					var lon = _n4.b;
-					var mbRadius = _n4.c;
-					return A5(author$project$Components$addNeedsToBeInGpsZone, true, lat, lon, mbRadius, entity);
-				}
-			});
-		var getDirection = F2(
-			function (s1, s2) {
-				var _n0 = _Utils_Tuple2(
-					author$project$OurStory$Manifest$getStageCoordInfo(s1),
-					author$project$OurStory$Manifest$getStageCoordInfo(s2));
-				if ((!_n0.a.$) && (!_n0.b.$)) {
-					var _n1 = _n0.a.a;
-					var lat1 = _n1.a;
-					var lon1 = _n1.b;
-					var mbrad1 = _n1.c;
-					var _n2 = _n0.b.a;
-					var lat2 = _n2.a;
-					var lon2 = _n2.b;
-					var mbrad2 = _n2.c;
-					return author$project$GpsUtils$bearingToDirection(
-						A2(
-							author$project$GpsUtils$calculateBearing,
-							_Utils_Tuple2(lat1, lon1),
-							_Utils_Tuple2(lat2, lon2)));
-				} else {
-					return (_Utils_cmp(s2, s1) > -1) ? 7 : 6;
-				}
-			});
-		var getConnectingLocations = function (stageNr) {
-			return (stageNr === 1) ? _List_fromArray(
-				[
-					_Utils_Tuple2(
-					A2(getDirection, 1, 2),
-					'stage2')
-				]) : (_Utils_eq(stageNr, nrLocations) ? _List_fromArray(
-				[
-					_Utils_Tuple2(
-					A2(getDirection, nrLocations, nrLocations - 1),
-					author$project$OurStory$NarrativeDSFuncs$getStageId(nrLocations - 1))
-				]) : _List_fromArray(
-				[
-					_Utils_Tuple2(
-					A2(getDirection, stageNr, stageNr + 1),
-					author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr + 1)),
-					_Utils_Tuple2(
-					A2(getDirection, stageNr, stageNr - 1),
-					author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr - 1))
-				]));
-		};
-		var createEntity = function (nr) {
-			return A2(
-				mbAddCoordInfo,
-				nr,
-				A2(
-					author$project$Components$addConnectingLocations,
-					getConnectingLocations(nr),
-					A4(
-						author$project$Components$addLgDisplayInfo,
-						'pt',
-						A2(author$project$OurStory$NarrativeDSFuncs$getStageName, nr, 'pt'),
-						A2(
-							elm$core$String$join,
-							' , ',
-							A3(author$project$OurStory$NarrativeDSFuncs$interactingWithStageN, nr, 'pt', 'defaultStageDescription')),
-						A3(
-							author$project$Components$addDisplayInfo,
-							A2(author$project$OurStory$NarrativeDSFuncs$getStageName, nr, 'en'),
-							A2(
-								elm$core$String$join,
-								' , ',
-								A3(author$project$OurStory$NarrativeDSFuncs$interactingWithStageN, nr, 'en', 'defaultStageDescription')),
-							author$project$Components$entity(
-								author$project$OurStory$NarrativeDSFuncs$getStageId(nr))))));
-		};
-		var moreLocations = A2(
-			elm$core$List$map,
-			createEntity,
-			A2(elm$core$List$range, 1, nrLocations));
-		return A2(elm$core$List$append, initLocations, moreLocations);
-	});
-var author$project$OurStory$Manifest$initialLocations = _List_fromArray(
+var author$project$GpsUtils$West = 7;
+var author$project$OurStory$Manifest$locations = _List_fromArray(
 	[
 		A2(
-		author$project$Components$addConnectingLocations,
-		_List_fromArray(
-			[
-				_Utils_Tuple2(7, 'stage1')
-			]),
-		A4(
-			author$project$Components$addLgDisplayInfo,
-			'pt',
-			'Era Uma Vez ...',
-			'Era Uma Vez ...',
-			A3(
-				author$project$Components$addDisplayInfo,
-				'Once Upon a Time',
-				'Once Upon a Time',
-				author$project$Components$entity('onceUponAtime'))))
+		author$project$Components$addClassName,
+		'largoCarlosFranca',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			false,
+			38.79503,
+			-9.39289,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(7, 'ruaBarbosaDoBocageInicio')
+					]),
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Largo Dr. Carlos Franca',
+					'O Largo em que a acção se inicia',
+					author$project$Components$entity('largoDrCarlosFranca'))))),
+		A2(
+		author$project$Components$addClassName,
+		'ruaBarbosadoBocage',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.79501,
+			-9.39421,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(6, 'largoDrCarlosFranca'),
+						_Utils_Tuple2(7, 'villaRoma')
+					]),
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Rua Barbosa do Bocage',
+					'A famosa estrada que segue para Oeste em direcção a Colares',
+					author$project$Components$entity('ruaBarbosaDoBocageInicio'))))),
+		A2(
+		author$project$Components$addClassName,
+		'villaRoma',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.79652,
+			-9.3959,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(6, 'ruaBarbosaDoBocageInicio'),
+						_Utils_Tuple2(2, 'ruaTrindadeCoelho'),
+						_Utils_Tuple2(7, 'palacioSeteais')
+					]),
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Villa Roma',
+					'Bonita quinta em frente à Quinta da Regaleira',
+					author$project$Components$entity('villaRoma'))))),
+		A2(
+		author$project$Components$addClassName,
+		'ruaTrindadeCoelho',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.7991,
+			-9.39965,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(1, 'villaRoma')
+					]),
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Rua Trindade Coelho',
+					'Rua estreita em ziguezague em direcção à Casa do Fauno , Caminho dos Frades e Caminho dos Castanhais',
+					author$project$Components$entity('ruaTrindadeCoelho'))))),
+		A2(
+		author$project$Components$addClassName,
+		'seteais',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.79618,
+			-9.39839,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(6, 'villaRoma'),
+						_Utils_Tuple2(5, 'quintaPenhaVerde')
+					]),
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Seteais',
+					'Bonitos jardins e palácio',
+					author$project$Components$entity('palacioSeteais'))))),
+		A2(
+		author$project$Components$addClassName,
+		'quintaPenhaVerde',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.7937,
+			-9.40305,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(1, 'palacioSeteais'),
+						_Utils_Tuple2(5, 'desvioQuintaSequoias')
+					]),
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Quinta da Penha Verde',
+					'Bonita quinta e arco sobre a estrada. Proximo da Fonte d\'el Rei',
+					author$project$Components$entity('quintaPenhaVerde'))))),
+		A2(
+		author$project$Components$addClassName,
+		'desvioQuintaSequoias',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.79043,
+			-9.40558,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(1, 'quintaPenhaVerde'),
+						_Utils_Tuple2(7, 'quintinhaMonserrate')
+					]),
+				A3(
+					author$project$Components$addDisplayInfo,
+					'desvio para a Quinta das Sequoias',
+					'Desvio para a Quinta das Sequoias',
+					author$project$Components$entity('desvioQuintaSequoias'))))),
+		A2(
+		author$project$Components$addClassName,
+		'quintinhaMonserrate',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.79075,
+			-9.41006,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(6, 'desvioQuintaSequoias'),
+						_Utils_Tuple2(7, 'fonteDeMataAlva')
+					]),
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Quintinha de Monserrate',
+					'Quintinha de Monserrate',
+					author$project$Components$entity('quintinhaMonserrate'))))),
+		A2(
+		author$project$Components$addClassName,
+		'fonteDeMataAlva',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.79005,
+			-9.41584,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(6, 'quintinhaMonserrate'),
+						_Utils_Tuple2(2, 'parquePalacioMonserrate')
+					]),
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Fonte de Mata-Alva',
+					'Fonte de Mata-Alva',
+					author$project$Components$entity('fonteDeMataAlva'))))),
+		A2(
+		author$project$Components$addClassName,
+		'parquePalacioMonserrate',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.7919,
+			-9.41923,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(4, 'fonteDeMataAlva'),
+						_Utils_Tuple2(7, 'fonteDosLadroes')
+					]),
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Parque e Palácio de Monserrate',
+					'Parque e Palácio de Monserrate',
+					author$project$Components$entity('parquePalacioMonserrate'))))),
+		A2(
+		author$project$Components$addClassName,
+		'fonteDosLadroes',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.79159,
+			-9.42446,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(6, 'parquePalacioMonserrate'),
+						_Utils_Tuple2(7, 'sintra1914')
+					]),
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Fonte dos Ladrões',
+					'Fonte dos Ladrões',
+					author$project$Components$entity('fonteDosLadroes'))))),
+		A2(
+		author$project$Components$addClassName,
+		'sintra1914',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.79315,
+			-9.42684,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(6, 'fonteDosLadroes'),
+						_Utils_Tuple2(2, 'limiteSaoMartinhoColares')
+					]),
+				A4(
+					author$project$Components$addLgDisplayInfo,
+					'pt',
+					'Sintra 1914',
+					'Sintra 1914',
+					A3(
+						author$project$Components$addDisplayInfo,
+						'Sintra 1914',
+						'Sintra 1914',
+						author$project$Components$entity('sintra1914')))))),
+		A2(
+		author$project$Components$addClassName,
+		'limiteSaoMartinhoColares',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.79395,
+			-9.4276,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(6, 'sintra1914'),
+						_Utils_Tuple2(2, 'eugaria')
+					]),
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Limite Freguesia Sao Martinho - Colares',
+					'Aqui termina a freguesia de São Martinho e se inicia a freguesia de Colares',
+					author$project$Components$entity('limiteSaoMartinhoColares'))))),
+		A2(
+		author$project$Components$addClassName,
+		'eugaria',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.79497,
+			-9.43413,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(4, 'limiteSaoMartinhoColares'),
+						_Utils_Tuple2(7, 'quintaDoVinagre')
+					]),
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Eugaria',
+					'Eugaria',
+					author$project$Components$entity('eugaria'))))),
+		A2(
+		author$project$Components$addClassName,
+		'quintaDoVinagre',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.79811,
+			-9.43735,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(6, 'eugaria'),
+						_Utils_Tuple2(7, 'colares')
+					]),
+				A4(
+					author$project$Components$addLgDisplayInfo,
+					'pt',
+					'Rio das Maçãs na Quinta do Vinagre',
+					'Rio das Maçãs na Quinta do Vinagre',
+					A3(
+						author$project$Components$addDisplayInfo,
+						'Rio das Maçãs in Quinta do Vinagre',
+						'Rio das Maçãs in Quinta do Vinagre',
+						author$project$Components$entity('quintaDoVinagre')))))),
+		A2(
+		author$project$Components$addClassName,
+		'colares',
+		A5(
+			author$project$Components$addNeedsToBeInGpsZone,
+			true,
+			38.7995,
+			-9.44462,
+			elm$core$Maybe$Nothing,
+			A2(
+				author$project$Components$addConnectingLocations,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(6, 'quintaDoVinagre')
+					]),
+				A3(
+					author$project$Components$addDisplayInfo,
+					'Colares',
+					'Colares',
+					author$project$Components$entity('colares')))))
 	]);
-var author$project$OurStory$Manifest$locations = A2(author$project$OurStory$Manifest$getListOfLocations, author$project$OurStory$Manifest$initialLocations, author$project$OurStory$NarrativeDSFuncs$getNumberOfDesiredStages);
 var author$project$OurStory$Manifest$playerId = 'playerOne';
-var author$project$OurStory$Narrative$endScreenInfo = {bZ: 'Congratulations ! You reached the End ! ...', b_: 'You are now a hiking trail Master  :)', ca: '....\n                        ', be: 'finalImage.png'};
-var author$project$OurStory$Narrative$startScreenInfo = {bP: 'An Interactive Story by Sintra Ubuntuer', be: 'introImage.png', dl: ' a guided tour through Vila Sassetti ( Quinta da Amizade ) - Sintra\n                     ', dw: 'investigator', dz: 'A Guided Tour Through Vila Sassetti - Sintra', dA: ''};
-var author$project$OurStory$Narrative$startingNarrative = {ba: 'opening', bb: 'onceUponAtime', bc: 'Percurso Pedestre Vila Sassetti...', cv: true, cw: false, cK: elm$core$Maybe$Nothing, cQ: elm$core$Maybe$Nothing, cR: elm$core$Maybe$Nothing, cU: 'Num  dia luminoso de Setembro encontras-te na\n            bela Vila de Sintra prestes a iniciar o percurso pedestre de Vila Sassetti\n            ( Quinta da Amizade )\n         ', du: 'interacção sugerida : '};
-var author$project$OurStory$Narrative$startingNarrativeEn = {ba: 'opening', bb: 'onceUponAtime', bc: 'Pedestrian Footpath...', cv: true, cw: false, cK: elm$core$Maybe$Nothing, cQ: elm$core$Maybe$Nothing, cR: elm$core$Maybe$Nothing, cU: 'On a shiny September day you find yourself in the magnificent Vila de Sintra\n             about to start Vila Sassetti ( Quinta da Amizade ) pedestrian footpath ...\n       ', du: 'suggested interaction : '};
+var author$project$OurStory$Narrative$endScreenInfo = {bS: 'Congratulations !!! ', bT: 'Good Luck on your quest in Serra de Sintra :)', b2: '....\n                        ', a9: 'finalImage.png'};
+var author$project$OurStory$Narrative$startScreenInfo = {bI: 'An Interactive Story by Sintra Ubuntuer', a9: 'estradaVelhaColares.png', c6: ' Estrada Velha de Colares and the different names it assumes between Sintra and Colares\n                       constitutes a brain cracking mystery that puzzled several brilliant minds\n                       throughout the ages ...\n                       Could this be the day ... ?\n                     ', dg: 'investigator', dj: 'O Mistério da Estrada Velha', dk: ' de Colares'};
+var author$project$OurStory$Narrative$startingNarrative = {a5: 'opening', a6: 'OnceUponAtime', a7: 'Once upon a time...', cn: true, co: false, cC: elm$core$Maybe$Nothing, cI: elm$core$Maybe$Nothing, cJ: elm$core$Maybe$Nothing, cM: 'Todas as histórias têm um começo , ainda que por vezes não seja fácil determinar\n          o momento exacto em que se iniciam ( ou terminam ) ...\n           Assim parecia ser também o caso da Estrada Velha de Colares\n           e os seus diferentes nomes entre Sintra e Colares ...\n    ', de: 'interacção sugerida : '};
+var author$project$OurStory$Narrative$startingNarrativeEn = {a5: 'opening', a6: 'OnceUponAtime', a7: 'Once upon a time...', cn: true, co: false, cC: elm$core$Maybe$Nothing, cI: elm$core$Maybe$Nothing, cJ: elm$core$Maybe$Nothing, cM: 'Every Story has a beginning , even though it\'s not allways easy to determine the exact moment\n        in which it starts ( or ends ) . That  seemed to also be the case with Estrada Velha de Colares\n        and its several different names between Sintra and Colares ...\n', de: 'interacção sugerida : '};
 var author$project$OurStory$Narrative$startingNarratives = elm$core$Dict$fromList(
 	_List_fromArray(
 		[
@@ -12396,205 +11683,869 @@ var author$project$OurStory$Narrative$startingNarratives = elm$core$Dict$fromLis
 			_List_fromArray(
 				[author$project$OurStory$Narrative$startingNarrativeEn]))
 		]));
-var author$project$OurStory$Rules$correctAnswerNotRequiredToMove = _List_fromArray(
-	[1, 2, 3, 4, 5, 6, 7, 8, 9]);
-var author$project$Engine$aDictStringListString = author$project$Types$ADictStringListString;
+var author$project$Types$AddChoiceLanguage = F2(
+	function (a, b) {
+		return {$: 31, a: a, b: b};
+	});
+var author$project$Engine$addChoiceLanguage = author$project$Types$AddChoiceLanguage;
+var author$project$Engine$answerSpacesDontMatter = 1;
 var author$project$Engine$astring = author$project$Types$Astring;
-var author$project$Types$CheckAndAct_IfChosenOptionIs = F2(
+var author$project$Types$AttrValueIsEqualTo = F3(
+	function (a, b, c) {
+		return {$: 19, a: a, b: b, c: c};
+	});
+var author$project$Engine$attrValueIsEqualTo = author$project$Types$AttrValueIsEqualTo;
+var author$project$Engine$caseInsensitiveAnswer = 1;
+var author$project$Types$CharacterIsInLocation = F2(
+	function (a, b) {
+		return {$: 1, a: a, b: b};
+	});
+var author$project$Engine$characterIsInLocation = author$project$Types$CharacterIsInLocation;
+var author$project$Types$CharacterIsNotInLocation = F2(
 	function (a, b) {
 		return {$: 2, a: a, b: b};
 	});
-var author$project$Engine$checkAndAct_IfChosenOptionIs = author$project$Types$CheckAndAct_IfChosenOptionIs;
-var author$project$Types$CheckOptionData = F5(
-	function (choiceMatches, choiceFeedbackText, lnewAttrs, lotherInterAttrs, lnewCWcmds) {
-		return {bV: choiceFeedbackText, bW: choiceMatches, aK: lnewAttrs, cC: lnewCWcmds, cF: lotherInterAttrs};
+var author$project$Engine$characterIsNotInLocation = author$project$Types$CharacterIsNotInLocation;
+var author$project$Engine$checkAnswerData = author$project$Types$CheckAnswerData;
+var author$project$Types$CheckBkendAnswerData = F4(
+	function (mbMaxNrTries, answerFeedback, lnewAttrs, lotherInterAttrs) {
+		return {by: answerFeedback, aH: lnewAttrs, cx: lotherInterAttrs, cF: mbMaxNrTries};
 	});
-var author$project$Engine$checkOptionData = author$project$Types$CheckOptionData;
-var author$project$Types$ChoiceHasAlreadyBeenMade = function (a) {
-	return {$: 22, a: a};
+var author$project$Engine$checkBkendAnswerData = author$project$Types$CheckBkendAnswerData;
+var author$project$Types$Check_IfAnswerCorrect = F3(
+	function (a, b, c) {
+		return {$: 1, a: a, b: b, c: c};
+	});
+var author$project$Engine$check_IfAnswerCorrect = author$project$Types$Check_IfAnswerCorrect;
+var author$project$Types$Check_IfAnswerCorrectUsingBackend = F3(
+	function (a, b, c) {
+		return {$: 1, a: a, b: b, c: c};
+	});
+var author$project$Engine$check_IfAnswerCorrectUsingBackend = author$project$Types$Check_IfAnswerCorrectUsingBackend;
+var author$project$Types$CounterGreaterThenOrEqualTo = F3(
+	function (a, b, c) {
+		return {$: 18, a: a, b: b, c: c};
+	});
+var author$project$Engine$counterGreaterThenOrEqualTo = author$project$Types$CounterGreaterThenOrEqualTo;
+var author$project$Types$CounterLessThen = F3(
+	function (a, b, c) {
+		return {$: 17, a: a, b: b, c: c};
+	});
+var author$project$Engine$counterLessThen = author$project$Types$CounterLessThen;
+var author$project$Types$CreateOrSetAttributeValueFromOtherInterAttr = F4(
+	function (a, b, c, d) {
+		return {$: 20, a: a, b: b, c: c, d: d};
+	});
+var author$project$Engine$createOrSetAttributeValueFromOtherInterAttr = author$project$Types$CreateOrSetAttributeValueFromOtherInterAttr;
+var author$project$Types$CurrentLocationIs = function (a) {
+	return {$: 3, a: a};
 };
-var author$project$Engine$choiceHasAlreadyBeenMade = author$project$Types$ChoiceHasAlreadyBeenMade;
+var author$project$Engine$currentLocationIs = author$project$Types$CurrentLocationIs;
+var author$project$Types$CurrentLocationIsNot = function (a) {
+	return {$: 4, a: a};
+};
+var author$project$Engine$currentLocationIsNot = author$project$Types$CurrentLocationIsNot;
+var author$project$Types$EndStory = F2(
+	function (a, b) {
+		return {$: 32, a: a, b: b};
+	});
+var author$project$Types$FreezingEnd = 0;
+var author$project$Types$NotFreezingEnd = 1;
+var author$project$Engine$endStory = F2(
+	function (endingtypeStr, ending) {
+		return (endingtypeStr === 'notFreezingEnd') ? A2(author$project$Types$EndStory, 1, ending) : A2(author$project$Types$EndStory, 0, ending);
+	});
+var author$project$Types$HasNotPreviouslyInteractedWith = function (a) {
+	return {$: 14, a: a};
+};
+var author$project$Engine$hasNotPreviouslyInteractedWith = author$project$Types$HasNotPreviouslyInteractedWith;
+var author$project$Types$HasPreviouslyInteractedWith = function (a) {
+	return {$: 13, a: a};
+};
+var author$project$Engine$hasPreviouslyInteractedWith = author$project$Types$HasPreviouslyInteractedWith;
+var author$project$Engine$headerAnswerAndCorrectIncorrect = 4;
+var author$project$Types$IncreaseCounter = F2(
+	function (a, b) {
+		return {$: 25, a: a, b: b};
+	});
+var author$project$Engine$increaseCounter = author$project$Types$IncreaseCounter;
 var author$project$Types$ItemIsCorrectlyAnswered = function (a) {
 	return {$: 11, a: a};
 };
 var author$project$Engine$itemIsCorrectlyAnswered = author$project$Types$ItemIsCorrectlyAnswered;
+var author$project$Types$ItemIsInCharacterInventory = F2(
+	function (a, b) {
+		return {$: 0, a: a, b: b};
+	});
+var author$project$Engine$itemIsInCharacterInventory = author$project$Types$ItemIsInCharacterInventory;
+var author$project$Types$ItemIsInLocation = F2(
+	function (a, b) {
+		return {$: 5, a: a, b: b};
+	});
+var author$project$Engine$itemIsInLocation = author$project$Types$ItemIsInLocation;
+var author$project$Types$ItemIsNotCorrectlyAnswered = function (a) {
+	return {$: 12, a: a};
+};
+var author$project$Engine$itemIsNotCorrectlyAnswered = author$project$Types$ItemIsNotCorrectlyAnswered;
+var author$project$Types$ItemIsNotInCharacterInventory = F2(
+	function (a, b) {
+		return {$: 6, a: a, b: b};
+	});
+var author$project$Engine$itemIsNotInCharacterInventory = author$project$Types$ItemIsNotInCharacterInventory;
+var author$project$Types$ItemIsNotInLocation = F2(
+	function (a, b) {
+		return {$: 7, a: a, b: b};
+	});
+var author$project$Engine$itemIsNotInLocation = author$project$Types$ItemIsNotInLocation;
 var author$project$Types$ItemIsOffScreen = function (a) {
 	return {$: 8, a: a};
 };
 var author$project$Engine$itemIsOffScreen = author$project$Types$ItemIsOffScreen;
-var author$project$Types$MatchAnyNonEmptyString = {$: 1};
-var author$project$Engine$matchAnyNonEmptyString = author$project$Types$MatchAnyNonEmptyString;
-var author$project$Types$MatchStringValue = function (a) {
-	return {$: 0, a: a};
+var author$project$Engine$listOfAnswersAndFunctions = author$project$Types$ListOfAnswersAndFunctions;
+var author$project$Types$MoveCharacterOffScreen = function (a) {
+	return {$: 28, a: a};
 };
-var author$project$Engine$matchStringValue = author$project$Types$MatchStringValue;
-var author$project$OurStory$Narrative$additionalStageInfoAfterAllQuestionsAnsweredDict = elm$core$Dict$fromList(
+var author$project$Engine$moveCharacterOffScreen = author$project$Types$MoveCharacterOffScreen;
+var author$project$Types$MoveItemOffScreen = function (a) {
+	return {$: 26, a: a};
+};
+var author$project$Engine$moveItemOffScreen = author$project$Types$MoveItemOffScreen;
+var author$project$Engine$moveItemToCharacterInventory = author$project$Types$MoveItemToCharacterInventory;
+var author$project$Types$RemoveAttributeIfExists = F2(
+	function (a, b) {
+		return {$: 24, a: a, b: b};
+	});
+var author$project$Engine$removeAttributeIfExists = author$project$Types$RemoveAttributeIfExists;
+var author$project$Engine$setAttributeValue = F3(
+	function (val, attrId, interactableId) {
+		return A4(author$project$Types$CreateAttributeIfNotExistsAndOrSetValue, val, attrId, elm$core$Maybe$Nothing, interactableId);
+	});
+var author$project$Engine$simpleCheck_IfAnswerCorrect = F3(
+	function (lcorrectAnswersAndFuncs, mbNrTries, interactableId) {
+		return A3(
+			author$project$Types$Check_IfAnswerCorrect,
+			lcorrectAnswersAndFuncs,
+			A8(author$project$Types$CheckAnswerData, mbNrTries, 1, 1, 4, elm$core$Dict$empty, elm$core$Dict$empty, _List_Nil, _List_Nil),
+			interactableId);
+	});
+var author$project$Engine$simpleCheck_IfAnswerCorrectUsingBackend = F3(
+	function (strUrl, mbNrTries, interactableId) {
+		return A3(
+			author$project$Types$Check_IfAnswerCorrectUsingBackend,
+			strUrl,
+			A4(author$project$Types$CheckBkendAnswerData, mbNrTries, 4, _List_Nil, _List_Nil),
+			interactableId);
+	});
+var author$project$Types$WithAnyLocationAnyCharacterAfterGameEnded = {$: 4};
+var author$project$Engine$withAnyLocationAnyCharacterAfterGameEnded = author$project$Types$WithAnyLocationAnyCharacterAfterGameEnded;
+var author$project$Types$Write_GpsInfoToItem = function (a) {
+	return {$: 3, a: a};
+};
+var author$project$Engine$write_GpsInfoToItem = author$project$Types$Write_GpsInfoToItem;
+var author$project$InfoForBkendApiRequests$backendAnswerCheckerUrl = 'https://questionanswerntapp.herokuapp.com/answerchecker/';
+var author$project$OurStory$Narrative$birdsNestOfferedByTotemShaper = _List_fromArray(
+	['\nAo aperceber-se que estás em caminhada pela Estrada Velha de Colares a escultora oferece-te um ninho de pássaro\ndando-te indicações sobre como encontrar um local propício onde deverás instalar o ninho !  ....\n     ', '\n       ']);
+var author$project$OurStory$NarrativeEnglish$birdsNestOfferedByTotemShaperEn = _List_fromArray(
+	['\nWhen the sculptor realizes you are walking the Estrada Velha de Colares from Sintra to Colares she offers you a bird\'s nest/house\ngiving you detailed info on how to find a proper place to install the nest.\n     ', '\n      ']);
+var author$project$OurStory$Narrative$birdsNestOfferedByTotemShaperDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$birdsNestOfferedByTotemShaper),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$birdsNestOfferedByTotemShaperEn)
+		]));
+var author$project$OurStory$Narrative$byronsPoemMonserrate = _List_fromArray(
+	['\nPoema de Byron sobre Monserrate ( em Childe Harold\'s Pilgrimage ) :\n\n\n\nNos montes em declive , ou em baixo no vale\n\nHá castelos de outrora, onde habitaram reis ;\n\nEmbora em derredor só vivam plantas bravas,\n\nLá persistem sinais do passado esplendor.\n\nE eis no alto , ó Vathek , a mansão principesca ,\n\nonde tu, o mais rico herdeiro de Inglaterra,\n\nFormaste um breve paraíso, mal sabendo\n\nQue onde a fútil riqueza esbanja sem medida\n\nNunca a paz acompanha as delícias da vida ,\n\n\n\nAqui moraste , e aqui sonhaste ser feliz\n\nVendo ao longe a montanha : a beleza imutável\n\nAgora, este local parece amaldiçoado :\n\nTeu palácio está só como tu próprio és só.\n\nUm matagal enorme a custo dá passagem\n\nÀs salas sem ninguém , com seus portais abertos :\n\nAqui, mais uma vez, se aprende, meditando,\n\nComo são frágeis sempre os luxos deste mundo,\n\nQue o tempo, em seu caudal, arrasta para o fundo.\n    ']);
+var author$project$OurStory$NarrativeEnglish$byronsPoemMonserrateEn = _List_fromArray(
+	['\nByron\'s Poem about Monserrate ( in Childe Harold\'s Pilgrimage ) :\n\n\n\nOn sloping mounds, or in the vale beneath,\n\nAre domes where whilome kings did make repair:\n\nBut now the wild flowers round them only breathe;\n\nYet ruin\'d splendour still is lingering there.\n\nAnd yonder towers the Prince\'s palace fair:\n\nThere thou too, Vathek! England\'s wealthiest son,\n\nOnce form\'d thy Paradise, as not aware\n\nWhen wanton Wealth her mightiest deeds hath done,\n\nMeek Peace voluptuous lures was ever wont to shun.\n\n\n\nHere didst thou dwell, here schemes of pleasure plan,\n\nBeneath yon mountain\'s ever beauteous brow;\n\nBut now, as if a thing unblest by man,\n\nThy fairy dwelling is as lone as thou!\n\nHere giant weeds a passage scarce allow\n\nTo halls deserted, portals gaping wide;\n\nFresh lessons to the thinking bosom, how\n\nVain are the pleasaunces on earth supplied;\n\nSwept into wrecks anon by Time\'s ungentle tide!\n    ']);
+var author$project$OurStory$Narrative$byronsPoemMonserrateDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$byronsPoemMonserrate),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$byronsPoemMonserrateEn)
+		]));
+var author$project$OurStory$Narrative$enteringColares = _List_fromArray(
+	['\nColares !\n    ']);
+var author$project$OurStory$NarrativeEnglish$enteringColaresEn = _List_fromArray(
+	['\nColares !\n    ']);
+var author$project$OurStory$Narrative$enteringColaresDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringColares),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringColaresEn)
+		]));
+var author$project$OurStory$Narrative$getEnteringDesvioQuintaSequoias = '\nÀ tua esquerda fica o desvio para a Quinta das Sequoías ( que bem merece  uma visita ).\nDeves no entanto seguir em frente em direcção a Colares.\n\n![pic500](img/desvioSequoias.png)\n\nDo outro lado da estrada , junto a uma bonita cascata , vês um  fotógrafo na prática da sua arte !\n\n![pic500](img/desvioSequoias2.png)\n        ';
+var author$project$OurStory$Narrative$enteringDesvioQuintaSequoias = _List_fromArray(
+	[author$project$OurStory$Narrative$getEnteringDesvioQuintaSequoias]);
+var author$project$OurStory$NarrativeEnglish$getEnteringDesvioQuintaSequoiasEn = '\nTo the left is the road that leads to Quinta das Sequoías ( which is well worth a visit )\nYou should nevertheless remain on Estrada Velha de Colares  and keep going west towards Colares .\n\n![pic500](img/desvioSequoias.png)\n\nOn the other side of the road , near a beautiful waterfall, you see a photographer practicing his art.\n\n![pic500](img/desvioSequoias2.png)\n        ';
+var author$project$OurStory$NarrativeEnglish$enteringDesvioQuintaSequoiasEn = _List_fromArray(
+	[author$project$OurStory$NarrativeEnglish$getEnteringDesvioQuintaSequoiasEn]);
+var author$project$OurStory$NarrativeObsOne$playerOneNameToObsOne = 'Villain';
+var author$project$OurStory$NarrativeObsOne$enteringDesvioQuintaSequoiasVi = _List_fromArray(
+	[author$project$OurStory$NarrativeObsOne$playerOneNameToObsOne + '\n seems to be searching for someone ...\n    ']);
+var author$project$OurStory$NarrativeObsTwo$playerOneNameToObsTwo = 'Hero';
+var author$project$OurStory$NarrativeObsTwo$enteringDesvioQuintaSequoiasVw = _List_fromArray(
+	[author$project$OurStory$NarrativeObsTwo$playerOneNameToObsTwo + '\n    is now near Desvio to Quinta das Sequoias ...\n    ']);
+var author$project$OurStory$Narrative$enteringDesvioQuintaSequoiasDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringDesvioQuintaSequoias),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringDesvioQuintaSequoiasEn),
+			_Utils_Tuple2('vi', author$project$OurStory$NarrativeObsOne$enteringDesvioQuintaSequoiasVi),
+			_Utils_Tuple2('vw', author$project$OurStory$NarrativeObsTwo$enteringDesvioQuintaSequoiasVw)
+		]));
+var author$project$OurStory$Narrative$enteringEugaria = _List_fromArray(
+	['\n![pic500](img/eugaria.png)\n\nPequena aldeia rústica na encosta Norte da Serra , que alguem descreveu como "uma das ultimas aldeias genuínas da área de Lisboa"\n\nAqui fica localizado o artístico Casal dos Olhos de Pancho Guedes  ou o Casal da Serrana onde viveu Alfredo Keil\n\n\nÀ esquerda fica o Caminho de Rio de Milho que sobe em direcção a Gigarós , Convento (Quinta) do Carmo  e o Caminho do Rio Velho\n\n![](img/eugaria2.png)\n    ']);
+var author$project$OurStory$NarrativeEnglish$enteringEugariaEn = _List_fromArray(
+	['\n![](img/eugaria.png)\n\n\nSmall rustic village located on the north slope of Serra de Sintra ,\nsomeone once described as "one of the last True villages of Lisbon area".\n\n\nHere is located the artistic "Casal dos Olhos" of Pancho Guedes or Casal da Serrana where Alfredo Keil lived.\n\n\nTo the south one can find Caminho de Rio de Milho which goes up towards Gigarós , Convento (Quinta) do Carmo  and Caminho do Rio Velho\n\n\n![](img/eugaria2.png)\n    ']);
+var author$project$OurStory$Narrative$enteringEugariaDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringEugaria),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringEugariaEn)
+		]));
+var author$project$OurStory$Narrative$enteringFonteDeMataAlva = _List_fromArray(
+	['\n![pic500](img/fonteDeMataAlva.png)\n\nFonte de aspecto curioso , construída no sec. XVIII e remodelada em 1875 por Sir Francis Cook.\n\n\nRestaurada pela câmara municipal em ... adquiriu um aspecto diferente devido essencialmente aos painéis de azulejos incrustados no alçado e muros que a compõem.\n    ']);
+var author$project$OurStory$NarrativeEnglish$enteringFonteDeMataAlvaEn = _List_fromArray(
+	['\n![](img/fonteDeMataAlva.png)\n\nCurious looking fountain , built on the XVIII century and remodeled  in 1875 by Sir Francis Cook.\n\n\nIt got a new look in  ... (year it was restored by City Hall ) due to the embedded tile panels in its walls and main body.\n    ']);
+var author$project$OurStory$Narrative$enteringFonteDeMataAlvaDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringFonteDeMataAlva),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringFonteDeMataAlvaEn)
+		]));
+var author$project$OurStory$Narrative$enteringFonteDosLadroes = _List_fromArray(
+	['\n![pic500](img/fonteDosLadroes.png)\n\nFonte e Cascata dos Ladrões - " O nome deriva do facto ( ou dos rumores )  de em  tempos idos aqui supostamente terem acontecido emboscadas aos mercadores que se deslocavam a Colares com as suas mercadorias.\n\nDesconhece-se a data da sua origem.\n\nQuando foi restaurada em 1988 foi encontrada a sua fonte original tendo o projecto inicial sofrido certas alterações a fim de manter intactas a sua forma original e fazer o restauro e posterior enquadramento. É uma fonte relativamente pequena que tem água o ano inteiro apesar de no Verão apenas correr um fiozinho de água. Em cima tem o brasão Real de D. Maria I em pedra."\n\n\n![](img/cascataDosLadroes.png)\n    ']);
+var author$project$OurStory$NarrativeEnglish$enteringFonteDosLadroesEn = _List_fromArray(
+	['\n![](img/fonteDosLadroes.png)\n\n\nFonte e Cascata dos Ladrões -  Named after the fact ( or rumours ) that  supposedly , long time ago, some merchants were ambushed near this place when on their way to Colares.\n\nDate of origin is unknown.\n\nRestored in 1988 , a lot of effort and research has been made in order to keep its original form unaltered.\n\n\nIt is a relatively small fountain with running water all over the year ( the flow is reduced to a small stream in the summer  )\n\n\nThe  Royal Coat of Arms of D.Maria I is engraved near the top of the fountain.\n\n\n![](img/cascataDosLadroes.png)\n\n    ']);
+var author$project$OurStory$NarrativeObsOne$enteringFonteDosLadroesVi = _List_fromArray(
+	[author$project$OurStory$NarrativeObsOne$playerOneNameToObsOne + '\n   spent a lot of time near Fonte dos Ladrões. He\'s probably planning a robbery ...\n    ']);
+var author$project$OurStory$Narrative$enteringFonteDosLadroesDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringFonteDosLadroes),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringFonteDosLadroesEn),
+			_Utils_Tuple2('vi', author$project$OurStory$NarrativeObsOne$enteringFonteDosLadroesVi)
+		]));
+var author$project$OurStory$Narrative$enteringLimiteSaoMartinhoColares = _List_fromArray(
+	['\n![](img/estradaVelhaColares__.png)\n\nFinal da Freguesia de São Martinho e início da freguesia de Colares ( e vice-versa) !\n\n![pic500](img/limiteSaoMartinhoColares.png)\n\nÉ possível observar as placas toponímicas que indicam Rua Barbosa du Bocage para Este e Estrada Nova da Rainha para Oeste !\n    ']);
+var author$project$OurStory$NarrativeEnglish$enteringLimiteSaoMartinhoColaresEn = _List_fromArray(
+	['\n![](img/estradaVelhaColares__.png)\n\nSão Martinho -  Colares parish  borders  !\n\n![img500](img/limiteSaoMartinhoColares.png)\n\nRoad signs indicate Rua Barbosa du Bocage to the East and Estrada Nova da Rainha to the West !\n    ']);
+var author$project$OurStory$Narrative$enteringLimiteSaoMartinhoColaresDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringLimiteSaoMartinhoColares),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringLimiteSaoMartinhoColaresEn)
+		]));
+var author$project$OurStory$Narrative$getEnteringPalacioSeteaisString = '\n![pic500](img/seteais.png)\n\n\nLocalizado em Sintra,  ergue-se este palácio , património mundial ( palácio de origem neoclássica utitlizado hoje em dia como Hotel de luxo e atracção turística  ) no meio de um terreno acidentado\n, de onde se pode avistar o oceano Atlântico e a Serra de Sintra, nomeadamente com vista para o Palácio da Pena e o castelo dos Mouros.\n\nO palácio em si encontra-se edificado ao fundo do chamado "Campo de Seteais" uma vez que este era logradouro público até ser aforado por Diogo V. M. C. , 5º Marquês de Marialva.\n\nFicou estabelecido nesse aforamento que o terreno não seria usado para outros fins que não de passeio público e que seria ocupado pela cavalaria da Guarda de Suas Majestades nas visitas da Família Real a Sintra, assim se justifica o generoso relvado que separa o palácio das principais entradas\n    ';
+var author$project$OurStory$Narrative$enteringPalacioSeteais = _List_fromArray(
+	[author$project$OurStory$Narrative$getEnteringPalacioSeteaisString]);
+var author$project$OurStory$NarrativeEnglish$getEnteringPalacioSeteaisStringEn = '\n![pic500](img/seteais.png)\n\n\nLocated in Sintra  , Seteais Palace (World Heritage Site ) , once a neoclassical palace is now  a luxury hotel and turist attraction.\n\nIt stands on a place from which you can spot the Atlantic Ocean and Serra de Sintra , namely Palácio da Pena and Castelo dos Mouros .\n\nThe palace was built on the border of what is called "Campo de Seteais" given this was a public space prior to being rented to  Diogo V. M. C. , 5th Marquis of Marialva.\n\n\nIt was then established  that the terrain would not be used for anything else other than public walk and/or  use  by His/Her Majestys Cavalry Guard when the Royal Family visited  Sintra .\n\nThat explains the existance of the big lawn between the entrance and the Palace !\n    ';
+var author$project$OurStory$NarrativeEnglish$enteringPalacioSeteaisEn = _List_fromArray(
+	[author$project$OurStory$NarrativeEnglish$getEnteringPalacioSeteaisStringEn]);
+var author$project$OurStory$Narrative$enteringPalacioSeteaisDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringPalacioSeteais),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringPalacioSeteaisEn)
+		]));
+var author$project$OurStory$Narrative$enteringPalacioSeteaisFromPenhaVerde = _List_fromArray(
+	['Colares fica na direcção oposta' + ('\n\n' + author$project$OurStory$Narrative$getEnteringPalacioSeteaisString)]);
+var author$project$OurStory$NarrativeEnglish$enteringPalacioSeteaisFromPenhaVerdeEn = _List_fromArray(
+	['Colares is in the opposite direction' + ('  \n  \n' + author$project$OurStory$NarrativeEnglish$getEnteringPalacioSeteaisStringEn)]);
+var author$project$OurStory$Narrative$enteringPalacioSeteaisFromPenhaVerdeDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringPalacioSeteaisFromPenhaVerde),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringPalacioSeteaisFromPenhaVerdeEn)
+		]));
+var author$project$OurStory$Narrative$enteringParquePalacioMonserrate = _List_fromArray(
+	['\n![pic500](img/palacioMonserrate_.png)\n\n\n"A quatro quilómetros do centro histórico de Sintra, situam-se o Palácio e o Parque de Monserrate, testemunhos ímpares dos ecletismos do século XIX, onde os motivos exóticos e vegetalistas da decoração interior se prolongam harmoniosamente no exterior."\n\n\n![](img/parqueMonserrate.png)\n\n"O relvado fronteiro ao palácio permite o descanso merecido, durante a descoberta de um dos mais ricos jardins botânicos portugueses e uma das mais belas criações paisagísticas do Romantismo em Portugal."\n\n     ']);
+var author$project$OurStory$NarrativeEnglish$enteringParquePalacioMonserrateEn = _List_fromArray(
+	['\n![](img/palacioMonserrate_.png)\n\n\n"Four kilometres from Sintra’s historic centre, and bearing witness to the eclectic tastes of the 19th century, are the peerless Palace and Park of Monserrate, where the exotic vegetal motifs of the building’s interior decoration extend harmoniously to the gardens outside."\n\n\n![](img/parqueMonserrate.png)\n\n"The lawn in front of the palace offers you the chance to enjoy a well-earned rest as you set about discovering one of the richest botanical gardens and one of the most beautiful Romantic landscapes ever created in Portugal."\n    ']);
+var author$project$OurStory$Narrative$enteringParquePalacioMonserrateDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringParquePalacioMonserrate),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringParquePalacioMonserrateEn)
+		]));
+var author$project$OurStory$Narrative$enteringQuintaDoVinagre = _List_fromArray(
+	['\n![pic500](img/rioMacasQuintaVinagre.png)\n\nRio das Macas na Quinta do Vinagre !\n\n![pic500](img/rioMacasQuintaVinagre2.png)\n    ']);
+var author$project$OurStory$NarrativeEnglish$enteringQuintaDoVinagreEn = _List_fromArray(
+	['\n![](img/rioMacasQuintaVinagre.png)\n\nRio das Macas running through Quinta do Vinagre !\n\n![](img/rioMacasQuintaVinagre2.png)\n    ']);
+var author$project$OurStory$Narrative$enteringQuintaDoVinagreDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringQuintaDoVinagre),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringQuintaDoVinagreEn)
+		]));
+var author$project$OurStory$Narrative$getEnteringQuintaPenhaVerde = '\n![pic500](img/penhaVerde1.png)\n\n\nFundada por D. João de Castro e mais tarde acrescentada por mais um pedaço o Alto de Santa Catarina\nfoi outrora designada Tapada da Quinta da Penha Verde, a que pertencia, e à qual se liga , por um arco muito elegante, que passa sobre a estrada.\n\n![pic500](img/penhaVerde2.png)\n\n\nMuitos artistas admiraram a beleza desta estrada e a aproximação do portão da quinta da Penha Verde, expressando-o na sua pintura ou traçado.\n\nA Quinta da Penha Verde é referenciada por exemplo por Eça de Queirós em “O Primo Basílio”, 1878, que localizava, “ (…) as sestas quentes, nas sombras da Penha Verde, ouvindo o rumor fresco e gotejante das águas que vão de pedra em pedra (…) ”.\n    ';
+var author$project$OurStory$Narrative$enteringQuintaPenhaVerde = _List_fromArray(
+	[author$project$OurStory$Narrative$getEnteringQuintaPenhaVerde]);
+var author$project$OurStory$NarrativeEnglish$getEnteringQuintaPenhaVerdeEn = '\n![pic500](img/penhaVerde1.png)\n\n\nFounded by D. João de Castro and later augmented by Alto de Santa Catarina\nit was once called Tapada da Quinta da Penha Verde  , to which it belonged and connected by an Arc over the road ...\n\n![pic500](img/penhaVerde2.png)\n\n\nSeveral  artists have admired both the beauty of this Road and Quinta da Penha Verde by depicting the  Quinta Gates and Arc over the Road in their paintings and/or sketches ...\n\nQuinta da Penha Verde is referenced for instance by Eça de Queirós in "O Primo Basílio", 1878 : " (…) as sestas quentes, nas sombras da Penha Verde, ouvindo o rumor fresco e gotejante das águas que vão de pedra em pedra (…) " .\n    ';
+var author$project$OurStory$NarrativeEnglish$enteringQuintaPenhaVerdeEn = _List_fromArray(
+	[author$project$OurStory$NarrativeEnglish$getEnteringQuintaPenhaVerdeEn]);
+var author$project$OurStory$Narrative$enteringQuintaPenhaVerdeDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringQuintaPenhaVerde),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringQuintaPenhaVerdeEn)
+		]));
+var author$project$OurStory$Narrative$enteringQuintaPenhaVerdeFromDesvioQuintaDasSequoias = _List_fromArray(
+	['Colares fica na direcção oposta' + ('\n\n' + author$project$OurStory$Narrative$getEnteringQuintaPenhaVerde)]);
+var author$project$OurStory$NarrativeEnglish$enteringQuintaPenhaVerdeFromDesvioQuintaDasSequoiasEn = _List_fromArray(
+	['Colares is in the opposite direction' + ('\n\n' + author$project$OurStory$NarrativeEnglish$getEnteringQuintaPenhaVerdeEn)]);
+var author$project$OurStory$Narrative$enteringQuintaPenhaVerdeFromDesvioQuintaDasSequoiasDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringQuintaPenhaVerdeFromDesvioQuintaDasSequoias),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringQuintaPenhaVerdeFromDesvioQuintaDasSequoiasEn)
+		]));
+var author$project$OurStory$Narrative$enteringQuintinhaMonserrate = _List_fromArray(
+	['\n![pic500](img/quintinhaMonserrate3.png)\n\n\nA Quintinha de Monserrate é uma quinta pedagógica, situada a menos de três quilómetros do centro histórico de Sintra, em que se recria o tradicional e pitoresco ambiente agrícola da região para dar a conhecer a herança cultural local.\n\n\n![pic500](img/quintinhaMonserrate11.png)\n\nFoi, em tempos, uma pequena exploração rural que serviu o Parque e Palácio de Monserrate, propriedade de que é adjacente.\n    ']);
+var author$project$OurStory$NarrativeEnglish$enteringQuintinhaMonserrateEn = _List_fromArray(
+	['\n![pic500](img/quintinhaMonserrate3.png)\n\nQuintinha de Monserrate is a pedagogical farm , less than 3 km far from  Sintra  ,\nwhere the region\'s traditional agricultural environment is recreated to teach and share the local cultural heritage\n\n\n![pic500](img/quintinhaMonserrate12.png)\n\nIt was once a small rural exploration to the use of Parque e Palácio de Monserrate ( a property  located next to it )\n    ']);
+var author$project$OurStory$NarrativeObsOne$enteringQuintinhaMonserrateVi = _List_fromArray(
+	[author$project$OurStory$NarrativeObsOne$playerOneNameToObsOne + '\n  is near Quintinha de Monserrate ...\n    ']);
+var author$project$OurStory$NarrativeObsTwo$enteringQuintinhaMonserrateVw = _List_fromArray(
+	[author$project$OurStory$NarrativeObsTwo$playerOneNameToObsTwo + '\n  enters Quintinha de Monserrate ...\n    ']);
+var author$project$OurStory$Narrative$enteringQuintinhaMonserrateDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringQuintinhaMonserrate),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringQuintinhaMonserrateEn),
+			_Utils_Tuple2('vi', author$project$OurStory$NarrativeObsOne$enteringQuintinhaMonserrateVi),
+			_Utils_Tuple2('vw', author$project$OurStory$NarrativeObsTwo$enteringQuintinhaMonserrateVw)
+		]));
+var author$project$OurStory$Narrative$enteringRuaTrindadeCoelho = _List_fromArray(
+	['\n![pic500](img/ruaTrindadeCoelho.png)\n\nRua estreita ladeada por Quintas e árvores centenárias , que segue em direcção à Casa do Fauno ,  Caminho dos Frades e Caminho dos Castanhais"\n\n![pic500](img/ruaTrindadeCoelho2.png)\n        ']);
+var author$project$OurStory$NarrativeEnglish$enteringRuaTrindadeCoelhoEn = _List_fromArray(
+	['\n![pic500](img/ruaTrindadeCoelho.png)\n\nnarrow road surrounded by farms and very old trees , some of them centenary\n, that heads down towards Casa do Fauno , Caminho dos Frades e Caminho dos Castanhais\n\n![pic500](img/ruaTrindadeCoelho2.png)\n        ']);
+var author$project$OurStory$Narrative$enteringRuaTrindadeCoelhoDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringRuaTrindadeCoelho),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringRuaTrindadeCoelhoEn)
+		]));
+var author$project$OurStory$Narrative$enteringSintra1914CameraWithPhotoInsideOnTheGround = _List_fromArray(
+	['\nSintra 1914 ! Reparas numa camara estenopeica previamente utilizada  no chao\n    ']);
+var author$project$OurStory$NarrativeEnglish$enteringSintra1914CameraWithPhotoInsideOnTheGroundEn = _List_fromArray(
+	['\nSintra 1914 ! You notice a previously used pinhole camara on the ground !\n    ']);
+var author$project$OurStory$Narrative$enteringSintra1914CameraWithPhotoInsideOnTheGroundDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringSintra1914CameraWithPhotoInsideOnTheGround),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringSintra1914CameraWithPhotoInsideOnTheGroundEn)
+		]));
+var author$project$OurStory$Narrative$enteringSintra1914 = _List_fromArray(
+	['\nUm pouco para Sul , no meio da vegetação , vês algo que parece um respiradouro , ou antiga fonte , datado de 1914 ...\n    ']);
+var author$project$OurStory$NarrativeEnglish$enteringSintra1914En = _List_fromArray(
+	['\nTo the south , among the bushes , you see what looks like a ventilation shaft , or an ancient fountain , dated 1914 ...\n    ']);
+var author$project$OurStory$Narrative$enteringSintra1914Dict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringSintra1914),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringSintra1914En)
+		]));
+var author$project$OurStory$Narrative$enteringSintra1914PhotographyAppears = _List_fromArray(
+	['\nSintra 1914. Reparas numa  camara estenopeica em exposição prolongada. Parece altura apropriada para tapar o pequeno orificio e terminar a exposição.\n    ']);
+var author$project$OurStory$NarrativeEnglish$enteringSintra1914PhotographyAppearsEn = _List_fromArray(
+	['\nSintra 1914. You notice a pinhole camera on a long exposure . This seems to be a good time to cover the orifice and terminate the exposure !\n    ']);
+var author$project$OurStory$Narrative$enteringSintra1914PhotographyAppearsDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringSintra1914PhotographyAppears),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringSintra1914PhotographyAppearsEn)
+		]));
+var author$project$OurStory$Narrative$enteringVillaRoma = _List_fromArray(
+	['\n![pic500](img/villaRoma2.png)\n\nSituada na estrada que liga a vila de Sintra a Colares , encontramos uma casa construída em meados do século XIX.\n\nO local escolhido prende-se com a magnífica vista que dele podemos disfrutar\ne que apaixonou completamente a então prometida do futuro proprietário."\n\n\n\nVila Roma foi idealizada e construída por Carlos Morato Roma , tendo-se tornado residência de Verão dos principais membros da família\n  , muitos dos quais ( a começar pelo autor da casa), grandes vultos da política portuguesa.\nNesta casa viveram figuras como:\n\n- Carlos Morato Roma (conselheiro), que foi director do tesouro público ,\n\n- Dr. José Vicente Barbosa du Bocage, professor, Ministro do Ultramar e dos Estrangeiros e Par do Reino.\n\n- General Carlos Roma du Bocage, que no fim da sua vida foi Ministro dos Estrangeiros de El-rei D. Manuel II , deputado e Par do Reino.\n\n- Dr. António Maria Barbosa, médico do Paço e sócio da Academia Real da Ciências.\n\n- Dr. José Inácio Machado de Faria e Maia, foi Delegado, Juíz de Direito , Secretário da Procuradoria Geral da Coroa e Auditor dos Conselhos de Guerra em Lisboa."\n      ']);
+var author$project$OurStory$NarrativeEnglish$enteringVillaRomaEn = _List_fromArray(
+	['\n![pic500](img/villaRoma2.png)\n\non the sintra-colares road we find a house built in the middle of the XIX th century .\nThe location was mainly chosen because of the magnificent view\nthat made the propietary\'s fiancee fall in love with the place\n\n\nVilla Roma was idealized and built by Carlos Morato Roma , having become Summer residence of several members of his family\n\nIn this house lived :\n\n- Carlos Morato Roma , which was once public treasury director\n\n- Dr. José Vicente Barbosa du Bocage , teacher , Foreign Affairs Minister and Kingdom Peer\n\n- Carlos Roma du Bocage General , which towards the end of his career was nominated Foreign Affairs Minister of D.Manuel II , house representative and Kingdom Peer\n\n- Dr. António Maria Barbosa , physician and an Academia Real das Ciências associate.\n\n- Dr. José Inácio Machado de Faria e Maia , Judge , Crown Prosecution Service secretary ...\n      ']);
+var author$project$OurStory$Narrative$enteringVillaRomaDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$enteringVillaRoma),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$enteringVillaRomaEn)
+		]));
+var author$project$OurStory$Narrative$findingPinholeCamera = _List_fromArray(
+	['\nO que parecia ser uma vulgar lata era afinal uma das camaras estenopeicas que o fotógrafo costuma espalhar pelo terreno !\n\nEnvias uma mensagem ao fotógrafo a perguntar se podes levar a \'camara\' emprestada durante algumas horas ao que este responde afirmativamente.\n    ']);
+var author$project$OurStory$NarrativeEnglish$findingPinholeCameraEn = _List_fromArray(
+	['\nWhat looked like a common tincan  was in fact one of the pinhole cameras that the photographer usually sets up in several places.\n\nYou send a message to the photographer asking if you can borrow the camera for a few hours and he gives you permission for that .\n    ']);
+var author$project$OurStory$Narrative$findingPinholeCameraDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$findingPinholeCamera),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$findingPinholeCameraEn)
+		]));
+var author$project$OurStory$Narrative$gameHasEnded = _List_fromArray(
+	['\nEste jogo acabou ! Podes consultar todos os items no teu inventário ,\nmas o jogo chegou ao fim ! Diverte-te !\n      ']);
+var author$project$OurStory$NarrativeEnglish$gameHasEndedEn = _List_fromArray(
+	['\nGame has Ended ! You can take a look at your inventory items ( but game has ended ) ! Have Fun !\n      ']);
+var author$project$OurStory$Narrative$gameHasEndedDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$gameHasEnded),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$gameHasEndedEn)
+		]));
+var author$project$OurStory$Narrative$helpfulNotesAppear = _List_fromArray(
+	['\nReparas que  praticamente já preencheste uma folha inteira com apontamentos valiosos .... !\n    ', ' ']);
+var author$project$OurStory$NarrativeEnglish$helpfulNotesAppearEn = _List_fromArray(
+	['\nYou notice you already wrote an entire piece of paper while listening to Sintra Wise Man\'s helpful advice\n\n     ', ' ']);
+var author$project$OurStory$Narrative$helpfulNotesAppearDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$helpfulNotesAppear),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$helpfulNotesAppearEn)
+		]));
+var author$project$OurStory$Narrative$hintForPlayerOneSintra1914NoPhoto = _List_fromArray(
+	['\nInterrogas-te porque motivo o teu portfolio não contem nenhuma foto deste local ...\n1914 ? Cerca de um século atrás ... Esta data recorda-te de algo ...\n    ']);
+var author$project$OurStory$NarrativeEnglish$hintForPlayerOneSintra1914NoPhotoEn = _List_fromArray(
+	['\nYou wonder why there\'s no photo of this place on your portfolio ...\n1914 ? about one century ago  ... The date reminds you of something ...\n    ']);
+var author$project$OurStory$Narrative$hintForPlayerOneSintra1914NoPhotoDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$hintForPlayerOneSintra1914NoPhoto),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$hintForPlayerOneSintra1914NoPhotoEn)
+		]));
+var author$project$OurStory$Narrative$infoParquePalacioMonserrate = _List_fromArray(
+	['\n![pic500](img/infoParquePalacioMonserrate.png)\n\n\n"A Quinta de Monserrate foi arrendada por Gerard de Visme (1789), rico comerciante inglês, que aí construiu uma casa em estilo neogótico. William Beckford subarrendou Monserrate em 1793-1794 mas, em 1809, quando Lord Byron visita a propriedade, a casa já estava em ruínas. O aspeto sublime da propriedade foi fonte de inspiração para o poeta, que cantou Monserrate na sua obra Childe Harold’s Pilgrimage, após o que a quinta se tornou num local de visita obrigatória de viajantes estrangeiros, sobretudo ingleses, que o descreveram em inúmeros relatos de viagens e o ilustraram em gravuras.\n\n\nUm dos visitantes famosos foi Francis Cook ... A aquisição efetiva da propriedade acontece em 1863, iniciando, com o arquiteto James Knowles, a transformação do que restava da casa de De Visme. O Palácio de Monserrate, que exibe, na sua decoração, influências medievais e orientalizantes, é, com o Palácio da Pena, um dos mais importantes exemplos da arquitetura romântica em Portugal."\n\n\n\n"Os jardins circundantes receberam espécies vindas de todo o mundo e foram organizados por áreas geográficas, de que se salienta o do México, refletindo as diversas origens das plantas e compondo cenários ao longo de caminhos, por entre ruínas, recantos, lagos e cascatas. É assim, graças à intervenção do pintor William Stockdale e do mestre jardineiro Francis Burt e, acima de tudo, ao espírito romântico de Francis Cook, que podemos hoje encontrar o Parque de Monserrate tal como ele é. Nos diversos jardins encontram-se cenários contrastantes onde – ao longo de caminhos sinuosos e em convívio com espécies espontâneas da região (como os medronheiros de porte arbóreo, os azevinhos e os imponentes sobreiros) – surgem ancestrais araucárias e palmeiras, fetos arbóreos de Austrália e Nova Zelândia e agaves e yuccas que recriam um cenário do México. Neste passeio pelos cinco continentes através da botânica também se destacam as camélias, azáleas, rododendros e bambus, evocando um jardim do Japão.\n\n\nO Parque e Palácio de Monserrate foram classificados como Imóvel de Interesse Público em 1975, integrando-se na Paisagem Cultural de Sintra, classificada pela UNESCO como Património Mundial da Humanidade desde 1995."\n    ']);
+var author$project$OurStory$NarrativeEnglish$infoParquePalacioMonserrateEn = _List_fromArray(
+	['\n![](img/infoParquePalacioMonserrate.png)\n\n\n"The estate of Monserrate was rented by Gerard de Visme (1789), a wealthy English merchant, who built a house there in the neo-Gothic style. William Beckford then subleased Monserrate in 1793-1794, but, in 1809, when Lord Byron visited the property, the house was already in ruins. The estate’s sublime appearance was a source of inspiration for the poet, who sang of the beauty of Monserrate in his poem Childe Harold’s Pilgrimage, after which it became obligatory for foreign travellers to visit the property. This was especially true for English visitors, who made vivid descriptions of Monserrate in their countless travel reports and illustrated it in many engravings.\n\n\nOne of the most famous visitors was Francis Cook, another extremely wealthy English industrialist, who was later decorated by King Luís with the title of Viscount of Monserrate and subrogated the estate in 1856. The effective acquisition of the property took place in 1863, with the architect James Knowles beginning the work of transforming what remained of the house built by de Visme. Displaying distinctly medieval and oriental-style influences, the decoration of the Palace of Monserrate makes it, along with the Palace of Pena, one of the most important examples of Romantic architecture in Portugal.\n\n\nOver the years, the surrounding gardens have welcomed plant species from all over the world. Organised according to geographical areas (perhaps most notably that of Mexico), the gardens reflect the diverse origins of the plants, composing different scenic effects along the paths that lead you through ruins and hidden nooks and crannies, past lakes and waterfalls. It was, therefore, thanks to the intervention of the painter William Stockdale and the master gardener Francis Burt, but above all the romantic spirit of Francis Cook, that the Park of Monserrate grew to become what it is today. In the various gardens, as you walk along winding paths and commune with spontaneously growing species from the region (such as strawberry trees, holly bushes and imposing cork-trees), you will find surprisingly contrasting scenery, with the sudden appearance of age-old araucarias and palm-trees, and tree ferns from Australia and New Zealand, as well as agaves and yuccas recreating a corner of Mexico. This walk through the botanical delights of five continents also offers you camellias, azaleas, rhododendrons and bamboos, evoking memories of a Japanese garden.\n\n\nThe Park and Palace of Monserrate were classified as a Property of Public Interest in 1993, and were included in the Cultural Landscape of Sintra, which has been classified by UNESCO as World Heritage since 1995."\n    ']);
+var author$project$OurStory$Narrative$infoParquePalacioMonserrateDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$infoParquePalacioMonserrate),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$infoParquePalacioMonserrateEn)
+		]));
+var author$project$OurStory$Narrative$interactingWithPlayerOne = _List_fromArray(
+	['\ninvestigador determinado  em busca da Verdade ...\n      ']);
+var author$project$OurStory$NarrativeEnglish$interactingWithPlayerOneEn = _List_fromArray(
+	['\nrelentless investigator searching for the Truth ...\n      ']);
+var author$project$OurStory$Narrative$interactingWithPlayerOneDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$interactingWithPlayerOne),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$interactingWithPlayerOneEn)
+		]));
+var author$project$OurStory$Narrative$leavingLargoCarlosFranca = _List_fromArray(
+	['\n![pic500](img/ruaBarbosaduBocage.png)\n\n\nAbandonas o largo Carlos França em direcção a Oeste e rapidamente te encontras numa estreita rua ladeada de muros.\n\n\nÀ esquerda vês uma bela cascata e um pouco mais à frente a Quinta da Regaleira\n\n![pic500](img/cascataPisoes.png)\n']);
+var author$project$OurStory$NarrativeEnglish$leavingLargoCarlosFrancaEn = _List_fromArray(
+	['\n![](img/ruaBarbosaduBocage.png)\n\n\nYou leave largo Carlos França heading west and quickly find yourself in a narrow road with walls on both sides.\n\n\nTo the left you see  an impressive waterfall and a bit  ahead is Quinta da Regaleira !\n\n![](img/cascataPisoes.png)\n']);
+var author$project$OurStory$Narrative$leavingLargoCarlosFrancaDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$leavingLargoCarlosFranca),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$leavingLargoCarlosFrancaEn)
+		]));
+var author$project$OurStory$Narrative$leavingWithoutGps = _List_fromArray(
+	['\nCaríssimo investigador , não parta sem o seu GPSr . Pode perder-se !\n']);
+var author$project$OurStory$NarrativeEnglish$leavingWithoutGpsEn = _List_fromArray(
+	['\nOh dear investigator , don\'t leave without your gps . You might get lost\n    ']);
+var author$project$OurStory$Narrative$leavingWithoutGpsDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$leavingWithoutGps),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$leavingWithoutGpsEn)
+		]));
+var author$project$OurStory$Narrative$leavingWithoutInteractingSabioSintra = _List_fromArray(
+	['\nNao e aconselhavel prosseguires sem antes falares com o Sábio e ouvires tudo o que tem a dizer\nOs seus conselhos irão  revelar-se muito úteis ao longo do percurso ...\n']);
+var author$project$OurStory$NarrativeEnglish$leavingWithoutInteractingSabioSintraEn = _List_fromArray(
+	['\nIt\'s not advisable to move on without first talking to the Wise man and carefully listening to all he has to say ...\nHis precious advice will  be very helpful along the way ...\n']);
+var author$project$OurStory$Narrative$leavingWithoutInteractingSabioSintraDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$leavingWithoutInteractingSabioSintra),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$leavingWithoutInteractingSabioSintraEn)
+		]));
+var author$project$OurStory$Narrative$lookAtGps = _List_fromArray(
+	['Consultas o receptor de gps : ']);
+var author$project$OurStory$NarrativeEnglish$lookAtGpsEn = _List_fromArray(
+	['\nYou look at your gps receiver device :\n    ']);
+var author$project$OurStory$Narrative$lookAtGpsDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$lookAtGps),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$lookAtGpsEn)
+		]));
+var author$project$OurStory$Narrative$lookAtWiseNotes = _List_fromArray(
+	['\napontamentos recolhidos durante a conversa com o sábio :\n\n- Viaja em direcção a Oeste. Em Colares deves procurar o Sábio local. Se o encontrares num bom estado de espírito certamente te ajudará na resolução do mistério ! Ouvi dizer que é um coleccionador de antiguidades ...\n\n- Interage com outras pessoas  e ouve cuidadosamente  ( até ao final ) aquilo que te dizem . Revelar-se-à de grande utilidade na tua demanda ...\n\n- Ao longo do caminho ser-te-ão colocadas algumas questões : pensa cuidadosamente antes de responder porque tens um número limitado de tentativas.\n\n- se o número máximo de tentativas for atingido antes de responderes correctamente terás que reiniciar o jogo (  deves responder correctamente a todas as perguntas por forma a poder terminar o jogo )\n\n- não pressiones botões do browser como back ou forward. A narrativa (jogo) decorre numa única página e se saires da mesma quando voltares a reentrar o jogo será reiniciado ...\n    ']);
+var author$project$OurStory$NarrativeEnglish$lookAtWiseNotesEn = _List_fromArray(
+	['\nSome notes you wrote on a piece of paper while listening to Sintra Wise Man helpful advice :\n\n- Go West towards Colares. In Colares you should meet the local Wise Man. If you get him in a good mood he\'ll certainly help you on your quest ! I heard is an antiques collector ...\n\n- Interact with other people and listen carefully ( and to the end ) to what they have to say . That will be very helpful on your quest ...\n\n- You will find some questions along the way : Think carefully before answering because you have a limited number of tries to get the answer right.\n\n- if the maximum number of tries is reached before you provide a correct answer you will have to restart the game ( because you have to answer every question correctly in order to be able to finish the game)\n\n- do not press the browser\'s back or forward button . Narrative (game) takes place on a single page . If you leave game will be restarted when you return .\n      ']);
+var author$project$OurStory$Narrative$lookAtWiseNotesDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$lookAtWiseNotes),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$lookAtWiseNotesEn)
+		]));
+var author$project$OurStory$Narrative$offerBirdsNestToGeocacher = _List_fromArray(
+	['\nAo aperceberes-te de que o geocacher é um estudioso de aves decides que ele será a pessoa mais indicada para a instalacao do ninho.\n\nEntregas-lhe o ninho dizendo que tens total confiança na sua capacidade de escolher um bom spot para o instalar.\n\nO geocacher mostra-se agradecido e em troca decide entregar-te um livro de poemas de Bocage.\nAinda que saiba perfeitamente que o Bocage a que se refere a estrada não é o poeta , costuma sempre trazer o livro na sua mochila quando vem para estes lados !\n     ']);
+var author$project$OurStory$NarrativeEnglish$offerBirdsNestToGeocacherEn = _List_fromArray(
+	['\nAfter you realize the geocacher is a bird watcher/researcher you decide he is the\nright person to install the house/nest\n\n\nYou hand him the nest saying you have total confidence on his ability to chose the right spot to set it up ...\n\n\nGeocacher is grateful and decides to offer you a Bocage Poems Book.\n\nAlthough he knows perfectly well that the \'Estrada Velha de Colares\' road name  refers to another Bocage\nhe usually carries the book when he comes near this region .\n     ']);
+var author$project$OurStory$Narrative$offerBirdsNestToGeocacherDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$offerBirdsNestToGeocacher),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$offerBirdsNestToGeocacherEn)
+		]));
+var author$project$OurStory$Narrative$offerCameraAndPhotography1Sintra1914ToWiseManColares = _List_fromArray(
+	['O sábio mostra-se muito agradecido pela tua oferta. Há muitos anos que coleciona este tipo de fotografia.\n\nDe seguida explica porque motivo tanto gosta deste tipo de fotografia :\n"Sabes , não se trata de não apreciar a fotografia moderna, porque de facto aprecio\n, penso que as camaras digitais possibilitaram a milhões de pessoas experimentar\ne divertirem-se com a Fotografia\nmas de uma certa forma também faz com que as pessoas clickem de forma indiscriminada, automatizada ...\ncom a fotografia estenopeica , por exemplo , as pessoas pensavam bastante mais antes de tirar uma fotografia\n. É de certa forma mais parecido com a actividade de pintar uma tela ! "\n      ']);
+var author$project$OurStory$NarrativeEnglish$offerCameraAndPhotography1Sintra1914ToWiseManColaresEn = _List_fromArray(
+	['Wise Man shows his appreciation for your kind offer ...\nHe has been collecting this kind of photos for a very long time\n\nHe then proceeds to explain why he likes so much this kind of photo :\n"You know , it\'s not that i don\'t like modern day photography , i do , i think digital\ncameras allowed millions of people to experiment and enjoy photography\nbut in a certain way it also makes people click away in a sort of thoughtless , automated way ...\nwith pinhole camera photography , for instance ,  people thought a lot more\nbefore taking a picture . In a sort of way it more closely resembles painting a canvas ."\n      ']);
+var author$project$OurStory$NarrativeObsOne$offerCameraAndPhotography1Sintra1914ToWiseManColaresVi = _List_fromArray(
+	[author$project$OurStory$NarrativeObsOne$playerOneNameToObsOne + '\n   met and delivered a suspicious device to the local crazy man at Colares ... This is an organized group  !\n    ']);
+var author$project$OurStory$NarrativeObsTwo$offerCameraAndPhotography1Sintra1914ToWiseManColaresVw = _List_fromArray(
+	[author$project$OurStory$NarrativeObsTwo$playerOneNameToObsTwo + '\n   met  the Colares Enlightened Man . Together they will certainly find a way to solve all of the region\'s problems ...\n    ']);
+var author$project$OurStory$Narrative$offerCameraAndPhotography1Sintra1914ToWiseManColaresDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$offerCameraAndPhotography1Sintra1914ToWiseManColares),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$offerCameraAndPhotography1Sintra1914ToWiseManColaresEn),
+			_Utils_Tuple2('vi', author$project$OurStory$NarrativeObsOne$offerCameraAndPhotography1Sintra1914ToWiseManColaresVi),
+			_Utils_Tuple2('vw', author$project$OurStory$NarrativeObsTwo$offerCameraAndPhotography1Sintra1914ToWiseManColaresVw)
+		]));
+var author$project$OurStory$Narrative$offerPoemsBookToWiseManColares = _List_fromArray(
+	['\nO sábio mostra-se muito agradecido pela tua oferta.\n      ']);
+var author$project$OurStory$NarrativeEnglish$offerPoemsBookToWiseManColaresEn = _List_fromArray(
+	['\nThe Wise man shows his appreciation for your kind offer !\n      ']);
+var author$project$OurStory$Narrative$offerPoemsBookToWiseManColaresDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$offerPoemsBookToWiseManColares),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$offerPoemsBookToWiseManColaresEn)
+		]));
+var author$project$OurStory$Narrative$playWithCatAtRuaTrindadeCoelho = _List_fromArray(
+	['\nDevias ter prestado atenção ao sinal. O gato era bastante simpático e brincalhão mas num momento de distracção pegou no teu gps e fugiu com ele !\nTerás que voltar ao ponto inicial para obter novo gps !\n        ']);
+var author$project$OurStory$NarrativeEnglish$playWithCatAtRuaTrindadeCoelhoEn = _List_fromArray(
+	['\nYou should have paid attention to the sign . The cat was friendly and playfull but he also picked up your gps receiver and left with it !\nYou have to go back to the starting point in order to get a new one !\n        ']);
+var author$project$OurStory$Narrative$playWithCatAtRuaTrindadeCoelhoDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$playWithCatAtRuaTrindadeCoelho),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$playWithCatAtRuaTrindadeCoelhoEn)
+		]));
+var author$project$OurStory$Narrative$returningToLargoCarlosFranca = _List_fromArray(
+	['\nNada como voltar ao ponto inicial ...\n    ']);
+var author$project$OurStory$NarrativeEnglish$returningToLargoCarlosFrancaEn = _List_fromArray(
+	['\nahhh !!!  Nothing like returning to the starting point !\n']);
+var author$project$OurStory$Narrative$returningToLargoCarlosFrancaDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$returningToLargoCarlosFranca),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$returningToLargoCarlosFrancaEn)
+		]));
+var author$project$OurStory$Narrative$returningToRuaBarbosaDoBocageInicio = _List_fromArray(
+	['\n![](img/ruaBarbosaduBocageBack.png)\n\n\nColares fica na direcção oposta.\n\nEncontras-te agora numa rua estreita ladeada de muros. À tua direita fica a Quinta da Regaleira\ne um pouco mais à frente uma impressionante cascata !\n       ']);
+var author$project$OurStory$NarrativeEnglish$returningToRuaBarbosaDoBocageInicioEn = _List_fromArray(
+	['\n![](img/ruaBarbosaduBocageBack.png)\n\n\nColares is in the opposite direction.\n\nYou are now on a narrow road with walls on both sides. To your right is Quinta da Regaleira\nand a bit ahead is an impressive waterfall !\n      ']);
+var author$project$OurStory$Narrative$returningToRuaBarbosaDoBocageInicioDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$returningToRuaBarbosaDoBocageInicio),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$returningToRuaBarbosaDoBocageInicioEn)
+		]));
+var author$project$OurStory$Narrative$settingUpPinholeCameraAtSintra1914 = _List_fromArray(
+	['\nEste parece ser um bom local para deixar a camera estenopeica em exposição prolongada ...\n    ']);
+var author$project$OurStory$NarrativeEnglish$settingUpPinholeCameraAtSintra1914En = _List_fromArray(
+	['\nThis seems to be a good place to set up the pinhole camera for a long exposure shot\n    ']);
+var author$project$OurStory$NarrativeObsOne$settingUpPinholeCameraAtSintra1914Vi = _List_fromArray(
+	[author$project$OurStory$NarrativeObsOne$playerOneNameToObsOne + '\n   installed a very suspicious device near a place dated 1914 ...\n    ']);
+var author$project$OurStory$NarrativeObsTwo$settingUpPinholeCameraAtSintra1914Vw = _List_fromArray(
+	[author$project$OurStory$NarrativeObsTwo$playerOneNameToObsTwo + '\n   knows the importance of  customs and traditions and is documenting his journey from Sintra to Colares ...\n    ']);
+var author$project$OurStory$Narrative$settingUpPinholeCameraAtSintra1914Dict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$settingUpPinholeCameraAtSintra1914),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$settingUpPinholeCameraAtSintra1914En),
+			_Utils_Tuple2('vi', author$project$OurStory$NarrativeObsOne$settingUpPinholeCameraAtSintra1914Vi),
+			_Utils_Tuple2('vw', author$project$OurStory$NarrativeObsTwo$settingUpPinholeCameraAtSintra1914Vw)
+		]));
+var author$project$OurStory$Narrative$takeGps = _List_fromArray(
+	['Guardas cuidadosamente o Gps ']);
+var author$project$OurStory$NarrativeEnglish$takeGpsEn = _List_fromArray(
+	['\nYou carefully pick up and store the gps receiver !\n     ']);
+var author$project$OurStory$Narrative$takeGpsDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$takeGps),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$takeGpsEn)
+		]));
+var author$project$OurStory$Narrative$talkToGeocacherEugaria = _List_fromArray(
+	['\nO geocacher está em reconhecimento do terreno e informa-te que procura uma cache há muito escondida\npor estes lados e nunca encontrada por ninguém. Circulam rumores de que apenas o sábio de Colares\npoderá dar mais indicações sobre o seu paradeiro !\n\nO geocacher é também um grande entusiasta do estudo e  observação de aves dedicando largas horas a fotografá-las no seu habitat natural !\n     ']);
+var author$project$OurStory$NarrativeEnglish$talkToGeocacherEugariaEn = _List_fromArray(
+	['\ngeocacher is researching the area and tells you that he is looking for a long time ago hidden cache\nthat is yet to be found. Gossip says only Colares wise Man can inform on its whereabouts ...\n\ngeocacher is also a studious and enthusiast of bird watching and dedicates quite a bit of time photographing them on their natural habitats.\n     ']);
+var author$project$OurStory$NarrativeObsOne$talkToGeocacherEugariaVi = _List_fromArray(
+	[author$project$OurStory$NarrativeObsOne$playerOneNameToObsOne + '\n   delivered a suspicious device to a weird looking guy ! No doubts remain ... This is a gang\n    ']);
+var author$project$OurStory$NarrativeObsTwo$talkToGeocacherEugariaVw = _List_fromArray(
+	[author$project$OurStory$NarrativeObsTwo$playerOneNameToObsTwo + '\n   knows the importance of all forms of life !\n    ']);
+var author$project$OurStory$Narrative$talkToGeocacherEugariaDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$talkToGeocacherEugaria),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$talkToGeocacherEugariaEn),
+			_Utils_Tuple2('vi', author$project$OurStory$NarrativeObsOne$talkToGeocacherEugariaVi),
+			_Utils_Tuple2('vw', author$project$OurStory$NarrativeObsTwo$talkToGeocacherEugariaVw)
+		]));
+var author$project$OurStory$Narrative$talkToPhotographer = _List_fromArray(
+	['\nO fotógrafo é habitual na região onde passa semanalmente muitas horas a fotografar.\nConta-te muitos segredos sobre a fantástica Serra de Sintra e algumas das técnicas que utiliza ! ....\n      ', '\nUm dos tipos de Fotografia sobre o qual te fala , deixa-te positivamente surpreendido : A fotografia estenopeica ....\n       ', '\n"A concepção das camaras fotográficas é sempre similar. Trata-se simplesmente de uma caixa, com um pedaço de filme ( ou um sensor no caso das digitais ) numa face e uma abertura na outra.\nEsta abertura é construída de forma a permitir que a luz entre na caixa, atingindo a superfície quimicamente sensível do filme ( ou do sensor ). É assim que se produz a fotografia. Todas as câmaras, da mais  primitiva à mais sofisticada funcionam dessa forma."\n       ', '\nConta-te ainda sobre o sábio de Colares , nascido há cerca de um século , conhecedor de muitos segredos da região , e um grande coleccionador de antiguidades e de fotografia estenopeica\n       ']);
+var author$project$OurStory$NarrativeEnglish$talkToPhotographerEn = _List_fromArray(
+	['\nThe photographer knows the region  well due to photographing here quite a lot\n\nHe reveals some of Serra de Sintra secrets that he learnt over the years\nand some of the techniques he uses on his photography ....\n      ', '\nOne of the types of photo he creates leaves you positively stunned : the pinhole camera photography\n   ', '\n"photo cameras are pretty much all alike ... They\'re simply a box with a piece of sensitive film ( or a sensor if we\'re talking about a digital camera  ) on an end and a small opening on the other"\n\n\n"This opening is designed in a way that allows  Light to enter the box , hitting the chemically sensitive film ( or sensor ) . That is the way photography is created.\nAll cameras , from the simpler  to the more complex ones , operate this way ."\n   ', '\nHe also tells you about Colares wise man , born about a century ago , bearer of a lot of the region\'s secrets and a collector of antiques and pinhole camera photography.\n   ']);
+var author$project$OurStory$NarrativeObsOne$talkToPhotographerVi = _List_fromArray(
+	[author$project$OurStory$NarrativeObsOne$playerOneNameToObsOne + '\n met with a weird looking guy and they  both got involved on some sort of black magic ritual near a waterfall\n    ']);
+var author$project$OurStory$NarrativeObsTwo$talkToPhotographerVw = _List_fromArray(
+	[author$project$OurStory$NarrativeObsTwo$playerOneNameToObsTwo + '\n    asked advice to someone that seems a specialist on matters of the Light !\n    ']);
+var author$project$OurStory$Narrative$talkToPhotographerDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$talkToPhotographer),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$talkToPhotographerEn),
+			_Utils_Tuple2('vi', author$project$OurStory$NarrativeObsOne$talkToPhotographerVi),
+			_Utils_Tuple2('vw', author$project$OurStory$NarrativeObsTwo$talkToPhotographerVw)
+		]));
+var author$project$OurStory$Narrative$talkToSintraWiseMan = _List_fromArray(
+	['O Sábio de Sintra é naturalmente um conhecedor da região , pelo que lhe perguntas :  Sabe se esta Rua Barbosa du Bocage que aqui se inicia é a \'famosa\' "Estrada Velha de Colares" ? .... ', 'O Sábio responde Sim com efeito esta é a estrada que segue em direcção a Colares e é conhecida como Estrada Velha de Colares ....', 'Foi mandada construir pelo Marquês de Pombal e teve uma enorme importância nas ligações entre Sintra e Colares.\n\nÉ uma bela estrada , bastante antiga , rodeada de belas quintas e com uma deslumbrante paisagem .... ', 'Merece seguramente um calmo e longo passeio para apreciar tudo aquilo que tem a oferecer !\n\nSegue a pé ou de bicicleta e não tenhas pressa ... Reflecte sobre cada um dos pontos por onde passares e presta sempre muita atenção ao que as pessoas te dizem']);
+var author$project$OurStory$NarrativeEnglish$talkToSintraWiseManEn = _List_fromArray(
+	['\n\nSintra Wise Man is known for being an expert about this region , so you decide to ask him  :\n"Do you know whether this Rua Barbosa du Bocage that starts over here is the famous Estrada Velha de Colares ? ..."\n      ', '\nWise Man answers : "Yes , this is in fact the road that heads to  Colares and is known as Estrada Velha de Colares ...."\n     ', '\nIt was built by Marquês de Pombal and had an enormous impact in the Sintra - Colares travels.\n\nIt is a quite amazing ancient road ,  surrounded by beautiful farms and a breathtaking landscape  ....\n     ', '\nIt is certainly worth a long and calm walk/bike ride to enjoy all it has to offer !\nGo on foot or by bike and don\'t be on a hurry . Think calmly about each of the intermediate points you go through\nand always listen carefully ( and to the end ) to what  people tell you .\n    ']);
+var author$project$OurStory$NarrativeObsOne$talkToSintraWiseManVi = _List_fromArray(
+	[author$project$OurStory$NarrativeObsOne$playerOneNameToObsOne + '\n and the crazy man seem to be up to something ...\n    ']);
+var author$project$OurStory$NarrativeObsTwo$talkToSintraWiseManVw = _List_fromArray(
+	[author$project$OurStory$NarrativeObsTwo$playerOneNameToObsTwo + '\n  is talking to Sintra Enlightened Man ...\n    ']);
+var author$project$OurStory$Narrative$talkToSintraWiseManDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$talkToSintraWiseMan),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$talkToSintraWiseManEn),
+			_Utils_Tuple2('vi', author$project$OurStory$NarrativeObsOne$talkToSintraWiseManVi),
+			_Utils_Tuple2('vw', author$project$OurStory$NarrativeObsTwo$talkToSintraWiseManVw)
+		]));
+var author$project$OurStory$Narrative$talkToTotemShaperQuintinhaMonserrate = _List_fromArray(
+	['\nCuriosa artista galesa , de seu nome Nansi Hemming ,  faz-te uma descrição detalhada da trabalhosa arte de esculpir madeira com uma moto-serra ,\ne da forma como trabalhou durante 10 dias no tronco do eucalipto com cerca de 100 anos\n      ', '\nimpressionante o Totem da Quintinha de Monserrate que representa agora alguns dos principais valores naturais da Serra de Sintra.\n     ']);
+var author$project$OurStory$NarrativeEnglish$talkToTotemShaperQuintinhaMonserrateEn = _List_fromArray(
+	['\nCurious Welsh artist , named Nansi Hemming , gives you a detailed  explanation of the difficult art on sculpting wood with a chainsaw ,\nand the way she worked for 10 days on the 100 years old Eucalyptus body.\n      ', '\nReally impressive the Quintinha de Monserrate Totem that  represents some\nof the principal  Serra de Sintra Natural Values  .\n     ']);
+var author$project$OurStory$NarrativeObsOne$talkToTotemShaperQuintinhaMonserrateVi = _List_fromArray(
+	[author$project$OurStory$NarrativeObsOne$playerOneNameToObsOne + '\n is talking with someone who routinely operates with a chainsaw ...\nI\'m telling you they\'re definitely up to no good ...\n    ']);
+var author$project$OurStory$NarrativeObsTwo$talkToTotemShaperQuintinhaMonserrateVw = _List_fromArray(
+	[author$project$OurStory$NarrativeObsTwo$playerOneNameToObsTwo + '\n  talked to an artist at Quintinha de Monserrate. He understands the importance of creators !\n    ']);
+var author$project$OurStory$Narrative$talkToTotemShaperQuintinhaMonserrateDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$talkToTotemShaperQuintinhaMonserrate),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$talkToTotemShaperQuintinhaMonserrateEn),
+			_Utils_Tuple2('vi', author$project$OurStory$NarrativeObsOne$talkToTotemShaperQuintinhaMonserrateVi),
+			_Utils_Tuple2('vw', author$project$OurStory$NarrativeObsTwo$talkToTotemShaperQuintinhaMonserrateVw)
+		]));
+var author$project$OurStory$Narrative$talkToTuristAtPalacioSeteais = _List_fromArray(
+	['\nO turista parece bastante simpático e muito contente por visitar a Bonita Vila de Sintra. Cumprimenta-te cordialmente e após uma pequena conversa segue o seu caminho.\n    ']);
+var author$project$OurStory$NarrativeEnglish$talkToTuristAtPalacioSeteaisEn = _List_fromArray(
+	['\nTurist is kind and seems very happy about his  Sintra Village visit. He kindly greets you and after a short chat goes on his way.\n    ']);
+var author$project$OurStory$Narrative$talkToTuristAtPalacioSeteaisDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$talkToTuristAtPalacioSeteais),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$talkToTuristAtPalacioSeteaisEn)
+		]));
+var author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresAppears = _List_fromArray(
+	['\nPensa cuidadosamente sobre tudo o que te foi revelado\ne escreve na folha de papel  a resposta ...\n      ']);
+var author$project$OurStory$NarrativeEnglish$talkToWiseManAfterQuestionColaresAppearsEn = _List_fromArray(
+	['\n"Think carefully about everything that has been revealed to you\nand write what you think is the answer on that piece of paper " ...\n      ']);
+var author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresAppearsDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresAppears),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$talkToWiseManAfterQuestionColaresAppearsEn)
+		]));
+var author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredButStillSomeTasksToDo = _List_fromArray(
+	['\n"Gostaria de te entregar um Papel Antigo mas penso que ainda tens algumas questões a responder ao longo do percurso ..."\n      ']);
+var author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredButStillSomeTasksToDoDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredButStillSomeTasksToDo),
+			_Utils_Tuple2('en', author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredButStillSomeTasksToDo)
+		]));
+var author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnswered = _List_fromArray(
+	['\n"Parabéns ! Revelaste ser uma pessoa de imensa perspicácia e inteligência !\n\nAqui tens um papel com informação importante ...\n\nBoa Sorte para a jornada que agora se inicia ! "\n      ']);
+var author$project$OurStory$NarrativeEnglish$talkToWiseManAfterQuestionColaresCorrectlyAnsweredEn = _List_fromArray(
+	['\n"Congratulations ! You proved to be a really perceptive and intelligent person !\n\nHere\'s a piece of paper with some important info ...\n\nGood Luck on your Quest  ! "\n      ']);
+var author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnswered),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$talkToWiseManAfterQuestionColaresCorrectlyAnsweredEn)
+		]));
+var author$project$OurStory$Narrative$talkToWiseManColares = _List_fromArray(
+	['\nBem vindo a minha casa jovem investigador !\n      ']);
+var author$project$OurStory$NarrativeEnglish$talkToWiseManColaresEn = _List_fromArray(
+	['\nWelcome to my humble home young investigator ...\n      ']);
+var author$project$OurStory$Narrative$talkToWiseManColaresDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$talkToWiseManColares),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$talkToWiseManColaresEn)
+		]));
+var author$project$OurStory$Narrative$talkToWiseManColaresWhenNotInColaresDict = elm$core$Dict$fromList(
 	_List_fromArray(
 		[
 			_Utils_Tuple2(
 			'pt',
 			_List_fromArray(
-				['Todas as questões foram respondidas. Dirige-te para o ultimo nivel ... '])),
+				['Por favor dirige-te para Colares por forma a poderes falar com o Sábio de Colares'])),
 			_Utils_Tuple2(
 			'en',
 			_List_fromArray(
-				['All questions have been answered. Now move to the last stage ... ']))
+				['Please move to Colares in order to be able to speak with wiseManColares']))
 		]));
-var author$project$OurStory$Narrative$goodNewsMessageAfterAllQuestionsAnsweredEn = _List_fromArray(
-	['\nAll questions have been answered . Look for an old paper in last stage ...\n       ']);
-var author$project$OurStory$Narrative$goodNewsMessageAfterAllQuestionsAnsweredPt = _List_fromArray(
-	['\nRespondeste a todas as perguntas ... Procura o papiro no ultimo nivel\n       ']);
-var author$project$OurStory$Narrative$goodNewsMessageAfterAllQuestionsAnsweredDict = elm$core$Dict$fromList(
+var author$project$OurStory$Narrative$creditsInformation = _List_fromArray(
+	['\n### Location Info : ###\n\nwww.serradesintra.net\n\nriodasmacas.blogspot.com\n\nProfessora Teresa Ferreira do Amaral\n\nParques de Sintra\n(www.parquesdesintra.pt)\n\nwww.geocaching.com\n\n### Elm Language and package ecosystem ###\n\nEvan Czaplicki ,  Richard Feldman , Werner de Groot , Dave Keen ...\n\n### Elm Narrative Engine : ###\n\nJeff Schomay\n\n( the persons above in no way endorse this particular extension or narrative)\n\n### extensions to the Narrative Engine : ###\n\nNuno Torres\n\n\n### Mistério da Estrada Velha de Colares Game-Narrative ###\n\nNuno Torres\n\n    ']);
+var author$project$OurStory$Narrative$theCreditsInformationDict = elm$core$Dict$fromList(
 	_List_fromArray(
 		[
-			_Utils_Tuple2('pt', author$project$OurStory$Narrative$goodNewsMessageAfterAllQuestionsAnsweredPt),
-			_Utils_Tuple2('en', author$project$OurStory$Narrative$goodNewsMessageAfterAllQuestionsAnsweredEn)
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$creditsInformation),
+			_Utils_Tuple2('en', author$project$OurStory$Narrative$creditsInformation)
 		]));
-var author$project$OurStory$NarrativeDSFuncs$getFilteredStageMultiOptionIds = elm$core$List$concat(
-	A2(
-		elm$core$List$map,
-		author$project$OurStory$NarrativeDSFuncs$getOptionIdsByStageNr,
-		A2(
-			elm$core$List$filter,
-			function (x) {
-				return !A2(elm$core$List$member, x, author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept);
-			},
-			author$project$OurStory$NarrativeDSFuncs$getAllStageNrs)));
-var author$project$OurStory$NarrativeDSFuncs$getFilteredStageQuestionIds = elm$core$List$concat(
-	A2(
-		elm$core$List$map,
-		author$project$OurStory$NarrativeDSFuncs$getQuestionIdsByStageNr,
-		A2(
-			elm$core$List$filter,
-			function (x) {
-				return !A2(elm$core$List$member, x, author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept);
-			},
-			author$project$OurStory$NarrativeDSFuncs$getAllStageNrs)));
-var author$project$OurStory$NarrativeDSFuncs$getLastStageNr = author$project$OurStory$NarrativeDataStructures$numberOfDesiredStages;
-var elm$core$Set$Set_elm_builtin = elm$core$Basics$identity;
-var elm$core$Set$empty = elm$core$Dict$empty;
-var elm$core$Set$insert = F2(
-	function (key, _n0) {
-		var dict = _n0;
-		return A3(elm$core$Dict$insert, key, 0, dict);
-	});
-var elm$core$Set$fromList = function (list) {
-	return A3(elm$core$List$foldl, elm$core$Set$insert, elm$core$Set$empty, list);
-};
-var author$project$OurStory$NarrativeDSFuncs$getMultiOptionAvailableChoicesValList = function (nr) {
-	var optionDict = author$project$OurStory$NarrativeDataStructures$theMultiOptionsDict;
-	var getLgOptions = F3(
-		function (theNr, lgId, optDict) {
-			return function (x) {
-				if (x.$ === 1) {
-					return _List_Nil;
-				} else {
-					var lopt = x.a;
-					return A2(
-						elm$core$List$map,
-						function (_n1) {
-							var k = _n1.a;
-							var v = _n1.b;
-							var stext = _n1.c;
-							return k;
-						},
-						lopt);
-				}
-			}(
-				A2(
-					elm$core$Maybe$map,
-					function ($) {
-						return $.am;
-					},
-					A2(
-						elm$core$Dict$get,
-						_Utils_Tuple2(theNr, lgId),
-						optDict)));
-		});
-	var availableChoicesValList = elm$core$Set$toList(
-		elm$core$Set$fromList(
-			elm$core$List$concat(
-				A2(
-					elm$core$List$map,
-					function (lgId) {
-						return A3(getLgOptions, nr, lgId, optionDict);
-					},
-					author$project$OurStory$Narrative$desiredLanguages))));
-	return availableChoicesValList;
-};
-var author$project$OurStory$NarrativeDSFuncs$getMultiOptionTextIfChosenDict = F2(
-	function (optionNr, optKey) {
-		var optionDict = author$project$OurStory$NarrativeDataStructures$theMultiOptionsDict;
-		var getLgText = F3(
-			function (theNr, lgId, optDict) {
-				return function (x) {
-					if (x.$ === 1) {
-						return author$project$Types$NoFeedbackText;
-					} else {
-						var lopt = x.a;
-						return A2(
-							elm$core$Maybe$withDefault,
-							author$project$Types$NoFeedbackText,
-							elm$core$List$head(
-								A2(
-									elm$core$List$map,
-									function (_n2) {
-										var k = _n2.a;
-										var v = _n2.b;
-										var cfeedback = _n2.c;
-										return cfeedback;
-									},
-									A2(
-										elm$core$List$filter,
-										function (_n1) {
-											var k = _n1.a;
-											var v = _n1.b;
-											var cfeedback = _n1.c;
-											return _Utils_eq(k, optKey) || (k === '{__ANY__}');
-										},
-										lopt))));
-					}
-				}(
-					A2(
-						elm$core$Maybe$map,
-						function ($) {
-							return $.am;
-						},
-						A2(
-							elm$core$Dict$get,
-							_Utils_Tuple2(theNr, lgId),
-							optDict)));
-			});
-		var textOrFnDict = A3(
-			elm$core$List$foldl,
-			F2(
-				function (lgId, d) {
-					return A3(
-						elm$core$Dict$insert,
-						lgId,
-						A3(getLgText, optionNr, lgId, optionDict),
-						d);
-				}),
-			elm$core$Dict$empty,
-			author$project$OurStory$Narrative$desiredLanguages);
-		return textOrFnDict;
-	});
-var author$project$OurStory$NarrativeDSFuncs$interactingWithMultiOption = F2(
-	function (nr, lgId) {
-		return A2(author$project$OurStory$NarrativeDSFuncs$getMultiOptionBody, nr, lgId);
-	});
-var author$project$OurStory$NarrativeDSFuncs$interactingWithMultiOptionDict = function (nr) {
-	return elm$core$Dict$fromList(
-		_List_fromArray(
-			[
-				_Utils_Tuple2(
-				'pt',
-				A2(author$project$OurStory$NarrativeDSFuncs$interactingWithMultiOption, nr, 'pt')),
-				_Utils_Tuple2(
-				'en',
-				A2(author$project$OurStory$NarrativeDSFuncs$interactingWithMultiOption, nr, 'en'))
-			]));
-};
+var author$project$OurStory$Narrative$viewPhotosEstradaVelhaColares = _List_fromArray(
+	['\n![pic600](img/estradaVelhaDeColaresCollage1.png)\n\nAlgumas fotografias da Estrada Velha de Colares\n\n![pic600](img/estradaVelhaDeColaresCollage2.png)\n      ']);
+var author$project$OurStory$Narrative$viewPhotosEstradaVelhaColaresDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$viewPhotosEstradaVelhaColares),
+			_Utils_Tuple2('en', author$project$OurStory$Narrative$viewPhotosEstradaVelhaColares)
+		]));
+var author$project$OurStory$Narrative$viewQuestionAtColares = _List_fromArray(
+	['\nPensa cuidadosamente sobre tudo o que te foi revelado\ne escreve na folha de papel  a resposta ...\n      ']);
+var author$project$OurStory$NarrativeEnglish$viewQuestionAtColaresEn = _List_fromArray(
+	['\nThink carefully about everything that has been revealed to you\nand write what you think is the answer on that piece of paper ...\n      ']);
+var author$project$OurStory$Narrative$viewQuestionAtColaresDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$viewQuestionAtColares),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$viewQuestionAtColaresEn)
+		]));
+var author$project$OurStory$Narrative$viewQuestionAtFonteMataAlva = _List_fromArray(
+	['\nEm que ano foi restaurada a Fonte de Mata-Alva ?\n( podes prosseguir sem responder mas não poderás terminar o jogo sem o fazer ...)\n    ']);
+var author$project$OurStory$NarrativeEnglish$viewQuestionAtFonteMataAlvaEn = _List_fromArray(
+	['\nWhat year was the Fountain restored ?\n( you may proceed without answering but you won\'t be able to terminate the game without doing so ... )\n    ']);
+var author$project$OurStory$Narrative$viewQuestionAtFonteMataAlvaDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$viewQuestionAtFonteMataAlva),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$viewQuestionAtFonteMataAlvaEn)
+		]));
+var author$project$OurStory$Narrative$viewQuestionAtSeteaisAboutVillaRoma = _List_fromArray(
+	['\n\nAinda sobre Villa Roma ...\n\nQue elementos da família Bocage viveram em Villa Roma ?\n\nA -  Dr. José Vicente Barbosa du Bocage\n\nB - Manuel Maria Barbosa du Bocage\n    ']);
+var author$project$OurStory$NarrativeEnglish$viewQuestionAtSeteaisAboutVillaRomaEn = _List_fromArray(
+	['\nabout Villa Roma ...\n\nWhich person of the Bocage Family lived in Villa Roma ?\n\nA - Dr. José Vicente Barbosa du Bocage\n\nB - Manuel Maria Barbosa du Bocage\n    ']);
+var author$project$OurStory$Narrative$viewQuestionAtSeteaisAboutVillaRomaDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$viewQuestionAtSeteaisAboutVillaRoma),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$viewQuestionAtSeteaisAboutVillaRomaEn)
+		]));
+var author$project$OurStory$Narrative$viewQuestionAtVillaRoma = _List_fromArray(
+	['\nQuem construiu Villa Roma ?\n\nA - General Carlos Roma du Bocage\n\nB - Carlos Morato Roma\n    ']);
+var author$project$OurStory$NarrativeEnglish$viewQuestionAtVillaRomaEn = _List_fromArray(
+	['\nWho built Villa Roma ?\n\nA - General Carlos Roma du Bocage\n\nB - Carlos Morato Roma\n    ']);
+var author$project$OurStory$Narrative$viewQuestionAtVillaRomaDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$viewQuestionAtVillaRoma),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$viewQuestionAtVillaRomaEn)
+		]));
+var author$project$OurStory$Narrative$viewQuestionOneAtLimiteSaoMartinhoColares = _List_fromArray(
+	['\nNo placard \'Leve Colares no Coração\' no canto inferior direito está indicado o autor do placard e uma data (ano).\nIndique o nome e a data. ( Exemplo : Barbosa Bocage 1980)\n\n( podes prosseguir sem responder mas não poderás terminar o jogo sem o fazer ...)\n    ']);
+var author$project$OurStory$NarrativeEnglish$viewQuestionOneAtLimiteSaoMartinhoColaresEn = _List_fromArray(
+	['\nPlease write down the name and the date (year) engraved\non the bottom right of \'Leve Colares no Coração\' tile\n( Exemplo : Barbosa Bocage 1980)\n( you may proceed without answering but you won\'t be able to terminate the game without doing so ... )\n    ']);
+var author$project$OurStory$Narrative$viewQuestionOneAtLimiteSaoMartinhoColaresDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$viewQuestionOneAtLimiteSaoMartinhoColares),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$viewQuestionOneAtLimiteSaoMartinhoColaresEn)
+		]));
+var author$project$OurStory$Narrative$viewQuestionTwoAtLimiteSaoMartinhoColares = _List_fromArray(
+	['\nNas placas toponímicas \'Rua Barbosa du Bocage\' e \'Estrada Nova da Rainha\' qual o nome e data ( ano )\nindicados no canto inferior direito ( Exemplo : Barbosa Bocage 1980)\n\n( podes prosseguir sem responder mas não poderás terminar o jogo sem o fazer ...)\n    ']);
+var author$project$OurStory$NarrativeEnglish$viewQuestionTwoAtLimiteSaoMartinhoColaresEn = _List_fromArray(
+	['\nWhat are the name and date painted on the bottom right  of the road signs  \'Rua Barbosa du Bocage\' e \'Estrada Nova da Rainha\' ?\n( you may proceed without answering but you won\'t be able to terminate the game without doing so ... )\n    ']);
+var author$project$OurStory$Narrative$viewQuestionTwoAtLimiteSaoMartinhoColaresDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$viewQuestionTwoAtLimiteSaoMartinhoColares),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$viewQuestionTwoAtLimiteSaoMartinhoColaresEn)
+		]));
+var author$project$OurStory$Narrative$viewQuestionWhenNotAtTheRightLocationDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2(
+			'pt',
+			_List_fromArray(
+				['Por Favor diriga-se para o local onde a pergunta originalmente se encontra por forma a poder responder !'])),
+			_Utils_Tuple2(
+			'en',
+			_List_fromArray(
+				['Please move to the point where the question is located in order to be able to answer it !']))
+		]));
+var author$project$OurStory$Narrative$viewSeveralAnimalsAtQuintinhaMonserrate = _List_fromArray(
+	['\n![pic500](img/animaisMonserrate.png)\n\nvários animais da Quintinha de Monserrate\n    ']);
+var author$project$OurStory$NarrativeEnglish$viewSeveralAnimalsAtQuintinhaMonserrateEn = _List_fromArray(
+	['\n![pic500](img/animaisMonserrate.png)\n\nseveral animals from Quintinha de Monserrate\n    ']);
+var author$project$OurStory$Narrative$viewSeveralAnimalsAtQuintinhaMonserrateDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$viewSeveralAnimalsAtQuintinhaMonserrate),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$viewSeveralAnimalsAtQuintinhaMonserrateEn)
+		]));
+var author$project$OurStory$Narrative$viewTotemAtQuintinhaMonserrate = _List_fromArray(
+	['\n![](img/totem.png)\n\nEscultura com 7,5m de altura e 3m de diâmetro médio, esculpida com motosserra a partir de um tronco de um Eucalipto monumental que teve que ser abatido.\n\nValores naturais da Serra de Sintra representados no totem:\n\nÁguia-de-bonelli (Aquila fasciata)\n\nCoruja-do-mato (Strix aluco)\n\nBufo-real (Bubo bubo)\n\nMorcego-de-ferradura-pequeno (Rhinolophus hipposideros)\n\nGeneta (Genetta genetta)\n\nAranha-vespa (Argiope bruennichi)\n\nFritilária-dos-pântanos (Euphydryas aurinia)\n\nSaca-rabos (Herpestes ichneumon)\n\nVíbora-cornuda (Vipera latastei)\n\nVaca-loura (Lucanus cervus)\n\nSalamandra-de-pintas-amarelas (Salamandra salamandra)\n\nTexugo (Meles meles)\n\nFloresta nativa\n    ']);
+var author$project$OurStory$NarrativeEnglish$viewTotemAtQuintinhaMonserrateEn = _List_fromArray(
+	['\n![](img/totem.png)\n\n24.5ft high and 10ft wide Sculpture , carved with chainsaw in a dying eucalyptus body\n\nSerra de Sintra natural values depicted in the Totem:\n\nÁguia-de-bonelli (Aquila fasciata)\n\nCoruja-do-mato (Strix aluco)\n\nBufo-real (Bubo bubo)\n\nMorcego-de-ferradura-pequeno (Rhinolophus hipposideros)\n\nGeneta (Genetta genetta)\n\nAranha-vespa (Argiope bruennichi)\n\nFritilária-dos-pântanos (Euphydryas aurinia)\n\nSaca-rabos (Herpestes ichneumon)\n\nVíbora-cornuda (Vipera latastei)\n\nVaca-loura (Lucanus cervus)\n\nSalamandra-de-pintas-amarelas (Salamandra salamandra)\n\nTexugo (Meles meles)\n\nNative Forest\n    ']);
+var author$project$OurStory$Narrative$viewTotemAtQuintinhaMonserrateDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$viewTotemAtQuintinhaMonserrate),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$viewTotemAtQuintinhaMonserrateEn)
+		]));
+var author$project$OurStory$Narrative$warnNeedSeteaisVillaRomaQuestionCorrectlyAnswered = _List_fromArray(
+	['\nNecessitas  responder à questão apresentada em Seteais sobre Villa Roma por forma a poder prosseguir ....\n    ']);
+var author$project$OurStory$NarrativeEnglish$warnNeedSeteaisVillaRomaQuestionCorrectlyAnsweredEn = _List_fromArray(
+	['\nYou need to answer the question at Seteais about Villa Roma to be allowed to move on ...\n    ']);
+var author$project$OurStory$Narrative$warnNeedSeteaisVillaRomaQuestionCorrectlyAnsweredDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$warnNeedSeteaisVillaRomaQuestionCorrectlyAnswered),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$warnNeedSeteaisVillaRomaQuestionCorrectlyAnsweredEn)
+		]));
+var author$project$OurStory$Narrative$warnNeedVillaRomaQuestionCorrectlyAnswered = _List_fromArray(
+	['\nNecessitas  responder à questão apresentada em Villa Roma por forma a poder prosseguir ....\n    ']);
+var author$project$OurStory$NarrativeEnglish$warnNeedVillaRomaQuestionCorrectlyAnsweredEn = _List_fromArray(
+	['\nYou need to answer the question at Villa Roma to be allowed to move on ...\n    ']);
+var author$project$OurStory$Narrative$warnNeedVillaRomaQuestionCorrectlyAnsweredDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$warnNeedVillaRomaQuestionCorrectlyAnswered),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$warnNeedVillaRomaQuestionCorrectlyAnsweredEn)
+		]));
+var author$project$OurStory$Narrative$wiseManShowsFinalQuestion = _List_fromArray(
+	['\nO sábio apresenta-te o puzzle final ...\n      ']);
+var author$project$OurStory$NarrativeEnglish$wiseManShowsFinalQuestionEn = _List_fromArray(
+	['\nwise Man presents you the final puzzle ...\n      ']);
+var author$project$OurStory$Narrative$wiseManShowsFinalQuestionDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$wiseManShowsFinalQuestion),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$wiseManShowsFinalQuestionEn)
+		]));
+var author$project$OurStory$Narrative$wiseManTalksAboutSintra = _List_fromArray(
+	['\nO sábio de Colares estava por esta altura num excelente estado de espírito e\ncomeça a falar animadamente sobre Sintra :\n\n"Sabes que Sintra foi um palco priveligiado do Romantismo e  foi também um local\npor onde passaram e conviveram muito diferentes pessoas e culturas , que há sua maneira ,\numas mais outras menos marcaram este lugar . Não é assim difícil de imaginar que por aqui\ntenham existido grandes Paixões , Alianças , Traições ... e consequentemente .... Segredos ........ "\n   ', '\n\nrespondes : " sim , eu sei ,  estou a gostar muito de o ouvir , e quero escutar tudo o que tem para dizer ...\n\n mas há um mistério em particular para o qual gostaria de contar com a sua ajuda ?\n\nEsta estrada que acabei de percorrer parece ter três designações distintas :\n  - Estrada Velha de Colares\n  - Rua Barbosa du Bocage\n  - Estrada Nova da Rainha\n\n...\n  "\n      ', '\n"Ohhh ... apenas isso ? Não precisas da minha ajuda para solucionar esse mistério ... Quem cria e afixa essas placas toponímicas ???\n. És Inteligente . A tua explicação é tão boa como a minha . Se queres o meu conselho : Não te preocupes muito com isso .\nComo sabes e bem conheces existe um sistema fabuloso que permite identificar inequivocamente cada\npalmo à face da Terra pelas suas coordenadas de latitude e longitude ... Seja ele  GPS , Glonass , Beidou, IRNSS , GALILEO  , sabes do que estou a falar ....\nconcentra-te nisso e esquece nomes de Ruas ...  "\n      ', '\n"... mas já que gostas de mistérios de alguma forma relacionados com Estradas vou então apresentar-te um Enigma final.\n\n\nVou mostrar-te algumas fotografias bem como dar-te acesso ao ponto de vista de algumas pessoas ( ou grupos de pessoas )\nsobre a tua jornada de hoje na Estrada Velha de Colares ! (  settings - linguagem )\n\nSe adivinhares correctamente qual a solução do puzzle ( uma palavra ) partilharei contigo a localização de um tesouro muito especial escondido na Serra ... "\n      ', '\n...\n      ']);
+var author$project$OurStory$NarrativeEnglish$wiseManTalksAboutSintraEn = _List_fromArray(
+	['\nColares Wise Man was by then in an excellent mood and started talking enthusiastically\nabout Sintra :\n\n"You know Sintra was one of the centre spots of  Romanticism and was also a place\nwhere a lot of people from diferent origins and cultures interacted and in their own way\ninfluenced this place. It is not difficult to imagine that Big passions ,\nalliances , treasons ,  here took place ... therefore generating a lot of secrets"\n', '\nYou answer : " yes , I know , I\'m really enjoying your enthusiastic description of Sintra\n, and want to listen to everything you have to say ...\n\nbut i would like your help regarding a  particular mistery ...\n\nThe road i just travelled has three different names :\n-  Estrada Velha de Colares\n-  Rua Barbosa du Bocage\n-  Estrada Nova da Rainha\n...\n', '\n"Ohhh ... that\'s what you really want ?? You don\'t need my help to solve that mistery .\nWho creates and posts those signs ??  If you want my advice : Don\'t worry too much about it .\nAs you well know there\'s this fabulous system that makes possible to uniquely identify each\nsquare inch on the face of the Earth by its latitude and longitude coordinates .\nBe it GPS, Glonass  , Beidou, IRNSS , GALILEO  ,\nyou know what i\'m talking about right ?\nFocus on that and forget about street names ...\n', '\n"... but given that you enjoy road related misterys i\'m going to present to you a Final Puzzle ...\n\nI will show you some pictures and also reveal to you the point of view of some persons\n( or groups of persons ) regarding your recent journey on Estrada Velha de Colares (  settings - language )\n\nIf you find the solution ( a word ) i will reveal to you  the location of a very special treasure hidden in Serra de Sintra\n', '\n...\n     ']);
+var author$project$OurStory$NarrativeObsOne$wiseManTalksAboutSintraVi = _List_fromArray(
+	[author$project$OurStory$NarrativeObsOne$playerOneNameToObsOne + '\n      has been talking with Colares local crazy man for a very long time. They\'re up to no good ...\n       ']);
+var author$project$OurStory$NarrativeObsTwo$wiseManTalksAboutSintraVw = _List_fromArray(
+	[author$project$OurStory$NarrativeObsTwo$playerOneNameToObsTwo + '\n      has been talking with Colares Enlightened Man for a very long time. They\'re certainly close to a solution for all of the region\'s problems ...\n       ']);
+var author$project$OurStory$Narrative$wiseManTalksAboutSintraDict = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', author$project$OurStory$Narrative$wiseManTalksAboutSintra),
+			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$wiseManTalksAboutSintraEn),
+			_Utils_Tuple2('vi', author$project$OurStory$NarrativeObsOne$wiseManTalksAboutSintraVi),
+			_Utils_Tuple2('vw', author$project$OurStory$NarrativeObsTwo$wiseManTalksAboutSintraVw)
+		]));
 var author$project$Components$LanguageNarratives = function (a) {
 	return {$: 4, a: a};
 };
@@ -12650,372 +12601,12 @@ var author$project$Components$addRuleData = function (ruleData) {
 		'ruleData',
 		author$project$Components$RuleData(ruleData));
 };
-var author$project$OurStory$Rules$ruleWithQuasiChange = F3(
-	function (id, ruleData, narratives) {
-		return A2(
-			author$project$Components$addLanguageNarratives,
-			narratives,
-			A2(
-				author$project$Components$addRuleData,
-				ruleData,
-				author$project$Components$entity(id)));
-	});
-var author$project$OurStory$Rules$interactionWithOptionNrAllQuestionsAndOptionsAnsweredButThisOne = function (_n0) {
-	var optionNr = _n0.a;
-	var stageNr = _n0.b;
-	var optionId = author$project$OurStory$NarrativeDSFuncs$getOptionId(optionNr);
-	var matchStringValOrAny = function (xstr) {
-		return (xstr === '{__ANY__}') ? author$project$Engine$matchAnyNonEmptyString : author$project$Engine$matchStringValue(xstr);
-	};
-	var lsuggestedInteractionIfLastStage = _Utils_eq(stageNr, author$project$OurStory$NarrativeDSFuncs$getLastStageNr) ? _List_fromArray(
-		[
-			_Utils_Tuple2(
-			'suggestedInteraction',
-			author$project$Engine$astring('finalPaper'))
-		]) : _List_Nil;
-	var lpossibleChoices = author$project$OurStory$NarrativeDSFuncs$getMultiOptionAvailableChoicesValList(optionNr);
-	var additionalTextForStages = A2(
-		elm$core$List$map,
-		function (x) {
-			return _Utils_Tuple3(
-				x,
-				'additionalTextDict',
-				author$project$Engine$aDictStringListString(author$project$OurStory$Narrative$additionalStageInfoAfterAllQuestionsAnsweredDict));
-		},
-		A2(
-			elm$core$List$map,
-			author$project$OurStory$NarrativeDSFuncs$getStageId,
-			A2(elm$core$List$range, 1, author$project$OurStory$NarrativeDSFuncs$getNumberOfDesiredStages - 1)));
-	var allCheckAndActs = A2(
-		author$project$Engine$checkAndAct_IfChosenOptionIs,
-		A2(
-			elm$core$List$map,
-			function (x) {
-				return A5(
-					author$project$Engine$checkOptionData,
-					matchStringValOrAny(x),
-					A2(author$project$OurStory$NarrativeDSFuncs$getMultiOptionTextIfChosenDict, optionNr, x),
-					_Utils_ap(
-						_List_fromArray(
-							[
-								_Utils_Tuple2(
-								'warningMessage',
-								author$project$Engine$aDictStringListString(author$project$OurStory$Narrative$goodNewsMessageAfterAllQuestionsAnsweredDict))
-							]),
-						lsuggestedInteractionIfLastStage),
-					additionalTextForStages,
-					_List_Nil);
-			},
-			lpossibleChoices),
-		optionId);
-	return A3(
-		author$project$OurStory$Rules$ruleWithQuasiChange,
-		'view option' + (elm$core$String$fromInt(optionNr) + ' all options chosen but this one '),
-		{
-			bS: _List_Nil,
-			bY: A2(
-				elm$core$List$append,
-				A2(elm$core$List$map, author$project$Engine$itemIsCorrectlyAnswered, author$project$OurStory$NarrativeDSFuncs$getFilteredStageQuestionIds),
-				A2(
-					elm$core$List$append,
-					_List_fromArray(
-						[
-							author$project$Engine$itemIsOffScreen('finalPaper')
-						]),
-					A2(
-						elm$core$List$map,
-						author$project$Engine$choiceHasAlreadyBeenMade,
-						A2(
-							elm$core$List$filter,
-							function (x) {
-								return !_Utils_eq(x, optionId);
-							},
-							author$project$OurStory$NarrativeDSFuncs$getFilteredStageMultiOptionIds)))),
-			ct: author$project$Engine$with(optionId),
-			c5: author$project$Engine$noQuasiChangeWithBackend,
-			c6: _List_fromArray(
-				[allCheckAndActs])
-		},
-		author$project$OurStory$NarrativeDSFuncs$interactingWithMultiOptionDict(optionNr));
-};
-var author$project$Engine$answerSpacesDontMatter = 1;
-var author$project$Engine$caseInsensitiveAnswer = 1;
-var author$project$Engine$checkAnswerData = author$project$Types$CheckAnswerData;
-var author$project$Types$Check_IfAnswerCorrect = F3(
-	function (a, b, c) {
-		return {$: 1, a: a, b: b, c: c};
-	});
-var author$project$Engine$check_IfAnswerCorrect = author$project$Types$Check_IfAnswerCorrect;
-var author$project$Engine$headerAnswerAndCorrectIncorrect = 4;
-var author$project$Engine$listOfAnswersAndFunctions = author$project$Types$ListOfAnswersAndFunctions;
-var author$project$OurStory$NarrativeDSFuncs$getLgTextHelper = function (mbftext) {
-	if (mbftext.$ === 1) {
-		return author$project$Types$NoFeedbackText;
-	} else {
-		var s = mbftext.a;
-		return s;
-	}
-};
-var author$project$OurStory$NarrativeDSFuncs$additionalTextIfAnswerCorrectDict = function (questionNr) {
-	var getLgText = F2(
-		function (theNr, lgId) {
-			return author$project$OurStory$NarrativeDSFuncs$getLgTextHelper(
-				A2(
-					elm$core$Maybe$map,
-					function ($) {
-						return $.bA;
-					},
-					A2(
-						elm$core$Dict$get,
-						_Utils_Tuple2(theNr, lgId),
-						author$project$OurStory$NarrativeDataStructures$theQuestionsDict)));
-		});
-	var textOrFnDict = A3(
-		elm$core$List$foldl,
-		F2(
-			function (lgId, d) {
-				return A3(
-					elm$core$Dict$insert,
-					lgId,
-					A2(getLgText, questionNr, lgId),
-					d);
-			}),
-		elm$core$Dict$empty,
-		author$project$OurStory$Narrative$desiredLanguages);
-	return textOrFnDict;
-};
-var author$project$OurStory$NarrativeDSFuncs$additionalTextIfAnswerIncorrectDict = function (questionNr) {
-	var getLgText = F2(
-		function (theNr, lgId) {
-			return author$project$OurStory$NarrativeDSFuncs$getLgTextHelper(
-				A2(
-					elm$core$Maybe$map,
-					function ($) {
-						return $.bB;
-					},
-					A2(
-						elm$core$Dict$get,
-						_Utils_Tuple2(theNr, lgId),
-						author$project$OurStory$NarrativeDataStructures$theQuestionsDict)));
-		});
-	var textOrFnDict = A3(
-		elm$core$List$foldl,
-		F2(
-			function (lgId, d) {
-				return A3(
-					elm$core$Dict$insert,
-					lgId,
-					A2(getLgText, questionNr, lgId),
-					d);
-			}),
-		elm$core$Dict$empty,
-		author$project$OurStory$Narrative$desiredLanguages);
-	return textOrFnDict;
-};
-var author$project$OurStory$NarrativeDSFuncs$getQuestionAnswers = function (questionNr) {
-	var questionsDict = author$project$OurStory$NarrativeDataStructures$theQuestionsDict;
-	var getLgAnswers = F2(
-		function (theQuestionNr, lgId) {
-			return function (x) {
-				if (x.$ === 1) {
-					return _List_Nil;
-				} else {
-					var lans = x.a;
-					return lans;
-				}
-			}(
-				A2(
-					elm$core$Maybe$map,
-					function ($) {
-						return $.c7;
-					},
-					A2(
-						elm$core$Dict$get,
-						_Utils_Tuple2(theQuestionNr, lgId),
-						questionsDict)));
-		});
-	var validAnswers = elm$core$Set$toList(
-		elm$core$Set$fromList(
-			elm$core$List$concat(
-				A2(
-					elm$core$List$map,
-					function (lgId) {
-						return A2(getLgAnswers, questionNr, lgId);
-					},
-					author$project$OurStory$Narrative$desiredLanguages))));
-	return validAnswers;
-};
-var author$project$OurStory$NarrativeDataStructures$questionsMaxNrTries = elm$core$Dict$fromList(
-	_List_fromArray(
-		[
-			_Utils_Tuple2(
-			101,
-			elm$core$Maybe$Just(5)),
-			_Utils_Tuple2(201, elm$core$Maybe$Nothing),
-			_Utils_Tuple2(
-			301,
-			elm$core$Maybe$Just(2)),
-			_Utils_Tuple2(
-			401,
-			elm$core$Maybe$Just(5)),
-			_Utils_Tuple2(
-			402,
-			elm$core$Maybe$Just(5)),
-			_Utils_Tuple2(
-			501,
-			elm$core$Maybe$Just(5)),
-			_Utils_Tuple2(
-			601,
-			elm$core$Maybe$Just(5)),
-			_Utils_Tuple2(
-			701,
-			elm$core$Maybe$Just(5)),
-			_Utils_Tuple2(
-			801,
-			elm$core$Maybe$Just(5)),
-			_Utils_Tuple2(
-			901,
-			elm$core$Maybe$Just(5)),
-			_Utils_Tuple2(
-			1001,
-			elm$core$Maybe$Just(5))
-		]));
-var author$project$OurStory$NarrativeDSFuncs$getQuestionsMaxNrTries = function (questionNr) {
-	var dictMaxTries = author$project$OurStory$NarrativeDataStructures$questionsMaxNrTries;
-	return A2(
-		elm$core$Maybe$withDefault,
-		elm$core$Maybe$Nothing,
-		A2(elm$core$Dict$get, questionNr, dictMaxTries));
-};
-var author$project$OurStory$NarrativeDSFuncs$interactingWithQuestion = F2(
-	function (questionNr, lgId) {
-		return A2(author$project$OurStory$NarrativeDSFuncs$getQuestionBody, questionNr, lgId);
-	});
-var author$project$OurStory$NarrativeDSFuncs$interactingWithQuestionDict = function (nr) {
-	return elm$core$Dict$fromList(
-		_List_fromArray(
-			[
-				_Utils_Tuple2(
-				'pt',
-				A2(author$project$OurStory$NarrativeDSFuncs$interactingWithQuestion, nr, 'pt')),
-				_Utils_Tuple2(
-				'en',
-				A2(author$project$OurStory$NarrativeDSFuncs$interactingWithQuestion, nr, 'en'))
-			]));
-};
-var author$project$OurStory$Rules$interactionWithQuestionNrAllQuestionsAndOptionsAnsweredButThisOne = function (_n0) {
-	var questionNr = _n0.a;
-	var stageNr = _n0.b;
-	var lsuggestedInteractionIfLastStage = _Utils_eq(stageNr, author$project$OurStory$NarrativeDSFuncs$getLastStageNr) ? _List_fromArray(
-		[
-			_Utils_Tuple2(
-			'suggestedInteraction',
-			author$project$Engine$astring('finalPaper'))
-		]) : _List_Nil;
-	var correctAnswers = function (ls) {
-		return A2(author$project$Engine$listOfAnswersAndFunctions, ls, _List_Nil);
-	}(
-		author$project$OurStory$NarrativeDSFuncs$getQuestionAnswers(questionNr));
-	var additionalTextForStages = A2(
-		elm$core$List$map,
-		function (x) {
-			return _Utils_Tuple3(
-				x,
-				'additionalTextDict',
-				author$project$Engine$aDictStringListString(author$project$OurStory$Narrative$additionalStageInfoAfterAllQuestionsAnsweredDict));
-		},
-		A2(
-			elm$core$List$map,
-			author$project$OurStory$NarrativeDSFuncs$getStageId,
-			A2(elm$core$List$range, 1, author$project$OurStory$NarrativeDSFuncs$getNumberOfDesiredStages - 1)));
-	return A3(
-		author$project$OurStory$Rules$ruleWithQuasiChange,
-		'view question' + (elm$core$String$fromInt(questionNr) + ' all questions answered but this one '),
-		{
-			bS: _List_Nil,
-			bY: A2(
-				elm$core$List$append,
-				A2(elm$core$List$map, author$project$Engine$choiceHasAlreadyBeenMade, author$project$OurStory$NarrativeDSFuncs$getFilteredStageMultiOptionIds),
-				A2(
-					elm$core$List$append,
-					_List_fromArray(
-						[
-							author$project$Engine$itemIsOffScreen('finalPaper')
-						]),
-					A2(
-						elm$core$List$map,
-						author$project$Engine$itemIsCorrectlyAnswered,
-						A2(
-							elm$core$List$filter,
-							function (x) {
-								return !_Utils_eq(
-									x,
-									author$project$OurStory$NarrativeDSFuncs$getQuestionId(questionNr));
-							},
-							author$project$OurStory$NarrativeDSFuncs$getFilteredStageQuestionIds)))),
-			ct: author$project$Engine$with(
-				author$project$OurStory$NarrativeDSFuncs$getQuestionId(questionNr)),
-			c5: author$project$Engine$noQuasiChangeWithBackend,
-			c6: _List_fromArray(
-				[
-					A3(
-					author$project$Engine$check_IfAnswerCorrect,
-					correctAnswers,
-					A8(
-						author$project$Engine$checkAnswerData,
-						author$project$OurStory$NarrativeDSFuncs$getQuestionsMaxNrTries(questionNr),
-						author$project$Engine$caseInsensitiveAnswer,
-						author$project$Engine$answerSpacesDontMatter,
-						author$project$Engine$headerAnswerAndCorrectIncorrect,
-						author$project$OurStory$NarrativeDSFuncs$additionalTextIfAnswerCorrectDict(questionNr),
-						author$project$OurStory$NarrativeDSFuncs$additionalTextIfAnswerIncorrectDict(questionNr),
-						_Utils_ap(
-							_List_fromArray(
-								[
-									_Utils_Tuple2(
-									'warningMessage',
-									author$project$Engine$aDictStringListString(author$project$OurStory$Narrative$goodNewsMessageAfterAllQuestionsAnsweredDict))
-								]),
-							lsuggestedInteractionIfLastStage),
-						additionalTextForStages),
-					author$project$OurStory$NarrativeDSFuncs$getQuestionId(questionNr))
-				])
-		},
-		author$project$OurStory$NarrativeDSFuncs$interactingWithQuestionDict(questionNr));
-};
-var author$project$Types$AttrValueIsEqualTo = F3(
-	function (a, b, c) {
-		return {$: 19, a: a, b: b, c: c};
-	});
-var author$project$Engine$attrValueIsEqualTo = author$project$Types$AttrValueIsEqualTo;
-var author$project$Types$EndStory = F2(
-	function (a, b) {
-		return {$: 32, a: a, b: b};
-	});
-var author$project$Types$FreezingEnd = 0;
-var author$project$Types$NotFreezingEnd = 1;
-var author$project$Engine$endStory = F2(
-	function (endingtypeStr, ending) {
-		return (endingtypeStr === 'notFreezingEnd') ? A2(author$project$Types$EndStory, 1, ending) : A2(author$project$Types$EndStory, 0, ending);
-	});
-var author$project$Types$WithAnyLocationAnyCharacterAfterGameEnded = {$: 4};
-var author$project$Engine$withAnyLocationAnyCharacterAfterGameEnded = author$project$Types$WithAnyLocationAnyCharacterAfterGameEnded;
-var author$project$OurStory$Narrative$gameHasEnded = _List_fromArray(
-	['\nEste jogo acabou ! Podes consultar todos os items no teu inventário ,\nmas o jogo chegou ao fim ! Diverte-te !\n      ']);
-var author$project$OurStory$Narrative$gameHasEndedEn = _List_fromArray(
-	['\nGame has Ended ! You can take a look at your inventory items ( but game has ended ) ! Have Fun !\n      ']);
-var author$project$OurStory$Narrative$gameHasEndedDict = elm$core$Dict$fromList(
-	_List_fromArray(
-		[
-			_Utils_Tuple2('pt', author$project$OurStory$Narrative$gameHasEnded),
-			_Utils_Tuple2('en', author$project$OurStory$Narrative$gameHasEndedEn)
-		]));
 var author$project$Types$Rule = F5(
 	function (interaction, conditions, changes, quasiChanges, quasiChangeWithBkend) {
-		return {bS: changes, bY: conditions, ct: interaction, c5: quasiChangeWithBkend, c6: quasiChanges};
+		return {bL: changes, bR: conditions, cl: interaction, cW: quasiChangeWithBkend, cX: quasiChanges};
 	});
 var author$project$Engine$completeTheRule = function (ruleData) {
-	return A5(author$project$Types$Rule, ruleData.ct, ruleData.bY, ruleData.bS, _List_Nil, author$project$Types$NoQuasiChangeWithBackend);
+	return A5(author$project$Types$Rule, ruleData.cl, ruleData.bR, ruleData.bL, _List_Nil, author$project$Types$NoQuasiChangeWithBackend);
 };
 var author$project$OurStory$Rules$rule = F3(
 	function (id, ruleData, narratives) {
@@ -13027,97 +12618,1448 @@ var author$project$OurStory$Rules$rule = F3(
 				author$project$Engine$completeTheRule(ruleData),
 				author$project$Components$entity(id)));
 	});
-var author$project$OurStory$Rules$lRuleGameHasEnded = _List_fromArray(
-	[
-		A3(
-		author$project$OurStory$Rules$rule,
-		'game has ended',
-		{
-			bS: _List_fromArray(
-				[
-					A2(author$project$Engine$endStory, 'notFreezingEnd', 'The End')
-				]),
-			bY: _List_fromArray(
-				[
-					A3(
-					author$project$Engine$attrValueIsEqualTo,
-					author$project$Engine$abool(true),
-					'gameHasEnded',
-					'gameStateItem')
-				]),
-			ct: author$project$Engine$withAnyLocationAnyCharacterAfterGameEnded
-		},
-		author$project$OurStory$Narrative$gameHasEndedDict)
-	]);
-var author$project$Engine$setAttributeValue = F3(
-	function (val, attrId, interactableId) {
-		return A4(author$project$Types$CreateAttributeIfNotExistsAndOrSetValue, val, attrId, elm$core$Maybe$Nothing, interactableId);
+var author$project$OurStory$Rules$ruleWithQuasiChange = F3(
+	function (id, ruleData, narratives) {
+		return A2(
+			author$project$Components$addLanguageNarratives,
+			narratives,
+			A2(
+				author$project$Components$addRuleData,
+				ruleData,
+				author$project$Components$entity(id)));
 	});
-var author$project$OurStory$Narrative$interactingWithFinalPaperEn = _List_fromArray(
-	['\nCongratulations ! You overcome all challenges.\nYou will find a nice surprise located at ...\n\n Game has ended !\n     ']);
-var author$project$OurStory$Narrative$interactingWithFinalPaperPt = _List_fromArray(
-	['\nParabéns ! Superaste todos os desafios propostos.\nEncontarás uma agradável surpresa em ...\n\n O jogo chegou ao fim !\n      ']);
-var author$project$OurStory$Narrative$interactingWithFinalPaperDict = elm$core$Dict$fromList(
-	_List_fromArray(
-		[
-			_Utils_Tuple2('pt', author$project$OurStory$Narrative$interactingWithFinalPaperPt),
-			_Utils_Tuple2('en', author$project$OurStory$Narrative$interactingWithFinalPaperEn)
-		]));
-var author$project$OurStory$Rules$lRuleInteractingWithFinalPaper = _List_fromArray(
-	[
-		A3(
-		author$project$OurStory$Rules$rule,
-		'interaction With Final Paper',
-		{
-			bS: _List_fromArray(
+var author$project$OurStory$Rules$rules = elm$core$Dict$fromList(
+	_Utils_ap(
+		_List_Nil,
+		_Utils_ap(
+			_List_fromArray(
 				[
 					A3(
-					author$project$Engine$setAttributeValue,
-					author$project$Engine$abool(true),
-					'gameHasEnded',
-					'gameStateItem'),
-					A2(author$project$Engine$moveItemToCharacterInventory, 'playerOne', 'finalPaper')
+					author$project$OurStory$Rules$rule,
+					'interacting with playerOne',
+					{
+						bL: _List_Nil,
+						bR: _List_Nil,
+						cl: author$project$Engine$with('playerOne')
+					},
+					author$project$OurStory$Narrative$interactingWithPlayerOneDict)
 				]),
-			bY: A2(elm$core$List$map, author$project$Engine$itemIsCorrectlyAnswered, author$project$OurStory$NarrativeDSFuncs$getFilteredStageQuestionIds),
-			ct: author$project$Engine$with('finalPaper')
-		},
-		author$project$OurStory$Narrative$interactingWithFinalPaperDict)
-	]);
-var author$project$OurStory$Narrative$creditsInformation = _List_fromArray(
-	['\n### Location Info : ###\nhttp://www.parquesdesintra.pt/\n\n\n### Elm Language and package ecosystem ###\n\nEvan Czaplicki ,  Richard Feldman , Werner de Groot , Dave Keen ...\n\n### Elm Narrative Engine : ###\n\nJeff Schomay\n\n( the persons above in no way endorse this particular extension or narrative)\n\n### extensions to the Narrative Engine : ###\n\nNuno Torres\n\n### Game-Narrative ###\n\nNuno Torres\n\n    ']);
-var author$project$OurStory$Narrative$theCreditsInformationDict = elm$core$Dict$fromList(
-	_List_fromArray(
-		[
-			_Utils_Tuple2('pt', author$project$OurStory$Narrative$creditsInformation),
-			_Utils_Tuple2('en', author$project$OurStory$Narrative$creditsInformation)
-		]));
-var author$project$OurStory$Rules$lRulesInteractingWithCreditsInfo = _List_fromArray(
-	[
-		A3(
-		author$project$OurStory$Rules$rule,
-		'view creditsInfo',
-		{
-			bS: _List_Nil,
-			bY: _List_Nil,
-			ct: author$project$Engine$with('creditsInfo')
-		},
-		author$project$OurStory$Narrative$theCreditsInformationDict)
-	]);
-var author$project$Types$CharacterIsInLocation = F2(
-	function (a, b) {
-		return {$: 1, a: a, b: b};
+			_Utils_ap(
+				_List_fromArray(
+					[
+						A3(
+						author$project$OurStory$Rules$rule,
+						'voltar ao largo Carlos Franca',
+						{
+							bL: _List_fromArray(
+								[
+									author$project$Engine$moveTo('largoDrCarlosFranca'),
+									A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'largoDrCarlosFranca')
+								]),
+							bR: _List_fromArray(
+								[
+									author$project$Engine$currentLocationIsNot('largoDrCarlosFranca')
+								]),
+							cl: author$project$Engine$with('largoDrCarlosFranca')
+						},
+						author$project$OurStory$Narrative$returningToLargoCarlosFrancaDict)
+					]),
+				_Utils_ap(
+					_List_fromArray(
+						[
+							A3(
+							author$project$OurStory$Rules$rule,
+							'talking to the sintraWiseMan after 3 interactions Notas sabias appear',
+							{
+								bL: _List_fromArray(
+									[
+										A2(author$project$Engine$moveItemToLocation, 'notasSabias', 'largoDrCarlosFranca'),
+										A2(author$project$Engine$increaseCounter, 'nrTimesTalkTo', 'sintraWiseMan')
+									]),
+								bR: _List_fromArray(
+									[
+										author$project$Engine$currentLocationIs('largoDrCarlosFranca'),
+										A2(author$project$Engine$characterIsInLocation, 'sintraWiseMan', 'largoDrCarlosFranca'),
+										A2(author$project$Engine$characterIsInLocation, 'playerOne', 'largoDrCarlosFranca'),
+										A3(author$project$Engine$counterGreaterThenOrEqualTo, 3, 'nrTimesTalkTo', 'sintraWiseMan'),
+										author$project$Engine$itemIsOffScreen('notasSabias')
+									]),
+								cl: author$project$Engine$with('sintraWiseMan')
+							},
+							author$project$OurStory$Narrative$helpfulNotesAppearDict),
+							A3(
+							author$project$OurStory$Rules$rule,
+							'talking to the sintraWiseMan in the largoDrCarlosFranca',
+							{
+								bL: _List_fromArray(
+									[
+										A2(author$project$Engine$increaseCounter, 'nrTimesTalkTo', 'sintraWiseMan')
+									]),
+								bR: _List_fromArray(
+									[
+										author$project$Engine$currentLocationIs('largoDrCarlosFranca'),
+										A2(author$project$Engine$characterIsInLocation, 'sintraWiseMan', 'largoDrCarlosFranca')
+									]),
+								cl: author$project$Engine$with('sintraWiseMan')
+							},
+							author$project$OurStory$Narrative$talkToSintraWiseManDict)
+						]),
+					_Utils_ap(
+						_List_fromArray(
+							[
+								A3(
+								author$project$OurStory$Rules$rule,
+								'leaving largoDrCarlosFranca without gps',
+								{
+									bL: _List_Nil,
+									bR: _List_fromArray(
+										[
+											author$project$Engine$currentLocationIs('largoDrCarlosFranca'),
+											A2(author$project$Engine$itemIsNotInCharacterInventory, 'playerOne', 'gps')
+										]),
+									cl: author$project$Engine$with('ruaBarbosaDoBocageInicio')
+								},
+								author$project$OurStory$Narrative$leavingWithoutGpsDict),
+								A3(
+								author$project$OurStory$Rules$rule,
+								'leaving largoDrCarlosFranca without interacting Sabio',
+								{
+									bL: _List_Nil,
+									bR: _List_fromArray(
+										[
+											author$project$Engine$currentLocationIs('largoDrCarlosFranca'),
+											author$project$Engine$hasNotPreviouslyInteractedWith('sintraWiseMan')
+										]),
+									cl: author$project$Engine$with('ruaBarbosaDoBocageInicio')
+								},
+								author$project$OurStory$Narrative$leavingWithoutInteractingSabioSintraDict),
+								A3(
+								author$project$OurStory$Rules$rule,
+								'leaving the largoDrCarlosFranca',
+								{
+									bL: _List_fromArray(
+										[
+											author$project$Engine$moveTo('ruaBarbosaDoBocageInicio'),
+											A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'ruaBarbosaDoBocageInicio')
+										]),
+									bR: _List_fromArray(
+										[
+											author$project$Engine$currentLocationIs('largoDrCarlosFranca'),
+											A2(author$project$Engine$itemIsInCharacterInventory, 'playerOne', 'gps'),
+											author$project$Engine$hasPreviouslyInteractedWith('sintraWiseMan')
+										]),
+									cl: author$project$Engine$with('ruaBarbosaDoBocageInicio')
+								},
+								author$project$OurStory$Narrative$leavingLargoCarlosFrancaDict),
+								A3(
+								author$project$OurStory$Rules$rule,
+								'going from villaRoma to ruaBarbosaDoBocageInicio',
+								{
+									bL: _List_fromArray(
+										[
+											author$project$Engine$moveTo('ruaBarbosaDoBocageInicio'),
+											A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'ruaBarbosaDoBocageInicio')
+										]),
+									bR: _List_fromArray(
+										[
+											author$project$Engine$currentLocationIs('villaRoma')
+										]),
+									cl: author$project$Engine$with('ruaBarbosaDoBocageInicio')
+								},
+								author$project$OurStory$Narrative$returningToRuaBarbosaDoBocageInicioDict)
+							]),
+						_Utils_ap(
+							_List_fromArray(
+								[
+									A3(
+									author$project$OurStory$Rules$rule,
+									'entering villaRoma from ruaBarbosaDoBocageInicio',
+									{
+										bL: _List_fromArray(
+											[
+												author$project$Engine$moveTo('villaRoma'),
+												A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'villaRoma')
+											]),
+										bR: _List_fromArray(
+											[
+												author$project$Engine$currentLocationIs('ruaBarbosaDoBocageInicio'),
+												A2(author$project$Engine$characterIsInLocation, 'playerOne', 'ruaBarbosaDoBocageInicio')
+											]),
+										cl: author$project$Engine$with('villaRoma')
+									},
+									author$project$OurStory$Narrative$enteringVillaRomaDict),
+									A3(
+									author$project$OurStory$Rules$rule,
+									'entering villaRoma from RuaTrindadeCoelho',
+									{
+										bL: _List_fromArray(
+											[
+												author$project$Engine$moveTo('villaRoma'),
+												A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'villaRoma')
+											]),
+										bR: _List_fromArray(
+											[
+												author$project$Engine$currentLocationIs('ruaTrindadeCoelho'),
+												A2(author$project$Engine$characterIsInLocation, 'playerOne', 'ruaTrindadeCoelho')
+											]),
+										cl: author$project$Engine$with('villaRoma')
+									},
+									author$project$OurStory$Narrative$enteringVillaRomaDict),
+									A3(
+									author$project$OurStory$Rules$rule,
+									'entering villaRoma from Seteais',
+									{
+										bL: _List_fromArray(
+											[
+												author$project$Engine$moveTo('villaRoma'),
+												A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'villaRoma')
+											]),
+										bR: _List_fromArray(
+											[
+												author$project$Engine$currentLocationIs('palacioSeteais'),
+												A2(author$project$Engine$characterIsInLocation, 'playerOne', 'palacioSeteais')
+											]),
+										cl: author$project$Engine$with('villaRoma')
+									},
+									author$project$OurStory$Narrative$enteringVillaRomaDict),
+									A3(
+									author$project$OurStory$Rules$ruleWithQuasiChange,
+									'view questionAtVillaRoma',
+									{
+										bL: _List_Nil,
+										bR: _List_fromArray(
+											[
+												A2(author$project$Engine$characterIsInLocation, 'playerOne', 'villaRoma'),
+												A2(author$project$Engine$itemIsInLocation, 'questionAtVillaRoma', 'villaRoma')
+											]),
+										cl: author$project$Engine$with('questionAtVillaRoma'),
+										cW: author$project$Engine$noQuasiChangeWithBackend,
+										cX: _List_fromArray(
+											[
+												A3(
+												author$project$Engine$simpleCheck_IfAnswerCorrect,
+												A2(
+													author$project$Engine$listOfAnswersAndFunctions,
+													_List_fromArray(
+														['Carlos Morato Roma']),
+													_List_Nil),
+												elm$core$Maybe$Nothing,
+												'questionAtVillaRoma')
+											])
+									},
+									author$project$OurStory$Narrative$viewQuestionAtVillaRomaDict)
+								]),
+							_Utils_ap(
+								_List_fromArray(
+									[
+										A3(
+										author$project$OurStory$Rules$rule,
+										'entering ruaTrindadeCoelho',
+										{
+											bL: _List_fromArray(
+												[
+													author$project$Engine$moveTo('ruaTrindadeCoelho'),
+													A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'ruaTrindadeCoelho')
+												]),
+											bR: _List_fromArray(
+												[
+													author$project$Engine$currentLocationIs('villaRoma'),
+													A2(author$project$Engine$characterIsInLocation, 'playerOne', 'villaRoma')
+												]),
+											cl: author$project$Engine$with('ruaTrindadeCoelho')
+										},
+										author$project$OurStory$Narrative$enteringRuaTrindadeCoelhoDict)
+									]),
+								_Utils_ap(
+									_List_fromArray(
+										[
+											A3(
+											author$project$OurStory$Rules$rule,
+											'playing with cat at ruaTrindadeCoelho',
+											{
+												bL: _List_fromArray(
+													[
+														A2(author$project$Engine$moveItemToLocation, 'gps', 'largoDrCarlosFranca'),
+														author$project$Engine$moveCharacterOffScreen('catOne'),
+														author$project$Engine$moveTo('largoDrCarlosFranca'),
+														A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'largoDrCarlosFranca')
+													]),
+												bR: _List_fromArray(
+													[
+														author$project$Engine$currentLocationIs('ruaTrindadeCoelho'),
+														A2(author$project$Engine$characterIsInLocation, 'catOne', 'ruaTrindadeCoelho'),
+														A2(author$project$Engine$itemIsInCharacterInventory, 'playerOne', 'gps')
+													]),
+												cl: author$project$Engine$with('catOne')
+											},
+											author$project$OurStory$Narrative$playWithCatAtRuaTrindadeCoelhoDict)
+										]),
+									_Utils_ap(
+										_List_fromArray(
+											[
+												A3(
+												author$project$OurStory$Rules$rule,
+												'entering palacioSeteais without Correct answer at VillaRoma',
+												{
+													bL: _List_Nil,
+													bR: _List_fromArray(
+														[
+															author$project$Engine$currentLocationIs('villaRoma'),
+															A2(author$project$Engine$characterIsInLocation, 'playerOne', 'villaRoma'),
+															author$project$Engine$itemIsNotCorrectlyAnswered('questionAtVillaRoma')
+														]),
+													cl: author$project$Engine$with('palacioSeteais')
+												},
+												author$project$OurStory$Narrative$warnNeedVillaRomaQuestionCorrectlyAnsweredDict),
+												A3(
+												author$project$OurStory$Rules$rule,
+												'entering palacioSeteais',
+												{
+													bL: _List_fromArray(
+														[
+															author$project$Engine$moveTo('palacioSeteais'),
+															A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'palacioSeteais')
+														]),
+													bR: _List_fromArray(
+														[
+															author$project$Engine$currentLocationIs('villaRoma'),
+															A2(author$project$Engine$characterIsInLocation, 'playerOne', 'villaRoma'),
+															author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma')
+														]),
+													cl: author$project$Engine$with('palacioSeteais')
+												},
+												author$project$OurStory$Narrative$enteringPalacioSeteaisDict),
+												A3(
+												author$project$OurStory$Rules$ruleWithQuasiChange,
+												'view questionAtSeteaisAboutVillaRoma',
+												{
+													bL: _List_Nil,
+													bR: _List_fromArray(
+														[
+															A2(author$project$Engine$characterIsInLocation, 'playerOne', 'palacioSeteais'),
+															A2(author$project$Engine$itemIsInLocation, 'questionAtSeteaisAboutVillaRoma', 'palacioSeteais')
+														]),
+													cl: author$project$Engine$with('questionAtSeteaisAboutVillaRoma'),
+													cW: author$project$Engine$noQuasiChangeWithBackend,
+													cX: _List_fromArray(
+														[
+															A3(
+															author$project$Engine$simpleCheck_IfAnswerCorrect,
+															A2(
+																author$project$Engine$listOfAnswersAndFunctions,
+																_List_fromArray(
+																	['Dr. José Vicente Barbosa du Bocage']),
+																_List_Nil),
+															elm$core$Maybe$Nothing,
+															'questionAtSeteaisAboutVillaRoma')
+														])
+												},
+												author$project$OurStory$Narrative$viewQuestionAtSeteaisAboutVillaRomaDict),
+												A3(
+												author$project$OurStory$Rules$rule,
+												'entering palacioSeteais from PenhaVerde',
+												{
+													bL: _List_fromArray(
+														[
+															author$project$Engine$moveTo('palacioSeteais'),
+															A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'palacioSeteais')
+														]),
+													bR: _List_fromArray(
+														[
+															author$project$Engine$currentLocationIs('quintaPenhaVerde'),
+															A2(author$project$Engine$characterIsInLocation, 'playerOne', 'quintaPenhaVerde')
+														]),
+													cl: author$project$Engine$with('palacioSeteais')
+												},
+												author$project$OurStory$Narrative$enteringPalacioSeteaisFromPenhaVerdeDict),
+												A3(
+												author$project$OurStory$Rules$rule,
+												'talk To turist at palacioSeteais',
+												{
+													bL: _List_Nil,
+													bR: _List_fromArray(
+														[
+															author$project$Engine$currentLocationIs('palacioSeteais'),
+															A2(author$project$Engine$characterIsInLocation, 'playerOne', 'palacioSeteais'),
+															A2(author$project$Engine$characterIsInLocation, 'turistOne', 'palacioSeteais')
+														]),
+													cl: author$project$Engine$with('turistOne')
+												},
+												author$project$OurStory$Narrative$talkToTuristAtPalacioSeteaisDict)
+											]),
+										_Utils_ap(
+											_List_fromArray(
+												[
+													A3(
+													author$project$OurStory$Rules$rule,
+													'entering quintaPenhaVerde without Correct answerT at VillaRoma',
+													{
+														bL: _List_Nil,
+														bR: _List_fromArray(
+															[
+																author$project$Engine$currentLocationIs('palacioSeteais'),
+																A2(author$project$Engine$characterIsInLocation, 'playerOne', 'palacioSeteais'),
+																author$project$Engine$itemIsNotCorrectlyAnswered('questionAtSeteaisAboutVillaRoma')
+															]),
+														cl: author$project$Engine$with('quintaPenhaVerde')
+													},
+													author$project$OurStory$Narrative$warnNeedSeteaisVillaRomaQuestionCorrectlyAnsweredDict),
+													A3(
+													author$project$OurStory$Rules$rule,
+													'entering quintaPenhaVerde with question at palacioSeteais correctly answered',
+													{
+														bL: _List_fromArray(
+															[
+																author$project$Engine$moveTo('quintaPenhaVerde'),
+																A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'quintaPenhaVerde')
+															]),
+														bR: _List_fromArray(
+															[
+																author$project$Engine$currentLocationIs('palacioSeteais'),
+																A2(author$project$Engine$characterIsInLocation, 'playerOne', 'palacioSeteais'),
+																author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma')
+															]),
+														cl: author$project$Engine$with('quintaPenhaVerde')
+													},
+													author$project$OurStory$Narrative$enteringQuintaPenhaVerdeDict),
+													A3(
+													author$project$OurStory$Rules$rule,
+													'entering quintaPenhaVerde from desvioQuintaDasSequoias',
+													{
+														bL: _List_fromArray(
+															[
+																author$project$Engine$moveTo('quintaPenhaVerde'),
+																A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'quintaPenhaVerde')
+															]),
+														bR: _List_fromArray(
+															[
+																author$project$Engine$currentLocationIs('desvioQuintaSequoias'),
+																A2(author$project$Engine$characterIsInLocation, 'playerOne', 'desvioQuintaSequoias')
+															]),
+														cl: author$project$Engine$with('quintaPenhaVerde')
+													},
+													author$project$OurStory$Narrative$enteringQuintaPenhaVerdeFromDesvioQuintaDasSequoiasDict)
+												]),
+											_Utils_ap(
+												_List_fromArray(
+													[
+														A3(
+														author$project$OurStory$Rules$rule,
+														'entering desvioQuintaSequoias',
+														{
+															bL: _List_fromArray(
+																[
+																	author$project$Engine$moveTo('desvioQuintaSequoias'),
+																	A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'desvioQuintaSequoias')
+																]),
+															bR: _List_fromArray(
+																[
+																	author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																	author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma')
+																]),
+															cl: author$project$Engine$with('desvioQuintaSequoias')
+														},
+														author$project$OurStory$Narrative$enteringDesvioQuintaSequoiasDict),
+														A3(
+														author$project$OurStory$Rules$rule,
+														'talk to photographer at desvioQuintaSequoias',
+														{
+															bL: _List_Nil,
+															bR: _List_fromArray(
+																[
+																	author$project$Engine$currentLocationIs('desvioQuintaSequoias'),
+																	A2(author$project$Engine$characterIsInLocation, 'playerOne', 'desvioQuintaSequoias'),
+																	A2(author$project$Engine$characterIsInLocation, 'photographer', 'desvioQuintaSequoias'),
+																	author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																	author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma')
+																]),
+															cl: author$project$Engine$with('photographer')
+														},
+														author$project$OurStory$Narrative$talkToPhotographerDict)
+													]),
+												_Utils_ap(
+													_List_fromArray(
+														[
+															A3(
+															author$project$OurStory$Rules$rule,
+															'entering quintinhaMonserrate make TinCan appear',
+															{
+																bL: _List_fromArray(
+																	[
+																		author$project$Engine$moveTo('quintinhaMonserrate'),
+																		A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'quintinhaMonserrate'),
+																		A2(author$project$Engine$moveItemToLocation, 'tinCan', 'quintinhaMonserrate')
+																	]),
+																bR: _List_fromArray(
+																	[
+																		author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																		author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
+																		author$project$Engine$hasNotPreviouslyInteractedWith('tinCan'),
+																		author$project$Engine$hasPreviouslyInteractedWith('photographer')
+																	]),
+																cl: author$project$Engine$with('quintinhaMonserrate')
+															},
+															author$project$OurStory$Narrative$enteringQuintinhaMonserrateDict),
+															A3(
+															author$project$OurStory$Rules$rule,
+															'entering quintinhaMonserrate no tinCan',
+															{
+																bL: _List_fromArray(
+																	[
+																		author$project$Engine$moveTo('quintinhaMonserrate'),
+																		A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'quintinhaMonserrate')
+																	]),
+																bR: _List_Nil,
+																cl: author$project$Engine$with('quintinhaMonserrate')
+															},
+															author$project$OurStory$Narrative$enteringQuintinhaMonserrateDict),
+															A3(
+															author$project$OurStory$Rules$rule,
+															'interact with tinCan at quintinha Monserrate',
+															{
+																bL: _List_fromArray(
+																	[
+																		author$project$Engine$moveItemOffScreen('tinCan'),
+																		A2(author$project$Engine$moveItemToCharacterInventory, 'playerOne', 'pinholeCamera')
+																	]),
+																bR: _List_fromArray(
+																	[
+																		author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																		author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
+																		A2(author$project$Engine$characterIsInLocation, 'playerOne', 'quintinhaMonserrate'),
+																		A2(author$project$Engine$itemIsInLocation, 'tinCan', 'quintinhaMonserrate')
+																	]),
+																cl: author$project$Engine$with('tinCan')
+															},
+															author$project$OurStory$Narrative$findingPinholeCameraDict),
+															A3(
+															author$project$OurStory$Rules$rule,
+															'talk to  totemShaper at quintinhaMonserrate',
+															{
+																bL: _List_fromArray(
+																	[
+																		A2(author$project$Engine$increaseCounter, 'nrTimesTalkTo', 'totemShaper')
+																	]),
+																bR: _List_fromArray(
+																	[
+																		author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																		author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
+																		A2(author$project$Engine$characterIsInLocation, 'playerOne', 'quintinhaMonserrate'),
+																		A2(author$project$Engine$characterIsInLocation, 'totemShaper', 'quintinhaMonserrate')
+																	]),
+																cl: author$project$Engine$with('totemShaper')
+															},
+															author$project$OurStory$Narrative$talkToTotemShaperQuintinhaMonserrateDict),
+															A3(
+															author$project$OurStory$Rules$rule,
+															'talking to the totemShaper after 1 interaction birdsNest offered by TotemShaper',
+															{
+																bL: _List_fromArray(
+																	[
+																		A2(author$project$Engine$moveItemToCharacterInventory, 'playerOne', 'birdsNest'),
+																		A2(author$project$Engine$increaseCounter, 'nrTimesTalkTo', 'totemShaper')
+																	]),
+																bR: _List_fromArray(
+																	[
+																		author$project$Engine$currentLocationIs('quintinhaMonserrate'),
+																		A2(author$project$Engine$characterIsInLocation, 'totemShaper', 'quintinhaMonserrate'),
+																		A2(author$project$Engine$characterIsInLocation, 'playerOne', 'quintinhaMonserrate'),
+																		A3(author$project$Engine$counterGreaterThenOrEqualTo, 1, 'nrTimesTalkTo', 'totemShaper'),
+																		author$project$Engine$itemIsOffScreen('birdsNest')
+																	]),
+																cl: author$project$Engine$with('totemShaper')
+															},
+															author$project$OurStory$Narrative$birdsNestOfferedByTotemShaperDict),
+															A3(
+															author$project$OurStory$Rules$rule,
+															'view Totem AtQuintinhaMonserrate',
+															{
+																bL: _List_Nil,
+																bR: _List_fromArray(
+																	[
+																		A2(author$project$Engine$characterIsInLocation, 'playerOne', 'quintinhaMonserrate'),
+																		A2(author$project$Engine$itemIsInLocation, 'totem', 'quintinhaMonserrate')
+																	]),
+																cl: author$project$Engine$with('totem')
+															},
+															author$project$OurStory$Narrative$viewTotemAtQuintinhaMonserrateDict),
+															A3(
+															author$project$OurStory$Rules$rule,
+															'view severalAnimals at  At QuintinhaMonserrate',
+															{
+																bL: _List_Nil,
+																bR: _List_fromArray(
+																	[
+																		A2(author$project$Engine$characterIsInLocation, 'playerOne', 'quintinhaMonserrate'),
+																		A2(author$project$Engine$characterIsInLocation, 'severalAnimals', 'quintinhaMonserrate')
+																	]),
+																cl: author$project$Engine$with('severalAnimals')
+															},
+															author$project$OurStory$Narrative$viewSeveralAnimalsAtQuintinhaMonserrateDict)
+														]),
+													_Utils_ap(
+														_List_fromArray(
+															[
+																A3(
+																author$project$OurStory$Rules$rule,
+																'entering fonteDeMataAlva',
+																{
+																	bL: _List_fromArray(
+																		[
+																			author$project$Engine$moveTo('fonteDeMataAlva'),
+																			A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'fonteDeMataAlva')
+																		]),
+																	bR: _List_fromArray(
+																		[
+																			author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																			author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma')
+																		]),
+																	cl: author$project$Engine$with('fonteDeMataAlva')
+																},
+																author$project$OurStory$Narrative$enteringFonteDeMataAlvaDict),
+																A3(
+																author$project$OurStory$Rules$ruleWithQuasiChange,
+																'view questionAtFonteMataAlva',
+																{
+																	bL: _List_Nil,
+																	bR: _List_fromArray(
+																		[
+																			A2(author$project$Engine$characterIsInLocation, 'playerOne', 'fonteDeMataAlva'),
+																			A2(author$project$Engine$itemIsInLocation, 'questionAtFonteMataAlva', 'fonteDeMataAlva')
+																		]),
+																	cl: author$project$Engine$with('questionAtFonteMataAlva'),
+																	cW: author$project$Engine$noQuasiChangeWithBackend,
+																	cX: _List_fromArray(
+																		[
+																			A3(
+																			author$project$Engine$check_IfAnswerCorrect,
+																			A2(
+																				author$project$Engine$listOfAnswersAndFunctions,
+																				_List_fromArray(
+																					['1988']),
+																				_List_Nil),
+																			A8(
+																				author$project$Engine$checkAnswerData,
+																				elm$core$Maybe$Just(5),
+																				author$project$Engine$caseInsensitiveAnswer,
+																				author$project$Engine$answerSpacesDontMatter,
+																				author$project$Engine$headerAnswerAndCorrectIncorrect,
+																				elm$core$Dict$empty,
+																				elm$core$Dict$empty,
+																				_List_Nil,
+																				_List_Nil),
+																			'questionAtFonteMataAlva')
+																		])
+																},
+																author$project$OurStory$Narrative$viewQuestionAtFonteMataAlvaDict)
+															]),
+														_Utils_ap(
+															_List_fromArray(
+																[
+																	A3(
+																	author$project$OurStory$Rules$rule,
+																	'entering parquePalacioMonserrate',
+																	{
+																		bL: _List_fromArray(
+																			[
+																				author$project$Engine$moveTo('parquePalacioMonserrate'),
+																				A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'parquePalacioMonserrate')
+																			]),
+																		bR: _List_fromArray(
+																			[
+																				author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																				author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma')
+																			]),
+																		cl: author$project$Engine$with('parquePalacioMonserrate')
+																	},
+																	author$project$OurStory$Narrative$enteringParquePalacioMonserrateDict),
+																	A3(
+																	author$project$OurStory$Rules$rule,
+																	'look at Byrons Poem about parquePalacioMonserrate',
+																	{
+																		bL: _List_Nil,
+																		bR: _List_fromArray(
+																			[
+																				A2(author$project$Engine$characterIsInLocation, 'playerOne', 'parquePalacioMonserrate'),
+																				A2(author$project$Engine$itemIsInLocation, 'byronsPoem', 'parquePalacioMonserrate')
+																			]),
+																		cl: author$project$Engine$with('byronsPoem')
+																	},
+																	author$project$OurStory$Narrative$byronsPoemMonserrateDict),
+																	A3(
+																	author$project$OurStory$Rules$rule,
+																	'look at Info Panel about parquePalacioMonserrate',
+																	{
+																		bL: _List_Nil,
+																		bR: _List_fromArray(
+																			[
+																				A2(author$project$Engine$characterIsInLocation, 'playerOne', 'parquePalacioMonserrate'),
+																				A2(author$project$Engine$itemIsInLocation, 'infoPanelMonserrate', 'parquePalacioMonserrate')
+																			]),
+																		cl: author$project$Engine$with('infoPanelMonserrate')
+																	},
+																	author$project$OurStory$Narrative$infoParquePalacioMonserrateDict)
+																]),
+															_Utils_ap(
+																_List_fromArray(
+																	[
+																		A3(
+																		author$project$OurStory$Rules$rule,
+																		'entering fonteDosLadroes',
+																		{
+																			bL: _List_fromArray(
+																				[
+																					author$project$Engine$moveTo('fonteDosLadroes'),
+																					A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'fonteDosLadroes')
+																				]),
+																			bR: _List_fromArray(
+																				[
+																					author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																					author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma')
+																				]),
+																			cl: author$project$Engine$with('fonteDosLadroes')
+																		},
+																		author$project$OurStory$Narrative$enteringFonteDosLadroesDict)
+																	]),
+																_Utils_ap(
+																	_List_fromArray(
+																		[
+																			A3(
+																			author$project$OurStory$Rules$rule,
+																			'entering sintra1914 pinholeCamera not on the ground, photography not on the ground',
+																			{
+																				bL: _List_fromArray(
+																					[
+																						author$project$Engine$moveTo('sintra1914'),
+																						A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'sintra1914')
+																					]),
+																				bR: _List_fromArray(
+																					[
+																						author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																						author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
+																						A2(author$project$Engine$itemIsNotInLocation, 'pinholeCamera', 'sintra1914'),
+																						A2(author$project$Engine$itemIsNotInLocation, 'cameraAndPhotography1Sintra1914', 'sintra1914')
+																					]),
+																				cl: author$project$Engine$with('sintra1914')
+																			},
+																			author$project$OurStory$Narrative$enteringSintra1914Dict),
+																			A3(
+																			author$project$OurStory$Rules$rule,
+																			'entering sintra1914 pinholeCamera is on the ground no photography created before',
+																			{
+																				bL: _List_fromArray(
+																					[
+																						A2(author$project$Engine$increaseCounter, 'nrPhotographiesCreated', 'pinholeCamera'),
+																						A2(author$project$Engine$increaseCounter, 'nrPhotographiesCreatedInSintra1914', 'pinholeCamera'),
+																						A2(author$project$Engine$moveItemToLocation, 'cameraAndPhotography1Sintra1914', 'sintra1914'),
+																						author$project$Engine$moveItemOffScreen('pinholeCamera'),
+																						A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'sintra1914'),
+																						author$project$Engine$moveTo('sintra1914')
+																					]),
+																				bR: _List_fromArray(
+																					[
+																						author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																						author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
+																						A2(author$project$Engine$itemIsInLocation, 'pinholeCamera', 'sintra1914'),
+																						A2(author$project$Engine$itemIsNotInLocation, 'cameraAndPhotography1Sintra1914', 'sintra1914'),
+																						author$project$Engine$itemIsOffScreen('cameraAndPhotography1Sintra1914')
+																					]),
+																				cl: author$project$Engine$with('sintra1914')
+																			},
+																			author$project$OurStory$Narrative$enteringSintra1914PhotographyAppearsDict),
+																			A3(
+																			author$project$OurStory$Rules$rule,
+																			'entering sintra1914 cameraAndPhotography1Sintra1914 was created before and is on the ground',
+																			{
+																				bL: _List_fromArray(
+																					[
+																						A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'sintra1914'),
+																						author$project$Engine$moveTo('sintra1914')
+																					]),
+																				bR: _List_fromArray(
+																					[
+																						author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																						author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
+																						A2(author$project$Engine$itemIsInLocation, 'cameraAndPhotography1Sintra1914', 'sintra1914')
+																					]),
+																				cl: author$project$Engine$with('sintra1914')
+																			},
+																			author$project$OurStory$Narrative$enteringSintra1914CameraWithPhotoInsideOnTheGroundDict),
+																			A3(
+																			author$project$OurStory$Rules$rule,
+																			'droping pinholeCamera at sintra1914',
+																			{
+																				bL: _List_fromArray(
+																					[
+																						A2(author$project$Engine$moveItemToLocation, 'pinholeCamera', 'sintra1914')
+																					]),
+																				bR: _List_fromArray(
+																					[
+																						A2(author$project$Engine$characterIsInLocation, 'playerOne', 'sintra1914'),
+																						A2(author$project$Engine$itemIsInCharacterInventory, 'playerOne', 'pinholeCamera')
+																					]),
+																				cl: author$project$Engine$with('pinholeCamera')
+																			},
+																			author$project$OurStory$Narrative$settingUpPinholeCameraAtSintra1914Dict),
+																			A3(
+																			author$project$OurStory$Rules$rule,
+																			'interacting with playerOne Sintra1914 with no photo yet produced',
+																			{
+																				bL: _List_Nil,
+																				bR: _List_fromArray(
+																					[
+																						A2(author$project$Engine$characterIsInLocation, 'playerOne', 'sintra1914'),
+																						author$project$Engine$itemIsOffScreen('cameraAndPhotography1Sintra1914')
+																					]),
+																				cl: author$project$Engine$with('playerOne')
+																			},
+																			author$project$OurStory$Narrative$hintForPlayerOneSintra1914NoPhotoDict)
+																		]),
+																	_Utils_ap(
+																		_List_fromArray(
+																			[
+																				A3(
+																				author$project$OurStory$Rules$rule,
+																				'entering limiteSaoMartinhoColares',
+																				{
+																					bL: _List_fromArray(
+																						[
+																							author$project$Engine$moveTo('limiteSaoMartinhoColares'),
+																							A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'limiteSaoMartinhoColares')
+																						]),
+																					bR: _List_Nil,
+																					cl: author$project$Engine$with('limiteSaoMartinhoColares')
+																				},
+																				author$project$OurStory$Narrative$enteringLimiteSaoMartinhoColaresDict),
+																				A3(
+																				author$project$OurStory$Rules$ruleWithQuasiChange,
+																				'view questionAtlimiteSaoMartinhoColares1',
+																				{
+																					bL: _List_Nil,
+																					bR: _List_fromArray(
+																						[
+																							A2(author$project$Engine$characterIsInLocation, 'playerOne', 'limiteSaoMartinhoColares'),
+																							A2(author$project$Engine$itemIsInLocation, 'questionSaoMartinhoColares1', 'limiteSaoMartinhoColares')
+																						]),
+																					cl: author$project$Engine$with('questionSaoMartinhoColares1'),
+																					cW: A3(
+																						author$project$Engine$simpleCheck_IfAnswerCorrectUsingBackend,
+																						author$project$InfoForBkendApiRequests$backendAnswerCheckerUrl + 'questionSaoMartinhoColares1/',
+																						elm$core$Maybe$Just(3),
+																						'questionSaoMartinhoColares1'),
+																					cX: _List_Nil
+																				},
+																				author$project$OurStory$Narrative$viewQuestionOneAtLimiteSaoMartinhoColaresDict),
+																				A3(
+																				author$project$OurStory$Rules$rule,
+																				'view questionlimiteSaoMartinhoColaresOneNotAtCorrectLocation',
+																				{
+																					bL: _List_Nil,
+																					bR: _List_fromArray(
+																						[
+																							A2(author$project$Engine$characterIsNotInLocation, 'playerOne', 'limiteSaoMartinhoColares')
+																						]),
+																					cl: author$project$Engine$with('questionSaoMartinhoColares1')
+																				},
+																				author$project$OurStory$Narrative$viewQuestionWhenNotAtTheRightLocationDict),
+																				A3(
+																				author$project$OurStory$Rules$ruleWithQuasiChange,
+																				'view questionAtlimiteSaoMartinhoColares2',
+																				{
+																					bL: _List_Nil,
+																					bR: _List_fromArray(
+																						[
+																							A2(author$project$Engine$characterIsInLocation, 'playerOne', 'limiteSaoMartinhoColares'),
+																							A2(author$project$Engine$itemIsInLocation, 'questionSaoMartinhoColares2', 'limiteSaoMartinhoColares')
+																						]),
+																					cl: author$project$Engine$with('questionSaoMartinhoColares2'),
+																					cW: A3(
+																						author$project$Engine$simpleCheck_IfAnswerCorrectUsingBackend,
+																						author$project$InfoForBkendApiRequests$backendAnswerCheckerUrl + 'questionSaoMartinhoColares2/',
+																						elm$core$Maybe$Just(3),
+																						'questionSaoMartinhoColares2'),
+																					cX: _List_Nil
+																				},
+																				author$project$OurStory$Narrative$viewQuestionTwoAtLimiteSaoMartinhoColaresDict),
+																				A3(
+																				author$project$OurStory$Rules$rule,
+																				'view questionlimiteSaoMartinhoColaresTwoNotAtCorrectLocation',
+																				{
+																					bL: _List_Nil,
+																					bR: _List_fromArray(
+																						[
+																							A2(author$project$Engine$characterIsNotInLocation, 'playerOne', 'limiteSaoMartinhoColares')
+																						]),
+																					cl: author$project$Engine$with('questionSaoMartinhoColares2')
+																				},
+																				author$project$OurStory$Narrative$viewQuestionWhenNotAtTheRightLocationDict)
+																			]),
+																		_Utils_ap(
+																			_List_fromArray(
+																				[
+																					A3(
+																					author$project$OurStory$Rules$rule,
+																					'entering eugaria',
+																					{
+																						bL: _List_fromArray(
+																							[
+																								author$project$Engine$moveTo('eugaria'),
+																								A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'eugaria')
+																							]),
+																						bR: _List_fromArray(
+																							[
+																								author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																								author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma')
+																							]),
+																						cl: author$project$Engine$with('eugaria')
+																					},
+																					author$project$OurStory$Narrative$enteringEugariaDict),
+																					A3(
+																					author$project$OurStory$Rules$rule,
+																					'talk to  geocacher eugaria',
+																					{
+																						bL: _List_Nil,
+																						bR: _List_fromArray(
+																							[
+																								A2(author$project$Engine$characterIsInLocation, 'playerOne', 'eugaria'),
+																								A2(author$project$Engine$characterIsInLocation, 'geocacher', 'eugaria')
+																							]),
+																						cl: author$project$Engine$with('geocacher')
+																					},
+																					author$project$OurStory$Narrative$talkToGeocacherEugariaDict),
+																					A3(
+																					author$project$OurStory$Rules$rule,
+																					'offer BirdsNest to geocacher at eugaria',
+																					{
+																						bL: _List_fromArray(
+																							[
+																								author$project$Engine$moveItemOffScreen('birdsNest'),
+																								A2(author$project$Engine$moveItemToCharacterInventory, 'playerOne', 'bocagePoemsBook'),
+																								A3(
+																								author$project$Engine$createAttributeIfNotExists,
+																								author$project$Engine$abool(true),
+																								'isOfferedToGeocacher',
+																								'birdsNest')
+																							]),
+																						bR: _List_fromArray(
+																							[
+																								A2(author$project$Engine$characterIsInLocation, 'playerOne', 'eugaria'),
+																								A2(author$project$Engine$characterIsInLocation, 'geocacher', 'eugaria'),
+																								A2(author$project$Engine$itemIsInCharacterInventory, 'playerOne', 'birdsNest'),
+																								author$project$Engine$hasPreviouslyInteractedWith('geocacher')
+																							]),
+																						cl: author$project$Engine$with('birdsNest')
+																					},
+																					author$project$OurStory$Narrative$offerBirdsNestToGeocacherDict)
+																				]),
+																			_Utils_ap(
+																				_List_fromArray(
+																					[
+																						A3(
+																						author$project$OurStory$Rules$rule,
+																						'entering quintaDoVinagre',
+																						{
+																							bL: _List_fromArray(
+																								[
+																									author$project$Engine$moveTo('quintaDoVinagre'),
+																									A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'quintaDoVinagre')
+																								]),
+																							bR: _List_fromArray(
+																								[
+																									author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																									author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma')
+																								]),
+																							cl: author$project$Engine$with('quintaDoVinagre')
+																						},
+																						author$project$OurStory$Narrative$enteringQuintaDoVinagreDict)
+																					]),
+																				_Utils_ap(
+																					_List_fromArray(
+																						[
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'entering colares',
+																							{
+																								bL: _List_fromArray(
+																									[
+																										author$project$Engine$moveTo('colares'),
+																										A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'colares')
+																									]),
+																								bR: _List_fromArray(
+																									[
+																										author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																										author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma')
+																									]),
+																								cl: author$project$Engine$with('colares')
+																							},
+																							author$project$OurStory$Narrative$enteringColaresDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'talk to wiseMan colares',
+																							{
+																								bL: _List_Nil,
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsInLocation, 'playerOne', 'colares')
+																									]),
+																								cl: author$project$Engine$with('wiseManColares')
+																							},
+																							author$project$OurStory$Narrative$talkToWiseManColaresDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'talk to wiseMan colares when not in colares',
+																							{
+																								bL: _List_Nil,
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsNotInLocation, 'playerOne', 'colares')
+																									]),
+																								cl: author$project$Engine$with('wiseManColares')
+																							},
+																							author$project$OurStory$Narrative$talkToWiseManColaresWhenNotInColaresDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'offer cameraAndPhotography1Sintra1914 to wiseMan Colares , poem book not yet offered',
+																							{
+																								bL: _List_fromArray(
+																									[
+																										author$project$Engine$moveItemOffScreen('cameraAndPhotography1Sintra1914'),
+																										A3(
+																										author$project$Engine$createAttributeIfNotExists,
+																										author$project$Engine$abool(true),
+																										'isOfferedToWiseManColares',
+																										'cameraAndPhotography1Sintra1914')
+																									]),
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																										A2(author$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
+																										A2(author$project$Engine$itemIsInCharacterInventory, 'playerOne', 'cameraAndPhotography1Sintra1914')
+																									]),
+																								cl: author$project$Engine$with('cameraAndPhotography1Sintra1914')
+																							},
+																							author$project$OurStory$Narrative$offerCameraAndPhotography1Sintra1914ToWiseManColaresDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'offer cameraAndPhotography1Sintra1914 to wiseMan Colares , poem book already offered',
+																							{
+																								bL: _List_fromArray(
+																									[
+																										author$project$Engine$moveItemOffScreen('cameraAndPhotography1Sintra1914'),
+																										A3(
+																										author$project$Engine$setAttributeValue,
+																										author$project$Engine$astring('wiseManColares'),
+																										'suggestedInteraction',
+																										'cameraAndPhotography1Sintra1914'),
+																										A3(
+																										author$project$Engine$createAttributeIfNotExists,
+																										author$project$Engine$abool(true),
+																										'isOfferedToWiseManColares',
+																										'cameraAndPhotography1Sintra1914')
+																									]),
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																										A2(author$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
+																										A2(author$project$Engine$itemIsInCharacterInventory, 'playerOne', 'cameraAndPhotography1Sintra1914'),
+																										A3(
+																										author$project$Engine$attrValueIsEqualTo,
+																										author$project$Engine$abool(true),
+																										'isOfferedToWiseManColares',
+																										'bocagePoemsBook')
+																									]),
+																								cl: author$project$Engine$with('cameraAndPhotography1Sintra1914')
+																							},
+																							author$project$OurStory$Narrative$offerCameraAndPhotography1Sintra1914ToWiseManColaresDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'offer poemsBook to wiseMan Colares , photography not yet offered',
+																							{
+																								bL: _List_fromArray(
+																									[
+																										author$project$Engine$moveItemOffScreen('bocagePoemsBook'),
+																										A3(
+																										author$project$Engine$createAttributeIfNotExists,
+																										author$project$Engine$abool(true),
+																										'isOfferedToWiseManColares',
+																										'bocagePoemsBook')
+																									]),
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																										A2(author$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
+																										A2(author$project$Engine$itemIsInCharacterInventory, 'playerOne', 'bocagePoemsBook')
+																									]),
+																								cl: author$project$Engine$with('bocagePoemsBook')
+																							},
+																							author$project$OurStory$Narrative$offerPoemsBookToWiseManColaresDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'offer poemsBook to wiseMan Colares , photography already offered',
+																							{
+																								bL: _List_fromArray(
+																									[
+																										author$project$Engine$moveItemOffScreen('bocagePoemsBook'),
+																										A3(
+																										author$project$Engine$createAttributeIfNotExists,
+																										author$project$Engine$abool(true),
+																										'isOfferedToWiseManColares',
+																										'bocagePoemsBook'),
+																										A3(
+																										author$project$Engine$setAttributeValue,
+																										author$project$Engine$astring('wiseManColares'),
+																										'suggestedInteraction',
+																										'bocagePoemsBook')
+																									]),
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																										A2(author$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
+																										A2(author$project$Engine$itemIsInCharacterInventory, 'playerOne', 'bocagePoemsBook'),
+																										A3(
+																										author$project$Engine$attrValueIsEqualTo,
+																										author$project$Engine$abool(true),
+																										'isOfferedToWiseManColares',
+																										'cameraAndPhotography1Sintra1914')
+																									]),
+																								cl: author$project$Engine$with('bocagePoemsBook')
+																							},
+																							author$project$OurStory$Narrative$offerPoemsBookToWiseManColaresDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'talk to wiseMan colares having fullfilled all tasks besides some questions but not enough nr interactions',
+																							{
+																								bL: _List_fromArray(
+																									[
+																										A2(author$project$Engine$increaseCounter, 'nrInteractionsWiseManAfterOffers', 'wiseManColares')
+																									]),
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																										A2(author$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
+																										author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																										author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
+																										A3(
+																										author$project$Engine$attrValueIsEqualTo,
+																										author$project$Engine$abool(true),
+																										'isOfferedToGeocacher',
+																										'birdsNest'),
+																										A3(
+																										author$project$Engine$attrValueIsEqualTo,
+																										author$project$Engine$abool(true),
+																										'isOfferedToWiseManColares',
+																										'bocagePoemsBook'),
+																										A3(
+																										author$project$Engine$attrValueIsEqualTo,
+																										author$project$Engine$abool(true),
+																										'isOfferedToWiseManColares',
+																										'cameraAndPhotography1Sintra1914'),
+																										author$project$Engine$itemIsNotCorrectlyAnswered('questionColares'),
+																										A3(author$project$Engine$counterLessThen, 4, 'nrInteractionsWiseManAfterOffers', 'wiseManColares')
+																									]),
+																								cl: author$project$Engine$with('wiseManColares')
+																							},
+																							author$project$OurStory$Narrative$wiseManTalksAboutSintraDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'talk to wiseMan colares having fullfilled all tasks besides some questions and enough nr of interactions with wiseman',
+																							{
+																								bL: _List_fromArray(
+																									[
+																										A2(author$project$Engine$increaseCounter, 'nrInteractionsWiseManAfterOffers', 'wiseManColares'),
+																										A2(author$project$Engine$addChoiceLanguage, 'vi', 'viewer1'),
+																										A2(author$project$Engine$addChoiceLanguage, 'vw', 'viewer2'),
+																										A2(author$project$Engine$moveItemToLocationFixed, 'questionColares', 'colares'),
+																										A2(author$project$Engine$moveItemToLocationFixed, 'photosEstradaVelhaColares', 'colares')
+																									]),
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																										A2(author$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
+																										author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																										author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
+																										A3(
+																										author$project$Engine$attrValueIsEqualTo,
+																										author$project$Engine$abool(true),
+																										'isOfferedToGeocacher',
+																										'birdsNest'),
+																										A3(
+																										author$project$Engine$attrValueIsEqualTo,
+																										author$project$Engine$abool(true),
+																										'isOfferedToWiseManColares',
+																										'bocagePoemsBook'),
+																										A3(
+																										author$project$Engine$attrValueIsEqualTo,
+																										author$project$Engine$abool(true),
+																										'isOfferedToWiseManColares',
+																										'cameraAndPhotography1Sintra1914'),
+																										author$project$Engine$itemIsNotCorrectlyAnswered('questionColares'),
+																										author$project$Engine$itemIsOffScreen('questionColares'),
+																										A3(author$project$Engine$counterGreaterThenOrEqualTo, 4, 'nrInteractionsWiseManAfterOffers', 'wiseManColares')
+																									]),
+																								cl: author$project$Engine$with('wiseManColares')
+																							},
+																							author$project$OurStory$Narrative$wiseManShowsFinalQuestionDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'view photosEstradaVelhaColares',
+																							{
+																								bL: _List_Nil,
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																										A2(author$project$Engine$itemIsInLocation, 'photosEstradaVelhaColares', 'colares')
+																									]),
+																								cl: author$project$Engine$with('photosEstradaVelhaColares')
+																							},
+																							author$project$OurStory$Narrative$viewPhotosEstradaVelhaColaresDict),
+																							A3(
+																							author$project$OurStory$Rules$ruleWithQuasiChange,
+																							'view questionColares',
+																							{
+																								bL: _List_Nil,
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																										A2(author$project$Engine$itemIsInLocation, 'questionColares', 'colares')
+																									]),
+																								cl: author$project$Engine$with('questionColares'),
+																								cW: A3(
+																									author$project$Engine$check_IfAnswerCorrectUsingBackend,
+																									author$project$InfoForBkendApiRequests$backendAnswerCheckerUrl + 'questionColares/',
+																									A4(
+																										author$project$Engine$checkBkendAnswerData,
+																										elm$core$Maybe$Just(5),
+																										author$project$Engine$headerAnswerAndCorrectIncorrect,
+																										_List_fromArray(
+																											[
+																												_Utils_Tuple2(
+																												'suggestedInteraction',
+																												author$project$Engine$astring('wiseManColares'))
+																											]),
+																										_List_Nil),
+																									'questionColares'),
+																								cX: _List_Nil
+																							},
+																							author$project$OurStory$Narrative$viewQuestionAtColaresDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'view questionColaresNotAtCorrectLocation',
+																							{
+																								bL: _List_Nil,
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsNotInLocation, 'playerOne', 'colares')
+																									]),
+																								cl: author$project$Engine$with('questionColares')
+																							},
+																							author$project$OurStory$Narrative$viewQuestionWhenNotAtTheRightLocationDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'talk to wiseMan colares after questionColares appears , questionColares not yet correctly answered',
+																							{
+																								bL: _List_Nil,
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																										A2(author$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
+																										A2(author$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
+																										author$project$Engine$itemIsNotCorrectlyAnswered('questionColares')
+																									]),
+																								cl: author$project$Engine$with('wiseManColares')
+																							},
+																							author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresAppearsDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'talk to wiseMan colares after questionColares correctly answered somer questions not yet answered',
+																							{
+																								bL: _List_Nil,
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																										A2(author$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
+																										A2(author$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
+																										author$project$Engine$itemIsCorrectlyAnswered('questionColares')
+																									]),
+																								cl: author$project$Engine$with('wiseManColares')
+																							},
+																							author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredButStillSomeTasksToDoDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'talk to wiseMan colares after questionColares correctly answered and all other questions answered',
+																							{
+																								bL: _List_fromArray(
+																									[
+																										A3(
+																										author$project$Engine$setAttributeValue,
+																										author$project$Engine$abool(true),
+																										'gameHasEnded',
+																										'gameStateItem'),
+																										A3(
+																										author$project$Engine$setAttributeValue,
+																										author$project$Engine$astring('finalPieceOfPaper'),
+																										'suggestedInteraction',
+																										'wiseManColares'),
+																										A4(author$project$Engine$createOrSetAttributeValueFromOtherInterAttr, 'additionalTextDict', 'bonusText', 'questionColares', 'finalPieceOfPaper'),
+																										A2(author$project$Engine$moveItemToLocation, 'finalPieceOfPaper', 'colares')
+																									]),
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsInLocation, 'playerOne', 'colares'),
+																										A2(author$project$Engine$characterIsInLocation, 'wiseManColares', 'colares'),
+																										author$project$Engine$itemIsCorrectlyAnswered('questionAtVillaRoma'),
+																										author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
+																										author$project$Engine$itemIsCorrectlyAnswered('questionAtFonteMataAlva'),
+																										author$project$Engine$itemIsCorrectlyAnswered('questionSaoMartinhoColares1'),
+																										author$project$Engine$itemIsCorrectlyAnswered('questionSaoMartinhoColares2'),
+																										A3(
+																										author$project$Engine$attrValueIsEqualTo,
+																										author$project$Engine$abool(true),
+																										'isOfferedToGeocacher',
+																										'birdsNest'),
+																										A3(
+																										author$project$Engine$attrValueIsEqualTo,
+																										author$project$Engine$abool(true),
+																										'isOfferedToWiseManColares',
+																										'bocagePoemsBook'),
+																										A3(
+																										author$project$Engine$attrValueIsEqualTo,
+																										author$project$Engine$abool(true),
+																										'isOfferedToWiseManColares',
+																										'cameraAndPhotography1Sintra1914'),
+																										A2(author$project$Engine$itemIsInLocation, 'questionColares', 'colares'),
+																										author$project$Engine$itemIsCorrectlyAnswered('questionColares')
+																									]),
+																								cl: author$project$Engine$with('wiseManColares')
+																							},
+																							author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresCorrectlyAnsweredDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'game has ended',
+																							{
+																								bL: _List_fromArray(
+																									[
+																										A2(author$project$Engine$endStory, 'notFreezingEnd', 'The End'),
+																										A2(author$project$Engine$removeAttributeIfExists, 'suggestedInteraction', 'wiseManColares'),
+																										A2(author$project$Engine$removeAttributeIfExists, 'suggestedInteraction', 'questionColares')
+																									]),
+																								bR: _List_fromArray(
+																									[
+																										A3(
+																										author$project$Engine$attrValueIsEqualTo,
+																										author$project$Engine$abool(true),
+																										'gameHasEnded',
+																										'gameStateItem')
+																									]),
+																								cl: author$project$Engine$withAnyLocationAnyCharacterAfterGameEnded
+																							},
+																							author$project$OurStory$Narrative$gameHasEndedDict)
+																						]),
+																					_List_fromArray(
+																						[
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'taking gps',
+																							{
+																								bL: _List_fromArray(
+																									[
+																										A2(author$project$Engine$moveItemToCharacterInventory, 'playerOne', 'gps')
+																									]),
+																								bR: _List_fromArray(
+																									[
+																										A2(author$project$Engine$characterIsInLocation, 'playerOne', 'largoDrCarlosFranca'),
+																										A2(author$project$Engine$itemIsInLocation, 'gps', 'largoDrCarlosFranca')
+																									]),
+																								cl: author$project$Engine$with('gps')
+																							},
+																							author$project$OurStory$Narrative$takeGpsDict),
+																							A3(
+																							author$project$OurStory$Rules$ruleWithQuasiChange,
+																							'looking at gps',
+																							{
+																								bL: _List_Nil,
+																								bR: _List_Nil,
+																								cl: author$project$Engine$with('gps'),
+																								cW: author$project$Engine$noQuasiChangeWithBackend,
+																								cX: _List_fromArray(
+																									[
+																										author$project$Engine$write_GpsInfoToItem('gps')
+																									])
+																							},
+																							author$project$OurStory$Narrative$lookAtGpsDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'lookAtWiseNotesDict',
+																							{
+																								bL: _List_fromArray(
+																									[
+																										A2(author$project$Engine$moveItemToCharacterInventory, 'playerOne', 'notasSabias')
+																									]),
+																								bR: _List_Nil,
+																								cl: author$project$Engine$with('notasSabias')
+																							},
+																							author$project$OurStory$Narrative$lookAtWiseNotesDict),
+																							A3(
+																							author$project$OurStory$Rules$rule,
+																							'lookAtcreditsInfo',
+																							{
+																								bL: _List_Nil,
+																								bR: _List_Nil,
+																								cl: author$project$Engine$with('creditsInfo')
+																							},
+																							author$project$OurStory$Narrative$theCreditsInformationDict)
+																						]))))))))))))))))))))));
+var author$project$Theme$AnswerBox$init = {bw: elm$core$Maybe$Nothing};
+var author$project$Theme$Settings$init = function (theLanguages) {
+	return {bC: false, bD: true, bE: theLanguages, bY: 'pt', b_: false, ca: true, ct: true, c0: true, c2: false, c3: false, c4: false, c5: false};
+};
+var author$project$Theme$Settings$update = F2(
+	function (msg, model) {
+		switch (msg.$) {
+			case 0:
+				var bval = msg.a;
+				return _Utils_update(
+					model,
+					{b_: bval});
+			case 1:
+				var lgId = msg.a;
+				return _Utils_update(
+					model,
+					{bY: lgId});
+			case 2:
+				var dlanguages = msg.a;
+				return _Utils_update(
+					model,
+					{bE: dlanguages});
+			case 3:
+				return _Utils_update(
+					model,
+					{c4: !model.c4});
+			case 4:
+				var bautoplay = msg.a;
+				return _Utils_update(
+					model,
+					{bC: bautoplay});
+			case 5:
+				return _Utils_update(
+					model,
+					{c5: !model.c5});
+			case 6:
+				var bWithSidebar = msg.a;
+				return _Utils_update(
+					model,
+					{ct: bWithSidebar});
+			case 7:
+				return _Utils_update(
+					model,
+					{c3: true});
+			default:
+				return _Utils_update(
+					model,
+					{c3: false});
+		}
 	});
-var author$project$Engine$characterIsInLocation = author$project$Types$CharacterIsInLocation;
-var author$project$Types$Execute_CustomFunc = F2(
-	function (a, b) {
-		return {$: 5, a: a, b: b};
-	});
-var author$project$Engine$execute_CustomFunc = author$project$Types$Execute_CustomFunc;
-var author$project$Types$ItemIsInLocation = F2(
-	function (a, b) {
-		return {$: 5, a: a, b: b};
-	});
-var author$project$Engine$itemIsInLocation = author$project$Types$ItemIsInLocation;
 var author$project$TypeConverterHelper$addConversionFailureMessage = F3(
 	function (doDebug, valStr, returnVal) {
 		if (doDebug) {
@@ -13125,32 +14067,6 @@ var author$project$TypeConverterHelper$addConversionFailureMessage = F3(
 		} else {
 			return _Utils_Tuple2(returnVal, '');
 		}
-	});
-var author$project$TypeConverterHelper$mbAttributeToMbDictStringString = F2(
-	function (doDebug, mbAttrVal) {
-		if (mbAttrVal.$ === 1) {
-			return _Utils_Tuple2(elm$core$Maybe$Nothing, '');
-		} else {
-			if (mbAttrVal.a.$ === 3) {
-				var dstrstr = mbAttrVal.a.a;
-				return _Utils_Tuple2(
-					elm$core$Maybe$Just(dstrstr),
-					'');
-			} else {
-				return A3(author$project$TypeConverterHelper$addConversionFailureMessage, doDebug, 'Trying to convert an attribute which is not of type ADictStringString to a Dict String String', elm$core$Maybe$Nothing);
-			}
-		}
-	});
-var author$project$TypeConverterHelper$mbAttributeToDictStringString = F2(
-	function (doDebug, mbAttrVal) {
-		return function (_n0) {
-			var x = _n0.a;
-			var y = _n0.b;
-			return _Utils_Tuple2(
-				A2(elm$core$Maybe$withDefault, elm$core$Dict$empty, x),
-				y);
-		}(
-			A2(author$project$TypeConverterHelper$mbAttributeToMbDictStringString, doDebug, mbAttrVal));
 	});
 var author$project$TypeConverterHelper$mbAttributeToMbBool = F2(
 	function (doDebug, mbAttrVal) {
@@ -13165,863 +14081,6 @@ var author$project$TypeConverterHelper$mbAttributeToMbBool = F2(
 			} else {
 				return A3(author$project$TypeConverterHelper$addConversionFailureMessage, doDebug, 'Trying to convert an attribute which is not of type Astring to a string', elm$core$Maybe$Nothing);
 			}
-		}
-	});
-var author$project$OurStoryPlugins$GoalsReports$generateGoalsStatusReport = F5(
-	function (questionIds, optionIds, llgIds, extraInfo, manifest) {
-		var questionStatusById = function (qId) {
-			return function (_n0) {
-				var x = _n0.a;
-				var y = _n0.b;
-				return _Utils_Tuple2(
-					A2(elm$core$Maybe$withDefault, false, x),
-					y);
-			}(
-				A2(
-					author$project$TypeConverterHelper$mbAttributeToMbBool,
-					true,
-					A3(author$project$Engine$Manifest$getAttributeByIdAndInteractableId, 'isCorrectlyAnswered', qId, manifest))).a;
-		};
-		var optionStatusById = function (oId) {
-			return A2(author$project$Engine$Manifest$choiceHasAlreadyBeenMade, oId, manifest);
-		};
-		var getQuestionNamesDict = function (qId) {
-			return A2(
-				author$project$TypeConverterHelper$mbAttributeToDictStringString,
-				true,
-				A3(author$project$Engine$Manifest$getAttributeByIdAndInteractableId, 'name', qId, manifest)).a;
-		};
-		var outputForQuestion = F2(
-			function (qId, lgId) {
-				return A2(
-					elm$core$Maybe$withDefault,
-					'question_' + qId,
-					A2(
-						elm$core$Dict$get,
-						lgId,
-						getQuestionNamesDict(qId))) + ('  :  ' + (questionStatusById(qId) ? 'Done' : 'To Do'));
-			});
-		var outputForAllDoneQuestions = function (lgId) {
-			return A2(
-				elm$core$List$map,
-				function (qId) {
-					return A2(outputForQuestion, qId, lgId);
-				},
-				A2(
-					elm$core$List$filter,
-					function (qId) {
-						return questionStatusById(qId);
-					},
-					questionIds));
-		};
-		var outputForAllQuestions = function (lgId) {
-			return A2(
-				elm$core$List$map,
-				function (qId) {
-					return A2(outputForQuestion, qId, lgId);
-				},
-				questionIds);
-		};
-		var outputForAllToDoQuestions = function (lgId) {
-			return A2(
-				elm$core$List$map,
-				function (qId) {
-					return A2(outputForQuestion, qId, lgId);
-				},
-				A2(
-					elm$core$List$filter,
-					function (qId) {
-						return !questionStatusById(qId);
-					},
-					questionIds));
-		};
-		var getOptionNamesDict = function (oId) {
-			return A2(
-				author$project$TypeConverterHelper$mbAttributeToDictStringString,
-				true,
-				A3(author$project$Engine$Manifest$getAttributeByIdAndInteractableId, 'name', oId, manifest)).a;
-		};
-		var outputForOption = F2(
-			function (oId, lgId) {
-				return A2(
-					elm$core$Maybe$withDefault,
-					'option_' + oId,
-					A2(
-						elm$core$Dict$get,
-						lgId,
-						getOptionNamesDict(oId))) + ('  :  ' + (optionStatusById(oId) ? 'Done' : 'To Do'));
-			});
-		var outputForAllDoneOptions = function (lgId) {
-			return A2(
-				elm$core$List$map,
-				function (oId) {
-					return A2(outputForOption, oId, lgId);
-				},
-				A2(
-					elm$core$List$filter,
-					function (oid) {
-						return optionStatusById(oid);
-					},
-					optionIds));
-		};
-		var outputForAllOptions = function (lgId) {
-			return A2(
-				elm$core$List$map,
-				function (oId) {
-					return A2(outputForOption, oId, lgId);
-				},
-				optionIds);
-		};
-		var outputForAllQuestionsAndOptions = function (lgId) {
-			return A2(
-				elm$core$List$append,
-				outputForAllQuestions(lgId),
-				outputForAllOptions(lgId));
-		};
-		var outputForAllToDoOptions = function (lgId) {
-			return A2(
-				elm$core$List$map,
-				function (oId) {
-					return A2(outputForOption, oId, lgId);
-				},
-				A2(
-					elm$core$List$filter,
-					function (oid) {
-						return !optionStatusById(oid);
-					},
-					optionIds));
-		};
-		var outputForAllQuestionsAndOptionsSplitDoneAndToDo = function (lgId) {
-			return A2(
-				elm$core$List$append,
-				outputForAllToDoQuestions(lgId),
-				A2(
-					elm$core$List$append,
-					outputForAllToDoOptions(lgId),
-					A2(
-						elm$core$List$append,
-						outputForAllDoneQuestions(lgId),
-						outputForAllDoneOptions(lgId))));
-		};
-		var reportLgDict = elm$core$Dict$fromList(
-			A2(
-				elm$core$List$map,
-				function (lgId) {
-					return _Utils_Tuple2(
-						lgId,
-						outputForAllQuestionsAndOptionsSplitDoneAndToDo(lgId));
-				},
-				llgIds));
-		return _List_fromArray(
-			[
-				A3(
-				author$project$Engine$setAttributeValue,
-				author$project$Engine$aDictStringListString(reportLgDict),
-				'additionalTextDict',
-				'goalsStatusPaper')
-			]);
-	});
-var author$project$OurStory$Rules$lRulesInteractingWithGoalsStatusPaper = function () {
-	var questionIds = author$project$OurStory$NarrativeDSFuncs$getFilteredStageQuestionIds;
-	var optionIds = author$project$OurStory$NarrativeDSFuncs$getFilteredStageMultiOptionIds;
-	var llgIds = _List_fromArray(
-		['pt', 'en']);
-	return _List_fromArray(
-		[
-			A3(
-			author$project$OurStory$Rules$rule,
-			'taking goals status paper',
-			{
-				bS: _List_fromArray(
-					[
-						A2(author$project$Engine$moveItemToCharacterInventory, 'playerOne', 'goalsStatusPaper')
-					]),
-				bY: _List_fromArray(
-					[
-						A2(author$project$Engine$characterIsInLocation, 'playerOne', 'stage1'),
-						A2(author$project$Engine$itemIsInLocation, 'goalsStatusPaper', 'stage1')
-					]),
-				ct: author$project$Engine$with('goalsStatusPaper')
-			},
-			elm$core$Dict$empty),
-			A3(
-			author$project$OurStory$Rules$ruleWithQuasiChange,
-			'looking at goals status paper',
-			{
-				bS: _List_Nil,
-				bY: _List_Nil,
-				ct: author$project$Engine$with('goalsStatusPaper'),
-				c5: author$project$Engine$noQuasiChangeWithBackend,
-				c6: _List_fromArray(
-					[
-						A2(
-						author$project$Engine$execute_CustomFunc,
-						A3(author$project$OurStoryPlugins$GoalsReports$generateGoalsStatusReport, questionIds, optionIds, llgIds),
-						'goalsStatusPaper')
-					])
-			},
-			elm$core$Dict$fromList(
-				_List_fromArray(
-					[
-						_Utils_Tuple2(
-						'pt',
-						_List_fromArray(
-							[''])),
-						_Utils_Tuple2(
-						'en',
-						_List_fromArray(
-							['']))
-					])))
-		]);
-}();
-var author$project$Types$Write_GpsInfoToItem = function (a) {
-	return {$: 3, a: a};
-};
-var author$project$Engine$write_GpsInfoToItem = author$project$Types$Write_GpsInfoToItem;
-var author$project$OurStory$Narrative$lookAtGps = _List_fromArray(
-	['\nConsultas o aparelho receptor de gps :\n    ']);
-var author$project$OurStory$Narrative$lookAtGpsEn = _List_fromArray(
-	['\nYou look at your gps receiver device :\n    ']);
-var author$project$OurStory$Narrative$lookAtGpsDict = elm$core$Dict$fromList(
-	_List_fromArray(
-		[
-			_Utils_Tuple2('pt', author$project$OurStory$Narrative$lookAtGps),
-			_Utils_Tuple2('en', author$project$OurStory$Narrative$lookAtGpsEn)
-		]));
-var author$project$OurStory$Narrative$takeGps = _List_fromArray(
-	['Guardas cuidadosamente o Gps ']);
-var author$project$OurStory$Narrative$takeGpsEn = _List_fromArray(
-	['\nYou carefully pick up and store the gps receiver !\n     ']);
-var author$project$OurStory$Narrative$takeGpsDict = elm$core$Dict$fromList(
-	_List_fromArray(
-		[
-			_Utils_Tuple2('pt', author$project$OurStory$Narrative$takeGps),
-			_Utils_Tuple2('en', author$project$OurStory$Narrative$takeGpsEn)
-		]));
-var author$project$OurStory$Rules$lRulesInteractingWithGps = _List_fromArray(
-	[
-		A3(
-		author$project$OurStory$Rules$rule,
-		'taking gps',
-		{
-			bS: _List_fromArray(
-				[
-					A2(author$project$Engine$moveItemToCharacterInventory, 'playerOne', 'gps')
-				]),
-			bY: _List_fromArray(
-				[
-					A2(author$project$Engine$characterIsInLocation, 'playerOne', 'stage1'),
-					A2(author$project$Engine$itemIsInLocation, 'gps', 'stage1')
-				]),
-			ct: author$project$Engine$with('gps')
-		},
-		author$project$OurStory$Narrative$takeGpsDict),
-		A3(
-		author$project$OurStory$Rules$ruleWithQuasiChange,
-		'looking at gps',
-		{
-			bS: _List_Nil,
-			bY: _List_Nil,
-			ct: author$project$Engine$with('gps'),
-			c5: author$project$Engine$noQuasiChangeWithBackend,
-			c6: _List_fromArray(
-				[
-					author$project$Engine$write_GpsInfoToItem('gps')
-				])
-		},
-		author$project$OurStory$Narrative$lookAtGpsDict)
-	]);
-var author$project$Types$CurrentLocationIs = function (a) {
-	return {$: 3, a: a};
-};
-var author$project$Engine$currentLocationIs = author$project$Types$CurrentLocationIs;
-var author$project$Types$MoveItemToLocation = F2(
-	function (a, b) {
-		return {$: 6, a: a, b: b};
-	});
-var author$project$Engine$moveItemToLocation = author$project$Types$MoveItemToLocation;
-var author$project$OurStory$NarrativeDSFuncs$getLastStageId = 'stage' + elm$core$String$fromInt(author$project$OurStory$NarrativeDataStructures$numberOfDesiredStages);
-var author$project$OurStory$NarrativeDSFuncs$getPenultimateStageId = 'stage' + elm$core$String$fromInt(author$project$OurStory$NarrativeDataStructures$numberOfDesiredStages - 1);
-var author$project$OurStory$NarrativeDSFuncs$interactingWithStageNDict = F2(
-	function (n, fieldStr) {
-		return elm$core$Dict$fromList(
-			_List_fromArray(
-				[
-					_Utils_Tuple2(
-					'pt',
-					A3(author$project$OurStory$NarrativeDSFuncs$interactingWithStageN, n, 'pt', fieldStr)),
-					_Utils_Tuple2(
-					'en',
-					A3(author$project$OurStory$NarrativeDSFuncs$interactingWithStageN, n, 'en', fieldStr))
-				]));
-	});
-var author$project$OurStory$Rules$lRulesMakeFinalPaperAppearAfterAllQuestionsAnswered = _List_fromArray(
-	[
-		A3(
-		author$project$OurStory$Rules$rule,
-		'final paper appears player moving from penultimate stage to last stage',
-		{
-			bS: _List_fromArray(
-				[
-					author$project$Engine$moveTo(author$project$OurStory$NarrativeDSFuncs$getLastStageId),
-					A2(author$project$Engine$moveCharacterToLocation, 'playerOne', author$project$OurStory$NarrativeDSFuncs$getLastStageId),
-					A2(author$project$Engine$moveItemToLocation, 'finalPaper', author$project$OurStory$NarrativeDSFuncs$getLastStageId)
-				]),
-			bY: A2(
-				elm$core$List$append,
-				_List_fromArray(
-					[
-						A2(author$project$Engine$characterIsInLocation, 'playerOne', author$project$OurStory$NarrativeDSFuncs$getPenultimateStageId)
-					]),
-				A2(
-					elm$core$List$append,
-					_List_fromArray(
-						[
-							author$project$Engine$currentLocationIs(author$project$OurStory$NarrativeDSFuncs$getPenultimateStageId)
-						]),
-					A2(
-						elm$core$List$append,
-						_List_fromArray(
-							[
-								author$project$Engine$itemIsOffScreen('finalPaper')
-							]),
-						A2(
-							elm$core$List$append,
-							A2(elm$core$List$map, author$project$Engine$choiceHasAlreadyBeenMade, author$project$OurStory$NarrativeDSFuncs$getFilteredStageMultiOptionIds),
-							A2(elm$core$List$map, author$project$Engine$itemIsCorrectlyAnswered, author$project$OurStory$NarrativeDSFuncs$getFilteredStageQuestionIds))))),
-			ct: author$project$Engine$with(author$project$OurStory$NarrativeDSFuncs$getLastStageId)
-		},
-		A2(author$project$OurStory$NarrativeDSFuncs$interactingWithStageNDict, author$project$OurStory$NarrativeDSFuncs$getLastStageNr, 'defaultStageDescription'))
-	]);
-var author$project$OurStory$Rules$standardInteractionWithMultiOptionNr = function (optionNr) {
-	var optionId = author$project$OurStory$NarrativeDSFuncs$getOptionId(optionNr);
-	var matchStringValOrAny = function (xstr) {
-		return (xstr === '{__ANY__}') ? author$project$Engine$matchAnyNonEmptyString : author$project$Engine$matchStringValue(xstr);
-	};
-	var lpossibleChoices = author$project$OurStory$NarrativeDSFuncs$getMultiOptionAvailableChoicesValList(optionNr);
-	var allCheckAndActs = A2(
-		author$project$Engine$checkAndAct_IfChosenOptionIs,
-		A2(
-			elm$core$List$map,
-			function (x) {
-				return A5(
-					author$project$Engine$checkOptionData,
-					matchStringValOrAny(x),
-					A2(author$project$OurStory$NarrativeDSFuncs$getMultiOptionTextIfChosenDict, optionNr, x),
-					_List_Nil,
-					_List_Nil,
-					_List_Nil);
-			},
-			lpossibleChoices),
-		optionId);
-	return A3(
-		author$project$OurStory$Rules$ruleWithQuasiChange,
-		'view multi option' + elm$core$String$fromInt(optionNr),
-		{
-			bS: _List_Nil,
-			bY: _List_Nil,
-			ct: author$project$Engine$with(optionId),
-			c5: author$project$Engine$noQuasiChangeWithBackend,
-			c6: _List_fromArray(
-				[allCheckAndActs])
-		},
-		author$project$OurStory$NarrativeDSFuncs$interactingWithMultiOptionDict(optionNr));
-};
-var author$project$Types$ResetOption = function (a) {
-	return {$: 23, a: a};
-};
-var author$project$Engine$resetOption = author$project$Types$ResetOption;
-var author$project$OurStory$Narrative$interactingWithOptionResetEn = function (optionNr) {
-	return _List_fromArray(
-		['The previous choice was deleted. You can now make a new choice ']);
-};
-var author$project$OurStory$Narrative$interactingWithOptionResetPt = function (optionNr) {
-	return _List_fromArray(
-		['A opcao seleccionada foi eliminada. Pode agora fazer nova escolha']);
-};
-var author$project$OurStory$Narrative$interactingWithOptionResetDict = function (optionNr) {
-	return elm$core$Dict$fromList(
-		_List_fromArray(
-			[
-				_Utils_Tuple2(
-				'pt',
-				author$project$OurStory$Narrative$interactingWithOptionResetPt(optionNr)),
-				_Utils_Tuple2(
-				'en',
-				author$project$OurStory$Narrative$interactingWithOptionResetEn(optionNr))
-			]));
-};
-var author$project$OurStory$Rules$standardInteractionWithMultiOptionNrReset = function (optionNr) {
-	var optionId = author$project$OurStory$NarrativeDSFuncs$getOptionId(optionNr);
-	var resetOptionId = 'reset_' + optionId;
-	return A3(
-		author$project$OurStory$Rules$ruleWithQuasiChange,
-		'view multi option reset ' + elm$core$String$fromInt(optionNr),
-		{
-			bS: _List_fromArray(
-				[
-					author$project$Engine$resetOption(optionId),
-					A3(
-					author$project$Engine$createAttributeIfNotExistsAndOrSetValue,
-					author$project$Engine$astring(optionId),
-					'suggestedInteraction',
-					resetOptionId)
-				]),
-			bY: _List_Nil,
-			ct: author$project$Engine$with(resetOptionId),
-			c5: author$project$Engine$noQuasiChangeWithBackend,
-			c6: _List_Nil
-		},
-		author$project$OurStory$Narrative$interactingWithOptionResetDict(optionNr));
-};
-var author$project$OurStory$Rules$standardInteractionWithQuestionNr = function (questionNr) {
-	var correctAnswers = function (ls) {
-		return A2(author$project$Engine$listOfAnswersAndFunctions, ls, _List_Nil);
-	}(
-		author$project$OurStory$NarrativeDSFuncs$getQuestionAnswers(questionNr));
-	return A3(
-		author$project$OurStory$Rules$ruleWithQuasiChange,
-		'view question' + elm$core$String$fromInt(questionNr),
-		{
-			bS: _List_Nil,
-			bY: _List_Nil,
-			ct: author$project$Engine$with(
-				author$project$OurStory$NarrativeDSFuncs$getQuestionId(questionNr)),
-			c5: author$project$Engine$noQuasiChangeWithBackend,
-			c6: _List_fromArray(
-				[
-					A3(
-					author$project$Engine$check_IfAnswerCorrect,
-					correctAnswers,
-					A8(
-						author$project$Engine$checkAnswerData,
-						author$project$OurStory$NarrativeDSFuncs$getQuestionsMaxNrTries(questionNr),
-						author$project$Engine$caseInsensitiveAnswer,
-						author$project$Engine$answerSpacesDontMatter,
-						author$project$Engine$headerAnswerAndCorrectIncorrect,
-						author$project$OurStory$NarrativeDSFuncs$additionalTextIfAnswerCorrectDict(questionNr),
-						author$project$OurStory$NarrativeDSFuncs$additionalTextIfAnswerIncorrectDict(questionNr),
-						_List_Nil,
-						_List_Nil),
-					author$project$OurStory$NarrativeDSFuncs$getQuestionId(questionNr))
-				])
-		},
-		author$project$OurStory$NarrativeDSFuncs$interactingWithQuestionDict(questionNr));
-};
-var author$project$OurStory$Rules$standardRuleMoveToNminusOne = function (stageNr) {
-	var ntype = 'enteringFromHigherStage';
-	return A3(
-		author$project$OurStory$Rules$rule,
-		'interacting with Stage ' + (elm$core$String$fromInt(stageNr - 1) + ' from higher'),
-		{
-			bS: _List_fromArray(
-				[
-					author$project$Engine$moveTo(
-					author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr - 1)),
-					A2(
-					author$project$Engine$moveCharacterToLocation,
-					'playerOne',
-					author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr - 1))
-				]),
-			bY: _List_fromArray(
-				[
-					author$project$Engine$currentLocationIs(
-					author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr))
-				]),
-			ct: author$project$Engine$with(
-				author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr - 1))
-		},
-		A2(author$project$OurStory$NarrativeDSFuncs$interactingWithStageNDict, stageNr - 1, ntype));
-};
-var author$project$OurStory$Rules$startingStateQuasiChanges = _List_Nil;
-var author$project$OurStory$Rules$standardRuleMoveToNplusOneNotRestricted = function (stageNr) {
-	var currLocationId = (!stageNr) ? 'onceUponAtime' : author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr);
-	return A3(
-		author$project$OurStory$Rules$ruleWithQuasiChange,
-		'interacting with Stage ' + (elm$core$String$fromInt(stageNr + 1) + ' from lower'),
-		{
-			bS: _List_fromArray(
-				[
-					author$project$Engine$moveTo(
-					author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr + 1)),
-					A2(
-					author$project$Engine$moveCharacterToLocation,
-					'playerOne',
-					author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr + 1))
-				]),
-			bY: _List_fromArray(
-				[
-					author$project$Engine$currentLocationIs(currLocationId),
-					A2(author$project$Engine$characterIsInLocation, 'playerOne', currLocationId)
-				]),
-			ct: author$project$Engine$with(
-				author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr + 1)),
-			c5: author$project$Engine$noQuasiChangeWithBackend,
-			c6: (!stageNr) ? author$project$OurStory$Rules$startingStateQuasiChanges : _List_Nil
-		},
-		A2(author$project$OurStory$NarrativeDSFuncs$interactingWithStageNDict, stageNr + 1, 'defaultStageDescription'));
-};
-var author$project$OurStory$Rules$standardRuleMoveToNplusOneRestricted = function (stageNr) {
-	return A3(
-		author$project$OurStory$Rules$rule,
-		'interacting with Stage ' + (elm$core$String$fromInt(stageNr + 1) + ' from lower correct answer required'),
-		{
-			bS: _List_fromArray(
-				[
-					author$project$Engine$moveTo(
-					author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr + 1)),
-					A2(
-					author$project$Engine$moveCharacterToLocation,
-					'playerOne',
-					author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr + 1))
-				]),
-			bY: A2(
-				elm$core$List$append,
-				A2(
-					elm$core$List$map,
-					author$project$Engine$choiceHasAlreadyBeenMade,
-					author$project$OurStory$NarrativeDSFuncs$getOptionIdsByStageNr(stageNr)),
-				A2(
-					elm$core$List$append,
-					_List_fromArray(
-						[
-							A2(
-							author$project$Engine$characterIsInLocation,
-							'playerOne',
-							author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr))
-						]),
-					A2(
-						elm$core$List$append,
-						_List_fromArray(
-							[
-								author$project$Engine$currentLocationIs(
-								author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr))
-							]),
-						A2(
-							elm$core$List$map,
-							author$project$Engine$itemIsCorrectlyAnswered,
-							author$project$OurStory$NarrativeDSFuncs$getQuestionIdsByStageNr(stageNr))))),
-			ct: author$project$Engine$with(
-				author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr + 1))
-		},
-		A2(author$project$OurStory$NarrativeDSFuncs$interactingWithStageNDict, stageNr + 1, 'defaultStageDescription'));
-};
-var author$project$Types$ItemIsNotCorrectlyAnswered = function (a) {
-	return {$: 12, a: a};
-};
-var author$project$Engine$itemIsNotCorrectlyAnswered = author$project$Types$ItemIsNotCorrectlyAnswered;
-var author$project$Types$NoChosenOptionYet = function (a) {
-	return {$: 21, a: a};
-};
-var author$project$Engine$noChosenOptionYet = author$project$Types$NoChosenOptionYet;
-var author$project$OurStory$Rules$standardRulesTryMoveToNplusOneAndFail = function (stageNr) {
-	var stageQuestionNrs = author$project$OurStory$NarrativeDSFuncs$getQuestionNrsByStageNr(stageNr);
-	var stageOptionNrs = author$project$OurStory$NarrativeDSFuncs$getOptionNrsByStageNr(stageNr);
-	var ruleForFailOnQuestionNr = function (questionNr) {
-		return A3(
-			author$project$OurStory$Rules$rule,
-			'interacting with higher Stage ' + (elm$core$String$fromInt(stageNr + 1) + ('  and failing because wrong answer on question ' + elm$core$String$fromInt(questionNr))),
-			{
-				bS: _List_Nil,
-				bY: _List_fromArray(
-					[
-						author$project$Engine$currentLocationIs(
-						author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr)),
-						A2(
-						author$project$Engine$characterIsInLocation,
-						'playerOne',
-						author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr)),
-						author$project$Engine$itemIsNotCorrectlyAnswered(
-						author$project$OurStory$NarrativeDSFuncs$getQuestionId(questionNr))
-					]),
-				ct: author$project$Engine$with(
-					author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr + 1))
-			},
-			A2(author$project$OurStory$NarrativeDSFuncs$interactingWithStageNDict, stageNr + 1, 'withoutPreviousAnswered'));
-	};
-	var ruleForFailOnOptionNr = function (optionNr) {
-		return A3(
-			author$project$OurStory$Rules$rule,
-			'interacting with higher Stage ' + (elm$core$String$fromInt(stageNr + 1) + ('  and failing because no choice made so far on option ' + elm$core$String$fromInt(optionNr))),
-			{
-				bS: _List_Nil,
-				bY: _List_fromArray(
-					[
-						author$project$Engine$currentLocationIs(
-						author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr)),
-						A2(
-						author$project$Engine$characterIsInLocation,
-						'playerOne',
-						author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr)),
-						author$project$Engine$noChosenOptionYet(
-						author$project$OurStory$NarrativeDSFuncs$getOptionId(optionNr))
-					]),
-				ct: author$project$Engine$with(
-					author$project$OurStory$NarrativeDSFuncs$getStageId(stageNr + 1))
-			},
-			A2(author$project$OurStory$NarrativeDSFuncs$interactingWithStageNDict, stageNr + 1, 'withoutPreviousAnswered'));
-	};
-	return A2(
-		elm$core$List$append,
-		A2(elm$core$List$map, ruleForFailOnOptionNr, stageOptionNrs),
-		A2(elm$core$List$map, ruleForFailOnQuestionNr, stageQuestionNrs));
-};
-var elm$core$List$tail = function (list) {
-	if (list.b) {
-		var x = list.a;
-		var xs = list.b;
-		return elm$core$Maybe$Just(xs);
-	} else {
-		return elm$core$Maybe$Nothing;
-	}
-};
-var author$project$OurStory$Rules$rules = function () {
-	var listOfStageNrs = author$project$OurStory$NarrativeDSFuncs$getAllStageNrs;
-	var lRulesToTryMoveToNextStageAndFail = elm$core$List$concat(
-		A2(
-			elm$core$List$map,
-			author$project$OurStory$Rules$standardRulesTryMoveToNplusOneAndFail,
-			A2(
-				elm$core$List$filter,
-				function (x) {
-					return !A2(elm$core$List$member, x, author$project$OurStory$Rules$correctAnswerNotRequiredToMove);
-				},
-				A2(
-					elm$core$List$filter,
-					function (x) {
-						return !A2(elm$core$List$member, x, author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept);
-					},
-					A2(
-						elm$core$List$take,
-						elm$core$List$length(listOfStageNrs) - 1,
-						listOfStageNrs)))));
-	var lRulesToMoveToPreviousStage = A2(
-		elm$core$List$map,
-		author$project$OurStory$Rules$standardRuleMoveToNminusOne,
-		A2(
-			elm$core$Maybe$withDefault,
-			_List_Nil,
-			elm$core$List$tail(listOfStageNrs)));
-	var lRulesToMoveToNextStageRestricted = A2(
-		elm$core$List$map,
-		author$project$OurStory$Rules$standardRuleMoveToNplusOneRestricted,
-		A2(
-			elm$core$List$filter,
-			function (x) {
-				return !A2(elm$core$List$member, x, author$project$OurStory$Rules$correctAnswerNotRequiredToMove);
-			},
-			A2(
-				elm$core$List$filter,
-				function (x) {
-					return !A2(elm$core$List$member, x, author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept);
-				},
-				A2(
-					elm$core$List$take,
-					elm$core$List$length(listOfStageNrs) - 1,
-					listOfStageNrs))));
-	var lRulesToMoveToNextStageNotRestricted = A2(
-		elm$core$List$map,
-		author$project$OurStory$Rules$standardRuleMoveToNplusOneNotRestricted,
-		A2(
-			elm$core$List$append,
-			_List_fromArray(
-				[0]),
-			A2(
-				elm$core$List$filter,
-				function (x) {
-					return A2(elm$core$List$member, x, author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept) || A2(elm$core$List$member, x, author$project$OurStory$Rules$correctAnswerNotRequiredToMove);
-				},
-				A2(
-					elm$core$List$take,
-					elm$core$List$length(listOfStageNrs) - 1,
-					listOfStageNrs))));
-	var lRulesAboutResettingMultiOptions = A2(
-		elm$core$List$map,
-		author$project$OurStory$Rules$standardInteractionWithMultiOptionNrReset,
-		elm$core$List$concat(
-			A2(
-				elm$core$List$map,
-				author$project$OurStory$NarrativeDSFuncs$getOptionNrsByStageNr,
-				A2(
-					elm$core$List$filter,
-					function (x) {
-						return !A2(elm$core$List$member, x, author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept);
-					},
-					author$project$OurStory$NarrativeDSFuncs$getAllStageNrs))));
-	var lRulesAboutQuestionsAllQuestionsAndOptionsAnsweredButOne = A2(
-		elm$core$List$map,
-		author$project$OurStory$Rules$interactionWithQuestionNrAllQuestionsAndOptionsAnsweredButThisOne,
-		elm$core$List$concat(
-			A2(
-				elm$core$List$map,
-				function (_n1) {
-					var x = _n1.a;
-					var ly = _n1.b;
-					return A2(
-						elm$core$List$map,
-						function (yelem) {
-							return _Utils_Tuple2(yelem, x);
-						},
-						ly);
-				},
-				A2(
-					elm$core$List$map,
-					function (x) {
-						return _Utils_Tuple2(
-							x,
-							author$project$OurStory$NarrativeDSFuncs$getQuestionNrsByStageNr(x));
-					},
-					A2(
-						elm$core$List$filter,
-						function (x) {
-							return !A2(elm$core$List$member, x, author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept);
-						},
-						author$project$OurStory$NarrativeDSFuncs$getAllStageNrs)))));
-	var lRulesAboutQuestions = A2(
-		elm$core$List$map,
-		author$project$OurStory$Rules$standardInteractionWithQuestionNr,
-		elm$core$List$concat(
-			A2(
-				elm$core$List$map,
-				author$project$OurStory$NarrativeDSFuncs$getQuestionNrsByStageNr,
-				A2(
-					elm$core$List$filter,
-					function (x) {
-						return !A2(elm$core$List$member, x, author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept);
-					},
-					author$project$OurStory$NarrativeDSFuncs$getAllStageNrs))));
-	var lRulesAboutOptionsAllQuestionsAndOptionsAnsweredButOne = A2(
-		elm$core$List$map,
-		author$project$OurStory$Rules$interactionWithOptionNrAllQuestionsAndOptionsAnsweredButThisOne,
-		elm$core$List$concat(
-			A2(
-				elm$core$List$map,
-				function (_n0) {
-					var x = _n0.a;
-					var ly = _n0.b;
-					return A2(
-						elm$core$List$map,
-						function (yelem) {
-							return _Utils_Tuple2(yelem, x);
-						},
-						ly);
-				},
-				A2(
-					elm$core$List$map,
-					function (x) {
-						return _Utils_Tuple2(
-							x,
-							author$project$OurStory$NarrativeDSFuncs$getOptionNrsByStageNr(x));
-					},
-					A2(
-						elm$core$List$filter,
-						function (x) {
-							return !A2(elm$core$List$member, x, author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept);
-						},
-						author$project$OurStory$NarrativeDSFuncs$getAllStageNrs)))));
-	var lRulesAboutMultiOptions = A2(
-		elm$core$List$map,
-		author$project$OurStory$Rules$standardInteractionWithMultiOptionNr,
-		elm$core$List$concat(
-			A2(
-				elm$core$List$map,
-				author$project$OurStory$NarrativeDSFuncs$getOptionNrsByStageNr,
-				A2(
-					elm$core$List$filter,
-					function (x) {
-						return !A2(elm$core$List$member, x, author$project$OurStory$NarrativeDSFuncs$getQuestionsAndOrOptionsOnEveryStageExcept);
-					},
-					author$project$OurStory$NarrativeDSFuncs$getAllStageNrs))));
-	var lRules = A2(
-		elm$core$List$append,
-		author$project$OurStory$Rules$lRuleGameHasEnded,
-		A2(
-			elm$core$List$append,
-			author$project$OurStory$Rules$lRulesInteractingWithGoalsStatusPaper,
-			A2(
-				elm$core$List$append,
-				author$project$OurStory$Rules$lRuleInteractingWithFinalPaper,
-				A2(
-					elm$core$List$append,
-					lRulesAboutOptionsAllQuestionsAndOptionsAnsweredButOne,
-					A2(
-						elm$core$List$append,
-						lRulesAboutQuestionsAllQuestionsAndOptionsAnsweredButOne,
-						A2(
-							elm$core$List$append,
-							author$project$OurStory$Rules$lRulesMakeFinalPaperAppearAfterAllQuestionsAnswered,
-							A2(
-								elm$core$List$append,
-								author$project$OurStory$Rules$lRulesInteractingWithCreditsInfo,
-								A2(
-									elm$core$List$append,
-									author$project$OurStory$Rules$lRulesInteractingWithGps,
-									A2(
-										elm$core$List$append,
-										lRulesAboutResettingMultiOptions,
-										A2(
-											elm$core$List$append,
-											lRulesAboutMultiOptions,
-											A2(
-												elm$core$List$append,
-												lRulesAboutQuestions,
-												A2(
-													elm$core$List$append,
-													lRulesToMoveToNextStageNotRestricted,
-													A2(
-														elm$core$List$append,
-														lRulesToTryMoveToNextStageAndFail,
-														A2(elm$core$List$append, lRulesToMoveToNextStageRestricted, lRulesToMoveToPreviousStage))))))))))))));
-	return elm$core$Dict$fromList(lRules);
-}();
-var author$project$Theme$AnswerBox$init = {bD: elm$core$Maybe$Nothing};
-var author$project$Theme$Settings$init = function (theLanguages) {
-	return {bJ: false, bK: true, bL: theLanguages, b3: 'pt', b6: false, ci: true, cB: true, df: true, dh: false, di: false, dj: false, dk: false};
-};
-var author$project$Theme$Settings$update = F2(
-	function (msg, model) {
-		switch (msg.$) {
-			case 0:
-				var bval = msg.a;
-				return _Utils_update(
-					model,
-					{b6: bval});
-			case 1:
-				var lgId = msg.a;
-				return _Utils_update(
-					model,
-					{b3: lgId});
-			case 2:
-				var dlanguages = msg.a;
-				return _Utils_update(
-					model,
-					{bL: dlanguages});
-			case 3:
-				return _Utils_update(
-					model,
-					{dj: !model.dj});
-			case 4:
-				var bautoplay = msg.a;
-				return _Utils_update(
-					model,
-					{bJ: bautoplay});
-			case 5:
-				return _Utils_update(
-					model,
-					{dk: !model.dk});
-			case 6:
-				var bWithSidebar = msg.a;
-				return _Utils_update(
-					model,
-					{cB: bWithSidebar});
-			case 7:
-				return _Utils_update(
-					model,
-					{di: true});
-			default:
-				return _Utils_update(
-					model,
-					{di: false});
 		}
 	});
 var author$project$TypeConverterHelper$mbAttributeToBool = F2(
@@ -14061,6 +14120,32 @@ var author$project$TypeConverterHelper$mbAttributeToDictStringListString = F2(
 		}(
 			A2(author$project$TypeConverterHelper$mbAttributeToMbDictStringListString, doDebug, mbAttrVal));
 	});
+var author$project$TypeConverterHelper$mbAttributeToMbDictStringString = F2(
+	function (doDebug, mbAttrVal) {
+		if (mbAttrVal.$ === 1) {
+			return _Utils_Tuple2(elm$core$Maybe$Nothing, '');
+		} else {
+			if (mbAttrVal.a.$ === 3) {
+				var dstrstr = mbAttrVal.a.a;
+				return _Utils_Tuple2(
+					elm$core$Maybe$Just(dstrstr),
+					'');
+			} else {
+				return A3(author$project$TypeConverterHelper$addConversionFailureMessage, doDebug, 'Trying to convert an attribute which is not of type ADictStringString to a Dict String String', elm$core$Maybe$Nothing);
+			}
+		}
+	});
+var author$project$TypeConverterHelper$mbAttributeToDictStringString = F2(
+	function (doDebug, mbAttrVal) {
+		return function (_n0) {
+			var x = _n0.a;
+			var y = _n0.b;
+			return _Utils_Tuple2(
+				A2(elm$core$Maybe$withDefault, elm$core$Dict$empty, x),
+				y);
+		}(
+			A2(author$project$TypeConverterHelper$mbAttributeToMbDictStringString, doDebug, mbAttrVal));
+	});
 var author$project$TypeConverterHelper$mbAttributeToMbString = F2(
 	function (doDebug, mbAttrVal) {
 		if (mbAttrVal.$ === 1) {
@@ -14092,13 +14177,13 @@ var author$project$Types$Ans = function (a) {
 };
 var author$project$TypesUpdateHelper$updateNestedBkAnsStatus = F2(
 	function (extraInfoWithPendingChanges, bkAnsStatus) {
-		var interactionExtraInfo_ = extraInfoWithPendingChanges.cu;
+		var interactionExtraInfo_ = extraInfoWithPendingChanges.cm;
 		var newInteractionExtraInfo = _Utils_update(
 			interactionExtraInfo_,
-			{aA: bkAnsStatus});
+			{az: bkAnsStatus});
 		var newExtraInfoWithPendingChanges = _Utils_update(
 			extraInfoWithPendingChanges,
-			{cu: newInteractionExtraInfo});
+			{cm: newInteractionExtraInfo});
 		return newExtraInfoWithPendingChanges;
 	});
 var elm$core$Dict$foldl = F3(
@@ -14161,12 +14246,12 @@ var wernerdegroot$listzipper$List$Zipper$next = function (_n0) {
 var author$project$Main$initWithMbPlayerNameAndMbHistoryList = F5(
 	function (flags, displayStartScreen_, lPrandomFloats, mbPlayerName, historyList) {
 		var settingsmodel = author$project$Theme$Settings$init(author$project$OurStory$Narrative$initialChoiceLanguages);
-		var displaylanguage = settingsmodel.b3;
+		var displaylanguage = settingsmodel.bY;
 		var dictEntities = author$project$OurStory$Rules$rules;
 		var engineModel = A5(
 			author$project$Engine$init,
 			{
-				bT: A2(
+				bM: A2(
 					elm$core$List$map,
 					function (_n38) {
 						var id = _n38.a;
@@ -14177,7 +14262,7 @@ var author$project$Main$initWithMbPlayerNameAndMbHistoryList = F5(
 								_Utils_Tuple2(id, comp)));
 					},
 					author$project$OurStory$Manifest$characters),
-				cx: A2(
+				cp: A2(
 					elm$core$List$map,
 					function (_n39) {
 						var id = _n39.a;
@@ -14188,7 +14273,7 @@ var author$project$Main$initWithMbPlayerNameAndMbHistoryList = F5(
 								_Utils_Tuple2(id, comp)));
 					},
 					author$project$OurStory$Manifest$items),
-				cD: A2(
+				cv: A2(
 					elm$core$List$map,
 					function (_n40) {
 						var id = _n40.a;
@@ -14235,17 +14320,17 @@ var author$project$Main$initWithMbPlayerNameAndMbHistoryList = F5(
 								author$project$OurStory$Manifest$items,
 								_Utils_ap(author$project$OurStory$Manifest$locations, author$project$OurStory$Manifest$characters))))),
 				l: debugMode_,
-				aE: 50.0,
-				an: false,
-				ao: displayStartScreen_,
-				aF: author$project$OurStory$Narrative$endScreenInfo,
+				aC: 50.0,
+				am: false,
+				an: displayStartScreen_,
+				aD: author$project$OurStory$Narrative$endScreenInfo,
 				b: engineModel,
 				H: _List_Nil,
 				Z: _Utils_ap(
 					author$project$OurStory$Manifest$items,
 					_Utils_ap(author$project$OurStory$Manifest$locations, author$project$OurStory$Manifest$characters)),
 				L: _List_Nil,
-				aI: A2(
+				aF: A2(
 					elm$core$Dict$map,
 					F2(
 						function (a, b) {
@@ -14262,15 +14347,15 @@ var author$project$Main$initWithMbPlayerNameAndMbHistoryList = F5(
 						}),
 					dictEntities),
 				_: author$project$OurStory$Narrative$startingNarratives,
-				au: true,
-				aL: 21,
-				aM: author$project$Leaflet$Types$defaultZoomPanOptions,
+				at: true,
+				aI: 21,
+				aJ: author$project$Leaflet$Types$defaultZoomPanOptions,
 				B: elm$core$Maybe$Nothing,
 				N: elm$core$Maybe$Nothing,
 				w: A2(elm$core$Maybe$withDefault, '___investigator___', mbPlayerName),
 				ad: 100,
 				c: settingsmodel,
-				aV: author$project$OurStory$Narrative$startScreenInfo
+				aR: author$project$OurStory$Narrative$startScreenInfo
 			});
 		return (!elm$core$List$length(historyList)) ? _Utils_Tuple2(
 			newModel,
@@ -14292,7 +14377,7 @@ var author$project$Main$update = F2(
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{ao: false}),
+								{an: false}),
 							elm$core$Platform$Cmd$none);
 					case 1:
 						var playerNameStr = msg.a;
@@ -14341,9 +14426,9 @@ var author$project$Main$update = F2(
 							A2(
 								elm$core$Maybe$map,
 								function ($) {
-									return $.cW;
+									return $.cO;
 								},
-								mbGpsZone)) && (!model.c.b6);
+								mbGpsZone)) && (!model.c.b_);
 						var interactionExtraInfo = A2(author$project$Main$getExtraInfoFromModel, model, interactableId);
 						var _n2 = (needCoords && (!needsToBeInZone)) ? _Utils_Tuple2(
 							nModel,
@@ -14358,14 +14443,14 @@ var author$project$Main$update = F2(
 						return _Utils_Tuple2(newModel, cmds);
 					case 10:
 						var locationAndInteractableIdRecord = msg.a;
-						if (_Utils_eq(locationAndInteractableIdRecord.at, -999) && _Utils_eq(locationAndInteractableIdRecord.av, -999)) {
-							var $temp$msg = author$project$ClientTypes$NewCoordsForInterIdFailed(locationAndInteractableIdRecord.bb),
+						if (_Utils_eq(locationAndInteractableIdRecord.as, -999) && _Utils_eq(locationAndInteractableIdRecord.au, -999)) {
+							var $temp$msg = author$project$ClientTypes$NewCoordsForInterIdFailed(locationAndInteractableIdRecord.a6),
 								$temp$model = model;
 							msg = $temp$msg;
 							model = $temp$model;
 							continue update;
 						} else {
-							var _n3 = _Utils_Tuple3(locationAndInteractableIdRecord.bb, locationAndInteractableIdRecord.at, locationAndInteractableIdRecord.av);
+							var _n3 = _Utils_Tuple3(locationAndInteractableIdRecord.a6, locationAndInteractableIdRecord.as, locationAndInteractableIdRecord.au);
 							var interactableId = _n3.a;
 							var latitude = _n3.b;
 							var longitude = _n3.c;
@@ -14379,9 +14464,9 @@ var author$project$Main$update = F2(
 								A2(
 									elm$core$Maybe$map,
 									function ($) {
-										return $.cW;
+										return $.cO;
 									},
-									mbGpsZone)) && (!model.c.b6);
+									mbGpsZone)) && (!model.c.b_);
 							var location = A2(author$project$GpsUtils$GeolocationInfo, latitude, longitude);
 							var distanceToClosestLocations = A3(
 								author$project$GpsUtils$getDistancesTo,
@@ -14389,12 +14474,12 @@ var author$project$Main$update = F2(
 								location,
 								A2(
 									elm$core$List$map,
-									elm$core$Dict$get(model.c.b3),
+									elm$core$Dict$get(model.c.bY),
 									A2(
 										elm$core$List$map,
 										author$project$Components$getDictLgNamesAndCoords(
 											_List_fromArray(
-												[model.c.b3])),
+												[model.c.bY])),
 										author$project$OurStory$Manifest$locations)));
 							var newModel = _Utils_update(
 								model,
@@ -14403,7 +14488,7 @@ var author$project$Main$update = F2(
 									B: elm$core$Maybe$Just(location)
 								});
 							var theDistance = A2(author$project$GpsUtils$getDistance, location, mbGpsZone);
-							var inDistance = A3(author$project$GpsUtils$checkIfInDistance, mbGpsZone, theDistance, model.aE);
+							var inDistance = A3(author$project$GpsUtils$checkIfInDistance, mbGpsZone, theDistance, model.aC);
 							if ((!needsToBeInZone) || (needsToBeInZone && inDistance)) {
 								var $temp$msg = A2(author$project$ClientTypes$InteractStepTwo, interactableId, updatedInteractionExtraInfo),
 									$temp$model = newModel;
@@ -14436,9 +14521,9 @@ var author$project$Main$update = F2(
 							A2(
 								elm$core$Maybe$map,
 								function ($) {
-									return $.cW;
+									return $.cO;
 								},
-								mbGpsZone)) && (!model.c.b6);
+								mbGpsZone)) && (!model.c.b_);
 						var interactionExtraInfo = A2(author$project$Main$getExtraInfoFromModel, model, interactableId);
 						var updatedInteractionExtraInfo = A2(author$project$Main$updateInterExtraInfoWithGeoInfo, interactionExtraInfo, model);
 						if (!needsToBeInZone) {
@@ -14464,14 +14549,14 @@ var author$project$Main$update = F2(
 								author$project$GpsUtils$getMbGpsZoneLatLon(mbGpsZone)));
 						var theName = A2(
 							author$project$Components$getSingleLgDisplayInfo,
-							model.c.b3,
+							model.c.bY,
 							A2(author$project$Main$findEntity, model, interactableId)).D;
 						var linfoStr = _List_fromArray(
 							[
 								' Trying to move to  ' + (theName + ' failed . '),
 								'you\'re not close enough.',
 								'You are at : ' + author$project$GpsUtils$convertDecimalTupleToGps(
-								_Utils_Tuple2(location.at, location.av)),
+								_Utils_Tuple2(location.as, location.au)),
 								'Please move closer to ' + zoneCoordsStr,
 								'Your distance to where you should be is : ' + (elm$core$String$fromInt(
 								elm$core$Basics$round(theDistance)) + ' meters')
@@ -14515,7 +14600,7 @@ var author$project$Main$update = F2(
 							var newEngineModel = _n4.a;
 							var extraInfoWithPendingChanges = _n4.b;
 							var infoNeeded = _n4.c;
-							var newInteractionExtraInfo = extraInfoWithPendingChanges.cu;
+							var newInteractionExtraInfo = extraInfoWithPendingChanges.cm;
 							var newModel = _Utils_update(
 								model,
 								{b: newEngineModel});
@@ -14556,11 +14641,11 @@ var author$project$Main$update = F2(
 								continue update;
 							} else {
 								var strUrl = infoNeeded.a;
-								if (_Utils_eq(interactionExtraInfo.aA, author$project$Types$NoInfoYet)) {
+								if (_Utils_eq(interactionExtraInfo.az, author$project$Types$NoInfoYet)) {
 									var newInteractionExtraInfoTwo = _Utils_update(
 										newInteractionExtraInfo,
-										{aA: author$project$Types$WaitingForInfoRequested});
-									var newExtraInfoWithPendingChanges = {cu: newInteractionExtraInfoTwo, cO: extraInfoWithPendingChanges.cO, bk: extraInfoWithPendingChanges.bk};
+										{az: author$project$Types$WaitingForInfoRequested});
+									var newExtraInfoWithPendingChanges = {cm: newInteractionExtraInfoTwo, cG: extraInfoWithPendingChanges.cG, bf: extraInfoWithPendingChanges.bf};
 									var newAnswerBoxModel = A2(author$project$Theme$AnswerBox$update, '', model.k);
 									var getTheUrl = function (strUrl_) {
 										return strUrl_;
@@ -14733,12 +14818,12 @@ var author$project$Main$update = F2(
 									var lat = _n31.b;
 									var lng = _n31.c;
 									return {
-										b$: _Utils_Tuple2(lat, lng),
-										cG: 'current',
-										dn: name
+										bU: _Utils_Tuple2(lat, lng),
+										cy: 'current',
+										c8: name
 									};
 								},
-								A2(elm$core$Dict$get, model.c.b3, dict));
+								A2(elm$core$Dict$get, model.c.bY, dict));
 						}(
 							function (entity) {
 								return A2(author$project$Components$getDictLgNamesAndCoords, author$project$OurStory$Narrative$desiredLanguages, entity);
@@ -14747,7 +14832,7 @@ var author$project$Main$update = F2(
 									author$project$Main$findEntity,
 									model,
 									author$project$Engine$getCurrentLocation(model.b))));
-						var maybeMatchedRuleId = interactionExtraInfo.cM;
+						var maybeMatchedRuleId = interactionExtraInfo.cE;
 						var updatedContent = A2(
 							elm$core$Maybe$withDefault,
 							model.M,
@@ -14830,12 +14915,12 @@ var author$project$Main$update = F2(
 											var lat = _n27.b;
 											var lng = _n27.c;
 											return {
-												b$: _Utils_Tuple2(lat, lng),
-												cG: 'connecting',
-												dn: name
+												bU: _Utils_Tuple2(lat, lng),
+												cy: 'connecting',
+												c8: name
 											};
 										},
-										A2(elm$core$Dict$get, model.c.b3, dict));
+										A2(elm$core$Dict$get, model.c.bY, dict));
 								},
 								A2(
 									elm$core$List$map,
@@ -14857,7 +14942,7 @@ var author$project$Main$update = F2(
 													author$project$Main$findEntity,
 													model,
 													author$project$Engine$getCurrentLocation(model.b))))))));
-						var displayLanguage = model.c.b3;
+						var displayLanguage = model.c.bY;
 						var currentStageNameAndCoordsList = A2(
 							elm$core$Maybe$withDefault,
 							_List_Nil,
@@ -14872,22 +14957,22 @@ var author$project$Main$update = F2(
 							[
 								author$project$Leaflet$Ports$filterMarkersCmdPort(
 								{
-									c4: A2(
+									cV: A2(
 										elm$core$Maybe$withDefault,
 										_Utils_Tuple2(0, 0),
 										A2(
 											elm$core$Maybe$map,
 											function (rec) {
-												return _Utils_Tuple2(rec.at, rec.av);
+												return _Utils_Tuple2(rec.as, rec.au);
 											},
 											model.B)),
-									dm: _Utils_ap(exitsNamesAndCoords, currentStageNameAndCoordsList)
+									c7: _Utils_ap(exitsNamesAndCoords, currentStageNameAndCoordsList)
 								}),
 								function () {
 								if (!mbCurrentStageNameAndCoords.$) {
 									var currInfo = mbCurrentStageNameAndCoords.a;
 									return author$project$Leaflet$Ports$setView(
-										_Utils_Tuple3(currInfo.b$, model.aL, model.aM));
+										_Utils_Tuple3(currInfo.bU, model.aI, model.aJ));
 								} else {
 									return elm$core$Platform$Cmd$none;
 								}
@@ -14899,7 +14984,7 @@ var author$project$Main$update = F2(
 							A3(author$project$Engine$getInteractableAttribute, 'gameHasEnded', 'gameStateItem', model.b));
 						var hasEnded = _n13.a;
 						var incidentOnHasEndedConversion = _n13.b;
-						var newSettingsModel2 = (hasEnded && (!model.c.di)) ? A2(author$project$Theme$Settings$update, author$project$ClientTypes$SettingsShowExitToFinalScreenButton, newSettingsModel) : newSettingsModel;
+						var newSettingsModel2 = (hasEnded && (!model.c.c3)) ? A2(author$project$Theme$Settings$update, author$project$ClientTypes$SettingsShowExitToFinalScreenButton, newSettingsModel) : newSettingsModel;
 						var _n14 = getMbsuggestInteractionId;
 						var mbsuggestInteractionId = _n14.a;
 						var incidentOnGetsuggestedInteraction = _n14.b;
@@ -15025,14 +15110,14 @@ var author$project$Main$update = F2(
 						var theNarratives = _n18.a;
 						var lincidentsOnNarratives = _n18.b;
 						var narrativesForThisInteraction = {
-							a$: A2(
+							aW: A2(
 								elm$core$Dict$map,
 								F2(
 									function (lgId, val) {
 										return _Utils_update(
 											val,
 											{
-												cf: _Utils_ap(model.y, val.cf)
+												b7: _Utils_ap(model.y, val.b7)
 											});
 									}),
 								A2(
@@ -15041,21 +15126,21 @@ var author$project$Main$update = F2(
 									A2(
 										elm$core$Maybe$andThen,
 										function (ruleId) {
-											return A2(elm$core$Dict$get, ruleId, model.aI);
+											return A2(elm$core$Dict$get, ruleId, model.aF);
 										},
 										maybeMatchedRuleId))),
-							ba: author$project$Components$getClassName(
+							a5: author$project$Components$getClassName(
 								A2(author$project$Main$findEntity, model, interactableId)),
-							aH: A2(
+							aE: A2(
 								author$project$Components$getDictLgNames,
 								author$project$OurStory$Narrative$desiredLanguages,
 								A2(author$project$Main$findEntity, model, interactableId)),
-							cQ: mbsuggestInteractionId,
+							cI: mbsuggestInteractionId,
 							ab: theNarratives,
-							du: function (lgId) {
+							de: function (lgId) {
 								return suggestInteractionCaption(lgId);
 							},
-							bw: (!_Utils_eq(mbsuggestInteractionId, elm$core$Maybe$Nothing)) ? A2(
+							br: (!_Utils_eq(mbsuggestInteractionId, elm$core$Maybe$Nothing)) ? A2(
 								author$project$Components$getDictLgNames,
 								author$project$OurStory$Narrative$desiredLanguages,
 								A2(
@@ -15080,36 +15165,36 @@ var author$project$Main$update = F2(
 									return _Utils_Tuple2(
 										lgId,
 										{
-											ba: nfti.ba,
-											bb: interactableId,
-											bc: A2(
+											a5: nfti.a5,
+											a6: interactableId,
+											a7: A2(
 												elm$core$Maybe$withDefault,
 												A2(
 													elm$core$Maybe$withDefault,
 													'noName',
-													A2(elm$core$Dict$get, 'en', nfti.aH)),
-												A2(elm$core$Dict$get, lgId, nfti.aH)),
-											cv: A2(
+													A2(elm$core$Dict$get, 'en', nfti.aE)),
+												A2(elm$core$Dict$get, lgId, nfti.aE)),
+											cn: A2(
 												elm$core$Maybe$withDefault,
 												true,
 												A2(
 													elm$core$Maybe$map,
 													elm$core$Tuple$second,
 													A2(elm$core$Dict$get, lgId, nfti.ab))),
-											cw: A2(author$project$Engine$isWritable, interactableId, model.b) && _Utils_eq(
-												interactionExtraInfo.b2,
+											co: A2(author$project$Engine$isWritable, interactableId, model.b) && _Utils_eq(
+												interactionExtraInfo.bX,
 												author$project$Engine$getCurrentLocation(model.b)),
-											cK: A2(elm$core$Dict$get, lgId, nfti.a$),
-											cQ: nfti.cQ,
-											cR: A2(elm$core$Dict$get, lgId, nfti.bw),
-											cU: A2(
+											cC: A2(elm$core$Dict$get, lgId, nfti.aW),
+											cI: nfti.cI,
+											cJ: A2(elm$core$Dict$get, lgId, nfti.br),
+											cM: A2(
 												elm$core$Maybe$withDefault,
 												'',
 												A2(
 													elm$core$Maybe$map,
 													elm$core$Tuple$first,
 													A2(elm$core$Dict$get, lgId, nfti.ab))),
-											du: nfti.du(lgId)
+											de: nfti.de(lgId)
 										});
 								},
 								elm$core$Dict$keys(narrativesForThisInteraction.ab));
@@ -15250,8 +15335,8 @@ var author$project$Main$update = F2(
 						var obj = msg.a;
 						var savedSettings = A2(author$project$Theme$Settings$update, author$project$ClientTypes$SettingsHideExitToFinalScreenButton, model.c);
 						var playerName = obj.w;
-						var newlist = author$project$Main$convertToListIdExtraInfo(obj.ar);
-						var lPrandomFloats = obj.as;
+						var newlist = author$project$Main$convertToListIdExtraInfo(obj.aq);
+						var lPrandomFloats = obj.ar;
 						var _n35 = A5(
 							author$project$Main$initWithMbPlayerNameAndMbHistoryList,
 							A2(author$project$Main$Flags, model.q, model.y),
@@ -15304,13 +15389,13 @@ var author$project$Main$update = F2(
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{an: true}),
+								{am: true}),
 							elm$core$Platform$Cmd$none);
 					default:
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{au: true}),
+								{at: true}),
 							elm$core$Platform$Cmd$none);
 				}
 			}
@@ -15339,7 +15424,7 @@ var author$project$Main$getGeolocationFromBrowser = _Platform_incomingPort(
 						elm$json$Json$Decode$andThen,
 						function (interactableId) {
 							return elm$json$Json$Decode$succeed(
-								{bb: interactableId, at: latitude, av: longitude});
+								{a6: interactableId, as: latitude, au: longitude});
 						},
 						A2(elm$json$Json$Decode$field, 'interactableId', elm$json$Json$Decode$string));
 				},
@@ -15358,7 +15443,7 @@ var author$project$Main$getHistoryFromStorage = _Platform_incomingPort(
 						elm$json$Json$Decode$andThen,
 						function (lInteractions) {
 							return elm$json$Json$Decode$succeed(
-								{ar: lInteractions, as: lPrandomFloats, w: playerName});
+								{aq: lInteractions, ar: lPrandomFloats, w: playerName});
 						},
 						A2(
 							elm$json$Json$Decode$field,
@@ -15383,7 +15468,7 @@ var author$project$Main$getHistoryFromStorage = _Platform_incomingPort(
 																			elm$json$Json$Decode$andThen,
 																			function (currentLocation) {
 																				return elm$json$Json$Decode$succeed(
-																					{b2: currentLocation, ch: geolocationInfoText, cq: inputText, cr: inputTextForBackend, bb: interactableId, cM: mbMatchedRuleId});
+																					{bX: currentLocation, b9: geolocationInfoText, ci: inputText, cj: inputTextForBackend, a6: interactableId, cE: mbMatchedRuleId});
 																			},
 																			A2(elm$json$Json$Decode$field, 'currentLocation', elm$json$Json$Decode$string));
 																	},
@@ -15414,7 +15499,7 @@ var author$project$Main$subscriptions = function (a) {
 };
 var author$project$Engine$getCharactersInCurrentLocation = function (_n0) {
 	var story = _n0;
-	return A2(author$project$Engine$Manifest$getCharactersInLocation, story.b2, story.j);
+	return A2(author$project$Engine$Manifest$getCharactersInLocation, story.bX, story.j);
 };
 var author$project$Engine$getEndingText = function (_n0) {
 	var story = _n0;
@@ -15430,11 +15515,11 @@ var author$project$Engine$getEndingText = function (_n0) {
 };
 var author$project$Engine$getItemsInCurrentLocation = function (_n0) {
 	var story = _n0;
-	return A2(author$project$Engine$Manifest$getItemsInLocation, story.b2, story.j);
+	return A2(author$project$Engine$Manifest$getItemsInLocation, story.bX, story.j);
 };
 var author$project$Engine$getItemsInInventory = function (_n0) {
 	var story = _n0;
-	return A2(author$project$Engine$Manifest$getItemsInCharacterInventory, story.aQ, story.j);
+	return A2(author$project$Engine$Manifest$getItemsInCharacterInventory, story.aM, story.j);
 };
 var author$project$ClientTypes$CloseAlert = {$: 13};
 var elm$core$List$intersperse = F2(
@@ -15835,7 +15920,7 @@ var author$project$Theme$Settings$viewExitToFinalScreenButton = function (model)
 				_List_fromArray(
 					[
 						elm$html$Html$text(
-						A2(author$project$TranslationHelper$getInLanguage, model.b3, '___EXIT___'))
+						A2(author$project$TranslationHelper$getInLanguage, model.bY, '___EXIT___'))
 					])),
 				A2(
 				elm$html$Html$button,
@@ -16131,17 +16216,17 @@ var author$project$Theme$Settings$viewLanguageGpsAudioAndLayoutOptions = functio
 		_List_Nil,
 		_List_fromArray(
 			[
-				A2(author$project$Theme$Settings$optionLanguagesView, model.bL, model.b3),
-				model.ci ? A2(author$project$Theme$Settings$optionGpsCheckZone, model.b6, model.b3) : elm$html$Html$text(''),
-				model.bK ? A2(author$project$Theme$Settings$optionAudioAutoplay, model.bJ, model.b3) : elm$html$Html$text(''),
-				A2(author$project$Theme$Settings$optionLayout, model.cB, model.b3)
+				A2(author$project$Theme$Settings$optionLanguagesView, model.bE, model.bY),
+				model.ca ? A2(author$project$Theme$Settings$optionGpsCheckZone, model.b_, model.bY) : elm$html$Html$text(''),
+				model.bD ? A2(author$project$Theme$Settings$optionAudioAutoplay, model.bC, model.bY) : elm$html$Html$text(''),
+				A2(author$project$Theme$Settings$optionLayout, model.ct, model.bY)
 			]));
 };
 var author$project$ClientTypes$RequestForStoredHistory = {$: 19};
 var author$project$ClientTypes$SaveHistory = {$: 18};
 var author$project$ClientTypes$ToggleShowHideSaveLoadBtns = {$: 17};
 var author$project$Theme$Settings$viewShowHideSaveLoad = function (model) {
-	var theText = model.dk ? 'Hide' : 'Show';
+	var theText = model.c5 ? 'Hide' : 'Show';
 	return A2(
 		elm$html$Html$div,
 		_List_Nil,
@@ -16166,13 +16251,13 @@ var author$project$Theme$Settings$viewSaveLoadButtons = function (model) {
 		_List_Nil,
 		_List_fromArray(
 			[
-				model.cB ? A2(
+				model.ct ? A2(
 				elm$html$Html$h3,
 				_List_Nil,
 				_List_fromArray(
 					[
 						elm$html$Html$text(
-						A2(author$project$TranslationHelper$getInLanguage, model.b3, '___SAVE_LOAD___'))
+						A2(author$project$TranslationHelper$getInLanguage, model.bY, '___SAVE_LOAD___'))
 					])) : A2(
 				elm$html$Html$label,
 				_List_fromArray(
@@ -16182,10 +16267,10 @@ var author$project$Theme$Settings$viewSaveLoadButtons = function (model) {
 				_List_fromArray(
 					[
 						elm$html$Html$text(
-						A2(author$project$TranslationHelper$getInLanguage, model.b3, '___SAVE_LOAD___'))
+						A2(author$project$TranslationHelper$getInLanguage, model.bY, '___SAVE_LOAD___'))
 					])),
 				author$project$Theme$Settings$viewShowHideSaveLoad(model),
-				model.dk ? A2(
+				model.c5 ? A2(
 				elm$html$Html$div,
 				_List_Nil,
 				_List_fromArray(
@@ -16237,7 +16322,7 @@ var author$project$Theme$Settings$viewSaveLoadButtons = function (model) {
 var author$project$ClientTypes$ToggleShowExpandedSettings = {$: 14};
 var elm$html$Html$a = _VirtualDom_node('a');
 var author$project$Theme$Settings$viewShowHideSettingsOptions = function (model) {
-	var theText = model.dj ? '(Hide)' : '(Show)';
+	var theText = model.c4 ? '(Hide)' : '(Show)';
 	return A2(
 		elm$html$Html$a,
 		_List_fromArray(
@@ -16251,7 +16336,7 @@ var author$project$Theme$Settings$viewShowHideSettingsOptions = function (model)
 			]));
 };
 var author$project$Theme$Settings$view = function (model) {
-	var settingsClassStr = model.cB ? 'Settings' : 'Settings__NoSidebar';
+	var settingsClassStr = model.ct ? 'Settings' : 'Settings__NoSidebar';
 	return A2(
 		elm$html$Html$div,
 		_List_fromArray(
@@ -16260,7 +16345,7 @@ var author$project$Theme$Settings$view = function (model) {
 			]),
 		_List_fromArray(
 			[
-				model.di ? author$project$Theme$Settings$viewExitToFinalScreenButton(model) : elm$html$Html$text(''),
+				model.c3 ? author$project$Theme$Settings$viewExitToFinalScreenButton(model) : elm$html$Html$text(''),
 				A2(
 				elm$html$Html$h3,
 				_List_fromArray(
@@ -16270,18 +16355,18 @@ var author$project$Theme$Settings$view = function (model) {
 				_List_fromArray(
 					[
 						elm$html$Html$text(
-						A2(author$project$TranslationHelper$getInLanguage, model.b3, '___Settings___')),
+						A2(author$project$TranslationHelper$getInLanguage, model.bY, '___Settings___')),
 						elm$html$Html$text('  '),
 						author$project$Theme$Settings$viewShowHideSettingsOptions(model)
 					])),
-				model.dj ? A2(
+				model.c4 ? A2(
 				elm$html$Html$div,
 				_List_Nil,
 				_List_fromArray(
 					[
 						author$project$Theme$Settings$viewLanguageGpsAudioAndLayoutOptions(model),
 						A2(elm$html$Html$br, _List_Nil, _List_Nil),
-						model.df ? author$project$Theme$Settings$viewSaveLoadButtons(model) : elm$html$Html$text('')
+						model.c0 ? author$project$Theme$Settings$viewSaveLoadButtons(model) : elm$html$Html$text('')
 					])) : elm$html$Html$text('')
 			]));
 };
@@ -16295,9 +16380,9 @@ var author$project$Theme$Layout$viewExtraInfo = F2(
 				]),
 			_List_fromArray(
 				[
-					A4(author$project$Theme$Locations$view, displayState.cc, displayState.b2, displayState.c.b3, displayState.c.cB),
-					A3(author$project$Theme$Inventory$view, displayState.cz, displayState.c.b3, displayState.c.cB),
-					displayState.c.cB ? author$project$Theme$Settings$view(displayState.c) : elm$html$Html$text('')
+					A4(author$project$Theme$Locations$view, displayState.b4, displayState.bX, displayState.c.bY, displayState.c.ct),
+					A3(author$project$Theme$Inventory$view, displayState.cr, displayState.c.bY, displayState.c.ct),
+					displayState.c.ct ? author$project$Theme$Settings$view(displayState.c) : elm$html$Html$text('')
 				]));
 	});
 var elm$html$Html$audio = _VirtualDom_node('audio');
@@ -16332,7 +16417,7 @@ var author$project$Theme$Layout$viewMbAudioFile = F2(
 								elm$html$Html$audio,
 								_List_fromArray(
 									[
-										elm$html$Html$Attributes$src(fileinfo.cf),
+										elm$html$Html$Attributes$src(fileinfo.b7),
 										elm$html$Html$Attributes$controls(true),
 										elm$html$Html$Attributes$autoplay(audioAutoplay)
 									]),
@@ -16474,27 +16559,27 @@ var elm$html$Html$Attributes$classList = function (classes) {
 				A2(elm$core$List$filter, elm$core$Tuple$second, classes))));
 };
 var elm_explorations$markdown$Markdown$defaultOptions = {
-	a3: elm$core$Maybe$Nothing,
-	a7: elm$core$Maybe$Just(
-		{bO: false, dv: false}),
-	de: true,
-	bu: false
+	a_: elm$core$Maybe$Nothing,
+	a2: elm$core$Maybe$Just(
+		{bH: false, df: false}),
+	c$: true,
+	bp: false
 };
 var elm_explorations$markdown$Markdown$toHtmlWith = _Markdown_toHtml;
 var author$project$Theme$Storyline$view = F7(
 	function (storyLine, lgId, showTextBoxInStoryline, mbplaceholdertext, mbanswerboxtext, answerOptionsDict, ending) {
 		var storyLi = F2(
 			function (i, _n2) {
-				var interactableName = _n2.bc;
-				var interactableId = _n2.bb;
-				var isWritable = _n2.cw;
-				var interactableCssSelector = _n2.ba;
-				var narrative = _n2.cU;
-				var mbAudio = _n2.cK;
-				var mbSuggestedInteractionId = _n2.cQ;
-				var suggestedInteractionCaption = _n2.du;
-				var mbSuggestedInteractionName = _n2.cR;
-				var isLastInZipper = _n2.cv;
+				var interactableName = _n2.a7;
+				var interactableId = _n2.a6;
+				var isWritable = _n2.co;
+				var interactableCssSelector = _n2.a5;
+				var narrative = _n2.cM;
+				var mbAudio = _n2.cC;
+				var mbSuggestedInteractionId = _n2.cI;
+				var suggestedInteractionCaption = _n2.de;
+				var mbSuggestedInteractionName = _n2.cJ;
+				var isLastInZipper = _n2.cn;
 				var viewMbSuggestedInteraction = function () {
 					if (!i) {
 						if (!mbSuggestedInteractionId.$) {
@@ -16606,7 +16691,7 @@ var author$project$Theme$Storyline$view = F7(
 					var dOptions = elm_explorations$markdown$Markdown$defaultOptions;
 					return _Utils_update(
 						dOptions,
-						{de: true});
+						{c$: true});
 				}();
 				var numLines = elm$core$List$length(storyLine);
 				var markdownToSanitizedHtml = F2(
@@ -16679,7 +16764,7 @@ var author$project$Theme$Storyline$view = F7(
 			A2(elm$core$List$indexedMap, storyLi, storyLine));
 	});
 var author$project$Theme$Layout$view = function (displayState) {
-	var _n0 = displayState.cB ? _Utils_Tuple2('Layout', 'Layout__Main') : _Utils_Tuple2('Layout__NoSidebar', 'Layout__Main__NoSidebar');
+	var _n0 = displayState.ct ? _Utils_Tuple2('Layout', 'Layout__Main') : _Utils_Tuple2('Layout__NoSidebar', 'Layout__Main__NoSidebar');
 	var layoutClass = _n0.a;
 	var layoutMainClass = _n0.b;
 	return A2(
@@ -16687,7 +16772,7 @@ var author$project$Theme$Layout$view = function (displayState) {
 		_List_fromArray(
 			[
 				elm$html$Html$Attributes$class(
-				'GamePage GamePage--' + author$project$Components$getClassName(displayState.b2))
+				'GamePage GamePage--' + author$project$Components$getClassName(displayState.bX))
 			]),
 		_List_fromArray(
 			[
@@ -16696,7 +16781,7 @@ var author$project$Theme$Layout$view = function (displayState) {
 				_List_fromArray(
 					[
 						elm$html$Html$Attributes$class(
-						'GamePage__background GamePage__background--' + author$project$Components$getClassName(displayState.b2))
+						'GamePage__background GamePage__background--' + author$project$Components$getClassName(displayState.bX))
 					]),
 				_List_Nil),
 				A2(
@@ -16715,7 +16800,7 @@ var author$project$Theme$Layout$view = function (displayState) {
 							]),
 						_List_fromArray(
 							[
-								(!displayState.c.cB) ? A2(
+								(!displayState.c.ct) ? A2(
 								elm$html$Html$div,
 								_List_fromArray(
 									[
@@ -16725,13 +16810,13 @@ var author$project$Theme$Layout$view = function (displayState) {
 									[
 										author$project$Theme$Settings$view(displayState.c)
 									])) : elm$html$Html$text(''),
-								A5(author$project$Theme$CurrentSummary$view, displayState.b2, displayState.cy, displayState.bU, displayState.d, displayState.c.b3),
-								(!displayState.cB) ? A2(author$project$Theme$Layout$viewExtraInfo, displayState, 'Layout__NoSidebar__ExtraInfo') : elm$html$Html$text(''),
-								A2(author$project$Theme$Layout$viewMbAudioFile, displayState.cL, displayState.bJ),
-								A2(author$project$Theme$AlertMessages$viewAlertMessages, displayState.d, displayState.c.b3),
-								A7(author$project$Theme$Storyline$view, displayState.dq, displayState.c.b3, displayState.bN, displayState.cS, displayState.bC, displayState.bG, displayState.cb)
+								A5(author$project$Theme$CurrentSummary$view, displayState.bX, displayState.cq, displayState.bN, displayState.d, displayState.c.bY),
+								(!displayState.ct) ? A2(author$project$Theme$Layout$viewExtraInfo, displayState, 'Layout__NoSidebar__ExtraInfo') : elm$html$Html$text(''),
+								A2(author$project$Theme$Layout$viewMbAudioFile, displayState.cD, displayState.bC),
+								A2(author$project$Theme$AlertMessages$viewAlertMessages, displayState.d, displayState.c.bY),
+								A7(author$project$Theme$Storyline$view, displayState.da, displayState.c.bY, displayState.bG, displayState.cK, displayState.bv, displayState.bz, displayState.b3)
 							])),
-						displayState.cB ? A2(author$project$Theme$Layout$viewExtraInfo, displayState, 'Layout__Sidebar') : elm$html$Html$text('')
+						displayState.ct ? A2(author$project$Theme$Layout$viewExtraInfo, displayState, 'Layout__Sidebar') : elm$html$Html$text('')
 					]))
 			]));
 };
@@ -16765,11 +16850,11 @@ var author$project$Main$viewMainGame = function (model) {
 	var theStoryLine = A2(
 		elm$core$Maybe$withDefault,
 		_List_Nil,
-		A2(elm$core$Dict$get, model.c.b3, model._));
+		A2(elm$core$Dict$get, model.c.bY, model._));
 	var mbInteactableIdAtTop = A2(
 		elm$core$Maybe$map,
 		function ($) {
-			return $.bb;
+			return $.a6;
 		},
 		elm$core$List$head(theStoryLine));
 	var currentLocation = A2(
@@ -16813,10 +16898,10 @@ var author$project$Main$viewMainGame = function (model) {
 				model.d,
 				_List_fromArray(
 					[incidentOnPlaceholderTextConversion, incidentOnGetAnswerOptionsDict]))),
-		bC: model.k.bD,
-		bG: answerOptionsDict_,
-		bJ: model.c.bJ,
-		bN: function () {
+		bv: model.k.bw,
+		bz: answerOptionsDict_,
+		bC: model.c.bC,
+		bG: function () {
 			if (mbInteactableIdAtTop.$ === 1) {
 				return false;
 			} else {
@@ -16826,13 +16911,13 @@ var author$project$Main$viewMainGame = function (model) {
 					elm$core$Maybe$Just(author$project$Types$WaitingForInfoRequested)));
 			}
 		}(),
-		bU: A2(
+		bN: A2(
 			elm$core$List$map,
 			author$project$Main$findEntity(model),
 			author$project$Engine$getCharactersInCurrentLocation(model.b)),
-		b2: currentLocation,
-		cb: author$project$Engine$getEndingText(model.b),
-		cc: A2(
+		bX: currentLocation,
+		b3: author$project$Engine$getEndingText(model.b),
+		b4: A2(
 			elm$core$List$map,
 			function (_n4) {
 				var direction = _n4.a;
@@ -16842,29 +16927,29 @@ var author$project$Main$viewMainGame = function (model) {
 					A2(author$project$Main$findEntity, model, id));
 			},
 			author$project$Components$getExits(currentLocation)),
-		cy: A2(
+		cq: A2(
 			elm$core$List$map,
 			author$project$Main$findEntity(model),
 			author$project$Engine$getItemsInCurrentLocation(model.b)),
-		cz: A2(
+		cr: A2(
 			elm$core$List$map,
 			author$project$Main$findEntity(model),
 			author$project$Engine$getItemsInInventory(model.b)),
-		cB: model.c.cB,
-		cL: A2(
+		ct: model.c.ct,
+		cD: A2(
 			elm$core$Maybe$withDefault,
 			elm$core$Maybe$Nothing,
 			A2(
 				elm$core$Maybe$map,
 				function ($) {
-					return $.cK;
+					return $.cC;
 				},
 				elm$core$List$head(theStoryLine))),
-		cS: mbTextBoxPlaceholderText_,
+		cK: mbTextBoxPlaceholderText_,
 		c: model.c,
-		dq: theStoryLine
+		da: theStoryLine
 	};
-	return (!model.au) ? A2(
+	return (!model.at) ? A2(
 		elm$html$Html$div,
 		_List_fromArray(
 			[
@@ -16881,7 +16966,7 @@ var author$project$ClientTypes$StartMainGameNewPlayerName = function (a) {
 var elm$html$Html$img = _VirtualDom_node('img');
 var author$project$Theme$StartScreen$view = F3(
 	function (baseImgUrl, startScreenInfo, answerBoxModel) {
-		var imgUrl = (baseImgUrl === '') ? ('img/' + startScreenInfo.be) : _Utils_ap(baseImgUrl, startScreenInfo.be);
+		var imgUrl = (baseImgUrl === '') ? ('img/' + startScreenInfo.a9) : _Utils_ap(baseImgUrl, startScreenInfo.a9);
 		return A2(
 			elm$html$Html$div,
 			_List_fromArray(
@@ -16898,9 +16983,9 @@ var author$project$Theme$StartScreen$view = F3(
 						]),
 					_List_fromArray(
 						[
-							elm$html$Html$text(startScreenInfo.dz),
+							elm$html$Html$text(startScreenInfo.dj),
 							A2(elm$html$Html$br, _List_Nil, _List_Nil),
-							elm$html$Html$text(startScreenInfo.dA)
+							elm$html$Html$text(startScreenInfo.dk)
 						])),
 					A2(
 					elm$html$Html$h3,
@@ -16910,7 +16995,7 @@ var author$project$Theme$StartScreen$view = F3(
 						]),
 					_List_fromArray(
 						[
-							elm$html$Html$text(startScreenInfo.bP)
+							elm$html$Html$text(startScreenInfo.bI)
 						])),
 					A2(
 					elm$html$Html$div,
@@ -16925,7 +17010,7 @@ var author$project$Theme$StartScreen$view = F3(
 							_List_Nil,
 							_List_fromArray(
 								[
-									elm$html$Html$text(startScreenInfo.dl)
+									elm$html$Html$text(startScreenInfo.c6)
 								])),
 							A2(
 							elm$html$Html$img,
@@ -16953,11 +17038,11 @@ var author$project$Theme$StartScreen$view = F3(
 								])),
 							A6(
 							author$project$Theme$AnswerBox$view,
-							answerBoxModel.bD,
+							answerBoxModel.bw,
 							'pt',
 							false,
 							elm$core$Maybe$Nothing,
-							elm$core$Maybe$Just(startScreenInfo.dw),
+							elm$core$Maybe$Just(startScreenInfo.dg),
 							'AnswerBoxStartScreen')
 						])),
 					A2(
@@ -16975,7 +17060,7 @@ var author$project$Theme$StartScreen$view = F3(
 											mbx,
 											elm$core$Maybe$Just('')) ? elm$core$Maybe$Nothing : mbx;
 									}(
-										A2(elm$core$Maybe$map, elm$core$String$trim, answerBoxModel.bD)))))
+										A2(elm$core$Maybe$map, elm$core$String$trim, answerBoxModel.bw)))))
 						]),
 					_List_fromArray(
 						[
@@ -16985,11 +17070,11 @@ var author$project$Theme$StartScreen$view = F3(
 	});
 var author$project$Main$viewStartScreen = F2(
 	function (baseImgUrl, model) {
-		return A3(author$project$Theme$StartScreen$view, baseImgUrl, model.aV, model.k);
+		return A3(author$project$Theme$StartScreen$view, baseImgUrl, model.aR, model.k);
 	});
 var author$project$Theme$EndScreen$view = F2(
 	function (baseImgUrl, endScreenInfo) {
-		var imgUrl = (baseImgUrl === '') ? ('img/' + endScreenInfo.be) : _Utils_ap(baseImgUrl, endScreenInfo.be);
+		var imgUrl = (baseImgUrl === '') ? ('img/' + endScreenInfo.a9) : _Utils_ap(baseImgUrl, endScreenInfo.a9);
 		return A2(
 			elm$html$Html$div,
 			_List_fromArray(
@@ -17006,9 +17091,9 @@ var author$project$Theme$EndScreen$view = F2(
 						]),
 					_List_fromArray(
 						[
-							elm$html$Html$text(endScreenInfo.bZ),
+							elm$html$Html$text(endScreenInfo.bS),
 							A2(elm$html$Html$br, _List_Nil, _List_Nil),
-							elm$html$Html$text(endScreenInfo.b_)
+							elm$html$Html$text(endScreenInfo.bT)
 						])),
 					A2(
 					elm$html$Html$div,
@@ -17023,7 +17108,7 @@ var author$project$Theme$EndScreen$view = F2(
 							_List_Nil,
 							_List_fromArray(
 								[
-									elm$html$Html$text(endScreenInfo.ca)
+									elm$html$Html$text(endScreenInfo.b2)
 								])),
 							A2(
 							elm$html$Html$img,
@@ -17037,7 +17122,7 @@ var author$project$Theme$EndScreen$view = F2(
 				]));
 	});
 var author$project$Main$view = function (model) {
-	return model.ao ? A2(author$project$Main$viewStartScreen, model.q, model) : (model.an ? A2(author$project$Theme$EndScreen$view, model.q, model.aF) : author$project$Main$viewMainGame(model));
+	return model.an ? A2(author$project$Main$viewStartScreen, model.q, model) : (model.am ? A2(author$project$Theme$EndScreen$view, model.q, model.aD) : author$project$Main$viewMainGame(model));
 };
 var elm$browser$Browser$External = function (a) {
 	return {$: 1, a: a};
@@ -17084,7 +17169,7 @@ var elm$core$String$contains = _String_contains;
 var elm$core$String$toInt = _String_toInt;
 var elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
-		return {a6: fragment, a8: host, bj: path, bm: port_, bp: protocol, bq: query};
+		return {a1: fragment, a3: host, be: path, bh: port_, bk: protocol, bl: query};
 	});
 var elm$url$Url$chompBeforePath = F5(
 	function (protocol, path, params, frag, str) {
@@ -17190,7 +17275,7 @@ var elm$url$Url$fromString = function (str) {
 };
 var elm$browser$Browser$element = _Browser_element;
 var author$project$Main$main = elm$browser$Browser$element(
-	{cp: author$project$Main$init, ds: author$project$Main$subscriptions, dB: author$project$Main$update, dD: author$project$Main$view});
+	{ch: author$project$Main$init, dc: author$project$Main$subscriptions, dl: author$project$Main$update, dn: author$project$Main$view});
 _Platform_export({'Main':{'init':author$project$Main$main(
 	A2(
 		elm$json$Json$Decode$andThen,

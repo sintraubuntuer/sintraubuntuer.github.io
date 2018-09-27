@@ -3,7 +3,7 @@
 <head>
 
         <meta charset="utf-8" />
-        <title>Guided Tour through Vila Sassetti - Elm 0.19 and Leaflet maps - Sintra // Sintra Ubuntuer</title>
+        <title>Guided Tour through Vila Sassetti - Elm 0.18 - Sintra // Sintra Ubuntuer</title>
         <link rel="stylesheet" href="https://sintraubuntuer.github.io/theme/css/main.css" />
 
         <!-- Mobile Meta -->
@@ -20,14 +20,9 @@
         <link rel="stylesheet" type="text/css" href="https://sintraubuntuer.github.io/theme/css/appsCss/story.css" />
         <link rel="stylesheet" type="text/css" href="https://sintraubuntuer.github.io/theme/css/appsCss/github-markdown.css" />
 
-                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
-                <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
-                <style>
-                    #mapid { height: 400px; width : 800px; margin : auto ; }
-
-               </style>
 
 
+        <link href="https://sintraubuntuer.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Sintra Ubuntuer Atom Feed" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -119,8 +114,8 @@
      <!-- include 'sidebar.html'  -->
     <div class="pure-u-1">
         <div class="content">
-            <h1 class="content-subhead">Guided Tour through Vila Sassetti - Elm 0.19 and Leaflet maps - Sintra</h1>
-            <p><h1>Guided Tour through Vila Sassetti - Elm 0.19 and Leaflet maps - Sintra ( proof of concept )</h1></p>
+            <h1 class="content-subhead">Guided Tour through Vila Sassetti - Elm 0.18 - Sintra</h1>
+            <p><h1>Guided Tour through Vila Sassetti -Elm 0.18 - Sintra ( proof of concept )</h1></p>
                   <div id="mapAndApp">
 
                       <div id="mapid"></div>
@@ -147,6 +142,7 @@
                 <div class="social">
                         <h2>Social</h2>
                         <ul>
+                            <li><a href="https://sintraubuntuer.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
                             <li><a href="https://github.com/sintraubuntuer">Github</a></li>
                         </ul>
@@ -171,6 +167,7 @@
                                <ul class="list-unstyled">
                                    <li><a href="https://sintraubuntuer.github.io/index.html">Home</a></li>
                                    <li><a href="https://sintraubuntuer.github.io/index.html#about">About</a></li>
+                                   <li><a href="https://sintraubuntuer.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"></a></li>
                                </ul>
                            </div>
                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
@@ -259,23 +256,25 @@
 
     </script>
 
-        <script type="text/javascript" src="https://sintraubuntuer.github.io/theme/js/apps/guidedTourVilaSassetti_Elm019.js"></script>
+        <script type="text/javascript" src="https://sintraubuntuer.github.io/theme/js/apps/guidedTourVilaSassetti2.js"></script>
         <script type="text/javascript">
             var node1 = document.getElementById('elmAppOutputArea');
 
+                    var initial_latitude ;
+                    var initial_longitude ;
 
-                           var mymap = L.map('mapid').setView([38.7952, -9.391733 ], 18);
-                           L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mymap);
 
 
-                    var saveName = "guidedTourVilaSassettiElm019" + "_historyStr" ;
 
-                        var elmApp = Elm.Main.init({ node: document.getElementById('elmAppOutputArea')
-                                      , flags : {   baseImgUrl : "https://sintraubuntuer.github.io/theme/images/guidedTourVilaSassettiAppImages/"
+                    var saveName = "guidedTourVilaSassettiElm018" + "_historyStr" ;
+
+                    console.log("elm version variable is : "  + 0.18 )
+
+                        var elmApp  = Elm.Main.embed( node1 , {  baseImgUrl : "https://sintraubuntuer.github.io/theme/images/guidedTourVilaSassettiAppImages/"
                                                   , baseSoundUrl : "https://sintraubuntuer.github.io/theme/sound/guidedTourVilaSassettiAppSound/"
                                                 }
-                                   }
-                                   ) ;
+
+                                                               ) ;
 
 
                     elmApp.ports.saveHistoryToStorage.subscribe(function(history) {
@@ -290,86 +289,6 @@
                        elmApp.ports.getHistoryFromStorage.send(storedHistory)
                    });
 
-
-
-                         elmApp.ports.sendRequestForGeolocation.subscribe(function(interactableId) {
-                             if (!navigator.geolocation){
-                                 console.log("Geolocation is not supported by your browser");
-                                 var failed_geolocation_info =   { "interactableId" : interactableId  , "latitude" : -999 ,  "longitude" : -999 }  ;
-
-                                elmApp.ports.getGeolocationFromBrowser.send(failed_geolocation_info) ;
-                                 //return ;
-                            }  else {
-
-                                navigator.geolocation.getCurrentPosition(success, error);
-                            }
-
-                            function success(position) {
-                                var latitude  = position.coords.latitude;
-                                var longitude = position.coords.longitude;
-
-                                var geolocation_info =   { "interactableId" : interactableId  , "latitude" : latitude ,  "longitude" : longitude }  ;
-                                elmApp.ports.getGeolocationFromBrowser.send(geolocation_info) ;
-
-                            }
-
-                            function error() {
-                                //output.innerHTML = "Unable to retrieve your location";
-                                console.log("Unable to retrieve your location") ;
-                            }
-                         });
-
-
-                           elmApp.ports.setView.subscribe(function(data){
-                                mymap.setView.apply(mymap, data);
-                           }) ;
-
-
-                           var myIcon = L.icon({
-
-                                iconUrl: "https://sintraubuntuer.github.io/theme/images/guidedTourVilaSassettiAppImages/markers/mapmarker.png",
-                                iconSize: [32, 32],
-                            });
-
-                            var myIconCurrent = L.icon({
-                                iconUrl: "https://sintraubuntuer.github.io/theme/images/guidedTourVilaSassettiAppImages/markers/mapmarker_currentStage.png",
-                                iconSize: [32, 32],
-                            });
-
-                            var myIconPlayer = L.icon({
-                                iconUrl: "https://sintraubuntuer.github.io/theme/images/guidedTourVilaSassettiAppImages/markers/mapmarker_player.png",
-                                iconSize: [32, 32],
-                            });
-
-                            var markerArray = new Array() ;
-
-                            elmApp.ports.filterMarkersCmdPort.subscribe(function(data){
-
-                                  markerArray.forEach( function(themarker) {
-                                      themarker.removeFrom(mymap) ;
-                                  } ) ;
-
-                                  var stageMarkerInfo = data.stageMarkerInfo ;
-                                  stageMarkerInfo.forEach( function(coordsObj) {
-                                      var coords = coordsObj.coords ;
-                                      var themarker ;
-
-                                      if ( coordsObj.marker_type == "current") {
-                                          themarker = L.marker(coords, {icon: myIconCurrent}).bindTooltip("current location :  \n  " + coordsObj.stageName + " ") ;
-                                      } else {
-                                          themarker = L.marker(coords, {icon: myIcon}).bindTooltip(" " + coordsObj.stageName + " ") ;
-                                      }
-                                      markerArray.push(themarker) ;
-                                      themarker.addTo(mymap);
-
-
-                                  } ) ;
-                                  // playerMarker
-                                  var thePlayerMarker = L.marker(data.playerCoords, {icon: myIconPlayer}).bindTooltip(" Player ") ;
-
-                                  markerArray.push(thePlayerMarker) ;
-                                  thePlayerMarker.addTo(mymap);
-                           }) ;
 
 
 
