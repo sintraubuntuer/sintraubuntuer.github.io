@@ -11082,10 +11082,6 @@ var _user$project$Types$InteractionExtraInfo = F6(
 	function (a, b, c, d, e, f) {
 		return {mbInputText: a, mbInputTextForBackend: b, geolocationInfoText: c, currentLocation: d, bkAnsStatus: e, mbMatchedRuleId: f};
 	});
-var _user$project$Types$ExtraInfoWithPendingChanges = F3(
-	function (a, b, c) {
-		return {interactionExtraInfo: a, pendingChanges: b, mbQuasiCwCmdWithBk: c};
-	});
 var _user$project$Types$Rule_ = F3(
 	function (a, b, c) {
 		return {interaction: a, conditions: b, changes: c};
@@ -11512,7 +11508,6 @@ var _user$project$ClientTypes$StartMainGameNewPlayerName = function (a) {
 	return {ctor: 'StartMainGameNewPlayerName', _0: a};
 };
 var _user$project$ClientTypes$StartMainGame = {ctor: 'StartMainGame'};
-var _user$project$ClientTypes$SettingsHideExitToFinalScreenButton = {ctor: 'SettingsHideExitToFinalScreenButton'};
 var _user$project$ClientTypes$SettingsShowExitToFinalScreenButton = {ctor: 'SettingsShowExitToFinalScreenButton'};
 var _user$project$ClientTypes$SettingsLayoutWithSidebar = function (a) {
 	return {ctor: 'SettingsLayoutWithSidebar', _0: a};
@@ -13850,7 +13845,7 @@ var _user$project$Engine$replaceBkendQuasiCwCmdsWithCwcommands = F2(
 			return A4(_user$project$Engine$replaceCheckIfAnswerCorrectUsingBackend, extraInfo.bkAnsStatus, _p8._0, _p8._1, _p8._2);
 		}
 	});
-var _user$project$Engine$determineIfInfoNeeded = function (qcwcommand) {
+var _user$project$Engine$getInfoNeeded = function (qcwcommand) {
 	var _p9 = qcwcommand;
 	if (_p9.ctor === 'Check_IfAnswerCorrectUsingBackend') {
 		return _user$project$Types$AnswerInfoToQuestionNeeded(_p9._0);
@@ -14069,46 +14064,21 @@ var _user$project$Engine$changeWorld = F2(
 				},
 				changes));
 	});
-var _user$project$Engine$CompleteTheUpdate = F2(
-	function (a, b) {
-		return {ctor: 'CompleteTheUpdate', _0: a, _1: b};
-	});
-var _user$project$Engine$PreUpdate = F2(
-	function (a, b) {
-		return {ctor: 'PreUpdate', _0: a, _1: b};
-	});
-var _user$project$Engine$EngineUpdateCompleteResponse = function (a) {
-	return {ctor: 'EngineUpdateCompleteResponse', _0: a};
-};
-var _user$project$Engine$completeTheUpdate = F3(
-	function (interactableId, extraInfoWithPendingChanges, _p62) {
+var _user$project$Engine$update = F3(
+	function (interactableId, extraInfo, _p62) {
 		var _p63 = _p62;
-		var extraInfo = extraInfoWithPendingChanges.interactionExtraInfo;
-		var mbChangeFromQuasi = A2(
-			_elm_lang$core$Maybe$map,
-			_user$project$Engine$replaceBkendQuasiCwCmdsWithCwcommands(extraInfo),
-			extraInfoWithPendingChanges.mbQuasiCwCmdWithBk);
-		var allChanges = function () {
-			var _p64 = mbChangeFromQuasi;
-			if (_p64.ctor === 'Nothing') {
-				return extraInfoWithPendingChanges.pendingChanges;
-			} else {
-				return {ctor: '::', _0: _p64._0, _1: extraInfoWithPendingChanges.pendingChanges};
-			}
-		}();
-		var _p65 = A2(_user$project$Engine$changeWorld, allChanges, _p63);
-		var newModel = _p65._0;
-		var lincidents = _p65._1;
-		var addHistory = function (_p66) {
-			var _p67 = _p66;
-			var _p68 = _p67._0;
+		var _p76 = _p63._0;
+		var _p75 = _p63;
+		var addHistory = function (_p64) {
+			var _p65 = _p64;
+			var _p66 = _p65._0;
 			return _user$project$Engine$Model(
 				_elm_lang$core$Native_Utils.update(
-					_p68,
+					_p66,
 					{
 						history: A2(
 							_elm_lang$core$Basics_ops['++'],
-							_p68.history,
+							_p66.history,
 							{
 								ctor: '::',
 								_0: {ctor: '_Tuple2', _0: interactableId, _1: extraInfo},
@@ -14116,78 +14086,62 @@ var _user$project$Engine$completeTheUpdate = F3(
 							})
 					}));
 		};
-		return _user$project$Engine$EngineUpdateCompleteResponse(
-			{
-				ctor: '_Tuple2',
-				_0: addHistory(newModel),
-				_1: lincidents
-			});
-	});
-var _user$project$Engine$EnginePreResponse = function (a) {
-	return {ctor: 'EnginePreResponse', _0: a};
-};
-var _user$project$Engine$preUpdate = F3(
-	function (interactableId, extraInfo, _p69) {
-		var _p70 = _p69;
-		var _p78 = _p70._0;
-		var _p77 = _p70;
 		var matchingRule = function () {
-			var _p71 = extraInfo.mbMatchedRuleId;
-			if (_p71.ctor === 'Nothing') {
-				return A3(_user$project$Engine_Rules$findMatchingRule, _p78, extraInfo.mbInputText, interactableId);
+			var _p67 = extraInfo.mbMatchedRuleId;
+			if (_p67.ctor === 'Nothing') {
+				return A3(_user$project$Engine_Rules$findMatchingRule, _p76, extraInfo.mbInputText, interactableId);
 			} else {
-				var _p72 = _p71._0;
+				var _p68 = _p67._0;
 				return A2(
 					_elm_lang$core$Maybe$map,
 					function (x) {
-						return {ctor: '_Tuple2', _0: _p72, _1: x};
+						return {ctor: '_Tuple2', _0: _p68, _1: x};
 					},
-					A2(_elm_lang$core$Dict$get, _p72, _p78.rules));
+					A2(_elm_lang$core$Dict$get, _p68, _p76.rules));
 			}
 		}();
-		var newExtraInfo = _elm_lang$core$Native_Utils.update(
-			extraInfo,
-			{
-				mbMatchedRuleId: A2(_elm_lang$core$Maybe$map, _elm_lang$core$Tuple$first, matchingRule)
-			});
 		var lquasicwcmds = A2(
 			_elm_lang$core$Maybe$withDefault,
 			{ctor: '[]'},
 			A2(
 				_elm_lang$core$Maybe$map,
-				function (_p73) {
+				function (_p69) {
 					return function (_) {
 						return _.quasiChanges;
 					}(
-						_elm_lang$core$Tuple$second(_p73));
+						_elm_lang$core$Tuple$second(_p69));
 				},
 				matchingRule));
 		var changesFromQuasi = A2(
 			_elm_lang$core$List$map,
 			_user$project$Engine$replaceQuasiCwCmdsWithCwcommands(extraInfo),
 			lquasicwcmds);
-		var mbQuasiCwCmdWithBk = A2(
+		var mbBkQuasicwcmd = A2(
 			_elm_lang$core$Maybe$map,
-			function (_p74) {
+			function (_p70) {
 				return function (_) {
 					return _.quasiChangeWithBkend;
 				}(
-					_elm_lang$core$Tuple$second(_p74));
+					_elm_lang$core$Tuple$second(_p70));
 			},
 			matchingRule);
 		var infoNeeded = function () {
-			var _p75 = mbQuasiCwCmdWithBk;
-			if (_p75.ctor === 'Nothing') {
+			var _p71 = mbBkQuasicwcmd;
+			if (_p71.ctor === 'Nothing') {
 				return _user$project$Types$NoInfoNeeded;
 			} else {
-				return _user$project$Engine$determineIfInfoNeeded(_p75._0);
+				return _user$project$Engine$getInfoNeeded(_p71._0);
 			}
 		}();
-		var defaultChanges = A2(_user$project$Engine_Manifest$isLocation, interactableId, _p78.manifest) ? {
+		var mbChangeFromQuasi = A2(
+			_elm_lang$core$Maybe$map,
+			_user$project$Engine$replaceBkendQuasiCwCmdsWithCwcommands(extraInfo),
+			mbBkQuasicwcmd);
+		var defaultChanges = A2(_user$project$Engine_Manifest$isLocation, interactableId, _p76.manifest) ? {
 			ctor: '::',
 			_0: _user$project$Types$MoveTo(interactableId),
 			_1: {ctor: '[]'}
-		} : (A2(_user$project$Engine_Manifest$isItem, interactableId, _p78.manifest) ? {
+		} : (A2(_user$project$Engine_Manifest$isItem, interactableId, _p76.manifest) ? {
 			ctor: '::',
 			_0: _user$project$Types$MoveItemToInventory(interactableId),
 			_1: {ctor: '[]'}
@@ -14197,41 +14151,56 @@ var _user$project$Engine$preUpdate = F3(
 			defaultChanges,
 			A2(
 				_elm_lang$core$Maybe$map,
-				function (_p76) {
+				function (_p72) {
 					return function (_) {
 						return _.changes;
 					}(
-						_elm_lang$core$Tuple$second(_p76));
+						_elm_lang$core$Tuple$second(_p72));
 				},
 				matchingRule));
-		var changes = A2(_elm_lang$core$Basics_ops['++'], somechanges, changesFromQuasi);
-		var extraInfoWithPendingChanges = A3(_user$project$Types$ExtraInfoWithPendingChanges, newExtraInfo, changes, mbQuasiCwCmdWithBk);
-		var extraInfoWithPendingChangesNoBackend = A3(_user$project$Types$ExtraInfoWithPendingChanges, newExtraInfo, changes, _elm_lang$core$Maybe$Nothing);
-		return ((!_elm_lang$core$Native_Utils.eq(infoNeeded, _user$project$Types$NoInfoNeeded)) && (_elm_lang$core$Native_Utils.eq(extraInfo.bkAnsStatus, _user$project$Types$NoInfoYet) && ((!_elm_lang$core$Native_Utils.eq(extraInfo.mbInputTextForBackend, _elm_lang$core$Maybe$Nothing)) && (!_elm_lang$core$Native_Utils.eq(
+		var changes = function () {
+			var _p73 = mbChangeFromQuasi;
+			if (_p73.ctor === 'Nothing') {
+				return A2(_elm_lang$core$Basics_ops['++'], somechanges, changesFromQuasi);
+			} else {
+				return {
+					ctor: '::',
+					_0: _p73._0,
+					_1: A2(_elm_lang$core$Basics_ops['++'], somechanges, changesFromQuasi)
+				};
+			}
+		}();
+		if ((!_elm_lang$core$Native_Utils.eq(infoNeeded, _user$project$Types$NoInfoNeeded)) && (_elm_lang$core$Native_Utils.eq(extraInfo.bkAnsStatus, _user$project$Types$NoInfoYet) && ((!_elm_lang$core$Native_Utils.eq(extraInfo.mbInputTextForBackend, _elm_lang$core$Maybe$Nothing)) && (!_elm_lang$core$Native_Utils.eq(
 			extraInfo.mbInputTextForBackend,
-			_elm_lang$core$Maybe$Just('')))))) ? _user$project$Engine$EnginePreResponse(
-			{ctor: '_Tuple3', _0: _p77, _1: extraInfoWithPendingChanges, _2: infoNeeded}) : (((!_elm_lang$core$Native_Utils.eq(infoNeeded, _user$project$Types$NoInfoNeeded)) && _elm_lang$core$Native_Utils.eq(extraInfo.bkAnsStatus, _user$project$Types$WaitingForInfoRequested)) ? _user$project$Engine$EnginePreResponse(
-			{
-				ctor: '_Tuple3',
-				_0: _p77,
-				_1: A3(
-					_user$project$Types$ExtraInfoWithPendingChanges,
-					extraInfo,
-					{ctor: '[]'},
-					_elm_lang$core$Maybe$Nothing),
-				_2: _user$project$Types$NoInfoNeeded
-			}) : _user$project$Engine$EnginePreResponse(
-			{ctor: '_Tuple3', _0: _p77, _1: extraInfoWithPendingChangesNoBackend, _2: _user$project$Types$NoInfoNeeded}));
-	});
-var _user$project$Engine$update = F2(
-	function (msg, _p79) {
-		var _p80 = _p79;
-		var _p82 = _p80;
-		var _p81 = msg;
-		if (_p81.ctor === 'PreUpdate') {
-			return A3(_user$project$Engine$preUpdate, _p81._0, _p81._1, _p82);
+			_elm_lang$core$Maybe$Just('')))))) {
+			return {
+				ctor: '_Tuple4',
+				_0: _p75,
+				_1: A2(_elm_lang$core$Maybe$map, _elm_lang$core$Tuple$first, matchingRule),
+				_2: {ctor: '[]'},
+				_3: infoNeeded
+			};
 		} else {
-			return A3(_user$project$Engine$completeTheUpdate, _p81._0, _p81._1, _p82);
+			if ((!_elm_lang$core$Native_Utils.eq(infoNeeded, _user$project$Types$NoInfoNeeded)) && _elm_lang$core$Native_Utils.eq(extraInfo.bkAnsStatus, _user$project$Types$WaitingForInfoRequested)) {
+				return {
+					ctor: '_Tuple4',
+					_0: _p75,
+					_1: A2(_elm_lang$core$Maybe$map, _elm_lang$core$Tuple$first, matchingRule),
+					_2: {ctor: '[]'},
+					_3: _user$project$Types$NoInfoNeeded
+				};
+			} else {
+				var _p74 = A2(_user$project$Engine$changeWorld, changes, _p75);
+				var newModel = _p74._0;
+				var lincidents = _p74._1;
+				return {
+					ctor: '_Tuple4',
+					_0: addHistory(newModel),
+					_1: A2(_elm_lang$core$Maybe$map, _elm_lang$core$Tuple$first, matchingRule),
+					_2: lincidents,
+					_3: _user$project$Types$NoInfoNeeded
+				};
+			}
 		}
 	});
 
@@ -15221,7 +15190,7 @@ var _user$project$GpsUtils$getDistance = F2(
 	});
 
 var _user$project$InfoForBkendApiRequests$getApiKey = 'RFV762GI39cd395a-689e-4e1f-9f37-c6845ba65a9eO4qh4234cv56';
-var _user$project$InfoForBkendApiRequests$backendAnswerCheckerUrl = 'https://questionanswerntapp.herokuapp.com/answerchecker/';
+var _user$project$InfoForBkendApiRequests$backendAnswerCheckerUrl = 'https://questionanswerntapp.herokuapp.com/questions/';
 
 var _user$project$OurStory_Manifest$locations = {
 	ctor: '::',
@@ -16336,7 +16305,7 @@ var _user$project$OurStory_NarrativeEnglish$helpfulNotesAppearEn = {
 };
 var _user$project$OurStory_NarrativeEnglish$talkToSintraWiseManEn = {
 	ctor: '::',
-	_0: '\n\nSintra Wise Man is known for being an expert about this region , so you decide to ask him  :\n\"Do you know whether this Rua Barbosa du Bocage that starts over here is the famous Estrada Velha de Colares ? ...\"\n      ',
+	_0: '\n\nSintra Wise Man is known for being an expert about this region , so you decide to ask him  :\n\"Do you know wether this Rua Barbosa du Bocage that starts over here is the famous Estrada Velha de Colares ? ...\"\n      ',
 	_1: {
 		ctor: '::',
 		_0: '\nWise Man answers : \"Yes , this is in fact the road that heads to  Colares and is known as Estrada Velha de Colares ....\"\n     ',
@@ -22126,14 +22095,10 @@ var _user$project$Theme_Settings$update = F2(
 				return _elm_lang$core$Native_Utils.update(
 					model,
 					{layoutWithSidebar: _p1._0});
-			case 'SettingsShowExitToFinalScreenButton':
-				return _elm_lang$core$Native_Utils.update(
-					model,
-					{showExitToFinalScreenButton: true});
 			default:
 				return _elm_lang$core$Native_Utils.update(
 					model,
-					{showExitToFinalScreenButton: false});
+					{showExitToFinalScreenButton: !model.showExitToFinalScreenButton});
 		}
 	});
 var _user$project$Theme_Settings$init = function (theLanguages) {
@@ -22628,29 +22593,6 @@ var _user$project$Theme_EndScreen$view = F2(
 			});
 	});
 
-var _user$project$TypesUpdateHelper$updateNestedBkAnsStatus = F2(
-	function (extraInfoWithPendingChanges, bkAnsStatus) {
-		var interactionExtraInfo_ = extraInfoWithPendingChanges.interactionExtraInfo;
-		var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
-			interactionExtraInfo_,
-			{bkAnsStatus: bkAnsStatus});
-		var newExtraInfoWithPendingChanges = _elm_lang$core$Native_Utils.update(
-			extraInfoWithPendingChanges,
-			{interactionExtraInfo: newInteractionExtraInfo});
-		return newExtraInfoWithPendingChanges;
-	});
-var _user$project$TypesUpdateHelper$updateNestedMbInputTextBk = F2(
-	function (extraInfoWithPendingChanges, mbInputTextForBackend) {
-		var interactionExtraInfo_ = extraInfoWithPendingChanges.interactionExtraInfo;
-		var newinteractionExtraInfo = _elm_lang$core$Native_Utils.update(
-			interactionExtraInfo_,
-			{mbInputTextForBackend: mbInputTextForBackend});
-		var newExtraInfoWithPendingChanges = _elm_lang$core$Native_Utils.update(
-			extraInfoWithPendingChanges,
-			{interactionExtraInfo: newinteractionExtraInfo});
-		return newExtraInfoWithPendingChanges;
-	});
-
 var _user$project$TypeConverterHelper$sendToDebug = F3(
 	function (doDebug, valStr, returnVal) {
 		var _p0 = doDebug;
@@ -22853,13 +22795,13 @@ var _user$project$Main$viewStartScreen = F2(
 		return A3(_user$project$Theme_StartScreen$view, baseImgUrl, model.startScreenInfo, model.answerBoxModel);
 	});
 var _user$project$Main$getNewModelAndInteractionExtraInfoByEngineUpdate = F3(
-	function (interactableId, extraInfoWithPendingChanges, model) {
+	function (interactableId, interactionExtraInfo, model) {
 		if (_elm_lang$core$Native_Utils.eq(
 			A2(_elm_lang$core$Dict$get, interactableId, model.bkendAnswerStatusDict),
 			_elm_lang$core$Maybe$Just(_user$project$Types$WaitingForInfoRequested))) {
 			return {
 				ctor: '_Tuple2',
-				_0: extraInfoWithPendingChanges.interactionExtraInfo,
+				_0: interactionExtraInfo,
 				_1: _elm_lang$core$Native_Utils.update(
 					model,
 					{
@@ -22867,24 +22809,14 @@ var _user$project$Main$getNewModelAndInteractionExtraInfoByEngineUpdate = F3(
 					})
 			};
 		} else {
-			var newInteractionExtraInfo = extraInfoWithPendingChanges.interactionExtraInfo;
-			var _p0 = function () {
-				var _p1 = A2(
-					_user$project$Engine$update,
-					A2(_user$project$Engine$CompleteTheUpdate, interactableId, extraInfoWithPendingChanges),
-					model.engineModel);
-				if ((_p1.ctor === 'EngineUpdateCompleteResponse') && (_p1._0.ctor === '_Tuple2')) {
-					return {ctor: '_Tuple2', _0: _p1._0._0, _1: _p1._0._1};
-				} else {
-					return {
-						ctor: '_Tuple2',
-						_0: model.engineModel,
-						_1: {ctor: '[]'}
-					};
-				}
-			}();
+			var _p0 = A3(_user$project$Engine$update, interactableId, interactionExtraInfo, model.engineModel);
 			var newEngineModel = _p0._0;
-			var lInteractionIncidents = _p0._1;
+			var maybeMatchedRuleId = _p0._1;
+			var lInteractionIncidents = _p0._2;
+			var mbUrlForBkendQry = _p0._3;
+			var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
+				interactionExtraInfo,
+				{mbMatchedRuleId: maybeMatchedRuleId});
 			var interactionIncidents = model.debugMode ? lInteractionIncidents : {ctor: '[]'};
 			var newModel = _elm_lang$core$Native_Utils.update(
 				model,
@@ -22901,27 +22833,6 @@ var _user$project$Main$getNewModelAndInteractionExtraInfoByEngineUpdate = F3(
 				});
 			return {ctor: '_Tuple2', _0: newInteractionExtraInfo, _1: newModel};
 		}
-	});
-var _user$project$Main$playerAnswerEncoder = F2(
-	function (interactableId, playerAnswer) {
-		var attributes = {
-			ctor: '::',
-			_0: {
-				ctor: '_Tuple2',
-				_0: 'interactableId',
-				_1: _elm_lang$core$Json_Encode$string(interactableId)
-			},
-			_1: {
-				ctor: '::',
-				_0: {
-					ctor: '_Tuple2',
-					_0: 'playerAnswer',
-					_1: _elm_lang$core$Json_Encode$string(playerAnswer)
-				},
-				_1: {ctor: '[]'}
-			}
-		};
-		return _elm_lang$core$Json_Encode$object(attributes);
 	});
 var _user$project$Main$getNewCoords = F4(
 	function (interactableId, mbGpsZone, bval, interactionExtraInfo) {
@@ -22960,14 +22871,14 @@ var _user$project$Main$findEntity = F2(
 			_elm_lang$core$List$head(
 				A2(
 					_elm_lang$core$List$filter,
-					function (_p2) {
+					function (_p1) {
 						return A2(
 							F2(
 								function (x, y) {
 									return _elm_lang$core$Native_Utils.eq(x, y);
 								}),
 							id,
-							_elm_lang$core$Tuple$first(_p2));
+							_elm_lang$core$Tuple$first(_p1));
 					},
 					model.itemsLocationsAndCharacters)));
 	});
@@ -23032,12 +22943,12 @@ var _user$project$Main$viewMainGame = function (model) {
 			_user$project$Engine$getCharactersInCurrentLocation(model.engineModel)),
 		exits: A2(
 			_elm_lang$core$List$map,
-			function (_p3) {
-				var _p4 = _p3;
+			function (_p2) {
+				var _p3 = _p2;
 				return {
 					ctor: '_Tuple2',
-					_0: _p4._0,
-					_1: A2(_user$project$Main$findEntity, model, _p4._1)
+					_0: _p3._0,
+					_1: A2(_user$project$Main$findEntity, model, _p3._1)
 				};
 			},
 			_user$project$Components$getExits(currentLocation)),
@@ -23070,25 +22981,25 @@ var _user$project$Main$viewMainGame = function (model) {
 					mbInteactableIdAtTop))),
 		layoutWithSidebar: model.settingsModel.layoutWithSidebar,
 		boolTextBoxInStoryline: function () {
-			var _p5 = mbInteactableIdAtTop;
-			if (_p5.ctor === 'Nothing') {
+			var _p4 = mbInteactableIdAtTop;
+			if (_p4.ctor === 'Nothing') {
 				return false;
 			} else {
-				var _p6 = _p5._0;
-				return A2(_user$project$Engine$isWritable, _p6, model.engineModel) && (!_elm_lang$core$Native_Utils.eq(
-					A2(_elm_lang$core$Dict$get, _p6, model.bkendAnswerStatusDict),
+				var _p5 = _p4._0;
+				return A2(_user$project$Engine$isWritable, _p5, model.engineModel) && (!_elm_lang$core$Native_Utils.eq(
+					A2(_elm_lang$core$Dict$get, _p5, model.bkendAnswerStatusDict),
 					_elm_lang$core$Maybe$Just(_user$project$Types$WaitingForInfoRequested)));
 			}
 		}(),
 		mbTextBoxPlaceholderText: function () {
-			var _p7 = mbInteactableIdAtTop;
-			if (_p7.ctor === 'Nothing') {
+			var _p6 = mbInteactableIdAtTop;
+			if (_p6.ctor === 'Nothing') {
 				return _elm_lang$core$Maybe$Nothing;
 			} else {
 				return A2(
 					_user$project$TypeConverterHelper$mbAttributeToMbString,
 					model.debugMode,
-					A3(_user$project$Engine$getInteractableAttribute, 'placeholderText', _p7._0, model.engineModel));
+					A3(_user$project$Engine$getInteractableAttribute, 'placeholderText', _p6._0, model.engineModel));
 			}
 		}(),
 		settingsModel: model.settingsModel,
@@ -23118,7 +23029,7 @@ var _user$project$Main$init = function (flags) {
 	var displaylanguage = settingsmodel.displayLanguage;
 	var answerboxmodel = _user$project$Theme_AnswerBox$init;
 	var dictEntities = _user$project$OurStory_Rules$rules;
-	var _p8 = A2(
+	var _p7 = A2(
 		_user$project$Engine$changeWorld,
 		_user$project$OurStory_Rules$startingState,
 		A3(
@@ -23133,8 +23044,8 @@ var _user$project$Main$init = function (flags) {
 				_elm_lang$core$Dict$map,
 				_elm_lang$core$Basics$curry(_user$project$Components$getRuleData),
 				dictEntities)));
-	var engineModel = _p8._0;
-	var lincidents = _p8._1;
+	var engineModel = _p7._0;
+	var lincidents = _p7._1;
 	var startLincidents = {
 		ctor: '::',
 		_0: {ctor: '_Tuple2', _0: 'startingState ', _1: lincidents},
@@ -23403,34 +23314,32 @@ var _user$project$Main$backendAnswerDecoder = F2(
 												_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Types$AnswerInfo)))))))))));
 	});
 var _user$project$Main$getBackendAnswerInfo = F3(
-	function (interactableId, extraInfoWithPendingChanges, strUrl) {
-		var newExtraInfoWithPendingChanges = A2(_user$project$TypesUpdateHelper$updateNestedMbInputTextBk, extraInfoWithPendingChanges, _elm_lang$core$Maybe$Nothing);
+	function (interactableId, interactionExtraInfo, strUrl) {
+		var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
+			interactionExtraInfo,
+			{mbInputTextForBackend: _elm_lang$core$Maybe$Nothing});
 		var apiKey = _user$project$InfoForBkendApiRequests$getApiKey;
 		var request = _elm_lang$http$Http$request(
 			{
-				method: 'POST',
+				method: 'GET',
 				headers: {
 					ctor: '::',
 					_0: A2(_elm_lang$http$Http$header, 'x-api-key', apiKey),
 					_1: {ctor: '[]'}
 				},
 				url: strUrl,
-				body: _elm_lang$http$Http$jsonBody(
-					A2(
-						_user$project$Main$playerAnswerEncoder,
-						interactableId,
-						A2(_elm_lang$core$Maybe$withDefault, '', extraInfoWithPendingChanges.interactionExtraInfo.mbInputTextForBackend))),
+				body: _elm_lang$http$Http$emptyBody,
 				expect: _elm_lang$http$Http$expectJson(
 					A2(
 						_user$project$Main$backendAnswerDecoder,
 						interactableId,
-						A2(_elm_lang$core$Maybe$withDefault, '', extraInfoWithPendingChanges.interactionExtraInfo.mbInputTextForBackend))),
+						A2(_elm_lang$core$Maybe$withDefault, '', interactionExtraInfo.mbInputTextForBackend))),
 				timeout: _elm_lang$core$Maybe$Nothing,
 				withCredentials: false
 			});
 		return A2(
 			_elm_lang$http$Http$send,
-			A2(_user$project$ClientTypes$AnswerChecked, interactableId, newExtraInfoWithPendingChanges),
+			A2(_user$project$ClientTypes$AnswerChecked, interactableId, newInteractionExtraInfo),
 			request);
 	});
 var _user$project$Main$Flags = F2(
@@ -23441,12 +23350,12 @@ var _user$project$Main$update = F2(
 	function (msg, model) {
 		update:
 		while (true) {
-			var _p9 = _user$project$Engine$hasFreezingEnd(model.engineModel);
-			if (_p9 === true) {
+			var _p8 = _user$project$Engine$hasFreezingEnd(model.engineModel);
+			if (_p8 === true) {
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			} else {
-				var _p10 = msg;
-				switch (_p10.ctor) {
+				var _p9 = msg;
+				switch (_p9.ctor) {
 					case 'StartMainGame':
 						return {
 							ctor: '_Tuple2',
@@ -23456,12 +23365,12 @@ var _user$project$Main$update = F2(
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					case 'StartMainGameNewPlayerName':
-						var _p11 = _p10._0;
-						if (!_elm_lang$core$Native_Utils.eq(_p11, '')) {
+						var _p10 = _p9._0;
+						if (!_elm_lang$core$Native_Utils.eq(_p10, '')) {
 							var newAnswerBoxModel = A2(_user$project$Theme_AnswerBox$update, '', model.answerBoxModel);
 							var newPlayerOneEntity = A2(
 								_user$project$Components$updateAllLgsDisplayName,
-								_p11,
+								_p10,
 								A2(_user$project$Main$findEntity, model, 'playerOne'));
 							var newEntities = A2(
 								_elm_lang$core$List$map,
@@ -23473,17 +23382,17 @@ var _user$project$Main$update = F2(
 								model.itemsLocationsAndCharacters);
 							var newModel = _elm_lang$core$Native_Utils.update(
 								model,
-								{itemsLocationsAndCharacters: newEntities, playerName: _p11, answerBoxModel: newAnswerBoxModel});
-							var _v6 = _user$project$ClientTypes$StartMainGame,
-								_v7 = newModel;
-							msg = _v6;
-							model = _v7;
+								{itemsLocationsAndCharacters: newEntities, playerName: _p10, answerBoxModel: newAnswerBoxModel});
+							var _v5 = _user$project$ClientTypes$StartMainGame,
+								_v6 = newModel;
+							msg = _v5;
+							model = _v6;
 							continue update;
 						} else {
-							var _v8 = _user$project$ClientTypes$StartMainGame,
-								_v9 = model;
-							msg = _v8;
-							model = _v9;
+							var _v7 = _user$project$ClientTypes$StartMainGame,
+								_v8 = model;
+							msg = _v7;
+							model = _v8;
 							continue update;
 						}
 					case 'InteractSendingText':
@@ -23492,25 +23401,25 @@ var _user$project$Main$update = F2(
 							model,
 							{
 								mbSentText: _elm_lang$core$Maybe$Just(
-									_elm_lang$core$String$trim(_p10._1)),
+									_elm_lang$core$String$trim(_p9._1)),
 								answerBoxModel: newAnswerBoxModel
 							});
-						var _v10 = _user$project$ClientTypes$Interact(_p10._0),
-							_v11 = newModel;
-						msg = _v10;
-						model = _v11;
+						var _v9 = _user$project$ClientTypes$Interact(_p9._0),
+							_v10 = newModel;
+						msg = _v9;
+						model = _v10;
 						continue update;
 					case 'Interact':
-						var _p13 = _p10._0;
+						var _p12 = _p9._0;
 						var nModel = _elm_lang$core$Native_Utils.update(
 							model,
 							{
 								alertMessages: {ctor: '[]'},
 								mbSentText: _elm_lang$core$Maybe$Nothing
 							});
-						var interactionExtraInfo = A2(_user$project$Main$getExtraInfoFromModel, model, _p13);
+						var interactionExtraInfo = A2(_user$project$Main$getExtraInfoFromModel, model, _p12);
 						var mbGpsZone = _user$project$Components$getNeedsToBeInGpsZone(
-							A2(_user$project$Main$findEntity, model, _p13));
+							A2(_user$project$Main$findEntity, model, _p12));
 						var needsToBeInZone = A2(
 							_elm_lang$core$Maybe$withDefault,
 							false,
@@ -23521,33 +23430,33 @@ var _user$project$Main$update = F2(
 								},
 								mbGpsZone)) && (!model.settingsModel.dontNeedToBeInZone);
 						var needCoords = _user$project$Components$getNeedsGpsCoords(
-							A2(_user$project$Main$findEntity, model, _p13));
-						var _p12 = (needCoords && (!needsToBeInZone)) ? {
+							A2(_user$project$Main$findEntity, model, _p12));
+						var _p11 = (needCoords && (!needsToBeInZone)) ? {
 							ctor: '_Tuple2',
 							_0: nModel,
-							_1: A4(_user$project$Main$getNewCoords, _p13, _elm_lang$core$Maybe$Nothing, false, interactionExtraInfo)
+							_1: A4(_user$project$Main$getNewCoords, _p12, _elm_lang$core$Maybe$Nothing, false, interactionExtraInfo)
 						} : (needsToBeInZone ? {
 							ctor: '_Tuple2',
 							_0: nModel,
-							_1: A4(_user$project$Main$getNewCoords, _p13, mbGpsZone, true, interactionExtraInfo)
+							_1: A4(_user$project$Main$getNewCoords, _p12, mbGpsZone, true, interactionExtraInfo)
 						} : A2(
 							_user$project$Main$update,
-							A2(_user$project$ClientTypes$InteractStepTwo, _p13, interactionExtraInfo),
+							A2(_user$project$ClientTypes$InteractStepTwo, _p12, interactionExtraInfo),
 							nModel));
-						var newModel = _p12._0;
-						var cmds = _p12._1;
+						var newModel = _p11._0;
+						var cmds = _p11._1;
 						return {ctor: '_Tuple2', _0: newModel, _1: cmds};
 					case 'NewCoordsForInterId':
-						if (_p10._4.ctor === 'Ok') {
-							var _p17 = _p10._2;
-							var _p16 = _p10._1;
-							var _p15 = _p10._4._0;
-							var _p14 = _p10._0;
-							var updatedInteractionExtraInfo = A2(_user$project$Main$updateInterExtraInfoWithGeoInfo, _p10._3, model);
+						if (_p9._4.ctor === 'Ok') {
+							var _p16 = _p9._2;
+							var _p15 = _p9._1;
+							var _p14 = _p9._4._0;
+							var _p13 = _p9._0;
+							var updatedInteractionExtraInfo = A2(_user$project$Main$updateInterExtraInfoWithGeoInfo, _p9._3, model);
 							var distanceToClosestLocations = A3(
 								_user$project$GpsUtils$getDistancesTo,
 								1000,
-								_p15,
+								_p14,
 								A2(
 									_elm_lang$core$List$map,
 									_elm_lang$core$Dict$get(model.settingsModel.displayLanguage),
@@ -23563,26 +23472,26 @@ var _user$project$Main$update = F2(
 							var newModel = _elm_lang$core$Native_Utils.update(
 								model,
 								{
-									geoLocation: _elm_lang$core$Maybe$Just(_p15),
+									geoLocation: _elm_lang$core$Maybe$Just(_p14),
 									geoDistances: distanceToClosestLocations
 								});
-							var theDistance = A2(_user$project$GpsUtils$getDistance, _p15, _p16);
-							var inDistance = A3(_user$project$GpsUtils$checkIfInDistance, _p16, theDistance, model.defaultZoneRadius);
-							if ((!_p17) || (_p17 && inDistance)) {
-								var _v12 = A2(_user$project$ClientTypes$InteractStepTwo, _p14, updatedInteractionExtraInfo),
-									_v13 = newModel;
-								msg = _v12;
-								model = _v13;
+							var theDistance = A2(_user$project$GpsUtils$getDistance, _p14, _p15);
+							var inDistance = A3(_user$project$GpsUtils$checkIfInDistance, _p15, theDistance, model.defaultZoneRadius);
+							if ((!_p16) || (_p16 && inDistance)) {
+								var _v11 = A2(_user$project$ClientTypes$InteractStepTwo, _p13, updatedInteractionExtraInfo),
+									_v12 = newModel;
+								msg = _v11;
+								model = _v12;
 								continue update;
 							} else {
-								var _v14 = A4(_user$project$ClientTypes$NotInTheZone, _p14, _p16, _p15, theDistance),
-									_v15 = newModel;
-								msg = _v14;
-								model = _v15;
+								var _v13 = A4(_user$project$ClientTypes$NotInTheZone, _p13, _p15, _p14, theDistance),
+									_v14 = newModel;
+								msg = _v13;
+								model = _v14;
 								continue update;
 							}
 						} else {
-							var updatedInteractionExtraInfo = A2(_user$project$Main$updateInterExtraInfoWithGeoInfo, _p10._3, model);
+							var updatedInteractionExtraInfo = A2(_user$project$Main$updateInterExtraInfoWithGeoInfo, _p9._3, model);
 							var newModel = _elm_lang$core$Native_Utils.update(
 								model,
 								{
@@ -23594,32 +23503,32 @@ var _user$project$Main$update = F2(
 										_1: {ctor: '[]'}
 									}
 								});
-							if (!_p10._2) {
-								var _v16 = A2(_user$project$ClientTypes$InteractStepTwo, _p10._0, updatedInteractionExtraInfo),
-									_v17 = newModel;
-								msg = _v16;
-								model = _v17;
+							if (!_p9._2) {
+								var _v15 = A2(_user$project$ClientTypes$InteractStepTwo, _p9._0, updatedInteractionExtraInfo),
+									_v16 = newModel;
+								msg = _v15;
+								model = _v16;
 								continue update;
 							} else {
 								return {ctor: '_Tuple2', _0: newModel, _1: _elm_lang$core$Platform_Cmd$none};
 							}
 						}
 					case 'NotInTheZone':
-						var _p18 = _p10._2;
+						var _p17 = _p9._2;
 						var theName = function (_) {
 							return _.name;
 						}(
 							A2(
 								_user$project$Components$getSingleLgDisplayInfo,
 								model.settingsModel.displayLanguage,
-								A2(_user$project$Main$findEntity, model, _p10._0)));
+								A2(_user$project$Main$findEntity, model, _p9._0)));
 						var zoneCoordsStr = A2(
 							_elm_lang$core$Maybe$withDefault,
 							'',
 							A2(
 								_elm_lang$core$Maybe$map,
 								_user$project$GpsUtils$convertDecimalTupleToGps,
-								_user$project$GpsUtils$getMbGpsZoneLatLon(_p10._1)));
+								_user$project$GpsUtils$getMbGpsZoneLatLon(_p9._1)));
 						var linfoStr = {
 							ctor: '::',
 							_0: A2(
@@ -23635,7 +23544,7 @@ var _user$project$Main$update = F2(
 										_elm_lang$core$Basics_ops['++'],
 										'You are at : ',
 										_user$project$GpsUtils$convertDecimalTupleToGps(
-											{ctor: '_Tuple2', _0: _p18.latitude, _1: _p18.longitude})),
+											{ctor: '_Tuple2', _0: _p17.latitude, _1: _p17.longitude})),
 									_1: {
 										ctor: '::',
 										_0: A2(_elm_lang$core$Basics_ops['++'], 'Please move closer to ', zoneCoordsStr),
@@ -23647,7 +23556,7 @@ var _user$project$Main$update = F2(
 												A2(
 													_elm_lang$core$Basics_ops['++'],
 													_elm_lang$core$Basics$toString(
-														_elm_lang$core$Basics$round(_p10._3)),
+														_elm_lang$core$Basics$round(_p9._3)),
 													' meters')),
 											_1: {ctor: '[]'}
 										}
@@ -23660,10 +23569,10 @@ var _user$project$Main$update = F2(
 							{alertMessages: linfoStr});
 						return {ctor: '_Tuple2', _0: newModel, _1: _elm_lang$core$Platform_Cmd$none};
 					case 'InteractStepTwo':
-						var _p25 = _p10._1;
-						var _p24 = _p10._0;
+						var _p21 = _p9._1;
+						var _p20 = _p9._0;
 						if (_elm_lang$core$Native_Utils.eq(
-							A2(_elm_lang$core$Dict$get, _p24, model.bkendAnswerStatusDict),
+							A2(_elm_lang$core$Dict$get, _p20, model.bkendAnswerStatusDict),
 							_elm_lang$core$Maybe$Just(_user$project$Types$WaitingForInfoRequested))) {
 							return {
 								ctor: '_Tuple2',
@@ -23675,80 +23584,50 @@ var _user$project$Main$update = F2(
 								_1: _elm_lang$core$Platform_Cmd$none
 							};
 						} else {
-							var engResp1 = A2(
-								_user$project$Engine$update,
-								A2(_user$project$Engine$PreUpdate, _p24, _p25),
-								model.engineModel);
-							var _p19 = function () {
-								var _p20 = engResp1;
-								if ((_p20.ctor === 'EnginePreResponse') && (_p20._0.ctor === '_Tuple3')) {
-									return {ctor: '_Tuple3', _0: _p20._0._0, _1: _p20._0._1, _2: _p20._0._2};
-								} else {
-									return {
-										ctor: '_Tuple3',
-										_0: model.engineModel,
-										_1: A3(
-											_user$project$Types$ExtraInfoWithPendingChanges,
-											_p25,
-											{ctor: '[]'},
-											_elm_lang$core$Maybe$Nothing),
-										_2: _user$project$Types$NoInfoNeeded
-									};
-								}
-							}();
-							var newEngineModel = _p19._0;
-							var extraInfoWithPendingChanges = _p19._1;
-							var infoNeeded = _p19._2;
-							var newInteractionExtraInfo = extraInfoWithPendingChanges.interactionExtraInfo;
+							var getTheUrl = function (strUrl) {
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									strUrl,
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										A2(_elm_lang$core$Maybe$withDefault, '', _p21.mbInputTextForBackend),
+										'/'));
+							};
+							var _p18 = A3(_user$project$Engine$update, _p20, _p21, model.engineModel);
+							var newEngineModel = _p18._0;
+							var maybeMatchedRuleId = _p18._1;
+							var lInteractionIncidents = _p18._2;
+							var infoNeeded = _p18._3;
 							var newModel = _elm_lang$core$Native_Utils.update(
 								model,
 								{engineModel: newEngineModel});
-							var _p21 = infoNeeded;
-							if (_p21.ctor === 'NoInfoNeeded') {
-								var _p22 = function () {
-									var _p23 = A2(
-										_user$project$Engine$update,
-										A2(_user$project$Engine$CompleteTheUpdate, _p24, extraInfoWithPendingChanges),
-										newEngineModel);
-									if ((_p23.ctor === 'EngineUpdateCompleteResponse') && (_p23._0.ctor === '_Tuple2')) {
-										return {ctor: '_Tuple2', _0: _p23._0._0, _1: _p23._0._1};
-									} else {
-										return {
-											ctor: '_Tuple2',
-											_0: newEngineModel,
-											_1: {ctor: '[]'}
-										};
-									}
-								}();
-								var newEngineModel2 = _p22._0;
-								var lInteractionIncidents = _p22._1;
-								var interactionIncidents = model.debugMode ? lInteractionIncidents : {ctor: '[]'};
-								var _v21 = A2(_user$project$ClientTypes$InteractStepThree, _p24, newInteractionExtraInfo),
-									_v22 = _elm_lang$core$Native_Utils.update(
+							var newInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
+								_p21,
+								{mbMatchedRuleId: maybeMatchedRuleId});
+							var interactionIncidents = model.debugMode ? lInteractionIncidents : {ctor: '[]'};
+							var _p19 = infoNeeded;
+							if (_p19.ctor === 'NoInfoNeeded') {
+								var _v18 = A2(_user$project$ClientTypes$InteractStepThree, _p20, newInteractionExtraInfo),
+									_v19 = _elm_lang$core$Native_Utils.update(
 									newModel,
 									{
-										engineModel: newEngineModel2,
 										bkendAnswerStatusDict: A3(
 											_elm_lang$core$Dict$update,
-											_p24,
+											_p20,
 											function (x) {
 												return _elm_lang$core$Maybe$Just(_user$project$Types$NoInfoYet);
 											},
 											model.bkendAnswerStatusDict),
 										alertMessages: interactionIncidents
 									});
-								msg = _v21;
-								model = _v22;
+								msg = _v18;
+								model = _v19;
 								continue update;
 							} else {
-								if (_elm_lang$core$Native_Utils.eq(_p25.bkAnsStatus, _user$project$Types$NoInfoYet)) {
-									var getTheUrl = function (strUrl) {
-										return strUrl;
-									};
+								if (_elm_lang$core$Native_Utils.eq(_p21.bkAnsStatus, _user$project$Types$NoInfoYet)) {
 									var newInteractionExtraInfoTwo = _elm_lang$core$Native_Utils.update(
 										newInteractionExtraInfo,
 										{bkAnsStatus: _user$project$Types$WaitingForInfoRequested});
-									var newExtraInfoWithPendingChanges = {interactionExtraInfo: newInteractionExtraInfoTwo, pendingChanges: extraInfoWithPendingChanges.pendingChanges, mbQuasiCwCmdWithBk: extraInfoWithPendingChanges.mbQuasiCwCmdWithBk};
 									var newAnswerBoxModel = A2(_user$project$Theme_AnswerBox$update, '', model.answerBoxModel);
 									return {
 										ctor: '_Tuple2',
@@ -23757,7 +23636,7 @@ var _user$project$Main$update = F2(
 											{
 												bkendAnswerStatusDict: A3(
 													_elm_lang$core$Dict$update,
-													_p24,
+													_p20,
 													function (x) {
 														return _elm_lang$core$Maybe$Just(_user$project$Types$WaitingForInfoRequested);
 													},
@@ -23771,9 +23650,9 @@ var _user$project$Main$update = F2(
 											}),
 										_1: A3(
 											_user$project$Main$getBackendAnswerInfo,
-											_p24,
-											newExtraInfoWithPendingChanges,
-											getTheUrl(_p21._0))
+											_p20,
+											newInteractionExtraInfoTwo,
+											getTheUrl(_p19._0))
 									};
 								} else {
 									return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
@@ -23781,43 +23660,46 @@ var _user$project$Main$update = F2(
 							}
 						}
 					case 'AnswerChecked':
-						if (_p10._2.ctor === 'Ok') {
-							var _p28 = _p10._0;
-							var _p27 = _p10._2._0;
-							var newExtraInfoWithPendingChanges = A2(
-								_user$project$TypesUpdateHelper$updateNestedBkAnsStatus,
-								_p10._1,
-								_user$project$Types$Ans(_p27));
+						if (_p9._2.ctor === 'Ok') {
+							var _p24 = _p9._0;
+							var _p23 = _p9._2._0;
+							var nInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
+								_p9._1,
+								{
+									bkAnsStatus: _user$project$Types$Ans(_p23)
+								});
 							var nModel = _elm_lang$core$Native_Utils.update(
 								model,
 								{
 									bkendAnswerStatusDict: A3(
 										_elm_lang$core$Dict$update,
-										_p28,
+										_p24,
 										function (val) {
 											return _elm_lang$core$Maybe$Just(
-												_user$project$Types$Ans(_p27));
+												_user$project$Types$Ans(_p23));
 										},
 										model.bkendAnswerStatusDict),
 									alertMessages: {ctor: '[]'}
 								});
-							var _p26 = A3(_user$project$Main$getNewModelAndInteractionExtraInfoByEngineUpdate, _p28, newExtraInfoWithPendingChanges, nModel);
-							var newInteractionExtraInfo_ = _p26._0;
-							var newModel = _p26._1;
-							var _v23 = A2(_user$project$ClientTypes$InteractStepThree, _p28, newInteractionExtraInfo_),
-								_v24 = newModel;
-							msg = _v23;
-							model = _v24;
+							var _p22 = A3(_user$project$Main$getNewModelAndInteractionExtraInfoByEngineUpdate, _p24, nInteractionExtraInfo, nModel);
+							var newInteractionExtraInfo2 = _p22._0;
+							var newModel2 = _p22._1;
+							var _v20 = A2(_user$project$ClientTypes$InteractStepThree, _p24, newInteractionExtraInfo2),
+								_v21 = newModel2;
+							msg = _v20;
+							model = _v21;
 							continue update;
 						} else {
-							var _p30 = _p10._0;
-							var newExtraInfoWithPendingChanges = A2(_user$project$TypesUpdateHelper$updateNestedBkAnsStatus, _p10._1, _user$project$Types$CommunicationFailure);
+							var _p26 = _p9._0;
+							var nInteractionExtraInfo = _elm_lang$core$Native_Utils.update(
+								_p9._1,
+								{bkAnsStatus: _user$project$Types$CommunicationFailure});
 							var nModel = _elm_lang$core$Native_Utils.update(
 								model,
 								{
 									bkendAnswerStatusDict: A3(
 										_elm_lang$core$Dict$update,
-										_p30,
+										_p26,
 										function (val) {
 											return _elm_lang$core$Maybe$Just(_user$project$Types$CommunicationFailure);
 										},
@@ -23828,18 +23710,18 @@ var _user$project$Main$update = F2(
 										_1: {ctor: '[]'}
 									}
 								});
-							var _p29 = A3(_user$project$Main$getNewModelAndInteractionExtraInfoByEngineUpdate, _p30, newExtraInfoWithPendingChanges, nModel);
-							var newInteractionExtraInfo_ = _p29._0;
-							var newModel = _p29._1;
-							var _v25 = A2(_user$project$ClientTypes$InteractStepThree, _p30, newInteractionExtraInfo_),
-								_v26 = newModel;
-							msg = _v25;
-							model = _v26;
+							var _p25 = A3(_user$project$Main$getNewModelAndInteractionExtraInfoByEngineUpdate, _p26, nInteractionExtraInfo, nModel);
+							var newInteractionExtraInfo2 = _p25._0;
+							var newModel2 = _p25._1;
+							var _v22 = A2(_user$project$ClientTypes$InteractStepThree, _p26, newInteractionExtraInfo2),
+								_v23 = newModel2;
+							msg = _v22;
+							model = _v23;
 							continue update;
 						}
 					case 'InteractStepThree':
-						var _p35 = _p10._1;
-						var _p34 = _p10._0;
+						var _p31 = _p9._1;
+						var _p30 = _p9._0;
 						var hasEnded = A2(
 							_user$project$TypeConverterHelper$mbAttributeToBool,
 							model.debugMode,
@@ -23875,8 +23757,8 @@ var _user$project$Main$update = F2(
 									_wernerdegroot$listzipper$List_Zipper$next(narrative));
 							});
 						var updateNarrativeLgsDict = function (mbDict) {
-							var _p31 = mbDict;
-							if (_p31.ctor === 'Just') {
+							var _p27 = mbDict;
+							if (_p27.ctor === 'Just') {
 								return _elm_lang$core$Maybe$Just(
 									A2(
 										_elm_lang$core$Dict$map,
@@ -23888,7 +23770,7 @@ var _user$project$Main$update = F2(
 													updateNarrativeContent(
 														_elm_lang$core$Maybe$Just(val)));
 											}),
-										_p31._0));
+										_p27._0));
 							} else {
 								return _elm_lang$core$Maybe$Nothing;
 							}
@@ -23896,14 +23778,14 @@ var _user$project$Main$update = F2(
 						var mbsuggestInteractionId = A2(
 							_user$project$TypeConverterHelper$mbAttributeToMbString,
 							model.debugMode,
-							A3(_user$project$Engine$getInteractableAttribute, 'suggestedInteraction', _p34, model.engineModel));
+							A3(_user$project$Engine$getInteractableAttribute, 'suggestedInteraction', _p30, model.engineModel));
 						var temporaryHackToSubstitueImgUrl = F2(
 							function (baseImgUrl, theStr) {
 								return (!_elm_lang$core$Native_Utils.eq(baseImgUrl, '')) ? A4(
 									_elm_lang$core$Regex$replace,
 									_elm_lang$core$Regex$All,
 									_elm_lang$core$Regex$regex('\\(img\\/'),
-									function (_p32) {
+									function (_p28) {
 										return A2(_elm_lang$core$Basics_ops['++'], '(', baseImgUrl);
 									},
 									theStr) : theStr;
@@ -23911,7 +23793,7 @@ var _user$project$Main$update = F2(
 						var additionalTextDict = A2(
 							_user$project$TypeConverterHelper$mbAttributeToDictStringString,
 							model.debugMode,
-							A3(_user$project$Engine$getInteractableAttribute, 'additionalTextDict', _p34, model.engineModel));
+							A3(_user$project$Engine$getInteractableAttribute, 'additionalTextDict', _p30, model.engineModel));
 						var isLastZip = function (val) {
 							return _elm_lang$core$Native_Utils.eq(
 								_wernerdegroot$listzipper$List_Zipper$next(val),
@@ -23933,7 +23815,7 @@ var _user$project$Main$update = F2(
 										A2(
 											_user$project$TypeConverterHelper$mbAttributeToString,
 											model.debugMode,
-											A3(_user$project$Engine$getInteractableAttribute, 'narrativeHeader', _p34, newEngineModel)))));
+											A3(_user$project$Engine$getInteractableAttribute, 'narrativeHeader', _p30, newEngineModel)))));
 						};
 						var getTheWrittenContent = function (languageId) {
 							return A2(
@@ -23950,7 +23832,7 @@ var _user$project$Main$update = F2(
 										A2(
 											_elm_lang$core$Maybe$withDefault,
 											'',
-											A2(_user$project$Engine$getItemWrittenContent, _p34, newEngineModel)))));
+											A2(_user$project$Engine$getItemWrittenContent, _p30, newEngineModel)))));
 						};
 						var wrapWithHeaderWrittenContentAndAdditionalText = F2(
 							function (lgId, mainContent) {
@@ -23997,15 +23879,15 @@ var _user$project$Main$update = F2(
 									A2(
 										_user$project$TypeConverterHelper$mbAttributeToDictStringString,
 										model.debugMode,
-										A3(_user$project$Engine$getInteractableAttribute, 'warningMessage', _p34, model.engineModel)))));
-						var maybeMatchedRuleId = _p35.mbMatchedRuleId;
+										A3(_user$project$Engine$getInteractableAttribute, 'warningMessage', _p30, model.engineModel)))));
+						var maybeMatchedRuleId = _p31.mbMatchedRuleId;
 						var narrativesForThisInteraction = {
 							interactableNames: A2(
 								_user$project$Components$getDictLgNames,
 								_user$project$OurStory_Narrative$desiredLanguages,
-								A2(_user$project$Main$findEntity, model, _p34)),
+								A2(_user$project$Main$findEntity, model, _p30)),
 							interactableCssSelector: _user$project$Components$getClassName(
-								A2(_user$project$Main$findEntity, model, _p34)),
+								A2(_user$project$Main$findEntity, model, _p30)),
 							narratives: function () {
 								var dict2 = A2(
 									_elm_lang$core$Dict$map,
@@ -24020,7 +23902,7 @@ var _user$project$Main$update = F2(
 									A2(
 										_user$project$Components$getDictLgDescriptions,
 										_user$project$OurStory_Narrative$desiredLanguages,
-										A2(_user$project$Main$findEntity, model, _p34)));
+										A2(_user$project$Main$findEntity, model, _p30)));
 								var dict1 = A2(
 									_elm_lang$core$Dict$map,
 									F2(
@@ -24092,9 +23974,9 @@ var _user$project$Main$update = F2(
 													'noName',
 													A2(_elm_lang$core$Dict$get, 'en', nfti.interactableNames)),
 												A2(_elm_lang$core$Dict$get, lgId, nfti.interactableNames)),
-											interactableId: _p34,
-											isWritable: A2(_user$project$Engine$isWritable, _p34, model.engineModel) && _elm_lang$core$Native_Utils.eq(
-												_p35.currentLocation,
+											interactableId: _p30,
+											isWritable: A2(_user$project$Engine$isWritable, _p30, model.engineModel) && _elm_lang$core$Native_Utils.eq(
+												_p31.currentLocation,
 												_user$project$Engine$getCurrentLocation(model.engineModel)),
 											interactableCssSelector: nfti.interactableCssSelector,
 											narrative: A2(
@@ -24128,8 +24010,8 @@ var _user$project$Main$update = F2(
 								llgssnippets);
 						}();
 						var getAlertMessage1 = function () {
-							var _p33 = A2(_elm_lang$core$Dict$get, displayLanguage, narrativesForThisInteraction.narratives);
-							if (_p33.ctor === 'Nothing') {
+							var _p29 = A2(_elm_lang$core$Dict$get, displayLanguage, narrativesForThisInteraction.narratives);
+							if (_p29.ctor === 'Nothing') {
 								return {
 									ctor: '::',
 									_0: 'No narrative content for this interaction in the current language. Maybe you want to try channging language !',
@@ -24163,7 +24045,7 @@ var _user$project$Main$update = F2(
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					case 'NewUserSubmitedText':
-						var newAnswerBoxModel = A2(_user$project$Theme_AnswerBox$update, _p10._0, model.answerBoxModel);
+						var newAnswerBoxModel = A2(_user$project$Theme_AnswerBox$update, _p9._0, model.answerBoxModel);
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
@@ -24174,7 +24056,7 @@ var _user$project$Main$update = F2(
 					case 'ChangeOptionDisplayLanguage':
 						var newSettingsModel = A2(
 							_user$project$Theme_Settings$update,
-							_user$project$ClientTypes$SetDisplayLanguage(_p10._0),
+							_user$project$ClientTypes$SetDisplayLanguage(_p9._0),
 							model.settingsModel);
 						return {
 							ctor: '_Tuple2',
@@ -24186,7 +24068,7 @@ var _user$project$Main$update = F2(
 					case 'ChangeOptionDontCheckGps':
 						var newSettingsModel = A2(
 							_user$project$Theme_Settings$update,
-							_user$project$ClientTypes$SetDontNeedToBeInZone(_p10._0),
+							_user$project$ClientTypes$SetDontNeedToBeInZone(_p9._0),
 							model.settingsModel);
 						return {
 							ctor: '_Tuple2',
@@ -24208,7 +24090,7 @@ var _user$project$Main$update = F2(
 					case 'ChangeOptionAudioAutoplay':
 						var newSettingsModel = A2(
 							_user$project$Theme_Settings$update,
-							_user$project$ClientTypes$SettingsChangeOptionAutoplay(_p10._0),
+							_user$project$ClientTypes$SettingsChangeOptionAutoplay(_p9._0),
 							model.settingsModel);
 						return {
 							ctor: '_Tuple2',
@@ -24220,7 +24102,7 @@ var _user$project$Main$update = F2(
 					case 'LayoutWithSideBar':
 						var newSettingsModel = A2(
 							_user$project$Theme_Settings$update,
-							_user$project$ClientTypes$SettingsLayoutWithSidebar(_p10._0),
+							_user$project$ClientTypes$SettingsLayoutWithSidebar(_p9._0),
 							model.settingsModel);
 						return {
 							ctor: '_Tuple2',
@@ -24256,13 +24138,13 @@ var _user$project$Main$update = F2(
 							_1: _user$project$Main$sendRequestForStoredHistory('')
 						};
 					case 'LoadHistory':
-						var _p37 = _p10._0;
-						var _p36 = _user$project$Main$init(
+						var _p33 = _p9._0;
+						var _p32 = _user$project$Main$init(
 							A2(_user$project$Main$Flags, model.baseImgUrl, model.baseSoundUrl));
-						var newModel = _p36._0;
-						var cmds = _p36._1;
-						var savedSettings = A2(_user$project$Theme_Settings$update, _user$project$ClientTypes$SettingsHideExitToFinalScreenButton, model.settingsModel);
-						var newlist = _user$project$Main$convertToListIdExtraInfo(_p37.lInteractions);
+						var newModel = _p32._0;
+						var cmds = _p32._1;
+						var savedSettings = model.settingsModel;
+						var newlist = _user$project$Main$convertToListIdExtraInfo(_p33.lInteractions);
 						var newModel_ = _elm_lang$core$Native_Utils.eq(
 							_elm_lang$core$List$length(newlist),
 							0) ? _elm_lang$core$Native_Utils.update(
@@ -24274,7 +24156,7 @@ var _user$project$Main$update = F2(
 							{
 								alertMessages: {ctor: '[]'}
 							});
-						var playerName = _p37.playerName;
+						var playerName = _p33.playerName;
 						return A3(
 							_ccapndave$elm_update_extra$Update_Extra$andThen,
 							_user$project$Main$update,
@@ -24285,34 +24167,34 @@ var _user$project$Main$update = F2(
 								_user$project$ClientTypes$StartMainGameNewPlayerName(playerName),
 								{ctor: '_Tuple2', _0: newModel_, _1: cmds}));
 					case 'ProcessLoadHistory':
-						var _p41 = _p10._1;
-						var _p38 = function () {
-							var _p39 = _p10._0;
-							if (_p39.ctor === '[]') {
+						var _p37 = _p9._1;
+						var _p34 = function () {
+							var _p35 = _p9._0;
+							if (_p35.ctor === '[]') {
 								return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 							} else {
-								var _p40 = _p39._0;
+								var _p36 = _p35._0;
 								return A3(
 									_ccapndave$elm_update_extra$Update_Extra$andThen,
 									_user$project$Main$update,
-									A2(_user$project$ClientTypes$ProcessLoadHistory, _p39._1, _p41),
+									A2(_user$project$ClientTypes$ProcessLoadHistory, _p35._1, _p37),
 									A3(
 										_ccapndave$elm_update_extra$Update_Extra$andThen,
 										_user$project$Main$update,
 										A2(
 											_user$project$ClientTypes$InteractStepTwo,
-											_elm_lang$core$Tuple$first(_p40),
-											_elm_lang$core$Tuple$second(_p40)),
+											_elm_lang$core$Tuple$first(_p36),
+											_elm_lang$core$Tuple$second(_p36)),
 										{ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none}));
 							}
 						}();
-						var newModel = _p38._0;
-						var cmds = _p38._1;
+						var newModel = _p34._0;
+						var cmds = _p34._1;
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
 								newModel,
-								{settingsModel: _p41}),
+								{settingsModel: _p37}),
 							_1: cmds
 						};
 					case 'ExitToFinalScreen':
