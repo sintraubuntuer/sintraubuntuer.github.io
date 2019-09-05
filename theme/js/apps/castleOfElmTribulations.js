@@ -77,14 +77,14 @@ function A9(fun, a, b, c, d, e, f, g, h, i) {
   return fun.a === 9 ? fun.f(a, b, c, d, e, f, g, h, i) : fun(a)(b)(c)(d)(e)(f)(g)(h)(i);
 }
 
+console.warn('Compiled in DEV mode. Follow the advice at https://elm-lang.org/0.19.0/optimize for better performance and smaller assets.');
 
 
+var _List_Nil_UNUSED = { $: 0 };
+var _List_Nil = { $: '[]' };
 
-var _List_Nil = { $: 0 };
-var _List_Nil_UNUSED = { $: '[]' };
-
-function _List_Cons(hd, tl) { return { $: 1, a: hd, b: tl }; }
-function _List_Cons_UNUSED(hd, tl) { return { $: '::', a: hd, b: tl }; }
+function _List_Cons_UNUSED(hd, tl) { return { $: 1, a: hd, b: tl }; }
+function _List_Cons(hd, tl) { return { $: '::', a: hd, b: tl }; }
 
 
 var _List_cons = F2(_List_Cons);
@@ -194,7 +194,7 @@ function _Utils_eqHelp(x, y, depth, stack)
 		return false;
 	}
 
-	/**_UNUSED/
+	/**/
 	if (x.$ === 'Set_elm_builtin')
 	{
 		x = elm$core$Set$toList(x);
@@ -207,7 +207,7 @@ function _Utils_eqHelp(x, y, depth, stack)
 	}
 	//*/
 
-	/**/
+	/**_UNUSED/
 	if (x.$ < 0)
 	{
 		x = elm$core$Dict$toList(x);
@@ -242,7 +242,7 @@ function _Utils_cmp(x, y, ord)
 		return x === y ? /*EQ*/ 0 : x < y ? /*LT*/ -1 : /*GT*/ 1;
 	}
 
-	/**_UNUSED/
+	/**/
 	if (x instanceof String)
 	{
 		var a = x.valueOf();
@@ -251,10 +251,10 @@ function _Utils_cmp(x, y, ord)
 	}
 	//*/
 
-	/**/
+	/**_UNUSED/
 	if (typeof x.$ === 'undefined')
 	//*/
-	/**_UNUSED/
+	/**/
 	if (x.$[0] === '#')
 	//*/
 	{
@@ -284,17 +284,17 @@ var _Utils_compare = F2(function(x, y)
 
 // COMMON VALUES
 
-var _Utils_Tuple0 = 0;
-var _Utils_Tuple0_UNUSED = { $: '#0' };
+var _Utils_Tuple0_UNUSED = 0;
+var _Utils_Tuple0 = { $: '#0' };
 
-function _Utils_Tuple2(a, b) { return { a: a, b: b }; }
-function _Utils_Tuple2_UNUSED(a, b) { return { $: '#2', a: a, b: b }; }
+function _Utils_Tuple2_UNUSED(a, b) { return { a: a, b: b }; }
+function _Utils_Tuple2(a, b) { return { $: '#2', a: a, b: b }; }
 
-function _Utils_Tuple3(a, b, c) { return { a: a, b: b, c: c }; }
-function _Utils_Tuple3_UNUSED(a, b, c) { return { $: '#3', a: a, b: b, c: c }; }
+function _Utils_Tuple3_UNUSED(a, b, c) { return { a: a, b: b, c: c }; }
+function _Utils_Tuple3(a, b, c) { return { $: '#3', a: a, b: b, c: c }; }
 
-function _Utils_chr(c) { return c; }
-function _Utils_chr_UNUSED(c) { return new String(c); }
+function _Utils_chr_UNUSED(c) { return c; }
+function _Utils_chr(c) { return new String(c); }
 
 
 // RECORDS
@@ -499,12 +499,12 @@ var _JsArray_appendN = F3(function(n, dest, source)
 
 // LOG
 
-var _Debug_log = F2(function(tag, value)
+var _Debug_log_UNUSED = F2(function(tag, value)
 {
 	return value;
 });
 
-var _Debug_log_UNUSED = F2(function(tag, value)
+var _Debug_log = F2(function(tag, value)
 {
 	console.log(tag + ': ' + _Debug_toString(value));
 	return value;
@@ -530,12 +530,12 @@ function _Debug_todoCase(moduleName, region, value)
 
 // TO STRING
 
-function _Debug_toString(value)
+function _Debug_toString_UNUSED(value)
 {
 	return '<internals>';
 }
 
-function _Debug_toString_UNUSED(value)
+function _Debug_toString(value)
 {
 	return _Debug_toAnsiString(false, value);
 }
@@ -720,13 +720,13 @@ function _Debug_toHexDigit(n)
 // CRASH
 
 
-function _Debug_crash(identifier)
+function _Debug_crash_UNUSED(identifier)
 {
 	throw new Error('https://github.com/elm/core/blob/1.0.0/hints/' + identifier + '.md');
 }
 
 
-function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
+function _Debug_crash(identifier, fact1, fact2, fact3, fact4)
 {
 	switch(identifier)
 	{
@@ -784,11 +784,11 @@ function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
 
 function _Debug_regionToString(region)
 {
-	if (region.a8.ak === region.bq.ak)
+	if (region.start.line === region.end.line)
 	{
-		return 'on line ' + region.a8.ak;
+		return 'on line ' + region.start.line;
 	}
-	return 'on lines ' + region.a8.ak + ' through ' + region.bq.ak;
+	return 'on lines ' + region.start.line + ' through ' + region.end.line;
 }
 
 
@@ -1249,7 +1249,7 @@ function _Char_toLocaleLower(char)
 
 
 
-/**_UNUSED/
+/**/
 function _Json_errorToString(error)
 {
 	return elm$json$Json$Decode$errorToString(error);
@@ -1653,11 +1653,11 @@ var _Json_encode = F2(function(indentLevel, value)
 	return JSON.stringify(_Json_unwrap(value), null, indentLevel) + '';
 });
 
-function _Json_wrap_UNUSED(value) { return { $: 0, a: value }; }
-function _Json_unwrap_UNUSED(value) { return value.a; }
+function _Json_wrap(value) { return { $: 0, a: value }; }
+function _Json_unwrap(value) { return value.a; }
 
-function _Json_wrap(value) { return value; }
-function _Json_unwrap(value) { return value; }
+function _Json_wrap_UNUSED(value) { return value; }
+function _Json_unwrap_UNUSED(value) { return value; }
 
 function _Json_emptyArray() { return []; }
 function _Json_emptyObject() { return {}; }
@@ -1894,9 +1894,9 @@ var _Platform_worker = F4(function(impl, flagDecoder, debugMetadata, args)
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.cr,
-		impl.db,
-		impl.c_,
+		impl.init,
+		impl.update,
+		impl.subscriptions,
 		function() { return function() {} }
 	);
 });
@@ -1909,7 +1909,7 @@ var _Platform_worker = F4(function(impl, flagDecoder, debugMetadata, args)
 function _Platform_initialize(flagDecoder, args, init, update, subscriptions, stepperBuilder)
 {
 	var result = A2(_Json_run, flagDecoder, _Json_wrap(args ? args['flags'] : undefined));
-	elm$core$Result$isOk(result) || _Debug_crash(2 /**_UNUSED/, _Json_errorToString(result.a) /**/);
+	elm$core$Result$isOk(result) || _Debug_crash(2 /**/, _Json_errorToString(result.a) /**/);
 	var managers = {};
 	result = init(result.a);
 	var model = result.a;
@@ -2308,7 +2308,7 @@ function _Platform_setupIncomingPort(name, sendToApp)
 //
 
 
-function _Platform_export(exports)
+function _Platform_export_UNUSED(exports)
 {
 	scope['Elm']
 		? _Platform_mergeExportsProd(scope['Elm'], exports)
@@ -2329,7 +2329,7 @@ function _Platform_mergeExportsProd(obj, exports)
 }
 
 
-function _Platform_export_UNUSED(exports)
+function _Platform_export(exports)
 {
 	scope['Elm']
 		? _Platform_mergeExportsDebug('Elm', scope['Elm'], exports)
@@ -2415,10 +2415,10 @@ var _VirtualDom_init = F4(function(virtualNode, flagDecoder, debugMetadata, args
 {
 	// NOTE: this function needs _Platform_export available to work
 
-	/**/
+	/**_UNUSED/
 	var node = args['node'];
 	//*/
-	/**_UNUSED/
+	/**/
 	var node = args && args['node'] ? args['node'] : _Debug_crash(0);
 	//*/
 
@@ -2673,24 +2673,24 @@ function _VirtualDom_noInnerHtmlOrFormAction(key)
 	return key == 'innerHTML' || key == 'formAction' ? 'data-' + key : key;
 }
 
-function _VirtualDom_noJavaScriptUri(value)
+function _VirtualDom_noJavaScriptUri_UNUSED(value)
 {
 	return /^javascript:/i.test(value.replace(/\s/g,'')) ? '' : value;
 }
 
-function _VirtualDom_noJavaScriptUri_UNUSED(value)
+function _VirtualDom_noJavaScriptUri(value)
 {
 	return /^javascript:/i.test(value.replace(/\s/g,''))
 		? 'javascript:alert("This is an XSS vector. Please use ports or web components instead.")'
 		: value;
 }
 
-function _VirtualDom_noJavaScriptOrHtmlUri(value)
+function _VirtualDom_noJavaScriptOrHtmlUri_UNUSED(value)
 {
 	return /^\s*(javascript:|data:text\/html)/i.test(value) ? '' : value;
 }
 
-function _VirtualDom_noJavaScriptOrHtmlUri_UNUSED(value)
+function _VirtualDom_noJavaScriptOrHtmlUri(value)
 {
 	return /^\s*(javascript:|data:text\/html)/i.test(value)
 		? 'javascript:alert("This is an XSS vector. Please use ports or web components instead.")'
@@ -2742,9 +2742,9 @@ var _VirtualDom_mapEventTuple = F2(function(func, tuple)
 var _VirtualDom_mapEventRecord = F2(function(func, record)
 {
 	return {
-		w: func(record.w),
-		a9: record.a9,
-		a2: record.a2
+		message: func(record.message),
+		stopPropagation: record.stopPropagation,
+		preventDefault: record.preventDefault
 	}
 });
 
@@ -3012,11 +3012,11 @@ function _VirtualDom_makeCallback(eventNode, initialHandler)
 		// 3 = Custom
 
 		var value = result.a;
-		var message = !tag ? value : tag < 3 ? value.a : value.w;
-		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.a9;
+		var message = !tag ? value : tag < 3 ? value.a : value.message;
+		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.stopPropagation;
 		var currentEventNode = (
 			stopPropagation && event.stopPropagation(),
-			(tag == 2 ? value.b : tag == 3 && value.a2) && event.preventDefault(),
+			(tag == 2 ? value.b : tag == 3 && value.preventDefault) && event.preventDefault(),
 			eventNode
 		);
 		var tagger;
@@ -3966,15 +3966,15 @@ var _Browser_element = _Debugger_element || F4(function(impl, flagDecoder, debug
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.cr,
-		impl.db,
-		impl.c_,
+		impl.init,
+		impl.update,
+		impl.subscriptions,
 		function(sendToApp, initialModel) {
-			var view = impl.dd;
-			/**/
+			var view = impl.view;
+			/**_UNUSED/
 			var domNode = args['node'];
 			//*/
-			/**_UNUSED/
+			/**/
 			var domNode = args && args['node'] ? args['node'] : _Debug_crash(0);
 			//*/
 			var currNode = _VirtualDom_virtualize(domNode);
@@ -4002,12 +4002,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.cr,
-		impl.db,
-		impl.c_,
+		impl.init,
+		impl.update,
+		impl.subscriptions,
 		function(sendToApp, initialModel) {
-			var divertHrefToApp = impl.an && impl.an(sendToApp)
-			var view = impl.dd;
+			var divertHrefToApp = impl.setup && impl.setup(sendToApp)
+			var view = impl.view;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
 			var currNode = _VirtualDom_virtualize(bodyNode);
@@ -4015,12 +4015,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 			{
 				_VirtualDom_divertHrefToApp = divertHrefToApp;
 				var doc = view(model);
-				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.b4);
+				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.body);
 				var patches = _VirtualDom_diff(currNode, nextNode);
 				bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
 				currNode = nextNode;
 				_VirtualDom_divertHrefToApp = 0;
-				(title !== doc.c1) && (_VirtualDom_doc.title = title = doc.c1);
+				(title !== doc.title) && (_VirtualDom_doc.title = title = doc.title);
 			});
 		}
 	);
@@ -4076,12 +4076,12 @@ function _Browser_makeAnimator(model, draw)
 
 function _Browser_application(impl)
 {
-	var onUrlChange = impl.cK;
-	var onUrlRequest = impl.cL;
+	var onUrlChange = impl.onUrlChange;
+	var onUrlRequest = impl.onUrlRequest;
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
-		an: function(sendToApp)
+		setup: function(sendToApp)
 		{
 			key.a = sendToApp;
 			_Browser_window.addEventListener('popstate', key);
@@ -4097,9 +4097,9 @@ function _Browser_application(impl)
 					var next = elm$url$Url$fromString(href).a;
 					sendToApp(onUrlRequest(
 						(next
-							&& curr.bM === next.bM
-							&& curr.bw === next.bw
-							&& curr.bJ.a === next.bJ.a
+							&& curr.protocol === next.protocol
+							&& curr.host === next.host
+							&& curr.port_.a === next.port_.a
 						)
 							? elm$browser$Browser$Internal(next)
 							: elm$browser$Browser$External(href)
@@ -4107,13 +4107,13 @@ function _Browser_application(impl)
 				}
 			});
 		},
-		cr: function(flags)
+		init: function(flags)
 		{
-			return A3(impl.cr, flags, _Browser_getUrl(), key);
+			return A3(impl.init, flags, _Browser_getUrl(), key);
 		},
-		dd: impl.dd,
-		db: impl.db,
-		c_: impl.c_
+		view: impl.view,
+		update: impl.update,
+		subscriptions: impl.subscriptions
 	});
 }
 
@@ -4179,17 +4179,17 @@ var _Browser_decodeEvent = F2(function(decoder, event)
 function _Browser_visibilityInfo()
 {
 	return (typeof _VirtualDom_doc.hidden !== 'undefined')
-		? { cl: 'hidden', b5: 'visibilitychange' }
+		? { hidden: 'hidden', change: 'visibilitychange' }
 		:
 	(typeof _VirtualDom_doc.mozHidden !== 'undefined')
-		? { cl: 'mozHidden', b5: 'mozvisibilitychange' }
+		? { hidden: 'mozHidden', change: 'mozvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.msHidden !== 'undefined')
-		? { cl: 'msHidden', b5: 'msvisibilitychange' }
+		? { hidden: 'msHidden', change: 'msvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.webkitHidden !== 'undefined')
-		? { cl: 'webkitHidden', b5: 'webkitvisibilitychange' }
-		: { cl: 'hidden', b5: 'visibilitychange' };
+		? { hidden: 'webkitHidden', change: 'webkitvisibilitychange' }
+		: { hidden: 'hidden', change: 'visibilitychange' };
 }
 
 
@@ -4270,12 +4270,12 @@ var _Browser_call = F2(function(functionName, id)
 function _Browser_getViewport()
 {
 	return {
-		bV: _Browser_getScene(),
-		b1: {
-			bd: _Browser_window.pageXOffset,
-			be: _Browser_window.pageYOffset,
-			dj: _Browser_doc.documentElement.clientWidth,
-			ck: _Browser_doc.documentElement.clientHeight
+		scene: _Browser_getScene(),
+		viewport: {
+			x: _Browser_window.pageXOffset,
+			y: _Browser_window.pageYOffset,
+			width: _Browser_doc.documentElement.clientWidth,
+			height: _Browser_doc.documentElement.clientHeight
 		}
 	};
 }
@@ -4285,8 +4285,8 @@ function _Browser_getScene()
 	var body = _Browser_doc.body;
 	var elem = _Browser_doc.documentElement;
 	return {
-		dj: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
-		ck: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
+		width: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
+		height: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
 	};
 }
 
@@ -4309,15 +4309,15 @@ function _Browser_getViewportOf(id)
 	return _Browser_withNode(id, function(node)
 	{
 		return {
-			bV: {
-				dj: node.scrollWidth,
-				ck: node.scrollHeight
+			scene: {
+				width: node.scrollWidth,
+				height: node.scrollHeight
 			},
-			b1: {
-				bd: node.scrollLeft,
-				be: node.scrollTop,
-				dj: node.clientWidth,
-				ck: node.clientHeight
+			viewport: {
+				x: node.scrollLeft,
+				y: node.scrollTop,
+				width: node.clientWidth,
+				height: node.clientHeight
 			}
 		};
 	});
@@ -4347,18 +4347,18 @@ function _Browser_getElement(id)
 		var x = _Browser_window.pageXOffset;
 		var y = _Browser_window.pageYOffset;
 		return {
-			bV: _Browser_getScene(),
-			b1: {
-				bd: x,
-				be: y,
-				dj: _Browser_doc.documentElement.clientWidth,
-				ck: _Browser_doc.documentElement.clientHeight
+			scene: _Browser_getScene(),
+			viewport: {
+				x: x,
+				y: y,
+				width: _Browser_doc.documentElement.clientWidth,
+				height: _Browser_doc.documentElement.clientHeight
 			},
-			cc: {
-				bd: x + rect.left,
-				be: y + rect.top,
-				dj: rect.width,
-				ck: rect.height
+			element: {
+				x: x + rect.left,
+				y: y + rect.top,
+				width: rect.width,
+				height: rect.height
 			}
 		};
 	});
@@ -4393,16 +4393,16 @@ function _Browser_load(url)
 		}
 	}));
 }
-var elm$core$Basics$False = 1;
-var elm$core$Basics$True = 0;
-var elm$core$Basics$EQ = 1;
-var elm$core$Basics$GT = 2;
-var elm$core$Basics$LT = 0;
+var elm$core$Basics$False = {$: 'False'};
+var elm$core$Basics$True = {$: 'True'};
+var elm$core$Basics$EQ = {$: 'EQ'};
+var elm$core$Basics$GT = {$: 'GT'};
+var elm$core$Basics$LT = {$: 'LT'};
 var elm$core$Dict$foldr = F3(
 	function (func, acc, t) {
 		foldr:
 		while (true) {
-			if (t.$ === -2) {
+			if (t.$ === 'RBEmpty_elm_builtin') {
 				return acc;
 			} else {
 				var key = t.b;
@@ -4448,7 +4448,7 @@ var elm$core$Dict$keys = function (dict) {
 		dict);
 };
 var elm$core$Set$toList = function (_n0) {
-	var dict = _n0;
+	var dict = _n0.a;
 	return elm$core$Dict$keys(dict);
 };
 var elm$core$Elm$JsArray$foldr = _JsArray_foldr;
@@ -4458,7 +4458,7 @@ var elm$core$Array$foldr = F3(
 		var tail = _n0.d;
 		var helper = F2(
 			function (node, acc) {
-				if (!node.$) {
+				if (node.$ === 'SubTree') {
 					var subTree = node.a;
 					return A3(elm$core$Elm$JsArray$foldr, helper, acc, subTree);
 				} else {
@@ -4539,34 +4539,34 @@ var elm$core$List$member = F2(
 var author$project$Beings$BeingsInTileGrid$isTileWalkable = F2(
 	function (being, tile) {
 		switch (tile.$) {
-			case 0:
+			case 'Floor':
 				var floorinfo = tile.a;
-				return floorinfo.a$;
-			case 10:
+				return floorinfo.isWalkable;
+			case 'Grass':
 				var grassinfo = tile.a;
-				return grassinfo.a$;
-			case 11:
+				return grassinfo.isWalkable;
+			case 'Tree':
 				var treeInfo = tile.a;
 				return false;
-			case 1:
+			case 'Stairs':
 				var sinfo = tile.a;
 				return true;
-			case 2:
+			case 'Hole':
 				var hinfo = tile.a;
 				return true;
-			case 3:
+			case 'Wall':
 				var wInfo = tile.a;
-				var _n1 = wInfo.cI;
-				if (!_n1.$) {
+				var _n1 = wInfo.mbTeleporterObject;
+				if (_n1.$ === 'Just') {
 					var tel = _n1.a;
 					return true;
 				} else {
 					return false;
 				}
-			case 4:
+			case 'WallOver':
 				var wOverInfo = tile.a;
 				return false;
-			case 5:
+			case 'Door':
 				var doorinfo = tile.a;
 				return A3(
 					elm$core$List$foldl,
@@ -4575,23 +4575,23 @@ var author$project$Beings$BeingsInTileGrid$isTileWalkable = F2(
 							return A2(
 								elm$core$List$member,
 								it,
-								elm$core$Dict$values(being.Q)) && bacc;
+								elm$core$Dict$values(being.inventory)) && bacc;
 						}),
 					true,
-					doorinfo.cS);
-			case 6:
+					doorinfo.requiresToOpen);
+			case 'Lever':
 				var leverInfo = tile.a;
 				return false;
-			case 7:
+			case 'Flag':
 				var flagInfo = tile.a;
 				return false;
-			case 8:
+			case 'Column':
 				var columnInfo = tile.a;
 				return false;
-			case 9:
+			case 'Water':
 				var waterInfo = tile.a;
-				return waterInfo.a$;
-			case 12:
+				return waterInfo.isWalkable;
+			case 'ConverterTile':
 				var it = tile.a;
 				var ct = tile.b;
 				return false;
@@ -4624,7 +4624,7 @@ var elm$core$Array$getHelp = F3(
 		while (true) {
 			var pos = elm$core$Array$bitMask & (index >>> shift);
 			var _n0 = A2(elm$core$Elm$JsArray$unsafeGet, pos, tree);
-			if (!_n0.$) {
+			if (_n0.$ === 'SubTree') {
 				var subTree = _n0.a;
 				var $temp$shift = shift - elm$core$Array$shiftStep,
 					$temp$index = index,
@@ -4651,9 +4651,9 @@ var elm$core$Basics$ge = _Utils_ge;
 var elm$core$Basics$lt = _Utils_lt;
 var elm$core$Basics$or = _Basics_or;
 var elm$core$Maybe$Just = function (a) {
-	return {$: 0, a: a};
+	return {$: 'Just', a: a};
 };
-var elm$core$Maybe$Nothing = {$: 1};
+var elm$core$Maybe$Nothing = {$: 'Nothing'};
 var elm$core$Array$get = F2(
 	function (index, _n0) {
 		var len = _n0.a;
@@ -4668,10 +4668,10 @@ var elm$core$Array$get = F2(
 	});
 var author$project$Grid$get = F2(
 	function (_n0, grid) {
-		var x = _n0.bd;
-		var y = _n0.be;
-		var _n1 = A2(elm$core$Array$get, y, grid.aZ);
-		if (_n1.$ === 1) {
+		var x = _n0.x;
+		var y = _n0.y;
+		var _n1 = A2(elm$core$Array$get, y, grid.grid);
+		if (_n1.$ === 'Nothing') {
 			return elm$core$Maybe$Nothing;
 		} else {
 			var row = _n1.a;
@@ -4680,7 +4680,7 @@ var author$project$Grid$get = F2(
 	});
 var elm$core$Maybe$map = F2(
 	function (f, maybe) {
-		if (!maybe.$) {
+		if (maybe.$ === 'Just') {
 			var value = maybe.a;
 			return elm$core$Maybe$Just(
 				f(value));
@@ -4690,7 +4690,7 @@ var elm$core$Maybe$map = F2(
 	});
 var elm$core$Maybe$withDefault = F2(
 	function (_default, maybe) {
-		if (!maybe.$) {
+		if (maybe.$ === 'Just') {
 			var value = maybe.a;
 			return value;
 		} else {
@@ -4709,11 +4709,11 @@ var author$project$Beings$BeingsInTileGrid$isGridTileWalkable = F3(
 	});
 var author$project$Grid$Grid = F2(
 	function (grid, size) {
-		return {aZ: grid, cY: size};
+		return {grid: grid, size: size};
 	});
 var author$project$Grid$Size = F2(
 	function (width, height) {
-		return {ck: height, dj: width};
+		return {height: height, width: width};
 	});
 var elm$core$Basics$add = _Basics_add;
 var elm$core$List$length = function (xs) {
@@ -4727,7 +4727,7 @@ var elm$core$List$length = function (xs) {
 		xs);
 };
 var author$project$Grid$getTheLength = function (mbla) {
-	if (!mbla.$) {
+	if (mbla.$ === 'Just') {
 		var l = mbla.a;
 		return elm$core$List$length(l);
 	} else {
@@ -4736,15 +4736,15 @@ var author$project$Grid$getTheLength = function (mbla) {
 };
 var elm$core$Array$Array_elm_builtin = F4(
 	function (a, b, c, d) {
-		return {$: 0, a: a, b: b, c: c, d: d};
+		return {$: 'Array_elm_builtin', a: a, b: b, c: c, d: d};
 	});
 var elm$core$Elm$JsArray$empty = _JsArray_empty;
 var elm$core$Array$empty = A4(elm$core$Array$Array_elm_builtin, 0, elm$core$Array$shiftStep, elm$core$Elm$JsArray$empty, elm$core$Elm$JsArray$empty);
 var elm$core$Array$Leaf = function (a) {
-	return {$: 1, a: a};
+	return {$: 'Leaf', a: a};
 };
 var elm$core$Array$SubTree = function (a) {
-	return {$: 0, a: a};
+	return {$: 'SubTree', a: a};
 };
 var elm$core$Elm$JsArray$initializeFromList = _JsArray_initializeFromList;
 var elm$core$List$reverse = function (list) {
@@ -4802,25 +4802,25 @@ var elm$core$Basics$mul = _Basics_mul;
 var elm$core$Elm$JsArray$length = _JsArray_length;
 var elm$core$Array$builderToArray = F2(
 	function (reverseNodeList, builder) {
-		if (!builder.b) {
+		if (!builder.nodeListSize) {
 			return A4(
 				elm$core$Array$Array_elm_builtin,
-				elm$core$Elm$JsArray$length(builder.d),
+				elm$core$Elm$JsArray$length(builder.tail),
 				elm$core$Array$shiftStep,
 				elm$core$Elm$JsArray$empty,
-				builder.d);
+				builder.tail);
 		} else {
-			var treeLen = builder.b * elm$core$Array$branchFactor;
+			var treeLen = builder.nodeListSize * elm$core$Array$branchFactor;
 			var depth = elm$core$Basics$floor(
 				A2(elm$core$Basics$logBase, elm$core$Array$branchFactor, treeLen - 1));
-			var correctNodeList = reverseNodeList ? elm$core$List$reverse(builder.e) : builder.e;
-			var tree = A2(elm$core$Array$treeFromBuilder, correctNodeList, builder.b);
+			var correctNodeList = reverseNodeList ? elm$core$List$reverse(builder.nodeList) : builder.nodeList;
+			var tree = A2(elm$core$Array$treeFromBuilder, correctNodeList, builder.nodeListSize);
 			return A4(
 				elm$core$Array$Array_elm_builtin,
-				elm$core$Elm$JsArray$length(builder.d) + treeLen,
+				elm$core$Elm$JsArray$length(builder.tail) + treeLen,
 				A2(elm$core$Basics$max, 5, depth * elm$core$Array$shiftStep),
 				tree,
-				builder.d);
+				builder.tail);
 		}
 	});
 var elm$core$Array$fromListHelp = F3(
@@ -4836,7 +4836,7 @@ var elm$core$Array$fromListHelp = F3(
 				return A2(
 					elm$core$Array$builderToArray,
 					true,
-					{e: nodeList, b: nodeListSize, d: jsArray});
+					{nodeList: nodeList, nodeListSize: nodeListSize, tail: jsArray});
 			} else {
 				var $temp$list = remainingItems,
 					$temp$nodeList = A2(
@@ -4962,9 +4962,9 @@ var author$project$Grid$toList = A2(
 		elm$core$List$map(elm$core$Array$toList),
 		elm$core$Array$toList),
 	function ($) {
-		return $.aZ;
+		return $.grid;
 	});
-var author$project$Tile$Unexplored = 1;
+var author$project$Tile$Unexplored = {$: 'Unexplored'};
 var author$project$GameDefinitions$Common$setAllAsUnexplored = function (level) {
 	var grid = author$project$Grid$toList(level);
 	return author$project$Grid$fromList(
@@ -4974,101 +4974,108 @@ var author$project$GameDefinitions$Common$setAllAsUnexplored = function (level) 
 				return A2(
 					elm$core$List$map,
 					function (_n0) {
-						return 1;
+						return author$project$Tile$Unexplored;
 					},
 					row);
 			},
 			grid));
 };
 var author$project$GameDefinitions$Game1$Game1Definitions$dimensions = _Utils_Tuple2(80, 60);
-var author$project$Beings$Beings$DecreaseHealth = 0;
-var author$project$Beings$Beings$Down = 1;
-var author$project$Beings$Beings$MoveTowardsPlayer = 0;
+var author$project$Beings$Beings$CustomMoveTowardsPlayerBeforeAndAfterEnl = F2(
+	function (a, b) {
+		return {$: 'CustomMoveTowardsPlayerBeforeAndAfterEnl', a: a, b: b};
+	});
+var author$project$Beings$Beings$DecreaseHealth = {$: 'DecreaseHealth'};
+var author$project$Beings$Beings$Down = {$: 'Down'};
 var author$project$Grid$Coordinate = F2(
 	function (x, y) {
-		return {bd: x, be: y};
+		return {x: x, y: y};
 	});
-var elm$core$Dict$RBEmpty_elm_builtin = {$: -2};
+var elm$core$Dict$RBEmpty_elm_builtin = {$: 'RBEmpty_elm_builtin'};
 var elm$core$Dict$empty = elm$core$Dict$RBEmpty_elm_builtin;
-var author$project$Beings$Beings$fightingCharacterCreationFunc = F5(
-	function (elem, fcharId, ename, species_, floor_id) {
+var author$project$Beings$Beings$fightingCharacterCreationFunc = F7(
+	function (elem, fcharId, ename, species_, x_coord, y_coord, floor_id) {
 		return {
-			at: 1,
-			bg: true,
-			aw: 100,
-			J: 1,
-			ax: false,
-			ay: false,
-			L: 0,
-			az: floor_id,
-			M: 10,
-			aC: fcharId,
-			N: 1,
-			O: 11,
-			P: 1,
-			Q: elm$core$Dict$empty,
-			R: A2(author$project$Grid$Coordinate, 14, 4),
-			S: 100,
-			aE: 2,
-			U: elm$core$Maybe$Just(0),
-			V: ename,
-			aF: 0,
-			W: false,
-			aG: true,
-			aH: 2,
-			aI: 5,
-			aQ: species_,
-			aR: 20,
-			aa: elem
+			armor: 1,
+			attacksUsingGameOfThorns: true,
+			coordination: 100,
+			direction: author$project$Beings$Beings$Down,
+			disappearsWhenHealthIsZero: false,
+			disappearsWhenIndexOfLightMax: false,
+			enlSpellEffect: author$project$Beings$Beings$DecreaseHealth,
+			floorId: floor_id,
+			health: 10,
+			id: fcharId,
+			indexOfLight: 1,
+			indexOfLightMax: 11,
+			initiative: 1,
+			inventory: elm$core$Dict$empty,
+			location: A2(author$project$Grid$Coordinate, x_coord, y_coord),
+			mana: 100,
+			maxNrCharacterMovesPerTurn: 2,
+			movingStrategy: elm$core$Maybe$Just(
+				A2(author$project$Beings$Beings$CustomMoveTowardsPlayerBeforeAndAfterEnl, 0.85, 0.6)),
+			name: ename,
+			nrMovesInCurrentTurn: 0,
+			placed: false,
+			playerCanWalkOverIfDead: true,
+			power: 2,
+			protection: 5,
+			species: species_,
+			stealth: 20,
+			textAvatar: elem
 		};
 	});
 var elm$core$Basics$append = _Utils_append;
 var elm$core$String$fromInt = _String_fromNumber;
-var author$project$GameDefinitions$Game1$Game1Definitions$initialFightingCharacter = F3(
-	function (fcharId, species, floorId) {
+var author$project$GameDefinitions$Game1$Game1Definitions$initialFightingCharacter = F5(
+	function (fcharId, species, x, y, floorId) {
 		var elem = 'e' + elm$core$String$fromInt(fcharId);
-		return A5(
+		return A7(
 			author$project$Beings$Beings$fightingCharacterCreationFunc,
 			elem,
 			fcharId,
 			'fightingChar' + elm$core$String$fromInt(fcharId),
 			species,
+			x,
+			y,
 			floorId);
 	});
-var author$project$Beings$Beings$IncreaseIndexOfLight = 1;
-var author$project$Beings$Beings$playerCreationFunc = F2(
-	function (elem, pname) {
+var author$project$Beings$Beings$IncreaseIndexOfLight = {$: 'IncreaseIndexOfLight'};
+var author$project$Beings$Beings$playerCreationFunc = F5(
+	function (elem, pname, x_coord, y_coord, floor_nr) {
 		return {
-			at: 1,
-			aw: 100,
-			J: 1,
-			br: 10,
-			L: 1,
-			M: 30,
-			bx: 10,
-			N: 10,
-			O: 20,
-			P: 2,
-			Q: elm$core$Dict$empty,
-			R: A2(author$project$Grid$Coordinate, 10, 10),
-			S: 100,
-			U: elm$core$Maybe$Nothing,
-			V: pname,
-			W: false,
-			aH: 2,
-			aI: 5,
-			aR: 20,
-			aa: elem
+			armor: 1,
+			coordination: 100,
+			direction: author$project$Beings$Beings$Down,
+			energy: 10,
+			enlSpellEffect: author$project$Beings$Beings$IncreaseIndexOfLight,
+			health: 30,
+			hunger: 10,
+			indexOfLight: 10,
+			indexOfLightMax: 20,
+			initiative: 2,
+			inventory: elm$core$Dict$empty,
+			location: A2(author$project$Grid$Coordinate, x_coord, y_coord),
+			mana: 200,
+			movingStrategy: elm$core$Maybe$Nothing,
+			name: pname,
+			placed: false,
+			power: 2,
+			protection: 5,
+			stealth: 20,
+			textAvatar: elem
 		};
 	});
-var author$project$GameDefinitions$Game1$Game1Definitions$initialPlayer = function () {
-	var elem = '@';
-	return A2(author$project$Beings$Beings$playerCreationFunc, elem, 'You');
-}();
-var author$project$GameModel$DisplayRegularGame = 0;
+var author$project$GameDefinitions$Game1$Game1Definitions$initialPlayer = F3(
+	function (x, y, z) {
+		var elem = '@';
+		return A5(author$project$Beings$Beings$playerCreationFunc, elem, 'You', x, y, z);
+	});
+var author$project$GameModel$DisplayRegularGame = {$: 'DisplayRegularGame'};
 var author$project$GameModel$RoomsInfo = F4(
 	function (roomRectangles, maxNrOfRooms, maxRoomSize, minRoomSize) {
-		return {cG: maxNrOfRooms, cH: maxRoomSize, cJ: minRoomSize, cU: roomRectangles};
+		return {maxNrOfRooms: maxNrOfRooms, maxRoomSize: maxRoomSize, minRoomSize: minRoomSize, roomRectangles: roomRectangles};
 	});
 var elm$core$Basics$idiv = _Basics_idiv;
 var elm$core$Elm$JsArray$initialize = _JsArray_initialize;
@@ -5080,7 +5087,7 @@ var elm$core$Array$initializeHelp = F5(
 				return A2(
 					elm$core$Array$builderToArray,
 					false,
-					{e: nodeList, b: (len / elm$core$Array$branchFactor) | 0, d: tail});
+					{nodeList: nodeList, nodeListSize: (len / elm$core$Array$branchFactor) | 0, tail: tail});
 			} else {
 				var leaf = elm$core$Array$Leaf(
 					A3(elm$core$Elm$JsArray$initialize, elm$core$Array$branchFactor, fromIndex, fn));
@@ -5122,8 +5129,8 @@ var elm$core$Array$repeat = F2(
 	});
 var author$project$Grid$initialize = F2(
 	function (size, a) {
-		var width = size.dj;
-		var height = size.ck;
+		var width = size.width;
+		var height = size.height;
 		return A2(
 			author$project$Grid$Grid,
 			A3(
@@ -5134,46 +5141,46 @@ var author$project$Grid$initialize = F2(
 			size);
 	});
 var author$project$Thorns$Types$FightingCharacter = function (a) {
-	return {$: 0, a: a};
+	return {$: 'FightingCharacter', a: a};
 };
 var author$project$Thorns$Types$initialModel = F3(
 	function (player, mbFightCharacter, imgBaseDir_) {
 		return {
-			bk: _List_Nil,
-			bu: A2(
+			currentSegment: _List_Nil,
+			gridInteractionOptions: A2(
 				author$project$Grid$initialize,
 				A2(author$project$Grid$Size, 6, 6),
 				elm$core$Maybe$Nothing),
-			bv: elm$core$Maybe$Nothing,
-			co: imgBaseDir_,
-			a_: false,
-			cO: A2(
+			helpStr: elm$core$Maybe$Nothing,
+			imgBaseDir: imgBaseDir_,
+			interactionHasFinished: false,
+			opponent: A2(
 				elm$core$Maybe$map,
 				function (x) {
 					return author$project$Thorns$Types$FightingCharacter(x);
 				},
 				mbFightCharacter),
-			o: player,
-			cQ: _List_Nil
+			player: player,
+			pseudoRandomIntsPool: _List_Nil
 		};
 	});
-var author$project$Tile$NoTileYet = {$: 13};
-var elm$core$Dict$Black = 1;
+var author$project$Tile$NoTileYet = {$: 'NoTileYet'};
+var elm$core$Dict$Black = {$: 'Black'};
 var elm$core$Dict$RBNode_elm_builtin = F5(
 	function (a, b, c, d, e) {
-		return {$: -1, a: a, b: b, c: c, d: d, e: e};
+		return {$: 'RBNode_elm_builtin', a: a, b: b, c: c, d: d, e: e};
 	});
 var elm$core$Basics$compare = _Utils_compare;
-var elm$core$Dict$Red = 0;
+var elm$core$Dict$Red = {$: 'Red'};
 var elm$core$Dict$balance = F5(
 	function (color, key, value, left, right) {
-		if ((right.$ === -1) && (!right.a)) {
+		if ((right.$ === 'RBNode_elm_builtin') && (right.a.$ === 'Red')) {
 			var _n1 = right.a;
 			var rK = right.b;
 			var rV = right.c;
 			var rLeft = right.d;
 			var rRight = right.e;
-			if ((left.$ === -1) && (!left.a)) {
+			if ((left.$ === 'RBNode_elm_builtin') && (left.a.$ === 'Red')) {
 				var _n3 = left.a;
 				var lK = left.b;
 				var lV = left.c;
@@ -5181,22 +5188,22 @@ var elm$core$Dict$balance = F5(
 				var lRight = left.e;
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
-					0,
+					elm$core$Dict$Red,
 					key,
 					value,
-					A5(elm$core$Dict$RBNode_elm_builtin, 1, lK, lV, lLeft, lRight),
-					A5(elm$core$Dict$RBNode_elm_builtin, 1, rK, rV, rLeft, rRight));
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, lK, lV, lLeft, lRight),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, rK, rV, rLeft, rRight));
 			} else {
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
 					color,
 					rK,
 					rV,
-					A5(elm$core$Dict$RBNode_elm_builtin, 0, key, value, left, rLeft),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, key, value, left, rLeft),
 					rRight);
 			}
 		} else {
-			if ((((left.$ === -1) && (!left.a)) && (left.d.$ === -1)) && (!left.d.a)) {
+			if ((((left.$ === 'RBNode_elm_builtin') && (left.a.$ === 'Red')) && (left.d.$ === 'RBNode_elm_builtin')) && (left.d.a.$ === 'Red')) {
 				var _n5 = left.a;
 				var lK = left.b;
 				var lV = left.c;
@@ -5209,11 +5216,11 @@ var elm$core$Dict$balance = F5(
 				var lRight = left.e;
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
-					0,
+					elm$core$Dict$Red,
 					lK,
 					lV,
-					A5(elm$core$Dict$RBNode_elm_builtin, 1, llK, llV, llLeft, llRight),
-					A5(elm$core$Dict$RBNode_elm_builtin, 1, key, value, lRight, right));
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, llK, llV, llLeft, llRight),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, key, value, lRight, right));
 			} else {
 				return A5(elm$core$Dict$RBNode_elm_builtin, color, key, value, left, right);
 			}
@@ -5221,8 +5228,8 @@ var elm$core$Dict$balance = F5(
 	});
 var elm$core$Dict$insertHelp = F3(
 	function (key, value, dict) {
-		if (dict.$ === -2) {
-			return A5(elm$core$Dict$RBNode_elm_builtin, 0, key, value, elm$core$Dict$RBEmpty_elm_builtin, elm$core$Dict$RBEmpty_elm_builtin);
+		if (dict.$ === 'RBEmpty_elm_builtin') {
+			return A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, key, value, elm$core$Dict$RBEmpty_elm_builtin, elm$core$Dict$RBEmpty_elm_builtin);
 		} else {
 			var nColor = dict.a;
 			var nKey = dict.b;
@@ -5230,8 +5237,8 @@ var elm$core$Dict$insertHelp = F3(
 			var nLeft = dict.d;
 			var nRight = dict.e;
 			var _n1 = A2(elm$core$Basics$compare, key, nKey);
-			switch (_n1) {
-				case 0:
+			switch (_n1.$) {
+				case 'LT':
 					return A5(
 						elm$core$Dict$balance,
 						nColor,
@@ -5239,7 +5246,7 @@ var elm$core$Dict$insertHelp = F3(
 						nValue,
 						A3(elm$core$Dict$insertHelp, key, value, nLeft),
 						nRight);
-				case 1:
+				case 'EQ':
 					return A5(elm$core$Dict$RBNode_elm_builtin, nColor, nKey, value, nLeft, nRight);
 				default:
 					return A5(
@@ -5255,13 +5262,13 @@ var elm$core$Dict$insertHelp = F3(
 var elm$core$Dict$insert = F3(
 	function (key, value, dict) {
 		var _n0 = A3(elm$core$Dict$insertHelp, key, value, dict);
-		if ((_n0.$ === -1) && (!_n0.a)) {
+		if ((_n0.$ === 'RBNode_elm_builtin') && (_n0.a.$ === 'Red')) {
 			var _n1 = _n0.a;
 			var k = _n0.b;
 			var v = _n0.c;
 			var l = _n0.d;
 			var r = _n0.e;
-			return A5(elm$core$Dict$RBNode_elm_builtin, 1, k, v, l, r);
+			return A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, k, v, l, r);
 		} else {
 			var x = _n0;
 			return x;
@@ -5289,71 +5296,74 @@ var author$project$GameDefinitions$Game1$Game1Definitions$initialModelFunc = fun
 	var roomsInfo = elm$core$Maybe$Just(
 		A4(author$project$GameModel$RoomsInfo, _List_Nil, 20, 12, 7));
 	var randomlyPositionPlayer = true;
-	var player = author$project$GameDefinitions$Game1$Game1Definitions$initialPlayer;
+	var player_ = A3(author$project$GameDefinitions$Game1$Game1Definitions$initialPlayer, 10, 10, 0);
 	var levers = elm$core$Dict$empty;
 	var h = author$project$GameDefinitions$Game1$Game1Definitions$dimensions.b;
 	var firstMap = A2(
 		author$project$Grid$initialize,
-		{ck: h, dj: w},
+		{height: h, width: w},
 		author$project$Tile$NoTileYet);
 	var firstExplored = author$project$GameDefinitions$Common$setAllAsUnexplored(firstMap);
-	var fightingCharacter2 = A3(author$project$GameDefinitions$Game1$Game1Definitions$initialFightingCharacter, 2, 'small_worm', theFloorId);
-	var fightingCharacter = A3(author$project$GameDefinitions$Game1$Game1Definitions$initialFightingCharacter, 1, 'slime', theFloorId);
+	var fightingCharacter2 = A5(author$project$GameDefinitions$Game1$Game1Definitions$initialFightingCharacter, 2, 'small_worm', 3, 3, theFloorId);
+	var fightingCharacter = A5(author$project$GameDefinitions$Game1$Game1Definitions$initialFightingCharacter, 1, 'slime', 5, 5, theFloorId);
 	var createRandomMap = true;
 	return _Utils_Tuple3(
 		{
-			b7: 0,
-			b8: theFloorId,
-			ca: false,
-			cb: false,
-			cd: firstExplored,
-			l: elm$core$Dict$fromList(
+			currentDisplay: author$project$GameModel$DisplayRegularGame,
+			currentFloorId: theFloorId,
+			debugMode: false,
+			displayStatsOverlay: false,
+			explored: firstExplored,
+			fightingCharacters: elm$core$Dict$fromList(
 				_List_fromArray(
 					[
 						_Utils_Tuple2(1, fightingCharacter),
 						_Utils_Tuple2(2, fightingCharacter2)
 					])),
-			aY: elm$core$Dict$empty,
-			ch: F2(
+			floorDict: elm$core$Dict$empty,
+			gameCompletionFunc: F2(
 				function (fid, coords) {
 					return false;
 				}),
-			ci: A3(author$project$Thorns$Types$initialModel, player, elm$core$Maybe$Nothing, imgBaseDir_),
-			co: imgBaseDir_,
-			cy: firstMap,
-			cA: elm$core$Dict$empty,
-			cC: true,
-			cD: _List_fromArray(
+			gameOfThornsModel: A3(author$project$Thorns$Types$initialModel, player_, elm$core$Maybe$Nothing, imgBaseDir_),
+			imgBaseDir: imgBaseDir_,
+			level: firstMap,
+			leverModelChangerFuncs: elm$core$Dict$empty,
+			listeningToKeyInput: true,
+			log: _List_fromArray(
 				['you enter the dungeon']),
-			y: elm$core$Dict$empty,
-			o: player,
-			cQ: _List_Nil,
-			cV: roomsInfo,
-			cX: true,
-			cZ: true,
-			c4: author$project$GameDefinitions$Game1$Game1Definitions$dimensions.b,
-			c5: author$project$GameDefinitions$Game1$Game1Definitions$dimensions.a,
-			de: 3,
-			df: 3,
-			dh: elm$core$Maybe$Nothing,
-			dk: 12,
-			dl: 15
+			otherCharacters: elm$core$Dict$empty,
+			player: player_,
+			pseudoRandomIntsPool: _List_Nil,
+			radius_of_visibility: 5,
+			roomsInfo: roomsInfo,
+			showBlood: true,
+			started: true,
+			tileHeight: 64,
+			tileWidth: 64,
+			total_height: author$project$GameDefinitions$Game1$Game1Definitions$dimensions.b,
+			total_width: author$project$GameDefinitions$Game1$Game1Definitions$dimensions.a,
+			viewport_topleft_x: 3,
+			viewport_topleft_y: 3,
+			wallPercentage: elm$core$Maybe$Nothing,
+			window_height: 12,
+			window_width: 15
 		},
 		createRandomMap,
 		randomlyPositionPlayer);
 };
 var author$project$GameDefinitions$Common$get_total_height = F2(
 	function (config_params, nr_rooms_per_column) {
-		return ((config_params.av + config_params.aT) + (nr_rooms_per_column * (config_params.a + (2 * config_params.B)))) + ((nr_rooms_per_column - 1) * config_params.as);
+		return ((config_params.border_top_height + config_params.border_bottom_height) + (nr_rooms_per_column * (config_params.square_room_side + (2 * config_params.horizontal_wall_height)))) + ((nr_rooms_per_column - 1) * config_params.vertical_space_between_rooms);
 	});
 var author$project$GameDefinitions$Common$get_total_width = F2(
 	function (config_params, nr_rooms_per_row) {
-		return ((config_params.au + config_params.aU) + (nr_rooms_per_row * (config_params.a + (2 * config_params.F)))) + ((nr_rooms_per_row - 1) * config_params.ai);
+		return ((config_params.border_left_width + config_params.border_right_width) + (nr_rooms_per_row * (config_params.square_room_side + (2 * config_params.vertical_wall_width)))) + ((nr_rooms_per_row - 1) * config_params.horizontal_space_between_rooms);
 	});
 var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id = 1;
 var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id = 0;
 var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$square_room_side_ = 7;
-var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params = {aT: 4, au: 1, aU: 4, av: 1, ai: 1, B: 1, aM: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$square_room_side_ - 2, aN: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$square_room_side_, aO: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$square_room_side_, aP: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$square_room_side_ - 2, a: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$square_room_side_, as: 1, F: 1};
+var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params = {border_bottom_height: 4, border_left_width: 1, border_right_width: 4, border_top_height: 1, horizontal_space_between_rooms: 1, horizontal_wall_height: 1, small_height_room_height: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$square_room_side_ - 2, small_height_room_width: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$square_room_side_, small_width_room_height: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$square_room_side_, small_width_room_width: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$square_room_side_ - 2, square_room_side: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$square_room_side_, vertical_space_between_rooms: 1, vertical_wall_width: 1};
 var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id = 3;
 var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id = 2;
 var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id = 4;
@@ -5362,29 +5372,29 @@ var author$project$GameDefinitions$Game2$Game2Definitions$common_window_width = 
 var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$lastFloor_id = 5;
 var author$project$GameDefinitions$Game2$Game2Definitions$customGameCompletionFunc = F2(
 	function (floorid, coords) {
-		return _Utils_eq(floorid, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$lastFloor_id) && ((coords.bd < 12) && (coords.be >= 5));
+		return _Utils_eq(floorid, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$lastFloor_id) && ((coords.x < 12) && (coords.y >= 5));
 	});
 var author$project$GameDefinitions$Common$gridInitializer = F3(
 	function (nr_rows, nr_cols, config_params) {
 		return A2(
 			author$project$Grid$initialize,
 			{
-				ck: A2(author$project$GameDefinitions$Common$get_total_height, config_params, nr_rows),
-				dj: A2(author$project$GameDefinitions$Common$get_total_width, config_params, nr_cols)
+				height: A2(author$project$GameDefinitions$Common$get_total_height, config_params, nr_rows),
+				width: A2(author$project$GameDefinitions$Common$get_total_width, config_params, nr_cols)
 			},
 			author$project$Tile$NoTileYet);
 	});
 var author$project$GameDefinitions$Common$getHoleCoordsAndHoleInfo = function (holeInfLoc) {
 	return _Utils_Tuple2(
-		_Utils_Tuple2(holeInfLoc.aB.bd, holeInfLoc.aB.be),
-		holeInfLoc.aA);
+		_Utils_Tuple2(holeInfLoc.holeLocation.x, holeInfLoc.holeLocation.y),
+		holeInfLoc.holeInfo);
 };
 var elm$core$Elm$JsArray$unsafeSet = _JsArray_unsafeSet;
 var elm$core$Array$setHelp = F4(
 	function (shift, index, value, tree) {
 		var pos = elm$core$Array$bitMask & (index >>> shift);
 		var _n0 = A2(elm$core$Elm$JsArray$unsafeGet, pos, tree);
-		if (!_n0.$) {
+		if (_n0.$ === 'SubTree') {
 			var subTree = _n0.a;
 			var newSub = A4(elm$core$Array$setHelp, shift - elm$core$Array$shiftStep, index, value, subTree);
 			return A3(
@@ -5424,23 +5434,23 @@ var elm$core$Array$set = F3(
 	});
 var author$project$Grid$set = F3(
 	function (_n0, a, grid) {
-		var x = _n0.bd;
-		var y = _n0.be;
+		var x = _n0.x;
+		var y = _n0.y;
 		if (x < 0) {
 			return grid;
 		} else {
 			if (y < 0) {
 				return grid;
 			} else {
-				if (_Utils_cmp(x, grid.cY.dj) > -1) {
+				if (_Utils_cmp(x, grid.size.width) > -1) {
 					return grid;
 				} else {
-					if (_Utils_cmp(y, grid.cY.ck) > -1) {
+					if (_Utils_cmp(y, grid.size.height) > -1) {
 						return grid;
 					} else {
 						var row = function () {
-							var _n1 = A2(elm$core$Array$get, y, grid.aZ);
-							if (!_n1.$) {
+							var _n1 = A2(elm$core$Array$get, y, grid.grid);
+							if (_n1.$ === 'Just') {
 								var r = _n1.a;
 								return r;
 							} else {
@@ -5451,7 +5461,7 @@ var author$project$Grid$set = F3(
 						return _Utils_update(
 							grid,
 							{
-								aZ: A3(elm$core$Array$set, y, row_, grid.aZ)
+								grid: A3(elm$core$Array$set, y, row_, grid.grid)
 							});
 					}
 				}
@@ -5459,7 +5469,7 @@ var author$project$Grid$set = F3(
 		}
 	});
 var author$project$Tile$Hole = function (a) {
-	return {$: 2, a: a};
+	return {$: 'Hole', a: a};
 };
 var author$project$GameDefinitions$Common$setHolesInGrid = F2(
 	function (holesDict_, grid) {
@@ -5493,33 +5503,33 @@ var author$project$GameDefinitions$Common$setHolesInGrid = F2(
 	});
 var author$project$Tile$FloorInfo = F7(
 	function (item, floorDrawing, isTransparent, isWalkable, isExplored, visibility, color) {
-		return {b6: color, cg: floorDrawing, cs: isExplored, cu: isTransparent, a$: isWalkable, by: item, dg: visibility};
+		return {color: color, floorDrawing: floorDrawing, isExplored: isExplored, isTransparent: isTransparent, isWalkable: isWalkable, item: item, visibility: visibility};
 	});
 var author$project$GameDefinitions$Common$createItemFloorInfo = function (i_c_info) {
 	return A7(
 		author$project$Tile$FloorInfo,
-		elm$core$Maybe$Just(i_c_info.by),
+		elm$core$Maybe$Just(i_c_info.item),
 		elm$core$Maybe$Nothing,
 		true,
 		true,
 		false,
-		1,
+		author$project$Tile$Unexplored,
 		'');
 };
 var author$project$GameDefinitions$Common$get_room_height = F2(
 	function (roomType, config_params) {
-		switch (roomType) {
-			case 0:
-				return config_params.a;
-			case 1:
-				return config_params.aM;
+		switch (roomType.$) {
+			case 'SquareRoom':
+				return config_params.square_room_side;
+			case 'HorizontalRoom':
+				return config_params.small_height_room_height;
 			default:
-				return config_params.aO;
+				return config_params.small_width_room_height;
 		}
 	});
 var author$project$GameDefinitions$Common$square_room_top_left_x = F3(
 	function (config_params, row_nr, col_nr) {
-		return (config_params.au + ((col_nr * config_params.F) + ((col_nr - 1) * ((config_params.a + config_params.F) + config_params.ai)))) + 1;
+		return (config_params.border_left_width + ((col_nr * config_params.vertical_wall_width) + ((col_nr - 1) * ((config_params.square_room_side + config_params.vertical_wall_width) + config_params.horizontal_space_between_rooms)))) + 1;
 	});
 var author$project$GameDefinitions$Common$small_height_room_top_left_x = F3(
 	function (config_params, row_nr, col_nr) {
@@ -5531,10 +5541,10 @@ var author$project$GameDefinitions$Common$small_width_room_top_left_x = F3(
 	});
 var author$project$GameDefinitions$Common$get_room_top_left_x = F4(
 	function (row_nr, col_nr, roomType, config_params) {
-		switch (roomType) {
-			case 0:
+		switch (roomType.$) {
+			case 'SquareRoom':
 				return A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr);
-			case 1:
+			case 'HorizontalRoom':
 				return A3(author$project$GameDefinitions$Common$small_height_room_top_left_x, config_params, row_nr, col_nr);
 			default:
 				return A3(author$project$GameDefinitions$Common$small_width_room_top_left_x, config_params, row_nr, col_nr);
@@ -5542,7 +5552,7 @@ var author$project$GameDefinitions$Common$get_room_top_left_x = F4(
 	});
 var author$project$GameDefinitions$Common$square_room_top_left_y = F3(
 	function (config_params, row_nr, col_nr) {
-		return (config_params.av + ((row_nr * config_params.B) + ((row_nr - 1) * ((config_params.a + config_params.B) + config_params.as)))) + 1;
+		return (config_params.border_top_height + ((row_nr * config_params.horizontal_wall_height) + ((row_nr - 1) * ((config_params.square_room_side + config_params.horizontal_wall_height) + config_params.vertical_space_between_rooms)))) + 1;
 	});
 var author$project$GameDefinitions$Common$small_height_room_top_left_y = F3(
 	function (config_params, row_nr, col_nr) {
@@ -5554,10 +5564,10 @@ var author$project$GameDefinitions$Common$small_width_room_top_left_y = F3(
 	});
 var author$project$GameDefinitions$Common$get_room_top_left_y = F4(
 	function (row_nr, col_nr, roomType, config_params) {
-		switch (roomType) {
-			case 0:
+		switch (roomType.$) {
+			case 'SquareRoom':
 				return A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr);
-			case 1:
+			case 'HorizontalRoom':
 				return A3(author$project$GameDefinitions$Common$small_height_room_top_left_y, config_params, row_nr, col_nr);
 			default:
 				return A3(author$project$GameDefinitions$Common$small_width_room_top_left_y, config_params, row_nr, col_nr);
@@ -5565,13 +5575,13 @@ var author$project$GameDefinitions$Common$get_room_top_left_y = F4(
 	});
 var author$project$GameDefinitions$Common$get_room_width = F2(
 	function (roomType, config_params) {
-		switch (roomType) {
-			case 0:
-				return config_params.a;
-			case 1:
-				return config_params.aN;
+		switch (roomType.$) {
+			case 'SquareRoom':
+				return config_params.square_room_side;
+			case 'HorizontalRoom':
+				return config_params.small_height_room_width;
 			default:
-				return config_params.aP;
+				return config_params.small_width_room_width;
 		}
 	});
 var author$project$GameDefinitions$Common$get_width_height_factors = function (position_nr) {
@@ -5600,13 +5610,13 @@ var author$project$GameDefinitions$Common$getItemCoordsAndItemInfo = F2(
 				x + A2(
 					elm$core$Maybe$withDefault,
 					0,
-					A2(elm$core$Maybe$map, elm$core$Tuple$first, itemInfo.al)),
+					A2(elm$core$Maybe$map, elm$core$Tuple$first, itemInfo.mbLocationShift)),
 				y + A2(
 					elm$core$Maybe$withDefault,
 					0,
-					A2(elm$core$Maybe$map, elm$core$Tuple$second, itemInfo.al)));
+					A2(elm$core$Maybe$map, elm$core$Tuple$second, itemInfo.mbLocationShift)));
 		}(
-			A5(author$project$GameDefinitions$Common$get_room_position_nr, itemInfo.aK, itemInfo.aJ, itemInfo.Y, itemInfo.aL, config_params));
+			A5(author$project$GameDefinitions$Common$get_room_position_nr, itemInfo.room_row_nr, itemInfo.room_col_nr, itemInfo.position_in_room, itemInfo.room_type, config_params));
 		var x_coord = _n0.a;
 		var y_coord = _n0.b;
 		return _Utils_Tuple2(
@@ -5614,7 +5624,7 @@ var author$project$GameDefinitions$Common$getItemCoordsAndItemInfo = F2(
 			itemInfo);
 	});
 var author$project$Tile$Floor = function (a) {
-	return {$: 0, a: a};
+	return {$: 'Floor', a: a};
 };
 var author$project$GameDefinitions$Common$setItemsInGrid = F3(
 	function (config_params, dItemsToCreate, grid) {
@@ -5647,7 +5657,9 @@ var author$project$GameDefinitions$Common$setItemsInGrid = F3(
 			grid,
 			lcoordsAndInfo);
 	});
-var author$project$Tile$LandingTargetDrawing = elm$core$Basics$identity;
+var author$project$Tile$LandingTargetDrawing = function (a) {
+	return {$: 'LandingTargetDrawing', a: a};
+};
 var elm$core$Basics$identity = function (x) {
 	return x;
 };
@@ -5655,25 +5667,26 @@ var author$project$GameDefinitions$Common$createLandingTargetFloorInfo = functio
 	return A7(
 		author$project$Tile$FloorInfo,
 		elm$core$Maybe$Nothing,
-		elm$core$Maybe$Just(ltinfo.bZ),
+		elm$core$Maybe$Just(
+			author$project$Tile$LandingTargetDrawing(ltinfo.target_id)),
 		true,
 		true,
 		false,
-		1,
+		author$project$Tile$Unexplored,
 		'');
 };
 var author$project$GameDefinitions$Common$getLandingTargetsCoordsAndTargetInfo = function (targetInfo) {
-	var _n0 = targetInfo.al;
-	if (_n0.$ === 1) {
+	var _n0 = targetInfo.mbLocationShift;
+	if (_n0.$ === 'Nothing') {
 		return _Utils_Tuple2(
-			_Utils_Tuple2(targetInfo.bd, targetInfo.be),
+			_Utils_Tuple2(targetInfo.x, targetInfo.y),
 			targetInfo);
 	} else {
 		var _n1 = _n0.a;
 		var x_shift = _n1.a;
 		var y_shift = _n1.b;
 		return _Utils_Tuple2(
-			_Utils_Tuple2(targetInfo.bd + x_shift, targetInfo.be + y_shift),
+			_Utils_Tuple2(targetInfo.x + x_shift, targetInfo.y + y_shift),
 			targetInfo);
 	}
 };
@@ -5713,7 +5726,7 @@ var author$project$GameDefinitions$Common$createTeleporterWallInfo = F2(
 		return _Utils_update(
 			winfo,
 			{
-				cI: elm$core$Maybe$Just(tel_info)
+				mbTeleporterObject: elm$core$Maybe$Just(tel_info)
 			});
 	});
 var elm$core$String$toLower = _String_toLower;
@@ -5728,13 +5741,13 @@ var author$project$GameDefinitions$Common$get_xy_coords_from_room_row_col = F5(
 	});
 var author$project$GameDefinitions$Common$getTeleportersCoordsAndTeleportersInfo = F2(
 	function (config_params, teleporterInfLoc) {
-		var _n0 = A5(author$project$GameDefinitions$Common$get_xy_coords_from_room_row_col, teleporterInfLoc.E.aK, teleporterInfLoc.E.aJ, teleporterInfLoc.E.aL, teleporterInfLoc.E.Y, config_params);
+		var _n0 = A5(author$project$GameDefinitions$Common$get_xy_coords_from_room_row_col, teleporterInfLoc.teleporterLocation.room_row_nr, teleporterInfLoc.teleporterLocation.room_col_nr, teleporterInfLoc.teleporterLocation.room_type, teleporterInfLoc.teleporterLocation.position_in_room, config_params);
 		var x_coord = _n0.a;
 		var y_coord = _n0.b;
 		var _n1 = function () {
-			var _n2 = teleporterInfLoc.aS.c$;
-			if (_n2 === 2) {
-				return ((elm$core$String$toLower(teleporterInfLoc.E.Y) === 'up') || (elm$core$String$toLower(teleporterInfLoc.E.Y) === 'down')) ? _Utils_Tuple2(x_coord - 2, y_coord) : _Utils_Tuple2(x_coord, y_coord);
+			var _n2 = teleporterInfLoc.teleporterInfo.teleporterType;
+			if (_n2.$ === 'Clock') {
+				return ((elm$core$String$toLower(teleporterInfLoc.teleporterLocation.position_in_room) === 'up') || (elm$core$String$toLower(teleporterInfLoc.teleporterLocation.position_in_room) === 'down')) ? _Utils_Tuple2(x_coord - 2, y_coord) : _Utils_Tuple2(x_coord, y_coord);
 			} else {
 				return _Utils_Tuple2(x_coord, y_coord);
 			}
@@ -5743,10 +5756,10 @@ var author$project$GameDefinitions$Common$getTeleportersCoordsAndTeleportersInfo
 		var y_c = _n1.b;
 		return _Utils_Tuple2(
 			_Utils_Tuple2(x_c, y_c),
-			teleporterInfLoc.aS);
+			teleporterInfLoc.teleporterInfo);
 	});
 var author$project$Tile$Wall = function (a) {
-	return {$: 3, a: a};
+	return {$: 'Wall', a: a};
 };
 var author$project$GameDefinitions$Common$setTeleportersInGrid = F3(
 	function (config_params, teleporterDict_, grid) {
@@ -5756,7 +5769,7 @@ var author$project$GameDefinitions$Common$setTeleportersInGrid = F3(
 					author$project$Grid$get,
 					A2(author$project$Grid$Coordinate, xcoord, ycoord),
 					grid_);
-				if ((!c_wall_info.$) && (c_wall_info.a.$ === 3)) {
+				if ((c_wall_info.$ === 'Just') && (c_wall_info.a.$ === 'Wall')) {
 					var winfo = c_wall_info.a.a;
 					return elm$core$Maybe$Just(
 						author$project$Tile$Wall(
@@ -5768,7 +5781,7 @@ var author$project$GameDefinitions$Common$setTeleportersInGrid = F3(
 		var setTileTeleporter = F4(
 			function (xcoord, ycoord, t_info, grid_) {
 				var _n2 = A4(tryTileTeleporter, xcoord, ycoord, t_info, grid_);
-				if (!_n2.$) {
+				if (_n2.$ === 'Just') {
 					var atile = _n2.a;
 					return A3(
 						author$project$Grid$set,
@@ -5796,10 +5809,10 @@ var author$project$GameDefinitions$Common$setTeleportersInGrid = F3(
 			grid,
 			lcoordsAndInfo);
 	});
-var author$project$GameDefinitions$Common$StairsDown = 3;
-var author$project$GameDefinitions$Common$StairsToTheRight = 1;
+var author$project$GameDefinitions$Common$StairsDown = {$: 'StairsDown'};
+var author$project$GameDefinitions$Common$StairsToTheRight = {$: 'StairsToTheRight'};
 var author$project$GameDefinitions$Common$addOneIfRoomTypeHorizontal = function (mbRoomType) {
-	if ((!mbRoomType.$) && (mbRoomType.a === 1)) {
+	if ((mbRoomType.$ === 'Just') && (mbRoomType.a.$ === 'HorizontalRoom')) {
 		var _n1 = mbRoomType.a;
 		return 1;
 	} else {
@@ -5807,7 +5820,7 @@ var author$project$GameDefinitions$Common$addOneIfRoomTypeHorizontal = function 
 	}
 };
 var author$project$GameDefinitions$Common$addOneIfRoomTypeVertical = function (mbRoomType) {
-	if ((!mbRoomType.$) && (mbRoomType.a === 2)) {
+	if ((mbRoomType.$ === 'Just') && (mbRoomType.a.$ === 'VerticalRoom')) {
 		var _n1 = mbRoomType.a;
 		return 1;
 	} else {
@@ -5815,11 +5828,11 @@ var author$project$GameDefinitions$Common$addOneIfRoomTypeVertical = function (m
 	}
 };
 var author$project$Tile$Stairs = function (a) {
-	return {$: 1, a: a};
+	return {$: 'Stairs', a: a};
 };
 var author$project$Tile$StairsInfo = F6(
 	function (stairsId, toFloorId, toStairsId, shift, isExplored, visibility) {
-		return {cs: isExplored, a6: shift, a7: stairsId, bb: toFloorId, bc: toStairsId, dg: visibility};
+		return {isExplored: isExplored, shift: shift, stairsId: stairsId, toFloorId: toFloorId, toStairsId: toStairsId, visibility: visibility};
 	});
 var author$project$GameDefinitions$Common$getStairsOnRoom = function (row_nr) {
 	return function (col_nr) {
@@ -5832,10 +5845,10 @@ var author$project$GameDefinitions$Common$getStairsOnRoom = function (row_nr) {
 								return function (mbShiftLocationTuple) {
 									return function (config_params) {
 										return function (grid) {
-											var tunnel_width = config_params.F + 1;
-											var tunnel_height = config_params.B + 1;
+											var tunnel_width = config_params.vertical_wall_width + 1;
+											var tunnel_height = config_params.horizontal_wall_height + 1;
 											var tileStairs = author$project$Tile$Stairs(
-												A6(author$project$Tile$StairsInfo, stairsId, toFloorId, toStairsId, shiftOnDestinationTuple, false, 1));
+												A6(author$project$Tile$StairsInfo, stairsId, toFloorId, toStairsId, shiftOnDestinationTuple, false, author$project$Tile$Unexplored));
 											var _n0 = A2(
 												elm$core$Maybe$withDefault,
 												_Utils_Tuple2(0, 0),
@@ -5843,23 +5856,23 @@ var author$project$GameDefinitions$Common$getStairsOnRoom = function (row_nr) {
 											var loc_x_shift = _n0.a;
 											var loc_y_shift = _n0.b;
 											var _n1 = function () {
-												switch (orientation) {
-													case 0:
+												switch (orientation.$) {
+													case 'StairsToTheLeft':
 														return _Utils_Tuple2(
 															((A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr) - tunnel_width) + loc_x_shift) + author$project$GameDefinitions$Common$addOneIfRoomTypeVertical(mbFromRoomType),
-															(A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr) + ((config_params.a / 2) | 0)) + loc_y_shift);
-													case 1:
+															(A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr) + ((config_params.square_room_side / 2) | 0)) + loc_y_shift);
+													case 'StairsToTheRight':
 														return _Utils_Tuple2(
-															((((A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr) + config_params.a) + tunnel_width) - 1) + loc_x_shift) - author$project$GameDefinitions$Common$addOneIfRoomTypeVertical(mbFromRoomType),
-															(A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr) + ((config_params.a / 2) | 0)) + loc_y_shift);
-													case 2:
+															((((A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr) + config_params.square_room_side) + tunnel_width) - 1) + loc_x_shift) - author$project$GameDefinitions$Common$addOneIfRoomTypeVertical(mbFromRoomType),
+															(A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr) + ((config_params.square_room_side / 2) | 0)) + loc_y_shift);
+													case 'StairsUp':
 														return _Utils_Tuple2(
-															(A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr) + ((config_params.a / 2) | 0)) + loc_x_shift,
+															(A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr) + ((config_params.square_room_side / 2) | 0)) + loc_x_shift,
 															((A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr) - tunnel_height) + loc_y_shift) + author$project$GameDefinitions$Common$addOneIfRoomTypeHorizontal(mbFromRoomType));
 													default:
 														return _Utils_Tuple2(
-															(A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr) + ((config_params.a / 2) | 0)) + loc_x_shift,
-															((((A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr) + config_params.a) + tunnel_height) - 1) + loc_y_shift) - author$project$GameDefinitions$Common$addOneIfRoomTypeHorizontal(mbFromRoomType));
+															(A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr) + ((config_params.square_room_side / 2) | 0)) + loc_x_shift,
+															((((A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr) + config_params.square_room_side) + tunnel_height) - 1) + loc_y_shift) - author$project$GameDefinitions$Common$addOneIfRoomTypeHorizontal(mbFromRoomType));
 												}
 											}();
 											var top_left_x = _n1.a;
@@ -5880,57 +5893,57 @@ var author$project$GameDefinitions$Common$getStairsOnRoom = function (row_nr) {
 		};
 	};
 };
-var author$project$GameModel$SquareRoom = 0;
+var author$project$GameModel$SquareRoom = {$: 'SquareRoom'};
 var author$project$GameDefinitions$Game2$Basement$addBasementStairs = function (grid) {
 	var lstairs = _List_fromArray(
 		[
 			{
-			bl: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id,
-			J: 1,
-			al: elm$core$Maybe$Nothing,
-			a3: elm$core$Maybe$Just(0),
-			a4: 6,
-			a5: 6,
-			a6: _Utils_Tuple2(1, 0),
-			a7: 2,
-			bb: 0,
-			bc: 1
+			current_floor_id: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id,
+			direction: author$project$GameDefinitions$Common$StairsToTheRight,
+			mbLocationShift: elm$core$Maybe$Nothing,
+			roomType: elm$core$Maybe$Just(author$project$GameModel$SquareRoom),
+			room_col: 6,
+			room_row: 6,
+			shift: _Utils_Tuple2(1, 0),
+			stairsId: 2,
+			toFloorId: 0,
+			toStairsId: 1
 		},
 			{
-			bl: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id,
-			J: 3,
-			al: elm$core$Maybe$Nothing,
-			a3: elm$core$Maybe$Just(0),
-			a4: 6,
-			a5: 6,
-			a6: _Utils_Tuple2(0, 1),
-			a7: 5,
-			bb: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-			bc: 6
+			current_floor_id: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id,
+			direction: author$project$GameDefinitions$Common$StairsDown,
+			mbLocationShift: elm$core$Maybe$Nothing,
+			roomType: elm$core$Maybe$Just(author$project$GameModel$SquareRoom),
+			room_col: 6,
+			room_row: 6,
+			shift: _Utils_Tuple2(0, 1),
+			stairsId: 5,
+			toFloorId: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
+			toStairsId: 6
 		}
 		]);
 	return A3(
 		elm$core$List$foldl,
 		F2(
 			function (rec, gridacc) {
-				return author$project$GameDefinitions$Common$getStairsOnRoom(rec.a5)(rec.a4)(rec.a7)(rec.bb)(rec.bc)(rec.J)(rec.a3)(rec.a6)(rec.al)(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)(gridacc);
+				return author$project$GameDefinitions$Common$getStairsOnRoom(rec.room_row)(rec.room_col)(rec.stairsId)(rec.toFloorId)(rec.toStairsId)(rec.direction)(rec.roomType)(rec.shift)(rec.mbLocationShift)(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)(gridacc);
 			}),
 		grid,
 		lstairs);
 };
 var author$project$GameModel$RoomRectangle = F4(
 	function (top_left_x, top_left_y, width, height) {
-		return {ck: height, c2: top_left_x, c3: top_left_y, dj: width};
+		return {height: height, top_left_x: top_left_x, top_left_y: top_left_y, width: width};
 	});
 var author$project$GameDefinitions$Common$getRoom = F4(
 	function (row_nr, col_nr, room_type, config_params) {
 		var _n0 = function () {
-			switch (room_type) {
-				case 0:
+			switch (room_type.$) {
+				case 'SquareRoom':
 					return _Utils_Tuple2(
 						A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr),
 						A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr));
-				case 1:
+				case 'HorizontalRoom':
 					return _Utils_Tuple2(
 						A3(author$project$GameDefinitions$Common$small_height_room_top_left_x, config_params, row_nr, col_nr),
 						A3(author$project$GameDefinitions$Common$small_height_room_top_left_y, config_params, row_nr, col_nr));
@@ -5943,13 +5956,13 @@ var author$project$GameDefinitions$Common$getRoom = F4(
 		var top_left_x = _n0.a;
 		var top_left_y = _n0.b;
 		var _n2 = function () {
-			switch (room_type) {
-				case 0:
-					return _Utils_Tuple2(config_params.a, config_params.a);
-				case 1:
-					return _Utils_Tuple2(config_params.aN, config_params.aM);
+			switch (room_type.$) {
+				case 'SquareRoom':
+					return _Utils_Tuple2(config_params.square_room_side, config_params.square_room_side);
+				case 'HorizontalRoom':
+					return _Utils_Tuple2(config_params.small_height_room_width, config_params.small_height_room_height);
 				default:
-					return _Utils_Tuple2(config_params.aP, config_params.aO);
+					return _Utils_Tuple2(config_params.small_width_room_width, config_params.small_width_room_height);
 			}
 		}();
 		var room_width = _n2.a;
@@ -5958,136 +5971,136 @@ var author$project$GameDefinitions$Common$getRoom = F4(
 	});
 var author$project$GameDefinitions$Common$getCustomRoom = F7(
 	function (row_nr, col_nr, shift_x, shift_y, rwidth, rheight, config_params) {
-		var room = A4(author$project$GameDefinitions$Common$getRoom, row_nr, col_nr, 0, config_params);
-		var new_room = A4(author$project$GameModel$RoomRectangle, room.c2 + shift_x, room.c3 + shift_y, rwidth, rheight);
+		var room = A4(author$project$GameDefinitions$Common$getRoom, row_nr, col_nr, author$project$GameModel$SquareRoom, config_params);
+		var new_room = A4(author$project$GameModel$RoomRectangle, room.top_left_x + shift_x, room.top_left_y + shift_y, rwidth, rheight);
 		return new_room;
 	});
 var author$project$GameDefinitions$Game2$Basement$basementCustomRoomRectangles = _List_fromArray(
 	[
-		A7(author$project$GameDefinitions$Common$getCustomRoom, 4, 3, 5, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.a, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.a, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)
+		A7(author$project$GameDefinitions$Common$getCustomRoom, 4, 3, 5, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.square_room_side, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.square_room_side, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)
 	]);
-var author$project$GameDefinitions$Common$TunnelDown = 1;
-var author$project$Tile$DoorToDown = 3;
-var author$project$Tile$DoorToUp = 2;
-var author$project$Tile$NoDoorNoWall = {$: 2};
+var author$project$GameDefinitions$Common$TunnelDown = {$: 'TunnelDown'};
+var author$project$Tile$DoorToDown = {$: 'DoorToDown'};
+var author$project$Tile$DoorToUp = {$: 'DoorToUp'};
+var author$project$Tile$NoDoorNoWall = {$: 'NoDoorNoWall'};
 var author$project$Tile$UseDoor = function (a) {
-	return {$: 0, a: a};
+	return {$: 'UseDoor', a: a};
 };
 var author$project$Item$Key = function (a) {
-	return {$: 2, a: a};
+	return {$: 'Key', a: a};
 };
 var author$project$Tile$defaultBlueDoorInfo = function (dorientation) {
 	return {
-		b6: elm$core$Maybe$Just('blue'),
-		cs: false,
-		ct: false,
-		cP: dorientation,
-		cS: _List_fromArray(
+		color: elm$core$Maybe$Just('blue'),
+		isExplored: false,
+		isOpen: false,
+		orientation: dorientation,
+		requiresToOpen: _List_fromArray(
 			[
 				author$project$Item$Key(
-				{aD: 'blue'})
+				{keyColor: 'blue'})
 			]),
-		dg: 1
+		visibility: author$project$Tile$Unexplored
 	};
 };
 var author$project$GameDefinitions$Common$defaultVerticalBlueDoorOptions = {
-	h: author$project$Tile$UseDoor(
-		author$project$Tile$defaultBlueDoorInfo(2)),
-	i: author$project$Tile$NoDoorNoWall,
-	j: author$project$Tile$NoDoorNoWall,
-	k: author$project$Tile$UseDoor(
-		author$project$Tile$defaultBlueDoorInfo(3))
+	bottom: author$project$Tile$UseDoor(
+		author$project$Tile$defaultBlueDoorInfo(author$project$Tile$DoorToUp)),
+	left: author$project$Tile$NoDoorNoWall,
+	right: author$project$Tile$NoDoorNoWall,
+	top: author$project$Tile$UseDoor(
+		author$project$Tile$defaultBlueDoorInfo(author$project$Tile$DoorToDown))
 };
 var author$project$Tile$defaultGreenDoorInfo = function (dorientation) {
 	return {
-		b6: elm$core$Maybe$Just('green'),
-		cs: false,
-		ct: false,
-		cP: dorientation,
-		cS: _List_fromArray(
+		color: elm$core$Maybe$Just('green'),
+		isExplored: false,
+		isOpen: false,
+		orientation: dorientation,
+		requiresToOpen: _List_fromArray(
 			[
 				author$project$Item$Key(
-				{aD: 'green'})
+				{keyColor: 'green'})
 			]),
-		dg: 1
+		visibility: author$project$Tile$Unexplored
 	};
 };
 var author$project$GameDefinitions$Common$defaultVerticalGreenDoorOptions = {
-	h: author$project$Tile$UseDoor(
-		author$project$Tile$defaultGreenDoorInfo(2)),
-	i: author$project$Tile$NoDoorNoWall,
-	j: author$project$Tile$NoDoorNoWall,
-	k: author$project$Tile$UseDoor(
-		author$project$Tile$defaultGreenDoorInfo(3))
+	bottom: author$project$Tile$UseDoor(
+		author$project$Tile$defaultGreenDoorInfo(author$project$Tile$DoorToUp)),
+	left: author$project$Tile$NoDoorNoWall,
+	right: author$project$Tile$NoDoorNoWall,
+	top: author$project$Tile$UseDoor(
+		author$project$Tile$defaultGreenDoorInfo(author$project$Tile$DoorToDown))
 };
 var author$project$Tile$defaultOpenDoorInfo = function (dorientation) {
-	return {b6: elm$core$Maybe$Nothing, cs: false, ct: true, cP: dorientation, cS: _List_Nil, dg: 1};
+	return {color: elm$core$Maybe$Nothing, isExplored: false, isOpen: true, orientation: dorientation, requiresToOpen: _List_Nil, visibility: author$project$Tile$Unexplored};
 };
 var author$project$GameDefinitions$Common$defaultVerticalOpenDoorOptions = {
-	h: author$project$Tile$UseDoor(
-		author$project$Tile$defaultOpenDoorInfo(2)),
-	i: author$project$Tile$NoDoorNoWall,
-	j: author$project$Tile$NoDoorNoWall,
-	k: author$project$Tile$UseDoor(
-		author$project$Tile$defaultOpenDoorInfo(3))
+	bottom: author$project$Tile$UseDoor(
+		author$project$Tile$defaultOpenDoorInfo(author$project$Tile$DoorToUp)),
+	left: author$project$Tile$NoDoorNoWall,
+	right: author$project$Tile$NoDoorNoWall,
+	top: author$project$Tile$UseDoor(
+		author$project$Tile$defaultOpenDoorInfo(author$project$Tile$DoorToDown))
 };
 var author$project$Tile$defaultRedDoorInfo = function (dorientation) {
 	return {
-		b6: elm$core$Maybe$Just('red'),
-		cs: false,
-		ct: false,
-		cP: dorientation,
-		cS: _List_fromArray(
+		color: elm$core$Maybe$Just('red'),
+		isExplored: false,
+		isOpen: false,
+		orientation: dorientation,
+		requiresToOpen: _List_fromArray(
 			[
 				author$project$Item$Key(
-				{aD: 'red'})
+				{keyColor: 'red'})
 			]),
-		dg: 1
+		visibility: author$project$Tile$Unexplored
 	};
 };
 var author$project$GameDefinitions$Common$defaultVerticalRedDoorOptions = {
-	h: author$project$Tile$UseDoor(
-		author$project$Tile$defaultRedDoorInfo(2)),
-	i: author$project$Tile$NoDoorNoWall,
-	j: author$project$Tile$NoDoorNoWall,
-	k: author$project$Tile$UseDoor(
-		author$project$Tile$defaultRedDoorInfo(3))
+	bottom: author$project$Tile$UseDoor(
+		author$project$Tile$defaultRedDoorInfo(author$project$Tile$DoorToUp)),
+	left: author$project$Tile$NoDoorNoWall,
+	right: author$project$Tile$NoDoorNoWall,
+	top: author$project$Tile$UseDoor(
+		author$project$Tile$defaultRedDoorInfo(author$project$Tile$DoorToDown))
 };
 var author$project$Tile$defaultYellowDoorInfo = function (dorientation) {
 	return {
-		b6: elm$core$Maybe$Just('yellow'),
-		cs: false,
-		ct: false,
-		cP: dorientation,
-		cS: _List_fromArray(
+		color: elm$core$Maybe$Just('yellow'),
+		isExplored: false,
+		isOpen: false,
+		orientation: dorientation,
+		requiresToOpen: _List_fromArray(
 			[
 				author$project$Item$Key(
-				{aD: 'yellow'})
+				{keyColor: 'yellow'})
 			]),
-		dg: 1
+		visibility: author$project$Tile$Unexplored
 	};
 };
 var author$project$GameDefinitions$Common$defaultVerticalYellowDoorOptions = {
-	h: author$project$Tile$UseDoor(
-		author$project$Tile$defaultYellowDoorInfo(2)),
-	i: author$project$Tile$NoDoorNoWall,
-	j: author$project$Tile$NoDoorNoWall,
-	k: author$project$Tile$UseDoor(
-		author$project$Tile$defaultYellowDoorInfo(3))
+	bottom: author$project$Tile$UseDoor(
+		author$project$Tile$defaultYellowDoorInfo(author$project$Tile$DoorToUp)),
+	left: author$project$Tile$NoDoorNoWall,
+	right: author$project$Tile$NoDoorNoWall,
+	top: author$project$Tile$UseDoor(
+		author$project$Tile$defaultYellowDoorInfo(author$project$Tile$DoorToDown))
 };
 var author$project$GameModel$TunnelRectangle = F4(
 	function (top_left_x, top_left_y, width, height) {
-		return {ck: height, c2: top_left_x, c3: top_left_y, dj: width};
+		return {height: height, top_left_x: top_left_x, top_left_y: top_left_y, width: width};
 	});
 var author$project$GameDefinitions$Common$getVerticalTunnel = F9(
 	function (row_nr, col_nr, orientation, mbWidth, mbHeight, mbFromRoomType, mbToRoomType, mbShift, config_params) {
 		var tunnel_width = A2(elm$core$Maybe$withDefault, 1, mbWidth);
 		var tunnel_height = function () {
-			if (!mbHeight.$) {
+			if (mbHeight.$ === 'Just') {
 				var aheight = mbHeight.a;
 				return aheight;
 			} else {
-				return (((2 * config_params.B) + config_params.as) + author$project$GameDefinitions$Common$addOneIfRoomTypeHorizontal(mbFromRoomType)) + author$project$GameDefinitions$Common$addOneIfRoomTypeHorizontal(mbToRoomType);
+				return (((2 * config_params.horizontal_wall_height) + config_params.vertical_space_between_rooms) + author$project$GameDefinitions$Common$addOneIfRoomTypeHorizontal(mbFromRoomType)) + author$project$GameDefinitions$Common$addOneIfRoomTypeHorizontal(mbToRoomType);
 			}
 		}();
 		var _n0 = A2(
@@ -6097,14 +6110,14 @@ var author$project$GameDefinitions$Common$getVerticalTunnel = F9(
 		var x_shift = _n0.a;
 		var y_shift = _n0.b;
 		var _n1 = function () {
-			if (!orientation) {
+			if (orientation.$ === 'TunnelUp') {
 				return _Utils_Tuple2(
-					(A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr) + ((config_params.a / 2) | 0)) + x_shift,
+					(A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr) + ((config_params.square_room_side / 2) | 0)) + x_shift,
 					((A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr) - tunnel_height) + y_shift) + author$project$GameDefinitions$Common$addOneIfRoomTypeHorizontal(mbFromRoomType));
 			} else {
 				return _Utils_Tuple2(
-					(A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr) + ((config_params.a / 2) | 0)) + x_shift,
-					((A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr) + config_params.a) + y_shift) - author$project$GameDefinitions$Common$addOneIfRoomTypeHorizontal(mbFromRoomType));
+					(A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr) + ((config_params.square_room_side / 2) | 0)) + x_shift,
+					((A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr) + config_params.square_room_side) + y_shift) - author$project$GameDefinitions$Common$addOneIfRoomTypeHorizontal(mbFromRoomType));
 			}
 		}();
 		var top_left_x = _n1.a;
@@ -6130,9 +6143,9 @@ var author$project$GameDefinitions$Game2$Basement$basementCustomVerticalTunnelRe
 				author$project$GameDefinitions$Common$getVerticalTunnel,
 				3,
 				2,
-				1,
+				author$project$GameDefinitions$Common$TunnelDown,
 				elm$core$Maybe$Nothing,
-				elm$core$Maybe$Just(((4 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B) + (2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.as)) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.a),
+				elm$core$Maybe$Just(((4 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height) + (2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.vertical_space_between_rooms)) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.square_room_side),
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Just(
@@ -6143,9 +6156,9 @@ var author$project$GameDefinitions$Game2$Basement$basementCustomVerticalTunnelRe
 				author$project$GameDefinitions$Common$getVerticalTunnel,
 				3,
 				5,
-				1,
+				author$project$GameDefinitions$Common$TunnelDown,
 				elm$core$Maybe$Nothing,
-				elm$core$Maybe$Just(((4 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B) + (2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.as)) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.a),
+				elm$core$Maybe$Just(((4 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height) + (2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.vertical_space_between_rooms)) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.square_room_side),
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Just(
@@ -6156,9 +6169,9 @@ var author$project$GameDefinitions$Game2$Basement$basementCustomVerticalTunnelRe
 				author$project$GameDefinitions$Common$getVerticalTunnel,
 				3,
 				3,
-				1,
+				author$project$GameDefinitions$Common$TunnelDown,
 				elm$core$Maybe$Nothing,
-				elm$core$Maybe$Just(((4 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B) + (2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.as)) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.a),
+				elm$core$Maybe$Just(((4 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height) + (2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.vertical_space_between_rooms)) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.square_room_side),
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Just(
@@ -6169,9 +6182,9 @@ var author$project$GameDefinitions$Game2$Basement$basementCustomVerticalTunnelRe
 				author$project$GameDefinitions$Common$getVerticalTunnel,
 				3,
 				4,
-				1,
+				author$project$GameDefinitions$Common$TunnelDown,
 				elm$core$Maybe$Nothing,
-				elm$core$Maybe$Just(((4 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B) + (2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.as)) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.a),
+				elm$core$Maybe$Just(((4 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height) + (2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.vertical_space_between_rooms)) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.square_room_side),
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Just(
@@ -6182,9 +6195,9 @@ var author$project$GameDefinitions$Game2$Basement$basementCustomVerticalTunnelRe
 				author$project$GameDefinitions$Common$getVerticalTunnel,
 				3,
 				3,
-				1,
+				author$project$GameDefinitions$Common$TunnelDown,
 				elm$core$Maybe$Nothing,
-				elm$core$Maybe$Just((2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.as),
+				elm$core$Maybe$Just((2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.vertical_space_between_rooms),
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Just(
@@ -6195,9 +6208,9 @@ var author$project$GameDefinitions$Game2$Basement$basementCustomVerticalTunnelRe
 				author$project$GameDefinitions$Common$getVerticalTunnel,
 				3,
 				4,
-				1,
+				author$project$GameDefinitions$Common$TunnelDown,
 				elm$core$Maybe$Nothing,
-				elm$core$Maybe$Just((2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.as),
+				elm$core$Maybe$Just((2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.vertical_space_between_rooms),
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Just(
@@ -6208,9 +6221,9 @@ var author$project$GameDefinitions$Game2$Basement$basementCustomVerticalTunnelRe
 				author$project$GameDefinitions$Common$getVerticalTunnel,
 				4,
 				3,
-				1,
+				author$project$GameDefinitions$Common$TunnelDown,
 				elm$core$Maybe$Nothing,
-				elm$core$Maybe$Just((2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.as),
+				elm$core$Maybe$Just((2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.vertical_space_between_rooms),
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Just(
@@ -6221,9 +6234,9 @@ var author$project$GameDefinitions$Game2$Basement$basementCustomVerticalTunnelRe
 				author$project$GameDefinitions$Common$getVerticalTunnel,
 				4,
 				3,
-				1,
+				author$project$GameDefinitions$Common$TunnelDown,
 				elm$core$Maybe$Nothing,
-				elm$core$Maybe$Just((2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.as),
+				elm$core$Maybe$Just((2 * author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height) + author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.vertical_space_between_rooms),
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Just(
@@ -6242,7 +6255,7 @@ var elm$core$Dict$foldl = F3(
 	function (func, acc, dict) {
 		foldl:
 		while (true) {
-			if (dict.$ === -2) {
+			if (dict.$ === 'RBEmpty_elm_builtin') {
 				return acc;
 			} else {
 				var key = dict.b;
@@ -6280,13 +6293,13 @@ var author$project$GameDefinitions$Common$getHolesByFloorId = F2(
 			elm$core$Dict$filter,
 			F2(
 				function (k, v) {
-					return _Utils_eq(v.aA.az, floorId);
+					return _Utils_eq(v.holeInfo.floorId, floorId);
 				}),
 			dHoles);
 	});
 var author$project$Tile$HoleInfo = F5(
 	function (holeId, floorId, target_id, isExplored, visibility) {
-		return {az: floorId, cm: holeId, cs: isExplored, bZ: target_id, dg: visibility};
+		return {floorId: floorId, holeId: holeId, isExplored: isExplored, target_id: target_id, visibility: visibility};
 	});
 var author$project$GameDefinitions$Common$createHoleInfoWithLocation = F8(
 	function (holeId, floorId, row_nr, col_nr, pos_nr, roomType, targetId, config_params) {
@@ -6294,137 +6307,102 @@ var author$project$GameDefinitions$Common$createHoleInfoWithLocation = F8(
 		var pos_x = _n0.a;
 		var pos_y = _n0.b;
 		return {
-			aA: A5(author$project$Tile$HoleInfo, holeId, floorId, targetId, false, 1),
-			aB: A2(author$project$Grid$Coordinate, pos_x, pos_y)
+			holeInfo: A5(author$project$Tile$HoleInfo, holeId, floorId, targetId, false, author$project$Tile$Unexplored),
+			holeLocation: A2(author$project$Grid$Coordinate, pos_x, pos_y)
 		};
 	});
-var author$project$GameModel$HorizontalRoom = 1;
-var author$project$GameModel$VerticalRoom = 2;
-var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$holesDict = function () {
-	var _n0 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 3, 4, 5, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
-	var x9 = _n0.a;
-	var y9 = _n0.b;
-	var _n1 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 1, 2, 8, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
-	var x8 = _n1.a;
-	var y8 = _n1.b;
-	var _n2 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 5, 3, 2, 2, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
-	var x7 = _n2.a;
-	var y7 = _n2.b;
-	var _n3 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 3, 3, 5, 2, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
-	var x6 = _n3.a;
-	var y6 = _n3.b;
-	var _n4 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 3, 4, 6, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
-	var x5 = _n4.a;
-	var y5 = _n4.b;
-	var _n5 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 5, 5, 5, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
-	var x4 = _n5.a;
-	var y4 = _n5.b;
-	var _n6 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 3, 5, 4, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
-	var x3 = _n6.a;
-	var y3 = _n6.b;
-	var _n7 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 1, 4, 8, 1, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
-	var x2 = _n7.a;
-	var y2 = _n7.b;
-	var _n8 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 2, 3, 6, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
-	var x11 = _n8.a;
-	var y11 = _n8.b;
-	var _n9 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 2, 1, 5, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
-	var x10 = _n9.a;
-	var y10 = _n9.b;
-	var _n10 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 1, 1, 5, 1, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
-	var x1 = _n10.a;
-	var y1 = _n10.b;
-	return elm$core$Dict$fromList(
-		A2(
-			elm$core$List$map,
-			function (_n11) {
-				var x = _n11.a;
-				var func_y = _n11.b;
-				return _Utils_Tuple2(
-					x,
-					func_y(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params));
-			},
-			_List_fromArray(
-				[
-					_Utils_Tuple2(
-					1,
-					A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 1, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id, 1, 1, 5, 1, 1)),
-					_Utils_Tuple2(
-					2,
-					A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 2, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id, 1, 4, 8, 1, 2)),
-					_Utils_Tuple2(
-					3,
-					A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 3, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id, 3, 5, 4, 0, 3)),
-					_Utils_Tuple2(
-					4,
-					A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 4, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id, 5, 5, 5, 0, 4)),
-					_Utils_Tuple2(
-					5,
-					A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 5, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id, 3, 4, 6, 0, 5)),
-					_Utils_Tuple2(
-					6,
-					A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 6, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id, 3, 3, 5, 2, 6)),
-					_Utils_Tuple2(
-					7,
-					A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 7, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id, 5, 3, 2, 2, 7)),
-					_Utils_Tuple2(
-					8,
-					A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 8, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id, 1, 2, 8, 0, 8)),
-					_Utils_Tuple2(
-					9,
-					A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 9, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id, 3, 4, 5, 0, 9)),
-					_Utils_Tuple2(
-					10,
-					A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 10, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id, 2, 1, 5, 0, 10)),
-					_Utils_Tuple2(
-					11,
-					A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 11, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id, 2, 3, 6, 0, 11))
-				])));
-}();
+var author$project$GameModel$HorizontalRoom = {$: 'HorizontalRoom'};
+var author$project$GameModel$VerticalRoom = {$: 'VerticalRoom'};
+var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$holesDict = elm$core$Dict$fromList(
+	A2(
+		elm$core$List$map,
+		function (_n0) {
+			var x = _n0.a;
+			var func_y = _n0.b;
+			return _Utils_Tuple2(
+				x,
+				func_y(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params));
+		},
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				1,
+				A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 1, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id, 1, 1, 5, author$project$GameModel$HorizontalRoom, 1)),
+				_Utils_Tuple2(
+				2,
+				A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 2, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id, 1, 4, 8, author$project$GameModel$HorizontalRoom, 2)),
+				_Utils_Tuple2(
+				3,
+				A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 3, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id, 3, 5, 4, author$project$GameModel$SquareRoom, 3)),
+				_Utils_Tuple2(
+				4,
+				A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 4, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id, 5, 5, 5, author$project$GameModel$SquareRoom, 4)),
+				_Utils_Tuple2(
+				5,
+				A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 5, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id, 3, 4, 6, author$project$GameModel$SquareRoom, 5)),
+				_Utils_Tuple2(
+				6,
+				A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 6, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id, 3, 3, 5, author$project$GameModel$VerticalRoom, 6)),
+				_Utils_Tuple2(
+				7,
+				A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 7, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id, 5, 3, 2, author$project$GameModel$VerticalRoom, 7)),
+				_Utils_Tuple2(
+				8,
+				A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 8, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id, 1, 2, 8, author$project$GameModel$SquareRoom, 8)),
+				_Utils_Tuple2(
+				9,
+				A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 9, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id, 3, 4, 5, author$project$GameModel$SquareRoom, 9)),
+				_Utils_Tuple2(
+				10,
+				A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 10, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id, 2, 1, 5, author$project$GameModel$SquareRoom, 10)),
+				_Utils_Tuple2(
+				11,
+				A7(author$project$GameDefinitions$Common$createHoleInfoWithLocation, 11, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id, 2, 3, 6, author$project$GameModel$SquareRoom, 11))
+			])));
 var author$project$GameDefinitions$Game2$Basement$basementHoles = A2(author$project$GameDefinitions$Common$getHolesByFloorId, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$holesDict);
-var author$project$Tile$DoorToTheLeft = 1;
-var author$project$Tile$DoorToTheRight = 0;
+var author$project$Tile$DoorToTheLeft = {$: 'DoorToTheLeft'};
+var author$project$Tile$DoorToTheRight = {$: 'DoorToTheRight'};
 var author$project$GameDefinitions$Common$defaultHorizontalGreenDoorOptions = {
-	h: author$project$Tile$NoDoorNoWall,
-	i: author$project$Tile$UseDoor(
-		author$project$Tile$defaultGreenDoorInfo(0)),
-	j: author$project$Tile$UseDoor(
-		author$project$Tile$defaultGreenDoorInfo(1)),
-	k: author$project$Tile$NoDoorNoWall
+	bottom: author$project$Tile$NoDoorNoWall,
+	left: author$project$Tile$UseDoor(
+		author$project$Tile$defaultGreenDoorInfo(author$project$Tile$DoorToTheRight)),
+	right: author$project$Tile$UseDoor(
+		author$project$Tile$defaultGreenDoorInfo(author$project$Tile$DoorToTheLeft)),
+	top: author$project$Tile$NoDoorNoWall
 };
 var author$project$GameDefinitions$Common$defaultHorizontalOpenDoorOptions = {
-	h: author$project$Tile$NoDoorNoWall,
-	i: author$project$Tile$UseDoor(
-		author$project$Tile$defaultOpenDoorInfo(0)),
-	j: author$project$Tile$UseDoor(
-		author$project$Tile$defaultOpenDoorInfo(1)),
-	k: author$project$Tile$NoDoorNoWall
+	bottom: author$project$Tile$NoDoorNoWall,
+	left: author$project$Tile$UseDoor(
+		author$project$Tile$defaultOpenDoorInfo(author$project$Tile$DoorToTheRight)),
+	right: author$project$Tile$UseDoor(
+		author$project$Tile$defaultOpenDoorInfo(author$project$Tile$DoorToTheLeft)),
+	top: author$project$Tile$NoDoorNoWall
 };
 var author$project$GameDefinitions$Common$defaultHorizontalRedDoorOptions = {
-	h: author$project$Tile$NoDoorNoWall,
-	i: author$project$Tile$UseDoor(
-		author$project$Tile$defaultRedDoorInfo(0)),
-	j: author$project$Tile$UseDoor(
-		author$project$Tile$defaultRedDoorInfo(1)),
-	k: author$project$Tile$NoDoorNoWall
+	bottom: author$project$Tile$NoDoorNoWall,
+	left: author$project$Tile$UseDoor(
+		author$project$Tile$defaultRedDoorInfo(author$project$Tile$DoorToTheRight)),
+	right: author$project$Tile$UseDoor(
+		author$project$Tile$defaultRedDoorInfo(author$project$Tile$DoorToTheLeft)),
+	top: author$project$Tile$NoDoorNoWall
 };
 var author$project$GameDefinitions$Common$defaultHorizontalYellowDoorOptions = {
-	h: author$project$Tile$NoDoorNoWall,
-	i: author$project$Tile$UseDoor(
-		author$project$Tile$defaultYellowDoorInfo(0)),
-	j: author$project$Tile$UseDoor(
-		author$project$Tile$defaultYellowDoorInfo(1)),
-	k: author$project$Tile$NoDoorNoWall
+	bottom: author$project$Tile$NoDoorNoWall,
+	left: author$project$Tile$UseDoor(
+		author$project$Tile$defaultYellowDoorInfo(author$project$Tile$DoorToTheRight)),
+	right: author$project$Tile$UseDoor(
+		author$project$Tile$defaultYellowDoorInfo(author$project$Tile$DoorToTheLeft)),
+	top: author$project$Tile$NoDoorNoWall
 };
-var author$project$GameDefinitions$Common$TunnelToTheRight = 0;
+var author$project$GameDefinitions$Common$TunnelToTheRight = {$: 'TunnelToTheRight'};
 var author$project$GameDefinitions$Common$getHorizontalTunnel = F9(
 	function (row_nr, col_nr, orientation, mbWidth, mbHeight, mbFromRoomType, mbToRoomType, mbShift, config_params) {
 		var tunnel_width = function () {
-			if (!mbWidth.$) {
+			if (mbWidth.$ === 'Just') {
 				var awidth = mbWidth.a;
 				return awidth;
 			} else {
-				return (((2 * config_params.F) + config_params.ai) + author$project$GameDefinitions$Common$addOneIfRoomTypeVertical(mbFromRoomType)) + author$project$GameDefinitions$Common$addOneIfRoomTypeVertical(mbToRoomType);
+				return (((2 * config_params.vertical_wall_width) + config_params.horizontal_space_between_rooms) + author$project$GameDefinitions$Common$addOneIfRoomTypeVertical(mbFromRoomType)) + author$project$GameDefinitions$Common$addOneIfRoomTypeVertical(mbToRoomType);
 			}
 		}();
 		var tunnel_height = A2(elm$core$Maybe$withDefault, 1, mbHeight);
@@ -6435,14 +6413,14 @@ var author$project$GameDefinitions$Common$getHorizontalTunnel = F9(
 		var x_shift = _n0.a;
 		var y_shift = _n0.b;
 		var _n1 = function () {
-			if (orientation === 1) {
+			if (orientation.$ === 'TunnelToTheLeft') {
 				return _Utils_Tuple2(
 					((A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr) - tunnel_width) + x_shift) + author$project$GameDefinitions$Common$addOneIfRoomTypeVertical(mbFromRoomType),
-					(A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr) + ((config_params.a / 2) | 0)) + y_shift);
+					(A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr) + ((config_params.square_room_side / 2) | 0)) + y_shift);
 			} else {
 				return _Utils_Tuple2(
-					((A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr) + config_params.a) + x_shift) - author$project$GameDefinitions$Common$addOneIfRoomTypeVertical(mbFromRoomType),
-					(A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr) + ((config_params.a / 2) | 0)) + y_shift);
+					((A3(author$project$GameDefinitions$Common$square_room_top_left_x, config_params, row_nr, col_nr) + config_params.square_room_side) + x_shift) - author$project$GameDefinitions$Common$addOneIfRoomTypeVertical(mbFromRoomType),
+					(A3(author$project$GameDefinitions$Common$square_room_top_left_y, config_params, row_nr, col_nr) + ((config_params.square_room_side / 2) | 0)) + y_shift);
 			}
 		}();
 		var top_left_x = _n1.a;
@@ -6451,7 +6429,7 @@ var author$project$GameDefinitions$Common$getHorizontalTunnel = F9(
 	});
 var author$project$GameDefinitions$Common$getCommonHorizontalTunnel = F3(
 	function (row_nr, col_nr, config_params) {
-		return A9(author$project$GameDefinitions$Common$getHorizontalTunnel, row_nr, col_nr, 0, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, config_params);
+		return A9(author$project$GameDefinitions$Common$getHorizontalTunnel, row_nr, col_nr, author$project$GameDefinitions$Common$TunnelToTheRight, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, config_params);
 	});
 var author$project$GameDefinitions$Game2$Basement$basementInitialHorizontalTunnelRectanglesWithOptions = A2(
 	elm$core$List$map,
@@ -6525,31 +6503,31 @@ var author$project$GameDefinitions$Game2$Basement$basementInitialRoomRectangles 
 	},
 	_List_fromArray(
 		[
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 5, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 1, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 3, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 4, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 5, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 3, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 4, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 5, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 3, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 4, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 5, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 1, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 3, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 4, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 5, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 6, 0)
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 5, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 1, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 3, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 4, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 5, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 3, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 4, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 5, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 3, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 4, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 5, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 1, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 3, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 4, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 5, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 6, author$project$GameModel$SquareRoom)
 		]));
 var author$project$GameDefinitions$Common$getCommonVerticalTunnel = F3(
 	function (row_nr, col_nr, config_params) {
-		return A9(author$project$GameDefinitions$Common$getVerticalTunnel, row_nr, col_nr, 1, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, config_params);
+		return A9(author$project$GameDefinitions$Common$getVerticalTunnel, row_nr, col_nr, author$project$GameDefinitions$Common$TunnelDown, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, config_params);
 	});
 var author$project$GameDefinitions$Game2$Basement$basementInitialVerticalTunnelRectanglesWithOptions = A2(
 	elm$core$List$map,
@@ -6607,13 +6585,13 @@ var author$project$GameDefinitions$Common$getItemsByFloorId = F2(
 			elm$core$Dict$filter,
 			F2(
 				function (k, v) {
-					return _Utils_eq(v.ag, floorId);
+					return _Utils_eq(v.floor_id, floorId);
 				}),
 			dItems);
 	});
 var author$project$GameDefinitions$Common$ItemCreationInfo = F8(
 	function (item_id, item, floor_id, room_row_nr, room_col_nr, room_type, position_in_room, mbLocationShift) {
-		return {ag: floor_id, by: item, cw: item_id, al: mbLocationShift, Y: position_in_room, aJ: room_col_nr, aK: room_row_nr, aL: room_type};
+		return {floor_id: floor_id, item: item, item_id: item_id, mbLocationShift: mbLocationShift, position_in_room: position_in_room, room_col_nr: room_col_nr, room_row_nr: room_row_nr, room_type: room_type};
 	});
 var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$itemCreationDict = elm$core$Dict$fromList(
 	_List_fromArray(
@@ -6624,11 +6602,11 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$itemCreationDict = 
 				author$project$GameDefinitions$Common$ItemCreationInfo,
 				1,
 				author$project$Item$Key(
-					{aD: 'blue'}),
+					{keyColor: 'blue'}),
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
 				4,
 				3,
-				0,
+				author$project$GameModel$SquareRoom,
 				5,
 				elm$core$Maybe$Nothing)),
 			_Utils_Tuple2(
@@ -6637,11 +6615,11 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$itemCreationDict = 
 				author$project$GameDefinitions$Common$ItemCreationInfo,
 				2,
 				author$project$Item$Key(
-					{aD: 'yellow'}),
+					{keyColor: 'yellow'}),
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id,
 				4,
 				3,
-				0,
+				author$project$GameModel$SquareRoom,
 				7,
 				elm$core$Maybe$Just(
 					_Utils_Tuple2(5, 0)))),
@@ -6651,11 +6629,11 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$itemCreationDict = 
 				author$project$GameDefinitions$Common$ItemCreationInfo,
 				3,
 				author$project$Item$Key(
-					{aD: 'red'}),
+					{keyColor: 'red'}),
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
 				1,
 				2,
-				0,
+				author$project$GameModel$SquareRoom,
 				3,
 				elm$core$Maybe$Nothing)),
 			_Utils_Tuple2(
@@ -6664,11 +6642,11 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$itemCreationDict = 
 				author$project$GameDefinitions$Common$ItemCreationInfo,
 				4,
 				author$project$Item$Key(
-					{aD: 'green'}),
+					{keyColor: 'green'}),
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
 				5,
 				6,
-				0,
+				author$project$GameModel$SquareRoom,
 				5,
 				elm$core$Maybe$Nothing))
 		]));
@@ -6679,46 +6657,46 @@ var author$project$GameDefinitions$Common$getLandingTargetsByFloorId = F2(
 			elm$core$Dict$filter,
 			F2(
 				function (k, v) {
-					return _Utils_eq(v.ag, floorId);
+					return _Utils_eq(v.floor_id, floorId);
 				}),
 			dlandingTargets);
 	});
 var author$project$GameDefinitions$Common$LandingTargetInfo = F5(
 	function (target_id, floor_id, x, y, mbLocationShift) {
-		return {ag: floor_id, al: mbLocationShift, bZ: target_id, bd: x, be: y};
+		return {floor_id: floor_id, mbLocationShift: mbLocationShift, target_id: target_id, x: x, y: y};
 	});
 var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$landingTargetsDict = function () {
-	var _n0 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 7, 6, 5, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
+	var _n0 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 7, 6, 5, author$project$GameModel$SquareRoom, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
 	var x9 = _n0.a;
 	var y9 = _n0.b;
-	var _n1 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 5, 3, 8, 2, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
+	var _n1 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 5, 3, 8, author$project$GameModel$VerticalRoom, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
 	var x8 = _n1.a;
 	var y8 = _n1.b;
-	var _n2 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 5, 4, 2, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
+	var _n2 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 5, 4, 2, author$project$GameModel$SquareRoom, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
 	var x7 = _n2.a;
 	var y7 = _n2.b;
-	var _n3 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 3, 4, 5, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
+	var _n3 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 3, 4, 5, author$project$GameModel$SquareRoom, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
 	var x6 = _n3.a;
 	var y6 = _n3.b;
-	var _n4 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 3, 5, 6, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
+	var _n4 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 3, 5, 6, author$project$GameModel$SquareRoom, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
 	var x5 = _n4.a;
 	var y5 = _n4.b;
-	var _n5 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 3, 5, 5, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
+	var _n5 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 3, 5, 5, author$project$GameModel$SquareRoom, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
 	var x4 = _n5.a;
 	var y4 = _n5.b;
-	var _n6 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 6, 5, 5, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
+	var _n6 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 6, 5, 5, author$project$GameModel$SquareRoom, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
 	var x3 = _n6.a;
 	var y3 = _n6.b;
-	var _n7 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 4, 3, 5, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
+	var _n7 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 4, 3, 5, author$project$GameModel$SquareRoom, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
 	var x2 = _n7.a;
 	var y2 = _n7.b;
-	var _n8 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 6, 4, 6, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
+	var _n8 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 6, 4, 6, author$project$GameModel$SquareRoom, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
 	var x11 = _n8.a;
 	var y11 = _n8.b;
-	var _n9 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 6, 2, 5, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
+	var _n9 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 6, 2, 5, author$project$GameModel$SquareRoom, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
 	var x10 = _n9.a;
 	var y10 = _n9.b;
-	var _n10 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 2, 1, 5, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
+	var _n10 = A5(author$project$GameDefinitions$Common$get_room_position_nr, 2, 1, 5, author$project$GameModel$SquareRoom, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params);
 	var x1 = _n10.a;
 	var y1 = _n10.b;
 	return elm$core$Dict$fromList(
@@ -6773,8 +6751,8 @@ var author$project$GameDefinitions$Game2$Basement$basementStairsTunnel = _List_f
 		author$project$GameDefinitions$Common$getHorizontalTunnel,
 		6,
 		6,
-		0,
-		elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.F + 1),
+		author$project$GameDefinitions$Common$TunnelToTheRight,
+		elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.vertical_wall_width + 1),
 		elm$core$Maybe$Nothing,
 		elm$core$Maybe$Nothing,
 		elm$core$Maybe$Nothing,
@@ -6784,9 +6762,9 @@ var author$project$GameDefinitions$Game2$Basement$basementStairsTunnel = _List_f
 		author$project$GameDefinitions$Common$getVerticalTunnel,
 		6,
 		6,
-		1,
+		author$project$GameDefinitions$Common$TunnelDown,
 		elm$core$Maybe$Nothing,
-		elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B + 1),
+		elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height + 1),
 		elm$core$Maybe$Nothing,
 		elm$core$Maybe$Nothing,
 		elm$core$Maybe$Nothing,
@@ -6798,31 +6776,31 @@ var author$project$GameDefinitions$Common$getTeleportersByFloorId = F2(
 			elm$core$Dict$filter,
 			F2(
 				function (k, v) {
-					return _Utils_eq(v.aS.ag, floorId);
+					return _Utils_eq(v.teleporterInfo.floor_id, floorId);
 				}),
 			dTeleporters);
 	});
 var author$project$GameDefinitions$Common$LocationInfo = F4(
 	function (room_row_nr, room_col_nr, room_type, position_in_room) {
-		return {Y: position_in_room, aJ: room_col_nr, aK: room_row_nr, aL: room_type};
+		return {position_in_room: position_in_room, room_col_nr: room_col_nr, room_row_nr: room_row_nr, room_type: room_type};
 	});
 var author$project$GameDefinitions$Common$TeleporterInfoWithLocation = F2(
 	function (teleporterInfo, teleporterLocation) {
-		return {aS: teleporterInfo, E: teleporterLocation};
+		return {teleporterInfo: teleporterInfo, teleporterLocation: teleporterLocation};
 	});
 var author$project$Tile$TeleporterInfo = F7(
 	function (teleporter_id, floor_id, teleporterType, target_id, shift, isExplored, visibility) {
-		return {ag: floor_id, cs: isExplored, a6: shift, bZ: target_id, c$: teleporterType, c0: teleporter_id, dg: visibility};
+		return {floor_id: floor_id, isExplored: isExplored, shift: shift, target_id: target_id, teleporterType: teleporterType, teleporter_id: teleporter_id, visibility: visibility};
 	});
 var author$project$GameDefinitions$Common$createTeleporterInfoWithLocation = F9(
 	function (teleporterId, floorId, teleportertype, row_nr, col_nr, room_type, wall, targetId, shift) {
 		var teleporterLocation = A4(author$project$GameDefinitions$Common$LocationInfo, row_nr, col_nr, room_type, wall);
-		var teleporterInfo = A7(author$project$Tile$TeleporterInfo, teleporterId, floorId, teleportertype, targetId, shift, false, 1);
+		var teleporterInfo = A7(author$project$Tile$TeleporterInfo, teleporterId, floorId, teleportertype, targetId, shift, false, author$project$Tile$Unexplored);
 		return A2(author$project$GameDefinitions$Common$TeleporterInfoWithLocation, teleporterInfo, teleporterLocation);
 	});
-var author$project$Tile$Barrel = 0;
-var author$project$Tile$BookCase = 1;
-var author$project$Tile$Clock = 2;
+var author$project$Tile$Barrel = {$: 'Barrel'};
+var author$project$Tile$BookCase = {$: 'BookCase'};
+var author$project$Tile$Clock = {$: 'Clock'};
 var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict = elm$core$Dict$fromList(
 	_List_fromArray(
 		[
@@ -6832,10 +6810,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				1,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
-				0,
+				author$project$Tile$Barrel,
 				2,
 				5,
-				0,
+				author$project$GameModel$SquareRoom,
 				'right',
 				2,
 				_Utils_Tuple2(1, 0))),
@@ -6845,10 +6823,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				2,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
-				0,
+				author$project$Tile$Barrel,
 				1,
 				7,
-				0,
+				author$project$GameModel$SquareRoom,
 				'left',
 				1,
 				_Utils_Tuple2(-1, 0))),
@@ -6858,10 +6836,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				3,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
-				0,
+				author$project$Tile$Barrel,
 				3,
 				5,
-				0,
+				author$project$GameModel$SquareRoom,
 				'down',
 				4,
 				_Utils_Tuple2(0, 1))),
@@ -6871,10 +6849,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				4,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
-				0,
+				author$project$Tile$Barrel,
 				5,
 				5,
-				0,
+				author$project$GameModel$SquareRoom,
 				'up',
 				3,
 				_Utils_Tuple2(0, -1))),
@@ -6884,10 +6862,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				5,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
-				0,
+				author$project$Tile$Barrel,
 				1,
 				11,
-				0,
+				author$project$GameModel$SquareRoom,
 				'down',
 				6,
 				_Utils_Tuple2(0, 1))),
@@ -6897,10 +6875,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				6,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
-				0,
+				author$project$Tile$Barrel,
 				4,
 				11,
-				0,
+				author$project$GameModel$SquareRoom,
 				'up',
 				5,
 				_Utils_Tuple2(0, -1))),
@@ -6910,10 +6888,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				7,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
-				1,
+				author$project$Tile$BookCase,
 				4,
 				7,
-				2,
+				author$project$GameModel$VerticalRoom,
 				'down',
 				8,
 				_Utils_Tuple2(0, 1))),
@@ -6923,10 +6901,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				8,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
-				1,
+				author$project$Tile$BookCase,
 				6,
 				7,
-				0,
+				author$project$GameModel$SquareRoom,
 				'up',
 				7,
 				_Utils_Tuple2(0, -1))),
@@ -6936,10 +6914,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				9,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
-				1,
+				author$project$Tile$BookCase,
 				7,
 				7,
-				0,
+				author$project$GameModel$SquareRoom,
 				'right',
 				10,
 				_Utils_Tuple2(0, -1))),
@@ -6949,10 +6927,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				10,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
-				1,
+				author$project$Tile$BookCase,
 				6,
 				10,
-				0,
+				author$project$GameModel$SquareRoom,
 				'down',
 				9,
 				_Utils_Tuple2(-1, 0))),
@@ -6962,10 +6940,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				11,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
-				2,
+				author$project$Tile$Clock,
 				7,
 				2,
-				0,
+				author$project$GameModel$SquareRoom,
 				'right',
 				12,
 				_Utils_Tuple2(1, 0))),
@@ -6975,10 +6953,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				12,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
-				2,
+				author$project$Tile$Clock,
 				7,
 				9,
-				0,
+				author$project$GameModel$SquareRoom,
 				'left',
 				11,
 				_Utils_Tuple2(-1, 0))),
@@ -6988,10 +6966,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				13,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id,
-				1,
+				author$project$Tile$BookCase,
 				2,
 				1,
-				0,
+				author$project$GameModel$SquareRoom,
 				'down',
 				14,
 				_Utils_Tuple2(0, 1))),
@@ -7001,10 +6979,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				14,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id,
-				1,
+				author$project$Tile$BookCase,
 				6,
 				1,
-				0,
+				author$project$GameModel$SquareRoom,
 				'up',
 				13,
 				_Utils_Tuple2(0, -1))),
@@ -7014,10 +6992,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				15,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id,
-				2,
+				author$project$Tile$Clock,
 				1,
 				2,
-				0,
+				author$project$GameModel$SquareRoom,
 				'right',
 				16,
 				_Utils_Tuple2(1, 0))),
@@ -7027,10 +7005,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				16,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id,
-				2,
+				author$project$Tile$Clock,
 				1,
 				5,
-				0,
+				author$project$GameModel$SquareRoom,
 				'left',
 				15,
 				_Utils_Tuple2(-1, 0))),
@@ -7040,10 +7018,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				17,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-				0,
+				author$project$Tile$Barrel,
 				3,
 				3,
-				0,
+				author$project$GameModel$SquareRoom,
 				'down',
 				18,
 				_Utils_Tuple2(0, 1))),
@@ -7053,10 +7031,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				18,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-				0,
+				author$project$Tile$Barrel,
 				5,
 				3,
-				0,
+				author$project$GameModel$SquareRoom,
 				'up',
 				17,
 				_Utils_Tuple2(0, -1))),
@@ -7066,10 +7044,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				19,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-				0,
+				author$project$Tile$Barrel,
 				6,
 				6,
-				2,
+				author$project$GameModel$VerticalRoom,
 				'left',
 				20,
 				_Utils_Tuple2(-1, 0))),
@@ -7079,10 +7057,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				20,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id,
-				0,
+				author$project$Tile$Barrel,
 				6,
 				4,
-				0,
+				author$project$GameModel$SquareRoom,
 				'right',
 				19,
 				_Utils_Tuple2(1, 0))),
@@ -7092,10 +7070,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				21,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-				1,
+				author$project$Tile$BookCase,
 				1,
 				5,
-				1,
+				author$project$GameModel$HorizontalRoom,
 				'down',
 				22,
 				_Utils_Tuple2(0, 1))),
@@ -7105,10 +7083,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				22,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-				1,
+				author$project$Tile$BookCase,
 				7,
 				5,
-				1,
+				author$project$GameModel$HorizontalRoom,
 				'up',
 				21,
 				_Utils_Tuple2(0, -1))),
@@ -7118,10 +7096,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				23,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-				1,
+				author$project$Tile$BookCase,
 				3,
 				4,
-				0,
+				author$project$GameModel$SquareRoom,
 				'down',
 				24,
 				_Utils_Tuple2(0, 1))),
@@ -7131,10 +7109,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				24,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-				1,
+				author$project$Tile$BookCase,
 				5,
 				4,
-				0,
+				author$project$GameModel$SquareRoom,
 				'up',
 				23,
 				_Utils_Tuple2(0, -1))),
@@ -7144,10 +7122,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				25,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-				2,
+				author$project$Tile$Clock,
 				1,
 				2,
-				0,
+				author$project$GameModel$SquareRoom,
 				'down',
 				26,
 				_Utils_Tuple2(0, 1))),
@@ -7157,10 +7135,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				26,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-				2,
+				author$project$Tile$Clock,
 				7,
 				2,
-				0,
+				author$project$GameModel$SquareRoom,
 				'up',
 				25,
 				_Utils_Tuple2(0, -1))),
@@ -7170,10 +7148,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				27,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-				2,
+				author$project$Tile$Clock,
 				1,
 				6,
-				0,
+				author$project$GameModel$SquareRoom,
 				'down',
 				28,
 				_Utils_Tuple2(0, 1))),
@@ -7183,10 +7161,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				28,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-				2,
+				author$project$Tile$Clock,
 				7,
 				6,
-				0,
+				author$project$GameModel$SquareRoom,
 				'up',
 				27,
 				_Utils_Tuple2(0, -1))),
@@ -7196,10 +7174,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				29,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id,
-				2,
+				author$project$Tile$Clock,
 				5,
 				3,
-				2,
+				author$project$GameModel$VerticalRoom,
 				'right',
 				30,
 				_Utils_Tuple2(1, 0))),
@@ -7209,10 +7187,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				30,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id,
-				2,
+				author$project$Tile$Clock,
 				4,
 				4,
-				2,
+				author$project$GameModel$VerticalRoom,
 				'left',
 				29,
 				_Utils_Tuple2(-1, 0))),
@@ -7222,10 +7200,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				31,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id,
-				2,
+				author$project$Tile$Clock,
 				1,
 				1,
-				0,
+				author$project$GameModel$SquareRoom,
 				'down',
 				32,
 				_Utils_Tuple2(0, 1))),
@@ -7235,10 +7213,10 @@ var author$project$GameDefinitions$Game2$ConfigParamsAndInfo$teleporterInfoDict 
 				author$project$GameDefinitions$Common$createTeleporterInfoWithLocation,
 				32,
 				author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id,
-				2,
+				author$project$Tile$Clock,
 				2,
 				1,
-				0,
+				author$project$GameModel$SquareRoom,
 				'up',
 				31,
 				_Utils_Tuple2(0, -1)))
@@ -7282,19 +7260,19 @@ var elm$core$List$range = F2(
 		return A3(elm$core$List$rangeHelp, lo, hi, _List_Nil);
 	});
 var author$project$Grid$toCoordinates = function (gridder) {
-	var s = gridder.cY;
+	var s = gridder.size;
 	var xs = function (y) {
 		return A2(
 			elm$core$List$map,
 			function (x) {
 				return _Utils_Tuple2(x, y);
 			},
-			A2(elm$core$List$range, 0, s.dj - 1));
+			A2(elm$core$List$range, 0, s.width - 1));
 	};
 	var pairs = A2(
 		elm$core$List$concatMap,
 		xs,
-		A2(elm$core$List$range, 0, s.ck - 1));
+		A2(elm$core$List$range, 0, s.height - 1));
 	return A2(
 		elm$core$List$map,
 		function (_n0) {
@@ -7305,7 +7283,7 @@ var author$project$Grid$toCoordinates = function (gridder) {
 		pairs);
 };
 var author$project$Tile$isMbTileWall = function (mbtile) {
-	if ((!mbtile.$) && (mbtile.a.$ === 3)) {
+	if ((mbtile.$ === 'Just') && (mbtile.a.$ === 'Wall')) {
 		return true;
 	} else {
 		return false;
@@ -7313,12 +7291,12 @@ var author$project$Tile$isMbTileWall = function (mbtile) {
 };
 var author$project$Tile$setWallTileOrientation = F2(
 	function (orientationStr, tile) {
-		if (tile.$ === 3) {
+		if (tile.$ === 'Wall') {
 			var winfo = tile.a;
 			return author$project$Tile$Wall(
 				_Utils_update(
 					winfo,
-					{cP: orientationStr}));
+					{orientation: orientationStr}));
 		} else {
 			return tile;
 		}
@@ -7330,11 +7308,11 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd - 1, be: coords.be},
+					{x: coords.x - 1, y: coords.y},
 					grid_)) && author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be + 1},
+					{x: coords.x, y: coords.y + 1},
 					grid_));
 		});
 	var isTopLeftCorner = F3(
@@ -7342,11 +7320,11 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd + 1, be: coords.be},
+					{x: coords.x + 1, y: coords.y},
 					grid_)) && author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be + 1},
+					{x: coords.x, y: coords.y + 1},
 					grid_));
 		});
 	var isThreeWayAtTop = F3(
@@ -7354,15 +7332,15 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd + 1, be: coords.be},
+					{x: coords.x + 1, y: coords.y},
 					grid_)) && (author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd - 1, be: coords.be},
+					{x: coords.x - 1, y: coords.y},
 					grid_)) && author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be + 1},
+					{x: coords.x, y: coords.y + 1},
 					grid_)));
 		});
 	var isThreeWayAtRight = F3(
@@ -7370,15 +7348,15 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd - 1, be: coords.be},
+					{x: coords.x - 1, y: coords.y},
 					grid_)) && (author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be + 1},
+					{x: coords.x, y: coords.y + 1},
 					grid_)) && author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be - 1},
+					{x: coords.x, y: coords.y - 1},
 					grid_)));
 		});
 	var isThreeWayAtLeft = F3(
@@ -7386,15 +7364,15 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd + 1, be: coords.be},
+					{x: coords.x + 1, y: coords.y},
 					grid_)) && (author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be + 1},
+					{x: coords.x, y: coords.y + 1},
 					grid_)) && author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be - 1},
+					{x: coords.x, y: coords.y - 1},
 					grid_)));
 		});
 	var isThreeWayAtBottom = F3(
@@ -7402,15 +7380,15 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd + 1, be: coords.be},
+					{x: coords.x + 1, y: coords.y},
 					grid_)) && (author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd - 1, be: coords.be},
+					{x: coords.x - 1, y: coords.y},
 					grid_)) && author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be - 1},
+					{x: coords.x, y: coords.y - 1},
 					grid_)));
 		});
 	var isInVerticalWall = F3(
@@ -7418,11 +7396,11 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be + 1},
+					{x: coords.x, y: coords.y + 1},
 					grid_)) && author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be - 1},
+					{x: coords.x, y: coords.y - 1},
 					grid_));
 		});
 	var isInHorizontalWall = F3(
@@ -7430,11 +7408,11 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd + 1, be: coords.be},
+					{x: coords.x + 1, y: coords.y},
 					grid_)) && author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd - 1, be: coords.be},
+					{x: coords.x - 1, y: coords.y},
 					grid_));
 		});
 	var isFourWay = F3(
@@ -7442,19 +7420,19 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd + 1, be: coords.be},
+					{x: coords.x + 1, y: coords.y},
 					grid_)) && (author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd - 1, be: coords.be},
+					{x: coords.x - 1, y: coords.y},
 					grid_)) && (author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be + 1},
+					{x: coords.x, y: coords.y + 1},
 					grid_)) && author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be - 1},
+					{x: coords.x, y: coords.y - 1},
 					grid_))));
 		});
 	var isCulDeSacAtTop = F3(
@@ -7462,7 +7440,7 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be + 1},
+					{x: coords.x, y: coords.y + 1},
 					grid_));
 		});
 	var isCulDeSacAtRight = F3(
@@ -7470,7 +7448,7 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd - 1, be: coords.be},
+					{x: coords.x - 1, y: coords.y},
 					grid_));
 		});
 	var isCulDeSacAtLeft = F3(
@@ -7478,7 +7456,7 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd + 1, be: coords.be},
+					{x: coords.x + 1, y: coords.y},
 					grid_));
 		});
 	var isCulDeSacAtBottom = F3(
@@ -7486,7 +7464,7 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be - 1},
+					{x: coords.x, y: coords.y - 1},
 					grid_));
 		});
 	var isBottomRightCorner = F3(
@@ -7494,11 +7472,11 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd - 1, be: coords.be},
+					{x: coords.x - 1, y: coords.y},
 					grid_)) && author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be - 1},
+					{x: coords.x, y: coords.y - 1},
 					grid_));
 		});
 	var isBottomLeftCorner = F3(
@@ -7506,17 +7484,17 @@ var author$project$MapGen$correctSomeWallCorners = function (grid) {
 			return author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd + 1, be: coords.be},
+					{x: coords.x + 1, y: coords.y},
 					grid_)) && author$project$Tile$isMbTileWall(
 				A2(
 					author$project$Grid$get,
-					{bd: coords.bd, be: coords.be - 1},
+					{x: coords.x, y: coords.y - 1},
 					grid_));
 		});
 	var checkAndUpdateGriCoord = F2(
 		function (coord, grid_) {
 			var _n0 = A2(author$project$Grid$get, coord, grid_);
-			if (_n0.$ === 1) {
+			if (_n0.$ === 'Nothing') {
 				return grid_;
 			} else {
 				var tile = _n0.a;
@@ -7597,87 +7575,87 @@ var author$project$MapGen$determineRectangularRegionBoundaries = F2(
 		return (topBotLeftRightStr === 'top') ? A2(
 			elm$core$List$map,
 			function (x) {
-				return A2(author$project$Grid$Coordinate, x, rrect.c3);
+				return A2(author$project$Grid$Coordinate, x, rrect.top_left_y);
 			},
-			A2(elm$core$List$range, rrect.c2, (rrect.c2 + rrect.dj) - 1)) : ((topBotLeftRightStr === 'top-1') ? A2(
+			A2(elm$core$List$range, rrect.top_left_x, (rrect.top_left_x + rrect.width) - 1)) : ((topBotLeftRightStr === 'top-1') ? A2(
 			elm$core$List$map,
 			function (x) {
-				return A2(author$project$Grid$Coordinate, x, rrect.c3 - 1);
+				return A2(author$project$Grid$Coordinate, x, rrect.top_left_y - 1);
 			},
-			A2(elm$core$List$range, rrect.c2, (rrect.c2 + rrect.dj) - 1)) : ((topBotLeftRightStr === 'top-1andCorners') ? function (lc) {
+			A2(elm$core$List$range, rrect.top_left_x, (rrect.top_left_x + rrect.width) - 1)) : ((topBotLeftRightStr === 'top-1andCorners') ? function (lc) {
 			return A2(
 				elm$core$List$append,
 				lc,
 				_List_fromArray(
 					[
-						A2(author$project$Grid$Coordinate, rrect.c2 + rrect.dj, rrect.c3 - 1)
+						A2(author$project$Grid$Coordinate, rrect.top_left_x + rrect.width, rrect.top_left_y - 1)
 					]));
 		}(
 			A2(
 				elm$core$List$append,
 				_List_fromArray(
 					[
-						A2(author$project$Grid$Coordinate, rrect.c2 - 1, rrect.c3 - 1)
+						A2(author$project$Grid$Coordinate, rrect.top_left_x - 1, rrect.top_left_y - 1)
 					]),
 				A2(
 					elm$core$List$map,
 					function (x) {
-						return A2(author$project$Grid$Coordinate, x, rrect.c3 - 1);
+						return A2(author$project$Grid$Coordinate, x, rrect.top_left_y - 1);
 					},
-					A2(elm$core$List$range, rrect.c2, (rrect.c2 + rrect.dj) - 1)))) : ((topBotLeftRightStr === 'bottom') ? A2(
+					A2(elm$core$List$range, rrect.top_left_x, (rrect.top_left_x + rrect.width) - 1)))) : ((topBotLeftRightStr === 'bottom') ? A2(
 			elm$core$List$map,
 			function (x) {
-				return A2(author$project$Grid$Coordinate, x, (rrect.c3 + rrect.ck) - 1);
+				return A2(author$project$Grid$Coordinate, x, (rrect.top_left_y + rrect.height) - 1);
 			},
-			A2(elm$core$List$range, rrect.c2, (rrect.c2 + rrect.dj) - 1)) : ((topBotLeftRightStr === 'bottom+1') ? A2(
+			A2(elm$core$List$range, rrect.top_left_x, (rrect.top_left_x + rrect.width) - 1)) : ((topBotLeftRightStr === 'bottom+1') ? A2(
 			elm$core$List$map,
 			function (x) {
-				return A2(author$project$Grid$Coordinate, x, ((rrect.c3 + rrect.ck) - 1) + 1);
+				return A2(author$project$Grid$Coordinate, x, ((rrect.top_left_y + rrect.height) - 1) + 1);
 			},
-			A2(elm$core$List$range, rrect.c2, (rrect.c2 + rrect.dj) - 1)) : ((topBotLeftRightStr === 'bottom+1andCorners') ? function (lc) {
+			A2(elm$core$List$range, rrect.top_left_x, (rrect.top_left_x + rrect.width) - 1)) : ((topBotLeftRightStr === 'bottom+1andCorners') ? function (lc) {
 			return A2(
 				elm$core$List$append,
 				lc,
 				_List_fromArray(
 					[
-						A2(author$project$Grid$Coordinate, rrect.c2 + rrect.dj, ((rrect.c3 + rrect.ck) - 1) + 1)
+						A2(author$project$Grid$Coordinate, rrect.top_left_x + rrect.width, ((rrect.top_left_y + rrect.height) - 1) + 1)
 					]));
 		}(
 			A2(
 				elm$core$List$append,
 				_List_fromArray(
 					[
-						A2(author$project$Grid$Coordinate, rrect.c2 - 1, ((rrect.c3 + rrect.ck) - 1) + 1)
+						A2(author$project$Grid$Coordinate, rrect.top_left_x - 1, ((rrect.top_left_y + rrect.height) - 1) + 1)
 					]),
 				A2(
 					elm$core$List$map,
 					function (x) {
-						return A2(author$project$Grid$Coordinate, x, ((rrect.c3 + rrect.ck) - 1) + 1);
+						return A2(author$project$Grid$Coordinate, x, ((rrect.top_left_y + rrect.height) - 1) + 1);
 					},
-					A2(elm$core$List$range, rrect.c2, (rrect.c2 + rrect.dj) - 1)))) : ((topBotLeftRightStr === 'left') ? A2(
+					A2(elm$core$List$range, rrect.top_left_x, (rrect.top_left_x + rrect.width) - 1)))) : ((topBotLeftRightStr === 'left') ? A2(
 			elm$core$List$map,
 			function (y) {
-				return A2(author$project$Grid$Coordinate, rrect.c2, y);
+				return A2(author$project$Grid$Coordinate, rrect.top_left_x, y);
 			},
-			A2(elm$core$List$range, rrect.c3, (rrect.c3 + rrect.ck) - 1)) : ((topBotLeftRightStr === 'left-1') ? A2(
+			A2(elm$core$List$range, rrect.top_left_y, (rrect.top_left_y + rrect.height) - 1)) : ((topBotLeftRightStr === 'left-1') ? A2(
 			elm$core$List$map,
 			function (y) {
-				return A2(author$project$Grid$Coordinate, rrect.c2 - 1, y);
+				return A2(author$project$Grid$Coordinate, rrect.top_left_x - 1, y);
 			},
-			A2(elm$core$List$range, rrect.c3, (rrect.c3 + rrect.ck) - 1)) : ((topBotLeftRightStr === 'right') ? A2(
+			A2(elm$core$List$range, rrect.top_left_y, (rrect.top_left_y + rrect.height) - 1)) : ((topBotLeftRightStr === 'right') ? A2(
 			elm$core$List$map,
 			function (y) {
-				return A2(author$project$Grid$Coordinate, (rrect.c2 + rrect.dj) - 1, y);
+				return A2(author$project$Grid$Coordinate, (rrect.top_left_x + rrect.width) - 1, y);
 			},
-			A2(elm$core$List$range, rrect.c3, (rrect.c3 + rrect.ck) - 1)) : ((topBotLeftRightStr === 'right+1') ? A2(
+			A2(elm$core$List$range, rrect.top_left_y, (rrect.top_left_y + rrect.height) - 1)) : ((topBotLeftRightStr === 'right+1') ? A2(
 			elm$core$List$map,
 			function (y) {
-				return A2(author$project$Grid$Coordinate, ((rrect.c2 + rrect.dj) - 1) + 1, y);
+				return A2(author$project$Grid$Coordinate, ((rrect.top_left_x + rrect.width) - 1) + 1, y);
 			},
-			A2(elm$core$List$range, rrect.c3, (rrect.c3 + rrect.ck) - 1)) : _List_Nil)))))))));
+			A2(elm$core$List$range, rrect.top_left_y, (rrect.top_left_y + rrect.height) - 1)) : _List_Nil)))))))));
 	});
-var author$project$Tile$defaultWallInfo = {cs: false, cI: elm$core$Maybe$Nothing, cP: 'horizontal', dg: 1};
-var author$project$Tile$defaultWallUpInfo = {cs: false, cI: elm$core$Maybe$Nothing, cP: 'up', dg: 1};
+var author$project$Tile$defaultWallInfo = {isExplored: false, mbTeleporterObject: elm$core$Maybe$Nothing, orientation: 'horizontal', visibility: author$project$Tile$Unexplored};
+var author$project$Tile$defaultWallUpInfo = {isExplored: false, mbTeleporterObject: elm$core$Maybe$Nothing, orientation: 'up', visibility: author$project$Tile$Unexplored};
 var author$project$MapGen$determineRectangularRegionBoundariesAndFillWithWallIfNoTileYet = F3(
 	function (rrect, topBotLeftRightStr, grid) {
 		var lcoords = A2(author$project$MapGen$determineRectangularRegionBoundaries, rrect, topBotLeftRightStr);
@@ -7728,38 +7706,38 @@ var author$project$MapGen$createWallBoundaries = F2(
 			lrrect);
 	});
 var author$project$Tile$Door = function (a) {
-	return {$: 5, a: a};
+	return {$: 'Door', a: a};
 };
-var author$project$Tile$defaultFloorInfo = {b6: 'default', cg: elm$core$Maybe$Nothing, cs: false, cu: true, a$: true, by: elm$core$Maybe$Nothing, dg: 1};
+var author$project$Tile$defaultFloorInfo = {color: 'default', floorDrawing: elm$core$Maybe$Nothing, isExplored: false, isTransparent: true, isWalkable: true, item: elm$core$Maybe$Nothing, visibility: author$project$Tile$Unexplored};
 var elm$core$Basics$neq = _Utils_notEqual;
 var author$project$MapGen$dungeonRectangleToGridFunc = F4(
 	function (roomrect, doorWallOptions, mbFloorColor, grid) {
 		var useWalls = false;
-		var top_y = roomrect.c3;
-		var right_x = (roomrect.c2 + roomrect.dj) - 1;
-		var left_x = roomrect.c2;
+		var top_y = roomrect.top_left_y;
+		var right_x = (roomrect.top_left_x + roomrect.width) - 1;
+		var left_x = roomrect.top_left_x;
 		var lx = A2(elm$core$List$range, left_x, right_x);
 		var floorColor = A2(elm$core$Maybe$withDefault, 'default', mbFloorColor);
 		var defaultFloorInfoWithColor = function (x) {
 			return _Utils_update(
 				x,
-				{b6: floorColor});
+				{color: floorColor});
 		}(author$project$Tile$defaultFloorInfo);
 		var getDoorWallOrFloor = function (doorWallOption) {
 			switch (doorWallOption.$) {
-				case 1:
+				case 'UseWall':
 					return author$project$Tile$Wall(author$project$Tile$defaultWallInfo);
-				case 0:
+				case 'UseDoor':
 					var dinfo = doorWallOption.a;
 					return author$project$Tile$Door(dinfo);
 				default:
 					return author$project$Tile$Floor(defaultFloorInfoWithColor);
 			}
 		};
-		var bottom_y = (roomrect.c3 + roomrect.ck) - 1;
+		var bottom_y = (roomrect.top_left_y + roomrect.height) - 1;
 		var generateTile = F2(
 			function (xval, yval) {
-				return (_Utils_eq(xval, left_x) && (!_Utils_eq(left_x, right_x))) ? getDoorWallOrFloor(doorWallOptions.i) : ((_Utils_eq(xval, right_x) && (!_Utils_eq(left_x, right_x))) ? getDoorWallOrFloor(doorWallOptions.j) : (_Utils_eq(yval, bottom_y) ? getDoorWallOrFloor(doorWallOptions.h) : (_Utils_eq(yval, top_y) ? getDoorWallOrFloor(doorWallOptions.k) : author$project$Tile$Floor(defaultFloorInfoWithColor))));
+				return (_Utils_eq(xval, left_x) && (!_Utils_eq(left_x, right_x))) ? getDoorWallOrFloor(doorWallOptions.left) : ((_Utils_eq(xval, right_x) && (!_Utils_eq(left_x, right_x))) ? getDoorWallOrFloor(doorWallOptions.right) : (_Utils_eq(yval, bottom_y) ? getDoorWallOrFloor(doorWallOptions.bottom) : (_Utils_eq(yval, top_y) ? getDoorWallOrFloor(doorWallOptions.top) : author$project$Tile$Floor(defaultFloorInfoWithColor))));
 			});
 		var ly = A2(elm$core$List$range, top_y, bottom_y);
 		var ltiles = A2(
@@ -7808,7 +7786,7 @@ var author$project$MapGen$listDungeonRectangleToGridFunc = F3(
 	});
 var author$project$Tile$DoorWallOptions = F4(
 	function (left, top, right, bottom) {
-		return {h: bottom, i: left, j: right, k: top};
+		return {bottom: bottom, left: left, right: right, top: top};
 	});
 var author$project$MapGen$noDoornoWallOption = A4(author$project$Tile$DoorWallOptions, author$project$Tile$NoDoorNoWall, author$project$Tile$NoDoorNoWall, author$project$Tile$NoDoorNoWall, author$project$Tile$NoDoorNoWall);
 var author$project$MapGen$listRoomRectangleToGridFunc = F2(
@@ -7846,36 +7824,36 @@ var author$project$MapGen$listTunnelRectangleWithOptionsToGridFunc = F2(
 			grid);
 	});
 var author$project$MapGen$transformFloorToWallOnDisplayBoundaries = function (grid) {
-	var w = grid.cY.dj;
+	var w = grid.size.width;
 	var lcoordsTop = A2(
 		elm$core$List$map,
 		function (x_) {
-			return {bd: x_, be: 0};
+			return {x: x_, y: 0};
 		},
 		A2(elm$core$List$range, 0, w - 1));
-	var h = grid.cY.ck;
+	var h = grid.size.height;
 	var lcoordsBottom = A2(
 		elm$core$List$map,
 		function (x_) {
-			return {bd: x_, be: h - 1};
+			return {x: x_, y: h - 1};
 		},
 		A2(elm$core$List$range, 0, w - 1));
 	var lcoordsLeft = A2(
 		elm$core$List$map,
 		function (y_) {
-			return {bd: 0, be: y_};
+			return {x: 0, y: y_};
 		},
 		A2(elm$core$List$range, 0, h - 1));
 	var lcoordsRight = A2(
 		elm$core$List$map,
 		function (y_) {
-			return {bd: w - 1, be: y_};
+			return {x: w - 1, y: y_};
 		},
 		A2(elm$core$List$range, 0, h - 1));
 	var getNewGrid = F3(
 		function (coord, lrtd, grid_) {
 			var _n0 = A2(author$project$Grid$get, coord, grid_);
-			if ((!_n0.$) && (!_n0.a.$)) {
+			if ((_n0.$ === 'Just') && (_n0.a.$ === 'Floor')) {
 				return ((lrtd === 'l') || (lrtd === 'r')) ? A3(
 					author$project$Grid$set,
 					coord,
@@ -7973,49 +7951,49 @@ var author$project$GameDefinitions$Game2$Basement$addBasementCustomRoomsAndTunne
 };
 var author$project$GameDefinitions$Game2$Basement$gridBasement = author$project$GameDefinitions$Game2$Basement$addBasementCustomRoomsAndTunnels(
 	A3(author$project$GameDefinitions$Common$gridInitializer, 7, 6, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params));
-var author$project$GameDefinitions$Common$StairsToTheLeft = 0;
+var author$project$GameDefinitions$Common$StairsToTheLeft = {$: 'StairsToTheLeft'};
 var author$project$GameDefinitions$Game2$Caverns$addCavernsStairs = function (grid) {
 	var lstairs = _List_fromArray(
 		[
 			{
-			bl: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
-			J: 0,
-			al: elm$core$Maybe$Nothing,
-			a4: 8,
-			a5: 4,
-			a6: _Utils_Tuple2(-1, 0),
-			a7: 1,
-			bb: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id,
-			bc: 2
+			current_floor_id: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
+			direction: author$project$GameDefinitions$Common$StairsToTheLeft,
+			mbLocationShift: elm$core$Maybe$Nothing,
+			room_col: 8,
+			room_row: 4,
+			shift: _Utils_Tuple2(-1, 0),
+			stairsId: 1,
+			toFloorId: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id,
+			toStairsId: 2
 		},
 			{
-			bl: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
-			J: 3,
-			al: elm$core$Maybe$Nothing,
-			a4: 2,
-			a5: 7,
-			a6: _Utils_Tuple2(0, 1),
-			a7: 3,
-			bb: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-			bc: 4
+			current_floor_id: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id,
+			direction: author$project$GameDefinitions$Common$StairsDown,
+			mbLocationShift: elm$core$Maybe$Nothing,
+			room_col: 2,
+			room_row: 7,
+			shift: _Utils_Tuple2(0, 1),
+			stairsId: 3,
+			toFloorId: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
+			toStairsId: 4
 		}
 		]);
 	return A3(
 		elm$core$List$foldl,
 		F2(
 			function (rec, gridacc) {
-				return author$project$GameDefinitions$Common$getStairsOnRoom(rec.a5)(rec.a4)(rec.a7)(rec.bb)(rec.bc)(rec.J)(elm$core$Maybe$Nothing)(rec.a6)(rec.al)(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)(gridacc);
+				return author$project$GameDefinitions$Common$getStairsOnRoom(rec.room_row)(rec.room_col)(rec.stairsId)(rec.toFloorId)(rec.toStairsId)(rec.direction)(elm$core$Maybe$Nothing)(rec.shift)(rec.mbLocationShift)(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)(gridacc);
 			}),
 		grid,
 		lstairs);
 };
 var author$project$GameDefinitions$Common$defaultHorizontalBlueDoorOptions = {
-	h: author$project$Tile$NoDoorNoWall,
-	i: author$project$Tile$UseDoor(
-		author$project$Tile$defaultBlueDoorInfo(0)),
-	j: author$project$Tile$UseDoor(
-		author$project$Tile$defaultBlueDoorInfo(1)),
-	k: author$project$Tile$NoDoorNoWall
+	bottom: author$project$Tile$NoDoorNoWall,
+	left: author$project$Tile$UseDoor(
+		author$project$Tile$defaultBlueDoorInfo(author$project$Tile$DoorToTheRight)),
+	right: author$project$Tile$UseDoor(
+		author$project$Tile$defaultBlueDoorInfo(author$project$Tile$DoorToTheLeft)),
+	top: author$project$Tile$NoDoorNoWall
 };
 var author$project$GameDefinitions$Game2$Caverns$cavernsInitialHorizontalTunnelRectanglesWithOptions = A2(
 	elm$core$List$map,
@@ -8128,52 +8106,52 @@ var author$project$GameDefinitions$Game2$Caverns$cavernsInitialRoomRectangles = 
 	},
 	_List_fromArray(
 		[
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 7, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 8, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 9, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 10, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 11, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 1, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 3, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 4, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 5, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 7, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 9, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 2, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 3, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 5, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 6, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 7, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 8, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 9, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 2, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 3, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 4, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 5, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 6, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 7, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 8, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 9, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 10, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 11, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 3, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 4, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 5, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 6, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 9, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 2, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 5, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 6, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 7, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 8, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 9, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 10, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 7, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 7, 6, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 7, 7, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 7, 9, 0)
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 7, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 8, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 9, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 10, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 11, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 1, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 3, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 4, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 5, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 7, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 9, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 2, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 3, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 5, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 6, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 7, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 8, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 9, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 2, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 3, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 4, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 5, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 6, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 7, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 8, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 9, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 10, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 11, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 3, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 4, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 5, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 6, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 9, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 2, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 5, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 6, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 7, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 8, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 9, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 10, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 7, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 7, 6, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 7, 7, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 7, 9, author$project$GameModel$SquareRoom)
 		]));
 var author$project$GameDefinitions$Game2$Caverns$cavernsInitialVerticalTunnelRectanglesWithOptions = A2(
 	elm$core$List$map,
@@ -8263,15 +8241,15 @@ var author$project$GameDefinitions$Game2$Caverns$cavernsInitialVerticalTunnelRec
 	author$project$GameDefinitions$Game2$Caverns$cavernsInitialVerticalTunnelRectanglesWithOptions);
 var author$project$GameDefinitions$Game2$Caverns$cavernsItems = A2(author$project$GameDefinitions$Common$getItemsByFloorId, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$itemCreationDict);
 var author$project$GameDefinitions$Game2$Caverns$cavernsLandingTargets = A2(author$project$GameDefinitions$Common$getLandingTargetsByFloorId, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$landingTargetsDict);
-var author$project$GameDefinitions$Common$TunnelToTheLeft = 1;
+var author$project$GameDefinitions$Common$TunnelToTheLeft = {$: 'TunnelToTheLeft'};
 var author$project$GameDefinitions$Game2$Caverns$cavernsStairsTunnel = _List_fromArray(
 	[
 		A9(
 		author$project$GameDefinitions$Common$getHorizontalTunnel,
 		4,
 		8,
-		1,
-		elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.F + 1),
+		author$project$GameDefinitions$Common$TunnelToTheLeft,
+		elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.vertical_wall_width + 1),
 		elm$core$Maybe$Nothing,
 		elm$core$Maybe$Nothing,
 		elm$core$Maybe$Nothing,
@@ -8281,9 +8259,9 @@ var author$project$GameDefinitions$Game2$Caverns$cavernsStairsTunnel = _List_fro
 		author$project$GameDefinitions$Common$getVerticalTunnel,
 		7,
 		2,
-		1,
+		author$project$GameDefinitions$Common$TunnelDown,
 		elm$core$Maybe$Nothing,
-		elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B + 1),
+		elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height + 1),
 		elm$core$Maybe$Nothing,
 		elm$core$Maybe$Nothing,
 		elm$core$Maybe$Nothing,
@@ -8325,40 +8303,40 @@ var author$project$GameDefinitions$Game2$Caverns$addCavernsCustomRoomsAndTunnels
 };
 var author$project$GameDefinitions$Game2$Caverns$gridCaverns = author$project$GameDefinitions$Game2$Caverns$addCavernsCustomRoomsAndTunnels(
 	A3(author$project$GameDefinitions$Common$gridInitializer, 7, 11, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params));
-var author$project$GameDefinitions$Common$StairsUp = 2;
+var author$project$GameDefinitions$Common$StairsUp = {$: 'StairsUp'};
 var author$project$GameDefinitions$Game2$FirstFloor$addFirstFloorStairs = function (grid) {
 	var lstairs = _List_fromArray(
 		[
 			{
-			bl: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id,
-			J: 2,
-			al: elm$core$Maybe$Nothing,
-			a3: elm$core$Maybe$Just(1),
-			a4: 5,
-			a5: 5,
-			a6: _Utils_Tuple2(0, -1),
-			a7: 8,
-			bb: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-			bc: 7
+			current_floor_id: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id,
+			direction: author$project$GameDefinitions$Common$StairsUp,
+			mbLocationShift: elm$core$Maybe$Nothing,
+			roomType: elm$core$Maybe$Just(author$project$GameModel$HorizontalRoom),
+			room_col: 5,
+			room_row: 5,
+			shift: _Utils_Tuple2(0, -1),
+			stairsId: 8,
+			toFloorId: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
+			toStairsId: 7
 		},
 			{
-			bl: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id,
-			J: 3,
-			al: elm$core$Maybe$Nothing,
-			a3: elm$core$Maybe$Just(1),
-			a4: 5,
-			a5: 3,
-			a6: _Utils_Tuple2(0, 1),
-			a7: 9,
-			bb: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id,
-			bc: 10
+			current_floor_id: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id,
+			direction: author$project$GameDefinitions$Common$StairsDown,
+			mbLocationShift: elm$core$Maybe$Nothing,
+			roomType: elm$core$Maybe$Just(author$project$GameModel$HorizontalRoom),
+			room_col: 5,
+			room_row: 3,
+			shift: _Utils_Tuple2(0, 1),
+			stairsId: 9,
+			toFloorId: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id,
+			toStairsId: 10
 		}
 		]);
 	return A3(
 		elm$core$List$foldl,
 		F2(
 			function (rec, gridacc) {
-				return author$project$GameDefinitions$Common$getStairsOnRoom(rec.a5)(rec.a4)(rec.a7)(rec.bb)(rec.bc)(rec.J)(rec.a3)(rec.a6)(rec.al)(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)(gridacc);
+				return author$project$GameDefinitions$Common$getStairsOnRoom(rec.room_row)(rec.room_col)(rec.stairsId)(rec.toFloorId)(rec.toStairsId)(rec.direction)(rec.roomType)(rec.shift)(rec.mbLocationShift)(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)(gridacc);
 			}),
 		grid,
 		lstairs);
@@ -8428,29 +8406,29 @@ var author$project$GameDefinitions$Game2$FirstFloor$firstFloorInitialRoomRectang
 	},
 	_List_fromArray(
 		[
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 1, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 1, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 3, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 4, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 3, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 4, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 5, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 6, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 3, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 4, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 6, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 3, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 4, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 5, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 6, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 1, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 3, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 4, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 7, 1, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 7, 2, 0)
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 1, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 1, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 3, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 4, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 3, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 4, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 5, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 6, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 3, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 4, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 6, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 3, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 4, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 5, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 6, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 1, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 3, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 4, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 7, 1, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 7, 2, author$project$GameModel$SquareRoom)
 		]));
 var author$project$GameDefinitions$Game2$FirstFloor$firstFloorInitialVerticalTunnelRectanglesWithOptions = A2(
 	elm$core$List$map,
@@ -8516,8 +8494,8 @@ var author$project$GameDefinitions$Game2$FirstFloor$firstFloorInitialVerticalTun
 	author$project$GameDefinitions$Game2$FirstFloor$firstFloorInitialVerticalTunnelRectanglesWithOptions);
 var author$project$GameDefinitions$Game2$FirstFloor$firstFloorItems = A2(author$project$GameDefinitions$Common$getItemsByFloorId, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$itemCreationDict);
 var author$project$GameDefinitions$Game2$FirstFloor$firstFloorLandingTargets = A2(author$project$GameDefinitions$Common$getLandingTargetsByFloorId, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$landingTargetsDict);
-var author$project$GameDefinitions$Common$TunnelUp = 0;
-var author$project$GameDefinitions$Common$defaultNoDoorOptions = {h: author$project$Tile$NoDoorNoWall, i: author$project$Tile$NoDoorNoWall, j: author$project$Tile$NoDoorNoWall, k: author$project$Tile$NoDoorNoWall};
+var author$project$GameDefinitions$Common$TunnelUp = {$: 'TunnelUp'};
+var author$project$GameDefinitions$Common$defaultNoDoorOptions = {bottom: author$project$Tile$NoDoorNoWall, left: author$project$Tile$NoDoorNoWall, right: author$project$Tile$NoDoorNoWall, top: author$project$Tile$NoDoorNoWall};
 var author$project$GameDefinitions$Game2$FirstFloor$firstFloorStairsTunnelWithOptions = _List_fromArray(
 	[
 		_Utils_Tuple2(
@@ -8525,10 +8503,10 @@ var author$project$GameDefinitions$Game2$FirstFloor$firstFloorStairsTunnelWithOp
 			author$project$GameDefinitions$Common$getVerticalTunnel,
 			5,
 			5,
-			0,
+			author$project$GameDefinitions$Common$TunnelUp,
 			elm$core$Maybe$Nothing,
-			elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B + 1),
-			elm$core$Maybe$Just(1),
+			elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height + 1),
+			elm$core$Maybe$Just(author$project$GameModel$HorizontalRoom),
 			elm$core$Maybe$Nothing,
 			elm$core$Maybe$Nothing,
 			author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params),
@@ -8538,19 +8516,19 @@ var author$project$GameDefinitions$Game2$FirstFloor$firstFloorStairsTunnelWithOp
 			author$project$GameDefinitions$Common$getVerticalTunnel,
 			3,
 			5,
-			1,
+			author$project$GameDefinitions$Common$TunnelDown,
 			elm$core$Maybe$Nothing,
-			elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B + 1),
-			elm$core$Maybe$Just(1),
+			elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height + 1),
+			elm$core$Maybe$Just(author$project$GameModel$HorizontalRoom),
 			elm$core$Maybe$Nothing,
 			elm$core$Maybe$Nothing,
 			author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params),
 		{
-			h: author$project$Tile$NoDoorNoWall,
-			i: author$project$Tile$NoDoorNoWall,
-			j: author$project$Tile$NoDoorNoWall,
-			k: author$project$Tile$UseDoor(
-				author$project$Tile$defaultYellowDoorInfo(3))
+			bottom: author$project$Tile$NoDoorNoWall,
+			left: author$project$Tile$NoDoorNoWall,
+			right: author$project$Tile$NoDoorNoWall,
+			top: author$project$Tile$UseDoor(
+				author$project$Tile$defaultYellowDoorInfo(author$project$Tile$DoorToDown))
 		})
 	]);
 var author$project$GameDefinitions$Game2$FirstFloor$firstFloorStairsTunnel = A2(
@@ -8609,68 +8587,68 @@ var author$project$GameDefinitions$Game2$GroundFloor$addGroundFloorStairs = func
 	var lstairs = _List_fromArray(
 		[
 			{
-			bl: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-			J: 2,
-			al: elm$core$Maybe$Just(
+			current_floor_id: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
+			direction: author$project$GameDefinitions$Common$StairsUp,
+			mbLocationShift: elm$core$Maybe$Just(
 				_Utils_Tuple2(-6, 0)),
-			a3: elm$core$Maybe$Nothing,
-			a4: 2,
-			a5: 9,
-			a6: _Utils_Tuple2(0, -1),
-			a7: 4,
-			bb: 0,
-			bc: 3
+			roomType: elm$core$Maybe$Nothing,
+			room_col: 2,
+			room_row: 9,
+			shift: _Utils_Tuple2(0, -1),
+			stairsId: 4,
+			toFloorId: 0,
+			toStairsId: 3
 		},
 			{
-			bl: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-			J: 2,
-			al: elm$core$Maybe$Nothing,
-			a3: elm$core$Maybe$Just(1),
-			a4: 6,
-			a5: 5,
-			a6: _Utils_Tuple2(0, -1),
-			a7: 6,
-			bb: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id,
-			bc: 5
+			current_floor_id: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
+			direction: author$project$GameDefinitions$Common$StairsUp,
+			mbLocationShift: elm$core$Maybe$Nothing,
+			roomType: elm$core$Maybe$Just(author$project$GameModel$HorizontalRoom),
+			room_col: 6,
+			room_row: 5,
+			shift: _Utils_Tuple2(0, -1),
+			stairsId: 6,
+			toFloorId: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id,
+			toStairsId: 5
 		},
 			{
-			bl: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-			J: 3,
-			al: elm$core$Maybe$Nothing,
-			a3: elm$core$Maybe$Just(1),
-			a4: 6,
-			a5: 3,
-			a6: _Utils_Tuple2(0, 1),
-			a7: 7,
-			bb: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id,
-			bc: 8
+			current_floor_id: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
+			direction: author$project$GameDefinitions$Common$StairsDown,
+			mbLocationShift: elm$core$Maybe$Nothing,
+			roomType: elm$core$Maybe$Just(author$project$GameModel$HorizontalRoom),
+			room_col: 6,
+			room_row: 3,
+			shift: _Utils_Tuple2(0, 1),
+			stairsId: 7,
+			toFloorId: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id,
+			toStairsId: 8
 		},
 			{
-			bl: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-			J: 1,
-			al: elm$core$Maybe$Just(
+			current_floor_id: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
+			direction: author$project$GameDefinitions$Common$StairsToTheRight,
+			mbLocationShift: elm$core$Maybe$Just(
 				_Utils_Tuple2(0, 0)),
-			a3: elm$core$Maybe$Just(0),
-			a4: 7,
-			a5: 4,
-			a6: _Utils_Tuple2(0, -1),
-			a7: 11,
-			bb: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$lastFloor_id,
-			bc: 12
+			roomType: elm$core$Maybe$Just(author$project$GameModel$SquareRoom),
+			room_col: 7,
+			room_row: 4,
+			shift: _Utils_Tuple2(0, -1),
+			stairsId: 11,
+			toFloorId: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$lastFloor_id,
+			toStairsId: 12
 		}
 		]);
 	return A3(
 		elm$core$List$foldl,
 		F2(
 			function (rec, gridacc) {
-				return author$project$GameDefinitions$Common$getStairsOnRoom(rec.a5)(rec.a4)(rec.a7)(rec.bb)(rec.bc)(rec.J)(rec.a3)(rec.a6)(rec.al)(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)(gridacc);
+				return author$project$GameDefinitions$Common$getStairsOnRoom(rec.room_row)(rec.room_col)(rec.stairsId)(rec.toFloorId)(rec.toStairsId)(rec.direction)(rec.roomType)(rec.shift)(rec.mbLocationShift)(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)(gridacc);
 			}),
 		grid,
 		lstairs);
 };
 var author$project$GameDefinitions$Game2$GroundFloor$groundFloorCustomRoomRectangles = _List_fromArray(
 	[
-		A7(author$project$GameDefinitions$Common$getCustomRoom, 9, 2, -3, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.a + 1, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.a, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)
+		A7(author$project$GameDefinitions$Common$getCustomRoom, 9, 2, -3, 0, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.square_room_side + 1, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.square_room_side, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)
 	]);
 var author$project$GameDefinitions$Game2$GroundFloor$groundFloorHoles = A2(author$project$GameDefinitions$Common$getHolesByFloorId, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$holesDict);
 var author$project$GameDefinitions$Game2$GroundFloor$groundFloorInitialHorizontalTunnelRectanglesWithOptions = A2(
@@ -8704,11 +8682,11 @@ var author$project$GameDefinitions$Game2$GroundFloor$groundFloorInitialHorizonta
 				author$project$GameDefinitions$Common$getHorizontalTunnel,
 				3,
 				2,
-				0,
+				author$project$GameDefinitions$Common$TunnelToTheRight,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing,
-				elm$core$Maybe$Just(2),
-				elm$core$Maybe$Just(0),
+				elm$core$Maybe$Just(author$project$GameModel$VerticalRoom),
+				elm$core$Maybe$Just(author$project$GameModel$SquareRoom),
 				elm$core$Maybe$Nothing),
 			author$project$GameDefinitions$Common$defaultHorizontalOpenDoorOptions),
 			_Utils_Tuple2(
@@ -8728,11 +8706,11 @@ var author$project$GameDefinitions$Game2$GroundFloor$groundFloorInitialHorizonta
 				author$project$GameDefinitions$Common$getHorizontalTunnel,
 				4,
 				5,
-				0,
+				author$project$GameDefinitions$Common$TunnelToTheRight,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing,
-				elm$core$Maybe$Just(2),
-				elm$core$Maybe$Just(1),
+				elm$core$Maybe$Just(author$project$GameModel$VerticalRoom),
+				elm$core$Maybe$Just(author$project$GameModel$HorizontalRoom),
 				elm$core$Maybe$Nothing),
 			author$project$GameDefinitions$Common$defaultHorizontalOpenDoorOptions),
 			_Utils_Tuple2(
@@ -8743,11 +8721,11 @@ var author$project$GameDefinitions$Game2$GroundFloor$groundFloorInitialHorizonta
 				author$project$GameDefinitions$Common$getHorizontalTunnel,
 				5,
 				2,
-				0,
+				author$project$GameDefinitions$Common$TunnelToTheRight,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing,
-				elm$core$Maybe$Just(2),
-				elm$core$Maybe$Just(0),
+				elm$core$Maybe$Just(author$project$GameModel$VerticalRoom),
+				elm$core$Maybe$Just(author$project$GameModel$SquareRoom),
 				elm$core$Maybe$Nothing),
 			author$project$GameDefinitions$Common$defaultHorizontalGreenDoorOptions),
 			_Utils_Tuple2(
@@ -8790,38 +8768,38 @@ var author$project$GameDefinitions$Game2$GroundFloor$groundFloorInitialRoomRecta
 	},
 	_List_fromArray(
 		[
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 1, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 3, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 4, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 5, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 6, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 2, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 6, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 2, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 3, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 4, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 5, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 6, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 7, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 2, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 5, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 6, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 7, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 2, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 3, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 4, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 5, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 6, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 5, 7, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 2, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 6, 6, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 7, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 7, 3, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 7, 4, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 7, 5, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 7, 6, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 8, 2, 2)
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 1, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 3, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 4, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 5, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 6, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 2, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 6, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 2, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 3, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 4, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 5, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 6, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 7, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 2, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 5, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 6, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 7, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 2, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 3, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 4, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 5, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 6, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 5, 7, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 2, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 6, 6, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 7, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 7, 3, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 7, 4, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 7, 5, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 7, 6, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 8, 2, author$project$GameModel$VerticalRoom)
 		]));
 var author$project$GameDefinitions$Game2$GroundFloor$groundFloorInitialVerticalTunnelRectanglesWithOptions = _List_fromArray(
 	[
@@ -8863,11 +8841,11 @@ var author$project$GameDefinitions$Game2$GroundFloor$groundFloorInitialVerticalT
 			author$project$GameDefinitions$Common$getVerticalTunnel,
 			2,
 			6,
-			1,
+			author$project$GameDefinitions$Common$TunnelDown,
 			elm$core$Maybe$Nothing,
 			elm$core$Maybe$Nothing,
-			elm$core$Maybe$Just(2),
-			elm$core$Maybe$Just(1),
+			elm$core$Maybe$Just(author$project$GameModel$VerticalRoom),
+			elm$core$Maybe$Just(author$project$GameModel$HorizontalRoom),
 			elm$core$Maybe$Nothing,
 			author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params),
 		author$project$GameDefinitions$Common$defaultVerticalOpenDoorOptions),
@@ -8876,10 +8854,10 @@ var author$project$GameDefinitions$Game2$GroundFloor$groundFloorInitialVerticalT
 			author$project$GameDefinitions$Common$getVerticalTunnel,
 			5,
 			6,
-			1,
+			author$project$GameDefinitions$Common$TunnelDown,
 			elm$core$Maybe$Nothing,
 			elm$core$Maybe$Nothing,
-			elm$core$Maybe$Just(1),
+			elm$core$Maybe$Just(author$project$GameModel$HorizontalRoom),
 			elm$core$Maybe$Nothing,
 			elm$core$Maybe$Nothing,
 			author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params),
@@ -8905,19 +8883,19 @@ var author$project$GameDefinitions$Game2$GroundFloor$groundFloorInitialVerticalT
 var author$project$GameDefinitions$Game2$GroundFloor$groundFloorItems = A2(author$project$GameDefinitions$Common$getItemsByFloorId, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$itemCreationDict);
 var author$project$GameDefinitions$Game2$GroundFloor$groundFloorLandingTargets = A2(author$project$GameDefinitions$Common$getLandingTargetsByFloorId, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$landingTargetsDict);
 var author$project$Item$Paper = function (a) {
-	return {$: 6, a: a};
+	return {$: 'Paper', a: a};
 };
 var author$project$Item$PaperInfo = F4(
 	function (id, imgSrc, description, text) {
-		return {aW: description, aC: id, cp: imgSrc, b_: text};
+		return {description: description, id: id, imgSrc: imgSrc, text: text};
 	});
-var author$project$GameDefinitions$Game2$GroundFloor$customBlackDoorInfo = function (dorientation) {
+var author$project$GameDefinitions$Game2$GroundFloor$customStripedDoorInfo = function (dorientation) {
 	return {
-		b6: elm$core$Maybe$Just('black'),
-		cs: false,
-		ct: false,
-		cP: dorientation,
-		cS: _List_fromArray(
+		color: elm$core$Maybe$Just('striped'),
+		isExplored: false,
+		isOpen: false,
+		orientation: dorientation,
+		requiresToOpen: _List_fromArray(
 			[
 				author$project$Item$Paper(
 				A4(author$project$Item$PaperInfo, 1, '', '', '')),
@@ -8926,7 +8904,7 @@ var author$project$GameDefinitions$Game2$GroundFloor$customBlackDoorInfo = funct
 				author$project$Item$Paper(
 				A4(author$project$Item$PaperInfo, 3, '', '', ''))
 			]),
-		dg: 1
+		visibility: author$project$Tile$Unexplored
 	};
 };
 var author$project$GameDefinitions$Game2$GroundFloor$groundFloorStairsTunnelWithOptions = A2(
@@ -8945,9 +8923,9 @@ var author$project$GameDefinitions$Game2$GroundFloor$groundFloorStairsTunnelWith
 				author$project$GameDefinitions$Common$getVerticalTunnel,
 				9,
 				2,
-				0,
+				author$project$GameDefinitions$Common$TunnelUp,
 				elm$core$Maybe$Nothing,
-				elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B + 1),
+				elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height + 1),
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Just(
@@ -8958,11 +8936,11 @@ var author$project$GameDefinitions$Game2$GroundFloor$groundFloorStairsTunnelWith
 				author$project$GameDefinitions$Common$getVerticalTunnel,
 				5,
 				6,
-				0,
+				author$project$GameDefinitions$Common$TunnelUp,
 				elm$core$Maybe$Nothing,
-				elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B + 1),
-				elm$core$Maybe$Just(1),
-				elm$core$Maybe$Just(1),
+				elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height + 1),
+				elm$core$Maybe$Just(author$project$GameModel$HorizontalRoom),
+				elm$core$Maybe$Just(author$project$GameModel$HorizontalRoom),
 				elm$core$Maybe$Nothing),
 			author$project$GameDefinitions$Common$defaultNoDoorOptions),
 			_Utils_Tuple2(
@@ -8970,10 +8948,10 @@ var author$project$GameDefinitions$Game2$GroundFloor$groundFloorStairsTunnelWith
 				author$project$GameDefinitions$Common$getVerticalTunnel,
 				3,
 				6,
-				1,
+				author$project$GameDefinitions$Common$TunnelDown,
 				elm$core$Maybe$Nothing,
-				elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B + 1),
-				elm$core$Maybe$Just(1),
+				elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height + 1),
+				elm$core$Maybe$Just(author$project$GameModel$HorizontalRoom),
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing),
 			author$project$GameDefinitions$Common$defaultNoDoorOptions),
@@ -8982,18 +8960,18 @@ var author$project$GameDefinitions$Game2$GroundFloor$groundFloorStairsTunnelWith
 				author$project$GameDefinitions$Common$getHorizontalTunnel,
 				4,
 				7,
-				0,
-				elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.F + 1),
+				author$project$GameDefinitions$Common$TunnelToTheRight,
+				elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.vertical_wall_width + 1),
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Nothing),
 			{
-				h: author$project$Tile$NoDoorNoWall,
-				i: author$project$Tile$UseDoor(
-					author$project$GameDefinitions$Game2$GroundFloor$customBlackDoorInfo(0)),
-				j: author$project$Tile$NoDoorNoWall,
-				k: author$project$Tile$NoDoorNoWall
+				bottom: author$project$Tile$NoDoorNoWall,
+				left: author$project$Tile$UseDoor(
+					author$project$GameDefinitions$Game2$GroundFloor$customStripedDoorInfo(author$project$Tile$DoorToTheRight)),
+				right: author$project$Tile$NoDoorNoWall,
+				top: author$project$Tile$NoDoorNoWall
 			})
 		]));
 var author$project$GameDefinitions$Game2$GroundFloor$groundFloorStairsTunnel = A2(
@@ -9050,60 +9028,60 @@ var author$project$GameDefinitions$Game2$GroundFloor$gridGroundFloor = author$pr
 	A3(author$project$GameDefinitions$Common$gridInitializer, 9, 7, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params));
 var author$project$GameDefinitions$Game2$LastFloor$addLastFloorStairs = function (grid) {
 	var recstairs = {
-		bl: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$lastFloor_id,
-		J: 3,
-		al: elm$core$Maybe$Nothing,
-		bR: 20,
-		bS: 13,
-		a6: _Utils_Tuple2(-1, 0),
-		a7: 12,
-		bb: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-		bc: 11
+		current_floor_id: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$lastFloor_id,
+		direction: author$project$GameDefinitions$Common$StairsDown,
+		mbLocationShift: elm$core$Maybe$Nothing,
+		room_x: 20,
+		room_y: 13,
+		shift: _Utils_Tuple2(-1, 0),
+		stairsId: 12,
+		toFloorId: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
+		toStairsId: 11
 	};
 	var tileStairs = author$project$Tile$Stairs(
-		A6(author$project$Tile$StairsInfo, recstairs.a7, recstairs.bb, recstairs.bc, recstairs.a6, false, 1));
+		A6(author$project$Tile$StairsInfo, recstairs.stairsId, recstairs.toFloorId, recstairs.toStairsId, recstairs.shift, false, author$project$Tile$Unexplored));
 	return A3(
 		author$project$Grid$set,
-		A2(author$project$Grid$Coordinate, recstairs.bR, recstairs.bS),
+		A2(author$project$Grid$Coordinate, recstairs.room_x, recstairs.room_y),
 		tileStairs,
 		grid);
 };
-var author$project$Tile$Visible = 0;
-var author$project$GameDefinitions$Game2$LastFloor$customLeverInfo = {cs: false, cu: false, cv: false, cz: 1, dg: 0};
+var author$project$Tile$Visible = {$: 'Visible'};
+var author$project$GameDefinitions$Game2$LastFloor$customLeverInfo = {isExplored: false, isTransparent: false, isUp: false, leverId: 1, visibility: author$project$Tile$Visible};
 var author$project$Tile$ConverterTile = F2(
 	function (a, b) {
-		return {$: 12, a: a, b: b};
+		return {$: 'ConverterTile', a: a, b: b};
 	});
 var author$project$Tile$Grass = function (a) {
-	return {$: 10, a: a};
+	return {$: 'Grass', a: a};
 };
 var author$project$Tile$Lever = function (a) {
-	return {$: 6, a: a};
+	return {$: 'Lever', a: a};
 };
 var author$project$Tile$Tree = function (a) {
-	return {$: 11, a: a};
+	return {$: 'Tree', a: a};
 };
 var author$project$Tile$WallInfo = F4(
 	function (isExplored, visibility, orientation, mbTeleporterObject) {
-		return {cs: isExplored, cI: mbTeleporterObject, cP: orientation, dg: visibility};
+		return {isExplored: isExplored, mbTeleporterObject: mbTeleporterObject, orientation: orientation, visibility: visibility};
 	});
 var author$project$Tile$Water = function (a) {
-	return {$: 9, a: a};
+	return {$: 'Water', a: a};
 };
-var author$project$Tile$defaultBrickWallInfo = {cs: false, cI: elm$core$Maybe$Nothing, cP: 'just_bricks', dg: 1};
-var author$project$Tile$defaultGrassInfo = {aW: 'grass', cs: false, cu: false, a$: true, dg: 1};
-var author$project$Tile$defaultPineTreeInfo = {cs: false, c6: 'pinetree', dg: 1};
-var author$project$Tile$defaultRoundTreeInfo = {cs: false, c6: 'roundtree', dg: 1};
-var author$project$Tile$defaultWaterInfo = {aW: 'just_water', cs: false, cu: false, a$: false, dg: 1};
-var author$project$Tile$defaultWaterWallLeftInfo = {aW: 'water_wall_left', cs: false, cu: false, a$: false, dg: 1};
-var author$project$Tile$defaultWaterWallUpInfo = {aW: 'water_wall_up', cs: false, cu: false, a$: false, dg: 1};
+var author$project$Tile$defaultBrickWallInfo = {isExplored: false, mbTeleporterObject: elm$core$Maybe$Nothing, orientation: 'just_bricks', visibility: author$project$Tile$Unexplored};
+var author$project$Tile$defaultGrassInfo = {description: 'grass', isExplored: false, isTransparent: false, isWalkable: true, visibility: author$project$Tile$Unexplored};
+var author$project$Tile$defaultPineTreeInfo = {isExplored: false, treeType: 'pinetree', visibility: author$project$Tile$Unexplored};
+var author$project$Tile$defaultRoundTreeInfo = {isExplored: false, treeType: 'roundtree', visibility: author$project$Tile$Unexplored};
+var author$project$Tile$defaultWaterInfo = {description: 'just_water', isExplored: false, isTransparent: false, isWalkable: false, visibility: author$project$Tile$Unexplored};
+var author$project$Tile$defaultWaterWallLeftInfo = {description: 'water_wall_left', isExplored: false, isTransparent: false, isWalkable: false, visibility: author$project$Tile$Unexplored};
+var author$project$Tile$defaultWaterWallUpInfo = {description: 'water_wall_up', isExplored: false, isTransparent: false, isWalkable: false, visibility: author$project$Tile$Unexplored};
 var author$project$GameDefinitions$Game2$LastFloor$lastFloorGridTiles = _List_fromArray(
 	[
 		_List_fromArray(
 		[
 			author$project$Tile$NoTileYet,
 			author$project$Tile$Wall(
-			A4(author$project$Tile$WallInfo, false, 1, 'corner_top_left', elm$core$Maybe$Nothing)),
+			A4(author$project$Tile$WallInfo, false, author$project$Tile$Unexplored, 'corner_top_left', elm$core$Maybe$Nothing)),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
@@ -9118,7 +9096,7 @@ var author$project$GameDefinitions$Game2$LastFloor$lastFloorGridTiles = _List_fr
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(
-			A4(author$project$Tile$WallInfo, false, 1, 'corner_top_right', elm$core$Maybe$Nothing)),
+			A4(author$project$Tile$WallInfo, false, author$project$Tile$Unexplored, 'corner_top_right', elm$core$Maybe$Nothing)),
 			author$project$Tile$Water(author$project$Tile$defaultWaterWallLeftInfo),
 			author$project$Tile$Water(author$project$Tile$defaultWaterInfo),
 			author$project$Tile$Grass(author$project$Tile$defaultGrassInfo),
@@ -9192,7 +9170,7 @@ var author$project$GameDefinitions$Game2$LastFloor$lastFloorGridTiles = _List_fr
 			author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
 			author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
 			author$project$Tile$Wall(
-			A4(author$project$Tile$WallInfo, false, 1, 'cul_de_sac_at_top', elm$core$Maybe$Nothing)),
+			A4(author$project$Tile$WallInfo, false, author$project$Tile$Unexplored, 'cul_de_sac_at_top', elm$core$Maybe$Nothing)),
 			author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
 			author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
 			author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
@@ -9239,25 +9217,25 @@ var author$project$GameDefinitions$Game2$LastFloor$lastFloorGridTiles = _List_fr
 		[
 			author$project$Tile$NoTileYet,
 			author$project$Tile$Wall(
-			A4(author$project$Tile$WallInfo, false, 1, 'three_way_at_left', elm$core$Maybe$Nothing)),
+			A4(author$project$Tile$WallInfo, false, author$project$Tile$Unexplored, 'three_way_at_left', elm$core$Maybe$Nothing)),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(
-			A4(author$project$Tile$WallInfo, false, 1, 'three_way_at_top', elm$core$Maybe$Nothing)),
+			A4(author$project$Tile$WallInfo, false, author$project$Tile$Unexplored, 'three_way_at_top', elm$core$Maybe$Nothing)),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(
-			A4(author$project$Tile$WallInfo, false, 1, 'corner_bottom_right', elm$core$Maybe$Nothing)),
+			A4(author$project$Tile$WallInfo, false, author$project$Tile$Unexplored, 'corner_bottom_right', elm$core$Maybe$Nothing)),
 			author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
 			author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
 			author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
 			author$project$Tile$Wall(
-			A4(author$project$Tile$WallInfo, false, 1, 'cul_de_sac_at_left', elm$core$Maybe$Nothing)),
+			A4(author$project$Tile$WallInfo, false, author$project$Tile$Unexplored, 'cul_de_sac_at_left', elm$core$Maybe$Nothing)),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(
-			A4(author$project$Tile$WallInfo, false, 1, 'three_way_at_right', elm$core$Maybe$Nothing)),
+			A4(author$project$Tile$WallInfo, false, author$project$Tile$Unexplored, 'three_way_at_right', elm$core$Maybe$Nothing)),
 			author$project$Tile$Water(author$project$Tile$defaultWaterWallLeftInfo),
 			author$project$Tile$Water(author$project$Tile$defaultWaterInfo),
 			author$project$Tile$Grass(author$project$Tile$defaultGrassInfo),
@@ -9351,10 +9329,10 @@ var author$project$GameDefinitions$Game2$LastFloor$lastFloorGridTiles = _List_fr
 			author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
 			author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
 			author$project$Tile$Wall(
-			A4(author$project$Tile$WallInfo, false, 1, 'corner_bottom_left', elm$core$Maybe$Nothing)),
+			A4(author$project$Tile$WallInfo, false, author$project$Tile$Unexplored, 'corner_bottom_left', elm$core$Maybe$Nothing)),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(
-			A4(author$project$Tile$WallInfo, false, 1, 'cul_de_sac_at_right', elm$core$Maybe$Nothing)),
+			A4(author$project$Tile$WallInfo, false, author$project$Tile$Unexplored, 'cul_de_sac_at_right', elm$core$Maybe$Nothing)),
 			author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
 			author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
 			author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
@@ -9428,7 +9406,7 @@ var author$project$GameDefinitions$Game2$LastFloor$lastFloorGridTiles = _List_fr
 		[
 			author$project$Tile$NoTileYet,
 			author$project$Tile$Wall(
-			A4(author$project$Tile$WallInfo, false, 1, 'corner_bottom_left', elm$core$Maybe$Nothing)),
+			A4(author$project$Tile$WallInfo, false, author$project$Tile$Unexplored, 'corner_bottom_left', elm$core$Maybe$Nothing)),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
@@ -9443,7 +9421,7 @@ var author$project$GameDefinitions$Game2$LastFloor$lastFloorGridTiles = _List_fr
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(author$project$Tile$defaultWallInfo),
 			author$project$Tile$Wall(
-			A4(author$project$Tile$WallInfo, false, 1, 'corner_bottom_right', elm$core$Maybe$Nothing)),
+			A4(author$project$Tile$WallInfo, false, author$project$Tile$Unexplored, 'corner_bottom_right', elm$core$Maybe$Nothing)),
 			author$project$Tile$Water(author$project$Tile$defaultWaterWallLeftInfo),
 			author$project$Tile$Water(author$project$Tile$defaultWaterInfo),
 			author$project$Tile$Grass(author$project$Tile$defaultGrassInfo),
@@ -9557,19 +9535,19 @@ var author$project$GameDefinitions$Game2$LastFloor$getTileAtCoords = function (c
 		elm$core$Maybe$withDefault,
 		_List_Nil,
 		elm$core$List$head(
-			A2(elm$core$List$drop, coords.be, author$project$GameDefinitions$Game2$LastFloor$lastFloorGridTiles)));
+			A2(elm$core$List$drop, coords.y, author$project$GameDefinitions$Game2$LastFloor$lastFloorGridTiles)));
 	return A2(
 		elm$core$Maybe$withDefault,
 		author$project$Tile$NoTileYet,
 		elm$core$List$head(
-			A2(elm$core$List$drop, coords.bd, mb_relevant_row)));
+			A2(elm$core$List$drop, coords.x, mb_relevant_row)));
 };
 var author$project$GameDefinitions$Game2$LastFloor$nr_cols = 23;
 var author$project$GameDefinitions$Game2$LastFloor$nr_rows = 17;
 var author$project$GameDefinitions$Game2$LastFloor$gridLastFloor = function () {
 	var grid = A2(
 		author$project$Grid$initialize,
-		{ck: author$project$GameDefinitions$Game2$LastFloor$nr_rows, dj: author$project$GameDefinitions$Game2$LastFloor$nr_cols},
+		{height: author$project$GameDefinitions$Game2$LastFloor$nr_rows, width: author$project$GameDefinitions$Game2$LastFloor$nr_cols},
 		author$project$Tile$NoTileYet);
 	var lcoords = author$project$Grid$toCoordinates(grid);
 	return author$project$GameDefinitions$Game2$LastFloor$addLastFloorStairs(
@@ -9590,23 +9568,23 @@ var author$project$GameDefinitions$Game2$TheAttic$addTheAtticFloorStairs = funct
 	var lstairs = _List_fromArray(
 		[
 			{
-			bl: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id,
-			J: 2,
-			al: elm$core$Maybe$Nothing,
-			a3: elm$core$Maybe$Just(0),
-			a4: 4,
-			a5: 1,
-			a6: _Utils_Tuple2(0, -1),
-			a7: 10,
-			bb: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id,
-			bc: 9
+			current_floor_id: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id,
+			direction: author$project$GameDefinitions$Common$StairsUp,
+			mbLocationShift: elm$core$Maybe$Nothing,
+			roomType: elm$core$Maybe$Just(author$project$GameModel$SquareRoom),
+			room_col: 4,
+			room_row: 1,
+			shift: _Utils_Tuple2(0, -1),
+			stairsId: 10,
+			toFloorId: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id,
+			toStairsId: 9
 		}
 		]);
 	return A3(
 		elm$core$List$foldl,
 		F2(
 			function (rec, gridacc) {
-				return author$project$GameDefinitions$Common$getStairsOnRoom(rec.a5)(rec.a4)(rec.a7)(rec.bb)(rec.bc)(rec.J)(rec.a3)(rec.a6)(rec.al)(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)(gridacc);
+				return author$project$GameDefinitions$Common$getStairsOnRoom(rec.room_row)(rec.room_col)(rec.stairsId)(rec.toFloorId)(rec.toStairsId)(rec.direction)(rec.roomType)(rec.shift)(rec.mbLocationShift)(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)(gridacc);
 			}),
 		grid,
 		lstairs);
@@ -9670,22 +9648,22 @@ var author$project$GameDefinitions$Game2$TheAttic$theAtticInitialRoomRectangles 
 	},
 	_List_fromArray(
 		[
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 1, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 3, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 1, 4, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 1, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 3, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 2, 4, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 1, 2),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 2, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 3, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 3, 4, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 1, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 2, 1),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 3, 0),
-			A3(author$project$GameDefinitions$Common$getRoom, 4, 4, 0)
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 1, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 3, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 1, 4, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 1, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 3, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 2, 4, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 1, author$project$GameModel$VerticalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 2, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 3, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 3, 4, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 1, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 2, author$project$GameModel$HorizontalRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 3, author$project$GameModel$SquareRoom),
+			A3(author$project$GameDefinitions$Common$getRoom, 4, 4, author$project$GameModel$SquareRoom)
 		]));
 var author$project$GameDefinitions$Game2$TheAttic$theAtticInitialVerticalTunnelRectanglesWithOptions = _List_fromArray(
 	[
@@ -9730,10 +9708,10 @@ var author$project$GameDefinitions$Game2$TheAttic$theAtticStairsTunnel = _List_f
 		author$project$GameDefinitions$Common$getVerticalTunnel,
 		1,
 		4,
-		0,
+		author$project$GameDefinitions$Common$TunnelUp,
 		elm$core$Maybe$Nothing,
-		elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.B + 1),
-		elm$core$Maybe$Just(0),
+		elm$core$Maybe$Just(author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params.horizontal_wall_height + 1),
+		elm$core$Maybe$Just(author$project$GameModel$SquareRoom),
 		elm$core$Maybe$Nothing,
 		elm$core$Maybe$Nothing,
 		author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params)
@@ -9788,107 +9766,110 @@ var author$project$GameDefinitions$Game2$Game2Definitions$dStore = elm$core$Dict
 			_Utils_Tuple2(
 			0,
 			{
-				cd: author$project$GameDefinitions$Common$setAllAsUnexplored(author$project$GameDefinitions$Game2$Caverns$gridCaverns),
-				cy: author$project$GameDefinitions$Game2$Caverns$gridCaverns,
-				c4: A2(author$project$GameDefinitions$Common$get_total_height, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 7),
-				c5: A2(author$project$GameDefinitions$Common$get_total_width, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 11),
-				dk: author$project$GameDefinitions$Game2$Game2Definitions$common_window_height,
-				dl: author$project$GameDefinitions$Game2$Game2Definitions$common_window_width
+				explored: author$project$GameDefinitions$Common$setAllAsUnexplored(author$project$GameDefinitions$Game2$Caverns$gridCaverns),
+				level: author$project$GameDefinitions$Game2$Caverns$gridCaverns,
+				total_height: A2(author$project$GameDefinitions$Common$get_total_height, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 7),
+				total_width: A2(author$project$GameDefinitions$Common$get_total_width, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 11),
+				window_height: author$project$GameDefinitions$Game2$Game2Definitions$common_window_height,
+				window_width: author$project$GameDefinitions$Game2$Game2Definitions$common_window_width
 			}),
 			_Utils_Tuple2(
 			1,
 			{
-				cd: author$project$GameDefinitions$Common$setAllAsUnexplored(author$project$GameDefinitions$Game2$Basement$gridBasement),
-				cy: author$project$GameDefinitions$Game2$Basement$gridBasement,
-				c4: A2(author$project$GameDefinitions$Common$get_total_height, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 7),
-				c5: A2(author$project$GameDefinitions$Common$get_total_width, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 6),
-				dk: author$project$GameDefinitions$Game2$Game2Definitions$common_window_height,
-				dl: author$project$GameDefinitions$Game2$Game2Definitions$common_window_width
+				explored: author$project$GameDefinitions$Common$setAllAsUnexplored(author$project$GameDefinitions$Game2$Basement$gridBasement),
+				level: author$project$GameDefinitions$Game2$Basement$gridBasement,
+				total_height: A2(author$project$GameDefinitions$Common$get_total_height, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 7),
+				total_width: A2(author$project$GameDefinitions$Common$get_total_width, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 6),
+				window_height: author$project$GameDefinitions$Game2$Game2Definitions$common_window_height,
+				window_width: author$project$GameDefinitions$Game2$Game2Definitions$common_window_width
 			}),
 			_Utils_Tuple2(
 			2,
 			{
-				cd: author$project$GameDefinitions$Common$setAllAsUnexplored(author$project$GameDefinitions$Game2$GroundFloor$gridGroundFloor),
-				cy: author$project$GameDefinitions$Game2$GroundFloor$gridGroundFloor,
-				c4: A2(author$project$GameDefinitions$Common$get_total_height, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 9),
-				c5: A2(author$project$GameDefinitions$Common$get_total_width, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 7),
-				dk: author$project$GameDefinitions$Game2$Game2Definitions$common_window_height,
-				dl: author$project$GameDefinitions$Game2$Game2Definitions$common_window_width
+				explored: author$project$GameDefinitions$Common$setAllAsUnexplored(author$project$GameDefinitions$Game2$GroundFloor$gridGroundFloor),
+				level: author$project$GameDefinitions$Game2$GroundFloor$gridGroundFloor,
+				total_height: A2(author$project$GameDefinitions$Common$get_total_height, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 9),
+				total_width: A2(author$project$GameDefinitions$Common$get_total_width, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 7),
+				window_height: author$project$GameDefinitions$Game2$Game2Definitions$common_window_height,
+				window_width: author$project$GameDefinitions$Game2$Game2Definitions$common_window_width
 			}),
 			_Utils_Tuple2(
 			3,
 			{
-				cd: author$project$GameDefinitions$Common$setAllAsUnexplored(author$project$GameDefinitions$Game2$FirstFloor$gridFirstFloor),
-				cy: author$project$GameDefinitions$Game2$FirstFloor$gridFirstFloor,
-				c4: A2(author$project$GameDefinitions$Common$get_total_height, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 7),
-				c5: A2(author$project$GameDefinitions$Common$get_total_width, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 6),
-				dk: author$project$GameDefinitions$Game2$Game2Definitions$common_window_height,
-				dl: author$project$GameDefinitions$Game2$Game2Definitions$common_window_width
+				explored: author$project$GameDefinitions$Common$setAllAsUnexplored(author$project$GameDefinitions$Game2$FirstFloor$gridFirstFloor),
+				level: author$project$GameDefinitions$Game2$FirstFloor$gridFirstFloor,
+				total_height: A2(author$project$GameDefinitions$Common$get_total_height, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 7),
+				total_width: A2(author$project$GameDefinitions$Common$get_total_width, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 6),
+				window_height: author$project$GameDefinitions$Game2$Game2Definitions$common_window_height,
+				window_width: author$project$GameDefinitions$Game2$Game2Definitions$common_window_width
 			}),
 			_Utils_Tuple2(
 			4,
 			{
-				cd: author$project$GameDefinitions$Common$setAllAsUnexplored(author$project$GameDefinitions$Game2$TheAttic$gridTheAttic),
-				cy: author$project$GameDefinitions$Game2$TheAttic$gridTheAttic,
-				c4: A2(author$project$GameDefinitions$Common$get_total_height, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 4),
-				c5: A2(author$project$GameDefinitions$Common$get_total_width, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 4),
-				dk: author$project$GameDefinitions$Game2$Game2Definitions$common_window_height,
-				dl: author$project$GameDefinitions$Game2$Game2Definitions$common_window_width
+				explored: author$project$GameDefinitions$Common$setAllAsUnexplored(author$project$GameDefinitions$Game2$TheAttic$gridTheAttic),
+				level: author$project$GameDefinitions$Game2$TheAttic$gridTheAttic,
+				total_height: A2(author$project$GameDefinitions$Common$get_total_height, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 4),
+				total_width: A2(author$project$GameDefinitions$Common$get_total_width, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 4),
+				window_height: author$project$GameDefinitions$Game2$Game2Definitions$common_window_height,
+				window_width: author$project$GameDefinitions$Game2$Game2Definitions$common_window_width
 			}),
 			_Utils_Tuple2(
 			5,
 			{
-				cd: author$project$GameDefinitions$Common$setAllAsUnexplored(author$project$GameDefinitions$Game2$LastFloor$gridLastFloor),
-				cy: author$project$GameDefinitions$Game2$LastFloor$gridLastFloor,
-				c4: A2(author$project$GameDefinitions$Common$get_total_height, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 17),
-				c5: A2(author$project$GameDefinitions$Common$get_total_width, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 23),
-				dk: 18,
-				dl: 18
+				explored: author$project$GameDefinitions$Common$setAllAsUnexplored(author$project$GameDefinitions$Game2$LastFloor$gridLastFloor),
+				level: author$project$GameDefinitions$Game2$LastFloor$gridLastFloor,
+				total_height: A2(author$project$GameDefinitions$Common$get_total_height, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 17),
+				total_width: A2(author$project$GameDefinitions$Common$get_total_width, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 23),
+				window_height: 18,
+				window_width: 18
 			})
 		]));
-var author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter = F3(
-	function (fcharId, species, floorId) {
+var author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter = F5(
+	function (fcharId, species, x_coord, y_coord, floorId) {
 		var elem = 'e' + elm$core$String$fromInt(fcharId);
-		return A5(
+		return A7(
 			author$project$Beings$Beings$fightingCharacterCreationFunc,
 			elem,
 			fcharId,
 			'fightingChar' + elm$core$String$fromInt(fcharId),
 			species,
+			x_coord,
+			y_coord,
 			floorId);
 	});
-var author$project$GameDefinitions$Game2$Game2Definitions$initialPlayer = function () {
-	var elem = '@';
-	return A2(author$project$Beings$Beings$playerCreationFunc, elem, 'You');
-}();
-var author$project$Beings$Beings$DontMove = 2;
-var author$project$Beings$Beings$otherCharacterCreationFunc = F3(
-	function (id_, ename, floor_id_) {
+var author$project$GameDefinitions$Game2$Game2Definitions$initialPlayer = F3(
+	function (x, y, z) {
+		var elem = '@';
+		return A5(author$project$Beings$Beings$playerCreationFunc, elem, 'You', x, y, z);
+	});
+var author$project$Beings$Beings$DontMove = {$: 'DontMove'};
+var author$project$Beings$Beings$otherCharacterCreationFunc = F5(
+	function (id_, ename, x_coord, y_coord, floor_id_) {
 		return {
-			J: 1,
-			ax: true,
-			ay: false,
-			L: 1,
-			az: floor_id_,
-			M: 30,
-			aC: id_,
-			N: 8,
-			O: 30,
-			P: 100,
-			Q: elm$core$Dict$empty,
-			R: A2(author$project$Grid$Coordinate, 9, 9),
-			S: 100,
-			aE: 1,
-			U: elm$core$Maybe$Just(2),
-			V: ename,
-			aF: 0,
-			W: true,
-			aG: true,
-			aQ: 'otherYou',
-			aa: ''
+			direction: author$project$Beings$Beings$Down,
+			disappearsWhenHealthIsZero: true,
+			disappearsWhenIndexOfLightMax: false,
+			enlSpellEffect: author$project$Beings$Beings$IncreaseIndexOfLight,
+			floorId: floor_id_,
+			health: 30,
+			id: id_,
+			indexOfLight: 8,
+			indexOfLightMax: 30,
+			initiative: 100,
+			inventory: elm$core$Dict$empty,
+			location: A2(author$project$Grid$Coordinate, x_coord, y_coord),
+			mana: 100,
+			maxNrCharacterMovesPerTurn: 1,
+			movingStrategy: elm$core$Maybe$Just(author$project$Beings$Beings$DontMove),
+			name: ename,
+			nrMovesInCurrentTurn: 0,
+			placed: true,
+			playerCanWalkOverIfDead: true,
+			species: 'otherYou',
+			textAvatar: ''
 		};
 	});
-var author$project$GameDefinitions$Game2$Game2Definitions$otherCharacterFunc = A3(author$project$Beings$Beings$otherCharacterCreationFunc, 1, 'otherYou', author$project$GameDefinitions$Game2$ConfigParamsAndInfo$lastFloor_id);
+var author$project$GameDefinitions$Game2$Game2Definitions$otherCharacterFunc = A5(author$project$Beings$Beings$otherCharacterCreationFunc, 1, 'otherYou', 10, 10, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$lastFloor_id);
 var author$project$GameDefinitions$Game2$Game2Definitions$getRandIntNr_ZeroTo = F2(
 	function (maxnr, lrandints) {
 		return function (x) {
@@ -9908,7 +9889,7 @@ var elm$core$Dict$get = F2(
 	function (targetKey, dict) {
 		get:
 		while (true) {
-			if (dict.$ === -2) {
+			if (dict.$ === 'RBEmpty_elm_builtin') {
 				return elm$core$Maybe$Nothing;
 			} else {
 				var key = dict.b;
@@ -9916,14 +9897,14 @@ var elm$core$Dict$get = F2(
 				var left = dict.d;
 				var right = dict.e;
 				var _n1 = A2(elm$core$Basics$compare, targetKey, key);
-				switch (_n1) {
-					case 0:
+				switch (_n1.$) {
+					case 'LT':
 						var $temp$targetKey = targetKey,
 							$temp$dict = left;
 						targetKey = $temp$targetKey;
 						dict = $temp$dict;
 						continue get;
-					case 1:
+					case 'EQ':
 						return elm$core$Maybe$Just(value);
 					default:
 						var $temp$targetKey = targetKey,
@@ -9938,7 +9919,7 @@ var elm$core$Dict$get = F2(
 var elm$core$Dict$getMin = function (dict) {
 	getMin:
 	while (true) {
-		if ((dict.$ === -1) && (dict.d.$ === -1)) {
+		if ((dict.$ === 'RBNode_elm_builtin') && (dict.d.$ === 'RBNode_elm_builtin')) {
 			var left = dict.d;
 			var $temp$dict = left;
 			dict = $temp$dict;
@@ -9949,8 +9930,8 @@ var elm$core$Dict$getMin = function (dict) {
 	}
 };
 var elm$core$Dict$moveRedLeft = function (dict) {
-	if (((dict.$ === -1) && (dict.d.$ === -1)) && (dict.e.$ === -1)) {
-		if ((dict.e.d.$ === -1) && (!dict.e.d.a)) {
+	if (((dict.$ === 'RBNode_elm_builtin') && (dict.d.$ === 'RBNode_elm_builtin')) && (dict.e.$ === 'RBNode_elm_builtin')) {
+		if ((dict.e.d.$ === 'RBNode_elm_builtin') && (dict.e.d.a.$ === 'Red')) {
 			var clr = dict.a;
 			var k = dict.b;
 			var v = dict.c;
@@ -9973,17 +9954,17 @@ var elm$core$Dict$moveRedLeft = function (dict) {
 			var rRight = _n2.e;
 			return A5(
 				elm$core$Dict$RBNode_elm_builtin,
-				0,
+				elm$core$Dict$Red,
 				rlK,
 				rlV,
 				A5(
 					elm$core$Dict$RBNode_elm_builtin,
-					1,
+					elm$core$Dict$Black,
 					k,
 					v,
-					A5(elm$core$Dict$RBNode_elm_builtin, 0, lK, lV, lLeft, lRight),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
 					rlL),
-				A5(elm$core$Dict$RBNode_elm_builtin, 1, rK, rV, rlR, rRight));
+				A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, rK, rV, rlR, rRight));
 		} else {
 			var clr = dict.a;
 			var k = dict.b;
@@ -10000,22 +9981,22 @@ var elm$core$Dict$moveRedLeft = function (dict) {
 			var rV = _n5.c;
 			var rLeft = _n5.d;
 			var rRight = _n5.e;
-			if (clr === 1) {
+			if (clr.$ === 'Black') {
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
-					1,
+					elm$core$Dict$Black,
 					k,
 					v,
-					A5(elm$core$Dict$RBNode_elm_builtin, 0, lK, lV, lLeft, lRight),
-					A5(elm$core$Dict$RBNode_elm_builtin, 0, rK, rV, rLeft, rRight));
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight));
 			} else {
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
-					1,
+					elm$core$Dict$Black,
 					k,
 					v,
-					A5(elm$core$Dict$RBNode_elm_builtin, 0, lK, lV, lLeft, lRight),
-					A5(elm$core$Dict$RBNode_elm_builtin, 0, rK, rV, rLeft, rRight));
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight));
 			}
 		}
 	} else {
@@ -10023,8 +10004,8 @@ var elm$core$Dict$moveRedLeft = function (dict) {
 	}
 };
 var elm$core$Dict$moveRedRight = function (dict) {
-	if (((dict.$ === -1) && (dict.d.$ === -1)) && (dict.e.$ === -1)) {
-		if ((dict.d.d.$ === -1) && (!dict.d.d.a)) {
+	if (((dict.$ === 'RBNode_elm_builtin') && (dict.d.$ === 'RBNode_elm_builtin')) && (dict.e.$ === 'RBNode_elm_builtin')) {
+		if ((dict.d.d.$ === 'RBNode_elm_builtin') && (dict.d.d.a.$ === 'Red')) {
 			var clr = dict.a;
 			var k = dict.b;
 			var v = dict.c;
@@ -10047,17 +10028,17 @@ var elm$core$Dict$moveRedRight = function (dict) {
 			var rRight = _n4.e;
 			return A5(
 				elm$core$Dict$RBNode_elm_builtin,
-				0,
+				elm$core$Dict$Red,
 				lK,
 				lV,
-				A5(elm$core$Dict$RBNode_elm_builtin, 1, llK, llV, llLeft, llRight),
+				A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, llK, llV, llLeft, llRight),
 				A5(
 					elm$core$Dict$RBNode_elm_builtin,
-					1,
+					elm$core$Dict$Black,
 					k,
 					v,
 					lRight,
-					A5(elm$core$Dict$RBNode_elm_builtin, 0, rK, rV, rLeft, rRight)));
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight)));
 		} else {
 			var clr = dict.a;
 			var k = dict.b;
@@ -10074,22 +10055,22 @@ var elm$core$Dict$moveRedRight = function (dict) {
 			var rV = _n6.c;
 			var rLeft = _n6.d;
 			var rRight = _n6.e;
-			if (clr === 1) {
+			if (clr.$ === 'Black') {
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
-					1,
+					elm$core$Dict$Black,
 					k,
 					v,
-					A5(elm$core$Dict$RBNode_elm_builtin, 0, lK, lV, lLeft, lRight),
-					A5(elm$core$Dict$RBNode_elm_builtin, 0, rK, rV, rLeft, rRight));
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight));
 			} else {
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
-					1,
+					elm$core$Dict$Black,
 					k,
 					v,
-					A5(elm$core$Dict$RBNode_elm_builtin, 0, lK, lV, lLeft, lRight),
-					A5(elm$core$Dict$RBNode_elm_builtin, 0, rK, rV, rLeft, rRight));
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight));
 			}
 		}
 	} else {
@@ -10098,7 +10079,7 @@ var elm$core$Dict$moveRedRight = function (dict) {
 };
 var elm$core$Dict$removeHelpPrepEQGT = F7(
 	function (targetKey, dict, color, key, value, left, right) {
-		if ((left.$ === -1) && (!left.a)) {
+		if ((left.$ === 'RBNode_elm_builtin') && (left.a.$ === 'Red')) {
 			var _n1 = left.a;
 			var lK = left.b;
 			var lV = left.c;
@@ -10110,13 +10091,13 @@ var elm$core$Dict$removeHelpPrepEQGT = F7(
 				lK,
 				lV,
 				lLeft,
-				A5(elm$core$Dict$RBNode_elm_builtin, 0, key, value, lRight, right));
+				A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, key, value, lRight, right));
 		} else {
 			_n2$2:
 			while (true) {
-				if ((right.$ === -1) && (right.a === 1)) {
-					if (right.d.$ === -1) {
-						if (right.d.a === 1) {
+				if ((right.$ === 'RBNode_elm_builtin') && (right.a.$ === 'Black')) {
+					if (right.d.$ === 'RBNode_elm_builtin') {
+						if (right.d.a.$ === 'Black') {
 							var _n3 = right.a;
 							var _n4 = right.d;
 							var _n5 = _n4.a;
@@ -10137,7 +10118,7 @@ var elm$core$Dict$removeHelpPrepEQGT = F7(
 		}
 	});
 var elm$core$Dict$removeMin = function (dict) {
-	if ((dict.$ === -1) && (dict.d.$ === -1)) {
+	if ((dict.$ === 'RBNode_elm_builtin') && (dict.d.$ === 'RBNode_elm_builtin')) {
 		var color = dict.a;
 		var key = dict.b;
 		var value = dict.c;
@@ -10145,8 +10126,8 @@ var elm$core$Dict$removeMin = function (dict) {
 		var lColor = left.a;
 		var lLeft = left.d;
 		var right = dict.e;
-		if (lColor === 1) {
-			if ((lLeft.$ === -1) && (!lLeft.a)) {
+		if (lColor.$ === 'Black') {
+			if ((lLeft.$ === 'RBNode_elm_builtin') && (lLeft.a.$ === 'Red')) {
 				var _n3 = lLeft.a;
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
@@ -10157,7 +10138,7 @@ var elm$core$Dict$removeMin = function (dict) {
 					right);
 			} else {
 				var _n4 = elm$core$Dict$moveRedLeft(dict);
-				if (_n4.$ === -1) {
+				if (_n4.$ === 'RBNode_elm_builtin') {
 					var nColor = _n4.a;
 					var nKey = _n4.b;
 					var nValue = _n4.c;
@@ -10189,7 +10170,7 @@ var elm$core$Dict$removeMin = function (dict) {
 };
 var elm$core$Dict$removeHelp = F2(
 	function (targetKey, dict) {
-		if (dict.$ === -2) {
+		if (dict.$ === 'RBEmpty_elm_builtin') {
 			return elm$core$Dict$RBEmpty_elm_builtin;
 		} else {
 			var color = dict.a;
@@ -10198,10 +10179,10 @@ var elm$core$Dict$removeHelp = F2(
 			var left = dict.d;
 			var right = dict.e;
 			if (_Utils_cmp(targetKey, key) < 0) {
-				if ((left.$ === -1) && (left.a === 1)) {
+				if ((left.$ === 'RBNode_elm_builtin') && (left.a.$ === 'Black')) {
 					var _n4 = left.a;
 					var lLeft = left.d;
-					if ((lLeft.$ === -1) && (!lLeft.a)) {
+					if ((lLeft.$ === 'RBNode_elm_builtin') && (lLeft.a.$ === 'Red')) {
 						var _n6 = lLeft.a;
 						return A5(
 							elm$core$Dict$RBNode_elm_builtin,
@@ -10212,7 +10193,7 @@ var elm$core$Dict$removeHelp = F2(
 							right);
 					} else {
 						var _n7 = elm$core$Dict$moveRedLeft(dict);
-						if (_n7.$ === -1) {
+						if (_n7.$ === 'RBNode_elm_builtin') {
 							var nColor = _n7.a;
 							var nKey = _n7.b;
 							var nValue = _n7.c;
@@ -10248,7 +10229,7 @@ var elm$core$Dict$removeHelp = F2(
 	});
 var elm$core$Dict$removeHelpEQGT = F2(
 	function (targetKey, dict) {
-		if (dict.$ === -1) {
+		if (dict.$ === 'RBNode_elm_builtin') {
 			var color = dict.a;
 			var key = dict.b;
 			var value = dict.c;
@@ -10256,7 +10237,7 @@ var elm$core$Dict$removeHelpEQGT = F2(
 			var right = dict.e;
 			if (_Utils_eq(targetKey, key)) {
 				var _n1 = elm$core$Dict$getMin(right);
-				if (_n1.$ === -1) {
+				if (_n1.$ === 'RBNode_elm_builtin') {
 					var minKey = _n1.b;
 					var minValue = _n1.c;
 					return A5(
@@ -10285,13 +10266,13 @@ var elm$core$Dict$removeHelpEQGT = F2(
 var elm$core$Dict$remove = F2(
 	function (key, dict) {
 		var _n0 = A2(elm$core$Dict$removeHelp, key, dict);
-		if ((_n0.$ === -1) && (!_n0.a)) {
+		if ((_n0.$ === 'RBNode_elm_builtin') && (_n0.a.$ === 'Red')) {
 			var _n1 = _n0.a;
 			var k = _n0.b;
 			var v = _n0.c;
 			var l = _n0.d;
 			var r = _n0.e;
-			return A5(elm$core$Dict$RBNode_elm_builtin, 1, k, v, l, r);
+			return A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, k, v, l, r);
 		} else {
 			var x = _n0;
 			return x;
@@ -10301,7 +10282,7 @@ var elm$core$Dict$update = F3(
 	function (targetKey, alter, dictionary) {
 		var _n0 = alter(
 			A2(elm$core$Dict$get, targetKey, dictionary));
-		if (!_n0.$) {
+		if (_n0.$ === 'Just') {
 			var value = _n0.a;
 			return A3(elm$core$Dict$insert, targetKey, value, dictionary);
 		} else {
@@ -10323,8 +10304,8 @@ var author$project$GameDefinitions$Game2$Game2Definitions$place_one_item_in_rand
 					if (try_nr > 100) {
 						return _Utils_Tuple2(storeDict, lrands);
 					} else {
-						var thelevel = floorRec.cy;
-						var lcoords = author$project$Grid$toCoordinates(floorRec.cy);
+						var thelevel = floorRec.level;
+						var lcoords = author$project$Grid$toCoordinates(floorRec.level);
 						var _n2 = _Utils_Tuple2(
 							A2(
 								author$project$GameDefinitions$Game2$Game2Definitions$getRandIntNr_ZeroTo,
@@ -10336,25 +10317,25 @@ var author$project$GameDefinitions$Game2$Game2Definitions$place_one_item_in_rand
 						var mbcoords = elm$core$List$head(
 							A2(elm$core$List$drop, index_nr, lcoords));
 						var mbNewLevel = function () {
-							if (mbcoords.$ === 1) {
+							if (mbcoords.$ === 'Nothing') {
 								return elm$core$Maybe$Nothing;
 							} else {
 								var coords = mbcoords.a;
 								return function (mbtile) {
-									if (mbtile.$ === 1) {
+									if (mbtile.$ === 'Nothing') {
 										return elm$core$Maybe$Nothing;
 									} else {
 										var atile = mbtile.a;
-										if (!atile.$) {
+										if (atile.$ === 'Floor') {
 											var finfo = atile.a;
 											var tileWithItem = author$project$Tile$Floor(
 												_Utils_update(
 													finfo,
 													{
-														by: elm$core$Maybe$Just(newItem)
+														item: elm$core$Maybe$Just(newItem)
 													}));
-											var _n9 = finfo.by;
-											if (_n9.$ === 1) {
+											var _n9 = finfo.item;
+											if (_n9.$ === 'Nothing') {
 												return elm$core$Maybe$Just(
 													A3(author$project$Grid$set, coords, tileWithItem, thelevel));
 											} else {
@@ -10370,17 +10351,17 @@ var author$project$GameDefinitions$Game2$Game2Definitions$place_one_item_in_rand
 							}
 						}();
 						var mbNewFloor = function () {
-							if (mbNewLevel.$ === 1) {
+							if (mbNewLevel.$ === 'Nothing') {
 								return elm$core$Maybe$Nothing;
 							} else {
 								var newLevel = mbNewLevel.a;
 								return elm$core$Maybe$Just(
 									_Utils_update(
 										floorRec,
-										{cy: newLevel}));
+										{level: newLevel}));
 							}
 						}();
-						if (mbNewFloor.$ === 1) {
+						if (mbNewFloor.$ === 'Nothing') {
 							var $temp$floorRec = floorRec,
 								$temp$floorid = floorid,
 								$temp$_n1 = _Utils_Tuple3(storeDict, lrem_rands, try_nr + 1);
@@ -10404,7 +10385,7 @@ var author$project$GameDefinitions$Game2$Game2Definitions$place_one_item_in_rand
 				}
 			});
 		var _n10 = function () {
-			if (!floorInfo.$) {
+			if (floorInfo.$ === 'Just') {
 				var afloorinfo = floorInfo.a;
 				return A3(
 					auxFuncCheckIfEmptyAndPlaceOrRepeat,
@@ -10420,7 +10401,7 @@ var author$project$GameDefinitions$Game2$Game2Definitions$place_one_item_in_rand
 		return _Utils_Tuple2(newStore, remainingRands);
 	});
 var author$project$Item$Food = function (a) {
-	return {$: 7, a: a};
+	return {$: 'Food', a: a};
 };
 var elm$core$List$repeatHelp = F3(
 	function (result, n, value) {
@@ -10620,28 +10601,29 @@ var author$project$GameDefinitions$Game2$Game2Definitions$place_three_pieces_of_
 		_Utils_Tuple2(storedict, lremainingrands),
 		lfloornr_paperItemTuples);
 };
-var author$project$Tile$walkableWaterInfo = {aW: 'just_water', cs: false, cu: false, a$: true, dg: 1};
+var author$project$Tile$defaultVisibleGrassInfo = {description: 'grass', isExplored: false, isTransparent: false, isWalkable: true, visibility: author$project$Tile$Visible};
+var author$project$Tile$walkableWaterInfo = {description: 'just_water', isExplored: false, isTransparent: false, isWalkable: true, visibility: author$project$Tile$Unexplored};
 var author$project$GameDefinitions$Game2$LastFloor$modelChangerFuncsForLever1 = function () {
 	var nrEnlightenedOpponents = function (model) {
 		return elm$core$List$length(
 			A2(
 				elm$core$List$filter,
 				function (en) {
-					return _Utils_cmp(en.N, en.O) > -1;
+					return _Utils_cmp(en.indexOfLight, en.indexOfLightMax) > -1;
 				},
-				elm$core$Dict$values(model.l)));
+				elm$core$Dict$values(model.fightingCharacters)));
 	};
 	var nrDeadOpponents = function (model) {
 		return elm$core$List$length(
 			A2(
 				elm$core$List$filter,
 				function (en) {
-					return en.M <= 0;
+					return en.health <= 0;
 				},
-				elm$core$Dict$values(model.l)));
+				elm$core$Dict$values(model.fightingCharacters)));
 	};
 	var reqsCompleted = function (model) {
-		return (nrEnlightenedOpponents(model) >= 3) && (!nrDeadOpponents(model));
+		return (nrEnlightenedOpponents(model) >= 0) && (!nrDeadOpponents(model));
 	};
 	return _List_fromArray(
 		[
@@ -10650,10 +10632,10 @@ var author$project$GameDefinitions$Game2$LastFloor$modelChangerFuncsForLever1 = 
 				return reqsCompleted(model) ? _Utils_update(
 					model,
 					{
-						cy: A3(
+						level: A3(
 							author$project$Grid$set,
 							A2(author$project$Grid$Coordinate, 20, 13),
-							author$project$Tile$Grass(author$project$Tile$defaultGrassInfo),
+							author$project$Tile$Grass(author$project$Tile$defaultVisibleGrassInfo),
 							A3(
 								author$project$Grid$set,
 								A2(author$project$Grid$Coordinate, 17, 2),
@@ -10666,11 +10648,11 @@ var author$project$GameDefinitions$Game2$LastFloor$modelChangerFuncsForLever1 = 
 										author$project$Grid$set,
 										A2(author$project$Grid$Coordinate, 15, 2),
 										author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
-										model.cy))))
+										model.level))))
 					}) : _Utils_update(
 					model,
 					{
-						cy: A3(
+						level: A3(
 							author$project$Grid$set,
 							coords,
 							author$project$Tile$Lever(author$project$GameDefinitions$Game2$LastFloor$customLeverInfo),
@@ -10678,33 +10660,37 @@ var author$project$GameDefinitions$Game2$LastFloor$modelChangerFuncsForLever1 = 
 								author$project$Grid$set,
 								A2(author$project$Grid$Coordinate, 15, 2),
 								author$project$Tile$Floor(author$project$Tile$defaultFloorInfo),
-								model.cy))
+								model.level))
 					});
 			})
 		]);
 }();
-var author$project$GameModel$SimpleModelChanger = elm$core$Basics$identity;
+var author$project$GameModel$SimpleModelChanger = function (a) {
+	return {$: 'SimpleModelChanger', a: a};
+};
 var author$project$GameDefinitions$Game2$LastFloor$leverModelChangerFuncs = elm$core$Dict$fromList(
 	_List_fromArray(
 		[
-			_Utils_Tuple2(1, author$project$GameDefinitions$Game2$LastFloor$modelChangerFuncsForLever1)
+			_Utils_Tuple2(
+			1,
+			author$project$GameModel$SimpleModelChanger(author$project$GameDefinitions$Game2$LastFloor$modelChangerFuncsForLever1))
 		]));
 var author$project$GameDefinitions$Game2$Game2Definitions$initialModelFunc = F2(
 	function (lrandints, imgBaseDir_) {
 		var randomlyPositionPlayer = false;
-		var player = author$project$GameDefinitions$Game2$Game2Definitions$initialPlayer;
+		var player_ = A3(author$project$GameDefinitions$Game2$Game2Definitions$initialPlayer, 67, 36, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id);
 		var otherCharacter = author$project$GameDefinitions$Game2$Game2Definitions$otherCharacterFunc;
 		var levers = elm$core$Dict$empty;
-		var fightingCharacter9 = A3(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 9, 'ghost', author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id);
-		var fightingCharacter8 = A3(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 8, 'pumpking', author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id);
-		var fightingCharacter7 = A3(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 7, 'ghost', author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id);
-		var fightingCharacter6 = A3(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 6, 'pumpking', author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id);
-		var fightingCharacter5 = A3(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 5, 'small_worm', author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id);
-		var fightingCharacter4 = A3(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 4, 'slime', author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id);
-		var fightingCharacter3 = A3(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 3, 'bat', author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id);
-		var fightingCharacter2 = A3(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 2, 'snake', author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id);
-		var fightingCharacter10 = A3(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 10, 'bat', author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id);
-		var fightingCharacter1 = A3(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 1, 'ghost', author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id);
+		var fightingCharacter9 = A5(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 9, 'ghost', 5, 5, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id);
+		var fightingCharacter8 = A5(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 8, 'pumpking', 10, 10, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id);
+		var fightingCharacter7 = A5(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 7, 'ghost', 5, 5, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$firstFloor_id);
+		var fightingCharacter6 = A5(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 6, 'pumpking', 10, 10, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id);
+		var fightingCharacter5 = A5(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 5, 'small_worm', 5, 5, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id);
+		var fightingCharacter4 = A5(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 4, 'slime', 10, 10, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id);
+		var fightingCharacter3 = A5(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 3, 'bat', 5, 5, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$basement_floor_id);
+		var fightingCharacter2 = A5(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 2, 'snake', 10, 10, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id);
+		var fightingCharacter10 = A5(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 10, 'bat', 10, 10, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$theAttic_id);
+		var fightingCharacter1 = A5(author$project$GameDefinitions$Game2$Game2Definitions$initialFightingCharacter, 1, 'ghost', 5, 5, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$caverns_floor_id);
 		var createRandomMap = false;
 		var _n0 = A2(
 			author$project$GameDefinitions$Game2$Game2Definitions$place_all_health_food_items,
@@ -10715,77 +10701,76 @@ var author$project$GameDefinitions$Game2$Game2Definitions$initialModelFunc = F2(
 		var lrands = _n0.b;
 		return _Utils_Tuple3(
 			{
-				b7: 0,
-				b8: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
-				ca: false,
-				cb: false,
-				cd: author$project$GameDefinitions$Common$setAllAsUnexplored(author$project$GameDefinitions$Game2$GroundFloor$gridGroundFloor),
-				l: elm$core$Dict$fromList(
+				currentDisplay: author$project$GameModel$DisplayRegularGame,
+				currentFloorId: author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id,
+				debugMode: false,
+				displayStatsOverlay: false,
+				explored: author$project$GameDefinitions$Common$setAllAsUnexplored(author$project$GameDefinitions$Game2$GroundFloor$gridGroundFloor),
+				fightingCharacters: elm$core$Dict$fromList(
 					_List_fromArray(
 						[
-							_Utils_Tuple2(fightingCharacter1.aC, fightingCharacter1),
-							_Utils_Tuple2(fightingCharacter2.aC, fightingCharacter2),
-							_Utils_Tuple2(fightingCharacter3.aC, fightingCharacter3),
-							_Utils_Tuple2(fightingCharacter4.aC, fightingCharacter4),
-							_Utils_Tuple2(fightingCharacter5.aC, fightingCharacter5),
-							_Utils_Tuple2(fightingCharacter6.aC, fightingCharacter6),
-							_Utils_Tuple2(fightingCharacter7.aC, fightingCharacter7),
-							_Utils_Tuple2(fightingCharacter8.aC, fightingCharacter8),
-							_Utils_Tuple2(fightingCharacter9.aC, fightingCharacter9),
-							_Utils_Tuple2(fightingCharacter10.aC, fightingCharacter10)
+							_Utils_Tuple2(fightingCharacter1.id, fightingCharacter1),
+							_Utils_Tuple2(fightingCharacter2.id, fightingCharacter2),
+							_Utils_Tuple2(fightingCharacter3.id, fightingCharacter3),
+							_Utils_Tuple2(fightingCharacter4.id, fightingCharacter4),
+							_Utils_Tuple2(fightingCharacter5.id, fightingCharacter5),
+							_Utils_Tuple2(fightingCharacter6.id, fightingCharacter6),
+							_Utils_Tuple2(fightingCharacter7.id, fightingCharacter7),
+							_Utils_Tuple2(fightingCharacter8.id, fightingCharacter8),
+							_Utils_Tuple2(fightingCharacter9.id, fightingCharacter9),
+							_Utils_Tuple2(fightingCharacter10.id, fightingCharacter10)
 						])),
-				aY: storeDictWithPlacedPapers,
-				ch: author$project$GameDefinitions$Game2$Game2Definitions$customGameCompletionFunc,
-				ci: A3(author$project$Thorns$Types$initialModel, player, elm$core$Maybe$Nothing, imgBaseDir_),
-				co: imgBaseDir_,
-				cy: A2(
+				floorDict: storeDictWithPlacedPapers,
+				gameCompletionFunc: author$project$GameDefinitions$Game2$Game2Definitions$customGameCompletionFunc,
+				gameOfThornsModel: A3(author$project$Thorns$Types$initialModel, player_, elm$core$Maybe$Nothing, imgBaseDir_),
+				imgBaseDir: imgBaseDir_,
+				level: A2(
 					elm$core$Maybe$withDefault,
 					author$project$GameDefinitions$Game2$GroundFloor$gridGroundFloor,
 					A2(
 						elm$core$Maybe$map,
 						function ($) {
-							return $.cy;
+							return $.level;
 						},
 						A2(elm$core$Dict$get, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$groundFloor_id, storeDictWithPlacedPapers))),
-				cA: author$project$GameDefinitions$Game2$LastFloor$leverModelChangerFuncs,
-				cC: true,
-				cD: _List_fromArray(
+				leverModelChangerFuncs: author$project$GameDefinitions$Game2$LastFloor$leverModelChangerFuncs,
+				listeningToKeyInput: true,
+				log: _List_fromArray(
 					['you enter the dungeons Ground Floor ']),
-				y: elm$core$Dict$fromList(
+				otherCharacters: elm$core$Dict$fromList(
 					_List_fromArray(
 						[
 							_Utils_Tuple2(1, otherCharacter)
 						])),
-				o: _Utils_update(
-					player,
-					{
-						R: {bd: 67, be: 36}
-					}),
-				cQ: _List_Nil,
-				cV: elm$core$Maybe$Nothing,
-				cX: true,
-				cZ: true,
-				c4: A2(author$project$GameDefinitions$Common$get_total_height, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 9),
-				c5: A2(author$project$GameDefinitions$Common$get_total_width, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 7),
-				de: 3,
-				df: 3,
-				dh: elm$core$Maybe$Nothing,
-				dk: author$project$GameDefinitions$Game2$Game2Definitions$common_window_height,
-				dl: author$project$GameDefinitions$Game2$Game2Definitions$common_window_width
+				player: player_,
+				pseudoRandomIntsPool: _List_Nil,
+				radius_of_visibility: 5,
+				roomsInfo: elm$core$Maybe$Nothing,
+				showBlood: true,
+				started: true,
+				tileHeight: 64,
+				tileWidth: 64,
+				total_height: A2(author$project$GameDefinitions$Common$get_total_height, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 9),
+				total_width: A2(author$project$GameDefinitions$Common$get_total_width, author$project$GameDefinitions$Game2$ConfigParamsAndInfo$config_params, 7),
+				viewport_topleft_x: 3,
+				viewport_topleft_y: 3,
+				wallPercentage: elm$core$Maybe$Nothing,
+				window_height: author$project$GameDefinitions$Game2$Game2Definitions$common_window_height,
+				window_width: author$project$GameDefinitions$Game2$Game2Definitions$common_window_width
 			},
 			createRandomMap,
 			randomlyPositionPlayer);
 	});
-var author$project$GameModel$DisplayGameCompleted = 2;
-var author$project$GameModel$DisplayGameOfThorns = 3;
-var author$project$GameModel$DisplayGameOver = 1;
-var author$project$GameModel$DisplayHelpScreen = 5;
-var author$project$GameModel$DisplayInventory = 6;
-var author$project$GameModel$DisplayOpponentReport = 4;
+var author$project$GameModel$DisplayGameCompleted = {$: 'DisplayGameCompleted'};
+var author$project$GameModel$DisplayGameOfThorns = {$: 'DisplayGameOfThorns'};
+var author$project$GameModel$DisplayGameOver = {$: 'DisplayGameOver'};
+var author$project$GameModel$DisplayHelpScreen = {$: 'DisplayHelpScreen'};
+var author$project$GameModel$DisplayInventory = {$: 'DisplayInventory'};
+var author$project$GameModel$DisplayOpponentReport = {$: 'DisplayOpponentReport'};
 var author$project$GameModel$location = author$project$Grid$Coordinate;
 var author$project$GameModel$mbUpdateFightingCharacterInitiativeByMbFCharId = F3(
 	function (intval, mbFightCharid, model) {
-		if (mbFightCharid.$ === 1) {
+		if (mbFightCharid.$ === 'Nothing') {
 			return model;
 		} else {
 			var fCharId = mbFightCharid.a;
@@ -10798,32 +10783,32 @@ var author$project$GameModel$mbUpdateFightingCharacterInitiativeByMbFCharId = F3
 						function (fCharRec) {
 							return _Utils_update(
 								fCharRec,
-								{P: intval});
+								{initiative: intval});
 						},
 						mbFightChar);
 				},
-				model.l);
+				model.fightingCharacters);
 			return _Utils_update(
 				model,
-				{l: updatedFightingCharacters});
+				{fightingCharacters: updatedFightingCharacters});
 		}
 	});
 var author$project$GameModel$mbUpdateFightingCharacterLocation = F2(
 	function (loc, mbFightChar) {
-		if (mbFightChar.$ === 1) {
+		if (mbFightChar.$ === 'Nothing') {
 			return elm$core$Maybe$Nothing;
 		} else {
 			var fchar = mbFightChar.a;
 			return elm$core$Maybe$Just(
 				_Utils_update(
 					fchar,
-					{R: loc, W: true}));
+					{location: loc, placed: true}));
 		}
 	});
 var author$project$GameModel$placeExistingFightingCharacter = F3(
 	function (fcharid, loc, dictacc) {
 		var _n0 = A2(elm$core$Dict$get, fcharid, dictacc);
-		if (_n0.$ === 1) {
+		if (_n0.$ === 'Nothing') {
 			return dictacc;
 		} else {
 			return A3(
@@ -10835,43 +10820,53 @@ var author$project$GameModel$placeExistingFightingCharacter = F3(
 				dictacc);
 		}
 	});
-var author$project$GameUpdate$CleanUpAndFightingCharacterLogic = {$: 5};
+var author$project$GameUpdate$CleanUpAndFightingCharacterLogic = {$: 'CleanUpAndFightingCharacterLogic'};
 var author$project$GameUpdate$NewRandomPointToPlaceFightingCharacter = F2(
 	function (a, b) {
-		return {$: 10, a: a, b: b};
+		return {$: 'NewRandomPointToPlaceFightingCharacter', a: a, b: b};
 	});
 var author$project$GameUpdate$StartOpponentInteraction = function (a) {
-	return {$: 6, a: a};
+	return {$: 'StartOpponentInteraction', a: a};
 };
 var author$project$GameUpdate$ThornsMsg = function (a) {
-	return {$: 15, a: a};
+	return {$: 'ThornsMsg', a: a};
 };
-var author$project$GameUpdate$TryAddToPlayerInventory = {$: 3};
+var author$project$GameUpdate$TryAddToPlayerInventory = {$: 'TryAddToPlayerInventory'};
 var author$project$GameUpdate$TryShiftPlayerPosition = function (a) {
-	return {$: 4, a: a};
+	return {$: 'TryShiftPlayerPosition', a: a};
 };
 var author$project$GameModel$getCurrentFloorInfoToStore = function (model) {
-	return {cd: model.cd, cy: model.cy, c4: model.c4, c5: model.c5, dk: model.dk, dl: model.dl};
+	return {explored: model.explored, level: model.level, total_height: model.total_height, total_width: model.total_width, window_height: model.window_height, window_width: model.window_width};
 };
-var author$project$Beings$Beings$Left = 2;
-var author$project$Beings$Beings$Right = 3;
-var author$project$Beings$Beings$Up = 0;
+var author$project$Beings$Beings$Left = {$: 'Left'};
+var author$project$Beings$Beings$Right = {$: 'Right'};
+var author$project$Beings$Beings$Up = {$: 'Up'};
 var author$project$Beings$BeingsInTileGrid$move = F4(
 	function (_n0, grid, isWalkableFunc, a) {
 		var x_shift = _n0.a;
 		var y_shift = _n0.b;
-		var location = A2(author$project$Grid$Coordinate, a.R.bd + x_shift, a.R.be + y_shift);
-		var initiative = a.P + 100;
+		var location = A2(author$project$Grid$Coordinate, a.location.x + x_shift, a.location.y + y_shift);
+		var initiative = a.initiative + 100;
 		var _n1 = A3(isWalkableFunc, location, a, grid);
 		if (!_n1) {
-			return a;
+			return (x_shift && y_shift) ? A4(
+				author$project$Beings$BeingsInTileGrid$move,
+				_Utils_Tuple2(0, y_shift),
+				grid,
+				isWalkableFunc,
+				A4(
+					author$project$Beings$BeingsInTileGrid$move,
+					_Utils_Tuple2(x_shift, 0),
+					grid,
+					isWalkableFunc,
+					a)) : a;
 		} else {
 			return _Utils_update(
 				a,
 				{
-					J: (x_shift > 0) ? 3 : ((x_shift < 0) ? 2 : ((y_shift > 0) ? 1 : 0)),
-					P: initiative,
-					R: location
+					direction: (x_shift > 0) ? author$project$Beings$Beings$Right : ((x_shift < 0) ? author$project$Beings$Beings$Left : ((y_shift > 0) ? author$project$Beings$Beings$Down : author$project$Beings$Beings$Up)),
+					initiative: initiative,
+					location: location
 				});
 		}
 	});
@@ -10887,90 +10882,90 @@ var author$project$GameUpdate$move = F4(
 			a);
 	});
 var author$project$Tile$Column = function (a) {
-	return {$: 8, a: a};
+	return {$: 'Column', a: a};
 };
 var author$project$Tile$Flag = function (a) {
-	return {$: 7, a: a};
+	return {$: 'Flag', a: a};
 };
 var author$project$Tile$WallOver = function (a) {
-	return {$: 4, a: a};
+	return {$: 'WallOver', a: a};
 };
 var author$project$Tile$setTileVisibility = F2(
 	function (visibility_, tile) {
 		switch (tile.$) {
-			case 0:
+			case 'Floor':
 				var floorinfo = tile.a;
 				return author$project$Tile$Floor(
 					_Utils_update(
 						floorinfo,
-						{dg: visibility_}));
-			case 10:
+						{visibility: visibility_}));
+			case 'Grass':
 				var grassinfo = tile.a;
 				return author$project$Tile$Grass(
 					_Utils_update(
 						grassinfo,
-						{dg: visibility_}));
-			case 11:
+						{visibility: visibility_}));
+			case 'Tree':
 				var treeInfo = tile.a;
 				return author$project$Tile$Tree(
 					_Utils_update(
 						treeInfo,
-						{dg: visibility_}));
-			case 1:
+						{visibility: visibility_}));
+			case 'Stairs':
 				var sinfo = tile.a;
 				return author$project$Tile$Stairs(
 					_Utils_update(
 						sinfo,
-						{dg: visibility_}));
-			case 2:
+						{visibility: visibility_}));
+			case 'Hole':
 				var hinfo = tile.a;
 				return author$project$Tile$Hole(
 					_Utils_update(
 						hinfo,
-						{dg: visibility_}));
-			case 3:
+						{visibility: visibility_}));
+			case 'Wall':
 				var wInfo = tile.a;
 				return author$project$Tile$Wall(
 					_Utils_update(
 						wInfo,
-						{dg: visibility_}));
-			case 4:
+						{visibility: visibility_}));
+			case 'WallOver':
 				var wOverInfo = tile.a;
 				return author$project$Tile$WallOver(
 					_Utils_update(
 						wOverInfo,
-						{dg: visibility_}));
-			case 5:
+						{visibility: visibility_}));
+			case 'Door':
 				var doorinfo = tile.a;
 				return author$project$Tile$Door(
 					_Utils_update(
 						doorinfo,
-						{dg: visibility_}));
-			case 6:
+						{visibility: visibility_}));
+			case 'Lever':
 				var leverInfo = tile.a;
 				return author$project$Tile$Lever(
 					_Utils_update(
 						leverInfo,
-						{dg: visibility_}));
-			case 7:
+						{visibility: visibility_}));
+			case 'Flag':
 				var flagInfo = tile.a;
 				return author$project$Tile$Flag(
 					_Utils_update(
 						flagInfo,
-						{dg: visibility_}));
-			case 8:
+						{visibility: visibility_}));
+			case 'Column':
 				var columnInfo = tile.a;
 				return author$project$Tile$Column(
 					_Utils_update(
 						columnInfo,
-						{dg: visibility_}));
-			case 9:
+						{visibility: visibility_}));
+			case 'Water':
 				var waterInfo = tile.a;
 				return author$project$Tile$Water(
 					_Utils_update(
 						waterInfo,
-						{dg: visibility_}));
-			case 12:
+						{visibility: visibility_}));
+			case 'ConverterTile':
 				var it = tile.a;
 				var ct = tile.b;
 				return A2(author$project$Tile$ConverterTile, it, ct);
@@ -10980,8 +10975,8 @@ var author$project$Tile$setTileVisibility = F2(
 	});
 var author$project$GameModel$setModelTileVisibility = F3(
 	function (location_, visibility_, model) {
-		var _n0 = A2(author$project$Grid$get, location_, model.cy);
-		if (_n0.$ === 1) {
+		var _n0 = A2(author$project$Grid$get, location_, model.level);
+		if (_n0.$ === 'Nothing') {
 			return model;
 		} else {
 			var tile = _n0.a;
@@ -10989,14 +10984,14 @@ var author$project$GameModel$setModelTileVisibility = F3(
 			return _Utils_update(
 				model,
 				{
-					cy: A3(author$project$Grid$set, location_, newTile, model.cy)
+					level: A3(author$project$Grid$set, location_, newTile, model.level)
 				});
 		}
 	});
 var author$project$Grid$neighborhoodCalc = F2(
 	function (d, _n0) {
-		var x = _n0.bd;
-		var y = _n0.be;
+		var x = _n0.x;
+		var y = _n0.y;
 		var linc = A2(elm$core$List$range, -d, d);
 		var possible_new_x = A2(
 			elm$core$List$map,
@@ -11024,7 +11019,7 @@ var author$project$Grid$neighborhoodCalc = F2(
 		return possible_end_pos;
 	});
 var author$project$GameModel$visible = function (model) {
-	return A2(author$project$Grid$neighborhoodCalc, 8, model.o.R);
+	return A2(author$project$Grid$neighborhoodCalc, model.radius_of_visibility, model.player.location);
 };
 var elm$core$Elm$JsArray$map = _JsArray_map;
 var elm$core$Array$map = F2(
@@ -11034,7 +11029,7 @@ var elm$core$Array$map = F2(
 		var tree = _n0.c;
 		var tail = _n0.d;
 		var helper = function (node) {
-			if (!node.$) {
+			if (node.$ === 'SubTree') {
 				var subTree = node.a;
 				return elm$core$Array$SubTree(
 					A2(elm$core$Elm$JsArray$map, helper, subTree));
@@ -11058,71 +11053,73 @@ var author$project$Grid$map = F2(
 			function (row) {
 				return A2(elm$core$Array$map, f, row);
 			},
-			grid.aZ);
-		return A2(author$project$Grid$Grid, grid_, grid.cY);
+			grid.grid);
+		return A2(author$project$Grid$Grid, grid_, grid.size);
 	});
-var author$project$Tile$Explored = 2;
+var author$project$Tile$Explored = {$: 'Explored'};
 var author$project$Tile$getTileVisibility = function (tile) {
 	switch (tile.$) {
-		case 0:
+		case 'Floor':
 			var floorinfo = tile.a;
-			return floorinfo.dg;
-		case 10:
+			return floorinfo.visibility;
+		case 'Grass':
 			var grassinfo = tile.a;
-			return grassinfo.dg;
-		case 11:
+			return grassinfo.visibility;
+		case 'Tree':
 			var treeinfo = tile.a;
-			return treeinfo.dg;
-		case 1:
+			return treeinfo.visibility;
+		case 'Stairs':
 			var sinfo = tile.a;
-			return sinfo.dg;
-		case 2:
+			return sinfo.visibility;
+		case 'Hole':
 			var hinfo = tile.a;
-			return hinfo.dg;
-		case 3:
+			return hinfo.visibility;
+		case 'Wall':
 			var wInfo = tile.a;
-			return wInfo.dg;
-		case 4:
+			return wInfo.visibility;
+		case 'WallOver':
 			var wOverInfo = tile.a;
-			return wOverInfo.dg;
-		case 5:
+			return wOverInfo.visibility;
+		case 'Door':
 			var doorinfo = tile.a;
-			return doorinfo.dg;
-		case 6:
+			return doorinfo.visibility;
+		case 'Lever':
 			var leverInfo = tile.a;
-			return leverInfo.dg;
-		case 7:
+			return leverInfo.visibility;
+		case 'Flag':
 			var flagInfo = tile.a;
-			return flagInfo.dg;
-		case 8:
+			return flagInfo.visibility;
+		case 'Column':
 			var columnInfo = tile.a;
-			return columnInfo.dg;
-		case 9:
+			return columnInfo.visibility;
+		case 'Water':
 			var waterInfo = tile.a;
-			return waterInfo.dg;
-		case 12:
+			return waterInfo.visibility;
+		case 'ConverterTile':
 			var it = tile.a;
 			var ct = tile.b;
-			return 0;
+			return author$project$Tile$Visible;
 		default:
-			return 1;
+			return author$project$Tile$Unexplored;
 	}
 };
 var author$project$GameUpdate$reveal = function (model) {
 	var intermediateModelGrid = A2(
 		author$project$Grid$map,
 		function (t) {
-			return (!author$project$Tile$getTileVisibility(t)) ? A2(author$project$Tile$setTileVisibility, 2, t) : t;
+			return _Utils_eq(
+				author$project$Tile$getTileVisibility(t),
+				author$project$Tile$Visible) ? A2(author$project$Tile$setTileVisibility, author$project$Tile$Explored, t) : t;
 		},
-		model.cy);
+		model.level);
 	var intermediateModel = _Utils_update(
 		model,
-		{cy: intermediateModelGrid});
+		{level: intermediateModelGrid});
 	var newModel = A3(
 		elm$core$List$foldl,
 		F2(
 			function (loc, imodel) {
-				return A3(author$project$GameModel$setModelTileVisibility, loc, 0, imodel);
+				return A3(author$project$GameModel$setModelTileVisibility, loc, author$project$Tile$Visible, imodel);
 			}),
 		intermediateModel,
 		author$project$GameModel$visible(model));
@@ -11131,51 +11128,51 @@ var author$project$GameUpdate$reveal = function (model) {
 var author$project$GameUpdate$changeFloorTo = F3(
 	function (model, floorId, locTuple) {
 		var newModel = function () {
-			if (_Utils_eq(model.b8, floorId)) {
+			if (_Utils_eq(model.currentFloorId, floorId)) {
 				return model;
 			} else {
-				var newCurrentFloor = A2(elm$core$Dict$get, floorId, model.aY);
+				var newCurrentFloor = A2(elm$core$Dict$get, floorId, model.floorDict);
 				var currentFloorInfo = author$project$GameModel$getCurrentFloorInfoToStore(model);
 				var newStore = A3(
 					elm$core$Dict$update,
-					model.b8,
+					model.currentFloorId,
 					function (_n1) {
 						return elm$core$Maybe$Just(currentFloorInfo);
 					},
-					model.aY);
-				if (!newCurrentFloor.$) {
+					model.floorDict);
+				if (newCurrentFloor.$ === 'Just') {
 					var cFloor = newCurrentFloor.a;
 					return _Utils_update(
 						model,
-						{b8: floorId, cd: cFloor.cd, aY: newStore, cy: cFloor.cy, c4: cFloor.c4, c5: cFloor.c5, dk: cFloor.dk, dl: cFloor.dl});
+						{currentFloorId: floorId, explored: cFloor.explored, floorDict: newStore, level: cFloor.level, total_height: cFloor.total_height, total_width: cFloor.total_width, window_height: cFloor.window_height, window_width: cFloor.window_width});
 				} else {
 					return _Utils_update(
 						model,
-						{aY: newStore});
+						{floorDict: newStore});
 				}
 			}
 		}();
-		var delta_y = locTuple.b - newModel.o.R.be;
-		var delta_x = locTuple.a - newModel.o.R.bd;
+		var delta_y = locTuple.b - newModel.player.location.y;
+		var delta_x = locTuple.a - newModel.player.location.x;
 		var player_ = A4(
 			author$project$GameUpdate$move,
 			_Utils_Tuple2(delta_x, delta_y),
-			newModel.cy,
+			newModel.level,
 			author$project$Beings$BeingsInTileGrid$isGridTileWalkable,
-			newModel.o);
+			newModel.player);
 		return author$project$GameUpdate$reveal(
 			_Utils_update(
 				newModel,
 				{
-					o: player_,
-					de: A2(
+					player: player_,
+					viewport_topleft_x: A2(
 						elm$core$Basics$max,
 						0,
-						locTuple.a - elm$core$Basics$round(newModel.dl / 2.0)),
-					df: A2(
+						locTuple.a - elm$core$Basics$round(newModel.window_width / 2.0)),
+					viewport_topleft_y: A2(
 						elm$core$Basics$max,
 						0,
-						locTuple.b - elm$core$Basics$round(newModel.dk / 2))
+						locTuple.b - elm$core$Basics$round(newModel.window_height / 2))
 				}));
 	});
 var elm$core$Basics$min = F2(
@@ -11185,63 +11182,63 @@ var elm$core$Basics$min = F2(
 var author$project$GameUpdate$checkAndAlterDisplayAnchorIfNecessary = function (model) {
 	var p_y_dist = 5;
 	var p_x_dist = 5;
-	var newYanchor = (_Utils_cmp(model.o.R.be, model.df) < 1) ? A2(elm$core$Basics$max, 0, model.df - (model.dk - p_y_dist)) : ((_Utils_cmp(model.o.R.be, model.df + (model.dk - 1)) > -1) ? A2(elm$core$Basics$min, model.df + (model.dk - p_y_dist), model.c4 - (model.dk - p_y_dist)) : model.df);
-	var newXanchor = (_Utils_cmp(model.o.R.bd, model.de) < 1) ? A2(elm$core$Basics$max, 0, model.de - (model.dl - p_x_dist)) : ((_Utils_cmp(model.o.R.bd, model.de + (model.dl - 1)) > -1) ? A2(elm$core$Basics$min, model.de + (model.dl - p_x_dist), model.c5 - (model.dl - p_x_dist)) : model.de);
+	var newYanchor = (_Utils_cmp(model.player.location.y, model.viewport_topleft_y) < 1) ? A2(elm$core$Basics$max, 0, model.viewport_topleft_y - (model.window_height - p_y_dist)) : ((_Utils_cmp(model.player.location.y, model.viewport_topleft_y + (model.window_height - 1)) > -1) ? A2(elm$core$Basics$min, model.viewport_topleft_y + (model.window_height - p_y_dist), model.total_height - (model.window_height - p_y_dist)) : model.viewport_topleft_y);
+	var newXanchor = (_Utils_cmp(model.player.location.x, model.viewport_topleft_x) < 1) ? A2(elm$core$Basics$max, 0, model.viewport_topleft_x - (model.window_width - p_x_dist)) : ((_Utils_cmp(model.player.location.x, model.viewport_topleft_x + (model.window_width - 1)) > -1) ? A2(elm$core$Basics$min, model.viewport_topleft_x + (model.window_width - p_x_dist), model.total_width - (model.window_width - p_x_dist)) : model.viewport_topleft_x);
 	return _Utils_update(
 		model,
-		{de: newXanchor, df: newYanchor});
+		{viewport_topleft_x: newXanchor, viewport_topleft_y: newYanchor});
 };
 var author$project$GameUpdate$checkGameCompletion = function (model) {
-	return A2(model.ch, model.b8, model.o.R);
+	return A2(model.gameCompletionFunc, model.currentFloorId, model.player.location);
 };
 var author$project$GameUpdate$searchFloorForStairsId = F3(
 	function (floorId, stairsId, model) {
-		var mbFloorGrid = A2(elm$core$Dict$get, floorId, model.aY);
+		var mbFloorGrid = A2(elm$core$Dict$get, floorId, model.floorDict);
 		var getlcoords = function (fgrid) {
 			return author$project$Grid$toCoordinates(fgrid);
 		};
 		var checkCoords = F2(
 			function (coords_, fgrid) {
 				var _n1 = A2(author$project$Grid$get, coords_, fgrid);
-				if ((!_n1.$) && (_n1.a.$ === 1)) {
+				if ((_n1.$ === 'Just') && (_n1.a.$ === 'Stairs')) {
 					var sinfo = _n1.a.a;
-					return _Utils_eq(sinfo.a7, stairsId);
+					return _Utils_eq(sinfo.stairsId, stairsId);
 				} else {
 					return false;
 				}
 			});
-		if (!mbFloorGrid.$) {
+		if (mbFloorGrid.$ === 'Just') {
 			var floorGrid = mbFloorGrid.a;
 			return A2(
 				elm$core$Maybe$map,
 				function (rec) {
-					return _Utils_Tuple2(rec.bd, rec.be);
+					return _Utils_Tuple2(rec.x, rec.y);
 				},
 				elm$core$List$head(
 					A2(
 						elm$core$List$filter,
 						function (coords) {
-							return A2(checkCoords, coords, floorGrid.cy);
+							return A2(checkCoords, coords, floorGrid.level);
 						},
-						getlcoords(floorGrid.cy))));
+						getlcoords(floorGrid.level))));
 		} else {
 			return elm$core$Maybe$Nothing;
 		}
 	});
 var author$project$GameUpdate$searchFloorForTargetId = F3(
 	function (fid, target_id, model) {
-		var mbFloorGrid = A2(elm$core$Dict$get, fid, model.aY);
+		var mbFloorGrid = A2(elm$core$Dict$get, fid, model.floorDict);
 		var getlcoords = function (fgrid) {
 			return author$project$Grid$toCoordinates(fgrid);
 		};
 		var checkCoords = F2(
 			function (coords_, fgrid) {
 				var _n1 = A2(author$project$Grid$get, coords_, fgrid);
-				if ((!_n1.$) && (!_n1.a.$)) {
+				if ((_n1.$ === 'Just') && (_n1.a.$ === 'Floor')) {
 					var finfo = _n1.a.a;
-					var _n2 = finfo.cg;
-					if (!_n2.$) {
-						var tid = _n2.a;
+					var _n2 = finfo.floorDrawing;
+					if (_n2.$ === 'Just') {
+						var tid = _n2.a.a;
 						return _Utils_eq(target_id, tid);
 					} else {
 						return false;
@@ -11250,39 +11247,39 @@ var author$project$GameUpdate$searchFloorForTargetId = F3(
 					return false;
 				}
 			});
-		if (!mbFloorGrid.$) {
+		if (mbFloorGrid.$ === 'Just') {
 			var floorGrid = mbFloorGrid.a;
 			return A2(
 				elm$core$Maybe$map,
 				function (rec) {
-					return _Utils_Tuple3(fid, rec.bd, rec.be);
+					return _Utils_Tuple3(fid, rec.x, rec.y);
 				},
 				elm$core$List$head(
 					A2(
 						elm$core$List$filter,
 						function (coords) {
-							return A2(checkCoords, coords, floorGrid.cy);
+							return A2(checkCoords, coords, floorGrid.level);
 						},
-						getlcoords(floorGrid.cy))));
+						getlcoords(floorGrid.level))));
 		} else {
 			return elm$core$Maybe$Nothing;
 		}
 	});
 var author$project$GameUpdate$searchFloorForTeleporterId = F3(
 	function (fid, target_id_, model) {
-		var mbFloorGrid = A2(elm$core$Dict$get, fid, model.aY);
+		var mbFloorGrid = A2(elm$core$Dict$get, fid, model.floorDict);
 		var getlcoords = function (fgrid) {
 			return author$project$Grid$toCoordinates(fgrid);
 		};
 		var checkCoords = F2(
 			function (coords_, fgrid) {
 				var _n1 = A2(author$project$Grid$get, coords_, fgrid);
-				if ((!_n1.$) && (_n1.a.$ === 3)) {
+				if ((_n1.$ === 'Just') && (_n1.a.$ === 'Wall')) {
 					var wallinfo = _n1.a.a;
-					var _n2 = wallinfo.cI;
-					if (!_n2.$) {
+					var _n2 = wallinfo.mbTeleporterObject;
+					if (_n2.$ === 'Just') {
 						var ateleporter = _n2.a;
-						return _Utils_eq(ateleporter.c0, target_id_);
+						return _Utils_eq(ateleporter.teleporter_id, target_id_);
 					} else {
 						return false;
 					}
@@ -11290,20 +11287,20 @@ var author$project$GameUpdate$searchFloorForTeleporterId = F3(
 					return false;
 				}
 			});
-		if (!mbFloorGrid.$) {
+		if (mbFloorGrid.$ === 'Just') {
 			var floorGrid = mbFloorGrid.a;
 			return A2(
 				elm$core$Maybe$map,
 				function (rec) {
-					return _Utils_Tuple3(fid, rec.bd, rec.be);
+					return _Utils_Tuple3(fid, rec.x, rec.y);
 				},
 				elm$core$List$head(
 					A2(
 						elm$core$List$filter,
 						function (coords) {
-							return A2(checkCoords, coords, floorGrid.cy);
+							return A2(checkCoords, coords, floorGrid.level);
 						},
-						getlcoords(floorGrid.cy))));
+						getlcoords(floorGrid.level))));
 		} else {
 			return elm$core$Maybe$Nothing;
 		}
@@ -11311,7 +11308,7 @@ var author$project$GameUpdate$searchFloorForTeleporterId = F3(
 var elm$core$List$maybeCons = F3(
 	function (f, mx, xs) {
 		var _n0 = f(mx);
-		if (!_n0.$) {
+		if (_n0.$ === 'Just') {
 			var x = _n0.a;
 			return A2(elm$core$List$cons, x, xs);
 		} else {
@@ -11327,36 +11324,36 @@ var elm$core$List$filterMap = F2(
 			xs);
 	});
 var author$project$GameUpdate$checkIfPlayerStandingOnStairsOrHoleAndMoveToNewFloor = function (model) {
-	var mbTile = A2(author$project$Grid$get, model.o.R, model.cy);
+	var mbTile = A2(author$project$Grid$get, model.player.location, model.level);
 	_n0$3:
 	while (true) {
-		if (!mbTile.$) {
+		if (mbTile.$ === 'Just') {
 			switch (mbTile.a.$) {
-				case 1:
+				case 'Stairs':
 					var sinfo = mbTile.a.a;
-					var mbDestinationCoordsTuple = A3(author$project$GameUpdate$searchFloorForStairsId, sinfo.bb, sinfo.bc, model);
-					if (!mbDestinationCoordsTuple.$) {
+					var mbDestinationCoordsTuple = A3(author$project$GameUpdate$searchFloorForStairsId, sinfo.toFloorId, sinfo.toStairsId, model);
+					if (mbDestinationCoordsTuple.$ === 'Just') {
 						var _n2 = mbDestinationCoordsTuple.a;
 						var newX = _n2.a;
 						var newY = _n2.b;
 						return A3(
 							author$project$GameUpdate$changeFloorTo,
 							model,
-							sinfo.bb,
-							_Utils_Tuple2(newX + sinfo.a6.a, newY + sinfo.a6.b));
+							sinfo.toFloorId,
+							_Utils_Tuple2(newX + sinfo.shift.a, newY + sinfo.shift.b));
 					} else {
 						return model;
 					}
-				case 2:
+				case 'Hole':
 					var hinfo = mbTile.a.a;
 					var lfloorIds = elm$core$Dict$keys(
 						A2(
 							elm$core$Dict$filter,
 							F2(
 								function (floorId, v) {
-									return _Utils_cmp(floorId, model.b8) < 0;
+									return _Utils_cmp(floorId, model.currentFloorId) < 0;
 								}),
-							model.aY));
+							model.floorDict));
 					var mbDestinationFloorAndCoordsTuple = elm$core$List$head(
 						A2(
 							elm$core$List$filterMap,
@@ -11366,10 +11363,10 @@ var author$project$GameUpdate$checkIfPlayerStandingOnStairsOrHoleAndMoveToNewFlo
 							A2(
 								elm$core$List$map,
 								function (floorId) {
-									return A3(author$project$GameUpdate$searchFloorForTargetId, floorId, hinfo.bZ, model);
+									return A3(author$project$GameUpdate$searchFloorForTargetId, floorId, hinfo.target_id, model);
 								},
 								lfloorIds)));
-					if (!mbDestinationFloorAndCoordsTuple.$) {
+					if (mbDestinationFloorAndCoordsTuple.$ === 'Just') {
 						var _n4 = mbDestinationFloorAndCoordsTuple.a;
 						var floorId = _n4.a;
 						var newX = _n4.b;
@@ -11382,31 +11379,31 @@ var author$project$GameUpdate$checkIfPlayerStandingOnStairsOrHoleAndMoveToNewFlo
 					} else {
 						return model;
 					}
-				case 3:
+				case 'Wall':
 					var wallinfo = mbTile.a.a;
-					var _n5 = wallinfo.cI;
-					if (_n5.$ === 1) {
+					var _n5 = wallinfo.mbTeleporterObject;
+					if (_n5.$ === 'Nothing') {
 						return model;
 					} else {
 						var teleporter = _n5.a;
-						var sameFloorId = model.b8;
+						var sameFloorId = model.currentFloorId;
 						var lOtherFloorIds = elm$core$Dict$keys(
 							A2(
 								elm$core$Dict$filter,
 								F2(
 									function (floorId, v) {
-										return !_Utils_eq(floorId, model.b8);
+										return !_Utils_eq(floorId, model.currentFloorId);
 									}),
-								model.aY));
+								model.floorDict));
 						var mbDestinationFloorAndCoordsTuple = function () {
-							var _n8 = A3(author$project$GameUpdate$searchFloorForTeleporterId, sameFloorId, teleporter.bZ, model);
-							if (!_n8.$) {
+							var _n8 = A3(author$project$GameUpdate$searchFloorForTeleporterId, sameFloorId, teleporter.target_id, model);
+							if (_n8.$ === 'Just') {
 								var _n9 = _n8.a;
 								var floorid = _n9.a;
 								var xcoord = _n9.b;
 								var ycoord = _n9.c;
 								return elm$core$Maybe$Just(
-									_Utils_Tuple3(floorid, xcoord + teleporter.a6.a, ycoord + teleporter.a6.b));
+									_Utils_Tuple3(floorid, xcoord + teleporter.shift.a, ycoord + teleporter.shift.b));
 							} else {
 								return A2(
 									elm$core$Maybe$map,
@@ -11414,7 +11411,7 @@ var author$project$GameUpdate$checkIfPlayerStandingOnStairsOrHoleAndMoveToNewFlo
 										var floorid = _n10.a;
 										var xcoord = _n10.b;
 										var ycoord = _n10.c;
-										return _Utils_Tuple3(floorid, xcoord + teleporter.a6.a, ycoord + teleporter.a6.b);
+										return _Utils_Tuple3(floorid, xcoord + teleporter.shift.a, ycoord + teleporter.shift.b);
 									},
 									elm$core$List$head(
 										A2(
@@ -11425,12 +11422,12 @@ var author$project$GameUpdate$checkIfPlayerStandingOnStairsOrHoleAndMoveToNewFlo
 											A2(
 												elm$core$List$map,
 												function (floorId) {
-													return A3(author$project$GameUpdate$searchFloorForTeleporterId, floorId, teleporter.bZ, model);
+													return A3(author$project$GameUpdate$searchFloorForTeleporterId, floorId, teleporter.target_id, model);
 												},
 												lOtherFloorIds))));
 							}
 						}();
-						if (!mbDestinationFloorAndCoordsTuple.$) {
+						if (mbDestinationFloorAndCoordsTuple.$ === 'Just') {
 							var _n7 = mbDestinationFloorAndCoordsTuple.a;
 							var floorId = _n7.a;
 							var newX = _n7.b;
@@ -11458,12 +11455,12 @@ var author$project$GameUpdate$log = F2(
 		return _Utils_update(
 			model,
 			{
-				cD: A2(elm$core$List$cons, s, model.cD)
+				log: A2(elm$core$List$cons, s, model.log)
 			});
 	});
 var elm$core$Dict$map = F2(
 	function (func, dict) {
-		if (dict.$ === -2) {
+		if (dict.$ === 'RBEmpty_elm_builtin') {
 			return elm$core$Dict$RBEmpty_elm_builtin;
 		} else {
 			var color = dict.a;
@@ -11484,7 +11481,7 @@ var elm$core$Dict$sizeHelp = F2(
 	function (n, dict) {
 		sizeHelp:
 		while (true) {
-			if (dict.$ === -2) {
+			if (dict.$ === 'RBEmpty_elm_builtin') {
 				return n;
 			} else {
 				var left = dict.d;
@@ -11505,16 +11502,16 @@ var author$project$GameUpdate$cleanup = function (model) {
 		elm$core$Dict$filter,
 		F2(
 			function (fcharId, fightingCharacter) {
-				return (fightingCharacter.M <= 0) && (!fightingCharacter.ax);
+				return (fightingCharacter.health <= 0) && (!fightingCharacter.disappearsWhenHealthIsZero);
 			}),
-		model.l);
+		model.fightingCharacters);
 	var dead_and_disappears = A2(
 		elm$core$Dict$filter,
 		F2(
 			function (fcharId, fightingCharacter) {
-				return (fightingCharacter.M <= 0) && fightingCharacter.ax;
+				return (fightingCharacter.health <= 0) && fightingCharacter.disappearsWhenHealthIsZero;
 			}),
-		model.l);
+		model.fightingCharacters);
 	var msg = (!elm$core$Dict$size(dead_and_disappears)) ? elm$core$Maybe$Nothing : elm$core$Maybe$Just(
 		A3(
 			elm$core$Dict$foldl,
@@ -11527,45 +11524,45 @@ var author$project$GameUpdate$cleanup = function (model) {
 				elm$core$Dict$map,
 				F2(
 					function (fcharId, fightingCharacter) {
-						return fightingCharacter.V + ' died. ';
+						return fightingCharacter.name + ' died. ';
 					}),
 				dead_and_disappears)));
 	var alive_no_enlightenment = A2(
 		elm$core$Dict$filter,
 		F2(
 			function (fcharId, fightingCharacter) {
-				return (fightingCharacter.M > 0) && (_Utils_cmp(fightingCharacter.N, fightingCharacter.O) < 0);
+				return (fightingCharacter.health > 0) && (_Utils_cmp(fightingCharacter.indexOfLight, fightingCharacter.indexOfLightMax) < 0);
 			}),
-		model.l);
+		model.fightingCharacters);
 	var alive_enlightened_doesnt_disappear = A2(
 		elm$core$Dict$filter,
 		F2(
 			function (fcharId, fightingCharacter) {
-				return (fightingCharacter.M > 0) && ((_Utils_cmp(fightingCharacter.N, fightingCharacter.O) > -1) && (!fightingCharacter.ay));
+				return (fightingCharacter.health > 0) && ((_Utils_cmp(fightingCharacter.indexOfLight, fightingCharacter.indexOfLightMax) > -1) && (!fightingCharacter.disappearsWhenIndexOfLightMax));
 			}),
-		model.l);
+		model.fightingCharacters);
 	var alive_enlightened_disappears = A2(
 		elm$core$Dict$filter,
 		F2(
 			function (fcharId, fightingCharacter) {
-				return (fightingCharacter.M > 0) && ((_Utils_cmp(fightingCharacter.N, fightingCharacter.O) > -1) && fightingCharacter.ay);
+				return (fightingCharacter.health > 0) && ((_Utils_cmp(fightingCharacter.indexOfLight, fightingCharacter.indexOfLightMax) > -1) && fightingCharacter.disappearsWhenIndexOfLightMax);
 			}),
-		model.l);
+		model.fightingCharacters);
 	var keys_to_remove = _Utils_ap(
 		elm$core$Dict$keys(dead_and_disappears),
 		elm$core$Dict$keys(alive_enlightened_disappears));
 	var newModel = _Utils_update(
 		model,
 		{
-			l: A2(
+			fightingCharacters: A2(
 				elm$core$Dict$filter,
 				F2(
 					function (k, v) {
 						return !A2(elm$core$List$member, k, keys_to_remove);
 					}),
-				model.l)
+				model.fightingCharacters)
 		});
-	if (msg.$ === 1) {
+	if (msg.$ === 'Nothing') {
 		return newModel;
 	} else {
 		var m = msg.a;
@@ -11573,35 +11570,35 @@ var author$project$GameUpdate$cleanup = function (model) {
 	}
 };
 var author$project$GameUpdate$NewRandomIntsAddToPool = function (a) {
-	return {$: 13, a: a};
+	return {$: 'NewRandomIntsAddToPool', a: a};
 };
 var elm$core$Result$isOk = function (result) {
-	if (!result.$) {
+	if (result.$ === 'Ok') {
 		return true;
 	} else {
 		return false;
 	}
 };
 var elm$core$Result$Err = function (a) {
-	return {$: 1, a: a};
+	return {$: 'Err', a: a};
 };
 var elm$core$Result$Ok = function (a) {
-	return {$: 0, a: a};
+	return {$: 'Ok', a: a};
 };
 var elm$json$Json$Decode$Failure = F2(
 	function (a, b) {
-		return {$: 3, a: a, b: b};
+		return {$: 'Failure', a: a, b: b};
 	});
 var elm$json$Json$Decode$Field = F2(
 	function (a, b) {
-		return {$: 0, a: a, b: b};
+		return {$: 'Field', a: a, b: b};
 	});
 var elm$json$Json$Decode$Index = F2(
 	function (a, b) {
-		return {$: 1, a: a, b: b};
+		return {$: 'Index', a: a, b: b};
 	});
 var elm$json$Json$Decode$OneOf = function (a) {
-	return {$: 2, a: a};
+	return {$: 'OneOf', a: a};
 };
 var elm$core$Char$toCode = _Char_toCode;
 var elm$core$Char$isLower = function (_char) {
@@ -11656,12 +11653,12 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 		errorToStringHelp:
 		while (true) {
 			switch (error.$) {
-				case 0:
+				case 'Field':
 					var f = error.a;
 					var err = error.b;
 					var isSimple = function () {
 						var _n1 = elm$core$String$uncons(f);
-						if (_n1.$ === 1) {
+						if (_n1.$ === 'Nothing') {
 							return false;
 						} else {
 							var _n2 = _n1.a;
@@ -11676,7 +11673,7 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 					error = $temp$error;
 					context = $temp$context;
 					continue errorToStringHelp;
-				case 1:
+				case 'Index':
 					var i = error.a;
 					var err = error.b;
 					var indexName = '[' + (elm$core$String$fromInt(i) + ']');
@@ -11685,7 +11682,7 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 					error = $temp$error;
 					context = $temp$context;
 					continue errorToStringHelp;
-				case 2:
+				case 'OneOf':
 					var errors = error.a;
 					if (!errors.b) {
 						return 'Ran into a Json.Decode.oneOf with no possibilities' + function () {
@@ -11748,12 +11745,14 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 	});
 var elm$core$Platform$Cmd$batch = _Platform_batch;
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
-var elm$random$Random$Generate = elm$core$Basics$identity;
+var elm$random$Random$Generate = function (a) {
+	return {$: 'Generate', a: a};
+};
 var elm$core$Task$andThen = _Scheduler_andThen;
 var elm$core$Task$succeed = _Scheduler_succeed;
 var elm$random$Random$Seed = F2(
 	function (a, b) {
-		return {$: 0, a: a, b: b};
+		return {$: 'Seed', a: a, b: b};
 	});
 var elm$random$Random$next = function (_n0) {
 	var state0 = _n0.a;
@@ -11770,21 +11769,23 @@ var elm$random$Random$initialSeed = function (x) {
 		A2(elm$random$Random$Seed, state2, incr));
 };
 var elm$time$Time$Name = function (a) {
-	return {$: 0, a: a};
+	return {$: 'Name', a: a};
 };
 var elm$time$Time$Offset = function (a) {
-	return {$: 1, a: a};
+	return {$: 'Offset', a: a};
 };
 var elm$time$Time$Zone = F2(
 	function (a, b) {
-		return {$: 0, a: a, b: b};
+		return {$: 'Zone', a: a, b: b};
 	});
 var elm$time$Time$customZone = elm$time$Time$Zone;
-var elm$time$Time$Posix = elm$core$Basics$identity;
-var elm$time$Time$millisToPosix = elm$core$Basics$identity;
+var elm$time$Time$Posix = function (a) {
+	return {$: 'Posix', a: a};
+};
+var elm$time$Time$millisToPosix = elm$time$Time$Posix;
 var elm$time$Time$now = _Time_now(elm$time$Time$millisToPosix);
 var elm$time$Time$posixToMillis = function (_n0) {
-	var millis = _n0;
+	var millis = _n0.a;
 	return millis;
 };
 var elm$random$Random$init = A2(
@@ -11798,7 +11799,7 @@ var elm$random$Random$init = A2(
 var elm$core$Platform$sendToApp = _Platform_sendToApp;
 var elm$random$Random$step = F2(
 	function (_n0, seed) {
-		var generator = _n0;
+		var generator = _n0.a;
 		return generator(seed);
 	});
 var elm$random$Random$onEffects = F3(
@@ -11806,7 +11807,7 @@ var elm$random$Random$onEffects = F3(
 		if (!commands.b) {
 			return elm$core$Task$succeed(seed);
 		} else {
-			var generator = commands.a;
+			var generator = commands.a.a;
 			var rest = commands.b;
 			var _n1 = A2(elm$random$Random$step, generator, seed);
 			var value = _n1.a;
@@ -11823,30 +11824,35 @@ var elm$random$Random$onSelfMsg = F3(
 	function (_n0, _n1, seed) {
 		return elm$core$Task$succeed(seed);
 	});
-var elm$random$Random$Generator = elm$core$Basics$identity;
+var elm$random$Random$Generator = function (a) {
+	return {$: 'Generator', a: a};
+};
 var elm$random$Random$map = F2(
 	function (func, _n0) {
-		var genA = _n0;
-		return function (seed0) {
-			var _n1 = genA(seed0);
-			var a = _n1.a;
-			var seed1 = _n1.b;
-			return _Utils_Tuple2(
-				func(a),
-				seed1);
-		};
+		var genA = _n0.a;
+		return elm$random$Random$Generator(
+			function (seed0) {
+				var _n1 = genA(seed0);
+				var a = _n1.a;
+				var seed1 = _n1.b;
+				return _Utils_Tuple2(
+					func(a),
+					seed1);
+			});
 	});
 var elm$random$Random$cmdMap = F2(
 	function (func, _n0) {
-		var generator = _n0;
-		return A2(elm$random$Random$map, func, generator);
+		var generator = _n0.a;
+		return elm$random$Random$Generate(
+			A2(elm$random$Random$map, func, generator));
 	});
 _Platform_effectManagers['Random'] = _Platform_createManager(elm$random$Random$init, elm$random$Random$onEffects, elm$random$Random$onSelfMsg, elm$random$Random$cmdMap);
 var elm$random$Random$command = _Platform_leaf('Random');
 var elm$random$Random$generate = F2(
 	function (tagger, generator) {
 		return elm$random$Random$command(
-			A2(elm$random$Random$map, tagger, generator));
+			elm$random$Random$Generate(
+				A2(elm$random$Random$map, tagger, generator)));
 	});
 var elm$core$Bitwise$xor = _Bitwise_xor;
 var elm$random$Random$peel = function (_n0) {
@@ -11856,34 +11862,35 @@ var elm$random$Random$peel = function (_n0) {
 };
 var elm$random$Random$int = F2(
 	function (a, b) {
-		return function (seed0) {
-			var _n0 = (_Utils_cmp(a, b) < 0) ? _Utils_Tuple2(a, b) : _Utils_Tuple2(b, a);
-			var lo = _n0.a;
-			var hi = _n0.b;
-			var range = (hi - lo) + 1;
-			if (!((range - 1) & range)) {
-				return _Utils_Tuple2(
-					(((range - 1) & elm$random$Random$peel(seed0)) >>> 0) + lo,
-					elm$random$Random$next(seed0));
-			} else {
-				var threshhold = (((-range) >>> 0) % range) >>> 0;
-				var accountForBias = function (seed) {
-					accountForBias:
-					while (true) {
-						var x = elm$random$Random$peel(seed);
-						var seedN = elm$random$Random$next(seed);
-						if (_Utils_cmp(x, threshhold) < 0) {
-							var $temp$seed = seedN;
-							seed = $temp$seed;
-							continue accountForBias;
-						} else {
-							return _Utils_Tuple2((x % range) + lo, seedN);
+		return elm$random$Random$Generator(
+			function (seed0) {
+				var _n0 = (_Utils_cmp(a, b) < 0) ? _Utils_Tuple2(a, b) : _Utils_Tuple2(b, a);
+				var lo = _n0.a;
+				var hi = _n0.b;
+				var range = (hi - lo) + 1;
+				if (!((range - 1) & range)) {
+					return _Utils_Tuple2(
+						(((range - 1) & elm$random$Random$peel(seed0)) >>> 0) + lo,
+						elm$random$Random$next(seed0));
+				} else {
+					var threshhold = (((-range) >>> 0) % range) >>> 0;
+					var accountForBias = function (seed) {
+						accountForBias:
+						while (true) {
+							var x = elm$random$Random$peel(seed);
+							var seedN = elm$random$Random$next(seed);
+							if (_Utils_cmp(x, threshhold) < 0) {
+								var $temp$seed = seedN;
+								seed = $temp$seed;
+								continue accountForBias;
+							} else {
+								return _Utils_Tuple2((x % range) + lo, seedN);
+							}
 						}
-					}
-				};
-				return accountForBias(seed0);
-			}
-		};
+					};
+					return accountForBias(seed0);
+				}
+			});
 	});
 var elm$random$Random$listHelp = F4(
 	function (revList, n, gen, seed) {
@@ -11909,13 +11916,14 @@ var elm$random$Random$listHelp = F4(
 	});
 var elm$random$Random$list = F2(
 	function (n, _n0) {
-		var gen = _n0;
-		return function (seed) {
-			return A4(elm$random$Random$listHelp, _List_Nil, n, gen, seed);
-		};
+		var gen = _n0.a;
+		return elm$random$Random$Generator(
+			function (seed) {
+				return A4(elm$random$Random$listHelp, _List_Nil, n, gen, seed);
+			});
 	});
 var author$project$GameUpdate$cmdFillRandomIntsPool = function (model) {
-	var nrToAdd = 500 - elm$core$List$length(model.cQ);
+	var nrToAdd = 500 - elm$core$List$length(model.pseudoRandomIntsPool);
 	return (nrToAdd > 0) ? A2(
 		elm$random$Random$generate,
 		author$project$GameUpdate$NewRandomIntsAddToPool,
@@ -11925,10 +11933,10 @@ var author$project$GameUpdate$cmdFillRandomIntsPool = function (model) {
 			A2(elm$random$Random$int, 1, 100))) : elm$core$Platform$Cmd$none;
 };
 var author$project$GameUpdate$NewRandomIntsAddToPoolAndGenerateRandomMap = function (a) {
-	return {$: 14, a: a};
+	return {$: 'NewRandomIntsAddToPoolAndGenerateRandomMap', a: a};
 };
 var author$project$GameUpdate$cmdFillRandomIntsPoolAndGenerateRandomMap = function (model) {
-	var nrToAdd = 500 - elm$core$List$length(model.cQ);
+	var nrToAdd = 500 - elm$core$List$length(model.pseudoRandomIntsPool);
 	return (nrToAdd > 0) ? A2(
 		elm$random$Random$generate,
 		author$project$GameUpdate$NewRandomIntsAddToPoolAndGenerateRandomMap,
@@ -11945,7 +11953,7 @@ var author$project$GameUpdate$cmdFillRandomIntsPoolAndGenerateRandomMap = functi
 };
 var author$project$GameUpdate$RandomInitiativeValue = F3(
 	function (a, b, c) {
-		return {$: 12, a: a, b: b, c: c};
+		return {$: 'RandomInitiativeValue', a: a, b: b, c: c};
 	});
 var author$project$GameUpdate$cmdGenerateRandomInitiativeValue = F4(
 	function (strCharacter, mbCharacterId, minval, maxval) {
@@ -11956,7 +11964,7 @@ var author$project$GameUpdate$cmdGenerateRandomInitiativeValue = F4(
 	});
 var author$project$GameUpdate$NewGridCoordinatesIndexToPlaceFightingCharacter = F2(
 	function (a, b) {
-		return {$: 9, a: a, b: b};
+		return {$: 'NewGridCoordinatesIndexToPlaceFightingCharacter', a: a, b: b};
 	});
 var author$project$GameUpdate$getRandInt = F2(
 	function (minX, maxX) {
@@ -11964,29 +11972,30 @@ var author$project$GameUpdate$getRandInt = F2(
 	});
 var author$project$GameUpdate$cmdGetRandomPositionedFightingCharacter = F3(
 	function (actualFightChar, fcharId, maxX) {
-		return actualFightChar.W ? elm$core$Platform$Cmd$none : A2(
+		return actualFightChar.placed ? elm$core$Platform$Cmd$none : A2(
 			elm$random$Random$generate,
 			author$project$GameUpdate$NewGridCoordinatesIndexToPlaceFightingCharacter(fcharId),
 			A2(author$project$GameUpdate$getRandInt, 0, maxX - 1));
 	});
 var author$project$GameUpdate$NewRandomPointToPlacePlayer = function (a) {
-	return {$: 8, a: a};
+	return {$: 'NewRandomPointToPlacePlayer', a: a};
 };
 var elm$random$Random$map2 = F3(
 	function (func, _n0, _n1) {
-		var genA = _n0;
-		var genB = _n1;
-		return function (seed0) {
-			var _n2 = genA(seed0);
-			var a = _n2.a;
-			var seed1 = _n2.b;
-			var _n3 = genB(seed1);
-			var b = _n3.a;
-			var seed2 = _n3.b;
-			return _Utils_Tuple2(
-				A2(func, a, b),
-				seed2);
-		};
+		var genA = _n0.a;
+		var genB = _n1.a;
+		return elm$random$Random$Generator(
+			function (seed0) {
+				var _n2 = genA(seed0);
+				var a = _n2.a;
+				var seed1 = _n2.b;
+				var _n3 = genB(seed1);
+				var b = _n3.a;
+				var seed2 = _n3.b;
+				return _Utils_Tuple2(
+					A2(func, a, b),
+					seed2);
+			});
 	});
 var elm$random$Random$pair = F2(
 	function (genA, genB) {
@@ -12008,18 +12017,18 @@ var author$project$GameUpdate$getRandIntPair = F4(
 	});
 var author$project$GameUpdate$cmdGetRandomPositionedPlayer = F5(
 	function (player, minX, maxX, minY, maxY) {
-		return player.W ? elm$core$Platform$Cmd$none : A2(
+		return player.placed ? elm$core$Platform$Cmd$none : A2(
 			elm$random$Random$generate,
 			author$project$GameUpdate$NewRandomPointToPlacePlayer,
 			A4(author$project$GameUpdate$getRandIntPair, minX, maxX, minY, maxY));
 	});
 var author$project$Beings$FightingCharacterInTileGrid$OpponentsAndPlayerRec = F7(
 	function (fightingCharacters, player, grid, floorDict, lFightingCharactersForGameOfThorns, textMsgs, lrandInts) {
-		return {l: fightingCharacters, aY: floorDict, aZ: grid, aj: lFightingCharactersForGameOfThorns, m: lrandInts, o: player, b$: textMsgs};
+		return {fightingCharacters: fightingCharacters, floorDict: floorDict, grid: grid, lFightingCharactersForGameOfThorns: lFightingCharactersForGameOfThorns, lrandInts: lrandInts, player: player, textMsgs: textMsgs};
 	});
 var author$project$Beings$FightingCharacterInTileGrid$attack = F3(
 	function (dude1, dude2, lprandInts) {
-		var guard = ((dude1.aw - dude2.aR) > 100) ? (dude2.aI - (dude1.aw - (dude2.aR % 100))) : dude2.aI;
+		var guard = ((dude1.coordination - dude2.stealth) > 100) ? (dude2.protection - (dude1.coordination - (dude2.stealth % 100))) : dude2.protection;
 		var _n0 = _Utils_Tuple2(
 			A2(
 				elm$core$Maybe$withDefault,
@@ -12036,25 +12045,25 @@ var author$project$Beings$FightingCharacterInTileGrid$attack = F3(
 			A2(elm$core$List$drop, 1, newprandInts));
 		var roll2 = _n1.a;
 		var newprandInts2 = _n1.b;
-		var hit = (_Utils_cmp(roll1, dude1.aw - dude2.aR) > 0) ? false : true;
+		var hit = (_Utils_cmp(roll1, dude1.coordination - dude2.stealth) > 0) ? false : true;
 		var block = (hit && (_Utils_cmp(roll2, guard) < 0)) ? true : false;
-		var dmg = (hit && (!block)) ? dude1.aH : ((hit && block) ? A2(elm$core$Basics$max, 0, dude1.aH - dude2.at) : ((!hit) ? 0 : 0));
-		var result = dude2.M - dmg;
-		var msg = (!hit) ? (dude1.V + ' miss') : (dude1.V + (' hit ' + (dude2.V + (' for ' + (elm$core$String$fromInt(dmg) + ' dmg')))));
+		var dmg = (hit && (!block)) ? dude1.power : ((hit && block) ? A2(elm$core$Basics$max, 0, dude1.power - dude2.armor) : ((!hit) ? 0 : 0));
+		var result = dude2.health - dmg;
+		var msg = (!hit) ? (dude1.name + ' miss') : (dude1.name + (' hit ' + (dude2.name + (' for ' + (elm$core$String$fromInt(dmg) + ' dmg')))));
 		return {
-			bo: _Utils_update(
+			dudeA: _Utils_update(
 				dude1,
-				{P: dude1.P + 100}),
-			bp: _Utils_update(
+				{initiative: dude1.initiative + 100}),
+			dudeB: _Utils_update(
 				dude2,
-				{M: result}),
-			bO: newprandInts2,
-			ab: msg
+				{health: result}),
+			randInts: newprandInts2,
+			textMsg: msg
 		};
 	});
 var author$project$Beings$BeingsInTileGrid$characterMove_RandomMove = F5(
 	function (character, player, grid, floorDict, lRandomInts) {
-		var mb_relevant_grid = A2(elm$core$Dict$get, character.az, floorDict);
+		var mb_relevant_grid = A2(elm$core$Dict$get, character.floorId, floorDict);
 		var _n0 = _Utils_Tuple3(
 			A2(
 				elm$core$Maybe$withDefault,
@@ -12072,14 +12081,14 @@ var author$project$Beings$BeingsInTileGrid$characterMove_RandomMove = F5(
 		var xscaled = (xrand <= 33) ? (-1) : (((xrand > 33) && (xrand <= 66)) ? 0 : 1);
 		var yscaled = (yrand <= 33) ? (-1) : (((yrand > 33) && (yrand <= 66)) ? 0 : 1);
 		var updatedCharacter = function () {
-			if (mb_relevant_grid.$ === 1) {
+			if (mb_relevant_grid.$ === 'Nothing') {
 				return character;
 			} else {
 				var fstore = mb_relevant_grid.a;
 				return A4(
 					author$project$Beings$BeingsInTileGrid$move,
 					_Utils_Tuple2(xscaled, yscaled),
-					fstore.cy,
+					fstore.level,
 					author$project$Beings$BeingsInTileGrid$isGridTileWalkable,
 					character);
 			}
@@ -12088,13 +12097,14 @@ var author$project$Beings$BeingsInTileGrid$characterMove_RandomMove = F5(
 	});
 var author$project$Beings$BeingsInTileGrid$ifOccupiedByPlayerGoBackToInitialPosition = F3(
 	function (initial_char, player_location, fchar) {
-		return _Utils_eq(fchar.R, player_location) ? initial_char : fchar;
+		return _Utils_eq(fchar.location, player_location) ? initial_char : fchar;
 	});
-var author$project$Beings$BeingsInTileGrid$characterMove_sameFloorAsPlayer_moveTowardsPlayer = F6(
-	function (character, player, currentFloorId, grid, floorDict, lRandomInts) {
-		var player_location = player.R;
-		var x_delta_toPlayer = player_location.bd - character.R.bd;
-		var y_delta_toPlayer = player_location.be - character.R.be;
+var author$project$Beings$BeingsInTileGrid$characterMove_sameFloorAsPlayer_moveTowardsPlayer = F7(
+	function (character, player, currentFloorId, probability, grid, floorDict, lRandomInts) {
+		var player_location = player.location;
+		var x_delta_toPlayer = player_location.x - character.location.x;
+		var y_delta_toPlayer = player_location.y - character.location.y;
+		var intProb = ((probability <= 1) && (probability >= 0)) ? elm$core$Basics$round(probability * 100.0) : 1;
 		var _n0 = _Utils_Tuple3(
 			A2(
 				elm$core$Maybe$withDefault,
@@ -12109,8 +12119,8 @@ var author$project$Beings$BeingsInTileGrid$characterMove_sameFloorAsPlayer_moveT
 		var xrand = _n0.a;
 		var yrand = _n0.b;
 		var updatedRandInts = _n0.c;
-		var xscaled = (x_delta_toPlayer > 0) ? ((xrand <= 85) ? 1 : (-1)) : ((x_delta_toPlayer < 0) ? ((xrand <= 85) ? (-1) : 1) : ((xrand <= 33) ? (-1) : (((xrand > 33) && (xrand <= 66)) ? 0 : 1)));
-		var yscaled = (y_delta_toPlayer > 0) ? ((yrand <= 85) ? 1 : (-1)) : ((y_delta_toPlayer < 0) ? ((yrand <= 85) ? (-1) : 1) : ((yrand <= 33) ? (-1) : (((yrand > 33) && (yrand <= 66)) ? 0 : 1)));
+		var xscaled = (x_delta_toPlayer > 0) ? ((_Utils_cmp(xrand, intProb) < 1) ? 1 : (-1)) : ((x_delta_toPlayer < 0) ? ((_Utils_cmp(xrand, intProb) < 1) ? (-1) : 1) : ((xrand <= 33) ? (-1) : (((xrand > 33) && (xrand <= 66)) ? 0 : 1)));
+		var yscaled = (y_delta_toPlayer > 0) ? ((_Utils_cmp(yrand, intProb) < 1) ? 1 : (-1)) : ((y_delta_toPlayer < 0) ? ((_Utils_cmp(yrand, intProb) < 1) ? (-1) : 1) : ((yrand <= 33) ? (-1) : (((yrand > 33) && (yrand <= 66)) ? 0 : 1)));
 		var updatedCharacter = A3(
 			author$project$Beings$BeingsInTileGrid$ifOccupiedByPlayerGoBackToInitialPosition,
 			character,
@@ -12125,20 +12135,25 @@ var author$project$Beings$BeingsInTileGrid$characterMove_sameFloorAsPlayer_moveT
 	});
 var author$project$Beings$FightingCharacterInTileGrid$fightingCharacterMove = F6(
 	function (fightingCharacter, player, currentFloorId, grid, floorDict, lRandomInts) {
-		if (!_Utils_eq(fightingCharacter.az, currentFloorId)) {
+		if (!_Utils_eq(fightingCharacter.floorId, currentFloorId)) {
 			return A5(author$project$Beings$BeingsInTileGrid$characterMove_RandomMove, fightingCharacter, player, grid, floorDict, lRandomInts);
 		} else {
-			var _n0 = fightingCharacter.U;
-			if (!_n0.$) {
-				switch (_n0.a) {
-					case 0:
+			var _n0 = fightingCharacter.movingStrategy;
+			if (_n0.$ === 'Just') {
+				switch (_n0.a.$) {
+					case 'MoveTowardsPlayer':
 						var _n1 = _n0.a;
-						return A6(author$project$Beings$BeingsInTileGrid$characterMove_sameFloorAsPlayer_moveTowardsPlayer, fightingCharacter, player, currentFloorId, grid, floorDict, lRandomInts);
-					case 1:
+						return A7(author$project$Beings$BeingsInTileGrid$characterMove_sameFloorAsPlayer_moveTowardsPlayer, fightingCharacter, player, currentFloorId, 0.85, grid, floorDict, lRandomInts);
+					case 'CustomMoveTowardsPlayerBeforeAndAfterEnl':
 						var _n2 = _n0.a;
+						var prob_before = _n2.a;
+						var prob_after = _n2.b;
+						return (_Utils_cmp(fightingCharacter.indexOfLight, fightingCharacter.indexOfLightMax) < 0) ? A7(author$project$Beings$BeingsInTileGrid$characterMove_sameFloorAsPlayer_moveTowardsPlayer, fightingCharacter, player, currentFloorId, prob_before, grid, floorDict, lRandomInts) : A7(author$project$Beings$BeingsInTileGrid$characterMove_sameFloorAsPlayer_moveTowardsPlayer, fightingCharacter, player, currentFloorId, prob_after, grid, floorDict, lRandomInts);
+					case 'MoveRandomly':
+						var _n3 = _n0.a;
 						return A5(author$project$Beings$BeingsInTileGrid$characterMove_RandomMove, fightingCharacter, player, grid, floorDict, lRandomInts);
 					default:
-						var _n3 = _n0.a;
+						var _n4 = _n0.a;
 						return _Utils_Tuple2(fightingCharacter, lRandomInts);
 				}
 			} else {
@@ -12148,49 +12163,49 @@ var author$project$Beings$FightingCharacterInTileGrid$fightingCharacterMove = F6
 	});
 var author$project$Beings$FightingCharacterInTileGrid$attackIfClose_OtherwiseMove = F6(
 	function (fightingCharacter, player, currentFloorId, grid, floorDict, pseudoRandomIntsPool) {
-		if ((!_Utils_eq(fightingCharacter.az, currentFloorId)) && (fightingCharacter.M > 0)) {
+		if ((!_Utils_eq(fightingCharacter.floorId, currentFloorId)) && (fightingCharacter.health > 0)) {
 			var _n0 = A6(author$project$Beings$FightingCharacterInTileGrid$fightingCharacterMove, fightingCharacter, player, currentFloorId, grid, floorDict, pseudoRandomIntsPool);
 			var updatedFightingCharacter = _n0.a;
 			var updatedRandInts = _n0.b;
-			return {af: updatedFightingCharacter, m: updatedRandInts, T: elm$core$Maybe$Nothing, o: player, ab: ''};
+			return {fightingCharacter: updatedFightingCharacter, lrandInts: updatedRandInts, mbFightingCharacterForGameOfThorns: elm$core$Maybe$Nothing, player: player, textMsg: ''};
 		} else {
 			var _n1 = A2(
 				elm$core$List$filter,
 				function (location) {
-					return _Utils_eq(location, player.R);
+					return _Utils_eq(location, player.location);
 				},
-				A2(author$project$Grid$neighborhoodCalc, 1, fightingCharacter.R));
+				A2(author$project$Grid$neighborhoodCalc, 1, fightingCharacter.location));
 			if (_n1.b) {
 				var location = _n1.a;
 				var locs = _n1.b;
-				if (fightingCharacter.bg) {
+				if (fightingCharacter.attacksUsingGameOfThorns) {
 					return {
-						af: fightingCharacter,
-						m: pseudoRandomIntsPool,
-						T: elm$core$Maybe$Just(fightingCharacter),
-						o: player,
-						ab: ''
+						fightingCharacter: fightingCharacter,
+						lrandInts: pseudoRandomIntsPool,
+						mbFightingCharacterForGameOfThorns: elm$core$Maybe$Just(fightingCharacter),
+						player: player,
+						textMsg: ''
 					};
 				} else {
 					var attackOutput = A3(author$project$Beings$FightingCharacterInTileGrid$attack, fightingCharacter, player, pseudoRandomIntsPool);
-					return {af: attackOutput.bo, m: attackOutput.bO, T: elm$core$Maybe$Nothing, o: attackOutput.bp, ab: attackOutput.ab};
+					return {fightingCharacter: attackOutput.dudeA, lrandInts: attackOutput.randInts, mbFightingCharacterForGameOfThorns: elm$core$Maybe$Nothing, player: attackOutput.dudeB, textMsg: attackOutput.textMsg};
 				}
 			} else {
 				var _n2 = A6(author$project$Beings$FightingCharacterInTileGrid$fightingCharacterMove, fightingCharacter, player, currentFloorId, grid, floorDict, pseudoRandomIntsPool);
 				var updatedFightingCharacter = _n2.a;
 				var updatedRandInts = _n2.b;
-				return {af: updatedFightingCharacter, m: updatedRandInts, T: elm$core$Maybe$Nothing, o: player, ab: ''};
+				return {fightingCharacter: updatedFightingCharacter, lrandInts: updatedRandInts, mbFightingCharacterForGameOfThorns: elm$core$Maybe$Nothing, player: player, textMsg: ''};
 			}
 		}
 	});
 var author$project$Beings$FightingCharacterInTileGrid$fightingCharacterExceedsNrMovesInCurrentTurn = F2(
 	function (fcharId, opponentAndPlayerRec) {
-		var mbFightingCharacter = A2(elm$core$Dict$get, fcharId, opponentAndPlayerRec.l);
-		if (mbFightingCharacter.$ === 1) {
+		var mbFightingCharacter = A2(elm$core$Dict$get, fcharId, opponentAndPlayerRec.fightingCharacters);
+		if (mbFightingCharacter.$ === 'Nothing') {
 			return true;
 		} else {
 			var fightingCharacter = mbFightingCharacter.a;
-			return _Utils_cmp(fightingCharacter.aF, fightingCharacter.aE) > -1;
+			return _Utils_cmp(fightingCharacter.nrMovesInCurrentTurn, fightingCharacter.maxNrCharacterMovesPerTurn) > -1;
 		}
 	});
 var author$project$Beings$FightingCharacterInTileGrid$increseNrOfFightingCharacterMovesInCurrentTurn = F2(
@@ -12204,30 +12219,30 @@ var author$project$Beings$FightingCharacterInTileGrid$increseNrOfFightingCharact
 					function (fchar) {
 						return _Utils_update(
 							fchar,
-							{aF: fchar.aF + 1});
+							{nrMovesInCurrentTurn: fchar.nrMovesInCurrentTurn + 1});
 					},
 					mbFightCharacter);
 			},
-			opponentAndPlayerRec.l);
+			opponentAndPlayerRec.fightingCharacters);
 		return _Utils_update(
 			opponentAndPlayerRec,
-			{l: updatedFightingCharacters});
+			{fightingCharacters: updatedFightingCharacters});
 	});
 var author$project$Beings$FightingCharacterInTileGrid$ai_helper_func = F4(
 	function (currentDisplay, currentFloorId, fcharId, opponents_and_player_rec) {
 		ai_helper_func:
 		while (true) {
-			if (A2(author$project$Beings$FightingCharacterInTileGrid$fightingCharacterExceedsNrMovesInCurrentTurn, fcharId, opponents_and_player_rec) || (currentDisplay === 3)) {
+			if (A2(author$project$Beings$FightingCharacterInTileGrid$fightingCharacterExceedsNrMovesInCurrentTurn, fcharId, opponents_and_player_rec) || _Utils_eq(currentDisplay, author$project$GameModel$DisplayGameOfThorns)) {
 				return opponents_and_player_rec;
 			} else {
-				var mbFightCharacter = A2(elm$core$Dict$get, fcharId, opponents_and_player_rec.l);
+				var mbFightCharacter = A2(elm$core$Dict$get, fcharId, opponents_and_player_rec.fightingCharacters);
 				var _n0 = function () {
-					if (mbFightCharacter.$ === 1) {
+					if (mbFightCharacter.$ === 'Nothing') {
 						return _Utils_Tuple2(opponents_and_player_rec, elm$core$Maybe$Nothing);
 					} else {
 						var fightingCharacter = mbFightCharacter.a;
-						if (_Utils_eq(fightingCharacter.az, currentFloorId) && ((_Utils_cmp(fightingCharacter.N, fightingCharacter.O) < 0) && ((opponents_and_player_rec.o.M > 0) && (currentDisplay !== 3)))) {
-							var outRec = A6(author$project$Beings$FightingCharacterInTileGrid$attackIfClose_OtherwiseMove, fightingCharacter, opponents_and_player_rec.o, currentFloorId, opponents_and_player_rec.aZ, opponents_and_player_rec.aY, opponents_and_player_rec.m);
+						if (_Utils_eq(fightingCharacter.floorId, currentFloorId) && ((_Utils_cmp(fightingCharacter.indexOfLight, fightingCharacter.indexOfLightMax) < 0) && ((opponents_and_player_rec.player.health > 0) && (!_Utils_eq(currentDisplay, author$project$GameModel$DisplayGameOfThorns))))) {
+							var outRec = A6(author$project$Beings$FightingCharacterInTileGrid$attackIfClose_OtherwiseMove, fightingCharacter, opponents_and_player_rec.player, currentFloorId, opponents_and_player_rec.grid, opponents_and_player_rec.floorDict, opponents_and_player_rec.lrandInts);
 							var newEnPlayerRec = function (_n3) {
 								var x = _n3.a;
 								var y = _n3.b;
@@ -12239,15 +12254,15 @@ var author$project$Beings$FightingCharacterInTileGrid$ai_helper_func = F4(
 									_Utils_update(
 										opponents_and_player_rec,
 										{
-											l: A3(
+											fightingCharacters: A3(
 												elm$core$Dict$update,
 												fcharId,
 												function (_n2) {
-													return elm$core$Maybe$Just(outRec.af);
+													return elm$core$Maybe$Just(outRec.fightingCharacter);
 												},
-												opponents_and_player_rec.l),
-											aj: _Utils_ap(
-												opponents_and_player_rec.aj,
+												opponents_and_player_rec.fightingCharacters),
+											lFightingCharactersForGameOfThorns: _Utils_ap(
+												opponents_and_player_rec.lFightingCharactersForGameOfThorns,
 												A2(
 													elm$core$Maybe$withDefault,
 													_List_Nil,
@@ -12257,12 +12272,12 @@ var author$project$Beings$FightingCharacterInTileGrid$ai_helper_func = F4(
 															return _List_fromArray(
 																[x]);
 														},
-														outRec.T))),
-											m: outRec.m,
-											o: outRec.o,
-											b$: _List_Nil
+														outRec.mbFightingCharacterForGameOfThorns))),
+											lrandInts: outRec.lrandInts,
+											player: outRec.player,
+											textMsgs: _List_Nil
 										}),
-									outRec.T));
+									outRec.mbFightingCharacterForGameOfThorns));
 							return newEnPlayerRec;
 						} else {
 							return _Utils_Tuple2(
@@ -12275,30 +12290,30 @@ var author$project$Beings$FightingCharacterInTileGrid$ai_helper_func = F4(
 										return _Utils_update(
 											opponents_and_player_rec,
 											{
-												l: A3(
+												fightingCharacters: A3(
 													elm$core$Dict$update,
 													fcharId,
 													function (_n5) {
 														return elm$core$Maybe$Just(fchar);
 													},
-													opponents_and_player_rec.l),
-												m: lrand
+													opponents_and_player_rec.fightingCharacters),
+												lrandInts: lrand
 											});
 									}(
-										A6(author$project$Beings$FightingCharacterInTileGrid$fightingCharacterMove, fightingCharacter, opponents_and_player_rec.o, currentFloorId, opponents_and_player_rec.aZ, opponents_and_player_rec.aY, opponents_and_player_rec.m))),
+										A6(author$project$Beings$FightingCharacterInTileGrid$fightingCharacterMove, fightingCharacter, opponents_and_player_rec.player, currentFloorId, opponents_and_player_rec.grid, opponents_and_player_rec.floorDict, opponents_and_player_rec.lrandInts))),
 								elm$core$Maybe$Nothing);
 						}
 					}
 				}();
 				var opponents_and_player_rec2 = _n0.a;
 				var mbFightCharacterForGameOfThorns = _n0.b;
-				if (!mbFightCharacterForGameOfThorns.$) {
+				if (mbFightCharacterForGameOfThorns.$ === 'Just') {
 					var fchar = mbFightCharacterForGameOfThorns.a;
 					return _Utils_update(
 						opponents_and_player_rec2,
 						{
-							aj: _Utils_ap(
-								opponents_and_player_rec.aj,
+							lFightingCharactersForGameOfThorns: _Utils_ap(
+								opponents_and_player_rec.lFightingCharactersForGameOfThorns,
 								_List_fromArray(
 									[fchar]))
 						});
@@ -12323,9 +12338,9 @@ var author$project$Beings$FightingCharacterInTileGrid$fightingCharacter_AI = F3(
 				elm$core$Dict$filter,
 				F2(
 					function (fcharId, fightingCharacter) {
-						return (fightingCharacter.M > 0) && (_Utils_cmp(fightingCharacter.aF, fightingCharacter.aE) < 0);
+						return (fightingCharacter.health > 0) && (_Utils_cmp(fightingCharacter.nrMovesInCurrentTurn, fightingCharacter.maxNrCharacterMovesPerTurn) < 0);
 					}),
-				opponentAndPlayerRec.l));
+				opponentAndPlayerRec.fightingCharacters));
 		return A3(
 			elm$core$List$foldl,
 			F2(
@@ -12338,26 +12353,26 @@ var author$project$Beings$FightingCharacterInTileGrid$fightingCharacter_AI = F3(
 var author$project$GameUpdate$fightingCharacter_AI = function (model) {
 	var fightingCharactersPlayerRec = A3(
 		author$project$Beings$FightingCharacterInTileGrid$fightingCharacter_AI,
-		model.b7,
-		model.b8,
-		A7(author$project$Beings$FightingCharacterInTileGrid$OpponentsAndPlayerRec, model.l, model.o, model.cy, model.aY, _List_Nil, _List_Nil, model.cQ));
-	var lfightingCharactersForGoT = fightingCharactersPlayerRec.aj;
+		model.currentDisplay,
+		model.currentFloorId,
+		A7(author$project$Beings$FightingCharacterInTileGrid$OpponentsAndPlayerRec, model.fightingCharacters, model.player, model.level, model.floorDict, _List_Nil, _List_Nil, model.pseudoRandomIntsPool));
+	var lfightingCharactersForGoT = fightingCharactersPlayerRec.lFightingCharactersForGameOfThorns;
 	var newModel = _Utils_update(
 		model,
-		{l: fightingCharactersPlayerRec.l, aY: fightingCharactersPlayerRec.aY, cy: fightingCharactersPlayerRec.aZ, o: fightingCharactersPlayerRec.o, cQ: fightingCharactersPlayerRec.m});
+		{fightingCharacters: fightingCharactersPlayerRec.fightingCharacters, floorDict: fightingCharactersPlayerRec.floorDict, level: fightingCharactersPlayerRec.grid, player: fightingCharactersPlayerRec.player, pseudoRandomIntsPool: fightingCharactersPlayerRec.lrandInts});
 	return _Utils_Tuple2(newModel, lfightingCharactersForGoT);
 };
 var author$project$GameUpdate$getModelChangerFuncs = F2(
 	function (leverId, model) {
 		return function (x) {
-			if (!x.$) {
-				var lfuncs = x.a;
+			if (x.$ === 'Just') {
+				var lfuncs = x.a.a;
 				return lfuncs;
 			} else {
 				return _List_Nil;
 			}
 		}(
-			A2(elm$core$Dict$get, leverId, model.cA));
+			A2(elm$core$Dict$get, leverId, model.leverModelChangerFuncs));
 	});
 var author$project$GameUpdate$getWallPercentage = function (gridAsList) {
 	var getCountTuple = F2(
@@ -12365,9 +12380,9 @@ var author$project$GameUpdate$getWallPercentage = function (gridAsList) {
 			var acc1 = _n2.a;
 			var acc2 = _n2.b;
 			switch (elem.$) {
-				case 3:
+				case 'Wall':
 					return _Utils_Tuple2(acc1 + 1, acc2);
-				case 0:
+				case 'Floor':
 					return _Utils_Tuple2(acc1, acc2 + 1);
 				default:
 					return _Utils_Tuple2(acc1, acc2);
@@ -12392,32 +12407,32 @@ var author$project$GameUpdate$getWallPercentage = function (gridAsList) {
 };
 var author$project$GameUpdate$openDoorIfPlayerStandingOnDoorAndClosed = function (model) {
 	var newGrid = function () {
-		var _n0 = A2(author$project$Grid$get, model.o.R, model.cy);
-		if ((!_n0.$) && (_n0.a.$ === 5)) {
+		var _n0 = A2(author$project$Grid$get, model.player.location, model.level);
+		if ((_n0.$ === 'Just') && (_n0.a.$ === 'Door')) {
 			var doorinfo = _n0.a.a;
-			if (!doorinfo.ct) {
+			if (!doorinfo.isOpen) {
 				var newDoorInfo = _Utils_update(
 					doorinfo,
-					{ct: true});
+					{isOpen: true});
 				return A3(
 					author$project$Grid$set,
-					model.o.R,
+					model.player.location,
 					author$project$Tile$Door(newDoorInfo),
-					model.cy);
+					model.level);
 			} else {
-				return model.cy;
+				return model.level;
 			}
 		} else {
-			return model.cy;
+			return model.level;
 		}
 	}();
 	return _Utils_update(
 		model,
-		{cy: newGrid});
+		{level: newGrid});
 };
 var author$project$Beings$OtherCharacterInTileGrid$OthersAndPlayerRec = F6(
 	function (otherCharacters, player, grid, floorDict, textMsgs, lrandInts) {
-		return {aY: floorDict, aZ: grid, m: lrandInts, y: otherCharacters, o: player, b$: textMsgs};
+		return {floorDict: floorDict, grid: grid, lrandInts: lrandInts, otherCharacters: otherCharacters, player: player, textMsgs: textMsgs};
 	});
 var author$project$Beings$OtherCharacterInTileGrid$increseNrOfOtherCharacterMovesInCurrentTurn = F2(
 	function (fcharId, othersAndPlayerRec) {
@@ -12430,41 +12445,46 @@ var author$project$Beings$OtherCharacterInTileGrid$increseNrOfOtherCharacterMove
 					function (fchar) {
 						return _Utils_update(
 							fchar,
-							{aF: fchar.aF + 1});
+							{nrMovesInCurrentTurn: fchar.nrMovesInCurrentTurn + 1});
 					},
 					mbOtherCharacter);
 			},
-			othersAndPlayerRec.y);
+			othersAndPlayerRec.otherCharacters);
 		return _Utils_update(
 			othersAndPlayerRec,
-			{y: updatedOtherCharacters});
+			{otherCharacters: updatedOtherCharacters});
 	});
 var author$project$Beings$OtherCharacterInTileGrid$otherCharacterExceedsNrMovesInCurrentTurn = F2(
 	function (fcharId, othersAndPlayerRec) {
-		var mbOtherCharacter = A2(elm$core$Dict$get, fcharId, othersAndPlayerRec.y);
-		if (mbOtherCharacter.$ === 1) {
+		var mbOtherCharacter = A2(elm$core$Dict$get, fcharId, othersAndPlayerRec.otherCharacters);
+		if (mbOtherCharacter.$ === 'Nothing') {
 			return true;
 		} else {
 			var otherCharacter = mbOtherCharacter.a;
-			return _Utils_cmp(otherCharacter.aF, otherCharacter.aE) > -1;
+			return _Utils_cmp(otherCharacter.nrMovesInCurrentTurn, otherCharacter.maxNrCharacterMovesPerTurn) > -1;
 		}
 	});
 var author$project$Beings$OtherCharacterInTileGrid$otherCharacterMove = F6(
 	function (otherCharacter, player, currentFloorId, grid, floorDict, lRandomInts) {
-		if (!_Utils_eq(otherCharacter.az, currentFloorId)) {
+		if (!_Utils_eq(otherCharacter.floorId, currentFloorId)) {
 			return A5(author$project$Beings$BeingsInTileGrid$characterMove_RandomMove, otherCharacter, player, grid, floorDict, lRandomInts);
 		} else {
-			var _n0 = otherCharacter.U;
-			if (!_n0.$) {
-				switch (_n0.a) {
-					case 0:
+			var _n0 = otherCharacter.movingStrategy;
+			if (_n0.$ === 'Just') {
+				switch (_n0.a.$) {
+					case 'MoveTowardsPlayer':
 						var _n1 = _n0.a;
-						return A6(author$project$Beings$BeingsInTileGrid$characterMove_sameFloorAsPlayer_moveTowardsPlayer, otherCharacter, player, currentFloorId, grid, floorDict, lRandomInts);
-					case 1:
+						return A7(author$project$Beings$BeingsInTileGrid$characterMove_sameFloorAsPlayer_moveTowardsPlayer, otherCharacter, player, currentFloorId, 0.85, grid, floorDict, lRandomInts);
+					case 'CustomMoveTowardsPlayerBeforeAndAfterEnl':
 						var _n2 = _n0.a;
+						var prob_before = _n2.a;
+						var prob_after = _n2.b;
+						return (_Utils_cmp(otherCharacter.indexOfLight, otherCharacter.indexOfLightMax) < 0) ? A7(author$project$Beings$BeingsInTileGrid$characterMove_sameFloorAsPlayer_moveTowardsPlayer, otherCharacter, player, currentFloorId, prob_before, grid, floorDict, lRandomInts) : A7(author$project$Beings$BeingsInTileGrid$characterMove_sameFloorAsPlayer_moveTowardsPlayer, otherCharacter, player, currentFloorId, prob_after, grid, floorDict, lRandomInts);
+					case 'MoveRandomly':
+						var _n3 = _n0.a;
 						return A5(author$project$Beings$BeingsInTileGrid$characterMove_RandomMove, otherCharacter, player, grid, floorDict, lRandomInts);
 					default:
-						var _n3 = _n0.a;
+						var _n4 = _n0.a;
 						return _Utils_Tuple2(otherCharacter, lRandomInts);
 				}
 			} else {
@@ -12476,16 +12496,16 @@ var author$project$Beings$OtherCharacterInTileGrid$ai_helper_func = F4(
 	function (currentDisplay, currentFloorId, fcharId, opponents_and_player_rec) {
 		ai_helper_func:
 		while (true) {
-			if (A2(author$project$Beings$OtherCharacterInTileGrid$otherCharacterExceedsNrMovesInCurrentTurn, fcharId, opponents_and_player_rec) || (currentDisplay === 3)) {
+			if (A2(author$project$Beings$OtherCharacterInTileGrid$otherCharacterExceedsNrMovesInCurrentTurn, fcharId, opponents_and_player_rec) || _Utils_eq(currentDisplay, author$project$GameModel$DisplayGameOfThorns)) {
 				return opponents_and_player_rec;
 			} else {
-				var mbOtherCharacter = A2(elm$core$Dict$get, fcharId, opponents_and_player_rec.y);
+				var mbOtherCharacter = A2(elm$core$Dict$get, fcharId, opponents_and_player_rec.otherCharacters);
 				var opponents_and_player_rec2 = function () {
-					if (mbOtherCharacter.$ === 1) {
+					if (mbOtherCharacter.$ === 'Nothing') {
 						return opponents_and_player_rec;
 					} else {
 						var otherCharacter = mbOtherCharacter.a;
-						return ((otherCharacter.M > 0) && (currentDisplay !== 3)) ? function (x) {
+						return ((otherCharacter.health > 0) && (!_Utils_eq(currentDisplay, author$project$GameModel$DisplayGameOfThorns))) ? function (x) {
 							return A2(author$project$Beings$OtherCharacterInTileGrid$increseNrOfOtherCharacterMovesInCurrentTurn, fcharId, x);
 						}(
 							function (_n1) {
@@ -12494,17 +12514,17 @@ var author$project$Beings$OtherCharacterInTileGrid$ai_helper_func = F4(
 								return _Utils_update(
 									opponents_and_player_rec,
 									{
-										m: lrand,
-										y: A3(
+										lrandInts: lrand,
+										otherCharacters: A3(
 											elm$core$Dict$update,
 											fcharId,
 											function (_n2) {
 												return elm$core$Maybe$Just(fchar);
 											},
-											opponents_and_player_rec.y)
+											opponents_and_player_rec.otherCharacters)
 									});
 							}(
-								A6(author$project$Beings$OtherCharacterInTileGrid$otherCharacterMove, otherCharacter, opponents_and_player_rec.o, currentFloorId, opponents_and_player_rec.aZ, opponents_and_player_rec.aY, opponents_and_player_rec.m))) : opponents_and_player_rec;
+								A6(author$project$Beings$OtherCharacterInTileGrid$otherCharacterMove, otherCharacter, opponents_and_player_rec.player, currentFloorId, opponents_and_player_rec.grid, opponents_and_player_rec.floorDict, opponents_and_player_rec.lrandInts))) : opponents_and_player_rec;
 					}
 				}();
 				var $temp$currentDisplay = currentDisplay,
@@ -12526,9 +12546,9 @@ var author$project$Beings$OtherCharacterInTileGrid$otherCharacter_AI = F3(
 				elm$core$Dict$filter,
 				F2(
 					function (fcharId, otherCharacter) {
-						return (otherCharacter.M > 0) && (_Utils_cmp(otherCharacter.aF, otherCharacter.aE) < 0);
+						return (otherCharacter.health > 0) && (_Utils_cmp(otherCharacter.nrMovesInCurrentTurn, otherCharacter.maxNrCharacterMovesPerTurn) < 0);
 					}),
-				othersAndPlayerRec.y));
+				othersAndPlayerRec.otherCharacters));
 		return A3(
 			elm$core$List$foldl,
 			F2(
@@ -12541,27 +12561,27 @@ var author$project$Beings$OtherCharacterInTileGrid$otherCharacter_AI = F3(
 var author$project$GameUpdate$otherCharacters_AI = function (model) {
 	var otherCharactersPlayerRec = A3(
 		author$project$Beings$OtherCharacterInTileGrid$otherCharacter_AI,
-		model.b7,
-		model.b8,
-		A6(author$project$Beings$OtherCharacterInTileGrid$OthersAndPlayerRec, model.y, model.o, model.cy, model.aY, _List_Nil, model.cQ));
+		model.currentDisplay,
+		model.currentFloorId,
+		A6(author$project$Beings$OtherCharacterInTileGrid$OthersAndPlayerRec, model.otherCharacters, model.player, model.level, model.floorDict, _List_Nil, model.pseudoRandomIntsPool));
 	var newModel = _Utils_update(
 		model,
-		{aY: otherCharactersPlayerRec.aY, cy: otherCharactersPlayerRec.aZ, y: otherCharactersPlayerRec.y, o: otherCharactersPlayerRec.o, cQ: otherCharactersPlayerRec.m});
+		{floorDict: otherCharactersPlayerRec.floorDict, level: otherCharactersPlayerRec.grid, otherCharacters: otherCharactersPlayerRec.otherCharacters, player: otherCharactersPlayerRec.player, pseudoRandomIntsPool: otherCharactersPlayerRec.lrandInts});
 	return newModel;
 };
-var author$project$GameUpdate$position_display_anchor_in_order_to_center_player = function (model) {
+var author$project$GameUpdate$position_viewport_in_order_to_center_player = function (model) {
 	return author$project$GameUpdate$reveal(
 		_Utils_update(
 			model,
 			{
-				de: A2(
+				viewport_topleft_x: A2(
 					elm$core$Basics$max,
 					0,
-					model.o.R.bd - elm$core$Basics$round(model.dl / 2.0)),
-				df: A2(
+					model.player.location.x - elm$core$Basics$round(model.window_width / 2.0)),
+				viewport_topleft_y: A2(
 					elm$core$Basics$max,
 					0,
-					model.o.R.be - elm$core$Basics$round(model.dk / 2))
+					model.player.location.y - elm$core$Basics$round(model.window_height / 2))
 			}));
 };
 var author$project$GameUpdate$resetFightingCharacterMovesCurrentTurn = function (model) {
@@ -12571,12 +12591,12 @@ var author$project$GameUpdate$resetFightingCharacterMovesCurrentTurn = function 
 			function (fcharId, fightingCharacter) {
 				return _Utils_update(
 					fightingCharacter,
-					{aF: 0});
+					{nrMovesInCurrentTurn: 0});
 			}),
-		model.l);
+		model.fightingCharacters);
 	return _Utils_update(
 		model,
-		{l: updatedFightCharacters});
+		{fightingCharacters: updatedFightCharacters});
 };
 var author$project$GameUpdate$resetOtherCharacterMovesCurrentTurn = function (model) {
 	var updatedOtherCharacters = A2(
@@ -12585,35 +12605,35 @@ var author$project$GameUpdate$resetOtherCharacterMovesCurrentTurn = function (mo
 			function (ocharId, otherCharacter) {
 				return _Utils_update(
 					otherCharacter,
-					{aF: 0});
+					{nrMovesInCurrentTurn: 0});
 			}),
-		model.y);
+		model.otherCharacters);
 	return _Utils_update(
 		model,
-		{y: updatedOtherCharacters});
+		{otherCharacters: updatedOtherCharacters});
 };
 var author$project$Grid$getGridBoundsToPlacePlayer = function (grid) {
-	return {bB: grid.cY.dj - 1, bC: grid.cY.ck - 1, bD: 1, bE: 1};
+	return {maxX: grid.size.width - 1, maxY: grid.size.height - 1, minX: 1, minY: 1};
 };
 var author$project$Item$itemToString = function (item) {
 	switch (item.$) {
-		case 0:
+		case 'Chest':
 			var s = item.a;
 			return 'chest_' + elm$core$String$fromInt(s);
-		case 1:
+		case 'Skull':
 			return 'skull';
-		case 2:
+		case 'Key':
 			var kinfo = item.a;
-			return 'key_' + kinfo.aD;
-		case 3:
+			return 'key_' + kinfo.keyColor;
+		case 'Money':
 			return 'money';
-		case 4:
+		case 'Box':
 			return 'box';
-		case 5:
+		case 'Ash':
 			return 'ash';
-		case 6:
+		case 'Paper':
 			var paperinfo = item.a;
-			return 'a piece of paper : ' + (paperinfo.aW + (' , with some written text : ' + paperinfo.b_));
+			return 'a piece of paper : ' + (paperinfo.description + (' , with some written text : ' + paperinfo.text));
 		default:
 			var fdescription = item.a;
 			return 'a piece of food : ' + fdescription;
@@ -12622,7 +12642,7 @@ var author$project$Item$itemToString = function (item) {
 var author$project$Grid$getWithDefault = F3(
 	function (_default, coordinate, grid) {
 		var _n0 = A2(author$project$Grid$get, coordinate, grid);
-		if (_n0.$ === 1) {
+		if (_n0.$ === 'Nothing') {
 			return _default;
 		} else {
 			var a = _n0.a;
@@ -12646,7 +12666,7 @@ var author$project$MapGen$numberOfWalls = F2(
 			A2(
 				elm$core$List$filter,
 				function (t) {
-					if (t.$ === 3) {
+					if (t.$ === 'Wall') {
 						return true;
 					} else {
 						return false;
@@ -12692,7 +12712,7 @@ var author$project$MapGen$numberOfWalls2 = F2(
 			A2(
 				elm$core$List$filter,
 				function (t) {
-					if (t.$ === 3) {
+					if (t.$ === 'Wall') {
 						return true;
 					} else {
 						return false;
@@ -12734,7 +12754,7 @@ var author$project$MapGen$randomMap = F2(
 		var h = _n0.b;
 		var initialGrid = A2(
 			author$project$Grid$initialize,
-			{ck: h, dj: w},
+			{height: h, width: w},
 			author$project$Tile$NoTileYet);
 		var lcoordinates = author$project$Grid$toCoordinates(initialGrid);
 		var lcoordsFloats = A3(
@@ -12778,7 +12798,7 @@ var author$project$MapGen$randomCave = F2(
 	});
 var author$project$MapGen$addMbElemToList = F2(
 	function (mba, la) {
-		if (mba.$ === 1) {
+		if (mba.$ === 'Nothing') {
 			return la;
 		} else {
 			var a = mba.a;
@@ -12789,7 +12809,7 @@ var author$project$MapGen$cellBelongsToARectRegion = F2(
 	function (coord, lrects) {
 		var coordBelongsTorectRegion = F2(
 			function (coord_, rrect) {
-				return ((_Utils_cmp(coord_.bd, rrect.c2) > -1) && ((_Utils_cmp(coord_.bd, (rrect.c2 + rrect.dj) - 1) < 1) && ((_Utils_cmp(coord_.be, rrect.c3) > -1) && (_Utils_cmp(coord_.be, (rrect.c3 + rrect.ck) - 1) < 1)))) ? true : false;
+				return ((_Utils_cmp(coord_.x, rrect.top_left_x) > -1) && ((_Utils_cmp(coord_.x, (rrect.top_left_x + rrect.width) - 1) < 1) && ((_Utils_cmp(coord_.y, rrect.top_left_y) > -1) && (_Utils_cmp(coord_.y, (rrect.top_left_y + rrect.height) - 1) < 1)))) ? true : false;
 			});
 		return A3(
 			elm$core$List$foldl,
@@ -12801,11 +12821,11 @@ var author$project$MapGen$cellBelongsToARectRegion = F2(
 			lrects);
 	});
 var author$project$MapGen$getRectangularRegionCellCoordinates = function (rectregion) {
-	var top_y = rectregion.c3;
-	var right_x = (rectregion.c2 + rectregion.dj) - 1;
-	var left_x = rectregion.c2;
+	var top_y = rectregion.top_left_y;
+	var right_x = (rectregion.top_left_x + rectregion.width) - 1;
+	var left_x = rectregion.top_left_x;
 	var lx = A2(elm$core$List$range, left_x, right_x);
-	var bottom_y = (rectregion.c3 + rectregion.ck) - 1;
+	var bottom_y = (rectregion.top_left_y + rectregion.height) - 1;
 	var ly = A2(elm$core$List$range, top_y, bottom_y);
 	return A2(
 		elm$core$List$concatMap,
@@ -12844,36 +12864,36 @@ var author$project$MapGen$getTunnelFromCellCoordinates = function (lcells) {
 		A2(
 			elm$core$List$map,
 			function (coords) {
-				return coords.be;
+				return coords.y;
 			},
 			lcells));
 	var mbMinXval = elm$core$List$minimum(
 		A2(
 			elm$core$List$map,
 			function (coords) {
-				return coords.bd;
+				return coords.x;
 			},
 			lcells));
 	var mbMaxYval = elm$core$List$maximum(
 		A2(
 			elm$core$List$map,
 			function (coords) {
-				return coords.be;
+				return coords.y;
 			},
 			lcells));
 	var mbMaxXval = elm$core$List$maximum(
 		A2(
 			elm$core$List$map,
 			function (coords) {
-				return coords.bd;
+				return coords.x;
 			},
 			lcells));
 	var _n0 = _Utils_Tuple2(mbMinXval, mbMaxXval);
-	if ((!_n0.a.$) && (!_n0.b.$)) {
+	if ((_n0.a.$ === 'Just') && (_n0.b.$ === 'Just')) {
 		var minXval = _n0.a.a;
 		var maxXval = _n0.b.a;
 		var _n1 = _Utils_Tuple2(mbMinYval, mbMaxYval);
-		if ((!_n1.a.$) && (!_n1.b.$)) {
+		if ((_n1.a.$ === 'Just') && (_n1.b.$ === 'Just')) {
 			var minYval = _n1.a.a;
 			var maxYval = _n1.b.a;
 			return elm$core$Maybe$Just(
@@ -12886,13 +12906,13 @@ var author$project$MapGen$getTunnelFromCellCoordinates = function (lcells) {
 	}
 };
 var author$project$GameModel$getRoomCenterX = function (roomrectangle) {
-	return roomrectangle.c2 + elm$core$Basics$round(roomrectangle.dj / 2.0);
+	return roomrectangle.top_left_x + elm$core$Basics$round(roomrectangle.width / 2.0);
 };
 var author$project$GameModel$getRoomCenterY = function (roomrectangle) {
-	return roomrectangle.c3 + elm$core$Basics$round(roomrectangle.ck / 2.0);
+	return roomrectangle.top_left_y + elm$core$Basics$round(roomrectangle.height / 2.0);
 };
 var author$project$GameModel$getRoomRightX = function (roomrectangle) {
-	return (roomrectangle.c2 + roomrectangle.dj) - 1;
+	return (roomrectangle.top_left_x + roomrectangle.width) - 1;
 };
 var author$project$MapGen$mbCreateHorizontalTunnel = F2(
 	function (roomrect1, roomrect2) {
@@ -12903,10 +12923,10 @@ var author$project$MapGen$mbCreateHorizontalTunnel = F2(
 			author$project$GameModel$getRoomCenterX(roomrect2)) < 0) ? _Utils_Tuple2(
 			author$project$GameModel$getRoomRightX(roomrect1) + 1,
 			(author$project$GameModel$getRoomCenterX(roomrect2) - author$project$GameModel$getRoomRightX(roomrect1)) + (v_height - 1)) : ((_Utils_cmp(
-			roomrect1.c2,
+			roomrect1.top_left_x,
 			author$project$GameModel$getRoomCenterX(roomrect2)) > 0) ? _Utils_Tuple2(
 			author$project$GameModel$getRoomCenterX(roomrect2),
-			roomrect1.c2 - author$project$GameModel$getRoomCenterX(roomrect2)) : _Utils_Tuple2(
+			roomrect1.top_left_x - author$project$GameModel$getRoomCenterX(roomrect2)) : _Utils_Tuple2(
 			author$project$GameModel$getRoomCenterX(roomrect1),
 			0));
 		var start_x = _n0.a;
@@ -12920,10 +12940,10 @@ var author$project$MapGen$mbCreateHorizontalTunnel = F2(
 				horizontal_tunnel_height)) : elm$core$Maybe$Nothing;
 	});
 var author$project$GameModel$getRoomBottomY = function (roomrectangle) {
-	return (roomrectangle.c3 + roomrectangle.ck) - 1;
+	return (roomrectangle.top_left_y + roomrectangle.height) - 1;
 };
 var author$project$GameModel$getRoomTopY = function (roomrectangle) {
-	return roomrectangle.c3;
+	return roomrectangle.top_left_y;
 };
 var author$project$MapGen$mbCreateVerticalTunnel = F2(
 	function (roomrect1, roomrect2) {
@@ -13037,14 +13057,14 @@ var author$project$MapGen$randomRoomGenerator = F5(
 		var lrandomInts = _n0.b;
 		var roomCheckIntersectsFunc = F2(
 			function (room1rectangle, room2rectangle) {
-				var rect2_TopY = room2rectangle.c3;
-				var rect2_RightX = room2rectangle.c2 + room2rectangle.dj;
-				var rect2_LeftX = room2rectangle.c2;
-				var rect2_BottomY = room2rectangle.c3 + room2rectangle.ck;
-				var rect1_TopY = room1rectangle.c3;
-				var rect1_RightX = room1rectangle.c2 + room1rectangle.dj;
-				var rect1_LeftX = room1rectangle.c2;
-				var rect1_BottomY = room1rectangle.c3 + room1rectangle.ck;
+				var rect2_TopY = room2rectangle.top_left_y;
+				var rect2_RightX = room2rectangle.top_left_x + room2rectangle.width;
+				var rect2_LeftX = room2rectangle.top_left_x;
+				var rect2_BottomY = room2rectangle.top_left_y + room2rectangle.height;
+				var rect1_TopY = room1rectangle.top_left_y;
+				var rect1_RightX = room1rectangle.top_left_x + room1rectangle.width;
+				var rect1_LeftX = room1rectangle.top_left_x;
+				var rect1_BottomY = room1rectangle.top_left_y + room1rectangle.height;
 				return (((_Utils_cmp(rect1_RightX, rect2_LeftX) < 0) || (_Utils_cmp(rect1_LeftX, rect2_RightX) > 0)) || ((_Utils_cmp(rect1_TopY, rect2_BottomY) > 0) || (_Utils_cmp(rect1_BottomY, rect2_TopY) < 0))) ? false : true;
 			});
 		var roomCheckIntersectsListRoomFunc = F2(
@@ -13108,21 +13128,21 @@ var author$project$MapGen$randomMapGeneratorWithRooms = F7(
 					author$project$MapGen$createWallBoundaries,
 					_Utils_ap(ltunnelrectangles, lroomrectangles),
 					newGrid)));
-		return {cE: lroomrectangles, cF: ltunnelrectangles, b0: newnewgrid, da: lunusedrandints};
+		return {lroomRectangles: lroomrectangles, ltunnelRectangles: ltunnelrectangles, tileGrid: newnewgrid, unusedRandoms: lunusedrandints};
 	});
 var author$project$Thorns$Types$SetOpponentAndPlayerAndInitializeGrid = F2(
 	function (a, b) {
-		return {$: 4, a: a, b: b};
+		return {$: 'SetOpponentAndPlayerAndInitializeGrid', a: a, b: b};
 	});
 var author$project$Thorns$Types$NewRandomIntsAddToPool = function (a) {
-	return {$: 1, a: a};
+	return {$: 'NewRandomIntsAddToPool', a: a};
 };
 var author$project$Thorns$Types$NewRandomIntsAddToPoolAndInitializeGrid = function (a) {
-	return {$: 2, a: a};
+	return {$: 'NewRandomIntsAddToPoolAndInitializeGrid', a: a};
 };
 var author$project$Thorns$Update$cmdFillRandomIntsPool = F2(
 	function (doInitializeGrid, model) {
-		var nrToAdd = 500 - elm$core$List$length(model.cQ);
+		var nrToAdd = 500 - elm$core$List$length(model.pseudoRandomIntsPool);
 		return (nrToAdd > 0) ? (doInitializeGrid ? A2(
 			elm$random$Random$generate,
 			author$project$Thorns$Types$NewRandomIntsAddToPoolAndInitializeGrid,
@@ -13144,7 +13164,7 @@ var author$project$Thorns$OpponentInteraction$activate = F3(
 			elm$core$Maybe$Nothing,
 			A2(author$project$Grid$get, coords, grid));
 		var _n0 = function () {
-			if (mbSegment.$ === 1) {
+			if (mbSegment.$ === 'Nothing') {
 				return _Utils_Tuple2(grid, elm$core$Maybe$Nothing);
 			} else {
 				var lcoords = mbSegment.a;
@@ -13170,19 +13190,19 @@ var author$project$Thorns$OpponentInteraction$activate = F3(
 		var mb_power = _n0.b;
 		return _Utils_Tuple3(outGrid, mb_thorn_opt, mb_power);
 	});
-var author$project$Beings$Beings$COMMON_ATTACK = 0;
-var author$project$Beings$Beings$ENLIGHTENMENT_SPELL = 2;
-var author$project$Beings$Beings$OPPONENT_COMMON_ATTACK = 1;
-var author$project$Beings$Beings$OPPONENT_ENLIGHTENMENT_SPELL = 3;
+var author$project$Beings$Beings$COMMON_ATTACK = {$: 'COMMON_ATTACK'};
+var author$project$Beings$Beings$ENLIGHTENMENT_SPELL = {$: 'ENLIGHTENMENT_SPELL'};
+var author$project$Beings$Beings$OPPONENT_COMMON_ATTACK = {$: 'OPPONENT_COMMON_ATTACK'};
+var author$project$Beings$Beings$OPPONENT_ENLIGHTENMENT_SPELL = {$: 'OPPONENT_ENLIGHTENMENT_SPELL'};
 var author$project$Thorns$OpponentInteraction$get_attack_value = F2(
 	function (attacker, opt) {
 		var modifier = 0;
-		return attacker.aH + modifier;
+		return attacker.power + modifier;
 	});
 var author$project$Thorns$OpponentInteraction$get_defense_value = F2(
 	function (defender, opt) {
 		var modifier = 0;
-		return (defender.aI + defender.at) + modifier;
+		return (defender.protection + defender.armor) + modifier;
 	});
 var author$project$Thorns$OpponentInteraction$calcOpponentStatsAfterInteraction = F4(
 	function (intervenient1, intervenient2, power, opp_interaction_chosen_option) {
@@ -13195,61 +13215,61 @@ var author$project$Thorns$OpponentInteraction$calcOpponentStatsAfterInteraction 
 					return A2(elm$core$Basics$max, 1, x);
 				}(attack_power_value - defense_power_value);
 				var _n6 = function () {
-					if ((opp_interaction_chosen_option_ === 2) || (opp_interaction_chosen_option_ === 3)) {
-						var _n7 = attacker_.L;
-						switch (_n7) {
-							case 0:
+					if (_Utils_eq(opp_interaction_chosen_option_, author$project$Beings$Beings$ENLIGHTENMENT_SPELL) || _Utils_eq(opp_interaction_chosen_option_, author$project$Beings$Beings$OPPONENT_ENLIGHTENMENT_SPELL)) {
+						var _n7 = attacker_.enlSpellEffect;
+						switch (_n7.$) {
+							case 'DecreaseHealth':
 								return _Utils_Tuple2(
-									A2(elm$core$Basics$max, 0, defender_.M - variation),
-									defender_.N);
-							case 1:
+									A2(elm$core$Basics$max, 0, defender_.health - variation),
+									defender_.indexOfLight);
+							case 'IncreaseIndexOfLight':
 								return _Utils_Tuple2(
-									defender_.M,
-									A2(elm$core$Basics$min, defender_.N + variation, defender_.O));
+									defender_.health,
+									A2(elm$core$Basics$min, defender_.indexOfLight + variation, defender_.indexOfLightMax));
 							default:
 								return _Utils_Tuple2(
-									defender_.M,
-									A2(elm$core$Basics$max, 0, defender_.N - variation));
+									defender_.health,
+									A2(elm$core$Basics$max, 0, defender_.indexOfLight - variation));
 						}
 					} else {
 						return _Utils_Tuple2(
-							A2(elm$core$Basics$max, 0, defender_.M - variation),
-							defender_.N);
+							A2(elm$core$Basics$max, 0, defender_.health - variation),
+							defender_.indexOfLight);
 					}
 				}();
 				var defender_hp_after_attack = _n6.a;
 				var defender_index_of_light_after_attack = _n6.b;
 				var new_defender = _Utils_update(
 					defender_,
-					{M: defender_hp_after_attack, N: defender_index_of_light_after_attack});
+					{health: defender_hp_after_attack, indexOfLight: defender_index_of_light_after_attack});
 				return _Utils_Tuple2(new_defender, txt_msg);
 			});
 		var _n0 = function () {
-			switch (opp_interaction_chosen_option) {
-				case 0:
-					var _n2 = A4(get_defender_after_attack, intervenient1, intervenient2, power, 0);
+			switch (opp_interaction_chosen_option.$) {
+				case 'COMMON_ATTACK':
+					var _n2 = A4(get_defender_after_attack, intervenient1, intervenient2, power, author$project$Beings$Beings$COMMON_ATTACK);
 					var def = _n2.a;
 					var txtm = _n2.b;
 					return _Utils_Tuple3(
 						intervenient1,
 						def,
 						'you initiate an attack . power of the attack is : ' + (elm$core$String$fromInt(power) + (' , ' + txtm)));
-				case 2:
-					if (_Utils_cmp(intervenient1.S, power) > 0) {
-						var _n3 = A4(get_defender_after_attack, intervenient1, intervenient2, power, 2);
+				case 'ENLIGHTENMENT_SPELL':
+					if (_Utils_cmp(intervenient1.mana, power) > 0) {
+						var _n3 = A4(get_defender_after_attack, intervenient1, intervenient2, power, author$project$Beings$Beings$ENLIGHTENMENT_SPELL);
 						var def = _n3.a;
 						var txtm = _n3.b;
 						return _Utils_Tuple3(
 							_Utils_update(
 								intervenient1,
-								{S: intervenient1.S - power}),
+								{mana: intervenient1.mana - power}),
 							def,
 							'you enlighten your opponent with a light power of  : ' + (elm$core$String$fromInt(power) + (' , ' + txtm)));
 					} else {
 						return _Utils_Tuple3(intervenient1, intervenient2, '');
 					}
-				case 1:
-					var _n4 = A4(get_defender_after_attack, intervenient2, intervenient1, power, 1);
+				case 'OPPONENT_COMMON_ATTACK':
+					var _n4 = A4(get_defender_after_attack, intervenient2, intervenient1, power, author$project$Beings$Beings$OPPONENT_COMMON_ATTACK);
 					var def = _n4.a;
 					var txtm = _n4.b;
 					return _Utils_Tuple3(
@@ -13257,17 +13277,17 @@ var author$project$Thorns$OpponentInteraction$calcOpponentStatsAfterInteraction 
 						intervenient2,
 						'your opponent initiates a fight with you . power of the attack is : ' + (elm$core$String$fromInt(power) + (' , ' + txtm)));
 				default:
-					if (_Utils_cmp(intervenient2.S, power) < 0) {
+					if (_Utils_cmp(intervenient2.mana, power) < 0) {
 						return _Utils_Tuple3(intervenient1, intervenient2, '');
 					} else {
-						var _n5 = A4(get_defender_after_attack, intervenient2, intervenient1, power, 3);
+						var _n5 = A4(get_defender_after_attack, intervenient2, intervenient1, power, author$project$Beings$Beings$OPPONENT_ENLIGHTENMENT_SPELL);
 						var def = _n5.a;
 						var txtm = _n5.b;
 						return _Utils_Tuple3(
 							def,
 							_Utils_update(
 								intervenient2,
-								{S: intervenient2.S - power}),
+								{mana: intervenient2.mana - power}),
 							'your opponent tries to enlighten you with a light power of : ' + (elm$core$String$fromInt(power) + (' , ' + txtm)));
 					}
 			}
@@ -13284,11 +13304,11 @@ var author$project$Thorns$OpponentInteraction$do_activate_and_calc_opponents = F
 		var mb_opt = _n0.b;
 		var mb_attack_power = _n0.c;
 		var _n1 = function () {
-			if (mb_attack_power.$ === 1) {
+			if (mb_attack_power.$ === 'Nothing') {
 				return _Utils_Tuple3(player, opponent, '');
 			} else {
 				var val = mb_attack_power.a;
-				if (!mb_opt.$) {
+				if (mb_opt.$ === 'Just') {
 					var opt = mb_opt.a;
 					return A4(author$project$Thorns$OpponentInteraction$calcOpponentStatsAfterInteraction, player, opponent, val, opt);
 				} else {
@@ -13299,7 +13319,7 @@ var author$project$Thorns$OpponentInteraction$do_activate_and_calc_opponents = F
 		var newPlayer = _n1.a;
 		var newOpponent = _n1.b;
 		var txtmsg = _n1.c;
-		return {aZ: finalGrid, cO: newOpponent, o: newPlayer, c7: txtmsg};
+		return {grid: finalGrid, opponent: newOpponent, player: newPlayer, txtmsg: txtmsg};
 	});
 var author$project$Thorns$ThornGrid$extractSegment = F2(
 	function (coords_, grid_) {
@@ -13311,26 +13331,26 @@ var author$project$Thorns$ThornGrid$extractSegment = F2(
 			function (coords, _n0) {
 				var lextracted = _n0.a;
 				var grid = _n0.b;
-				if ((coords.bd < 0) || ((coords.be < 0) || ((_Utils_cmp(coords.bd, grid.cY.dj) > -1) || ((_Utils_cmp(coords.be, grid.cY.ck) > -1) || A2(elm$core$List$member, coords, lextracted))))) {
+				if ((coords.x < 0) || ((coords.y < 0) || ((_Utils_cmp(coords.x, grid.size.width) > -1) || ((_Utils_cmp(coords.y, grid.size.height) > -1) || A2(elm$core$List$member, coords, lextracted))))) {
 					return _Utils_Tuple2(lextracted, grid);
 				} else {
 					var _n1 = A2(author$project$Grid$get, coords, grid);
-					if (_n1.$ === 1) {
+					if (_n1.$ === 'Nothing') {
 						return _Utils_Tuple2(lextracted, grid);
 					} else {
 						var mbval = _n1.a;
 						return (_Utils_eq(mbval, elm$core$Maybe$Nothing) || (!_Utils_eq(mbval, mbValAtCoords))) ? _Utils_Tuple2(lextracted, grid) : A2(
 							auxFuncExtract,
-							A2(author$project$Grid$Coordinate, coords.bd, coords.be - 1),
+							A2(author$project$Grid$Coordinate, coords.x, coords.y - 1),
 							A2(
 								auxFuncExtract,
-								A2(author$project$Grid$Coordinate, coords.bd, coords.be + 1),
+								A2(author$project$Grid$Coordinate, coords.x, coords.y + 1),
 								A2(
 									auxFuncExtract,
-									A2(author$project$Grid$Coordinate, coords.bd - 1, coords.be),
+									A2(author$project$Grid$Coordinate, coords.x - 1, coords.y),
 									A2(
 										auxFuncExtract,
-										A2(author$project$Grid$Coordinate, coords.bd + 1, coords.be),
+										A2(author$project$Grid$Coordinate, coords.x + 1, coords.y),
 										_Utils_Tuple2(
 											_Utils_ap(
 												lextracted,
@@ -13349,9 +13369,9 @@ var author$project$Thorns$ThornGrid$listSegmentComparison = F2(
 	function (l1, l2) {
 		return (_Utils_cmp(
 			elm$core$List$length(l1),
-			elm$core$List$length(l2)) > 0) ? 0 : ((_Utils_cmp(
+			elm$core$List$length(l2)) > 0) ? elm$core$Basics$LT : ((_Utils_cmp(
 			elm$core$List$length(l1),
-			elm$core$List$length(l2)) < 0) ? 2 : 1);
+			elm$core$List$length(l2)) < 0) ? elm$core$Basics$GT : elm$core$Basics$EQ);
 	});
 var elm$core$List$sortWith = _List_sortWith;
 var author$project$Thorns$ThornGrid$getAllSegments = function (grid) {
@@ -13367,13 +13387,13 @@ var author$project$Thorns$ThornGrid$getAllSegments = function (grid) {
 			lcoords));
 };
 var author$project$Thorns$OpponentInteraction$getItemCombatOption = function (item) {
-	return 2;
+	return author$project$Beings$Beings$ENLIGHTENMENT_SPELL;
 };
 var author$project$Thorns$OpponentInteraction$get_interaction_options = F2(
 	function (lrandints, player) {
 		var lopt = _List_fromArray(
-			[0, 1, 0, 1, 0, 1, 2, 3, 2, 3]);
-		var litems = elm$core$Dict$values(player.Q);
+			[author$project$Beings$Beings$COMMON_ATTACK, author$project$Beings$Beings$OPPONENT_COMMON_ATTACK, author$project$Beings$Beings$COMMON_ATTACK, author$project$Beings$Beings$OPPONENT_COMMON_ATTACK, author$project$Beings$Beings$COMMON_ATTACK, author$project$Beings$Beings$OPPONENT_COMMON_ATTACK, author$project$Beings$Beings$ENLIGHTENMENT_SPELL, author$project$Beings$Beings$OPPONENT_ENLIGHTENMENT_SPELL, author$project$Beings$Beings$ENLIGHTENMENT_SPELL, author$project$Beings$Beings$OPPONENT_ENLIGHTENMENT_SPELL]);
+		var litems = elm$core$Dict$values(player.inventory);
 		var chooseFrom = A3(
 			elm$core$List$foldl,
 			F2(
@@ -13444,7 +13464,7 @@ var author$project$Thorns$ThornGrid$checkSegments = F2(
 	});
 var author$project$Grid$getColumnWithDefault = F3(
 	function (n, a_val, grid) {
-		return (n < 0) ? _List_Nil : ((_Utils_cmp(n, grid.cY.dj) > -1) ? _List_Nil : A2(
+		return (n < 0) ? _List_Nil : ((_Utils_cmp(n, grid.size.width) > -1) ? _List_Nil : A2(
 			elm$core$List$map,
 			function (coord) {
 				return A2(
@@ -13457,7 +13477,7 @@ var author$project$Grid$getColumnWithDefault = F3(
 				function (rownr) {
 					return A2(author$project$Grid$Coordinate, n, rownr);
 				},
-				A2(elm$core$List$range, 0, grid.cY.ck - 1))));
+				A2(elm$core$List$range, 0, grid.size.height - 1))));
 	});
 var author$project$Grid$getElemWithDefault = F3(
 	function (y, aval, lelems) {
@@ -13471,21 +13491,21 @@ var author$project$Grid$setColumn = F4(
 	function (n, adef, lelems, grid) {
 		return (!_Utils_eq(
 			elm$core$List$length(lelems),
-			grid.cY.ck)) ? grid : A3(
+			grid.size.height)) ? grid : A3(
 			elm$core$List$foldl,
 			F2(
 				function (coords, gridacc) {
 					return A3(
 						author$project$Grid$set,
 						coords,
-						A3(author$project$Grid$getElemWithDefault, coords.be, adef, lelems),
+						A3(author$project$Grid$getElemWithDefault, coords.y, adef, lelems),
 						gridacc);
 				}),
 			grid,
 			A2(
 				elm$core$List$filter,
 				function (coords) {
-					return _Utils_eq(coords.bd, n);
+					return _Utils_eq(coords.x, n);
 				},
 				author$project$Grid$toCoordinates(grid)));
 	});
@@ -13506,7 +13526,7 @@ var author$project$Thorns$ThornGrid$fallColumn = F3(
 					var _n1 = A2(author$project$Thorns$ThornGrid$getThornFromRandomValue, lrand, player);
 					var addValue = _n1.a;
 					var lrandremain = _n1.b;
-					var addValue_ = A2(elm$core$Maybe$withDefault, 2, addValue);
+					var addValue_ = A2(elm$core$Maybe$withDefault, author$project$Beings$Beings$ENLIGHTENMENT_SPELL, addValue);
 					var $temp$_n0 = _Utils_Tuple2(
 						_Utils_ap(
 							_List_fromArray(
@@ -13535,7 +13555,7 @@ var author$project$Thorns$ThornGrid$fall = F2(
 	function (_n0, player) {
 		var grid = _n0.a;
 		var lrandval = _n0.b;
-		var l_column_numbers = A2(elm$core$List$range, 0, grid.cY.dj - 1);
+		var l_column_numbers = A2(elm$core$List$range, 0, grid.size.width - 1);
 		var getFallColumnNrAndSet = F2(
 			function (cnr, _n3) {
 				var gridacc = _n3.a;
@@ -13575,23 +13595,23 @@ var author$project$Thorns$ThornGrid$findSegment = F2(
 				},
 				author$project$Thorns$ThornGrid$getAllSegments(grid)));
 	});
-var author$project$Thorns$Types$InitializeGrid = {$: 8};
+var author$project$Thorns$Types$InitializeGrid = {$: 'InitializeGrid'};
 var author$project$Thorns$Update$thornToHelpStr = F2(
 	function (mbthorn, segmentLength) {
 		if (segmentLength < 2) {
 			return elm$core$Maybe$Nothing;
 		} else {
-			if (!mbthorn.$) {
-				switch (mbthorn.a) {
-					case 0:
+			if (mbthorn.$ === 'Just') {
+				switch (mbthorn.a.$) {
+					case 'COMMON_ATTACK':
 						var _n1 = mbthorn.a;
 						return elm$core$Maybe$Just(
 							'click for a common attack (power of ' + (elm$core$String$fromInt(segmentLength) + ')'));
-					case 2:
+					case 'ENLIGHTENMENT_SPELL':
 						var _n2 = mbthorn.a;
 						return elm$core$Maybe$Just(
 							'click to throw an enlightenment spell (power of ' + (elm$core$String$fromInt(segmentLength) + ')'));
-					case 1:
+					case 'OPPONENT_COMMON_ATTACK':
 						var _n3 = mbthorn.a;
 						return elm$core$Maybe$Just(
 							'click for your opponent  common attack (power of ' + (elm$core$String$fromInt(segmentLength) + ')'));
@@ -13608,18 +13628,18 @@ var author$project$Thorns$Update$thornToHelpStr = F2(
 var author$project$Thorns$Update$update = F2(
 	function (msg, model) {
 		switch (msg.$) {
-			case 0:
+			case 'Noop':
 				return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-			case 1:
+			case 'NewRandomIntsAddToPool':
 				var lints = msg.a;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{
-							cQ: _Utils_ap(model.cQ, lints)
+							pseudoRandomIntsPool: _Utils_ap(model.pseudoRandomIntsPool, lints)
 						}),
 					elm$core$Platform$Cmd$none);
-			case 2:
+			case 'NewRandomIntsAddToPoolAndInitializeGrid':
 				var lints = msg.a;
 				return A2(
 					author$project$Thorns$Update$update,
@@ -13627,20 +13647,20 @@ var author$project$Thorns$Update$update = F2(
 					_Utils_update(
 						model,
 						{
-							cQ: _Utils_ap(model.cQ, lints)
+							pseudoRandomIntsPool: _Utils_ap(model.pseudoRandomIntsPool, lints)
 						}));
-			case 3:
+			case 'SetOpponent':
 				var opponent = msg.a;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{
-							a_: false,
-							cO: elm$core$Maybe$Just(
+							interactionHasFinished: false,
+							opponent: elm$core$Maybe$Just(
 								author$project$Thorns$Types$FightingCharacter(opponent))
 						}),
 					elm$core$Platform$Cmd$none);
-			case 4:
+			case 'SetOpponentAndPlayerAndInitializeGrid':
 				var opponent = msg.a;
 				var player = msg.b;
 				return A2(
@@ -13649,12 +13669,12 @@ var author$project$Thorns$Update$update = F2(
 					_Utils_update(
 						model,
 						{
-							a_: false,
-							cO: elm$core$Maybe$Just(
+							interactionHasFinished: false,
+							opponent: elm$core$Maybe$Just(
 								author$project$Thorns$Types$FightingCharacter(opponent)),
-							o: player
+							player: player
 						}));
-			case 6:
+			case 'MouseOver':
 				var rownr = msg.a;
 				var colnr = msg.b;
 				var thorn = A2(
@@ -13663,7 +13683,7 @@ var author$project$Thorns$Update$update = F2(
 					A2(
 						author$project$Grid$get,
 						A2(author$project$Grid$Coordinate, colnr, rownr),
-						model.bu));
+						model.gridInteractionOptions));
 				var rowColStr = elm$core$String$fromInt(rownr) + (' , ' + elm$core$String$fromInt(colnr));
 				var currentSegment = A2(
 					elm$core$Maybe$withDefault,
@@ -13671,60 +13691,61 @@ var author$project$Thorns$Update$update = F2(
 					A2(
 						author$project$Thorns$ThornGrid$findSegment,
 						A2(author$project$Grid$Coordinate, colnr, rownr),
-						model.bu));
+						model.gridInteractionOptions));
 				var segmentLength = elm$core$List$length(currentSegment);
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{
-							bk: currentSegment,
-							bv: A2(author$project$Thorns$Update$thornToHelpStr, thorn, segmentLength)
+							currentSegment: currentSegment,
+							helpStr: A2(author$project$Thorns$Update$thornToHelpStr, thorn, segmentLength)
 						}),
 					elm$core$Platform$Cmd$none);
-			case 7:
+			case 'MouseOut':
 				var rownr = msg.a;
 				var colnr = msg.b;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{bk: _List_Nil, bv: elm$core$Maybe$Nothing}),
+						{currentSegment: _List_Nil, helpStr: elm$core$Maybe$Nothing}),
 					elm$core$Platform$Cmd$none);
-			case 5:
+			case 'DoActivate':
 				var rownr = msg.a;
 				var colnr = msg.b;
-				var _n1 = model.cO;
-				if (_n1.$ === 1) {
+				var _n1 = model.opponent;
+				if (_n1.$ === 'Nothing') {
 					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 				} else {
-					if (_n1.a.$ === 1) {
+					if (_n1.a.$ === 'Ochar') {
 						var opp = _n1.a.a;
 						return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 					} else {
 						var opponent = _n1.a.a;
-						var previous_grid = model.bu;
+						var previous_grid = model.gridInteractionOptions;
 						var coords = A2(author$project$Grid$Coordinate, colnr, rownr);
-						var mbSegment = A2(author$project$Thorns$ThornGrid$findSegment, coords, model.bu);
-						var info_rec = A5(author$project$Thorns$OpponentInteraction$do_activate_and_calc_opponents, coords, mbSegment, model.bu, model.o, opponent);
-						var interactionHasFinished_ = (info_rec.o.M <= 0) || ((info_rec.cO.M <= 0) || (_Utils_cmp(info_rec.cO.N, info_rec.cO.O) > -1));
+						var mbSegment = A2(author$project$Thorns$ThornGrid$findSegment, coords, model.gridInteractionOptions);
+						var info_rec = A5(author$project$Thorns$OpponentInteraction$do_activate_and_calc_opponents, coords, mbSegment, model.gridInteractionOptions, model.player, opponent);
+						var interactionHasFinished_ = (info_rec.player.health <= 0) || ((info_rec.opponent.health <= 0) || (_Utils_cmp(info_rec.opponent.indexOfLight, info_rec.opponent.indexOfLightMax) > -1));
 						var _n2 = A2(
 							author$project$Thorns$ThornGrid$checkSegments,
-							info_rec.o,
+							info_rec.player,
 							A2(
 								author$project$Thorns$ThornGrid$fall,
-								_Utils_Tuple2(info_rec.aZ, model.cQ),
-								info_rec.o));
+								_Utils_Tuple2(info_rec.grid, model.pseudoRandomIntsPool),
+								info_rec.player));
 						var newGrid = _n2.a;
 						var newlrands = _n2.b;
 						var newModel = _Utils_update(
 							model,
 							{
-								bk: _List_Nil,
-								bu: newGrid,
-								a_: interactionHasFinished_,
-								cO: elm$core$Maybe$Just(
-									author$project$Thorns$Types$FightingCharacter(info_rec.cO)),
-								o: info_rec.o,
-								cQ: newlrands
+								currentSegment: _List_Nil,
+								gridInteractionOptions: newGrid,
+								helpStr: elm$core$Maybe$Nothing,
+								interactionHasFinished: interactionHasFinished_,
+								opponent: elm$core$Maybe$Just(
+									author$project$Thorns$Types$FightingCharacter(info_rec.opponent)),
+								player: info_rec.player,
+								pseudoRandomIntsPool: newlrands
 							});
 						return _Utils_Tuple2(
 							newModel,
@@ -13732,14 +13753,14 @@ var author$project$Thorns$Update$update = F2(
 					}
 				}
 			default:
-				var lrandints = model.cQ;
-				var gridInteractionOptions = model.bu;
-				var _n3 = A3(author$project$Thorns$ThornGrid$randomizeGrid, gridInteractionOptions, lrandints, model.o);
+				var lrandints = model.pseudoRandomIntsPool;
+				var gridInteractionOptions = model.gridInteractionOptions;
+				var _n3 = A3(author$project$Thorns$ThornGrid$randomizeGrid, gridInteractionOptions, lrandints, model.player);
 				var newGrid = _n3.a;
 				var newlrandints = _n3.b;
 				var newModel = _Utils_update(
 					model,
-					{bu: newGrid, cQ: newlrandints});
+					{gridInteractionOptions: newGrid, helpStr: elm$core$Maybe$Nothing, pseudoRandomIntsPool: newlrandints});
 				return _Utils_Tuple2(
 					newModel,
 					A2(author$project$Thorns$Update$cmdFillRandomIntsPool, false, newModel));
@@ -13751,83 +13772,83 @@ var author$project$GameUpdate$update = F2(
 		update:
 		while (true) {
 			switch (msg.$) {
-				case 0:
+				case 'Noop':
 					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-				case 15:
+				case 'ThornsMsg':
 					var tmsg = msg.a;
-					var _n1 = A2(author$project$Thorns$Update$update, tmsg, model.ci);
+					var _n1 = A2(author$project$Thorns$Update$update, tmsg, model.gameOfThornsModel);
 					var newThornsModel = _n1.a;
 					var thorns_cmds = _n1.b;
 					var newModel = function () {
-						if (newThornsModel.a_) {
+						if (newThornsModel.interactionHasFinished) {
 							var _n2 = function () {
-								var _n3 = newThornsModel.cO;
-								if (!_n3.$) {
-									if (!_n3.a.$) {
+								var _n3 = newThornsModel.opponent;
+								if (_n3.$ === 'Just') {
+									if (_n3.a.$ === 'FightingCharacter') {
 										var erec = _n3.a.a;
 										return _Utils_Tuple3(
 											A3(
 												elm$core$Dict$update,
-												erec.aC,
+												erec.id,
 												function (_n4) {
 													return elm$core$Maybe$Just(erec);
 												},
-												model.l),
-											model.y,
-											newThornsModel.o);
+												model.fightingCharacters),
+											model.otherCharacters,
+											newThornsModel.player);
 									} else {
 										var orec = _n3.a.a;
 										return _Utils_Tuple3(
-											model.l,
+											model.fightingCharacters,
 											A3(
 												elm$core$Dict$update,
-												orec.aC,
+												orec.id,
 												function (_n5) {
 													return elm$core$Maybe$Just(orec);
 												},
-												model.y),
-											newThornsModel.o);
+												model.otherCharacters),
+											newThornsModel.player);
 									}
 								} else {
-									return _Utils_Tuple3(model.l, model.y, model.o);
+									return _Utils_Tuple3(model.fightingCharacters, model.otherCharacters, model.player);
 								}
 							}();
 							var updatedFightCharacters = _n2.a;
 							var newOtherCharacters = _n2.b;
 							var newPlayer = _n2.c;
-							var newDisplay = ((model.b7 === 3) && (!newThornsModel.a_)) ? 3 : (((model.b7 === 3) && newThornsModel.a_) ? ((newPlayer.M <= 0) ? 1 : 0) : model.b7);
+							var newDisplay = (_Utils_eq(model.currentDisplay, author$project$GameModel$DisplayGameOfThorns) && (!newThornsModel.interactionHasFinished)) ? author$project$GameModel$DisplayGameOfThorns : ((_Utils_eq(model.currentDisplay, author$project$GameModel$DisplayGameOfThorns) && newThornsModel.interactionHasFinished) ? ((newPlayer.health <= 0) ? author$project$GameModel$DisplayGameOver : author$project$GameModel$DisplayRegularGame) : model.currentDisplay);
 							return author$project$GameUpdate$cleanup(
 								_Utils_update(
 									model,
-									{b7: newDisplay, l: updatedFightCharacters, ci: newThornsModel, cC: true, y: newOtherCharacters, o: newPlayer}));
+									{currentDisplay: newDisplay, fightingCharacters: updatedFightCharacters, gameOfThornsModel: newThornsModel, listeningToKeyInput: true, otherCharacters: newOtherCharacters, player: newPlayer}));
 						} else {
 							return _Utils_update(
 								model,
-								{ci: newThornsModel});
+								{gameOfThornsModel: newThornsModel});
 						}
 					}();
 					return _Utils_Tuple2(
 						newModel,
 						A2(elm$core$Platform$Cmd$map, author$project$GameUpdate$ThornsMsg, thorns_cmds));
-				case 1:
+				case 'StartGameNr':
 					var nr = msg.a;
 					var floorGridCoordinates = function (floorId) {
-						return _Utils_eq(floorId, model.b8) ? author$project$Grid$toCoordinates(model.cy) : A2(
+						return _Utils_eq(floorId, model.currentFloorId) ? author$project$Grid$toCoordinates(model.level) : A2(
 							elm$core$Maybe$withDefault,
 							_List_Nil,
 							A2(
 								elm$core$Maybe$map,
 								function (g) {
-									return author$project$Grid$toCoordinates(g.cy);
+									return author$project$Grid$toCoordinates(g.level);
 								},
-								A2(elm$core$Dict$get, floorId, model.aY)));
+								A2(elm$core$Dict$get, floorId, model.floorDict)));
 					};
 					var _n6 = function () {
 						switch (nr) {
 							case 1:
-								return author$project$GameDefinitions$Game1$Game1Definitions$initialModelFunc(model.co);
+								return author$project$GameDefinitions$Game1$Game1Definitions$initialModelFunc(model.imgBaseDir);
 							case 2:
-								return A2(author$project$GameDefinitions$Game2$Game2Definitions$initialModelFunc, model.cQ, model.co);
+								return A2(author$project$GameDefinitions$Game2$Game2Definitions$initialModelFunc, model.pseudoRandomIntsPool, model.imgBaseDir);
 							default:
 								return _Utils_Tuple3(model, false, false);
 						}
@@ -13835,20 +13856,20 @@ var author$project$GameUpdate$update = F2(
 					var initModel = _n6.a;
 					var createRandomMap = _n6.b;
 					var randomlyPositionPlayer = _n6.c;
-					var gBounds = author$project$Grid$getGridBoundsToPlacePlayer(initModel.cy);
+					var gBounds = author$project$Grid$getGridBoundsToPlacePlayer(initModel.level);
 					return _Utils_Tuple2(
-						author$project$GameUpdate$position_display_anchor_in_order_to_center_player(initModel),
+						author$project$GameUpdate$position_viewport_in_order_to_center_player(initModel),
 						elm$core$Platform$Cmd$batch(
 							_Utils_ap(
 								_List_fromArray(
 									[
 										createRandomMap ? author$project$GameUpdate$cmdFillRandomIntsPoolAndGenerateRandomMap(initModel) : author$project$GameUpdate$cmdFillRandomIntsPool(initModel),
 										A4(author$project$GameUpdate$cmdGenerateRandomInitiativeValue, 'player', elm$core$Maybe$Nothing, 1, 100),
-										randomlyPositionPlayer ? A5(author$project$GameUpdate$cmdGetRandomPositionedPlayer, initModel.o, gBounds.bD, gBounds.bB, gBounds.bE, gBounds.bC) : elm$core$Platform$Cmd$none,
+										randomlyPositionPlayer ? A5(author$project$GameUpdate$cmdGetRandomPositionedPlayer, initModel.player, gBounds.minX, gBounds.maxX, gBounds.minY, gBounds.maxY) : elm$core$Platform$Cmd$none,
 										A2(
 										elm$core$Platform$Cmd$map,
 										author$project$GameUpdate$ThornsMsg,
-										A2(author$project$Thorns$Update$cmdFillRandomIntsPool, true, initModel.ci))
+										A2(author$project$Thorns$Update$cmdFillRandomIntsPool, true, initModel.gameOfThornsModel))
 									]),
 								_Utils_ap(
 									elm$core$Dict$values(
@@ -13861,9 +13882,9 @@ var author$project$GameUpdate$update = F2(
 														fightingCharacter,
 														fcharId,
 														elm$core$List$length(
-															floorGridCoordinates(fightingCharacter.az)));
+															floorGridCoordinates(fightingCharacter.floorId)));
 												}),
-											initModel.l)),
+											initModel.fightingCharacters)),
 									elm$core$Dict$values(
 										A2(
 											elm$core$Dict$map,
@@ -13876,124 +13897,126 @@ var author$project$GameUpdate$update = F2(
 														1,
 														100);
 												}),
-											initModel.l))))));
-				case 2:
+											initModel.fightingCharacters))))));
+				case 'KeyDown':
 					var input = msg.a;
-					if (!model.cC) {
+					if (!model.listeningToKeyInput) {
 						return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 					} else {
-						switch (input) {
-							case 0:
+						switch (input.$) {
+							case 'Up':
 								var $temp$msg = author$project$GameUpdate$TryShiftPlayerPosition(
 									_Utils_Tuple2(0, 0 - 1)),
 									$temp$model = model;
 								msg = $temp$msg;
 								model = $temp$model;
 								continue update;
-							case 1:
+							case 'Down':
 								var $temp$msg = author$project$GameUpdate$TryShiftPlayerPosition(
 									_Utils_Tuple2(0, 0 + 1)),
 									$temp$model = model;
 								msg = $temp$msg;
 								model = $temp$model;
 								continue update;
-							case 2:
+							case 'Left':
 								var $temp$msg = author$project$GameUpdate$TryShiftPlayerPosition(
 									_Utils_Tuple2(0 - 1, 0)),
 									$temp$model = model;
 								msg = $temp$msg;
 								model = $temp$model;
 								continue update;
-							case 3:
+							case 'Right':
 								var $temp$msg = author$project$GameUpdate$TryShiftPlayerPosition(
 									_Utils_Tuple2(0 + 1, 0)),
 									$temp$model = model;
 								msg = $temp$msg;
 								model = $temp$model;
 								continue update;
-							case 4:
+							case 'PickUpItem':
 								var $temp$msg = author$project$GameUpdate$TryAddToPlayerInventory,
 									$temp$model = model;
 								msg = $temp$msg;
 								model = $temp$model;
 								continue update;
-							case 6:
+							case 'ViewStatsOverlay':
 								return _Utils_Tuple2(
 									_Utils_update(
 										model,
-										{cb: !model.cb}),
+										{displayStatsOverlay: !model.displayStatsOverlay}),
 									elm$core$Platform$Cmd$none);
-							case 8:
-								return _Utils_Tuple2(
-									_Utils_update(
-										model,
-										{
-											b7: (model.b7 === 5) ? 0 : 5
-										}),
-									elm$core$Platform$Cmd$none);
-							case 7:
+							case 'ViewHelpMode':
 								return _Utils_Tuple2(
 									_Utils_update(
 										model,
 										{
-											b7: (model.b7 === 4) ? 0 : 4
+											currentDisplay: _Utils_eq(model.currentDisplay, author$project$GameModel$DisplayHelpScreen) ? author$project$GameModel$DisplayRegularGame : author$project$GameModel$DisplayHelpScreen
 										}),
 									elm$core$Platform$Cmd$none);
-							case 5:
+							case 'ViewOpponentReport':
 								return _Utils_Tuple2(
 									_Utils_update(
 										model,
 										{
-											b7: (model.b7 === 6) ? 0 : 6
+											currentDisplay: _Utils_eq(model.currentDisplay, author$project$GameModel$DisplayOpponentReport) ? author$project$GameModel$DisplayRegularGame : author$project$GameModel$DisplayOpponentReport
 										}),
 									elm$core$Platform$Cmd$none);
+							case 'ViewInventory':
+								return _Utils_Tuple2(
+									_Utils_update(
+										model,
+										{
+											currentDisplay: _Utils_eq(model.currentDisplay, author$project$GameModel$DisplayInventory) ? author$project$GameModel$DisplayRegularGame : author$project$GameModel$DisplayInventory
+										}),
+									elm$core$Platform$Cmd$none);
+							case 'ViewMap':
+								return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 							default:
 								return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 						}
 					}
-				case 3:
-					var player_ = model.o;
-					var pcoords = model.o.R;
+				case 'TryAddToPlayerInventory':
+					var player_ = model.player;
+					var pcoords = model.player.location;
 					var _n9 = function () {
-						var _n10 = A2(author$project$Grid$get, pcoords, model.cy);
-						if ((!_n10.$) && (!_n10.a.$)) {
+						var _n10 = A2(author$project$Grid$get, pcoords, model.level);
+						if ((_n10.$ === 'Just') && (_n10.a.$ === 'Floor')) {
 							var floorinfo = _n10.a.a;
-							var _n11 = floorinfo.by;
-							if (!_n11.$) {
+							var _n11 = floorinfo.item;
+							if (_n11.$ === 'Just') {
 								var item = _n11.a;
 								switch (item.$) {
-									case 6:
+									case 'Paper':
 										var paperinfo = item.a;
 										return _Utils_Tuple3(
 											A3(
 												elm$core$Dict$update,
-												'paper_' + elm$core$String$fromInt(paperinfo.aC),
+												'paper_' + elm$core$String$fromInt(paperinfo.id),
 												function (_n13) {
 													return elm$core$Maybe$Just(item);
 												},
-												model.o.Q),
+												model.player.inventory),
 											A3(
 												author$project$Grid$set,
 												pcoords,
 												author$project$Tile$Floor(
 													_Utils_update(
 														floorinfo,
-														{by: elm$core$Maybe$Nothing})),
-												model.cy),
-											model.o.M);
-									case 7:
+														{item: elm$core$Maybe$Nothing})),
+												model.level),
+											model.player.health);
+									case 'Food':
 										var fdescription = item.a;
 										return _Utils_Tuple3(
-											model.o.Q,
+											model.player.inventory,
 											A3(
 												author$project$Grid$set,
 												pcoords,
 												author$project$Tile$Floor(
 													_Utils_update(
 														floorinfo,
-														{by: elm$core$Maybe$Nothing})),
-												model.cy),
-											model.o.M + 4);
+														{item: elm$core$Maybe$Nothing})),
+												model.level),
+											model.player.health + 4);
 									default:
 										return _Utils_Tuple3(
 											A3(
@@ -14002,22 +14025,22 @@ var author$project$GameUpdate$update = F2(
 												function (_n14) {
 													return elm$core$Maybe$Just(item);
 												},
-												model.o.Q),
+												model.player.inventory),
 											A3(
 												author$project$Grid$set,
 												pcoords,
 												author$project$Tile$Floor(
 													_Utils_update(
 														floorinfo,
-														{by: elm$core$Maybe$Nothing})),
-												model.cy),
-											model.o.M);
+														{item: elm$core$Maybe$Nothing})),
+												model.level),
+											model.player.health);
 								}
 							} else {
-								return _Utils_Tuple3(model.o.Q, model.cy, model.o.M);
+								return _Utils_Tuple3(model.player.inventory, model.level, model.player.health);
 							}
 						} else {
-							return _Utils_Tuple3(model.o.Q, model.cy, model.o.M);
+							return _Utils_Tuple3(model.player.inventory, model.level, model.player.health);
 						}
 					}();
 					var updatedInventory = _n9.a;
@@ -14025,20 +14048,20 @@ var author$project$GameUpdate$update = F2(
 					var newHealth = _n9.c;
 					var newPlayer = _Utils_update(
 						player_,
-						{M: newHealth, Q: updatedInventory});
+						{health: newHealth, inventory: updatedInventory});
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
-							{cy: newGrid, o: newPlayer}),
+							{level: newGrid, player: newPlayer}),
 						elm$core$Platform$Cmd$none);
-				case 4:
+				case 'TryShiftPlayerPosition':
 					var shiftTuple = msg.a;
 					var y_ = shiftTuple.b;
 					var x_ = shiftTuple.a;
-					var player = model.o;
-					var _n15 = player.R;
-					var x = _n15.bd;
-					var y = _n15.be;
+					var player = model.player;
+					var _n15 = player.location;
+					var x = _n15.x;
+					var y = _n15.y;
 					var _n16 = _Utils_Tuple2(x + x_, y + y_);
 					var x2 = _n16.a;
 					var y2 = _n16.b;
@@ -14048,11 +14071,11 @@ var author$project$GameUpdate$update = F2(
 								elm$core$Dict$filter,
 								F2(
 									function (fcharId, fightingCharacter) {
-										return _Utils_eq(fightingCharacter.az, model.b8) && _Utils_eq(
-											fightingCharacter.R,
+										return _Utils_eq(fightingCharacter.floorId, model.currentFloorId) && _Utils_eq(
+											fightingCharacter.location,
 											A2(author$project$GameModel$location, x2, y2));
 									}),
-								model.l));
+								model.fightingCharacters));
 						if (!_n22.b) {
 							return elm$core$Maybe$Nothing;
 						} else {
@@ -14065,10 +14088,10 @@ var author$project$GameUpdate$update = F2(
 						var _n19 = A2(
 							author$project$Grid$get,
 							A2(author$project$GameModel$location, x2, y2),
-							model.cy);
-						if ((!_n19.$) && (_n19.a.$ === 6)) {
+							model.level);
+						if ((_n19.$ === 'Just') && (_n19.a.$ === 'Lever')) {
 							var leverinfo = _n19.a.a;
-							return leverinfo.cv ? model : function (xmodel) {
+							return leverinfo.isUp ? model : function (xmodel) {
 								return A3(
 									elm$core$List$foldl,
 									F2(
@@ -14079,38 +14102,38 @@ var author$project$GameUpdate$update = F2(
 												modacc);
 										}),
 									xmodel,
-									A2(author$project$GameUpdate$getModelChangerFuncs, leverinfo.cz, model));
+									A2(author$project$GameUpdate$getModelChangerFuncs, leverinfo.leverId, model));
 							}(
 								_Utils_update(
 									model,
 									{
-										cy: A3(
+										level: A3(
 											author$project$Grid$set,
 											A2(author$project$GameModel$location, x2, y2),
 											author$project$Tile$Lever(
 												_Utils_update(
 													leverinfo,
-													{cv: true})),
-											model.cy)
+													{isUp: true})),
+											model.level)
 									}));
 						} else {
 							return function (model_) {
 								var _n20 = A2(
 									author$project$Grid$get,
 									A2(author$project$GameModel$location, x2, y2),
-									model_.cy);
-								if ((!_n20.$) && (_n20.a.$ === 12)) {
+									model_.level);
+								if ((_n20.$ === 'Just') && (_n20.a.$ === 'ConverterTile')) {
 									var _n21 = _n20.a;
 									var initialTile = _n21.a;
 									var newTile = _n21.b;
 									return _Utils_update(
 										model_,
 										{
-											cy: A3(
+											level: A3(
 												author$project$Grid$set,
 												A2(author$project$GameModel$location, x2, y2),
 												newTile,
-												model_.cy)
+												model_.level)
 										});
 								} else {
 									return model_;
@@ -14119,23 +14142,23 @@ var author$project$GameUpdate$update = F2(
 						}
 					}();
 					var _n17 = function () {
-						if (!mbFightChar.$) {
+						if (mbFightChar.$ === 'Just') {
 							var fightingCharacter = mbFightChar.a;
-							return ((fightingCharacter.M > 0) && ((_Utils_cmp(fightingCharacter.N, fightingCharacter.O) < 0) && (newModel.o.M > 0))) ? _Utils_Tuple2(
+							return ((fightingCharacter.health > 0) && ((_Utils_cmp(fightingCharacter.indexOfLight, fightingCharacter.indexOfLightMax) < 0) && (newModel.player.health > 0))) ? _Utils_Tuple2(
 								newModel,
-								author$project$GameUpdate$StartOpponentInteraction(fightingCharacter)) : (((fightingCharacter.M <= 0) && (fightingCharacter.aG && (x_ || y_))) ? _Utils_Tuple2(
+								author$project$GameUpdate$StartOpponentInteraction(fightingCharacter)) : (((fightingCharacter.health <= 0) && (fightingCharacter.playerCanWalkOverIfDead && (x_ || y_))) ? _Utils_Tuple2(
 								author$project$GameUpdate$checkAndAlterDisplayAnchorIfNecessary(
 									author$project$GameUpdate$openDoorIfPlayerStandingOnDoorAndClosed(
 										author$project$GameUpdate$checkIfPlayerStandingOnStairsOrHoleAndMoveToNewFloor(
 											_Utils_update(
 												newModel,
 												{
-													o: A4(
+													player: A4(
 														author$project$GameUpdate$move,
 														_Utils_Tuple2(x_, y_),
-														newModel.cy,
+														newModel.level,
 														author$project$Beings$BeingsInTileGrid$isGridTileWalkable,
-														newModel.o)
+														newModel.player)
 												})))),
 								author$project$GameUpdate$CleanUpAndFightingCharacterLogic) : _Utils_Tuple2(newModel, author$project$GameUpdate$CleanUpAndFightingCharacterLogic));
 						} else {
@@ -14146,12 +14169,12 @@ var author$project$GameUpdate$update = F2(
 											_Utils_update(
 												newModel,
 												{
-													o: A4(
+													player: A4(
 														author$project$GameUpdate$move,
 														_Utils_Tuple2(x_, y_),
-														newModel.cy,
+														newModel.level,
 														author$project$Beings$BeingsInTileGrid$isGridTileWalkable,
-														newModel.o)
+														newModel.player)
 												})))),
 								author$project$GameUpdate$CleanUpAndFightingCharacterLogic) : _Utils_Tuple2(newModel, author$project$GameUpdate$CleanUpAndFightingCharacterLogic);
 						}
@@ -14163,15 +14186,15 @@ var author$project$GameUpdate$update = F2(
 					msg = $temp$msg;
 					model = $temp$model;
 					continue update;
-				case 5:
+				case 'CleanUpAndFightingCharacterLogic':
 					var isGameCompleted = author$project$GameUpdate$checkGameCompletion(model);
 					var _n23 = function (_n24) {
 						var modl = _n24.a;
 						var le = _n24.b;
-						return (modl.b7 === 1) ? _Utils_Tuple2(
+						return _Utils_eq(modl.currentDisplay, author$project$GameModel$DisplayGameOver) ? _Utils_Tuple2(
 							_Utils_update(
 								modl,
-								{cC: false}),
+								{listeningToKeyInput: false}),
 							le) : _Utils_Tuple2(modl, le);
 					}(
 						author$project$GameUpdate$fightingCharacter_AI(
@@ -14183,13 +14206,14 @@ var author$project$GameUpdate$update = F2(
 					var lfightingCharacters = _n23.b;
 					if (isGameCompleted) {
 						return _Utils_Tuple2(
-							_Utils_update(
-								newModel,
-								{b7: 2, l: elm$core$Dict$empty, y: elm$core$Dict$empty}),
+							author$project$GameUpdate$reveal(
+								_Utils_update(
+									newModel,
+									{currentDisplay: author$project$GameModel$DisplayGameCompleted, fightingCharacters: elm$core$Dict$empty, otherCharacters: elm$core$Dict$empty})),
 							elm$core$Platform$Cmd$none);
 					} else {
 						var _n25 = elm$core$List$head(lfightingCharacters);
-						if (!_n25.$) {
+						if (_n25.$ === 'Just') {
 							var fightingCharacter_ = _n25.a;
 							var $temp$msg = author$project$GameUpdate$StartOpponentInteraction(fightingCharacter_),
 								$temp$model = newModel;
@@ -14202,17 +14226,17 @@ var author$project$GameUpdate$update = F2(
 								author$project$GameUpdate$cmdFillRandomIntsPool(newModel));
 						}
 					}
-				case 6:
+				case 'StartOpponentInteraction':
 					var fightingCharacter = msg.a;
 					var _n26 = A2(
 						author$project$Thorns$Update$update,
-						A2(author$project$Thorns$Types$SetOpponentAndPlayerAndInitializeGrid, fightingCharacter, model.o),
-						model.ci);
+						A2(author$project$Thorns$Types$SetOpponentAndPlayerAndInitializeGrid, fightingCharacter, model.player),
+						model.gameOfThornsModel);
 					var newThornsModel = _n26.a;
 					var thornsCmd = _n26.b;
 					var newModel = _Utils_update(
 						model,
-						{b7: 3, ci: newThornsModel, cC: false});
+						{currentDisplay: author$project$GameModel$DisplayGameOfThorns, gameOfThornsModel: newThornsModel, listeningToKeyInput: false});
 					var newModel_after_cleanup = author$project$GameUpdate$reveal(
 						author$project$GameUpdate$cleanup(newModel));
 					return _Utils_Tuple2(
@@ -14223,35 +14247,35 @@ var author$project$GameUpdate$update = F2(
 									author$project$GameUpdate$cmdFillRandomIntsPool(newModel_after_cleanup),
 									A2(elm$core$Platform$Cmd$map, author$project$GameUpdate$ThornsMsg, thornsCmd)
 								])));
-				case 7:
+				case 'ChangeFloorTo':
 					var floorId = msg.a;
 					var locTuple = msg.b;
 					var newModel = A3(author$project$GameUpdate$changeFloorTo, model, floorId, locTuple);
 					return _Utils_Tuple2(newModel, elm$core$Platform$Cmd$none);
-				case 8:
+				case 'NewRandomPointToPlacePlayer':
 					var tupPosition = msg.a;
-					var oldPlayer = model.o;
+					var oldPlayer = model.player;
 					var newLocation = A2(author$project$GameModel$location, tupPosition.a, tupPosition.b);
 					var newPlayer = _Utils_update(
 						oldPlayer,
-						{R: newLocation, W: true});
-					var gridBounds = author$project$Grid$getGridBoundsToPlacePlayer(model.cy);
-					var _n27 = A3(author$project$Beings$BeingsInTileGrid$isGridTileWalkable, newLocation, newPlayer, model.cy);
+						{location: newLocation, placed: true});
+					var gridBounds = author$project$Grid$getGridBoundsToPlacePlayer(model.level);
+					var _n27 = A3(author$project$Beings$BeingsInTileGrid$isGridTileWalkable, newLocation, newPlayer, model.level);
 					if (_n27) {
 						return _Utils_Tuple2(
 							author$project$GameUpdate$reveal(
 								_Utils_update(
 									model,
 									{
-										o: newPlayer,
-										de: A2(
+										player: newPlayer,
+										viewport_topleft_x: A2(
 											elm$core$Basics$max,
 											0,
-											newLocation.bd - elm$core$Basics$round(model.dl / 2.0)),
-										df: A2(
+											newLocation.x - elm$core$Basics$round(model.window_width / 2.0)),
+										viewport_topleft_y: A2(
 											elm$core$Basics$max,
 											0,
-											newLocation.be - elm$core$Basics$round(model.dk / 2))
+											newLocation.y - elm$core$Basics$round(model.window_height / 2))
 									})),
 							elm$core$Platform$Cmd$none);
 					} else {
@@ -14261,27 +14285,27 @@ var author$project$GameUpdate$update = F2(
 								author$project$GameUpdate$cmdGetRandomPositionedPlayer,
 								_Utils_update(
 									oldPlayer,
-									{W: false}),
-								gridBounds.bD,
-								gridBounds.bB,
-								gridBounds.bE,
-								gridBounds.bC));
+									{placed: false}),
+								gridBounds.minX,
+								gridBounds.maxX,
+								gridBounds.minY,
+								gridBounds.maxY));
 					}
-				case 9:
+				case 'NewGridCoordinatesIndexToPlaceFightingCharacter':
 					var fcharId = msg.a;
 					var idxPosition = msg.b;
-					var mbActualFightChar = A2(elm$core$Dict$get, fcharId, model.l);
+					var mbActualFightChar = A2(elm$core$Dict$get, fcharId, model.fightingCharacters);
 					var mbFloorGrid = function () {
-						if (mbActualFightChar.$ === 1) {
+						if (mbActualFightChar.$ === 'Nothing') {
 							return elm$core$Maybe$Nothing;
 						} else {
 							var fchar = mbActualFightChar.a;
-							return _Utils_eq(fchar.az, model.b8) ? elm$core$Maybe$Just(model.cy) : A2(
+							return _Utils_eq(fchar.floorId, model.currentFloorId) ? elm$core$Maybe$Just(model.level) : A2(
 								elm$core$Maybe$map,
 								function ($) {
-									return $.cy;
+									return $.level;
 								},
-								A2(elm$core$Dict$get, fchar.az, model.aY));
+								A2(elm$core$Dict$get, fchar.floorId, model.floorDict));
 						}
 					}();
 					var gridCoordinates = A2(
@@ -14299,7 +14323,7 @@ var author$project$GameUpdate$update = F2(
 							A2(
 								author$project$GameUpdate$NewRandomPointToPlaceFightingCharacter,
 								fcharId,
-								_Utils_Tuple2(coords.bd, coords.be)),
+								_Utils_Tuple2(coords.x, coords.y)),
 							model);
 					}(
 						A2(
@@ -14307,22 +14331,22 @@ var author$project$GameUpdate$update = F2(
 							A2(author$project$Grid$Coordinate, 1, 1),
 							elm$core$List$head(
 								A2(elm$core$List$drop, idxPosition, gridCoordinates))));
-				case 10:
+				case 'NewRandomPointToPlaceFightingCharacter':
 					var fcharId = msg.a;
 					var tupPosition = msg.b;
 					var newLocation = A2(author$project$GameModel$location, tupPosition.a, tupPosition.b);
-					var mbActualFightChar = A2(elm$core$Dict$get, fcharId, model.l);
+					var mbActualFightChar = A2(elm$core$Dict$get, fcharId, model.fightingCharacters);
 					var mbFloorGrid = function () {
-						if (mbActualFightChar.$ === 1) {
+						if (mbActualFightChar.$ === 'Nothing') {
 							return elm$core$Maybe$Nothing;
 						} else {
 							var fchar = mbActualFightChar.a;
-							return _Utils_eq(fchar.az, model.b8) ? elm$core$Maybe$Just(model.cy) : A2(
+							return _Utils_eq(fchar.floorId, model.currentFloorId) ? elm$core$Maybe$Just(model.level) : A2(
 								elm$core$Maybe$map,
 								function ($) {
-									return $.cy;
+									return $.level;
 								},
-								A2(elm$core$Dict$get, fchar.az, model.aY));
+								A2(elm$core$Dict$get, fchar.floorId, model.floorDict));
 						}
 					}();
 					var gridCoordinates = A2(
@@ -14335,7 +14359,7 @@ var author$project$GameUpdate$update = F2(
 							},
 							mbFloorGrid));
 					var _n29 = _Utils_Tuple2(mbActualFightChar, mbFloorGrid);
-					if ((!_n29.a.$) && (!_n29.b.$)) {
+					if ((_n29.a.$ === 'Just') && (_n29.b.$ === 'Just')) {
 						var actualFightChar = _n29.a.a;
 						var actualFloorGrid = _n29.b.a;
 						var _n30 = A3(author$project$Beings$BeingsInTileGrid$isGridTileWalkable, newLocation, actualFightChar, actualFloorGrid);
@@ -14344,7 +14368,7 @@ var author$project$GameUpdate$update = F2(
 								_Utils_update(
 									model,
 									{
-										l: A3(author$project$GameModel$placeExistingFightingCharacter, fcharId, newLocation, model.l)
+										fightingCharacters: A3(author$project$GameModel$placeExistingFightingCharacter, fcharId, newLocation, model.fightingCharacters)
 									}),
 								elm$core$Platform$Cmd$none);
 						} else {
@@ -14359,31 +14383,31 @@ var author$project$GameUpdate$update = F2(
 					} else {
 						return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 					}
-				case 11:
+				case 'NewRandomFloatsForGenCave':
 					var lfloats = msg.a;
-					var theSize = model.cy.cY;
+					var theSize = model.level.size;
 					var newGrid = A2(
 						author$project$MapGen$randomCave,
-						_Utils_Tuple2(theSize.dj, theSize.ck),
+						_Utils_Tuple2(theSize.width, theSize.height),
 						lfloats);
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
-							{cy: newGrid}),
+							{level: newGrid}),
 						elm$core$Platform$Cmd$none);
-				case 12:
+				case 'RandomInitiativeValue':
 					var strCharacter = msg.a;
 					var mbCharacterId = msg.b;
 					var intval = msg.c;
 					if (strCharacter === 'player') {
-						var oldPlayer = model.o;
+						var oldPlayer = model.player;
 						var newPlayer = _Utils_update(
 							oldPlayer,
-							{P: intval});
+							{initiative: intval});
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{o: newPlayer}),
+								{player: newPlayer}),
 							elm$core$Platform$Cmd$none);
 					} else {
 						if (strCharacter === 'fightingCharacter') {
@@ -14393,13 +14417,13 @@ var author$project$GameUpdate$update = F2(
 							return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 						}
 					}
-				case 13:
+				case 'NewRandomIntsAddToPool':
 					var lints = msg.a;
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
 							{
-								cQ: _Utils_ap(lints, model.cQ)
+								pseudoRandomIntsPool: _Utils_ap(lints, model.pseudoRandomIntsPool)
 							}),
 						elm$core$Platform$Cmd$none);
 				default:
@@ -14410,39 +14434,39 @@ var author$project$GameUpdate$update = F2(
 						A2(
 							elm$core$Maybe$map,
 							function ($) {
-								return $.cJ;
+								return $.minRoomSize;
 							},
-							model.cV));
+							model.roomsInfo));
 					var maxRoomSize = A2(
 						elm$core$Maybe$withDefault,
 						0,
 						A2(
 							elm$core$Maybe$map,
 							function ($) {
-								return $.cH;
+								return $.maxRoomSize;
 							},
-							model.cV));
+							model.roomsInfo));
 					var maxNrOfRooms = A2(
 						elm$core$Maybe$withDefault,
 						0,
 						A2(
 							elm$core$Maybe$map,
 							function ($) {
-								return $.cG;
+								return $.maxNrOfRooms;
 							},
-							model.cV));
-					var genOutputRecord = A7(author$project$MapGen$randomMapGeneratorWithRooms, model.c5, model.c4, maxNrOfRooms, maxRoomSize, minRoomSize, lints, model.cy);
+							model.roomsInfo));
+					var genOutputRecord = A7(author$project$MapGen$randomMapGeneratorWithRooms, model.total_width, model.total_height, maxNrOfRooms, maxRoomSize, minRoomSize, lints, model.level);
 					var gridAsList = A2(
 						elm$core$List$concatMap,
 						elm$core$Basics$identity,
-						author$project$Grid$toList(genOutputRecord.b0));
+						author$project$Grid$toList(genOutputRecord.tileGrid));
 					var wallPercentage = author$project$GameUpdate$getWallPercentage(gridAsList);
 					var newmodel = _Utils_update(
 						model,
 						{
-							cy: genOutputRecord.b0,
-							cQ: genOutputRecord.da,
-							dh: elm$core$Maybe$Just(wallPercentage)
+							level: genOutputRecord.tileGrid,
+							pseudoRandomIntsPool: genOutputRecord.unusedRandoms,
+							wallPercentage: elm$core$Maybe$Just(wallPercentage)
 						});
 					return _Utils_Tuple2(
 						newmodel,
@@ -14450,67 +14474,81 @@ var author$project$GameUpdate$update = F2(
 			}
 		}
 	});
+var author$project$GameModel$DisplayMap = {$: 'DisplayMap'};
 var author$project$GameModel$getGridTileVisibility = F2(
 	function (location_, gridtiles) {
 		return A2(
 			elm$core$Maybe$withDefault,
-			1,
+			author$project$Tile$Unexplored,
 			A2(
 				elm$core$Maybe$map,
 				author$project$Tile$getTileVisibility,
 				A2(author$project$Grid$get, location_, gridtiles)));
 	});
+var timjs$elm_collage$Collage$Core$Image = F2(
+	function (a, b) {
+		return {$: 'Image', a: a, b: b};
+	});
+var timjs$elm_collage$Collage$Core$collage = function (basic) {
+	return {
+		basic: basic,
+		handlers: _List_Nil,
+		name: elm$core$Maybe$Nothing,
+		opacity: 1,
+		rotation: 0,
+		scale: _Utils_Tuple2(1, 1),
+		shift: _Utils_Tuple2(0, 0)
+	};
+};
+var timjs$elm_collage$Collage$image = function (dims) {
+	return A2(
+		elm$core$Basics$composeL,
+		timjs$elm_collage$Collage$Core$collage,
+		timjs$elm_collage$Collage$Core$Image(dims));
+};
+var author$project$GameView$fightingCharacterView = F6(
+	function (fightChar, showBlood, visibility, tileWidth, tileHeight, imgBaseDir) {
+		var fileStr = (_Utils_cmp(fightChar.indexOfLight, fightChar.indexOfLightMax) > -1) ? (imgBaseDir + ('/characters/' + (elm$core$String$toLower(fightChar.species) + '_enlightened.png'))) : ((fightChar.health > 0) ? (imgBaseDir + ('/characters/' + (elm$core$String$toLower(fightChar.species) + '.png'))) : (((fightChar.health <= 0) && showBlood) ? (imgBaseDir + ('/characters/' + (elm$core$String$toLower(fightChar.species) + '_dead_blood.png'))) : (imgBaseDir + ('/characters/' + (elm$core$String$toLower(fightChar.species) + '_dead.png')))));
+		return A2(
+			timjs$elm_collage$Collage$image,
+			_Utils_Tuple2(tileWidth, tileHeight),
+			fileStr);
+	});
 var the_sett$elm_color$Color$Color = F4(
 	function (red, green, blue, alpha) {
-		return {H: alpha, ae: blue, ah: green, am: red};
+		return {alpha: alpha, blue: blue, green: green, red: red};
 	});
 var the_sett$elm_color$Color$rgba = the_sett$elm_color$Color$Color;
-var the_sett$elm_color$Color$red = A4(the_sett$elm_color$Color$rgba, 204, 0, 0, 1);
-var timjs$elm_collage$Collage$Core$Circle = function (a) {
-	return {$: 3, a: a};
-};
-var timjs$elm_collage$Collage$circle = timjs$elm_collage$Collage$Core$Circle;
 var the_sett$elm_color$Color$black = A4(the_sett$elm_color$Color$rgba, 0, 0, 0, 1);
-var timjs$elm_collage$Collage$Flat = 0;
-var timjs$elm_collage$Collage$Sharp = 1;
+var timjs$elm_collage$Collage$Flat = {$: 'Flat'};
+var timjs$elm_collage$Collage$Sharp = {$: 'Sharp'};
 var timjs$elm_collage$Collage$thin = 2.0;
 var timjs$elm_collage$Collage$Core$Uniform = function (a) {
-	return {$: 1, a: a};
+	return {$: 'Uniform', a: a};
 };
 var timjs$elm_collage$Collage$uniform = timjs$elm_collage$Collage$Core$Uniform;
 var timjs$elm_collage$Collage$defaultLineStyle = {
-	bh: 0,
-	aV: _List_Nil,
-	bm: 0,
-	aX: timjs$elm_collage$Collage$uniform(the_sett$elm_color$Color$black),
-	bz: 1,
-	ba: timjs$elm_collage$Collage$thin
+	cap: timjs$elm_collage$Collage$Flat,
+	dashPattern: _List_Nil,
+	dashPhase: 0,
+	fill: timjs$elm_collage$Collage$uniform(the_sett$elm_color$Color$black),
+	join: timjs$elm_collage$Collage$Sharp,
+	thickness: timjs$elm_collage$Collage$thin
 };
 var timjs$elm_collage$Collage$broken = F3(
 	function (dashes, thickness, fill) {
 		return _Utils_update(
 			timjs$elm_collage$Collage$defaultLineStyle,
-			{aV: dashes, aX: fill, ba: thickness});
+			{dashPattern: dashes, fill: fill, thickness: thickness});
 	});
 var timjs$elm_collage$Collage$solid = timjs$elm_collage$Collage$broken(_List_Nil);
-var timjs$elm_collage$Collage$Core$Transparent = {$: 0};
+var timjs$elm_collage$Collage$Core$Transparent = {$: 'Transparent'};
 var timjs$elm_collage$Collage$transparent = timjs$elm_collage$Collage$Core$Transparent;
 var timjs$elm_collage$Collage$invisible = A2(timjs$elm_collage$Collage$solid, 0, timjs$elm_collage$Collage$transparent);
 var timjs$elm_collage$Collage$Core$Shape = F2(
 	function (a, b) {
-		return {$: 0, a: a, b: b};
+		return {$: 'Shape', a: a, b: b};
 	});
-var timjs$elm_collage$Collage$Core$collage = function (basic) {
-	return {
-		I: basic,
-		cj: _List_Nil,
-		V: elm$core$Maybe$Nothing,
-		cM: 1,
-		bT: 0,
-		bU: _Utils_Tuple2(1, 1),
-		a6: _Utils_Tuple2(0, 0)
-	};
-};
 var timjs$elm_collage$Collage$styled = function (style) {
 	return A2(
 		elm$core$Basics$composeL,
@@ -14521,89 +14559,77 @@ var timjs$elm_collage$Collage$filled = function (fill) {
 	return timjs$elm_collage$Collage$styled(
 		_Utils_Tuple2(fill, timjs$elm_collage$Collage$invisible));
 };
-var author$project$GameView$noForm = A2(
-	timjs$elm_collage$Collage$filled,
-	timjs$elm_collage$Collage$uniform(the_sett$elm_color$Color$red),
-	timjs$elm_collage$Collage$circle(0));
-var author$project$GameView$xScale = 64;
-var author$project$GameView$yScale = 64;
-var timjs$elm_collage$Collage$Core$Image = F2(
-	function (a, b) {
-		return {$: 3, a: a, b: b};
-	});
-var timjs$elm_collage$Collage$image = function (dims) {
-	return A2(
-		elm$core$Basics$composeL,
-		timjs$elm_collage$Collage$Core$collage,
-		timjs$elm_collage$Collage$Core$Image(dims));
-};
-var author$project$GameView$fightingCharacterView = F4(
-	function (fightChar, showBlood, visibility, imgBaseDir) {
-		if (!visibility) {
-			var fileStr = (_Utils_cmp(fightChar.N, fightChar.O) > -1) ? (imgBaseDir + ('/characters/' + (elm$core$String$toLower(fightChar.aQ) + '_enlightened.png'))) : ((fightChar.M > 0) ? (imgBaseDir + ('/characters/' + (elm$core$String$toLower(fightChar.aQ) + '.png'))) : (((fightChar.M <= 0) && showBlood) ? (imgBaseDir + ('/characters/' + (elm$core$String$toLower(fightChar.aQ) + '_dead_blood.png'))) : (imgBaseDir + ('/characters/' + (elm$core$String$toLower(fightChar.aQ) + '_dead.png')))));
-			return A2(
-				timjs$elm_collage$Collage$image,
-				_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
-				fileStr);
-		} else {
-			return author$project$GameView$noForm;
-		}
-	});
 var timjs$elm_collage$Collage$Core$Rectangle = F3(
 	function (a, b, c) {
-		return {$: 1, a: a, b: b, c: c};
+		return {$: 'Rectangle', a: a, b: b, c: c};
 	});
 var timjs$elm_collage$Collage$roundedRectangle = timjs$elm_collage$Collage$Core$Rectangle;
 var timjs$elm_collage$Collage$rectangle = F2(
 	function (w, h) {
 		return A3(timjs$elm_collage$Collage$roundedRectangle, w, h, 0);
 	});
-var author$project$GameView$fog = A2(
-	timjs$elm_collage$Collage$filled,
-	timjs$elm_collage$Collage$uniform(
-		A4(the_sett$elm_color$Color$rgba, 0, 0, 0, 1)),
-	A2(timjs$elm_collage$Collage$rectangle, author$project$GameView$xScale, author$project$GameView$yScale));
-var author$project$GameView$halfFog = A2(
-	timjs$elm_collage$Collage$filled,
-	timjs$elm_collage$Collage$uniform(
-		A4(the_sett$elm_color$Color$rgba, 0, 0, 0, 0.6)),
-	A2(timjs$elm_collage$Collage$rectangle, author$project$GameView$xScale, author$project$GameView$yScale));
-var author$project$GameView$fogT = function (visibility) {
-	switch (visibility) {
-		case 0:
-			return author$project$GameView$noForm;
-		case 2:
-			return author$project$GameView$halfFog;
-		default:
-			return author$project$GameView$fog;
-	}
+var author$project$GameView$fog = F2(
+	function (tileWidth, tileHeight) {
+		return A2(
+			timjs$elm_collage$Collage$filled,
+			timjs$elm_collage$Collage$uniform(
+				A4(the_sett$elm_color$Color$rgba, 0, 0, 0, 1)),
+			A2(timjs$elm_collage$Collage$rectangle, tileWidth, tileHeight));
+	});
+var author$project$GameView$halfFog = F2(
+	function (tileWidth, tileHeight) {
+		return A2(
+			timjs$elm_collage$Collage$filled,
+			timjs$elm_collage$Collage$uniform(
+				A4(the_sett$elm_color$Color$rgba, 0, 0, 0, 0.6)),
+			A2(timjs$elm_collage$Collage$rectangle, tileWidth, tileHeight));
+	});
+var the_sett$elm_color$Color$red = A4(the_sett$elm_color$Color$rgba, 204, 0, 0, 1);
+var timjs$elm_collage$Collage$Core$Circle = function (a) {
+	return {$: 'Circle', a: a};
 };
-var author$project$GameView$getImgBaseDir = function (model) {
-	return A2(elm$core$Maybe$withDefault, './img', model.co);
-};
-var author$project$GameView$otherCharacterView = F4(
-	function (character, showBlood, visibility, imgBaseDir) {
-		if (!visibility) {
-			var fileStr = imgBaseDir + '/pc/right.png';
-			return A2(
-				timjs$elm_collage$Collage$image,
-				_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
-				fileStr);
-		} else {
-			return author$project$GameView$noForm;
+var timjs$elm_collage$Collage$circle = timjs$elm_collage$Collage$Core$Circle;
+var author$project$GameView$noForm = A2(
+	timjs$elm_collage$Collage$filled,
+	timjs$elm_collage$Collage$uniform(the_sett$elm_color$Color$red),
+	timjs$elm_collage$Collage$circle(0));
+var author$project$GameView$fogT = F4(
+	function (tileWidth, tileHeight, displayMode, visibility) {
+		switch (visibility.$) {
+			case 'Visible':
+				return author$project$GameView$noForm;
+			case 'Explored':
+				if (displayMode.$ === 'DisplayMap') {
+					return author$project$GameView$noForm;
+				} else {
+					return A2(author$project$GameView$halfFog, tileWidth, tileHeight);
+				}
+			default:
+				return A2(author$project$GameView$fog, tileWidth, tileHeight);
 		}
 	});
-var author$project$GameView$playerImg = F3(
-	function (player_, visibility, imgBaseDir) {
-		if (!visibility) {
+var author$project$GameView$getImgBaseDir = function (model) {
+	return A2(elm$core$Maybe$withDefault, './img', model.imgBaseDir);
+};
+var author$project$GameView$otherCharacterView = F6(
+	function (character, showBlood, visibility, tileWidth, tileHeight, imgBaseDir) {
+		var fileStr = imgBaseDir + '/pc/right.png';
+		return A2(
+			timjs$elm_collage$Collage$image,
+			_Utils_Tuple2(tileWidth, tileHeight),
+			fileStr);
+	});
+var author$project$GameView$playerImg = F5(
+	function (player_, visibility, tileWidth, tileHeight, imgBaseDir) {
+		if (visibility.$ === 'Visible') {
 			var fileStr = function () {
-				var _n1 = player_.J;
-				switch (_n1) {
-					case 2:
+				var _n1 = player_.direction;
+				switch (_n1.$) {
+					case 'Left':
 						return imgBaseDir + '/pc/left.png';
-					case 3:
+					case 'Right':
 						return imgBaseDir + '/pc/right.png';
-					case 0:
+					case 'Up':
 						return imgBaseDir + '/pc/up.png';
 					default:
 						return imgBaseDir + '/pc/down.png';
@@ -14611,148 +14637,158 @@ var author$project$GameView$playerImg = F3(
 			}();
 			return A2(
 				timjs$elm_collage$Collage$image,
-				_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+				_Utils_Tuple2(tileWidth, tileHeight),
 				fileStr);
 		} else {
 			return author$project$GameView$noForm;
 		}
 	});
-var author$project$GameView$door = F2(
-	function (doorinfo, imgBaseDir) {
-		var mbFileStr = (doorinfo.ct && ((doorinfo.cP === 2) || (doorinfo.cP === 3))) ? elm$core$Maybe$Just(imgBaseDir + '/doors/doorUp_open_floorBg.png') : ((doorinfo.ct && (doorinfo.cP === 1)) ? elm$core$Maybe$Just(imgBaseDir + '/doors/doorLeft_open_floorBg.png') : ((doorinfo.ct && (!doorinfo.cP)) ? elm$core$Maybe$Just(imgBaseDir + '/doors/doorRight_open_floorBg.png') : (doorinfo.ct ? elm$core$Maybe$Just(imgBaseDir + '/floor/floor_01.png') : (_Utils_eq(
-			doorinfo.b6,
+var author$project$GameView$door = F4(
+	function (doorinfo, tileWidth, tileHeight, imgBaseDir) {
+		var mbFileStr = (doorinfo.isOpen && (_Utils_eq(doorinfo.orientation, author$project$Tile$DoorToUp) || _Utils_eq(doorinfo.orientation, author$project$Tile$DoorToDown))) ? elm$core$Maybe$Just(imgBaseDir + '/doors/doorUp_open_floorBg.png') : ((doorinfo.isOpen && _Utils_eq(doorinfo.orientation, author$project$Tile$DoorToTheLeft)) ? elm$core$Maybe$Just(imgBaseDir + '/doors/doorLeft_open_floorBg.png') : ((doorinfo.isOpen && _Utils_eq(doorinfo.orientation, author$project$Tile$DoorToTheRight)) ? elm$core$Maybe$Just(imgBaseDir + '/doors/doorRight_open_floorBg.png') : (doorinfo.isOpen ? elm$core$Maybe$Just(imgBaseDir + '/floor/floor_01.png') : (_Utils_eq(
+			doorinfo.color,
 			elm$core$Maybe$Just('blue')) ? elm$core$Maybe$Just(imgBaseDir + '/doors/blueDoorClosed_floorBg.png') : (_Utils_eq(
-			doorinfo.b6,
+			doorinfo.color,
 			elm$core$Maybe$Just('green')) ? elm$core$Maybe$Just(imgBaseDir + '/doors/greenDoorClosed_floorBg.png') : (_Utils_eq(
-			doorinfo.b6,
+			doorinfo.color,
 			elm$core$Maybe$Just('red')) ? elm$core$Maybe$Just(imgBaseDir + '/doors/redDoorClosed_floorBg.png') : (_Utils_eq(
-			doorinfo.b6,
+			doorinfo.color,
 			elm$core$Maybe$Just('yellow')) ? elm$core$Maybe$Just(imgBaseDir + '/doors/yellowDoorClosed_floorBg.png') : (_Utils_eq(
-			doorinfo.b6,
-			elm$core$Maybe$Just('black')) ? elm$core$Maybe$Just(imgBaseDir + '/doors/blackDoorClosed_floorBg.png') : elm$core$Maybe$Just(imgBaseDir + '/doors/doorClosed_floorBg.png')))))))));
-		if (!mbFileStr.$) {
+			doorinfo.color,
+			elm$core$Maybe$Just('black')) ? elm$core$Maybe$Just(imgBaseDir + '/doors/blackDoorClosed_floorBg.png') : (_Utils_eq(
+			doorinfo.color,
+			elm$core$Maybe$Just('striped')) ? elm$core$Maybe$Just(imgBaseDir + '/doors/stripedDoorClosed_floorBg.png') : elm$core$Maybe$Just(imgBaseDir + '/doors/doorClosed_floorBg.png'))))))))));
+		if (mbFileStr.$ === 'Just') {
 			var fileStr = mbFileStr.a;
 			return A2(
 				timjs$elm_collage$Collage$image,
-				_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+				_Utils_Tuple2(tileWidth, tileHeight),
 				fileStr);
 		} else {
 			return author$project$GameView$noForm;
 		}
 	});
-var author$project$GameView$floor_ = F2(
-	function (floorinfo, imgBaseDir) {
-		var fileStr = (floorinfo.b6 === 'orange') ? (imgBaseDir + '/floor/floor_01.png') : (imgBaseDir + '/floor/floor_01.png');
+var author$project$GameView$floor_ = F4(
+	function (floorinfo, tileWidth, tileHeight, imgBaseDir) {
+		var fileStr = (floorinfo.color === 'orange') ? (imgBaseDir + '/floor/floor_01.png') : (imgBaseDir + '/floor/floor_01.png');
 		return A2(
 			timjs$elm_collage$Collage$image,
-			_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+			_Utils_Tuple2(tileWidth, tileHeight),
 			fileStr);
 	});
-var author$project$GameView$grass = F2(
-	function (grassinfo, imgBaseDir) {
-		var fileStr = (grassinfo.aW === 'grass_with_dirt') ? (imgBaseDir + '/grass/grass_and_dirt.png') : (imgBaseDir + '/grass/grass.png');
+var author$project$GameView$grass = F4(
+	function (grassinfo, tileWidth, tileHeight, imgBaseDir) {
+		var fileStr = (grassinfo.description === 'grass_with_dirt') ? (imgBaseDir + '/grass/grass_and_dirt.png') : (imgBaseDir + '/grass/grass.png');
 		return A2(
 			timjs$elm_collage$Collage$image,
-			_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+			_Utils_Tuple2(tileWidth, tileHeight),
 			fileStr);
 	});
-var author$project$GameView$hole = function (imgBaseDir) {
-	var fileStr = imgBaseDir + '/floor/floor_hole.png';
-	return A2(
-		timjs$elm_collage$Collage$image,
-		_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
-		fileStr);
-};
-var author$project$GameView$lever = F2(
-	function (onOffStr, imgBaseDir) {
+var author$project$GameView$hole = F3(
+	function (tileWidth, tileHeight, imgBaseDir) {
+		var fileStr = imgBaseDir + '/floor/floor_hole.png';
+		return A2(
+			timjs$elm_collage$Collage$image,
+			_Utils_Tuple2(tileWidth, tileHeight),
+			fileStr);
+	});
+var author$project$GameView$lever = F4(
+	function (onOffStr, tileWidth, tileHeight, imgBaseDir) {
 		var fileStr = ((onOffStr === 'on') || ((onOffStr === 'On') || (onOffStr === 'ON'))) ? (imgBaseDir + '/levers/lever_color_on.png') : (imgBaseDir + '/levers/lever_color_off.png');
 		return A2(
 			timjs$elm_collage$Collage$image,
-			_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+			_Utils_Tuple2(tileWidth, tileHeight),
 			fileStr);
 	});
-var author$project$GameView$notileyet = A2(
-	timjs$elm_collage$Collage$filled,
-	timjs$elm_collage$Collage$uniform(the_sett$elm_color$Color$black),
-	A2(timjs$elm_collage$Collage$rectangle, author$project$GameView$xScale, author$project$GameView$yScale));
-var author$project$GameView$stairs = F2(
-	function (upOrDownStr, imgBaseDir) {
+var author$project$GameView$notileyet = F2(
+	function (tileWidth, tileHeight) {
+		return A2(
+			timjs$elm_collage$Collage$filled,
+			timjs$elm_collage$Collage$uniform(the_sett$elm_color$Color$black),
+			A2(timjs$elm_collage$Collage$rectangle, tileWidth, tileHeight));
+	});
+var author$project$GameView$stairs = F4(
+	function (upOrDownStr, tileWidth, tileHeight, imgBaseDir) {
 		var fileStr = (elm$core$String$toLower(upOrDownStr) === 'up') ? (imgBaseDir + '/floor/floor_stairs_up.png') : (imgBaseDir + '/floor/floor_stairs_down.png');
 		return A2(
 			timjs$elm_collage$Collage$image,
-			_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+			_Utils_Tuple2(tileWidth, tileHeight),
 			fileStr);
 	});
-var author$project$GameView$tree = F2(
-	function (treeinfo, imgBaseDir) {
-		var fileStr = (treeinfo.c6 === 'pinetree') ? (imgBaseDir + '/trees/treetopPineTree_bg.png') : (imgBaseDir + '/trees/treetopRoundTree_bg.png');
+var author$project$GameView$tree = F4(
+	function (treeinfo, tileWidth, tileHeight, imgBaseDir) {
+		var fileStr = (treeinfo.treeType === 'pinetree') ? (imgBaseDir + '/trees/treetopPineTree_bg.png') : (imgBaseDir + '/trees/treetopRoundTree_bg.png');
 		return A2(
 			timjs$elm_collage$Collage$image,
-			_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+			_Utils_Tuple2(tileWidth, tileHeight),
 			fileStr);
 	});
-var author$project$GameView$wall = F2(
-	function (orientationStr, imgBaseDir) {
+var author$project$GameView$wall = F4(
+	function (orientationStr, tileWidth, tileHeight, imgBaseDir) {
 		var fileStr = (elm$core$String$toLower(orientationStr) === 'four_way') ? (imgBaseDir + '/walls/empty-empty-empty-empty.png') : ((elm$core$String$toLower(orientationStr) === 'three_way_at_bottom') ? (imgBaseDir + '/walls/empty-empty-empty-flat.png') : ((elm$core$String$toLower(orientationStr) === 'three_way_at_right') ? (imgBaseDir + '/walls/empty-empty-flat-empty.png') : ((elm$core$String$toLower(orientationStr) === 'three_way_at_top') ? (imgBaseDir + '/walls/empty-flat-empty-empty.png') : ((elm$core$String$toLower(orientationStr) === 'three_way_at_left') ? (imgBaseDir + '/walls/flat-empty-empty-empty.png') : ((elm$core$String$toLower(orientationStr) === 'corner_top_right') ? (imgBaseDir + '/walls/empty-flat-flat-empty.png') : ((elm$core$String$toLower(orientationStr) === 'corner_top_left') ? (imgBaseDir + '/walls/flat-flat-empty-empty.png') : ((elm$core$String$toLower(orientationStr) === 'corner_bottom_right') ? (imgBaseDir + '/walls/empty-empty-flat-flat.png') : ((elm$core$String$toLower(orientationStr) === 'corner_bottom_left') ? (imgBaseDir + '/walls/flat-empty-empty-flat.png') : ((elm$core$String$toLower(orientationStr) === 'up') ? (imgBaseDir + '/walls/flat-empty-flat-empty.png') : ((elm$core$String$toLower(orientationStr) === 'horizontal') ? (imgBaseDir + '/walls/empty-flat-empty-flat.png') : ((elm$core$String$toLower(orientationStr) === 'cul_de_sac_at_bottom') ? (imgBaseDir + '/walls/flat-empty-flat-flat.png') : ((elm$core$String$toLower(orientationStr) === 'cul_de_sac_at_top') ? (imgBaseDir + '/walls/flat-flat-flat-empty.png') : ((elm$core$String$toLower(orientationStr) === 'cul_de_sac_at_left') ? (imgBaseDir + '/walls/flat-flat-empty-flat.png') : ((elm$core$String$toLower(orientationStr) === 'cul_de_sac_at_right') ? (imgBaseDir + '/walls/empty-flat-flat-flat.png') : ((elm$core$String$toLower(orientationStr) === 'just_bricks') ? (imgBaseDir + '/walls/wall.png') : (imgBaseDir + '/walls/wall.png'))))))))))))))));
 		return A2(
 			timjs$elm_collage$Collage$image,
-			_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+			_Utils_Tuple2(tileWidth, tileHeight),
 			fileStr);
 	});
-var author$project$GameView$water = F2(
-	function (waterinfo, imgBaseDir) {
-		var fileStr = (waterinfo.aW === 'water_wall_up') ? (imgBaseDir + '/water/water_wall_up.png') : ((waterinfo.aW === 'water_wall_left') ? (imgBaseDir + '/water/water_wall_left.png') : (imgBaseDir + '/water/just_water.png'));
+var author$project$GameView$water = F4(
+	function (waterinfo, tileWidth, tileHeight, imgBaseDir) {
+		var fileStr = (waterinfo.description === 'water_wall_up') ? (imgBaseDir + '/water/water_wall_up.png') : ((waterinfo.description === 'water_wall_left') ? (imgBaseDir + '/water/water_wall_left.png') : (imgBaseDir + '/water/just_water.png'));
 		return A2(
 			timjs$elm_collage$Collage$image,
-			_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+			_Utils_Tuple2(tileWidth, tileHeight),
 			fileStr);
 	});
-var author$project$GameView$tile = F3(
-	function (currentFloorId, imgBaseDir, t) {
+var author$project$GameView$tile = F5(
+	function (currentFloorId, tileWidth, tileHeight, imgBaseDir, t) {
 		tile:
 		while (true) {
 			switch (t.$) {
-				case 0:
+				case 'Floor':
 					var floorinfo = t.a;
-					return A2(author$project$GameView$floor_, floorinfo, imgBaseDir);
-				case 1:
+					return A4(author$project$GameView$floor_, floorinfo, tileWidth, tileHeight, imgBaseDir);
+				case 'Stairs':
 					var sinfo = t.a;
-					return (_Utils_cmp(sinfo.bb, currentFloorId) > 0) ? A2(author$project$GameView$stairs, 'up', imgBaseDir) : A2(author$project$GameView$stairs, 'down', imgBaseDir);
-				case 11:
+					return (_Utils_cmp(sinfo.toFloorId, currentFloorId) > 0) ? A4(author$project$GameView$stairs, 'up', tileWidth, tileHeight, imgBaseDir) : A4(author$project$GameView$stairs, 'down', tileWidth, tileHeight, imgBaseDir);
+				case 'Tree':
 					var treeinfo = t.a;
-					return A2(author$project$GameView$tree, treeinfo, imgBaseDir);
-				case 2:
+					return A4(author$project$GameView$tree, treeinfo, tileWidth, tileHeight, imgBaseDir);
+				case 'Hole':
 					var hinfo = t.a;
-					return author$project$GameView$hole(imgBaseDir);
-				case 3:
+					return A3(author$project$GameView$hole, tileWidth, tileHeight, imgBaseDir);
+				case 'Wall':
 					var wallinfo = t.a;
-					return (wallinfo.cP === 'four_way') ? A2(author$project$GameView$wall, 'four_way', imgBaseDir) : ((wallinfo.cP === 'three_way_at_bottom') ? A2(author$project$GameView$wall, 'three_way_at_bottom', imgBaseDir) : ((wallinfo.cP === 'three_way_at_right') ? A2(author$project$GameView$wall, 'three_way_at_right', imgBaseDir) : ((wallinfo.cP === 'three_way_at_top') ? A2(author$project$GameView$wall, 'three_way_at_top', imgBaseDir) : ((wallinfo.cP === 'three_way_at_left') ? A2(author$project$GameView$wall, 'three_way_at_left', imgBaseDir) : ((wallinfo.cP === 'corner_top_right') ? A2(author$project$GameView$wall, 'corner_top_right', imgBaseDir) : ((wallinfo.cP === 'corner_top_left') ? A2(author$project$GameView$wall, 'corner_top_left', imgBaseDir) : ((wallinfo.cP === 'corner_bottom_right') ? A2(author$project$GameView$wall, 'corner_bottom_right', imgBaseDir) : ((wallinfo.cP === 'corner_bottom_left') ? A2(author$project$GameView$wall, 'corner_bottom_left', imgBaseDir) : ((wallinfo.cP === 'up') ? A2(author$project$GameView$wall, 'up', imgBaseDir) : ((wallinfo.cP === 'horizontal') ? A2(author$project$GameView$wall, 'horizontal', imgBaseDir) : ((wallinfo.cP === 'cul_de_sac_at_bottom') ? A2(author$project$GameView$wall, 'cul_de_sac_at_bottom', imgBaseDir) : ((wallinfo.cP === 'cul_de_sac_at_top') ? A2(author$project$GameView$wall, 'cul_de_sac_at_top', imgBaseDir) : ((wallinfo.cP === 'cul_de_sac_at_left') ? A2(author$project$GameView$wall, 'cul_de_sac_at_left', imgBaseDir) : ((wallinfo.cP === 'cul_de_sac_at_right') ? A2(author$project$GameView$wall, 'cul_de_sac_at_right', imgBaseDir) : ((wallinfo.cP === 'just_bricks') ? A2(author$project$GameView$wall, 'just_bricks', imgBaseDir) : A2(author$project$GameView$wall, 'horizontal', imgBaseDir))))))))))))))));
-				case 5:
+					return (wallinfo.orientation === 'four_way') ? A4(author$project$GameView$wall, 'four_way', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'three_way_at_bottom') ? A4(author$project$GameView$wall, 'three_way_at_bottom', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'three_way_at_right') ? A4(author$project$GameView$wall, 'three_way_at_right', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'three_way_at_top') ? A4(author$project$GameView$wall, 'three_way_at_top', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'three_way_at_left') ? A4(author$project$GameView$wall, 'three_way_at_left', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'corner_top_right') ? A4(author$project$GameView$wall, 'corner_top_right', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'corner_top_left') ? A4(author$project$GameView$wall, 'corner_top_left', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'corner_bottom_right') ? A4(author$project$GameView$wall, 'corner_bottom_right', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'corner_bottom_left') ? A4(author$project$GameView$wall, 'corner_bottom_left', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'up') ? A4(author$project$GameView$wall, 'up', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'horizontal') ? A4(author$project$GameView$wall, 'horizontal', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'cul_de_sac_at_bottom') ? A4(author$project$GameView$wall, 'cul_de_sac_at_bottom', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'cul_de_sac_at_top') ? A4(author$project$GameView$wall, 'cul_de_sac_at_top', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'cul_de_sac_at_left') ? A4(author$project$GameView$wall, 'cul_de_sac_at_left', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'cul_de_sac_at_right') ? A4(author$project$GameView$wall, 'cul_de_sac_at_right', tileWidth, tileHeight, imgBaseDir) : ((wallinfo.orientation === 'just_bricks') ? A4(author$project$GameView$wall, 'just_bricks', tileWidth, tileHeight, imgBaseDir) : A4(author$project$GameView$wall, 'horizontal', tileWidth, tileHeight, imgBaseDir))))))))))))))));
+				case 'Door':
 					var doorinfo = t.a;
-					return A2(author$project$GameView$door, doorinfo, imgBaseDir);
-				case 13:
-					return author$project$GameView$notileyet;
-				case 6:
+					return A4(author$project$GameView$door, doorinfo, tileWidth, tileHeight, imgBaseDir);
+				case 'NoTileYet':
+					return A2(author$project$GameView$notileyet, tileWidth, tileHeight);
+				case 'Lever':
 					var leverinfo = t.a;
-					return leverinfo.cv ? A2(author$project$GameView$lever, 'on', imgBaseDir) : A2(author$project$GameView$lever, 'off', imgBaseDir);
-				case 9:
+					return leverinfo.isUp ? A4(author$project$GameView$lever, 'on', tileWidth, tileHeight, imgBaseDir) : A4(author$project$GameView$lever, 'off', tileWidth, tileHeight, imgBaseDir);
+				case 'Water':
 					var waterinfo = t.a;
-					return A2(author$project$GameView$water, waterinfo, imgBaseDir);
-				case 10:
+					return A4(author$project$GameView$water, waterinfo, tileWidth, tileHeight, imgBaseDir);
+				case 'Grass':
 					var grassinfo = t.a;
-					return A2(author$project$GameView$grass, grassinfo, imgBaseDir);
-				case 12:
+					return A4(author$project$GameView$grass, grassinfo, tileWidth, tileHeight, imgBaseDir);
+				case 'ConverterTile':
 					var it = t.a;
 					var ct = t.b;
 					var $temp$currentFloorId = currentFloorId,
+						$temp$tileWidth = tileWidth,
+						$temp$tileHeight = tileHeight,
 						$temp$imgBaseDir = imgBaseDir,
 						$temp$t = it;
 					currentFloorId = $temp$currentFloorId;
+					tileWidth = $temp$tileWidth;
+					tileHeight = $temp$tileHeight;
 					imgBaseDir = $temp$imgBaseDir;
 					t = $temp$t;
 					continue tile;
 				default:
-					return author$project$GameView$notileyet;
+					return A2(author$project$GameView$notileyet, tileWidth, tileHeight);
 			}
 		}
 	});
@@ -14760,48 +14796,48 @@ var author$project$GameView$doorOverlay = function (doorInfo) {
 	return author$project$GameView$noForm;
 };
 var elm$core$String$startsWith = _String_startsWith;
-var author$project$GameView$floorOverlay = F2(
-	function (elemStr, imgBaseDir) {
+var author$project$GameView$floorOverlay = F4(
+	function (elemStr, tileWidth, tileHeight, imgBaseDir) {
 		return (elemStr === 'ash') ? A2(
 			timjs$elm_collage$Collage$image,
-			_Utils_Tuple2(author$project$GameView$xScale - 30, author$project$GameView$yScale - 30),
+			_Utils_Tuple2((tileWidth / 2) | 0, (tileHeight / 2) | 0),
 			imgBaseDir + '/floor/floor_ash.png') : (A2(elm$core$String$startsWith, 'key', elemStr) ? A2(
 			timjs$elm_collage$Collage$image,
-			_Utils_Tuple2(author$project$GameView$xScale - 30, author$project$GameView$yScale - 30),
+			_Utils_Tuple2((tileWidth / 2) | 0, (tileHeight / 2) | 0),
 			imgBaseDir + ('/items/' + (elemStr + '.png'))) : ((elemStr === 'landingTarget') ? A2(
 			timjs$elm_collage$Collage$image,
-			_Utils_Tuple2(author$project$GameView$xScale - 30, author$project$GameView$yScale - 30),
+			_Utils_Tuple2((tileWidth / 2) | 0, (tileHeight / 2) | 0),
 			imgBaseDir + '/floor/floor_landing_target.png') : author$project$GameView$noForm));
 	});
 var author$project$GameView$notileyetOverlay = author$project$GameView$noForm;
-var author$project$GameView$wallOverlay = F2(
-	function (wallinfo, imgBaseDir) {
+var author$project$GameView$wallOverlay = F4(
+	function (wallinfo, tileWidth, tileHeight, imgBaseDir) {
 		var woverlay = function () {
-			var _n0 = wallinfo.cI;
-			if (!_n0.$) {
+			var _n0 = wallinfo.mbTeleporterObject;
+			if (_n0.$ === 'Just') {
 				var tinfo = _n0.a;
-				var _n1 = tinfo.c$;
-				switch (_n1) {
-					case 0:
-						return ((elm$core$String$toLower(wallinfo.cP) === 'up') || (elm$core$String$toLower(wallinfo.cP) === 'down')) ? A2(
+				var _n1 = tinfo.teleporterType;
+				switch (_n1.$) {
+					case 'Barrel':
+						return ((elm$core$String$toLower(wallinfo.orientation) === 'up') || (elm$core$String$toLower(wallinfo.orientation) === 'down')) ? A2(
 							timjs$elm_collage$Collage$image,
-							_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+							_Utils_Tuple2(tileWidth, tileHeight),
 							imgBaseDir + '/walls/wall_overlay_teleporter_barrel_side.png') : A2(
 							timjs$elm_collage$Collage$image,
-							_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+							_Utils_Tuple2(tileWidth, tileHeight),
 							imgBaseDir + '/walls/wall_overlay_teleporter_barrel_up.png');
-					case 1:
-						return ((elm$core$String$toLower(wallinfo.cP) === 'up') || (elm$core$String$toLower(wallinfo.cP) === 'down')) ? A2(
+					case 'BookCase':
+						return ((elm$core$String$toLower(wallinfo.orientation) === 'up') || (elm$core$String$toLower(wallinfo.orientation) === 'down')) ? A2(
 							timjs$elm_collage$Collage$image,
-							_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+							_Utils_Tuple2(tileWidth, tileHeight),
 							imgBaseDir + '/walls/wall_overlay_teleporter_bookcase_side.png') : A2(
 							timjs$elm_collage$Collage$image,
-							_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+							_Utils_Tuple2(tileWidth, tileHeight),
 							imgBaseDir + '/walls/wall_overlay_teleporter_bookcase_up.png');
 					default:
 						return A2(
 							timjs$elm_collage$Collage$image,
-							_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+							_Utils_Tuple2(tileWidth, tileHeight),
 							imgBaseDir + '/walls/wall_overlay_teleporter_clock_up.png');
 				}
 			} else {
@@ -14810,50 +14846,50 @@ var author$project$GameView$wallOverlay = F2(
 		}();
 		return woverlay;
 	});
-var author$project$GameView$tileOverlay = F2(
-	function (imgBaseDir, t) {
+var author$project$GameView$tileOverlay = F4(
+	function (tileWidth, tileHeight, imgBaseDir, t) {
 		tileOverlay:
 		while (true) {
 			switch (t.$) {
-				case 0:
+				case 'Floor':
 					var floorinfo = t.a;
-					var _n1 = floorinfo.by;
+					var _n1 = floorinfo.item;
 					_n1$5:
 					while (true) {
-						if (!_n1.$) {
+						if (_n1.$ === 'Just') {
 							switch (_n1.a.$) {
-								case 5:
+								case 'Ash':
 									var _n2 = _n1.a;
-									return A2(author$project$GameView$floorOverlay, 'ash', imgBaseDir);
-								case 2:
+									return A4(author$project$GameView$floorOverlay, 'ash', tileWidth, tileHeight, imgBaseDir);
+								case 'Key':
 									var keyinfo = _n1.a.a;
-									return A2(author$project$GameView$floorOverlay, 'key_' + keyinfo.aD, imgBaseDir);
-								case 4:
+									return A4(author$project$GameView$floorOverlay, 'key_' + keyinfo.keyColor, tileWidth, tileHeight, imgBaseDir);
+								case 'Box':
 									var _n3 = _n1.a;
 									return A2(
 										timjs$elm_collage$Collage$image,
-										_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+										_Utils_Tuple2(tileWidth, tileHeight),
 										imgBaseDir + '/items/box.png');
-								case 6:
+								case 'Paper':
 									var paperinfo = _n1.a.a;
-									return (paperinfo.aC === 1) ? A2(
+									return (paperinfo.id === 1) ? A2(
 										timjs$elm_collage$Collage$image,
-										_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
-										imgBaseDir + '/items/paper_part1.png') : ((paperinfo.aC === 2) ? A2(
+										_Utils_Tuple2(tileWidth, tileHeight),
+										imgBaseDir + '/items/paper_part1.png') : ((paperinfo.id === 2) ? A2(
 										timjs$elm_collage$Collage$image,
-										_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+										_Utils_Tuple2(tileWidth, tileHeight),
 										imgBaseDir + '/items/paper_part2.png') : A2(
 										timjs$elm_collage$Collage$image,
-										_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+										_Utils_Tuple2(tileWidth, tileHeight),
 										imgBaseDir + '/items/paper_part3.png'));
-								case 7:
+								case 'Food':
 									var fdescription = _n1.a.a;
 									return (elm$core$String$toLower(fdescription) === 'bread') ? A2(
 										timjs$elm_collage$Collage$image,
-										_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+										_Utils_Tuple2(tileWidth, tileHeight),
 										imgBaseDir + '/items/health_item.png') : A2(
 										timjs$elm_collage$Collage$image,
-										_Utils_Tuple2(author$project$GameView$xScale, author$project$GameView$yScale),
+										_Utils_Tuple2(tileWidth, tileHeight),
 										imgBaseDir + '/items/box.png');
 								default:
 									break _n1$5;
@@ -14862,28 +14898,32 @@ var author$project$GameView$tileOverlay = F2(
 							break _n1$5;
 						}
 					}
-					var _n4 = floorinfo.cg;
-					if (!_n4.$) {
-						var nr = _n4.a;
-						return A2(author$project$GameView$floorOverlay, 'landingTarget', imgBaseDir);
+					var _n4 = floorinfo.floorDrawing;
+					if (_n4.$ === 'Just') {
+						var nr = _n4.a.a;
+						return A4(author$project$GameView$floorOverlay, 'landingTarget', tileWidth, tileHeight, imgBaseDir);
 					} else {
-						return A2(author$project$GameView$floorOverlay, '', imgBaseDir);
+						return A4(author$project$GameView$floorOverlay, '', tileWidth, tileHeight, imgBaseDir);
 					}
-				case 3:
+				case 'Wall':
 					var wallinfo = t.a;
-					return A2(author$project$GameView$wallOverlay, wallinfo, imgBaseDir);
-				case 5:
+					return A4(author$project$GameView$wallOverlay, wallinfo, tileWidth, tileHeight, imgBaseDir);
+				case 'Door':
 					var doorinfo = t.a;
 					return author$project$GameView$doorOverlay(doorinfo);
-				case 12:
+				case 'ConverterTile':
 					var it = t.a;
 					var ct = t.b;
-					var $temp$imgBaseDir = imgBaseDir,
+					var $temp$tileWidth = tileWidth,
+						$temp$tileHeight = tileHeight,
+						$temp$imgBaseDir = imgBaseDir,
 						$temp$t = it;
+					tileWidth = $temp$tileWidth;
+					tileHeight = $temp$tileHeight;
 					imgBaseDir = $temp$imgBaseDir;
 					t = $temp$t;
 					continue tileOverlay;
-				case 13:
+				case 'NoTileYet':
 					return author$project$GameView$notileyetOverlay;
 				default:
 					return author$project$GameView$notileyetOverlay;
@@ -14892,8 +14932,8 @@ var author$project$GameView$tileOverlay = F2(
 	});
 var author$project$Grid$getRowOrEmptyList = F2(
 	function (n, grid) {
-		var _n0 = A2(elm$core$Array$get, n, grid.aZ);
-		if (!_n0.$) {
+		var _n0 = A2(elm$core$Array$get, n, grid.grid);
+		if (_n0.$ === 'Just') {
 			var r = _n0.a;
 			return elm$core$Array$toList(r);
 		} else {
@@ -14902,7 +14942,7 @@ var author$project$Grid$getRowOrEmptyList = F2(
 	});
 var author$project$Grid$getRow = F2(
 	function (n, grid) {
-		return (n < 0) ? _List_Nil : ((_Utils_cmp(n, grid.cY.ck) > -1) ? _List_Nil : A2(author$project$Grid$getRowOrEmptyList, n, grid));
+		return (n < 0) ? _List_Nil : ((_Utils_cmp(n, grid.size.height) > -1) ? _List_Nil : A2(author$project$Grid$getRowOrEmptyList, n, grid));
 	});
 var elm$core$List$takeReverse = F3(
 	function (n, list, kept) {
@@ -15037,7 +15077,7 @@ var author$project$Grid$getSubGrid = F5(
 		var maxRow_ = A2(
 			elm$core$Basics$max,
 			minRow_,
-			A2(elm$core$Basics$min, maxRow, grid.cY.ck - 1));
+			A2(elm$core$Basics$min, maxRow, grid.size.height - 1));
 		var therows = A2(
 			elm$core$List$map,
 			function (v) {
@@ -15047,7 +15087,7 @@ var author$project$Grid$getSubGrid = F5(
 		var maxCol_ = A2(
 			elm$core$Basics$max,
 			minCol_,
-			A2(elm$core$Basics$min, maxCol, grid.cY.dj - 1));
+			A2(elm$core$Basics$min, maxCol, grid.size.width - 1));
 		var txtmsg = ('getSubGrid has been called with minCol ' + (elm$core$String$fromInt(minCol) + (' , with maxCol ' + (elm$core$String$fromInt(maxCol) + (' , with minRow ' + (elm$core$String$fromInt(minRow) + (' , with maxRow ' + elm$core$String$fromInt(maxRow)))))))) + (('getSubGrid has been called with minCol_ ' + (elm$core$String$fromInt(minCol_) + (' , with maxCol_ ' + (elm$core$String$fromInt(maxCol_) + (' , with minRow_ ' + (elm$core$String$fromInt(minRow_) + (' , with maxRow_ ' + elm$core$String$fromInt(maxRow_)))))))) + (' rows of the subgrid has ' + elm$core$String$fromInt(
 			elm$core$List$length(therows))));
 		var x_range = A2(elm$core$List$range, minCol_, maxCol_);
@@ -15069,28 +15109,28 @@ var author$project$Grid$getSubGrid = F5(
 			txtmsg);
 	});
 var timjs$elm_collage$Collage$Core$Group = function (a) {
-	return {$: 5, a: a};
+	return {$: 'Group', a: a};
 };
 var timjs$elm_collage$Collage$group = A2(elm$core$Basics$composeL, timjs$elm_collage$Collage$Core$collage, timjs$elm_collage$Collage$Core$Group);
 var timjs$elm_collage$Collage$shift = F2(
 	function (_n0, collage) {
 		var dx = _n0.a;
 		var dy = _n0.b;
-		var _n1 = collage.a6;
+		var _n1 = collage.shift;
 		var x = _n1.a;
 		var y = _n1.b;
 		return _Utils_update(
 			collage,
 			{
-				a6: _Utils_Tuple2(x + dx, y + dy)
+				shift: _Utils_Tuple2(x + dx, y + dy)
 			});
 	});
 var elm$core$Basics$cos = _Basics_cos;
 var elm$core$Basics$sin = _Basics_sin;
 var timjs$elm_collage$Collage$Core$apply = function (_n0) {
-	var shift = _n0.a6;
-	var scale = _n0.bU;
-	var rotation = _n0.bT;
+	var shift = _n0.shift;
+	var scale = _n0.scale;
+	var rotation = _n0.rotation;
 	var rotated = function (_n5) {
 		var x = _n5.a;
 		var y = _n5.b;
@@ -15136,8 +15176,8 @@ var timjs$elm_collage$Helpers$foldrLazy = F3(
 	});
 var timjs$elm_collage$Helpers$orLazy = F2(
 	function (ma, fmb) {
-		if (ma.$ === 1) {
-			return fmb(0);
+		if (ma.$ === 'Nothing') {
+			return fmb(_Utils_Tuple0);
 		} else {
 			return ma;
 		}
@@ -15151,7 +15191,7 @@ var timjs$elm_collage$Collage$Layout$locate = F3(
 				A2(
 					elm$core$Maybe$map,
 					elm$core$Basics$eq(string),
-					col.V));
+					col.name));
 			var firstOf = A2(
 				timjs$elm_collage$Helpers$foldrLazy,
 				A2(elm$core$Basics$composeL, timjs$elm_collage$Helpers$orLazy, recurse),
@@ -15161,12 +15201,12 @@ var timjs$elm_collage$Collage$Layout$locate = F3(
 				elm$core$Maybe$map,
 				timjs$elm_collage$Collage$Core$apply(col),
 				function () {
-					var _n0 = col.I;
+					var _n0 = col.basic;
 					switch (_n0.$) {
-						case 5:
+						case 'Group':
 							var cols = _n0.a;
 							return firstOf(cols);
-						case 6:
+						case 'Subcollage':
 							var fore = _n0.a;
 							var back = _n0.b;
 							return firstOf(
@@ -15184,7 +15224,7 @@ var timjs$elm_collage$Collage$Layout$name = F2(
 		return _Utils_update(
 			col,
 			{
-				V: elm$core$Maybe$Just(string)
+				name: elm$core$Maybe$Just(string)
 			});
 	});
 var elm$core$Basics$composeR = F3(
@@ -15211,7 +15251,7 @@ var elm$core$List$unzip = function (pairs) {
 };
 var timjs$elm_collage$Collage$Core$Path = F2(
 	function (a, b) {
-		return {$: 1, a: a, b: b};
+		return {$: 'Path', a: a, b: b};
 	});
 var timjs$elm_collage$Collage$Layout$handlePoints = function (thickness) {
 	var thicken = function (_n0) {
@@ -15242,10 +15282,10 @@ var timjs$elm_collage$Collage$Layout$handleBox = F2(
 				]));
 	});
 var timjs$elm_collage$Collage$Layout$unpack = function (_n0) {
-	var toTop = _n0.t;
-	var toBottom = _n0.q;
-	var toRight = _n0.s;
-	var toLeft = _n0.r;
+	var toTop = _n0.toTop;
+	var toBottom = _n0.toBottom;
+	var toRight = _n0.toRight;
+	var toLeft = _n0.toLeft;
 	return _List_fromArray(
 		[
 			_Utils_Tuple2(-toLeft, -toBottom),
@@ -15255,7 +15295,7 @@ var timjs$elm_collage$Collage$Layout$unpack = function (_n0) {
 		]);
 };
 var timjs$elm_collage$Collage$Layout$distances = function (col) {
-	var points = timjs$elm_collage$Collage$Layout$handleBasic(col.I);
+	var points = timjs$elm_collage$Collage$Layout$handleBasic(col.basic);
 	var _n8 = elm$core$List$unzip(
 		A2(
 			elm$core$List$map,
@@ -15264,19 +15304,19 @@ var timjs$elm_collage$Collage$Layout$distances = function (col) {
 	var xs = _n8.a;
 	var ys = _n8.b;
 	return {
-		q: -A2(
+		toBottom: -A2(
 			elm$core$Maybe$withDefault,
 			0,
 			elm$core$List$minimum(ys)),
-		r: -A2(
+		toLeft: -A2(
 			elm$core$Maybe$withDefault,
 			0,
 			elm$core$List$minimum(xs)),
-		s: A2(
+		toRight: A2(
 			elm$core$Maybe$withDefault,
 			0,
 			elm$core$List$maximum(xs)),
-		t: A2(
+		toTop: A2(
 			elm$core$Maybe$withDefault,
 			0,
 			elm$core$List$maximum(ys))
@@ -15286,20 +15326,20 @@ var timjs$elm_collage$Collage$Layout$handleBasic = function (basic) {
 	handleBasic:
 	while (true) {
 		switch (basic.$) {
-			case 0:
+			case 'Shape':
 				switch (basic.b.$) {
-					case 3:
+					case 'Circle':
 						var _n1 = basic.a;
-						var thickness = _n1.b.ba;
+						var thickness = _n1.b.thickness;
 						var r = basic.b.a;
 						var d = 2 * r;
 						return A2(
 							timjs$elm_collage$Collage$Layout$handleBox,
 							thickness,
 							_Utils_Tuple2(d, d));
-					case 2:
+					case 'Ellipse':
 						var _n2 = basic.a;
-						var thickness = _n2.b.ba;
+						var thickness = _n2.b.thickness;
 						var _n3 = basic.b;
 						var rx = _n3.a;
 						var ry = _n3.b;
@@ -15307,9 +15347,9 @@ var timjs$elm_collage$Collage$Layout$handleBasic = function (basic) {
 							timjs$elm_collage$Collage$Layout$handleBox,
 							thickness,
 							_Utils_Tuple2(2 * rx, 2 * ry));
-					case 1:
+					case 'Rectangle':
 						var _n4 = basic.a;
-						var thickness = _n4.b.ba;
+						var thickness = _n4.b.thickness;
 						var _n5 = basic.b;
 						var w = _n5.a;
 						var h = _n5.b;
@@ -15317,9 +15357,9 @@ var timjs$elm_collage$Collage$Layout$handleBasic = function (basic) {
 							timjs$elm_collage$Collage$Layout$handleBox,
 							thickness,
 							_Utils_Tuple2(w, h));
-					case 0:
+					case 'Polygon':
 						var _n6 = basic.a;
-						var thickness = _n6.b.ba;
+						var thickness = _n6.b.thickness;
 						var ps = basic.b.a;
 						return A2(timjs$elm_collage$Collage$Layout$handlePoints, thickness, ps);
 					default:
@@ -15330,24 +15370,24 @@ var timjs$elm_collage$Collage$Layout$handleBasic = function (basic) {
 						basic = $temp$basic;
 						continue handleBasic;
 				}
-			case 1:
-				var thickness = basic.a.ba;
-				var cap = basic.a.bh;
-				var ps = basic.b;
+			case 'Path':
+				var thickness = basic.a.thickness;
+				var cap = basic.a.cap;
+				var ps = basic.b.a;
 				return A2(
 					timjs$elm_collage$Collage$Layout$handlePoints,
-					(!cap) ? 0 : thickness,
+					_Utils_eq(cap, timjs$elm_collage$Collage$Flat) ? 0 : thickness,
 					ps);
-			case 2:
+			case 'Text':
 				var dims = basic.a;
 				return A2(timjs$elm_collage$Collage$Layout$handleBox, 0, dims);
-			case 3:
+			case 'Image':
 				var dims = basic.a;
 				return A2(timjs$elm_collage$Collage$Layout$handleBox, 0, dims);
-			case 4:
+			case 'Html':
 				var dims = basic.a;
 				return A2(timjs$elm_collage$Collage$Layout$handleBox, 0, dims);
-			case 5:
+			case 'Group':
 				var cols = basic.a;
 				return A2(
 					timjs$elm_collage$Collage$Layout$handlePoints,
@@ -15369,18 +15409,21 @@ var timjs$elm_collage$Collage$Layout$handleBasic = function (basic) {
 };
 var timjs$elm_collage$Collage$Layout$topLeft = function (col) {
 	var _n0 = timjs$elm_collage$Collage$Layout$distances(col);
-	var toLeft = _n0.r;
-	var toTop = _n0.t;
+	var toLeft = _n0.toLeft;
+	var toTop = _n0.toTop;
 	return _Utils_Tuple2(-toLeft, toTop);
 };
 var author$project$GameView$mainScreen = function (model) {
 	var emptyg = timjs$elm_collage$Collage$group(_List_Nil);
-	var _n0 = A5(author$project$Grid$getSubGrid, model.de, (model.de + model.dl) - 1, model.df, (model.df + model.dk) - 1, model.cy);
-	var subgrid = _n0.a;
-	var txtmsg = _n0.b;
-	var _n1 = _Utils_Tuple2(subgrid.cY.dj, subgrid.cY.ck);
-	var wwidth = _n1.a;
-	var wheight = _n1.b;
+	var _n0 = (!_Utils_eq(model.currentDisplay, author$project$GameModel$DisplayMap)) ? _Utils_Tuple2(model.viewport_topleft_x, model.viewport_topleft_y) : _Utils_Tuple2(0, 0);
+	var viewport_topleft_x = _n0.a;
+	var viewport_topleft_y = _n0.b;
+	var _n1 = (!_Utils_eq(model.currentDisplay, author$project$GameModel$DisplayMap)) ? A5(author$project$Grid$getSubGrid, model.viewport_topleft_x, (model.viewport_topleft_x + model.window_width) - 1, model.viewport_topleft_y, (model.viewport_topleft_y + model.window_height) - 1, model.level) : _Utils_Tuple2(model.level, '');
+	var subgrid = _n1.a;
+	var txtmsg = _n1.b;
+	var _n2 = _Utils_Tuple2(subgrid.size.width, subgrid.size.height);
+	var wwidth = _n2.a;
+	var wheight = _n2.b;
 	var mkLayer = F2(
 		function (agrid, mapRow) {
 			var rows = A3(
@@ -15396,37 +15439,39 @@ var author$project$GameView$mainScreen = function (model) {
 			return timjs$elm_collage$Collage$group(forms);
 		});
 	var yOffset = function (n) {
-		return ((n - model.df) - (wheight / 2)) * author$project$GameView$yScale;
+		return ((n - viewport_topleft_y) - (wheight / 2)) * model.tileHeight;
 	};
 	var yOffset_for_subgrid = function (n) {
-		return (n - (wheight / 2)) * author$project$GameView$yScale;
+		return (n - (wheight / 2)) * model.tileHeight;
 	};
 	var xOffset = function (n) {
-		return ((n - model.de) - (wwidth / 2)) * author$project$GameView$xScale;
+		return ((n - viewport_topleft_x) - (wwidth / 2)) * model.tileWidth;
 	};
 	var location = function (r) {
 		return _Utils_Tuple2(
-			xOffset(r.R.bd),
-			0 - yOffset(r.R.be + 1));
+			xOffset(r.location.x),
+			0 - yOffset(r.location.y + 1));
 	};
 	var fightingCharacter_ = function () {
 		var relevantFightingCharactersDict = A2(
 			elm$core$Dict$filter,
 			F2(
 				function (fcharId, fightChar) {
-					return _Utils_eq(fightChar.az, model.b8) && (((_Utils_cmp(fightChar.R.bd, model.de) > -1) && (_Utils_cmp(fightChar.R.bd - model.de, model.dl) < 0)) && ((_Utils_cmp(fightChar.R.be, model.df) > -1) && (_Utils_cmp(fightChar.R.be - model.df, model.dk) < 0)));
+					return _Utils_eq(fightChar.floorId, model.currentFloorId) && (((_Utils_cmp(fightChar.location.x, viewport_topleft_x) > -1) && (_Utils_cmp(fightChar.location.x - viewport_topleft_x, model.window_width) < 0)) && ((_Utils_cmp(fightChar.location.y, viewport_topleft_y) > -1) && (_Utils_cmp(fightChar.location.y - viewport_topleft_y, model.window_height) < 0)));
 				}),
-			model.l);
+			model.fightingCharacters);
 		var mkfightingCharacter = F2(
 			function (fcharId, anfightingCharacter) {
 				return A2(
 					timjs$elm_collage$Collage$shift,
 					location(anfightingCharacter),
-					A4(
+					A6(
 						author$project$GameView$fightingCharacterView,
 						anfightingCharacter,
-						model.cX,
-						A2(author$project$GameModel$getGridTileVisibility, anfightingCharacter.R, model.cy),
+						model.showBlood,
+						A2(author$project$GameModel$getGridTileVisibility, anfightingCharacter.location, model.level),
+						model.tileWidth,
+						model.tileHeight,
 						author$project$GameView$getImgBaseDir(model)));
 			});
 		return timjs$elm_collage$Collage$group(
@@ -15441,19 +15486,21 @@ var author$project$GameView$mainScreen = function (model) {
 			elm$core$Dict$filter,
 			F2(
 				function (charId, _char) {
-					return _Utils_eq(_char.az, model.b8) && (((_Utils_cmp(_char.R.bd, model.de) > -1) && (_Utils_cmp(_char.R.bd - model.de, model.dl) < 0)) && ((_Utils_cmp(_char.R.be, model.df) > -1) && (_Utils_cmp(_char.R.be - model.df, model.dk) < 0)));
+					return _Utils_eq(_char.floorId, model.currentFloorId) && (((_Utils_cmp(_char.location.x, viewport_topleft_x) > -1) && (_Utils_cmp(_char.location.x - viewport_topleft_x, model.window_width) < 0)) && ((_Utils_cmp(_char.location.y, viewport_topleft_y) > -1) && (_Utils_cmp(_char.location.y - viewport_topleft_y, model.window_height) < 0)));
 				}),
-			model.y);
+			model.otherCharacters);
 		var mkOtherChar = F2(
 			function (ch_id, achar) {
 				return A2(
 					timjs$elm_collage$Collage$shift,
 					location(achar),
-					A4(
+					A6(
 						author$project$GameView$otherCharacterView,
 						achar,
-						model.cX,
-						A2(author$project$GameModel$getGridTileVisibility, achar.R, model.cy),
+						model.showBlood,
+						A2(author$project$GameModel$getGridTileVisibility, achar.location, model.level),
+						model.tileWidth,
+						model.tileHeight,
 						author$project$GameView$getImgBaseDir(model)));
 			});
 		return timjs$elm_collage$Collage$group(
@@ -15465,11 +15512,13 @@ var author$project$GameView$mainScreen = function (model) {
 			[otherCharacters_]));
 	var player_ = A2(
 		timjs$elm_collage$Collage$shift,
-		location(model.o),
-		A3(
+		location(model.player),
+		A5(
 			author$project$GameView$playerImg,
-			model.o,
-			0,
+			model.player,
+			author$project$Tile$Visible,
+			model.tileWidth,
+			model.tileHeight,
 			author$project$GameView$getImgBaseDir(model)));
 	var pg = timjs$elm_collage$Collage$group(
 		_List_fromArray(
@@ -15480,12 +15529,12 @@ var author$project$GameView$mainScreen = function (model) {
 				player_)
 			]));
 	var xOffset_for_subgrid = function (n) {
-		return (n - (wwidth / 2)) * author$project$GameView$xScale;
+		return (n - (wwidth / 2)) * model.tileWidth;
 	};
 	var row = F2(
-		function (mkTile, _n4) {
-			var n = _n4.a;
-			var tiles = _n4.b;
+		function (mkTile, _n5) {
+			var n = _n5.a;
+			var tiles = _n5.b;
 			var tiles_ = A3(
 				elm$core$List$map2,
 				F2(
@@ -15494,9 +15543,9 @@ var author$project$GameView$mainScreen = function (model) {
 					}),
 				A2(elm$core$List$range, 0, wwidth - 1),
 				tiles);
-			var makeTile = function (_n3) {
-				var n_ = _n3.a;
-				var t = _n3.b;
+			var makeTile = function (_n4) {
+				var n_ = _n4.a;
+				var t = _n4.b;
 				return A2(
 					timjs$elm_collage$Collage$shift,
 					_Utils_Tuple2(
@@ -15516,15 +15565,20 @@ var author$project$GameView$mainScreen = function (model) {
 					mkLayer,
 					author$project$Grid$toList(subgrid),
 					row(
-						author$project$GameView$tileOverlay(
+						A3(
+							author$project$GameView$tileOverlay,
+							model.tileWidth,
+							model.tileHeight,
 							author$project$GameView$getImgBaseDir(model)))),
 					A2(
 					mkLayer,
 					author$project$Grid$toList(subgrid),
 					row(
-						A2(
+						A4(
 							author$project$GameView$tile,
-							model.b8,
+							model.currentFloorId,
+							model.tileWidth,
+							model.tileHeight,
 							author$project$GameView$getImgBaseDir(model))))
 				])));
 	var pos = A2(
@@ -15540,10 +15594,11 @@ var author$project$GameView$mainScreen = function (model) {
 	var fogger = A2(
 		mkLayer,
 		author$project$Grid$toList(visibilitySubGrid),
-		row(author$project$GameView$fogT));
-	var _n2 = _Utils_Tuple2(wwidth * author$project$GameView$xScale, wheight * author$project$GameView$yScale);
-	var w = _n2.a;
-	var h = _n2.b;
+		row(
+			A3(author$project$GameView$fogT, model.tileWidth, model.tileHeight, model.currentDisplay)));
+	var _n3 = _Utils_Tuple2(wwidth * model.tileWidth, wheight * model.tileHeight);
+	var w = _n3.a;
+	var h = _n3.b;
 	return A2(
 		timjs$elm_collage$Collage$Layout$name,
 		'mainScreen',
@@ -15564,11 +15619,11 @@ var elm$core$String$fromFloat = _String_fromNumber;
 var the_sett$elm_color$Color$white = A4(the_sett$elm_color$Color$rgba, 255, 255, 255, 1);
 var timjs$elm_collage$Collage$Core$Text = F2(
 	function (a, b) {
-		return {$: 2, a: a, b: b};
+		return {$: 'Text', a: a, b: b};
 	});
 var timjs$elm_collage$Collage$Text$height = function (_n0) {
 	var sty = _n0.a;
-	return sty.cY;
+	return sty.size;
 };
 var elm$core$String$length = _String_length;
 var timjs$elm_collage$Collage$Text$width = function (text) {
@@ -15587,7 +15642,7 @@ var timjs$elm_collage$Collage$rendered = function (text) {
 };
 var timjs$elm_collage$Collage$Core$Chunk = F2(
 	function (a, b) {
-		return {$: 0, a: a, b: b};
+		return {$: 'Chunk', a: a, b: b};
 	});
 var timjs$elm_collage$Collage$Text$color = F2(
 	function (newcolor, _n0) {
@@ -15597,15 +15652,15 @@ var timjs$elm_collage$Collage$Text$color = F2(
 			timjs$elm_collage$Collage$Core$Chunk,
 			_Utils_update(
 				sty,
-				{b6: newcolor}),
+				{color: newcolor}),
 			str);
 	});
-var timjs$elm_collage$Collage$Text$None = 0;
-var timjs$elm_collage$Collage$Text$Regular = 2;
-var timjs$elm_collage$Collage$Text$Sansserif = {$: 1};
-var timjs$elm_collage$Collage$Text$Upright = 0;
+var timjs$elm_collage$Collage$Text$None = {$: 'None'};
+var timjs$elm_collage$Collage$Text$Regular = {$: 'Regular'};
+var timjs$elm_collage$Collage$Text$Sansserif = {$: 'Sansserif'};
+var timjs$elm_collage$Collage$Text$Upright = {$: 'Upright'};
 var timjs$elm_collage$Collage$Text$normal = 16;
-var timjs$elm_collage$Collage$Text$defaultStyle = {b6: the_sett$elm_color$Color$black, ak: 0, bW: 0, cY: timjs$elm_collage$Collage$Text$normal, c8: timjs$elm_collage$Collage$Text$Sansserif, di: 2};
+var timjs$elm_collage$Collage$Text$defaultStyle = {color: the_sett$elm_color$Color$black, line: timjs$elm_collage$Collage$Text$None, shape: timjs$elm_collage$Collage$Text$Upright, size: timjs$elm_collage$Collage$Text$normal, typeface: timjs$elm_collage$Collage$Text$Sansserif, weight: timjs$elm_collage$Collage$Text$Regular};
 var timjs$elm_collage$Collage$Text$fromString = timjs$elm_collage$Collage$Core$Chunk(timjs$elm_collage$Collage$Text$defaultStyle);
 var author$project$GameView$sidebar = F2(
 	function (model, pos) {
@@ -15626,68 +15681,68 @@ var author$project$GameView$sidebar = F2(
 					[
 						timjs$elm_collage$Collage$rendered(
 						theColor(
-							timjs$elm_collage$Collage$Text$fromString(model.o.aa + (' : ' + model.o.V)))),
+							timjs$elm_collage$Collage$Text$fromString(model.player.textAvatar + (' : ' + model.player.name)))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'Health: ' + elm$core$String$fromInt(model.o.M)))),
+								'Health: ' + elm$core$String$fromInt(model.player.health)))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'Energy: ' + elm$core$String$fromInt(model.o.br)))),
+								'Energy: ' + elm$core$String$fromInt(model.player.energy)))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'mana: ' + elm$core$String$fromInt(model.o.S)))),
+								'mana: ' + elm$core$String$fromInt(model.player.mana)))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'Hunger: ' + elm$core$String$fromInt(model.o.bx)))),
+								'Hunger: ' + elm$core$String$fromInt(model.player.hunger)))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'Stealth: ' + (elm$core$String$fromInt(model.o.aR) + '%')))),
+								'Stealth: ' + (elm$core$String$fromInt(model.player.stealth) + '%')))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'Armor: ' + elm$core$String$fromInt(model.o.at)))),
+								'Armor: ' + elm$core$String$fromInt(model.player.armor)))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'Protection: ' + (elm$core$String$fromInt(model.o.aI) + '%')))),
+								'Protection: ' + (elm$core$String$fromInt(model.player.protection) + '%')))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'Coordination: ' + (elm$core$String$fromInt(model.o.aw) + '%')))),
+								'Coordination: ' + (elm$core$String$fromInt(model.player.coordination) + '%')))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'Power: ' + elm$core$String$fromInt(model.o.aH)))),
+								'Power: ' + elm$core$String$fromInt(model.player.power)))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'Initiative: ' + elm$core$String$fromInt(model.o.P)))),
+								'Initiative: ' + elm$core$String$fromInt(model.player.initiative)))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'viewport_topleft_x: ' + elm$core$String$fromInt(model.de)))),
+								'viewport_topleft_x: ' + elm$core$String$fromInt(model.viewport_topleft_x)))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'viewport_topleft_y: ' + elm$core$String$fromInt(model.df)))),
+								'viewport_topleft_y: ' + elm$core$String$fromInt(model.viewport_topleft_y)))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'current_player_x : ' + elm$core$String$fromInt(model.o.R.bd)))),
+								'current_player_x : ' + elm$core$String$fromInt(model.player.location.x)))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'current_player_y : ' + elm$core$String$fromInt(model.o.R.be)))),
+								'current_player_y : ' + elm$core$String$fromInt(model.player.location.y)))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
 								'wall percentage : ' + elm$core$String$fromFloat(
-									A2(elm$core$Maybe$withDefault, 0, model.dh)))))
+									A2(elm$core$Maybe$withDefault, 0, model.wallPercentage)))))
 					])));
 		var bar = timjs$elm_collage$Collage$group(
 			A2(
@@ -15703,17 +15758,17 @@ var author$project$GameView$sidebar = F2(
 					[
 						timjs$elm_collage$Collage$rendered(
 						theColor(
-							timjs$elm_collage$Collage$Text$fromString(model.o.aa + (' : ' + model.o.V)))),
+							timjs$elm_collage$Collage$Text$fromString(model.player.textAvatar + (' : ' + model.player.name)))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'Health: ' + elm$core$String$fromInt(model.o.M)))),
+								'Health: ' + elm$core$String$fromInt(model.player.health)))),
 						timjs$elm_collage$Collage$rendered(
 						theColor(
 							timjs$elm_collage$Collage$Text$fromString(
-								'mana: ' + elm$core$String$fromInt(model.o.S))))
+								'mana: ' + elm$core$String$fromInt(model.player.mana))))
 					])));
-		return model.ca ? barDebugMode : bar;
+		return model.debugMode ? barDebugMode : bar;
 	});
 var author$project$GameView$viewGameOverOverlay = function (completed) {
 	var theColor2 = timjs$elm_collage$Collage$Text$color(the_sett$elm_color$Color$red);
@@ -15751,40 +15806,40 @@ var author$project$GameView$display = function (model) {
 	return timjs$elm_collage$Collage$group(
 		_List_fromArray(
 			[
-				model.cb ? A2(author$project$GameView$sidebar, model, pos) : author$project$GameView$noForm,
-				(model.b7 === 1) ? author$project$GameView$viewGameOverOverlay(false) : ((model.b7 === 2) ? author$project$GameView$viewGameOverOverlay(true) : author$project$GameView$noForm),
+				model.displayStatsOverlay ? A2(author$project$GameView$sidebar, model, pos) : author$project$GameView$noForm,
+				_Utils_eq(model.currentDisplay, author$project$GameModel$DisplayGameOver) ? author$project$GameView$viewGameOverOverlay(false) : (_Utils_eq(model.currentDisplay, author$project$GameModel$DisplayGameCompleted) ? author$project$GameView$viewGameOverOverlay(true) : author$project$GameView$noForm),
 				author$project$GameView$mainScreen(model)
 			]));
 };
 var author$project$Thorns$Types$DoActivate = F2(
 	function (a, b) {
-		return {$: 5, a: a, b: b};
+		return {$: 'DoActivate', a: a, b: b};
 	});
 var author$project$Thorns$Types$MouseOut = F2(
 	function (a, b) {
-		return {$: 7, a: a, b: b};
+		return {$: 'MouseOut', a: a, b: b};
 	});
 var author$project$Thorns$Types$MouseOver = F2(
 	function (a, b) {
-		return {$: 6, a: a, b: b};
+		return {$: 'MouseOver', a: a, b: b};
 	});
 var author$project$Thorns$View$getImgBaseDir = function (model) {
-	return A2(elm$core$Maybe$withDefault, './img', model.co);
+	return A2(elm$core$Maybe$withDefault, './img', model.imgBaseDir);
 };
 var author$project$Thorns$ThornGrid$thornToString = function (thorn) {
-	switch (thorn) {
-		case 0:
+	switch (thorn.$) {
+		case 'COMMON_ATTACK':
 			return '+ ';
-		case 1:
+		case 'OPPONENT_COMMON_ATTACK':
 			return '- ';
-		case 2:
+		case 'ENLIGHTENMENT_SPELL':
 			return '* ';
 		default:
 			return '/ ';
 	}
 };
 var author$project$Thorns$View$mbthornToString = function (mbthorn) {
-	if (mbthorn.$ === 1) {
+	if (mbthorn.$ === 'Nothing') {
 		return 'nothing';
 	} else {
 		var thorn = mbthorn.a;
@@ -15802,17 +15857,17 @@ var author$project$Thorns$View$rowToListStringIndex = function (lmbthorns) {
 			}),
 		lmbthorns);
 };
-var author$project$Beings$Beings$DecreaseIndexOfLight = 2;
+var author$project$Beings$Beings$DecreaseIndexOfLight = {$: 'DecreaseIndexOfLight'};
 var elm$json$Json$Decode$map = _Json_map1;
 var elm$json$Json$Decode$map2 = _Json_map2;
 var elm$json$Json$Decode$succeed = _Json_succeed;
 var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 	switch (handler.$) {
-		case 0:
+		case 'Normal':
 			return 0;
-		case 1:
+		case 'MayStopPropagation':
 			return 1;
-		case 2:
+		case 'MayPreventDefault':
 			return 2;
 		default:
 			return 3;
@@ -15834,12 +15889,15 @@ var author$project$Thorns$View$viewHealthReport = function (model) {
 				_List_fromArray(
 					[
 						elm$html$Html$text(
-						'Your Health : ' + elm$core$String$fromInt(model.o.M))
+						'Your Health : ' + elm$core$String$fromInt(model.player.health)),
+						A2(elm$html$Html$br, _List_Nil, _List_Nil),
+						elm$html$Html$text(
+						'Your Mana : ' + elm$core$String$fromInt(model.player.mana))
 					])),
 				function () {
-				var _n0 = model.cO;
-				if (!_n0.$) {
-					if (!_n0.a.$) {
+				var _n0 = model.opponent;
+				if (_n0.$ === 'Just') {
+					if (_n0.a.$ === 'FightingCharacter') {
 						var opponent = _n0.a.a;
 						return A2(
 							elm$html$Html$div,
@@ -15848,10 +15906,10 @@ var author$project$Thorns$View$viewHealthReport = function (model) {
 								[
 									A2(elm$html$Html$br, _List_Nil, _List_Nil),
 									elm$html$Html$text(
-									'Your Opponent\'s health : ' + elm$core$String$fromInt(opponent.M)),
+									'Your Opponent\'s health : ' + elm$core$String$fromInt(opponent.health)),
 									A2(elm$html$Html$br, _List_Nil, _List_Nil),
-									((model.o.L === 1) || (model.o.L === 2)) ? elm$html$Html$text(
-									'Your Opponent\'s Index of Light : ' + elm$core$String$fromInt(opponent.N)) : elm$html$Html$text('')
+									(_Utils_eq(model.player.enlSpellEffect, author$project$Beings$Beings$IncreaseIndexOfLight) || _Utils_eq(model.player.enlSpellEffect, author$project$Beings$Beings$DecreaseIndexOfLight)) ? elm$html$Html$text(
+									'Your Opponent\'s Index of Light : ' + elm$core$String$fromInt(opponent.indexOfLight)) : elm$html$Html$text('')
 								]));
 					} else {
 						var opponent = _n0.a.a;
@@ -15861,9 +15919,9 @@ var author$project$Thorns$View$viewHealthReport = function (model) {
 							_List_fromArray(
 								[
 									elm$html$Html$text(
-									'Your Opponent\'s health : ' + elm$core$String$fromInt(opponent.M)),
-									((model.o.L === 1) || (model.o.L === 2)) ? elm$html$Html$text(
-									'Your Opponent\'s Index of Light : ' + elm$core$String$fromInt(opponent.N)) : elm$html$Html$text('')
+									'Your Opponent\'s health : ' + elm$core$String$fromInt(opponent.health)),
+									(_Utils_eq(model.player.enlSpellEffect, author$project$Beings$Beings$IncreaseIndexOfLight) || _Utils_eq(model.player.enlSpellEffect, author$project$Beings$Beings$DecreaseIndexOfLight)) ? elm$html$Html$text(
+									'Your Opponent\'s Index of Light : ' + elm$core$String$fromInt(opponent.indexOfLight)) : elm$html$Html$text('')
 								]));
 					}
 				} else {
@@ -15879,7 +15937,7 @@ var author$project$Thorns$View$viewSuggestion = function (model) {
 		_List_fromArray(
 			[
 				elm$html$Html$text(
-				A2(elm$core$Maybe$withDefault, '', model.bv))
+				A2(elm$core$Maybe$withDefault, '', model.helpStr))
 			]));
 };
 var elm$html$Html$a = _VirtualDom_node('a');
@@ -15916,7 +15974,7 @@ var elm$html$Html$Attributes$width = function (n) {
 		elm$core$String$fromInt(n));
 };
 var elm$virtual_dom$VirtualDom$Normal = function (a) {
-	return {$: 0, a: a};
+	return {$: 'Normal', a: a};
 };
 var elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
 var elm$html$Html$Events$on = F2(
@@ -15946,34 +16004,34 @@ var elm$html$Html$Events$onMouseOver = function (msg) {
 };
 var author$project$Thorns$View$view = function (model) {
 	var opponentSpecies = function (oppo) {
-		if (!oppo.$) {
+		if (oppo.$ === 'FightingCharacter') {
 			var fchar = oppo.a;
-			return fchar.aQ;
+			return fchar.species;
 		} else {
 			var ochar = oppo.a;
-			return ochar.aQ;
+			return ochar.species;
 		}
 	};
 	var lrownrs = A2(
 		elm$core$List$range,
 		0,
 		function (g) {
-			return g.cY.ck;
-		}(model.bu));
+			return g.size.height;
+		}(model.gridInteractionOptions));
 	var lrows = A2(
 		elm$core$List$map,
 		function (nr) {
-			return A2(author$project$Grid$getRow, nr, model.bu);
+			return A2(author$project$Grid$getRow, nr, model.gridInteractionOptions);
 		},
 		lrownrs);
-	var lcoords = author$project$Grid$toCoordinates(model.bu);
+	var lcoords = author$project$Grid$toCoordinates(model.gridInteractionOptions);
 	var imgBaseDir = author$project$Thorns$View$getImgBaseDir(model);
 	var getAttr = F2(
 		function (rownr, colnr) {
 			return A2(
 				elm$core$List$member,
 				A2(author$project$Grid$Coordinate, colnr, rownr),
-				model.bk) ? _Utils_Tuple2(
+				model.currentSegment) ? _Utils_Tuple2(
 				_List_fromArray(
 					[
 						A2(elm$html$Html$Attributes$style, 'font-weight', 'bold'),
@@ -16034,8 +16092,8 @@ var author$project$Thorns$View$view = function (model) {
 										_List_Nil)
 									])),
 								function () {
-								var _n0 = model.cO;
-								if (!_n0.$) {
+								var _n0 = model.opponent;
+								if (_n0.$ === 'Just') {
 									var oppon = _n0.a;
 									return A2(
 										elm$html$Html$span,
@@ -16124,7 +16182,7 @@ var author$project$GameView$viewGameOfThorns = function (model) {
 				A2(
 				elm$html$Html$map,
 				author$project$GameUpdate$ThornsMsg,
-				author$project$Thorns$View$view(model.ci))
+				author$project$Thorns$View$view(model.gameOfThornsModel))
 			]));
 };
 var author$project$GameView$viewHelpMode = function (model) {
@@ -16145,7 +16203,7 @@ var author$project$GameView$viewHelpMode = function (model) {
 					])),
 				elm$html$Html$text('Castle of Elm Tribulations is a minimalistic Rogue like game , inspired by Castle of Elm , Atic Atac , Roguelike in Elm  , Sleeping Beauty\'s Game of Thorns , ... '),
 				A2(elm$html$Html$br, _List_Nil, _List_Nil),
-				elm$html$Html$text('Find your way through the Caverns, Basement , The Ground Floor , First Floor and the Attic , pick up the three pieces of paper with the codes to unlock the black door and move towards enlightenment !!!'),
+				elm$html$Html$text('Find your way through the Caverns, Basement , The Ground Floor , First Floor and the Attic , pick up the three pieces of paper with the codes to unlock the striped door and move towards enlightenment !!!'),
 				A2(elm$html$Html$br, _List_Nil, _List_Nil),
 				A2(elm$html$Html$br, _List_Nil, _List_Nil),
 				A2(elm$html$Html$br, _List_Nil, _List_Nil),
@@ -16167,12 +16225,12 @@ var author$project$GameView$viewHelpMode = function (model) {
 };
 var author$project$Item$itemToImgSrc = function (item) {
 	switch (item.$) {
-		case 2:
+		case 'Key':
 			var keyInfo = item.a;
-			return '/items/key_' + (keyInfo.aD + '_inventory.png');
-		case 6:
+			return '/items/key_' + (keyInfo.keyColor + '_inventory.png');
+		case 'Paper':
 			var paperInfo = item.a;
-			return '/items/paper_part' + (elm$core$String$fromInt(paperInfo.aC) + '.png');
+			return '/items/paper_part' + (elm$core$String$fromInt(paperInfo.id) + '.png');
 		default:
 			return '';
 	}
@@ -16189,7 +16247,7 @@ var author$project$GameView$viewInventory = function (model) {
 		_List_Nil,
 		_List_fromArray(
 			[
-				elm$html$Html$text('Inventory :_ ')
+				elm$html$Html$text('Inventory : ')
 			]));
 	var thelist = A2(
 		elm$html$Html$div,
@@ -16219,7 +16277,7 @@ var author$project$GameView$viewInventory = function (model) {
 						A2(elm$html$Html$br, _List_Nil, _List_Nil)
 					]);
 			},
-			elm$core$Dict$values(model.o.Q)));
+			elm$core$Dict$values(model.player.inventory)));
 	var theColor = timjs$elm_collage$Collage$Text$color(the_sett$elm_color$Color$white);
 	return A2(
 		elm$html$Html$div,
@@ -16238,7 +16296,7 @@ var author$project$GameView$viewInventory = function (model) {
 };
 var author$project$GameView$viewOpponentReport = function (model) {
 	var fileStr = function (fightChar) {
-		return (_Utils_cmp(fightChar.N, fightChar.O) > -1) ? (author$project$GameView$getImgBaseDir(model) + ('/characters/' + (elm$core$String$toLower(fightChar.aQ) + '_enlightened.png'))) : ((fightChar.M > 0) ? (author$project$GameView$getImgBaseDir(model) + ('/characters/' + (elm$core$String$toLower(fightChar.aQ) + '.png'))) : (((fightChar.M <= 0) && model.cX) ? (author$project$GameView$getImgBaseDir(model) + ('/characters/' + (elm$core$String$toLower(fightChar.aQ) + '_dead_blood.png'))) : (author$project$GameView$getImgBaseDir(model) + ('/characters/' + (elm$core$String$toLower(fightChar.aQ) + '_dead.png')))));
+		return (_Utils_cmp(fightChar.indexOfLight, fightChar.indexOfLightMax) > -1) ? (author$project$GameView$getImgBaseDir(model) + ('/characters/' + (elm$core$String$toLower(fightChar.species) + '_enlightened.png'))) : ((fightChar.health > 0) ? (author$project$GameView$getImgBaseDir(model) + ('/characters/' + (elm$core$String$toLower(fightChar.species) + '.png'))) : (((fightChar.health <= 0) && model.showBlood) ? (author$project$GameView$getImgBaseDir(model) + ('/characters/' + (elm$core$String$toLower(fightChar.species) + '_dead_blood.png'))) : (author$project$GameView$getImgBaseDir(model) + ('/characters/' + (elm$core$String$toLower(fightChar.species) + '_dead.png')))));
 	};
 	var fcharLine = function (fightChar) {
 		return _List_fromArray(
@@ -16265,7 +16323,7 @@ var author$project$GameView$viewOpponentReport = function (model) {
 				_List_fromArray(
 					[
 						elm$html$Html$text(
-						'    ,    health : ' + (elm$core$String$fromInt(fightChar.M) + ('  ,     IndexOfLight : ' + elm$core$String$fromInt(fightChar.N)))),
+						'    ,    health : ' + (elm$core$String$fromInt(fightChar.health) + ('  ,     IndexOfLight : ' + elm$core$String$fromInt(fightChar.indexOfLight)))),
 						A2(elm$html$Html$br, _List_Nil, _List_Nil),
 						A2(elm$html$Html$br, _List_Nil, _List_Nil),
 						A2(elm$html$Html$br, _List_Nil, _List_Nil),
@@ -16297,14 +16355,14 @@ var author$project$GameView$viewOpponentReport = function (model) {
 					function (fightChar_) {
 						return fcharLine(fightChar_);
 					},
-					elm$core$Dict$values(model.l))),
+					elm$core$Dict$values(model.fightingCharacters))),
 				A2(elm$html$Html$br, _List_Nil, _List_Nil),
 				A2(elm$html$Html$br, _List_Nil, _List_Nil),
 				elm$html$Html$text('Press E to leave Opponent Report')
 			]));
 };
 var author$project$GameUpdate$StartGameNr = function (a) {
-	return {$: 1, a: a};
+	return {$: 'StartGameNr', a: a};
 };
 var author$project$GameView$viewStartMenuChoices = F2(
 	function (model, imgBaseDir) {
@@ -16361,6 +16419,7 @@ var author$project$GameView$viewStartMenuChoices = F2(
 								]))
 						])),
 					A2(elm$html$Html$br, _List_Nil, _List_Nil),
+					A2(elm$html$Html$br, _List_Nil, _List_Nil),
 					A2(elm$html$Html$br, _List_Nil, _List_Nil)
 				]));
 	});
@@ -16379,14 +16438,14 @@ var timjs$elm_collage$Collage$Layout$align = F2(
 	});
 var timjs$elm_collage$Collage$Layout$height = function (col) {
 	var _n0 = timjs$elm_collage$Collage$Layout$distances(col);
-	var toTop = _n0.t;
-	var toBottom = _n0.q;
+	var toTop = _n0.toTop;
+	var toBottom = _n0.toBottom;
 	return toTop + toBottom;
 };
 var timjs$elm_collage$Collage$Layout$width = function (col) {
 	var _n0 = timjs$elm_collage$Collage$Layout$distances(col);
-	var toLeft = _n0.r;
-	var toRight = _n0.s;
+	var toLeft = _n0.toLeft;
+	var toRight = _n0.toRight;
 	return toLeft + toRight;
 };
 var elm$svg$Svg$trustedNode = _VirtualDom_nodeNS('http://www.w3.org/2000/svg');
@@ -16436,10 +16495,10 @@ var elm$svg$Svg$Attributes$textAnchor = _VirtualDom_attribute('text-anchor');
 var elm$svg$Svg$Attributes$textDecoration = _VirtualDom_attribute('text-decoration');
 var elm$svg$Svg$Attributes$transform = _VirtualDom_attribute('transform');
 var timjs$elm_collage$Collage$Render$decodeCap = function (cap) {
-	switch (cap) {
-		case 1:
+	switch (cap.$) {
+		case 'Round':
 			return 'round';
-		case 2:
+		case 'Padded':
 			return 'square';
 		default:
 			return 'butt';
@@ -16469,9 +16528,9 @@ var elm$core$String$concat = function (strings) {
 var the_sett$elm_color$Color$toRgb = elm$core$Basics$identity;
 var timjs$elm_collage$Collage$Render$decodeColor = function (c) {
 	var _n0 = the_sett$elm_color$Color$toRgb(c);
-	var red = _n0.am;
-	var green = _n0.ah;
-	var blue = _n0.ae;
+	var red = _n0.red;
+	var green = _n0.green;
+	var blue = _n0.blue;
 	var b = elm$core$String$fromInt(blue);
 	var g = elm$core$String$fromInt(green);
 	var r = elm$core$String$fromInt(red);
@@ -16480,7 +16539,7 @@ var timjs$elm_collage$Collage$Render$decodeColor = function (c) {
 			['rgb(', r, ',', g, ',', b, ')']));
 };
 var timjs$elm_collage$Collage$Render$decodeFill = function (fs) {
-	if (fs.$ === 1) {
+	if (fs.$ === 'Uniform') {
 		var c = fs.a;
 		return timjs$elm_collage$Collage$Render$decodeColor(c);
 	} else {
@@ -16489,11 +16548,11 @@ var timjs$elm_collage$Collage$Render$decodeFill = function (fs) {
 };
 var timjs$elm_collage$Collage$Render$decodeOpacity = function (c) {
 	var _n0 = the_sett$elm_color$Color$toRgb(c);
-	var alpha = _n0.H;
+	var alpha = _n0.alpha;
 	return elm$core$String$fromFloat(alpha);
 };
 var timjs$elm_collage$Collage$Render$decodeFillOpacity = function (fs) {
-	if (fs.$ === 1) {
+	if (fs.$ === 'Uniform') {
 		var c = fs.a;
 		return timjs$elm_collage$Collage$Render$decodeOpacity(c);
 	} else {
@@ -16501,10 +16560,10 @@ var timjs$elm_collage$Collage$Render$decodeFillOpacity = function (fs) {
 	}
 };
 var timjs$elm_collage$Collage$Render$decodeJoin = function (join) {
-	switch (join) {
-		case 0:
+	switch (join.$) {
+		case 'Smooth':
 			return 'round';
-		case 1:
+		case 'Sharp':
 			return 'miter';
 		default:
 			return 'bevel';
@@ -16512,43 +16571,43 @@ var timjs$elm_collage$Collage$Render$decodeJoin = function (join) {
 };
 var elm$core$Basics$pi = _Basics_pi;
 var timjs$elm_collage$Collage$Render$decodeTransform = function (collage) {
-	var sy = elm$core$String$fromFloat(collage.bU.b);
-	var sx = elm$core$String$fromFloat(collage.bU.a);
-	var r = elm$core$String$fromFloat((((-collage.bT) / 2) / elm$core$Basics$pi) * 360);
-	var dy = elm$core$String$fromFloat(-collage.a6.b);
-	var dx = elm$core$String$fromFloat(collage.a6.a);
+	var sy = elm$core$String$fromFloat(collage.scale.b);
+	var sx = elm$core$String$fromFloat(collage.scale.a);
+	var r = elm$core$String$fromFloat((((-collage.rotation) / 2) / elm$core$Basics$pi) * 360);
+	var dy = elm$core$String$fromFloat(-collage.shift.b);
+	var dx = elm$core$String$fromFloat(collage.shift.a);
 	return elm$core$String$concat(
 		_List_fromArray(
 			['translate(', dx, ',', dy, ') scale(', sx, ',', sy, ') rotate(', r, ')']));
 };
 var timjs$elm_collage$Collage$Render$attrs = function (collage) {
-	var _n0 = collage.I;
+	var _n0 = collage.basic;
 	switch (_n0.$) {
-		case 1:
+		case 'Path':
 			var line = _n0.a;
 			return _List_fromArray(
 				[
 					elm$svg$Svg$Attributes$stroke(
-					timjs$elm_collage$Collage$Render$decodeFill(line.aX)),
+					timjs$elm_collage$Collage$Render$decodeFill(line.fill)),
 					elm$svg$Svg$Attributes$strokeOpacity(
-					timjs$elm_collage$Collage$Render$decodeFillOpacity(line.aX)),
+					timjs$elm_collage$Collage$Render$decodeFillOpacity(line.fill)),
 					elm$svg$Svg$Attributes$strokeWidth(
-					elm$core$String$fromFloat(line.ba)),
+					elm$core$String$fromFloat(line.thickness)),
 					elm$svg$Svg$Attributes$strokeLinecap(
-					timjs$elm_collage$Collage$Render$decodeCap(line.bh)),
+					timjs$elm_collage$Collage$Render$decodeCap(line.cap)),
 					elm$svg$Svg$Attributes$strokeLinejoin(
-					timjs$elm_collage$Collage$Render$decodeJoin(line.bz)),
+					timjs$elm_collage$Collage$Render$decodeJoin(line.join)),
 					elm$svg$Svg$Attributes$fill('none'),
 					elm$svg$Svg$Attributes$opacity(
-					elm$core$String$fromFloat(collage.cM)),
+					elm$core$String$fromFloat(collage.opacity)),
 					elm$svg$Svg$Attributes$transform(
 					timjs$elm_collage$Collage$Render$decodeTransform(collage)),
 					elm$svg$Svg$Attributes$strokeDashoffset(
-					elm$core$String$fromInt(line.bm)),
+					elm$core$String$fromInt(line.dashPhase)),
 					elm$svg$Svg$Attributes$strokeDasharray(
-					timjs$elm_collage$Collage$Render$decodeDashing(line.aV))
+					timjs$elm_collage$Collage$Render$decodeDashing(line.dashPattern))
 				]);
-		case 0:
+		case 'Shape':
 			var _n1 = _n0.a;
 			var fill = _n1.a;
 			var line = _n1.b;
@@ -16559,25 +16618,25 @@ var timjs$elm_collage$Collage$Render$attrs = function (collage) {
 					elm$svg$Svg$Attributes$fillOpacity(
 					timjs$elm_collage$Collage$Render$decodeFillOpacity(fill)),
 					elm$svg$Svg$Attributes$stroke(
-					timjs$elm_collage$Collage$Render$decodeFill(line.aX)),
+					timjs$elm_collage$Collage$Render$decodeFill(line.fill)),
 					elm$svg$Svg$Attributes$strokeOpacity(
-					timjs$elm_collage$Collage$Render$decodeFillOpacity(line.aX)),
+					timjs$elm_collage$Collage$Render$decodeFillOpacity(line.fill)),
 					elm$svg$Svg$Attributes$strokeWidth(
-					elm$core$String$fromFloat(line.ba)),
+					elm$core$String$fromFloat(line.thickness)),
 					elm$svg$Svg$Attributes$strokeLinecap(
-					timjs$elm_collage$Collage$Render$decodeCap(line.bh)),
+					timjs$elm_collage$Collage$Render$decodeCap(line.cap)),
 					elm$svg$Svg$Attributes$strokeLinejoin(
-					timjs$elm_collage$Collage$Render$decodeJoin(line.bz)),
+					timjs$elm_collage$Collage$Render$decodeJoin(line.join)),
 					elm$svg$Svg$Attributes$opacity(
-					elm$core$String$fromFloat(collage.cM)),
+					elm$core$String$fromFloat(collage.opacity)),
 					elm$svg$Svg$Attributes$transform(
 					timjs$elm_collage$Collage$Render$decodeTransform(collage)),
 					elm$svg$Svg$Attributes$strokeDashoffset(
-					elm$core$String$fromInt(line.bm)),
+					elm$core$String$fromInt(line.dashPhase)),
 					elm$svg$Svg$Attributes$strokeDasharray(
-					timjs$elm_collage$Collage$Render$decodeDashing(line.aV))
+					timjs$elm_collage$Collage$Render$decodeDashing(line.dashPattern))
 				]);
-		case 2:
+		case 'Text':
 			var _n2 = _n0.b;
 			var style = _n2.a;
 			var str = _n2.b;
@@ -16585,16 +16644,16 @@ var timjs$elm_collage$Collage$Render$attrs = function (collage) {
 				[
 					elm$svg$Svg$Attributes$fill(
 					timjs$elm_collage$Collage$Render$decodeFill(
-						timjs$elm_collage$Collage$Core$Uniform(style.b6))),
+						timjs$elm_collage$Collage$Core$Uniform(style.color))),
 					elm$svg$Svg$Attributes$fontFamily(
 					function () {
-						var _n3 = style.c8;
+						var _n3 = style.typeface;
 						switch (_n3.$) {
-							case 0:
+							case 'Serif':
 								return 'serif';
-							case 1:
+							case 'Sansserif':
 								return 'sans-serif';
-							case 2:
+							case 'Monospace':
 								return 'monospace';
 							default:
 								var name = _n3.a;
@@ -16602,22 +16661,22 @@ var timjs$elm_collage$Collage$Render$attrs = function (collage) {
 						}
 					}()),
 					elm$svg$Svg$Attributes$fontSize(
-					elm$core$String$fromInt(style.cY)),
+					elm$core$String$fromInt(style.size)),
 					elm$svg$Svg$Attributes$fontWeight(
 					function () {
-						var _n4 = style.di;
-						switch (_n4) {
-							case 0:
+						var _n4 = style.weight;
+						switch (_n4.$) {
+							case 'Thin':
 								return '200';
-							case 1:
+							case 'Light':
 								return '300';
-							case 2:
+							case 'Regular':
 								return 'normal';
-							case 3:
+							case 'Medium':
 								return '500';
-							case 4:
+							case 'SemiBold':
 								return '600';
-							case 5:
+							case 'Bold':
 								return 'bold';
 							default:
 								return '800';
@@ -16625,13 +16684,13 @@ var timjs$elm_collage$Collage$Render$attrs = function (collage) {
 					}()),
 					elm$svg$Svg$Attributes$fontStyle(
 					function () {
-						var _n5 = style.bW;
-						switch (_n5) {
-							case 0:
+						var _n5 = style.shape;
+						switch (_n5.$) {
+							case 'Upright':
 								return 'normal';
-							case 1:
+							case 'SmallCaps':
 								return 'normal';
-							case 2:
+							case 'Slanted':
 								return 'oblique';
 							default:
 								return 'italic';
@@ -16639,8 +16698,8 @@ var timjs$elm_collage$Collage$Render$attrs = function (collage) {
 					}()),
 					elm$svg$Svg$Attributes$fontVariant(
 					function () {
-						var _n6 = style.bW;
-						if (_n6 === 1) {
+						var _n6 = style.shape;
+						if (_n6.$ === 'SmallCaps') {
 							return 'small-caps';
 						} else {
 							return 'normal';
@@ -16648,13 +16707,13 @@ var timjs$elm_collage$Collage$Render$attrs = function (collage) {
 					}()),
 					elm$svg$Svg$Attributes$textDecoration(
 					function () {
-						var _n7 = style.ak;
-						switch (_n7) {
-							case 0:
+						var _n7 = style.line;
+						switch (_n7.$) {
+							case 'None':
 								return 'none';
-							case 1:
+							case 'Under':
 								return 'underline';
-							case 2:
+							case 'Over':
 								return 'overline';
 							default:
 								return 'line-through';
@@ -16725,13 +16784,13 @@ var timjs$elm_collage$Collage$Render$events = function (handlers) {
 var timjs$elm_collage$Collage$Render$render = function (collage) {
 	render:
 	while (true) {
-		var name = A2(elm$core$Maybe$withDefault, '_unnamed_', collage.V);
-		var _n0 = collage.I;
+		var name = A2(elm$core$Maybe$withDefault, '_unnamed_', collage.name);
+		var _n0 = collage.basic;
 		switch (_n0.$) {
-			case 1:
+			case 'Path':
 				var style = _n0.a;
 				var path = _n0.b;
-				var ps = path;
+				var ps = path.a;
 				return A2(
 					elm$svg$Svg$polyline,
 					_Utils_ap(
@@ -16743,15 +16802,15 @@ var timjs$elm_collage$Collage$Render$render = function (collage) {
 							]),
 						_Utils_ap(
 							timjs$elm_collage$Collage$Render$attrs(collage),
-							timjs$elm_collage$Collage$Render$events(collage.cj))),
+							timjs$elm_collage$Collage$Render$events(collage.handlers))),
 					_List_Nil);
-			case 0:
+			case 'Shape':
 				var _n2 = _n0.a;
 				var fill = _n2.a;
 				var line = _n2.b;
 				var shape = _n0.b;
 				switch (shape.$) {
-					case 0:
+					case 'Polygon':
 						var ps = shape.a;
 						return A2(
 							elm$svg$Svg$polygon,
@@ -16764,9 +16823,9 @@ var timjs$elm_collage$Collage$Render$render = function (collage) {
 									]),
 								_Utils_ap(
 									timjs$elm_collage$Collage$Render$attrs(collage),
-									timjs$elm_collage$Collage$Render$events(collage.cj))),
+									timjs$elm_collage$Collage$Render$events(collage.handlers))),
 							_List_Nil);
-					case 3:
+					case 'Circle':
 						var r = shape.a;
 						return A2(
 							elm$svg$Svg$circle,
@@ -16779,9 +16838,9 @@ var timjs$elm_collage$Collage$Render$render = function (collage) {
 									]),
 								_Utils_ap(
 									timjs$elm_collage$Collage$Render$attrs(collage),
-									timjs$elm_collage$Collage$Render$events(collage.cj))),
+									timjs$elm_collage$Collage$Render$events(collage.handlers))),
 							_List_Nil);
-					case 2:
+					case 'Ellipse':
 						var rx = shape.a;
 						var ry = shape.b;
 						return A2(
@@ -16797,9 +16856,9 @@ var timjs$elm_collage$Collage$Render$render = function (collage) {
 									]),
 								_Utils_ap(
 									timjs$elm_collage$Collage$Render$attrs(collage),
-									timjs$elm_collage$Collage$Render$events(collage.cj))),
+									timjs$elm_collage$Collage$Render$events(collage.handlers))),
 							_List_Nil);
-					case 1:
+					case 'Rectangle':
 						var w = shape.a;
 						var h = shape.b;
 						var r = shape.c;
@@ -16818,19 +16877,19 @@ var timjs$elm_collage$Collage$Render$render = function (collage) {
 									A2(timjs$elm_collage$Collage$Render$box, w, h),
 									_Utils_ap(
 										timjs$elm_collage$Collage$Render$attrs(collage),
-										timjs$elm_collage$Collage$Render$events(collage.cj)))),
+										timjs$elm_collage$Collage$Render$events(collage.handlers)))),
 							_List_Nil);
 					default:
 						var path = shape.a;
 						var $temp$collage = _Utils_update(
 							collage,
 							{
-								I: A2(timjs$elm_collage$Collage$Core$Path, line, path)
+								basic: A2(timjs$elm_collage$Collage$Core$Path, line, path)
 							});
 						collage = $temp$collage;
 						continue render;
 				}
-			case 2:
+			case 'Text':
 				var _n4 = _n0.b;
 				var style = _n4.a;
 				var str = _n4.b;
@@ -16843,12 +16902,12 @@ var timjs$elm_collage$Collage$Render$render = function (collage) {
 							]),
 						_Utils_ap(
 							timjs$elm_collage$Collage$Render$attrs(collage),
-							timjs$elm_collage$Collage$Render$events(collage.cj))),
+							timjs$elm_collage$Collage$Render$events(collage.handlers))),
 					_List_fromArray(
 						[
 							elm$svg$Svg$text(str)
 						]));
-			case 3:
+			case 'Image':
 				var _n5 = _n0.a;
 				var w = _n5.a;
 				var h = _n5.b;
@@ -16865,9 +16924,9 @@ var timjs$elm_collage$Collage$Render$render = function (collage) {
 							A2(timjs$elm_collage$Collage$Render$box, w, h),
 							_Utils_ap(
 								timjs$elm_collage$Collage$Render$attrs(collage),
-								timjs$elm_collage$Collage$Render$events(collage.cj)))),
+								timjs$elm_collage$Collage$Render$events(collage.handlers)))),
 					_List_Nil);
-			case 4:
+			case 'Html':
 				var _n6 = _n0.a;
 				var w = _n6.a;
 				var h = _n6.b;
@@ -16883,10 +16942,10 @@ var timjs$elm_collage$Collage$Render$render = function (collage) {
 							A2(timjs$elm_collage$Collage$Render$box, w, h),
 							_Utils_ap(
 								timjs$elm_collage$Collage$Render$attrs(collage),
-								timjs$elm_collage$Collage$Render$events(collage.cj)))),
+								timjs$elm_collage$Collage$Render$events(collage.handlers)))),
 					_List_fromArray(
 						[html]));
-			case 5:
+			case 'Group':
 				var collages = _n0.a;
 				return A2(
 					elm$svg$Svg$g,
@@ -16895,7 +16954,7 @@ var timjs$elm_collage$Collage$Render$render = function (collage) {
 						elm$svg$Svg$Attributes$id(name),
 						_Utils_ap(
 							timjs$elm_collage$Collage$Render$attrs(collage),
-							timjs$elm_collage$Collage$Render$events(collage.cj))),
+							timjs$elm_collage$Collage$Render$events(collage.handlers))),
 					A3(
 						elm$core$List$foldl,
 						F2(
@@ -16913,7 +16972,7 @@ var timjs$elm_collage$Collage$Render$render = function (collage) {
 				var $temp$collage = _Utils_update(
 					collage,
 					{
-						I: timjs$elm_collage$Collage$Core$Group(
+						basic: timjs$elm_collage$Collage$Core$Group(
 							_List_fromArray(
 								[fore, back]))
 					});
@@ -16956,7 +17015,7 @@ var timjs$elm_collage$Collage$Render$svg = function (collage) {
 		A2(timjs$elm_collage$Collage$Layout$align, timjs$elm_collage$Collage$Layout$topLeft, collage));
 };
 var author$project$GameView$view = function (model) {
-	var _n0 = model.cZ;
+	var _n0 = model.started;
 	if (_n0) {
 		return A2(
 			elm$html$Html$div,
@@ -16964,15 +17023,15 @@ var author$project$GameView$view = function (model) {
 			_List_fromArray(
 				[
 					function () {
-					var _n1 = model.b7;
-					switch (_n1) {
-						case 3:
+					var _n1 = model.currentDisplay;
+					switch (_n1.$) {
+						case 'DisplayGameOfThorns':
 							return author$project$GameView$viewGameOfThorns(model);
-						case 4:
+						case 'DisplayOpponentReport':
 							return author$project$GameView$viewOpponentReport(model);
-						case 6:
+						case 'DisplayInventory':
 							return author$project$GameView$viewInventory(model);
-						case 5:
+						case 'DisplayHelpScreen':
 							return author$project$GameView$viewHelpMode(model);
 						default:
 							return A2(
@@ -16994,145 +17053,154 @@ var author$project$GameView$view = function (model) {
 	}
 };
 var author$project$GameDefinitions$Common$square_room_side_ = 7;
-var author$project$GameDefinitions$Common$cParams = {aT: 4, au: 1, aU: 4, av: 1, ai: 1, B: 1, aM: author$project$GameDefinitions$Common$square_room_side_ - 2, aN: author$project$GameDefinitions$Common$square_room_side_, aO: author$project$GameDefinitions$Common$square_room_side_, aP: author$project$GameDefinitions$Common$square_room_side_ - 2, a: author$project$GameDefinitions$Common$square_room_side_, as: 1, F: 1};
+var author$project$GameDefinitions$Common$cParams = {border_bottom_height: 4, border_left_width: 1, border_right_width: 4, border_top_height: 1, horizontal_space_between_rooms: 1, horizontal_wall_height: 1, small_height_room_height: author$project$GameDefinitions$Common$square_room_side_ - 2, small_height_room_width: author$project$GameDefinitions$Common$square_room_side_, small_width_room_height: author$project$GameDefinitions$Common$square_room_side_, small_width_room_width: author$project$GameDefinitions$Common$square_room_side_ - 2, square_room_side: author$project$GameDefinitions$Common$square_room_side_, vertical_space_between_rooms: 1, vertical_wall_width: 1};
 var author$project$GameDefinitions$Common$dimensions = _Utils_Tuple2(10, 10);
-var author$project$GameDefinitions$Common$initialFightingCharacter = F3(
-	function (fcharId, species, floor_id) {
+var author$project$GameDefinitions$Common$initialFightingCharacter = F5(
+	function (fcharId, species, x, y, floor_id) {
 		var elem = 'e' + elm$core$String$fromInt(fcharId);
-		return A5(
+		return A7(
 			author$project$Beings$Beings$fightingCharacterCreationFunc,
 			elem,
 			fcharId,
 			'fightingCharacter' + elm$core$String$fromInt(fcharId),
 			species,
+			x,
+			y,
 			floor_id);
 	});
-var author$project$GameDefinitions$Common$initialPlayer = function () {
-	var elem = '@';
-	return A2(author$project$Beings$Beings$playerCreationFunc, elem, 'You');
-}();
+var author$project$GameDefinitions$Common$initialPlayer = F3(
+	function (x, y, z) {
+		var elem = '@';
+		return A5(author$project$Beings$Beings$playerCreationFunc, elem, 'You', x, y, z);
+	});
 var author$project$GameDefinitions$Common$initialModelFunc = function (imgBaseDir_) {
 	var w = author$project$GameDefinitions$Common$dimensions.a;
-	var theFloorId = 1;
-	var player = author$project$GameDefinitions$Common$initialPlayer;
+	var theFloorId = 0;
+	var player_ = A3(author$project$GameDefinitions$Common$initialPlayer, 10, 10, 0);
 	var levers = elm$core$Dict$empty;
 	var h = author$project$GameDefinitions$Common$dimensions.b;
 	var firstMap = A3(author$project$GameDefinitions$Common$gridInitializer, w, h, author$project$GameDefinitions$Common$cParams);
-	var fightingCharacter2 = A3(author$project$GameDefinitions$Common$initialFightingCharacter, 2, 'ghost', theFloorId);
-	var fightingCharacter = A3(author$project$GameDefinitions$Common$initialFightingCharacter, 1, 'ghost', theFloorId);
+	var fightingCharacter2 = A5(author$project$GameDefinitions$Common$initialFightingCharacter, 2, 'ghost', 4, 4, theFloorId);
+	var fightingCharacter = A5(author$project$GameDefinitions$Common$initialFightingCharacter, 1, 'ghost', 2, 2, theFloorId);
 	var createRandomMap = false;
 	return _Utils_Tuple2(
 		{
-			b7: 0,
-			b8: theFloorId,
-			ca: false,
-			cb: false,
-			cd: author$project$GameDefinitions$Common$setAllAsUnexplored(firstMap),
-			l: elm$core$Dict$fromList(
+			currentDisplay: author$project$GameModel$DisplayRegularGame,
+			currentFloorId: theFloorId,
+			debugMode: false,
+			displayStatsOverlay: false,
+			explored: author$project$GameDefinitions$Common$setAllAsUnexplored(firstMap),
+			fightingCharacters: elm$core$Dict$fromList(
 				_List_fromArray(
 					[
 						_Utils_Tuple2(1, fightingCharacter),
 						_Utils_Tuple2(2, fightingCharacter2)
 					])),
-			aY: elm$core$Dict$empty,
-			ch: F2(
+			floorDict: elm$core$Dict$empty,
+			gameCompletionFunc: F2(
 				function (fid, coords) {
 					return false;
 				}),
-			ci: A3(
+			gameOfThornsModel: A3(
 				author$project$Thorns$Types$initialModel,
-				player,
+				player_,
 				elm$core$Maybe$Nothing,
 				elm$core$Maybe$Just(imgBaseDir_)),
-			co: elm$core$Maybe$Just(imgBaseDir_),
-			cy: firstMap,
-			cA: elm$core$Dict$empty,
-			cC: true,
-			cD: _List_fromArray(
+			imgBaseDir: elm$core$Maybe$Just(imgBaseDir_),
+			level: firstMap,
+			leverModelChangerFuncs: elm$core$Dict$empty,
+			listeningToKeyInput: true,
+			log: _List_fromArray(
 				['you enter the dungeon']),
-			y: elm$core$Dict$empty,
-			o: player,
-			cQ: _List_Nil,
-			cV: elm$core$Maybe$Nothing,
-			cX: true,
-			cZ: false,
-			c4: author$project$GameDefinitions$Common$dimensions.b,
-			c5: author$project$GameDefinitions$Common$dimensions.a,
-			de: 3,
-			df: 3,
-			dh: elm$core$Maybe$Nothing,
-			dk: 10,
-			dl: 10
+			otherCharacters: elm$core$Dict$empty,
+			player: player_,
+			pseudoRandomIntsPool: _List_Nil,
+			radius_of_visibility: 5,
+			roomsInfo: elm$core$Maybe$Nothing,
+			showBlood: true,
+			started: false,
+			tileHeight: 64,
+			tileWidth: 64,
+			total_height: author$project$GameDefinitions$Common$dimensions.b,
+			total_width: author$project$GameDefinitions$Common$dimensions.a,
+			viewport_topleft_x: 3,
+			viewport_topleft_y: 3,
+			wallPercentage: elm$core$Maybe$Nothing,
+			window_height: 10,
+			window_width: 10
 		},
 		createRandomMap);
 };
 var author$project$Main$init = function (flags) {
-	var _n0 = author$project$GameDefinitions$Common$initialModelFunc(flags.co);
+	var _n0 = author$project$GameDefinitions$Common$initialModelFunc(flags.imgBaseDir);
 	var initModel = _n0.a;
 	var createRandomMap = _n0.b;
-	var gBounds = author$project$Grid$getGridBoundsToPlacePlayer(initModel.cy);
+	var gBounds = author$project$Grid$getGridBoundsToPlacePlayer(initModel.level);
 	return _Utils_Tuple2(
 		initModel,
 		author$project$GameUpdate$cmdFillRandomIntsPool(initModel));
 };
 var author$project$GameUpdate$KeyDown = function (a) {
-	return {$: 2, a: a};
+	return {$: 'KeyDown', a: a};
 };
-var author$project$GameModel$Down = 1;
-var author$project$GameModel$Left = 2;
-var author$project$GameModel$Nop = 9;
-var author$project$GameModel$PickUpItem = 4;
-var author$project$GameModel$Right = 3;
-var author$project$GameModel$Up = 0;
-var author$project$GameModel$ViewHelpMode = 8;
-var author$project$GameModel$ViewInventory = 5;
-var author$project$GameModel$ViewOpponentReport = 7;
-var author$project$GameModel$ViewStatsOverlay = 6;
+var author$project$GameModel$Down = {$: 'Down'};
+var author$project$GameModel$Left = {$: 'Left'};
+var author$project$GameModel$Nop = {$: 'Nop'};
+var author$project$GameModel$PickUpItem = {$: 'PickUpItem'};
+var author$project$GameModel$Right = {$: 'Right'};
+var author$project$GameModel$Up = {$: 'Up'};
+var author$project$GameModel$ViewHelpMode = {$: 'ViewHelpMode'};
+var author$project$GameModel$ViewInventory = {$: 'ViewInventory'};
+var author$project$GameModel$ViewMap = {$: 'ViewMap'};
+var author$project$GameModel$ViewOpponentReport = {$: 'ViewOpponentReport'};
+var author$project$GameModel$ViewStatsOverlay = {$: 'ViewStatsOverlay'};
 var author$project$Main$fromCode = function (keyCode) {
 	switch (keyCode) {
 		case 79:
-			return 2;
+			return author$project$GameModel$Left;
 		case 37:
-			return 2;
+			return author$project$GameModel$Left;
 		case 80:
-			return 3;
+			return author$project$GameModel$Right;
 		case 39:
-			return 3;
+			return author$project$GameModel$Right;
 		case 81:
-			return 0;
+			return author$project$GameModel$Up;
 		case 38:
-			return 0;
+			return author$project$GameModel$Up;
 		case 40:
-			return 1;
+			return author$project$GameModel$Down;
 		case 65:
-			return 1;
+			return author$project$GameModel$Down;
 		case 85:
-			return 4;
+			return author$project$GameModel$PickUpItem;
 		case 73:
-			return 5;
+			return author$project$GameModel$ViewInventory;
 		case 83:
-			return 6;
+			return author$project$GameModel$ViewStatsOverlay;
 		case 69:
-			return 7;
+			return author$project$GameModel$ViewOpponentReport;
 		case 72:
-			return 8;
+			return author$project$GameModel$ViewHelpMode;
+		case 77:
+			return author$project$GameModel$ViewMap;
 		default:
-			return 9;
+			return author$project$GameModel$Nop;
 	}
 };
-var elm$browser$Browser$Events$Document = 0;
+var elm$browser$Browser$Events$Document = {$: 'Document'};
 var elm$browser$Browser$Events$MySub = F3(
 	function (a, b, c) {
-		return {$: 0, a: a, b: b, c: c};
+		return {$: 'MySub', a: a, b: b, c: c};
 	});
 var elm$browser$Browser$Events$State = F2(
 	function (subs, pids) {
-		return {bI: pids, bX: subs};
+		return {pids: pids, subs: subs};
 	});
 var elm$browser$Browser$Events$init = elm$core$Task$succeed(
 	A2(elm$browser$Browser$Events$State, _List_Nil, elm$core$Dict$empty));
 var elm$browser$Browser$Events$nodeToKey = function (node) {
-	if (!node) {
+	if (node.$ === 'Document') {
 		return 'd_';
 	} else {
 		return 'w_';
@@ -17149,7 +17217,7 @@ var elm$browser$Browser$Events$addKey = function (sub) {
 };
 var elm$browser$Browser$Events$Event = F2(
 	function (key, event) {
-		return {bs: event, bA: key};
+		return {event: event, key: key};
 	});
 var elm$core$Platform$sendToSelf = _Platform_sendToSelf;
 var elm$core$Task$map = F2(
@@ -17163,23 +17231,27 @@ var elm$core$Task$map = F2(
 			taskA);
 	});
 var elm$browser$Browser$External = function (a) {
-	return {$: 1, a: a};
+	return {$: 'External', a: a};
 };
 var elm$browser$Browser$Internal = function (a) {
-	return {$: 0, a: a};
+	return {$: 'Internal', a: a};
 };
-var elm$browser$Browser$Dom$NotFound = elm$core$Basics$identity;
+var elm$browser$Browser$Dom$NotFound = function (a) {
+	return {$: 'NotFound', a: a};
+};
 var elm$core$Basics$never = function (_n0) {
 	never:
 	while (true) {
-		var nvr = _n0;
+		var nvr = _n0.a;
 		var $temp$_n0 = nvr;
 		_n0 = $temp$_n0;
 		continue never;
 	}
 };
-var elm$core$Task$Perform = elm$core$Basics$identity;
-var elm$core$Task$init = elm$core$Task$succeed(0);
+var elm$core$Task$Perform = function (a) {
+	return {$: 'Perform', a: a};
+};
+var elm$core$Task$init = elm$core$Task$succeed(_Utils_Tuple0);
 var elm$core$Task$map2 = F3(
 	function (func, taskA, taskB) {
 		return A2(
@@ -17204,7 +17276,7 @@ var elm$core$Task$sequence = function (tasks) {
 };
 var elm$core$Task$spawnCmd = F2(
 	function (router, _n0) {
-		var task = _n0;
+		var task = _n0.a;
 		return _Scheduler_spawn(
 			A2(
 				elm$core$Task$andThen,
@@ -17216,7 +17288,7 @@ var elm$core$Task$onEffects = F3(
 		return A2(
 			elm$core$Task$map,
 			function (_n0) {
-				return 0;
+				return _Utils_Tuple0;
 			},
 			elm$core$Task$sequence(
 				A2(
@@ -17226,19 +17298,21 @@ var elm$core$Task$onEffects = F3(
 	});
 var elm$core$Task$onSelfMsg = F3(
 	function (_n0, _n1, _n2) {
-		return elm$core$Task$succeed(0);
+		return elm$core$Task$succeed(_Utils_Tuple0);
 	});
 var elm$core$Task$cmdMap = F2(
 	function (tagger, _n0) {
-		var task = _n0;
-		return A2(elm$core$Task$map, tagger, task);
+		var task = _n0.a;
+		return elm$core$Task$Perform(
+			A2(elm$core$Task$map, tagger, task));
 	});
 _Platform_effectManagers['Task'] = _Platform_createManager(elm$core$Task$init, elm$core$Task$onEffects, elm$core$Task$onSelfMsg, elm$core$Task$cmdMap);
 var elm$core$Task$command = _Platform_leaf('Task');
 var elm$core$Task$perform = F2(
 	function (toMessage, task) {
 		return elm$core$Task$command(
-			A2(elm$core$Task$map, toMessage, task));
+			elm$core$Task$Perform(
+				A2(elm$core$Task$map, toMessage, task)));
 	});
 var elm$core$String$slice = _String_slice;
 var elm$core$String$dropLeft = F2(
@@ -17249,8 +17323,8 @@ var elm$core$String$dropLeft = F2(
 			elm$core$String$length(string),
 			string);
 	});
-var elm$url$Url$Http = 0;
-var elm$url$Url$Https = 1;
+var elm$url$Url$Http = {$: 'Http'};
+var elm$url$Url$Https = {$: 'Https'};
 var elm$core$String$indexes = _String_indexes;
 var elm$core$String$isEmpty = function (string) {
 	return string === '';
@@ -17263,7 +17337,7 @@ var elm$core$String$contains = _String_contains;
 var elm$core$String$toInt = _String_toInt;
 var elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
-		return {bt: fragment, bw: host, bH: path, bJ: port_, bM: protocol, bN: query};
+		return {fragment: fragment, host: host, path: path, port_: port_, protocol: protocol, query: query};
 	});
 var elm$url$Url$chompBeforePath = F5(
 	function (protocol, path, params, frag, str) {
@@ -17279,7 +17353,7 @@ var elm$url$Url$chompBeforePath = F5(
 					var i = _n0.a;
 					var _n1 = elm$core$String$toInt(
 						A2(elm$core$String$dropLeft, i + 1, str));
-					if (_n1.$ === 1) {
+					if (_n1.$ === 'Nothing') {
 						return elm$core$Maybe$Nothing;
 					} else {
 						var port_ = _n1;
@@ -17361,10 +17435,10 @@ var elm$url$Url$chompAfterProtocol = F2(
 var elm$url$Url$fromString = function (str) {
 	return A2(elm$core$String$startsWith, 'http://', str) ? A2(
 		elm$url$Url$chompAfterProtocol,
-		0,
+		elm$url$Url$Http,
 		A2(elm$core$String$dropLeft, 7, str)) : (A2(elm$core$String$startsWith, 'https://', str) ? A2(
 		elm$url$Url$chompAfterProtocol,
-		1,
+		elm$url$Url$Https,
 		A2(elm$core$String$dropLeft, 8, str)) : elm$core$Maybe$Nothing);
 };
 var elm$browser$Browser$Events$spawn = F3(
@@ -17372,7 +17446,7 @@ var elm$browser$Browser$Events$spawn = F3(
 		var node = _n0.a;
 		var name = _n0.b;
 		var actualNode = function () {
-			if (!node) {
+			if (node.$ === 'Document') {
 				return _Browser_doc;
 			} else {
 				return _Browser_window;
@@ -17501,7 +17575,7 @@ var elm$browser$Browser$Events$onEffects = F3(
 			stepLeft,
 			stepBoth,
 			stepRight,
-			state.bI,
+			state.pids,
 			elm$core$Dict$fromList(newSubs),
 			_Utils_Tuple3(_List_Nil, elm$core$Dict$empty, _List_Nil));
 		var deadPids = _n0.a;
@@ -17529,8 +17603,8 @@ var elm$browser$Browser$Events$onEffects = F3(
 	});
 var elm$browser$Browser$Events$onSelfMsg = F3(
 	function (router, _n0, state) {
-		var key = _n0.bA;
-		var event = _n0.bs;
+		var key = _n0.key;
+		var event = _n0.event;
 		var toMessage = function (_n2) {
 			var subKey = _n2.a;
 			var _n3 = _n2.b;
@@ -17539,7 +17613,7 @@ var elm$browser$Browser$Events$onSelfMsg = F3(
 			var decoder = _n3.c;
 			return _Utils_eq(subKey, key) ? A2(_Browser_decodeEvent, decoder, event) : elm$core$Maybe$Nothing;
 		};
-		var messages = A2(elm$core$List$filterMap, toMessage, state.bX);
+		var messages = A2(elm$core$List$filterMap, toMessage, state.subs);
 		return A2(
 			elm$core$Task$andThen,
 			function (_n1) {
@@ -17569,7 +17643,7 @@ var elm$browser$Browser$Events$on = F3(
 		return elm$browser$Browser$Events$subscription(
 			A3(elm$browser$Browser$Events$MySub, node, name, decoder));
 	});
-var elm$browser$Browser$Events$onKeyDown = A2(elm$browser$Browser$Events$on, 0, 'keydown');
+var elm$browser$Browser$Events$onKeyDown = A2(elm$browser$Browser$Events$on, elm$browser$Browser$Events$Document, 'keydown');
 var elm$core$Platform$Sub$batch = _Platform_batch;
 var elm$json$Json$Decode$field = _Json_decodeField;
 var elm$json$Json$Decode$int = _Json_decodeInt;
@@ -17592,12 +17666,12 @@ var elm$browser$Browser$element = _Browser_element;
 var elm$json$Json$Decode$andThen = _Json_andThen;
 var elm$json$Json$Decode$string = _Json_decodeString;
 var author$project$Main$main = elm$browser$Browser$element(
-	{cr: author$project$Main$init, c_: author$project$Main$subscriptions, db: author$project$GameUpdate$update, dd: author$project$GameView$view});
+	{init: author$project$Main$init, subscriptions: author$project$Main$subscriptions, update: author$project$GameUpdate$update, view: author$project$GameView$view});
 _Platform_export({'Main':{'init':author$project$Main$main(
 	A2(
 		elm$json$Json$Decode$andThen,
 		function (imgBaseDir) {
 			return elm$json$Json$Decode$succeed(
-				{co: imgBaseDir});
+				{imgBaseDir: imgBaseDir});
 		},
 		A2(elm$json$Json$Decode$field, 'imgBaseDir', elm$json$Json$Decode$string)))(0)}});}(this));
