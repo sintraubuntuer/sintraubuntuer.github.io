@@ -586,11 +586,11 @@ function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
 
 function _Debug_regionToString(region)
 {
-	if (region.aQ.aa === region.a$.aa)
+	if (region.aO.aa === region.a$.aa)
 	{
-		return 'on line ' + region.aQ.aa;
+		return 'on line ' + region.aO.aa;
 	}
-	return 'on lines ' + region.aQ.aa + ' through ' + region.a$.aa;
+	return 'on lines ' + region.aO.aa + ' through ' + region.a$.aa;
 }
 
 
@@ -2570,7 +2570,7 @@ var _Regex_fromStringWith = F2(function(options, string)
 {
 	var flags = 'g';
 	if (options.bc) { flags += 'm'; }
-	if (options.aX) { flags += 'i'; }
+	if (options.aV) { flags += 'i'; }
 
 	try
 	{
@@ -3010,8 +3010,8 @@ var _VirtualDom_mapEventRecord = F2(function(func, record)
 {
 	return {
 		u: func(record.u),
-		aS: record.aS,
-		aN: record.aN
+		aQ: record.aQ,
+		aL: record.aL
 	}
 });
 
@@ -3280,10 +3280,10 @@ function _VirtualDom_makeCallback(eventNode, initialHandler)
 
 		var value = result.a;
 		var message = !tag ? value : tag < 3 ? value.a : value.u;
-		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.aS;
+		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.aQ;
 		var currentEventNode = (
 			stopPropagation && event.stopPropagation(),
-			(tag == 2 ? value.b : tag == 3 && value.aN) && event.preventDefault(),
+			(tag == 2 ? value.b : tag == 3 && value.aL) && event.preventDefault(),
 			eventNode
 		);
 		var tagger;
@@ -4536,17 +4536,17 @@ var _Browser_decodeEvent = F2(function(decoder, event)
 function _Browser_visibilityInfo()
 {
 	return (typeof _VirtualDom_doc.hidden !== 'undefined')
-		? { cc: 'hidden', W: 'visibilitychange' }
+		? { cc: 'hidden', X: 'visibilitychange' }
 		:
 	(typeof _VirtualDom_doc.mozHidden !== 'undefined')
-		? { cc: 'mozHidden', W: 'mozvisibilitychange' }
+		? { cc: 'mozHidden', X: 'mozvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.msHidden !== 'undefined')
-		? { cc: 'msHidden', W: 'msvisibilitychange' }
+		? { cc: 'msHidden', X: 'msvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.webkitHidden !== 'undefined')
-		? { cc: 'webkitHidden', W: 'webkitvisibilitychange' }
-		: { cc: 'hidden', W: 'visibilitychange' };
+		? { cc: 'webkitHidden', X: 'webkitvisibilitychange' }
+		: { cc: 'hidden', X: 'visibilitychange' };
 }
 
 
@@ -4629,9 +4629,9 @@ function _Browser_getViewport()
 	return {
 		bo: _Browser_getScene(),
 		bt: {
-			aw: _Browser_window.pageXOffset,
-			ax: _Browser_window.pageYOffset,
-			T: _Browser_doc.documentElement.clientWidth,
+			av: _Browser_window.pageXOffset,
+			aw: _Browser_window.pageYOffset,
+			U: _Browser_doc.documentElement.clientWidth,
 			I: _Browser_doc.documentElement.clientHeight
 		}
 	};
@@ -4642,7 +4642,7 @@ function _Browser_getScene()
 	var body = _Browser_doc.body;
 	var elem = _Browser_doc.documentElement;
 	return {
-		T: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
+		U: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
 		I: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
 	};
 }
@@ -4667,13 +4667,13 @@ function _Browser_getViewportOf(id)
 	{
 		return {
 			bo: {
-				T: node.scrollWidth,
+				U: node.scrollWidth,
 				I: node.scrollHeight
 			},
 			bt: {
-				aw: node.scrollLeft,
-				ax: node.scrollTop,
-				T: node.clientWidth,
+				av: node.scrollLeft,
+				aw: node.scrollTop,
+				U: node.clientWidth,
 				I: node.clientHeight
 			}
 		};
@@ -4706,15 +4706,15 @@ function _Browser_getElement(id)
 		return {
 			bo: _Browser_getScene(),
 			bt: {
-				aw: x,
-				ax: y,
-				T: _Browser_doc.documentElement.clientWidth,
+				av: x,
+				aw: y,
+				U: _Browser_doc.documentElement.clientWidth,
 				I: _Browser_doc.documentElement.clientHeight
 			},
 			b1: {
-				aw: x + rect.left,
-				ax: y + rect.top,
-				T: rect.width,
+				av: x + rect.left,
+				aw: y + rect.top,
+				U: rect.width,
 				I: rect.height
 			}
 		};
@@ -5413,7 +5413,7 @@ var author$project$Engine$addToRandomElemsList = F2(
 	});
 var author$project$Engine$getChoiceLanguages = function (_n0) {
 	var story = _n0;
-	return story.X;
+	return story.aX;
 };
 var author$project$Engine$getCurrentLocation = function (_n0) {
 	var story = _n0;
@@ -5443,7 +5443,7 @@ var author$project$Engine$getInteractableAttribute = F3(
 		return A2(
 			author$project$Engine$Manifest$getInteractableAttribute,
 			attrId,
-			A2(elm$core$Dict$get, interactableId, story.j));
+			A2(elm$core$Dict$get, interactableId, story.l));
 	});
 var author$project$Engine$Manifest$getItemWrittenContent = function (mbInteractable) {
 	if ((!mbInteractable.$) && (!mbInteractable.a.$)) {
@@ -5456,7 +5456,7 @@ var author$project$Engine$Manifest$getItemWrittenContent = function (mbInteracta
 var author$project$Engine$getItemWrittenContent = F2(
 	function (id, _n0) {
 		var story = _n0;
-		var theManifest = story.j;
+		var theManifest = story.l;
 		var mbinteractable = A2(elm$core$Dict$get, id, theManifest);
 		return author$project$Engine$Manifest$getItemWrittenContent(mbinteractable);
 	});
@@ -5476,7 +5476,7 @@ var author$project$Engine$getRandomElemsListSize = function (_n0) {
 };
 var author$project$Engine$hasFreezingEnd = function (_n0) {
 	var story = _n0;
-	var _n1 = story.ag;
+	var _n1 = story.au;
 	if (_n1.$ === 1) {
 		return false;
 	} else {
@@ -5495,7 +5495,7 @@ var author$project$Types$Character = function (a) {
 };
 var author$project$Types$CharacterData = F6(
 	function (interactableId, characterPlacement, attributes, newCWCmds, interactionErrors, interactionWarnings) {
-		return {a: attributes, aA: characterPlacement, a6: interactableId, J: interactionErrors, K: interactionWarnings, O: newCWCmds};
+		return {a: attributes, az: characterPlacement, a6: interactableId, J: interactionErrors, K: interactionWarnings, P: newCWCmds};
 	});
 var author$project$Types$CharacterOffScreen = {$: 1};
 var author$project$Engine$Manifest$character = function (_n0) {
@@ -5509,7 +5509,7 @@ var author$project$Types$Item = function (a) {
 };
 var author$project$Types$ItemData = F9(
 	function (interactableId, fixed, itemPlacement, isWritable, writtenContent, attributes, newCWCmds, interactionErrors, interactionWarnings) {
-		return {a: attributes, ao: fixed, a6: interactableId, J: interactionErrors, K: interactionWarnings, co: isWritable, n: itemPlacement, O: newCWCmds, p: writtenContent};
+		return {a: attributes, an: fixed, a6: interactableId, J: interactionErrors, K: interactionWarnings, co: isWritable, n: itemPlacement, P: newCWCmds, p: writtenContent};
 	});
 var author$project$Types$ItemOffScreen = {$: 2};
 var author$project$Engine$Manifest$item = function (_n0) {
@@ -5523,7 +5523,7 @@ var author$project$Types$Location = function (a) {
 };
 var author$project$Types$LocationData = F6(
 	function (interactableId, shown, attributes, newCWCmds, interactionErrors, interactionWarnings) {
-		return {a: attributes, a6: interactableId, J: interactionErrors, K: interactionWarnings, O: newCWCmds, aP: shown};
+		return {a: attributes, a6: interactableId, J: interactionErrors, K: interactionWarnings, P: newCWCmds, aN: shown};
 	});
 var author$project$Engine$Manifest$location = function (_n0) {
 	var locationId = _n0.a;
@@ -5574,15 +5574,15 @@ var author$project$Engine$Manifest$init = function (_n0) {
 var author$project$Engine$init = F5(
 	function (itemsCharactersLocationsRecord, playerId, llanguages, rules, lprandom_floats) {
 		return {
-			X: llanguages,
+			aX: llanguages,
 			bX: '',
-			aB: '',
-			ap: _List_Nil,
+			aY: '',
+			ao: _List_Nil,
 			A: lprandom_floats,
-			j: author$project$Engine$Manifest$init(itemsCharactersLocationsRecord),
-			aM: playerId,
-			aO: rules,
-			ag: elm$core$Maybe$Nothing
+			l: author$project$Engine$Manifest$init(itemsCharactersLocationsRecord),
+			aK: playerId,
+			aM: rules,
+			au: elm$core$Maybe$Nothing
 		};
 	});
 var author$project$Engine$Manifest$isWritable = F2(
@@ -5600,7 +5600,7 @@ var author$project$Engine$Manifest$isWritable = F2(
 var author$project$Engine$isWritable = F2(
 	function (interactableId, _n0) {
 		var story = _n0;
-		return A2(author$project$Engine$Manifest$isWritable, interactableId, story.j);
+		return A2(author$project$Engine$Manifest$isWritable, interactableId, story.l);
 	});
 var author$project$Engine$EngineUpdateCompleteResponse = function (a) {
 	return {$: 1, a: a};
@@ -5653,7 +5653,7 @@ var author$project$Engine$Manifest$addLocation = function (mbInteractable) {
 			var ldata = mbInteractable.a.a;
 			var newldata = _Utils_update(
 				ldata,
-				{aP: true});
+				{aN: true});
 			return elm$core$Maybe$Just(
 				author$project$Types$Location(newldata));
 		} else {
@@ -5663,107 +5663,44 @@ var author$project$Engine$Manifest$addLocation = function (mbInteractable) {
 		return elm$core$Maybe$Nothing;
 	}
 };
-var author$project$Engine$Manifest$attrValueIsEqualTo = F4(
-	function (attrValue, attrId, interactableId, manifest) {
-		var _n0 = A2(elm$core$Dict$get, interactableId, manifest);
-		if (_n0.$ === 1) {
-			return false;
-		} else {
-			var interactable = _n0.a;
-			switch (interactable.$) {
+var author$project$Engine$Manifest$createAttributeIfNotExists = F3(
+	function (initialVal, attrId, mbinteractable) {
+		var getNewDataRecord = F3(
+			function (theInitialVal, theAttrId, dataRecord) {
+				var newAttributes = function () {
+					var _n1 = A2(elm$core$Dict$get, theAttrId, dataRecord.a);
+					if (_n1.$ === 1) {
+						return A3(elm$core$Dict$insert, theAttrId, theInitialVal, dataRecord.a);
+					} else {
+						var c = _n1.a;
+						return dataRecord.a;
+					}
+				}();
+				var newDataRecord = _Utils_update(
+					dataRecord,
+					{a: newAttributes});
+				return newDataRecord;
+			});
+		if (!mbinteractable.$) {
+			switch (mbinteractable.a.$) {
 				case 0:
-					var idata = interactable.a;
-					return _Utils_eq(
-						A2(elm$core$Dict$get, attrId, idata.a),
-						elm$core$Maybe$Just(attrValue)) ? true : false;
+					var idata = mbinteractable.a.a;
+					return elm$core$Maybe$Just(
+						author$project$Types$Item(
+							A3(getNewDataRecord, initialVal, attrId, idata)));
 				case 2:
-					var cdata = interactable.a;
-					return _Utils_eq(
-						A2(elm$core$Dict$get, attrId, cdata.a),
-						elm$core$Maybe$Just(attrValue)) ? true : false;
+					var cdata = mbinteractable.a.a;
+					return elm$core$Maybe$Just(
+						author$project$Types$Character(
+							A3(getNewDataRecord, initialVal, attrId, cdata)));
 				default:
-					var ldata = interactable.a;
-					return _Utils_eq(
-						A2(elm$core$Dict$get, attrId, ldata.a),
-						elm$core$Maybe$Just(attrValue)) ? true : false;
+					var ldata = mbinteractable.a.a;
+					return elm$core$Maybe$Just(
+						author$project$Types$Location(
+							A3(getNewDataRecord, initialVal, attrId, ldata)));
 			}
-		}
-	});
-var author$project$Engine$Manifest$getReservedAttrIds = _List_fromArray(
-	['playerAnswer', 'isCorrectlyAnswered', 'isIncorrectlyAnswered', 'narrativeHeader', 'chosenOption', 'answerOptionsList']);
-var elm$core$Basics$and = _Basics_and;
-var elm$core$List$any = F2(
-	function (isOkay, list) {
-		any:
-		while (true) {
-			if (!list.b) {
-				return false;
-			} else {
-				var x = list.a;
-				var xs = list.b;
-				if (isOkay(x)) {
-					return true;
-				} else {
-					var $temp$isOkay = isOkay,
-						$temp$list = xs;
-					isOkay = $temp$isOkay;
-					list = $temp$list;
-					continue any;
-				}
-			}
-		}
-	});
-var elm$core$List$member = F2(
-	function (x, xs) {
-		return A2(
-			elm$core$List$any,
-			function (a) {
-				return _Utils_eq(a, x);
-			},
-			xs);
-	});
-var author$project$Engine$Manifest$createAttributeIfNotExists = F4(
-	function (initialVal, attrId, mbInternal, mbinteractable) {
-		if (_Utils_eq(mbInternal, elm$core$Maybe$Nothing) && A2(elm$core$List$member, attrId, author$project$Engine$Manifest$getReservedAttrIds)) {
-			return A3(author$project$Engine$Manifest$writeInteractionIncident, 'warning', 'Sorry ! It was not possible to create  attribute. That\'s a \'reserved\' attributeId : ' + attrId, mbinteractable);
 		} else {
-			var getNewDataRecord = F3(
-				function (theInitialVal, theAttrId, dataRecord) {
-					var newAttributes = function () {
-						var _n1 = A2(elm$core$Dict$get, theAttrId, dataRecord.a);
-						if (_n1.$ === 1) {
-							return A3(elm$core$Dict$insert, theAttrId, theInitialVal, dataRecord.a);
-						} else {
-							var c = _n1.a;
-							return dataRecord.a;
-						}
-					}();
-					var newDataRecord = _Utils_update(
-						dataRecord,
-						{a: newAttributes});
-					return newDataRecord;
-				});
-			if (!mbinteractable.$) {
-				switch (mbinteractable.a.$) {
-					case 0:
-						var idata = mbinteractable.a.a;
-						return elm$core$Maybe$Just(
-							author$project$Types$Item(
-								A3(getNewDataRecord, initialVal, attrId, idata)));
-					case 2:
-						var cdata = mbinteractable.a.a;
-						return elm$core$Maybe$Just(
-							author$project$Types$Character(
-								A3(getNewDataRecord, initialVal, attrId, cdata)));
-					default:
-						var ldata = mbinteractable.a.a;
-						return elm$core$Maybe$Just(
-							author$project$Types$Location(
-								A3(getNewDataRecord, initialVal, attrId, ldata)));
-				}
-			} else {
-				return elm$core$Maybe$Nothing;
-			}
+			return elm$core$Maybe$Nothing;
 		}
 	});
 var elm$core$Basics$lt = _Utils_lt;
@@ -6140,64 +6077,59 @@ var elm$core$Dict$update = F3(
 			return A2(elm$core$Dict$remove, targetKey, dictionary);
 		}
 	});
-var author$project$Engine$Manifest$setAttributeValue = F4(
-	function (attrValue, attrId, mbInternal, mbinteractable) {
-		if (_Utils_eq(mbInternal, elm$core$Maybe$Nothing) && A2(elm$core$List$member, attrId, author$project$Engine$Manifest$getReservedAttrIds)) {
-			return A3(author$project$Engine$Manifest$writeInteractionIncident, 'warning', 'Sorry ! It was not possible to  set attribute value . That\'s a \'reserved\' attributeId : ' + attrId, mbinteractable);
-		} else {
-			var getNewDataRecord = F3(
-				function (theattrValue, theattrId, dataRecord) {
-					var newAttributes = function () {
-						var _n1 = A2(elm$core$Dict$get, theattrId, dataRecord.a);
-						if (_n1.$ === 1) {
-							return dataRecord.a;
-						} else {
-							var val = _n1.a;
-							return A3(
-								elm$core$Dict$update,
-								theattrId,
-								function (_n2) {
-									return elm$core$Maybe$Just(theattrValue);
-								},
-								dataRecord.a);
-						}
-					}();
-					var newDataRecord = _Utils_update(
-						dataRecord,
-						{a: newAttributes});
-					return newDataRecord;
-				});
-			if (!mbinteractable.$) {
-				switch (mbinteractable.a.$) {
-					case 0:
-						var idata = mbinteractable.a.a;
-						return elm$core$Maybe$Just(
-							author$project$Types$Item(
-								A3(getNewDataRecord, attrValue, attrId, idata)));
-					case 2:
-						var cdata = mbinteractable.a.a;
-						return elm$core$Maybe$Just(
-							author$project$Types$Character(
-								A3(getNewDataRecord, attrValue, attrId, cdata)));
-					default:
-						var ldata = mbinteractable.a.a;
-						return elm$core$Maybe$Just(
-							author$project$Types$Location(
-								A3(getNewDataRecord, attrValue, attrId, ldata)));
-				}
-			} else {
-				return elm$core$Maybe$Nothing;
+var author$project$Engine$Manifest$setAttributeValue = F3(
+	function (attrValue, attrId, mbinteractable) {
+		var getNewDataRecord = F3(
+			function (theattrValue, theattrId, dataRecord) {
+				var newAttributes = function () {
+					var _n1 = A2(elm$core$Dict$get, theattrId, dataRecord.a);
+					if (_n1.$ === 1) {
+						return dataRecord.a;
+					} else {
+						var val = _n1.a;
+						return A3(
+							elm$core$Dict$update,
+							theattrId,
+							function (_n2) {
+								return elm$core$Maybe$Just(theattrValue);
+							},
+							dataRecord.a);
+					}
+				}();
+				var newDataRecord = _Utils_update(
+					dataRecord,
+					{a: newAttributes});
+				return newDataRecord;
+			});
+		if (!mbinteractable.$) {
+			switch (mbinteractable.a.$) {
+				case 0:
+					var idata = mbinteractable.a.a;
+					return elm$core$Maybe$Just(
+						author$project$Types$Item(
+							A3(getNewDataRecord, attrValue, attrId, idata)));
+				case 2:
+					var cdata = mbinteractable.a.a;
+					return elm$core$Maybe$Just(
+						author$project$Types$Character(
+							A3(getNewDataRecord, attrValue, attrId, cdata)));
+				default:
+					var ldata = mbinteractable.a.a;
+					return elm$core$Maybe$Just(
+						author$project$Types$Location(
+							A3(getNewDataRecord, attrValue, attrId, ldata)));
 			}
+		} else {
+			return elm$core$Maybe$Nothing;
 		}
 	});
-var author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue = F4(
-	function (theVal, attrId, mbInternal, mbinteractable) {
-		return A4(
+var author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue = F3(
+	function (theVal, attrId, mbinteractable) {
+		return A3(
 			author$project$Engine$Manifest$setAttributeValue,
 			theVal,
 			attrId,
-			mbInternal,
-			A4(author$project$Engine$Manifest$createAttributeIfNotExists, theVal, attrId, mbInternal, mbinteractable));
+			A3(author$project$Engine$Manifest$createAttributeIfNotExists, theVal, attrId, mbinteractable));
 	});
 var author$project$Engine$Manifest$createAttributesIfNotExistsAndOrSetValue = F2(
 	function (ltupattrs, mbinteractable) {
@@ -6209,7 +6141,7 @@ var author$project$Engine$Manifest$createAttributesIfNotExistsAndOrSetValue = F2
 			return A2(
 				author$project$Engine$Manifest$createAttributesIfNotExistsAndOrSetValue,
 				rest,
-				A4(author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue, head.b, head.a, elm$core$Maybe$Nothing, mbinteractable));
+				A3(author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue, head.b, head.a, mbinteractable));
 		}
 	});
 var author$project$Engine$Manifest$generateFeedbackTextDict = F3(
@@ -6315,21 +6247,21 @@ var author$project$Engine$Manifest$setNextChangeWorldCommandsToBeExecuted = F2(
 						author$project$Types$Item(
 							_Utils_update(
 								idata,
-								{O: lcwcmds})));
+								{P: lcwcmds})));
 				case 2:
 					var cdata = mbInteractable.a.a;
 					return elm$core$Maybe$Just(
 						author$project$Types$Character(
 							_Utils_update(
 								cdata,
-								{O: lcwcmds})));
+								{P: lcwcmds})));
 				default:
 					var ldata = mbInteractable.a.a;
 					return elm$core$Maybe$Just(
 						author$project$Types$Location(
 							_Utils_update(
 								ldata,
-								{O: lcwcmds})));
+								{P: lcwcmds})));
 			}
 		} else {
 			return mbInteractable;
@@ -6344,10 +6276,11 @@ var author$project$Types$Abool = function (a) {
 var author$project$Types$Astring = function (a) {
 	return {$: 0, a: a};
 };
-var author$project$Types$CreateAttributeIfNotExistsAndOrSetValue = F4(
-	function (a, b, c, d) {
-		return {$: 19, a: a, b: b, c: c, d: d};
+var author$project$Types$CreateAttributeIfNotExistsAndOrSetValue = F3(
+	function (a, b, c) {
+		return {$: 19, a: a, b: b, c: c};
 	});
+var elm$core$Basics$and = _Basics_and;
 var elm$core$Basics$neq = _Utils_notEqual;
 var elm$core$Basics$or = _Basics_or;
 var elm$core$List$filter = F2(
@@ -6420,12 +6353,7 @@ var author$project$Engine$Manifest$checkAndActIfChosenOptionIs = F5(
 												var attrValue = _n2.c;
 												return A2(
 													elm$core$List$cons,
-													A4(
-														author$project$Types$CreateAttributeIfNotExistsAndOrSetValue,
-														attrValue,
-														attrId,
-														elm$core$Maybe$Just('internal'),
-														otherInterId),
+													A3(author$project$Types$CreateAttributeIfNotExistsAndOrSetValue, attrValue, attrId, otherInterId),
 													y);
 											}),
 										_List_Nil,
@@ -6433,11 +6361,10 @@ var author$project$Engine$Manifest$checkAndActIfChosenOptionIs = F5(
 									return function (mbinter) {
 										return _Utils_eq(
 											isResetPossible,
-											author$project$Types$Abool(true)) ? A4(
+											author$project$Types$Abool(true)) ? A3(
 											author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
 											author$project$Types$Astring(resetOptionId),
 											'suggestedInteraction',
-											elm$core$Maybe$Just('internal'),
 											mbinter) : mbinter;
 									}(
 										author$project$Engine$Manifest$makeItemUnwritable(
@@ -6449,17 +6376,15 @@ var author$project$Engine$Manifest$checkAndActIfChosenOptionIs = F5(
 													A2(elm$core$List$append, cOptionData.cu, otherInterAttribsRelatedCWcmds),
 													A2(
 														author$project$Engine$Manifest$createAttributesIfNotExistsAndOrSetValue,
-														cOptionData.aH,
-														A4(
+														cOptionData.aF,
+														A3(
 															author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
 															author$project$Types$ADictStringListString(theTextDict),
 															'additionalTextDict',
-															elm$core$Maybe$Just('internal'),
-															A4(
+															A3(
 																author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
 																author$project$Types$Astring(playerChoice),
 																'chosenOption',
-																elm$core$Maybe$Just('internal'),
 																elm$core$Maybe$Just(
 																	author$project$Types$Item(
 																		_Utils_update(
@@ -6698,9 +6623,6 @@ var author$project$Types$HeaderAndAnswer = 3;
 var author$project$Types$HeaderAnswerAndCorrectIncorrect = 4;
 var author$project$Types$JustPlayerAnswer = 2;
 var elm$core$Basics$ge = _Utils_ge;
-var elm$core$Basics$negate = function (n) {
-	return -n;
-};
 var elm$core$Basics$sub = _Basics_sub;
 var elm$core$String$fromInt = _String_fromNumber;
 var author$project$Engine$Manifest$checkIfAnswerCorrect = F5(
@@ -6712,25 +6634,48 @@ var author$project$Engine$Manifest$checkIfAnswerCorrect = F5(
 				var theInsuccessTextDict = A3(author$project$Engine$Manifest$generateFeedbackTextDict, checkAnsData.ce, playerAnswer, manifest);
 				var reach_max_nr_tries = '___REACH_MAX_NR_TRIES___';
 				var playerAns = ((checkAnsData.by === 2) || ((checkAnsData.by === 3) || (checkAnsData.by === 4))) ? ('  \n ___YOUR_ANSWER___' + (' ' + playerAnswer)) : '';
-				var nrTries = A2(
-					elm$core$Maybe$withDefault,
-					0,
-					A2(author$project$Engine$Manifest$getICounterValue, 'nrIncorrectAnswers', mbinteractable));
-				var maxNrTries = A2(elm$core$Maybe$withDefault, -999, checkAnsData.cF);
-				var makeItUnanswarableIfReachedMaxTries = F2(
-					function (maxnr, mbinter) {
-						var nrtries = A2(
-							elm$core$Maybe$withDefault,
-							0,
-							A2(author$project$Engine$Manifest$getICounterValue, 'nrIncorrectAnswers', mbinteractable));
-						return ((maxnr > 0) && (_Utils_cmp(nrtries, maxnr) > -1)) ? author$project$Engine$Manifest$makeItUnanswerable(mbinter) : mbinter;
+				var otherInterAttribsRelatedCWcmds = A3(
+					elm$core$List$foldl,
+					F2(
+						function (_n5, y) {
+							var otherInterId = _n5.a;
+							var attrId = _n5.b;
+							var attrValue = _n5.c;
+							return A2(
+								elm$core$List$cons,
+								A3(author$project$Types$CreateAttributeIfNotExistsAndOrSetValue, attrValue, attrId, otherInterId),
+								y);
+						}),
+					_List_Nil,
+					checkAnsData.cx);
+				var nrTries = function () {
+					var previousNrTries = A2(
+						elm$core$Maybe$withDefault,
+						0,
+						A2(author$project$Engine$Manifest$getICounterValue, 'nrIncorrectAnswers', mbinteractable));
+					return (playerAnswer !== '') ? (previousNrTries + 1) : previousNrTries;
+				}();
+				var mbMaxNrTries = checkAnsData.cF;
+				var makeItUnanswarableIfReachedMaxTries = F3(
+					function (mbMaxnr, nrtries, mbinter) {
+						if (!mbMaxnr.$) {
+							var maxnr = mbMaxnr.a;
+							return (_Utils_cmp(nrtries, maxnr) > -1) ? author$project$Engine$Manifest$makeItUnanswerable(mbinter) : mbinter;
+						} else {
+							return mbinter;
+						}
 					});
 				var incorrect = '  \n ___INCORRECT_ANSWER___';
 				var getAnsWrong = F2(
-					function (nrTriesArg, theMax) {
-						var ansFeedback = ((theMax > 0) && (_Utils_cmp(nrTriesArg, theMax - 1) > -1)) ? ('  \n' + (' ' + reach_max_nr_tries)) : _Utils_ap(
-							incorrect,
-							(theMax > 0) ? ('  \n' + (' ' + ('___NR_TRIES_LEFT___' + (' ' + elm$core$String$fromInt((theMax - 1) - nrTriesArg))))) : '');
+					function (nrTriesArg, mbTheMax) {
+						var ansFeedback = function () {
+							if (!mbTheMax.$) {
+								var theMax = mbTheMax.a;
+								return (_Utils_cmp(nrTriesArg, theMax) > -1) ? ('  \n' + (' ' + reach_max_nr_tries)) : (incorrect + ('  \n' + (' ' + ('___NR_TRIES_LEFT___' + (' ' + elm$core$String$fromInt(theMax - nrTriesArg))))));
+							} else {
+								return incorrect;
+							}
+						}();
 						return _Utils_ap(
 							playerAns,
 							(checkAnsData.by === 4) ? ansFeedback : '');
@@ -6761,76 +6706,75 @@ var author$project$Engine$Manifest$checkIfAnswerCorrect = F5(
 				}();
 				var theCorrectAnswers = _n1.a;
 				var bEval = _n1.b;
-				var theMbInteractable = ((maxNrTries > 0) && (_Utils_cmp(nrTries, maxNrTries) > -1)) ? author$project$Engine$Manifest$makeItUnanswerable(mbinteractable) : (((playerAnswer === '') || _Utils_eq(
+				var theMbInteractable = (_Utils_cmp(
+					nrTries,
+					A2(elm$core$Maybe$withDefault, 1000000, mbMaxNrTries)) > 0) ? author$project$Engine$Manifest$makeItUnanswerable(mbinteractable) : (((playerAnswer === '') || _Utils_eq(
 					A2(elm$core$Dict$get, 'isCorrectlyAnswered', idata.a),
 					elm$core$Maybe$Just(
 						author$project$Types$Abool(true)))) ? mbinteractable : ((((elm$core$List$length(theCorrectAnswers) > 0) && A4(author$project$Engine$Manifest$comparesEqualToAtLeastOne, playerAnswer, theCorrectAnswers, checkAnsData.bx, checkAnsData.bA)) || bEval) ? A2(
-					author$project$Engine$Manifest$createAttributesIfNotExistsAndOrSetValue,
-					checkAnsData.aH,
-					A4(
-						author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
-						author$project$Types$ADictStringListString(thesuccessTextDict),
-						'additionalTextDict',
-						elm$core$Maybe$Just('internal'),
-						A4(
-							author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
-							author$project$Types$Astring('___QUESTION_ANSWERED___'),
-							'narrativeHeader',
-							elm$core$Maybe$Just('internal'),
-							A2(
-								author$project$Engine$Manifest$removeAttributeIfExists,
-								'isIncorrectlyAnswered',
-								A4(
-									author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
-									author$project$Types$Abool(true),
-									'isCorrectlyAnswered',
-									elm$core$Maybe$Just('internal'),
-									A4(
-										author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
-										author$project$Types$Astring(playerAnswer),
-										'playerAnswer',
-										elm$core$Maybe$Just('internal'),
-										author$project$Engine$Manifest$makeItUnanswerable(
-											elm$core$Maybe$Just(
-												author$project$Types$Item(
-													_Utils_update(
-														idata,
-														{
-															p: elm$core$Maybe$Just(ansRight)
-														})))))))))) : A2(
-					author$project$Engine$Manifest$increaseCounter,
-					'nrIncorrectAnswers',
+					author$project$Engine$Manifest$setNextChangeWorldCommandsToBeExecuted,
+					otherInterAttribsRelatedCWcmds,
 					A2(
-						makeItUnanswarableIfReachedMaxTries,
-						maxNrTries - 1,
-						A2(
-							author$project$Engine$Manifest$createCounterIfNotExists,
-							'nrIncorrectAnswers',
-							A4(
+						author$project$Engine$Manifest$createAttributesIfNotExistsAndOrSetValue,
+						checkAnsData.aF,
+						A3(
+							author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
+							author$project$Types$ADictStringListString(thesuccessTextDict),
+							'additionalTextDict',
+							A3(
 								author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
-								author$project$Types$ADictStringListString(theInsuccessTextDict),
-								'additionalTextDict',
-								elm$core$Maybe$Just('internal'),
+								author$project$Types$Astring('___QUESTION_ANSWERED___'),
+								'narrativeHeader',
 								A2(
 									author$project$Engine$Manifest$removeAttributeIfExists,
-									'isCorrectlyAnswered',
-									A4(
+									'isIncorrectlyAnswered',
+									A3(
 										author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
 										author$project$Types$Abool(true),
-										'isIncorrectlyAnswered',
-										elm$core$Maybe$Just('internal'),
-										A4(
+										'isCorrectlyAnswered',
+										A3(
 											author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
 											author$project$Types$Astring(playerAnswer),
 											'playerAnswer',
-											elm$core$Maybe$Just('internal'),
+											author$project$Engine$Manifest$makeItUnanswerable(
+												elm$core$Maybe$Just(
+													author$project$Types$Item(
+														_Utils_update(
+															idata,
+															{
+																p: elm$core$Maybe$Just(ansRight)
+															}))))))))))) : A2(
+					author$project$Engine$Manifest$increaseCounter,
+					'nrIncorrectAnswers',
+					A3(
+						makeItUnanswarableIfReachedMaxTries,
+						mbMaxNrTries,
+						nrTries,
+						A2(
+							author$project$Engine$Manifest$createCounterIfNotExists,
+							'nrIncorrectAnswers',
+							A3(
+								author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
+								author$project$Types$ADictStringListString(theInsuccessTextDict),
+								'additionalTextDict',
+								A2(
+									author$project$Engine$Manifest$removeAttributeIfExists,
+									'isCorrectlyAnswered',
+									A3(
+										author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
+										author$project$Types$Abool(true),
+										'isIncorrectlyAnswered',
+										A3(
+											author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
+											author$project$Types$Astring(playerAnswer),
+											'playerAnswer',
 											elm$core$Maybe$Just(
 												author$project$Types$Item(
 													_Utils_update(
 														idata,
 														{
 															p: elm$core$Maybe$Just(
-																A2(getAnsWrong, nrTries, maxNrTries))
+																A2(getAnsWrong, nrTries, mbMaxNrTries))
 														}))))))))))));
 				return theMbInteractable;
 			} else {
@@ -6867,16 +6811,14 @@ var author$project$Engine$Manifest$createAmultiChoice = F2(
 		return A2(
 			author$project$Engine$Manifest$removeAttributeIfExists,
 			'chosenOption',
-			A4(
+			A3(
 				author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
 				author$project$Types$ADictStringLSS(dslss),
 				'answerOptionsListBackup',
-				elm$core$Maybe$Just('internal'),
-				A4(
+				A3(
 					author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
 					author$project$Types$ADictStringLSS(dslss),
 					'answerOptionsList',
-					elm$core$Maybe$Just('internal'),
 					mbInteractable)));
 	});
 var author$project$Engine$Manifest$createOrSetAttributeValueFromOtherInterAttr = F5(
@@ -6887,7 +6829,7 @@ var author$project$Engine$Manifest$createOrSetAttributeValueFromOtherInterAttr =
 			A2(elm$core$Dict$get, otherInterId, manifest));
 		if (!mbAttrVal.$) {
 			var theAttrVal = mbAttrVal.a;
-			return A4(author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue, theAttrVal, attrId, elm$core$Maybe$Nothing, mbinteractable);
+			return A3(author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue, theAttrVal, attrId, mbinteractable);
 		} else {
 			return A3(author$project$Engine$Manifest$writeInteractionIncident, 'warning', 'Trying to use createOrSetAttributeValueFromOtherInterAttr function but attribute in other interactable doesnt exist ( or other interactable doesnt exist ) ! attributeId : ' + (attrId + (' , otherInteractableId : ' + otherInterId)), mbinteractable);
 		}
@@ -7088,7 +7030,7 @@ var author$project$Engine$Manifest$moveCharacterOffScreen = function (mbInteract
 				author$project$Types$Character(
 					_Utils_update(
 						cdata,
-						{aA: author$project$Types$CharacterOffScreen})));
+						{az: author$project$Types$CharacterOffScreen})));
 		} else {
 			return A3(author$project$Engine$Manifest$writeInteractionIncident, 'error', 'Trying to use moveCharacterOffScreen function with an interactable that is not a Character ! ', mbInteractable);
 		}
@@ -7109,7 +7051,7 @@ var author$project$Engine$Manifest$moveCharacterToLocation = F2(
 						_Utils_update(
 							cdata,
 							{
-								aA: author$project$Types$CharacterInLocation(locationId)
+								az: author$project$Types$CharacterInLocation(locationId)
 							})));
 			} else {
 				return A3(author$project$Engine$Manifest$writeInteractionIncident, 'error', 'Trying to use moveCharacterToLocation function with an interactable that is not a Character ! ', mbInteractable);
@@ -7126,7 +7068,7 @@ var author$project$Engine$Manifest$moveItemOffScreen = function (mbInteractable)
 				author$project$Types$Item(
 					_Utils_update(
 						idata,
-						{ao: false, n: author$project$Types$ItemOffScreen})));
+						{an: false, n: author$project$Types$ItemOffScreen})));
 		} else {
 			return A3(author$project$Engine$Manifest$writeInteractionIncident, 'error', 'Trying to use moveItemOffScreen function with an interactable that is not an Item ! ', mbInteractable);
 		}
@@ -7142,7 +7084,7 @@ var author$project$Engine$Manifest$moveItemToCharacterInventory = F3(
 		if (!mbInteractable.$) {
 			if (!mbInteractable.a.$) {
 				var idata = mbInteractable.a.a;
-				if (!idata.ao) {
+				if (!idata.an) {
 					var _n1 = A2(elm$core$Dict$get, charId, manifest);
 					if (!_n1.$) {
 						var acharacter = _n1.a;
@@ -7179,7 +7121,7 @@ var author$project$Engine$Manifest$moveItemToLocation = F2(
 						_Utils_update(
 							idata,
 							{
-								ao: false,
+								an: false,
 								n: author$project$Types$ItemInLocation(locationId)
 							})));
 			} else {
@@ -7199,7 +7141,7 @@ var author$project$Engine$Manifest$moveItemToLocationFixed = F2(
 						_Utils_update(
 							idata,
 							{
-								ao: true,
+								an: true,
 								n: author$project$Types$ItemInLocation(locationId)
 							})));
 			} else {
@@ -7215,7 +7157,7 @@ var author$project$Engine$Manifest$removeLocation = function (mbInteractable) {
 			var ldata = mbInteractable.a.a;
 			var newldata = _Utils_update(
 				ldata,
-				{aP: false});
+				{aN: false});
 			return elm$core$Maybe$Just(
 				author$project$Types$Location(newldata));
 		} else {
@@ -7235,12 +7177,7 @@ var author$project$Engine$Manifest$reactivateMultiChoiceFromBackup = function (m
 		return A2(
 			author$project$Engine$Manifest$removeAttributeIfExists,
 			'chosenOption',
-			A4(
-				author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue,
-				ansOptList,
-				'answerOptionsList',
-				elm$core$Maybe$Just('internal'),
-				mbInteractable));
+			A3(author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue, ansOptList, 'answerOptionsList', mbInteractable));
 	} else {
 		return mbInteractable;
 	}
@@ -7357,442 +7294,599 @@ var author$project$Engine$Manifest$writeTextToItem = F2(
 			return elm$core$Maybe$Nothing;
 		}
 	});
-var author$project$Engine$Manifest$processCreateOrSetOtherInteractableAttributesIfAnswerCorrect = F3(
-	function (lotherInterAttrs, interactableId, _n4) {
-		var manifest = _n4.a;
-		var linteractionincidents = _n4.b;
-		return A4(
-			author$project$Engine$Manifest$attrValueIsEqualTo,
-			author$project$Types$Abool(true),
-			'isCorrectlyAnswered',
-			interactableId,
-			manifest) ? A3(
-			elm$core$List$foldl,
-			F2(
-				function (chg, tup) {
-					return A2(author$project$Engine$Manifest$update, chg, tup);
-				}),
-			_Utils_Tuple2(manifest, linteractionincidents),
-			A2(
-				elm$core$List$map,
-				function (_n5) {
-					var interId = _n5.a;
-					var attrId = _n5.b;
-					var attrValue = _n5.c;
-					return A4(author$project$Types$CreateAttributeIfNotExistsAndOrSetValue, attrValue, attrId, elm$core$Maybe$Nothing, interId);
-				},
-				lotherInterAttrs)) : _Utils_Tuple2(manifest, linteractionincidents);
+var author$project$Types$TheEnd = F2(
+	function (a, b) {
+		return {$: 0, a: a, b: b};
 	});
 var author$project$Engine$Manifest$processNewChangeWorldCommands = F2(
-	function (interactableId, _n2) {
-		var manifest = _n2.a;
-		var linteractionincidents = _n2.b;
-		var _n3 = A2(elm$core$Dict$get, interactableId, manifest);
-		if (!_n3.$) {
-			switch (_n3.a.$) {
+	function (interactableId, _n30) {
+		var storyRecord = _n30.a;
+		var linteractionincidents = _n30.b;
+		var _n31 = A2(elm$core$Dict$get, interactableId, storyRecord.l);
+		if (!_n31.$) {
+			switch (_n31.a.$) {
 				case 0:
-					var idata = _n3.a.a;
-					return A3(
+					var idata = _n31.a.a;
+					var _n32 = A3(
+						elm$core$List$foldl,
+						F2(
+							function (chg, tup) {
+								return A2(author$project$Engine$Manifest$update, chg, tup);
+							}),
+						_Utils_Tuple2(storyRecord, linteractionincidents),
+						idata.P);
+					var newStory = _n32.a;
+					var nInteractionIncidents = _n32.b;
+					var _n33 = A3(
 						author$project$Engine$Manifest$manifestUpdate,
 						interactableId,
 						author$project$Engine$Manifest$clearNextChangeWorldCommandsToBeExecuted,
-						A3(
-							elm$core$List$foldl,
-							F2(
-								function (chg, tup) {
-									return A2(author$project$Engine$Manifest$update, chg, tup);
-								}),
-							_Utils_Tuple2(manifest, linteractionincidents),
-							idata.O));
+						_Utils_Tuple2(newStory.l, nInteractionIncidents));
+					var updatedManifest = _n33.a;
+					var newInteractionIncidents = _n33.b;
+					return _Utils_Tuple2(
+						_Utils_update(
+							newStory,
+							{l: updatedManifest}),
+						newInteractionIncidents);
 				case 2:
-					var cdata = _n3.a.a;
-					return A3(
+					var cdata = _n31.a.a;
+					var _n34 = A3(
+						elm$core$List$foldl,
+						F2(
+							function (chg, tup) {
+								return A2(author$project$Engine$Manifest$update, chg, tup);
+							}),
+						_Utils_Tuple2(storyRecord, linteractionincidents),
+						cdata.P);
+					var newStory = _n34.a;
+					var nInteractionIncidents = _n34.b;
+					var _n35 = A3(
 						author$project$Engine$Manifest$manifestUpdate,
 						interactableId,
 						author$project$Engine$Manifest$clearNextChangeWorldCommandsToBeExecuted,
-						A3(
-							elm$core$List$foldl,
-							F2(
-								function (chg, tup) {
-									return A2(author$project$Engine$Manifest$update, chg, tup);
-								}),
-							_Utils_Tuple2(manifest, linteractionincidents),
-							cdata.O));
+						_Utils_Tuple2(newStory.l, nInteractionIncidents));
+					var updatedManifest = _n35.a;
+					var newInteractionIncidents = _n35.b;
+					return _Utils_Tuple2(
+						_Utils_update(
+							newStory,
+							{l: updatedManifest}),
+						newInteractionIncidents);
 				default:
-					var ldata = _n3.a.a;
-					return A3(
+					var ldata = _n31.a.a;
+					var _n36 = A3(
+						elm$core$List$foldl,
+						F2(
+							function (chg, tup) {
+								return A2(author$project$Engine$Manifest$update, chg, tup);
+							}),
+						_Utils_Tuple2(storyRecord, linteractionincidents),
+						ldata.P);
+					var newStory = _n36.a;
+					var nInteractionIncidents = _n36.b;
+					var _n37 = A3(
 						author$project$Engine$Manifest$manifestUpdate,
 						interactableId,
 						author$project$Engine$Manifest$clearNextChangeWorldCommandsToBeExecuted,
-						A3(
-							elm$core$List$foldl,
-							F2(
-								function (chg, tup) {
-									return A2(author$project$Engine$Manifest$update, chg, tup);
-								}),
-							_Utils_Tuple2(manifest, linteractionincidents),
-							ldata.O));
+						_Utils_Tuple2(newStory.l, nInteractionIncidents));
+					var updatedManifest = _n37.a;
+					var newInteractionIncidents = _n37.b;
+					return _Utils_Tuple2(
+						_Utils_update(
+							newStory,
+							{l: updatedManifest}),
+						newInteractionIncidents);
 			}
 		} else {
-			return _Utils_Tuple2(manifest, linteractionincidents);
+			return _Utils_Tuple2(storyRecord, linteractionincidents);
 		}
 	});
 var author$project$Engine$Manifest$update = F2(
 	function (change, _n0) {
-		var manifest = _n0.a;
+		var storyRecord = _n0.a;
 		var linteractionincidents = _n0.b;
 		switch (change.$) {
 			case 0:
-				return _Utils_Tuple2(manifest, linteractionincidents);
+				return _Utils_Tuple2(storyRecord, linteractionincidents);
 			case 1:
-				var id = change.a;
-				return A3(
-					author$project$Engine$Manifest$manifestUpdate,
-					id,
-					author$project$Engine$Manifest$addLocation,
-					_Utils_Tuple2(manifest, linteractionincidents));
+				var locationId = change.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{bX: locationId}),
+					linteractionincidents);
 			case 2:
 				var id = change.a;
-				return A3(
+				var _n2 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
 					author$project$Engine$Manifest$addLocation,
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n2.a;
+				var newIncidents = _n2.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 3:
 				var id = change.a;
-				return A3(
+				var _n3 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
 					author$project$Engine$Manifest$removeLocation,
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n3.a;
+				var newIncidents = _n3.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 7:
 				var charId = change.a;
 				var id = change.b;
-				return A3(
+				var _n4 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
-					A2(author$project$Engine$Manifest$moveItemToCharacterInventory, charId, manifest),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					A2(author$project$Engine$Manifest$moveItemToCharacterInventory, charId, storyRecord.l),
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n4.a;
+				var newIncidents = _n4.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 6:
 				var itemId = change.a;
 				var locationId = change.b;
-				return A3(
+				var _n5 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					itemId,
 					author$project$Engine$Manifest$moveItemToLocation(locationId),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n5.a;
+				var newIncidents = _n5.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 5:
 				var itemId = change.a;
 				var locationId = change.b;
-				return A4(
+				var _n6 = A4(
 					author$project$Engine$Manifest$manifestUpdateWithLocCheck,
 					itemId,
 					locationId,
 					author$project$Engine$Manifest$moveItemToLocationFixed(locationId),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n6.a;
+				var newIncidents = _n6.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 26:
 				var id = change.a;
-				return A3(
+				var _n7 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
 					author$project$Engine$Manifest$moveItemOffScreen,
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n7.a;
+				var newIncidents = _n7.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 27:
 				var characterId = change.a;
 				var locationId = change.b;
-				return A4(
+				var _n8 = A4(
 					author$project$Engine$Manifest$manifestUpdateWithLocCheck,
 					characterId,
 					locationId,
 					author$project$Engine$Manifest$moveCharacterToLocation(locationId),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n8.a;
+				var newIncidents = _n8.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 28:
 				var id = change.a;
-				return A3(
+				var _n9 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
 					author$project$Engine$Manifest$moveCharacterOffScreen,
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n9.a;
+				var newIncidents = _n9.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 11:
-				var theText = change.a;
+				var theLgTextDict = change.a;
 				var id = change.b;
-				return A3(
+				var _n10 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
-					author$project$Engine$Manifest$writeTextToItem(theText),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					author$project$Engine$Manifest$writeTextToItem(theLgTextDict),
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n10.a;
+				var newIncidents = _n10.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 12:
 				var attrid = change.a;
 				var intcId = change.b;
 				var id = change.c;
-				return A3(
+				var _n11 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
-					A3(author$project$Engine$Manifest$writeForceTextToItemFromOtherInteractableAttrib, attrid, intcId, manifest),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					A3(author$project$Engine$Manifest$writeForceTextToItemFromOtherInteractableAttrib, attrid, intcId, storyRecord.l),
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n11.a;
+				var newIncidents = _n11.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 13:
 				var theInfoStr = change.a;
-				var id = change.b;
-				return A3(
+				var extraInfo = change.b;
+				var id = change.c;
+				var _n12 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
 					author$project$Engine$Manifest$writeGpsLocInfoToItem(theInfoStr),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n12.a;
+				var newIncidents = _n12.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 14:
 				var id = change.a;
-				return A3(
+				var _n13 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
 					author$project$Engine$Manifest$clearWrittenText,
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n13.a;
+				var newIncidents = _n13.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 15:
 				var theText = change.a;
 				var playerAnswer = change.b;
 				var cAnswerData = change.c;
 				var interactableId = change.d;
-				return A3(
-					author$project$Engine$Manifest$processCreateOrSetOtherInteractableAttributesIfAnswerCorrect,
-					cAnswerData.cx,
+				var _n14 = A3(
+					author$project$Engine$Manifest$manifestUpdate,
 					interactableId,
-					A3(
-						author$project$Engine$Manifest$manifestUpdate,
-						interactableId,
-						A4(author$project$Engine$Manifest$checkIfAnswerCorrect, theText, playerAnswer, cAnswerData, manifest),
-						_Utils_Tuple2(manifest, linteractionincidents)));
+					A4(author$project$Engine$Manifest$checkIfAnswerCorrect, theText, playerAnswer, cAnswerData, storyRecord.l),
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n14.a;
+				var newIncidents = _n14.b;
+				return A2(
+					author$project$Engine$Manifest$processNewChangeWorldCommands,
+					interactableId,
+					_Utils_Tuple2(
+						_Utils_update(
+							storyRecord,
+							{l: newManifest}),
+						newIncidents));
 			case 33:
 				var playerChoice = change.a;
 				var lcOptionData = change.b;
 				var interactableId = change.c;
+				var _n15 = A3(
+					author$project$Engine$Manifest$manifestUpdate,
+					interactableId,
+					A4(author$project$Engine$Manifest$checkAndActIfChosenOptionIs, playerChoice, lcOptionData, interactableId, storyRecord.l),
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n15.a;
+				var newIncidents = _n15.b;
 				return A2(
 					author$project$Engine$Manifest$processNewChangeWorldCommands,
 					interactableId,
-					A3(
-						author$project$Engine$Manifest$manifestUpdate,
-						interactableId,
-						A4(author$project$Engine$Manifest$checkAndActIfChosenOptionIs, playerChoice, lcOptionData, interactableId, manifest),
-						_Utils_Tuple2(manifest, linteractionincidents)));
+					_Utils_Tuple2(
+						_Utils_update(
+							storyRecord,
+							{l: newManifest}),
+						newIncidents));
 			case 23:
 				var interactableId = change.a;
-				return A3(
+				var _n16 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					interactableId,
 					author$project$Engine$Manifest$resetOption,
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n16.a;
+				var newIncidents = _n16.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 21:
 				var dslss = change.a;
 				var id = change.b;
-				return A3(
+				var _n17 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
 					author$project$Engine$Manifest$createAmultiChoice(dslss),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n17.a;
+				var newIncidents = _n17.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 22:
 				var id = change.a;
-				return A3(
+				var _n18 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
 					author$project$Engine$Manifest$removeMultiChoiceOptions,
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n18.a;
+				var newIncidents = _n18.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 16:
 				var counterId = change.a;
 				var interactableId = change.b;
-				return A3(
+				var _n19 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					interactableId,
 					author$project$Engine$Manifest$createCounterIfNotExists(counterId),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n19.a;
+				var newIncidents = _n19.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 25:
 				var counterId = change.a;
 				var interactableId = change.b;
-				return A3(
+				var _n20 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					interactableId,
 					author$project$Engine$Manifest$increaseCounter(counterId),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n20.a;
+				var newIncidents = _n20.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 17:
 				var attrValue = change.a;
 				var attrId = change.b;
-				var mbInternal = change.c;
-				var interactableId = change.d;
-				return A3(
+				var interactableId = change.c;
+				var _n21 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					interactableId,
-					A3(author$project$Engine$Manifest$createAttributeIfNotExists, attrValue, attrId, mbInternal),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					A2(author$project$Engine$Manifest$createAttributeIfNotExists, attrValue, attrId),
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n21.a;
+				var newIncidents = _n21.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 18:
 				var attrValue = change.a;
 				var attrId = change.b;
-				var mbInternal = change.c;
-				var interactableId = change.d;
-				return A3(
+				var interactableId = change.c;
+				var _n22 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					interactableId,
-					A3(author$project$Engine$Manifest$setAttributeValue, attrValue, attrId, mbInternal),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					A2(author$project$Engine$Manifest$setAttributeValue, attrValue, attrId),
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n22.a;
+				var newIncidents = _n22.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 19:
 				var attrValue = change.a;
 				var attrId = change.b;
-				var mbInternal = change.c;
-				var interactableId = change.d;
-				return A3(
+				var interactableId = change.c;
+				var _n23 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					interactableId,
-					A3(author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue, attrValue, attrId, mbInternal),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					A2(author$project$Engine$Manifest$createAttributeIfNotExistsAndOrSetValue, attrValue, attrId),
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n23.a;
+				var newIncidents = _n23.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 20:
 				var attrId = change.a;
 				var otherInterAtrrId = change.b;
 				var otherInterId = change.c;
 				var interactableId = change.d;
-				return A3(
+				var _n24 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					interactableId,
-					A4(author$project$Engine$Manifest$createOrSetAttributeValueFromOtherInterAttr, attrId, otherInterAtrrId, otherInterId, manifest),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					A4(author$project$Engine$Manifest$createOrSetAttributeValueFromOtherInterAttr, attrId, otherInterAtrrId, otherInterId, storyRecord.l),
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n24.a;
+				var newIncidents = _n24.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 24:
 				var attrId = change.a;
 				var interactableId = change.b;
-				return A3(
+				var _n25 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					interactableId,
 					author$project$Engine$Manifest$removeAttributeIfExists(attrId),
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n25.a;
+				var newIncidents = _n25.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 8:
 				var id = change.a;
-				return A3(
+				var _n26 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
 					author$project$Engine$Manifest$makeItemWritable,
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n26.a;
+				var newIncidents = _n26.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 9:
 				var id = change.a;
-				return A3(
+				var _n27 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
 					author$project$Engine$Manifest$makeItemUnwritable,
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n27.a;
+				var newIncidents = _n27.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 4:
 				var id = change.a;
-				return A3(
+				var _n28 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
 					author$project$Engine$Manifest$removeChooseOptions,
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n28.a;
+				var newIncidents = _n28.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 10:
 				var id = change.a;
-				return A3(
+				var _n29 = A3(
 					author$project$Engine$Manifest$manifestUpdate,
 					id,
 					author$project$Engine$Manifest$makeItUnanswerable,
-					_Utils_Tuple2(manifest, linteractionincidents));
+					_Utils_Tuple2(storyRecord.l, linteractionincidents));
+				var newManifest = _n29.a;
+				var newIncidents = _n29.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{l: newManifest}),
+					newIncidents);
 			case 34:
 				var func = change.a;
 				var extraInfo = change.b;
 				var interactableId = change.c;
+				var lChangeWorldCommands = A2(func, extraInfo, storyRecord.l);
 				return A3(
 					elm$core$List$foldl,
 					F2(
 						function (chg, tup) {
 							return A2(author$project$Engine$Manifest$update, chg, tup);
 						}),
-					_Utils_Tuple2(manifest, linteractionincidents),
-					A2(func, extraInfo, manifest));
-			case 35:
-				var func = change.a;
-				var extraInfo = change.b;
-				var lfloats = change.c;
-				var interactableId = change.d;
-				return A3(
-					elm$core$List$foldl,
-					F2(
-						function (chg, tup) {
-							return A2(author$project$Engine$Manifest$update, chg, tup);
-						}),
-					_Utils_Tuple2(manifest, linteractionincidents),
-					A3(func, extraInfo, lfloats, manifest));
+					_Utils_Tuple2(storyRecord, linteractionincidents),
+					lChangeWorldCommands);
 			case 29:
-				var str = change.a;
-				return _Utils_Tuple2(manifest, linteractionincidents);
+				var sceneName = change.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{aY: sceneName}),
+					linteractionincidents);
 			case 30:
-				var d = change.a;
-				return _Utils_Tuple2(manifest, linteractionincidents);
+				var dictLgs = change.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{aX: dictLgs}),
+					linteractionincidents);
 			case 31:
-				var s1 = change.a;
-				var s2 = change.b;
-				return _Utils_Tuple2(manifest, linteractionincidents);
+				var lgId = change.a;
+				var lgName = change.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{
+							aX: A3(elm$core$Dict$insert, lgId, lgName, storyRecord.aX)
+						}),
+					linteractionincidents);
 			default:
-				var t = change.a;
-				var s = change.b;
-				return _Utils_Tuple2(manifest, linteractionincidents);
+				var endingtype = change.a;
+				var ending = change.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						storyRecord,
+						{
+							au: elm$core$Maybe$Just(
+								A2(author$project$Types$TheEnd, endingtype, ending))
+						}),
+					linteractionincidents);
 		}
-	});
-var author$project$Types$TheEnd = F2(
-	function (a, b) {
-		return {$: 0, a: a, b: b};
 	});
 var author$project$Engine$changeWorld = F2(
 	function (changes, _n0) {
 		var story = _n0;
 		var doChange = F2(
-			function (change, _n4) {
-				var storyRecord = _n4.a;
-				var linteractionIncidents = _n4.b;
-				switch (change.$) {
-					case 1:
-						var location = change.a;
-						return _Utils_Tuple2(
-							_Utils_update(
-								storyRecord,
-								{bX: location}),
-							linteractionIncidents);
-					case 29:
-						var sceneName = change.a;
-						return _Utils_Tuple2(
-							_Utils_update(
-								storyRecord,
-								{aB: sceneName}),
-							linteractionIncidents);
-					case 32:
-						var endingtype = change.a;
-						var ending = change.b;
-						return _Utils_Tuple2(
-							_Utils_update(
-								storyRecord,
-								{
-									ag: elm$core$Maybe$Just(
-										A2(author$project$Types$TheEnd, endingtype, ending))
-								}),
-							linteractionIncidents);
-					case 30:
-						var dictLgs = change.a;
-						return _Utils_Tuple2(
-							_Utils_update(
-								storyRecord,
-								{X: dictLgs}),
-							linteractionIncidents);
-					case 31:
-						var lgId = change.a;
-						var lgName = change.b;
-						return _Utils_Tuple2(
-							_Utils_update(
-								storyRecord,
-								{
-									X: A3(elm$core$Dict$insert, lgId, lgName, storyRecord.X)
-								}),
-							linteractionIncidents);
-					default:
-						var _n3 = A2(
-							author$project$Engine$Manifest$update,
-							change,
-							_Utils_Tuple2(storyRecord.j, linteractionIncidents));
-						var newManifest = _n3.a;
-						var newIncidents = _n3.b;
-						return _Utils_Tuple2(
-							_Utils_update(
-								storyRecord,
-								{j: newManifest}),
-							newIncidents);
-				}
+			function (change, _n3) {
+				var storyRecord = _n3.a;
+				var linteractionIncidents = _n3.b;
+				var _n2 = A2(
+					author$project$Engine$Manifest$update,
+					change,
+					_Utils_Tuple2(storyRecord, linteractionIncidents));
+				var newStory = _n2.a;
+				var newIncidents = _n2.b;
+				return _Utils_Tuple2(newStory, newIncidents);
 			});
 		return function (_n1) {
 			var x = _n1.a;
@@ -7810,7 +7904,7 @@ var author$project$Engine$changeWorld = F2(
 	});
 var author$project$Types$CheckAnswerData = F8(
 	function (mbMaxNrTries, answerCase, answerSpaces, answerFeedback, correctAnsTextDict, incorrectAnsTextDict, lnewAttrs, lotherInterAttrs) {
-		return {bx: answerCase, by: answerFeedback, bA: answerSpaces, bV: correctAnsTextDict, ce: incorrectAnsTextDict, aH: lnewAttrs, cx: lotherInterAttrs, cF: mbMaxNrTries};
+		return {bx: answerCase, by: answerFeedback, bA: answerSpaces, bV: correctAnsTextDict, ce: incorrectAnsTextDict, aF: lnewAttrs, cx: lotherInterAttrs, cF: mbMaxNrTries};
 	});
 var author$project$Types$CheckIfAnswerCorrect = F4(
 	function (a, b, c, d) {
@@ -7860,10 +7954,10 @@ var author$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 							elm$core$List$map,
 							function (x) {
 								return _Utils_Tuple2(
-									x.aG,
+									x.aE,
 									author$project$Types$SimpleText(
 										_List_fromArray(
-											[x.aT])));
+											[x.aR])));
 							},
 							answerinfo.dd)),
 					elm$core$Dict$fromList(
@@ -7871,20 +7965,20 @@ var author$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 							elm$core$List$map,
 							function (x) {
 								return _Utils_Tuple2(
-									x.aG,
+									x.aE,
 									author$project$Types$SimpleText(
 										_List_fromArray(
-											[x.aT])));
+											[x.aR])));
 							},
 							answerinfo.ck)),
-					cAnswerData.aH,
+					cAnswerData.aF,
 					cAnswerData.cx);
 				var newCheckAnswerDataIfInsuccess = checkAnswerDataRec;
 				var newCheckAnswerDataIfSuccess = _Utils_update(
 					checkAnswerDataRec,
 					{
-						aH: _Utils_ap(
-							cAnswerData.aH,
+						aF: _Utils_ap(
+							cAnswerData.aF,
 							_List_fromArray(
 								[
 									_Utils_Tuple2(
@@ -7895,14 +7989,14 @@ var author$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 												elm$core$List$map,
 												function (x) {
 													return _Utils_Tuple2(
-														x.aG,
+														x.aE,
 														_List_fromArray(
-															[x.aT]));
+															[x.aR]));
 												},
 												answerinfo.c1))))
 								]))
 					});
-				return answerinfo.cA ? A2(author$project$Types$WriteTextToItem, '  \n' + (' ' + (' ___MAX_TRIES_ON_BACKEND___ ' + (' ,  ' + ('  \n , ' + (' ___YOUR_ANSWER___ ' + (' ' + answerinfo.ac)))))), interactableId) : ((answerinfo.aV && answerinfo.bW) ? A4(
+				return answerinfo.cA ? A2(author$project$Types$WriteTextToItem, '  \n' + (' ' + (' ___MAX_TRIES_ON_BACKEND___ ' + (' ,  ' + ('  \n , ' + (' ___YOUR_ANSWER___ ' + (' ' + answerinfo.ac)))))), interactableId) : ((answerinfo.aT && answerinfo.bW) ? A4(
 					author$project$Types$CheckIfAnswerCorrect,
 					A2(
 						author$project$Types$ListOfAnswersAndFunctions,
@@ -7911,7 +8005,7 @@ var author$project$Engine$replaceCheckIfAnswerCorrectUsingBackend = F4(
 						_List_Nil),
 					answerinfo.ac,
 					newCheckAnswerDataIfSuccess,
-					interactableId) : ((answerinfo.aV && answerinfo.cf) ? A4(
+					interactableId) : ((answerinfo.aT && answerinfo.cf) ? A4(
 					author$project$Types$CheckIfAnswerCorrect,
 					A2(
 						author$project$Types$ListOfAnswersAndFunctions,
@@ -7933,7 +8027,7 @@ var author$project$Engine$replaceBkendQuasiCwCmdsWithCwcommands = F2(
 			var strUrl = quasiBkendCwCommand.a;
 			var cAnswerData = quasiBkendCwCommand.b;
 			var interactableId = quasiBkendCwCommand.c;
-			return A4(author$project$Engine$replaceCheckIfAnswerCorrectUsingBackend, extraInfo.az, strUrl, cAnswerData, interactableId);
+			return A4(author$project$Engine$replaceCheckIfAnswerCorrectUsingBackend, extraInfo.ay, strUrl, cAnswerData, interactableId);
 		}
 	});
 var elm$core$Maybe$map = F2(
@@ -7967,8 +8061,8 @@ var author$project$Engine$completeTheUpdate = F3(
 			return _Utils_update(
 				storyrec,
 				{
-					ap: _Utils_ap(
-						storyrec.ap,
+					ao: _Utils_ap(
+						storyrec.ao,
 						_List_fromArray(
 							[
 								_Utils_Tuple2(interactableId, extraInfo)
@@ -8000,249 +8094,6 @@ var author$project$Engine$determineIfInfoNeeded = function (qcwcommand) {
 		return author$project$Types$NoInfoNeeded;
 	}
 };
-var author$project$Types$CheckAndActIfChosenOptionIs = F3(
-	function (a, b, c) {
-		return {$: 33, a: a, b: b, c: c};
-	});
-var author$project$Engine$replaceCheckAndActIfChosenOptionIs = F3(
-	function (mbInputText, lcOptionData, itemid) {
-		var playerChoice = A2(elm$core$Maybe$withDefault, '', mbInputText);
-		return A3(author$project$Types$CheckAndActIfChosenOptionIs, playerChoice, lcOptionData, itemid);
-	});
-var author$project$Engine$replaceCheckIfAnswerCorrect = F4(
-	function (mbInputText, questionAns, cAnswerData, interactableId) {
-		if ((!_Utils_eq(mbInputText, elm$core$Maybe$Nothing)) && (!_Utils_eq(
-			mbInputText,
-			elm$core$Maybe$Just('')))) {
-			var playerAnswer = A2(elm$core$Maybe$withDefault, '', mbInputText);
-			return A4(author$project$Types$CheckIfAnswerCorrect, questionAns, playerAnswer, cAnswerData, interactableId);
-		} else {
-			return author$project$Types$NoChange;
-		}
-	});
-var author$project$Types$ExecuteCustomFunc = F3(
-	function (a, b, c) {
-		return {$: 34, a: a, b: b, c: c};
-	});
-var author$project$Engine$replaceExecuteCustumFunc = F3(
-	function (func, extraInfo, interactableId) {
-		return A3(author$project$Types$ExecuteCustomFunc, func, extraInfo, interactableId);
-	});
-var author$project$Types$WriteGpsLocInfoToItem = F2(
-	function (a, b) {
-		return {$: 13, a: a, b: b};
-	});
-var author$project$Engine$replaceWriteGpsInfoToItem = F2(
-	function (geolocationInfoText, id) {
-		return A2(author$project$Types$WriteGpsLocInfoToItem, geolocationInfoText, id);
-	});
-var author$project$Engine$replaceWriteInputTextToItem = F2(
-	function (mbText, id) {
-		return A2(
-			author$project$Types$WriteTextToItem,
-			A2(elm$core$Maybe$withDefault, '', mbText),
-			id);
-	});
-var author$project$Types$ExecuteCustomFuncUsingRandomElems = F4(
-	function (a, b, c, d) {
-		return {$: 35, a: a, b: b, c: c, d: d};
-	});
-var elm$core$Basics$le = _Utils_le;
-var elm$core$List$drop = F2(
-	function (n, list) {
-		drop:
-		while (true) {
-			if (n <= 0) {
-				return list;
-			} else {
-				if (!list.b) {
-					return list;
-				} else {
-					var x = list.a;
-					var xs = list.b;
-					var $temp$n = n - 1,
-						$temp$list = xs;
-					n = $temp$n;
-					list = $temp$list;
-					continue drop;
-				}
-			}
-		}
-	});
-var elm$core$List$takeReverse = F3(
-	function (n, list, kept) {
-		takeReverse:
-		while (true) {
-			if (n <= 0) {
-				return kept;
-			} else {
-				if (!list.b) {
-					return kept;
-				} else {
-					var x = list.a;
-					var xs = list.b;
-					var $temp$n = n - 1,
-						$temp$list = xs,
-						$temp$kept = A2(elm$core$List$cons, x, kept);
-					n = $temp$n;
-					list = $temp$list;
-					kept = $temp$kept;
-					continue takeReverse;
-				}
-			}
-		}
-	});
-var elm$core$List$takeTailRec = F2(
-	function (n, list) {
-		return elm$core$List$reverse(
-			A3(elm$core$List$takeReverse, n, list, _List_Nil));
-	});
-var elm$core$List$takeFast = F3(
-	function (ctr, n, list) {
-		if (n <= 0) {
-			return _List_Nil;
-		} else {
-			var _n0 = _Utils_Tuple2(n, list);
-			_n0$1:
-			while (true) {
-				_n0$5:
-				while (true) {
-					if (!_n0.b.b) {
-						return list;
-					} else {
-						if (_n0.b.b.b) {
-							switch (_n0.a) {
-								case 1:
-									break _n0$1;
-								case 2:
-									var _n2 = _n0.b;
-									var x = _n2.a;
-									var _n3 = _n2.b;
-									var y = _n3.a;
-									return _List_fromArray(
-										[x, y]);
-								case 3:
-									if (_n0.b.b.b.b) {
-										var _n4 = _n0.b;
-										var x = _n4.a;
-										var _n5 = _n4.b;
-										var y = _n5.a;
-										var _n6 = _n5.b;
-										var z = _n6.a;
-										return _List_fromArray(
-											[x, y, z]);
-									} else {
-										break _n0$5;
-									}
-								default:
-									if (_n0.b.b.b.b && _n0.b.b.b.b.b) {
-										var _n7 = _n0.b;
-										var x = _n7.a;
-										var _n8 = _n7.b;
-										var y = _n8.a;
-										var _n9 = _n8.b;
-										var z = _n9.a;
-										var _n10 = _n9.b;
-										var w = _n10.a;
-										var tl = _n10.b;
-										return (ctr > 1000) ? A2(
-											elm$core$List$cons,
-											x,
-											A2(
-												elm$core$List$cons,
-												y,
-												A2(
-													elm$core$List$cons,
-													z,
-													A2(
-														elm$core$List$cons,
-														w,
-														A2(elm$core$List$takeTailRec, n - 4, tl))))) : A2(
-											elm$core$List$cons,
-											x,
-											A2(
-												elm$core$List$cons,
-												y,
-												A2(
-													elm$core$List$cons,
-													z,
-													A2(
-														elm$core$List$cons,
-														w,
-														A3(elm$core$List$takeFast, ctr + 1, n - 4, tl)))));
-									} else {
-										break _n0$5;
-									}
-							}
-						} else {
-							if (_n0.a === 1) {
-								break _n0$1;
-							} else {
-								break _n0$5;
-							}
-						}
-					}
-				}
-				return list;
-			}
-			var _n1 = _n0.b;
-			var x = _n1.a;
-			return _List_fromArray(
-				[x]);
-		}
-	});
-var elm$core$List$take = F2(
-	function (n, list) {
-		return A3(elm$core$List$takeFast, 0, n, list);
-	});
-var author$project$Engine$replaceQuasiCwCmdsWithCwcommands = F3(
-	function (extraInfo, lfloats, quasiCwCommand) {
-		switch (quasiCwCommand.$) {
-			case 0:
-				return _Utils_Tuple2(author$project$Types$NoChange, lfloats);
-			case 1:
-				var theCorrectAnswers = quasiCwCommand.a;
-				var cAnswerData = quasiCwCommand.b;
-				var interactableId = quasiCwCommand.c;
-				return _Utils_Tuple2(
-					A4(author$project$Engine$replaceCheckIfAnswerCorrect, extraInfo.av, theCorrectAnswers, cAnswerData, interactableId),
-					lfloats);
-			case 2:
-				var lcOptionData = quasiCwCommand.a;
-				var itemid = quasiCwCommand.b;
-				return _Utils_Tuple2(
-					A3(author$project$Engine$replaceCheckAndActIfChosenOptionIs, extraInfo.av, lcOptionData, itemid),
-					lfloats);
-			case 4:
-				var interactableId = quasiCwCommand.a;
-				return _Utils_Tuple2(
-					A2(author$project$Engine$replaceWriteInputTextToItem, extraInfo.av, interactableId),
-					lfloats);
-			case 3:
-				var interactableId = quasiCwCommand.a;
-				return _Utils_Tuple2(
-					A2(author$project$Engine$replaceWriteGpsInfoToItem, extraInfo.b9, interactableId),
-					lfloats);
-			case 5:
-				var func = quasiCwCommand.a;
-				var interactableId = quasiCwCommand.b;
-				return _Utils_Tuple2(
-					A3(author$project$Engine$replaceExecuteCustumFunc, func, extraInfo, interactableId),
-					lfloats);
-			default:
-				var nrRandomElems = quasiCwCommand.a;
-				var func = quasiCwCommand.b;
-				var interactableId = quasiCwCommand.c;
-				return _Utils_Tuple2(
-					A4(
-						author$project$Types$ExecuteCustomFuncUsingRandomElems,
-						func,
-						extraInfo,
-						A2(elm$core$List$take, nrRandomElems, lfloats),
-						interactableId),
-					A2(elm$core$List$drop, nrRandomElems, lfloats));
-		}
-	});
 var author$project$Engine$Manifest$isItem = F2(
 	function (id, manifest) {
 		return function (interactable) {
@@ -8273,6 +8124,32 @@ var author$project$Engine$Rules$bestMatch = F2(
 			elm$core$List$reverse(
 				A2(elm$core$List$sortBy, heuristics, matchingRules)));
 	});
+var author$project$Engine$Manifest$attrValueIsEqualTo = F4(
+	function (attrValue, attrId, interactableId, manifest) {
+		var _n0 = A2(elm$core$Dict$get, interactableId, manifest);
+		if (_n0.$ === 1) {
+			return false;
+		} else {
+			var interactable = _n0.a;
+			switch (interactable.$) {
+				case 0:
+					var idata = interactable.a;
+					return _Utils_eq(
+						A2(elm$core$Dict$get, attrId, idata.a),
+						elm$core$Maybe$Just(attrValue)) ? true : false;
+				case 2:
+					var cdata = interactable.a;
+					return _Utils_eq(
+						A2(elm$core$Dict$get, attrId, cdata.a),
+						elm$core$Maybe$Just(attrValue)) ? true : false;
+				default:
+					var ldata = interactable.a;
+					return _Utils_eq(
+						A2(elm$core$Dict$get, attrId, ldata.a),
+						elm$core$Maybe$Just(attrValue)) ? true : false;
+			}
+		}
+	});
 var elm$core$List$maybeCons = F3(
 	function (f, mx, xs) {
 		var _n0 = f(mx);
@@ -8299,7 +8176,7 @@ var author$project$Engine$Manifest$getCharactersInLocation = F2(
 				var interactable = _n2.b;
 				if (interactable.$ === 2) {
 					var cdata = interactable.a;
-					var _n1 = cdata.aA;
+					var _n1 = cdata.az;
 					if (!_n1.$) {
 						var alocation = _n1.a;
 						return _Utils_eq(alocation, locId) ? elm$core$Maybe$Just(id) : elm$core$Maybe$Nothing;
@@ -8314,6 +8191,27 @@ var author$project$Engine$Manifest$getCharactersInLocation = F2(
 			elm$core$List$filterMap,
 			isInLocation(locationId),
 			elm$core$Dict$toList(manifest));
+	});
+var elm$core$List$any = F2(
+	function (isOkay, list) {
+		any:
+		while (true) {
+			if (!list.b) {
+				return false;
+			} else {
+				var x = list.a;
+				var xs = list.b;
+				if (isOkay(x)) {
+					return true;
+				} else {
+					var $temp$isOkay = isOkay,
+						$temp$list = xs;
+					isOkay = $temp$isOkay;
+					list = $temp$list;
+					continue any;
+				}
+			}
+		}
 	});
 var author$project$Engine$Manifest$characterIsInLocation = F3(
 	function (characterid, currentLocation, manifest) {
@@ -8549,12 +8447,21 @@ var author$project$Engine$Manifest$itemIsOffScreen = F2(
 			return false;
 		}
 	});
+var elm$core$List$member = F2(
+	function (x, xs) {
+		return A2(
+			elm$core$List$any,
+			function (a) {
+				return _Utils_eq(a, x);
+			},
+			xs);
+	});
 var author$project$Engine$Rules$matchesCondition = F3(
 	function (_n0, mbInputText, condition) {
-		var history = _n0.ap;
+		var history = _n0.ao;
 		var currentLocation = _n0.bX;
-		var currentScene = _n0.aB;
-		var manifest = _n0.j;
+		var currentScene = _n0.aY;
+		var manifest = _n0.l;
 		switch (condition.$) {
 			case 0:
 				var charId = condition.a;
@@ -8697,9 +8604,9 @@ var elm$core$List$all = F2(
 var author$project$Engine$Rules$matchesRule = F4(
 	function (story, mbInputText, interaction, rule) {
 		var currentLocation = story.bX;
-		var currentScene = story.aB;
-		var manifest = story.j;
-		var history = story.ap;
+		var currentScene = story.aY;
+		var manifest = story.l;
+		var history = story.ao;
 		return A3(author$project$Engine$Rules$matchesInteraction, manifest, rule.cl, interaction) && A2(
 			elm$core$List$all,
 			A2(author$project$Engine$Rules$matchesCondition, story, mbInputText),
@@ -8785,7 +8692,7 @@ var author$project$Engine$Rules$findMatchingRule = F3(
 							elm$core$Basics$composeR,
 							elm$core$Tuple$second,
 							A3(author$project$Engine$Rules$matchesRule, story, mbInputText, interactionStr)),
-						elm$core$Dict$toList(story.aO)))));
+						elm$core$Dict$toList(story.aM)))));
 	});
 var author$project$Types$ExtraInfoWithPendingChanges = F3(
 	function (interactionExtraInfo, pendingChanges, mbQuasiCwCmdWithBk) {
@@ -8804,17 +8711,17 @@ var author$project$Engine$preUpdate = F3(
 	function (interactableId, extraInfo, model) {
 		var story = model;
 		var matchingRule = function () {
-			var _n3 = extraInfo.cE;
-			if (_n3.$ === 1) {
-				return A3(author$project$Engine$Rules$findMatchingRule, story, extraInfo.av, interactableId);
+			var _n5 = extraInfo.cE;
+			if (_n5.$ === 1) {
+				return A3(author$project$Engine$Rules$findMatchingRule, story, extraInfo.N, interactableId);
 			} else {
-				var matchedRuleId = _n3.a;
+				var matchedRuleId = _n5.a;
 				return A2(
 					elm$core$Maybe$map,
 					function (x) {
 						return _Utils_Tuple2(matchedRuleId, x);
 					},
-					A2(elm$core$Dict$get, matchedRuleId, story.aO));
+					A2(elm$core$Dict$get, matchedRuleId, story.aM));
 			}
 		}();
 		var mbQuasiCwCmdWithBk = A2(
@@ -8851,12 +8758,12 @@ var author$project$Engine$preUpdate = F3(
 				return author$project$Engine$determineIfInfoNeeded(quasicwcmd);
 			}
 		}();
-		var defaultChanges = A2(author$project$Engine$Manifest$isLocation, interactableId, story.j) ? _List_fromArray(
+		var defaultChanges = A2(author$project$Engine$Manifest$isLocation, interactableId, story.l) ? _List_fromArray(
 			[
 				author$project$Types$MoveTo(interactableId)
-			]) : (A2(author$project$Engine$Manifest$isItem, interactableId, story.j) ? _List_fromArray(
+			]) : (A2(author$project$Engine$Manifest$isItem, interactableId, story.l) ? _List_fromArray(
 			[
-				A2(author$project$Types$MoveItemToCharacterInventory, story.aM, interactableId)
+				A2(author$project$Types$MoveItemToCharacterInventory, story.aK, interactableId)
 			]) : _List_Nil);
 		var somechanges = A2(
 			elm$core$Maybe$withDefault,
@@ -8873,19 +8780,36 @@ var author$project$Engine$preUpdate = F3(
 		var _n0 = A3(
 			elm$core$List$foldl,
 			F2(
-				function (qcwcmd, tupAcc) {
-					return function (_n1) {
-						var cwcmd = _n1.a;
-						var lf = _n1.b;
-						return _Utils_Tuple2(
-							A2(
-								elm$core$List$append,
-								tupAcc.a,
-								_List_fromArray(
-									[cwcmd])),
-							lf);
-					}(
-						A3(author$project$Engine$replaceQuasiCwCmdsWithCwcommands, extraInfo, tupAcc.b, qcwcmd));
+				function (qcwcmdFunc, _n1) {
+					var lcwcmds = _n1.a;
+					var lfloats = _n1.b;
+					if (qcwcmdFunc.$ === 1) {
+						var qcmdFunc = qcwcmdFunc.a;
+						return function (_n3) {
+							var cwcmd = _n3.a;
+							var new_lf = _n3.b;
+							return _Utils_Tuple2(
+								A2(
+									elm$core$List$append,
+									lcwcmds,
+									_List_fromArray(
+										[cwcmd])),
+								new_lf);
+						}(
+							A2(qcmdFunc, extraInfo, lfloats));
+					} else {
+						var qcmdFunc = qcwcmdFunc.a;
+						return function (cwcmd) {
+							return _Utils_Tuple2(
+								A2(
+									elm$core$List$append,
+									lcwcmds,
+									_List_fromArray(
+										[cwcmd])),
+								lfloats);
+						}(
+							qcmdFunc(extraInfo));
+					}
 				}),
 			_Utils_Tuple2(_List_Nil, story.A),
 			lquasicwcmds);
@@ -8897,10 +8821,10 @@ var author$project$Engine$preUpdate = F3(
 		var newModel = _Utils_update(
 			story,
 			{A: newLfloats});
-		return ((!_Utils_eq(infoNeeded, author$project$Types$NoInfoNeeded)) && (_Utils_eq(extraInfo.az, author$project$Types$NoInfoYet) && ((!_Utils_eq(extraInfo.ba, elm$core$Maybe$Nothing)) && (!_Utils_eq(
+		return ((!_Utils_eq(infoNeeded, author$project$Types$NoInfoNeeded)) && (_Utils_eq(extraInfo.ay, author$project$Types$NoInfoYet) && ((!_Utils_eq(extraInfo.ba, elm$core$Maybe$Nothing)) && (!_Utils_eq(
 			extraInfo.ba,
 			elm$core$Maybe$Just('')))))) ? author$project$Engine$EnginePreResponse(
-			_Utils_Tuple3(newModel, extraInfoWithPendingChanges, infoNeeded)) : (((!_Utils_eq(infoNeeded, author$project$Types$NoInfoNeeded)) && _Utils_eq(extraInfo.az, author$project$Types$WaitingForInfoRequested)) ? author$project$Engine$EnginePreResponse(
+			_Utils_Tuple3(newModel, extraInfoWithPendingChanges, infoNeeded)) : (((!_Utils_eq(infoNeeded, author$project$Types$NoInfoNeeded)) && _Utils_eq(extraInfo.ay, author$project$Types$WaitingForInfoRequested)) ? author$project$Engine$EnginePreResponse(
 			_Utils_Tuple3(
 				newModel,
 				A3(author$project$Types$ExtraInfoWithPendingChanges, extraInfo, _List_Nil, elm$core$Maybe$Nothing),
@@ -8922,8 +8846,9 @@ var author$project$Engine$update = F2(
 	});
 var author$project$GpsUtils$GeolocationInfo = F2(
 	function (latitude, longitude) {
-		return {as: latitude, au: longitude};
+		return {ar: latitude, at: longitude};
 	});
+var elm$core$Basics$le = _Utils_le;
 var author$project$GpsUtils$checkIfInDistance = F3(
 	function (mbGpsZone, theDistance, defaultDistance) {
 		if (mbGpsZone.$ === 1) {
@@ -8970,6 +8895,9 @@ var author$project$GpsUtils$roundit = F2(
 		var strintVal = elm$core$String$fromInt(intVal);
 		return strintVal + ('.' + strdecPlaces);
 	});
+var elm$core$Basics$negate = function (n) {
+	return -n;
+};
 var elm$core$Basics$abs = function (n) {
 	return (n < 0) ? (-n) : n;
 };
@@ -9009,7 +8937,7 @@ var author$project$GpsUtils$haversineInMeters = F2(
 		var lon1 = _n0.b;
 		var lat2 = _n1.a;
 		var lon2 = _n1.b;
-		var r = 6372.8;
+		var r = 6378.1;
 		var dLon = elm$core$Basics$degrees(lon2 - lon1);
 		var dLat = elm$core$Basics$degrees(lat2 - lat1);
 		var a = A2(
@@ -9034,7 +8962,7 @@ var author$project$GpsUtils$getDistance = F2(
 			if (_n1) {
 				return A2(
 					author$project$GpsUtils$haversineInMeters,
-					_Utils_Tuple2(location.as, location.au),
+					_Utils_Tuple2(location.ar, location.at),
 					_Utils_Tuple2(gpszone.cs, gpszone.cw));
 			} else {
 				return 0.0;
@@ -9048,7 +8976,7 @@ var author$project$GpsUtils$getDistanceTo = F2(
 		var lon = _n0.c;
 		var theDistance = A2(
 			author$project$GpsUtils$haversineInMeters,
-			_Utils_Tuple2(location.as, location.au),
+			_Utils_Tuple2(location.ar, location.at),
 			_Utils_Tuple2(lat, lon));
 		return _Utils_Tuple2(name, theDistance);
 	});
@@ -9525,7 +9453,7 @@ var author$project$Leaflet$Ports$setView = _Platform_outgoingPort(
 							[
 								_Utils_Tuple2(
 								'animate',
-								elm$json$Json$Encode$bool($.ay)),
+								elm$json$Json$Encode$bool($.ax)),
 								_Utils_Tuple2(
 								'pan',
 								function ($) {
@@ -9534,7 +9462,7 @@ var author$project$Leaflet$Ports$setView = _Platform_outgoingPort(
 											[
 												_Utils_Tuple2(
 												'animate',
-												elm$json$Json$Encode$bool($.ay)),
+												elm$json$Json$Encode$bool($.ax)),
 												_Utils_Tuple2(
 												'duration',
 												elm$json$Json$Encode$float($.b$)),
@@ -9557,16 +9485,16 @@ var author$project$Leaflet$Ports$setView = _Platform_outgoingPort(
 											[
 												_Utils_Tuple2(
 												'animate',
-												elm$json$Json$Encode$bool($.ay))
+												elm$json$Json$Encode$bool($.ax))
 											]));
 								}($.dq))
 							]));
 				}(c)
 				]));
 	});
-var author$project$Leaflet$Types$defaultPanOptions = {ay: true, b$: 0.25, b0: 0.25, cP: false};
-var author$project$Leaflet$Types$defaultZoomOptions = {ay: true};
-var author$project$Leaflet$Types$defaultZoomPanOptions = {ay: true, cU: author$project$Leaflet$Types$defaultPanOptions, cZ: false, dq: author$project$Leaflet$Types$defaultZoomOptions};
+var author$project$Leaflet$Types$defaultPanOptions = {ax: true, b$: 0.25, b0: 0.25, cP: false};
+var author$project$Leaflet$Types$defaultZoomOptions = {ax: true};
+var author$project$Leaflet$Types$defaultZoomPanOptions = {ax: true, cU: author$project$Leaflet$Types$defaultPanOptions, cZ: false, dq: author$project$Leaflet$Types$defaultZoomOptions};
 var author$project$Main$Flags = F2(
 	function (baseImgUrl, baseSoundUrl) {
 		return {q: baseImgUrl, y: baseSoundUrl};
@@ -9742,7 +9670,7 @@ var author$project$Main$helperEmptyStringToNothing = function (theStr) {
 var author$project$Types$CommunicationFailure = {$: 3};
 var author$project$Types$InteractionExtraInfo = F6(
 	function (mbInputText, mbInputTextForBackend, geolocationInfoText, currentLocation, bkAnsStatus, mbMatchedRuleId) {
-		return {az: bkAnsStatus, bX: currentLocation, b9: geolocationInfoText, av: mbInputText, ba: mbInputTextForBackend, cE: mbMatchedRuleId};
+		return {ay: bkAnsStatus, bX: currentLocation, b9: geolocationInfoText, N: mbInputText, ba: mbInputTextForBackend, cE: mbMatchedRuleId};
 	});
 var author$project$Main$convertToListIdExtraInfo = function (lobjs) {
 	return A2(
@@ -9797,7 +9725,7 @@ var NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required = F3(
 	});
 var author$project$Main$LgTxt = F2(
 	function (lgId, text) {
-		return {aG: lgId, aT: text};
+		return {aE: lgId, aR: text};
 	});
 var elm$json$Json$Decode$string = _Json_decodeString;
 var author$project$Main$textInLanguagesDecoder = A3(
@@ -9815,7 +9743,7 @@ var author$project$Types$AnswerInfo = function (maxTriesReached) {
 							return function (secretTextList) {
 								return function (successTextList) {
 									return function (insuccessTextList) {
-										return {aV: answered, bW: correctAnswer, cf: incorrectAnswer, ck: insuccessTextList, a6: interactableId, cA: maxTriesReached, ac: playerAnswer, cY: questionBody, c1: secretTextList, dd: successTextList};
+										return {aT: answered, bW: correctAnswer, cf: incorrectAnswer, ck: insuccessTextList, a6: interactableId, cA: maxTriesReached, ac: playerAnswer, cY: questionBody, c1: secretTextList, dd: successTextList};
 									};
 								};
 							};
@@ -10099,9 +10027,135 @@ var author$project$GpsUtils$getCurrentGeoLocationAsText = function (mbGeolocatio
 	} else {
 		var gInfo = mbGeolocationInfo.a;
 		return author$project$GpsUtils$convertDecimalTupleToGps(
-			_Utils_Tuple2(gInfo.as, gInfo.au));
+			_Utils_Tuple2(gInfo.ar, gInfo.at));
 	}
 };
+var elm$core$List$takeReverse = F3(
+	function (n, list, kept) {
+		takeReverse:
+		while (true) {
+			if (n <= 0) {
+				return kept;
+			} else {
+				if (!list.b) {
+					return kept;
+				} else {
+					var x = list.a;
+					var xs = list.b;
+					var $temp$n = n - 1,
+						$temp$list = xs,
+						$temp$kept = A2(elm$core$List$cons, x, kept);
+					n = $temp$n;
+					list = $temp$list;
+					kept = $temp$kept;
+					continue takeReverse;
+				}
+			}
+		}
+	});
+var elm$core$List$takeTailRec = F2(
+	function (n, list) {
+		return elm$core$List$reverse(
+			A3(elm$core$List$takeReverse, n, list, _List_Nil));
+	});
+var elm$core$List$takeFast = F3(
+	function (ctr, n, list) {
+		if (n <= 0) {
+			return _List_Nil;
+		} else {
+			var _n0 = _Utils_Tuple2(n, list);
+			_n0$1:
+			while (true) {
+				_n0$5:
+				while (true) {
+					if (!_n0.b.b) {
+						return list;
+					} else {
+						if (_n0.b.b.b) {
+							switch (_n0.a) {
+								case 1:
+									break _n0$1;
+								case 2:
+									var _n2 = _n0.b;
+									var x = _n2.a;
+									var _n3 = _n2.b;
+									var y = _n3.a;
+									return _List_fromArray(
+										[x, y]);
+								case 3:
+									if (_n0.b.b.b.b) {
+										var _n4 = _n0.b;
+										var x = _n4.a;
+										var _n5 = _n4.b;
+										var y = _n5.a;
+										var _n6 = _n5.b;
+										var z = _n6.a;
+										return _List_fromArray(
+											[x, y, z]);
+									} else {
+										break _n0$5;
+									}
+								default:
+									if (_n0.b.b.b.b && _n0.b.b.b.b.b) {
+										var _n7 = _n0.b;
+										var x = _n7.a;
+										var _n8 = _n7.b;
+										var y = _n8.a;
+										var _n9 = _n8.b;
+										var z = _n9.a;
+										var _n10 = _n9.b;
+										var w = _n10.a;
+										var tl = _n10.b;
+										return (ctr > 1000) ? A2(
+											elm$core$List$cons,
+											x,
+											A2(
+												elm$core$List$cons,
+												y,
+												A2(
+													elm$core$List$cons,
+													z,
+													A2(
+														elm$core$List$cons,
+														w,
+														A2(elm$core$List$takeTailRec, n - 4, tl))))) : A2(
+											elm$core$List$cons,
+											x,
+											A2(
+												elm$core$List$cons,
+												y,
+												A2(
+													elm$core$List$cons,
+													z,
+													A2(
+														elm$core$List$cons,
+														w,
+														A3(elm$core$List$takeFast, ctr + 1, n - 4, tl)))));
+									} else {
+										break _n0$5;
+									}
+							}
+						} else {
+							if (_n0.a === 1) {
+								break _n0$1;
+							} else {
+								break _n0$5;
+							}
+						}
+					}
+				}
+				return list;
+			}
+			var _n1 = _n0.b;
+			var x = _n1.a;
+			return _List_fromArray(
+				[x]);
+		}
+	});
+var elm$core$List$take = F2(
+	function (n, list) {
+		return A3(elm$core$List$takeFast, 0, n, list);
+	});
 var author$project$GpsUtils$getTextDistancesFromListDistances = F2(
 	function (nrdistances, ldistances) {
 		return A2(
@@ -10147,8 +10201,8 @@ var author$project$Main$getExtraInfoFromModel = F2(
 			A2(author$project$Main$findEntity, model, currLocationStrId));
 		return A6(
 			author$project$Types$InteractionExtraInfo,
-			model.N,
-			model.N,
+			model.O,
+			model.O,
 			A4(author$project$GpsUtils$getCurrentGeoReportAsText, currLocNameAndCoords, model.B, model.H, 3),
 			currLocationStrId,
 			A2(
@@ -10194,13 +10248,13 @@ var author$project$Types$CreateAMultiChoice = F2(
 		return {$: 21, a: a, b: b};
 	});
 var author$project$Engine$createAmultiChoice = author$project$Types$CreateAMultiChoice;
-var author$project$Types$CreateAttributeIfNotExists = F4(
-	function (a, b, c, d) {
-		return {$: 17, a: a, b: b, c: c, d: d};
+var author$project$Types$CreateAttributeIfNotExists = F3(
+	function (a, b, c) {
+		return {$: 17, a: a, b: b, c: c};
 	});
 var author$project$Engine$createAttributeIfNotExists = F3(
 	function (val, attrId, interactableId) {
-		return A4(author$project$Types$CreateAttributeIfNotExists, val, attrId, elm$core$Maybe$Nothing, interactableId);
+		return A3(author$project$Types$CreateAttributeIfNotExists, val, attrId, interactableId);
 	});
 var author$project$Types$CreateCounterIfNotExists = F2(
 	function (a, b) {
@@ -10238,7 +10292,6 @@ var author$project$OurStory$Rules$startingState = _Utils_ap(
 			author$project$Engine$makeItemWritable('questionAtFonteMataAlva'),
 			A2(author$project$Engine$moveItemToLocationFixed, 'questionSaoMartinhoColares1', 'limiteSaoMartinhoColares'),
 			author$project$Engine$makeItemWritable('questionSaoMartinhoColares1'),
-			A2(author$project$Engine$moveItemToLocationFixed, 'questionSaoMartinhoColares2', 'limiteSaoMartinhoColares'),
 			author$project$Engine$makeItemWritable('questionSaoMartinhoColares2'),
 			author$project$Engine$makeItemWritable('questionColares'),
 			A2(author$project$Engine$moveCharacterToLocation, 'playerOne', 'largoDrCarlosFranca'),
@@ -10318,7 +10371,7 @@ var author$project$OurStory$Rules$startingState = _Utils_ap(
 		]));
 var author$project$Engine$getStoryRules = function (_n0) {
 	var story = _n0;
-	return story.aO;
+	return story.aM;
 };
 var author$project$SomeTests$getListIncidents = function (engineModel) {
 	var getLIncidents = F2(
@@ -10381,7 +10434,7 @@ var author$project$Main$getNewModelAfterGameStartRandomElems = F2(
 				_Utils_Tuple2('startingState ', lincidents)
 			]);
 		var allPossibleIncidentsAboutCwcmds = A2(author$project$SomeTests$getAllPossibleIncidentsAboutCwcmds, newEngineModel, startLincidents);
-		var alertMessages_ = model.l ? allPossibleIncidentsAboutCwcmds : _List_Nil;
+		var alertMessages_ = model.k ? allPossibleIncidentsAboutCwcmds : _List_Nil;
 		var newModel = _Utils_update(
 			model,
 			{
@@ -10421,7 +10474,7 @@ var author$project$Main$getNewModelAndInteractionExtraInfoByEngineUpdate = F3(
 			}();
 			var newEngineModel = _n0.a;
 			var lInteractionIncidents = _n0.b;
-			var interactionIncidents = model.l ? lInteractionIncidents : _List_Nil;
+			var interactionIncidents = model.k ? lInteractionIncidents : _List_Nil;
 			var newModel = _Utils_update(
 				model,
 				{
@@ -10501,10 +10554,10 @@ var author$project$Main$setPlayerName = F2(
 					return (x.a === 'playerOne') ? newPlayerOneEntity : x;
 				},
 				model.Z);
-			var newAnswerBoxModel = A2(author$project$Theme$AnswerBox$update, '', model.k);
+			var newAnswerBoxModel = A2(author$project$Theme$AnswerBox$update, '', model.j);
 			var newModel = _Utils_update(
 				model,
-				{k: newAnswerBoxModel, Z: newEntities, w: playerNameStr});
+				{j: newAnswerBoxModel, Z: newEntities, w: playerNameStr});
 			return newModel;
 		}
 	});
@@ -10525,7 +10578,7 @@ var elm$regex$Regex$fromStringWith = _Regex_fromStringWith;
 var elm$regex$Regex$fromString = function (string) {
 	return A2(
 		elm$regex$Regex$fromStringWith,
-		{aX: false, bc: false},
+		{aV: false, bc: false},
 		string);
 };
 var elm$regex$Regex$replace = _Regex_replaceAtMost(_Regex_infinity);
@@ -10541,7 +10594,7 @@ var author$project$Main$regexUserReplace = F3(
 	});
 var author$project$Engine$getHistory = function (_n0) {
 	var story = _n0;
-	return story.ap;
+	return story.ao;
 };
 var author$project$Main$saveHistoryToStorage = _Platform_outgoingPort(
 	'saveHistoryToStorage',
@@ -10575,10 +10628,10 @@ var author$project$Main$saveHistoryToStorage = _Platform_outgoingPort(
 										'mbMatchedRuleId',
 										elm$json$Json$Encode$string($.cE))
 									]));
-						})($.aq)),
+						})($.ap)),
 					_Utils_Tuple2(
 					'lPrandomFloats',
-					elm$json$Json$Encode$list(elm$json$Json$Encode$float)($.ar)),
+					elm$json$Json$Encode$list(elm$json$Json$Encode$float)($.aq)),
 					_Utils_Tuple2(
 					'playerName',
 					elm$json$Json$Encode$string($.w))
@@ -10790,7 +10843,7 @@ var author$project$Main$saveHistoryToStorageHelper = function (model) {
 			return {
 				bX: author$project$Engine$getCurrentLocation(model.b),
 				b9: x.b.b9,
-				ci: A2(elm$core$Maybe$withDefault, '', x.b.av),
+				ci: A2(elm$core$Maybe$withDefault, '', x.b.N),
 				cj: A2(elm$core$Maybe$withDefault, '', x.b.ba),
 				a6: x.a,
 				cE: A2(elm$core$Maybe$withDefault, '', x.b.cE)
@@ -10798,8 +10851,8 @@ var author$project$Main$saveHistoryToStorageHelper = function (model) {
 		},
 		storyHistory);
 	var infoToSave = {
-		aq: lToSave,
-		ar: model.L,
+		ap: lToSave,
+		aq: model.L,
 		w: A2(author$project$TranslationHelper$getInLanguage, model.c.bY, model.w)
 	};
 	return _Utils_Tuple2(
@@ -11709,14 +11762,28 @@ var author$project$Engine$characterIsNotInLocation = author$project$Types$Charac
 var author$project$Engine$checkAnswerData = author$project$Types$CheckAnswerData;
 var author$project$Types$CheckBkendAnswerData = F4(
 	function (mbMaxNrTries, answerFeedback, lnewAttrs, lotherInterAttrs) {
-		return {by: answerFeedback, aH: lnewAttrs, cx: lotherInterAttrs, cF: mbMaxNrTries};
+		return {by: answerFeedback, aF: lnewAttrs, cx: lotherInterAttrs, cF: mbMaxNrTries};
 	});
 var author$project$Engine$checkBkendAnswerData = author$project$Types$CheckBkendAnswerData;
-var author$project$Types$Check_IfAnswerCorrect = F3(
-	function (a, b, c) {
-		return {$: 1, a: a, b: b, c: c};
+var author$project$Engine$createCmdCheckIfAnswerCorrect = F4(
+	function (questionAns, cAnswerData, interactableId, extraInfo) {
+		if ((!_Utils_eq(extraInfo.N, elm$core$Maybe$Nothing)) && (!_Utils_eq(
+			extraInfo.N,
+			elm$core$Maybe$Just('')))) {
+			var playerAnswer = A2(elm$core$Maybe$withDefault, '', extraInfo.N);
+			return A4(author$project$Types$CheckIfAnswerCorrect, questionAns, playerAnswer, cAnswerData, interactableId);
+		} else {
+			return author$project$Types$NoChange;
+		}
 	});
-var author$project$Engine$check_IfAnswerCorrect = author$project$Types$Check_IfAnswerCorrect;
+var author$project$Types$CurriedCmd = function (a) {
+	return {$: 0, a: a};
+};
+var author$project$Engine$check_IfAnswerCorrect = F3(
+	function (questAnswers, cAnswerData, interactableId) {
+		var oneArgToCmdCheckIfAnswerCorrect = A3(author$project$Engine$createCmdCheckIfAnswerCorrect, questAnswers, cAnswerData, interactableId);
+		return author$project$Types$CurriedCmd(oneArgToCmdCheckIfAnswerCorrect);
+	});
 var author$project$Types$Check_IfAnswerCorrectUsingBackend = F3(
 	function (a, b, c) {
 		return {$: 1, a: a, b: b, c: c};
@@ -11818,13 +11885,13 @@ var author$project$Types$RemoveAttributeIfExists = F2(
 var author$project$Engine$removeAttributeIfExists = author$project$Types$RemoveAttributeIfExists;
 var author$project$Engine$setAttributeValue = F3(
 	function (val, attrId, interactableId) {
-		return A4(author$project$Types$CreateAttributeIfNotExistsAndOrSetValue, val, attrId, elm$core$Maybe$Nothing, interactableId);
+		return A3(author$project$Types$CreateAttributeIfNotExistsAndOrSetValue, val, attrId, interactableId);
 	});
 var author$project$Engine$simpleCheck_IfAnswerCorrect = F3(
-	function (lcorrectAnswersAndFuncs, mbNrTries, interactableId) {
+	function (questAnswers, mbNrTries, interactableId) {
 		return A3(
-			author$project$Types$Check_IfAnswerCorrect,
-			lcorrectAnswersAndFuncs,
+			author$project$Engine$check_IfAnswerCorrect,
+			questAnswers,
 			A8(author$project$Types$CheckAnswerData, mbNrTries, 1, 1, 4, elm$core$Dict$empty, elm$core$Dict$empty, _List_Nil, _List_Nil),
 			interactableId);
 	});
@@ -11838,10 +11905,18 @@ var author$project$Engine$simpleCheck_IfAnswerCorrectUsingBackend = F3(
 	});
 var author$project$Types$WithAnyLocationAnyCharacterAfterGameEnded = {$: 4};
 var author$project$Engine$withAnyLocationAnyCharacterAfterGameEnded = author$project$Types$WithAnyLocationAnyCharacterAfterGameEnded;
-var author$project$Types$Write_GpsInfoToItem = function (a) {
-	return {$: 3, a: a};
+var author$project$Types$WriteGpsLocInfoToItem = F3(
+	function (a, b, c) {
+		return {$: 13, a: a, b: b, c: c};
+	});
+var author$project$Engine$createCmdWriteGpsInfoToItem = F2(
+	function (interactableId, extraInfo) {
+		return A3(author$project$Types$WriteGpsLocInfoToItem, extraInfo.b9, extraInfo, interactableId);
+	});
+var author$project$Engine$write_GpsInfoToItem = function (interactableId) {
+	var oneArgToCmdWriteGpsInfoToItem = author$project$Engine$createCmdWriteGpsInfoToItem(interactableId);
+	return author$project$Types$CurriedCmd(oneArgToCmdWriteGpsInfoToItem);
 };
-var author$project$Engine$write_GpsInfoToItem = author$project$Types$Write_GpsInfoToItem;
 var author$project$InfoForBkendApiRequests$backendAnswerCheckerUrl = 'https://questionanswerntapp.herokuapp.com/answerchecker/';
 var author$project$OurStory$Narrative$birdsNestOfferedByTotemShaper = _List_fromArray(
 	['\nAo aperceber-se que estás em caminhada pela Estrada Velha de Colares a escultora oferece-te um ninho de pássaro\ndando-te indicações sobre como encontrar um local propício onde deverás instalar o ninho !  ....\n     ', '\n       ']);
@@ -11927,9 +12002,9 @@ var author$project$OurStory$Narrative$enteringFonteDosLadroesDict = elm$core$Dic
 			_Utils_Tuple2('vi', author$project$OurStory$NarrativeObsOne$enteringFonteDosLadroesVi)
 		]));
 var author$project$OurStory$Narrative$enteringLimiteSaoMartinhoColares = _List_fromArray(
-	['\n![](img/estradaVelhaColares__.png)\n\nFinal da Freguesia de São Martinho e início da freguesia de Colares ( e vice-versa) !\n\n![pic500](img/limiteSaoMartinhoColares.png)\n\nÉ possível observar as placas toponímicas que indicam Rua Barbosa du Bocage para Este e Estrada Nova da Rainha para Oeste !\n    ']);
+	['\n![](img/estradaVelhaColares__.png)\n\nFinal da Freguesia de São Martinho e início da freguesia de Colares ( e vice-versa) !\n\n![pic500](img/limiteSaoMartinhoColares.png)\n\nÉ possível ( caso não estejam cobertas por terra ) observar as placas toponímicas que indicam Rua Barbosa du Bocage para Este e Estrada Nova da Rainha para Oeste !\n    ']);
 var author$project$OurStory$NarrativeEnglish$enteringLimiteSaoMartinhoColaresEn = _List_fromArray(
-	['\n![](img/estradaVelhaColares__.png)\n\nSão Martinho -  Colares parish  borders  !\n\n![img500](img/limiteSaoMartinhoColares.png)\n\nRoad signs indicate Rua Barbosa du Bocage to the East and Estrada Nova da Rainha to the West !\n    ']);
+	['\n![](img/estradaVelhaColares__.png)\n\nSão Martinho -  Colares parish  borders  !\n\n![img500](img/limiteSaoMartinhoColares.png)\n\nRoad signs ( which are visible if not covered by a land slide ) indicate Rua Barbosa du Bocage to the East and Estrada Nova da Rainha to the West !\n    ']);
 var author$project$OurStory$Narrative$enteringLimiteSaoMartinhoColaresDict = elm$core$Dict$fromList(
 	_List_fromArray(
 		[
@@ -13912,7 +13987,6 @@ var author$project$OurStory$Rules$rules = elm$core$Dict$fromList(
 																										author$project$Engine$itemIsCorrectlyAnswered('questionAtSeteaisAboutVillaRoma'),
 																										author$project$Engine$itemIsCorrectlyAnswered('questionAtFonteMataAlva'),
 																										author$project$Engine$itemIsCorrectlyAnswered('questionSaoMartinhoColares1'),
-																										author$project$Engine$itemIsCorrectlyAnswered('questionSaoMartinhoColares2'),
 																										A3(
 																										author$project$Engine$attrValueIsEqualTo,
 																										author$project$Engine$abool(true),
@@ -14180,7 +14254,7 @@ var author$project$TypesUpdateHelper$updateNestedBkAnsStatus = F2(
 		var interactionExtraInfo_ = extraInfoWithPendingChanges.cm;
 		var newInteractionExtraInfo = _Utils_update(
 			interactionExtraInfo_,
-			{az: bkAnsStatus});
+			{ay: bkAnsStatus});
 		var newExtraInfoWithPendingChanges = _Utils_update(
 			extraInfoWithPendingChanges,
 			{cm: newInteractionExtraInfo});
@@ -14303,8 +14377,8 @@ var author$project$Main$initWithMbPlayerNameAndMbHistoryList = F5(
 			mbPlayerName,
 			{
 				d: _List_Nil,
-				k: answerboxmodel,
-				V: false,
+				j: answerboxmodel,
+				W: false,
 				q: flags.q,
 				y: flags.y,
 				i: elm$core$Dict$fromList(
@@ -14319,18 +14393,18 @@ var author$project$Main$initWithMbPlayerNameAndMbHistoryList = F5(
 							_Utils_ap(
 								author$project$OurStory$Manifest$items,
 								_Utils_ap(author$project$OurStory$Manifest$locations, author$project$OurStory$Manifest$characters))))),
-				l: debugMode_,
-				aC: 50.0,
-				am: false,
-				an: displayStartScreen_,
-				aD: author$project$OurStory$Narrative$endScreenInfo,
+				k: debugMode_,
+				aA: 50.0,
+				al: false,
+				am: displayStartScreen_,
+				aB: author$project$OurStory$Narrative$endScreenInfo,
 				b: engineModel,
 				H: _List_Nil,
 				Z: _Utils_ap(
 					author$project$OurStory$Manifest$items,
 					_Utils_ap(author$project$OurStory$Manifest$locations, author$project$OurStory$Manifest$characters)),
 				L: _List_Nil,
-				aF: A2(
+				aD: A2(
 					elm$core$Dict$map,
 					F2(
 						function (a, b) {
@@ -14347,15 +14421,15 @@ var author$project$Main$initWithMbPlayerNameAndMbHistoryList = F5(
 						}),
 					dictEntities),
 				_: author$project$OurStory$Narrative$startingNarratives,
-				at: true,
-				aI: 21,
-				aJ: author$project$Leaflet$Types$defaultZoomPanOptions,
+				as: true,
+				aG: 21,
+				aH: author$project$Leaflet$Types$defaultZoomPanOptions,
 				B: elm$core$Maybe$Nothing,
-				N: elm$core$Maybe$Nothing,
+				O: elm$core$Maybe$Nothing,
 				w: A2(elm$core$Maybe$withDefault, '___investigator___', mbPlayerName),
 				ad: 100,
 				c: settingsmodel,
-				aR: author$project$OurStory$Narrative$startScreenInfo
+				aP: author$project$OurStory$Narrative$startScreenInfo
 			});
 		return (!elm$core$List$length(historyList)) ? _Utils_Tuple2(
 			newModel,
@@ -14377,7 +14451,7 @@ var author$project$Main$update = F2(
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{an: false}),
+								{am: false}),
 							elm$core$Platform$Cmd$none);
 					case 1:
 						var playerNameStr = msg.a;
@@ -14398,12 +14472,12 @@ var author$project$Main$update = F2(
 					case 2:
 						var interactableId = msg.a;
 						var theText = msg.b;
-						var newAnswerBoxModel = A2(author$project$Theme$AnswerBox$update, '', model.k);
+						var newAnswerBoxModel = A2(author$project$Theme$AnswerBox$update, '', model.j);
 						var newModel = _Utils_update(
 							model,
 							{
-								k: newAnswerBoxModel,
-								N: elm$core$Maybe$Just(
+								j: newAnswerBoxModel,
+								O: elm$core$Maybe$Just(
 									elm$core$String$trim(theText))
 							});
 						var $temp$msg = author$project$ClientTypes$Interact(interactableId),
@@ -14417,7 +14491,7 @@ var author$project$Main$update = F2(
 							A2(author$project$Main$findEntity, model, interactableId));
 						var nModel = _Utils_update(
 							model,
-							{d: _List_Nil, N: elm$core$Maybe$Nothing});
+							{d: _List_Nil, O: elm$core$Maybe$Nothing});
 						var mbGpsZone = author$project$Components$getNeedsToBeInGpsZone(
 							A2(author$project$Main$findEntity, model, interactableId));
 						var needsToBeInZone = A2(
@@ -14443,19 +14517,18 @@ var author$project$Main$update = F2(
 						return _Utils_Tuple2(newModel, cmds);
 					case 10:
 						var locationAndInteractableIdRecord = msg.a;
-						if (_Utils_eq(locationAndInteractableIdRecord.as, -999) && _Utils_eq(locationAndInteractableIdRecord.au, -999)) {
+						if (_Utils_eq(locationAndInteractableIdRecord.ar, -999) && _Utils_eq(locationAndInteractableIdRecord.at, -999)) {
 							var $temp$msg = author$project$ClientTypes$NewCoordsForInterIdFailed(locationAndInteractableIdRecord.a6),
 								$temp$model = model;
 							msg = $temp$msg;
 							model = $temp$model;
 							continue update;
 						} else {
-							var _n3 = _Utils_Tuple3(locationAndInteractableIdRecord.a6, locationAndInteractableIdRecord.as, locationAndInteractableIdRecord.au);
+							var _n3 = _Utils_Tuple3(locationAndInteractableIdRecord.a6, locationAndInteractableIdRecord.ar, locationAndInteractableIdRecord.at);
 							var interactableId = _n3.a;
 							var latitude = _n3.b;
 							var longitude = _n3.c;
 							var interactionExtraInfo = A2(author$project$Main$getExtraInfoFromModel, model, interactableId);
-							var updatedInteractionExtraInfo = A2(author$project$Main$updateInterExtraInfoWithGeoInfo, interactionExtraInfo, model);
 							var mbGpsZone = author$project$Components$getNeedsToBeInGpsZone(
 								A2(author$project$Main$findEntity, model, interactableId));
 							var needsToBeInZone = A2(
@@ -14487,8 +14560,9 @@ var author$project$Main$update = F2(
 									H: distanceToClosestLocations,
 									B: elm$core$Maybe$Just(location)
 								});
+							var updatedInteractionExtraInfo = A2(author$project$Main$updateInterExtraInfoWithGeoInfo, interactionExtraInfo, newModel);
 							var theDistance = A2(author$project$GpsUtils$getDistance, location, mbGpsZone);
-							var inDistance = A3(author$project$GpsUtils$checkIfInDistance, mbGpsZone, theDistance, model.aC);
+							var inDistance = A3(author$project$GpsUtils$checkIfInDistance, mbGpsZone, theDistance, model.aA);
 							if ((!needsToBeInZone) || (needsToBeInZone && inDistance)) {
 								var $temp$msg = A2(author$project$ClientTypes$InteractStepTwo, interactableId, updatedInteractionExtraInfo),
 									$temp$model = newModel;
@@ -14556,7 +14630,7 @@ var author$project$Main$update = F2(
 								' Trying to move to  ' + (theName + ' failed . '),
 								'you\'re not close enough.',
 								'You are at : ' + author$project$GpsUtils$convertDecimalTupleToGps(
-								_Utils_Tuple2(location.as, location.au)),
+								_Utils_Tuple2(location.ar, location.at)),
 								'Please move closer to ' + zoneCoordsStr,
 								'Your distance to where you should be is : ' + (elm$core$String$fromInt(
 								elm$core$Basics$round(theDistance)) + ' meters')
@@ -14621,7 +14695,7 @@ var author$project$Main$update = F2(
 								}();
 								var newEngineModel2 = _n8.a;
 								var lInteractionIncidents = _n8.b;
-								var interactionIncidents = model.l ? lInteractionIncidents : _List_Nil;
+								var interactionIncidents = model.k ? lInteractionIncidents : _List_Nil;
 								var $temp$msg = A2(author$project$ClientTypes$InteractStepThree, interactableId, newInteractionExtraInfo),
 									$temp$model = _Utils_update(
 									newModel,
@@ -14641,12 +14715,12 @@ var author$project$Main$update = F2(
 								continue update;
 							} else {
 								var strUrl = infoNeeded.a;
-								if (_Utils_eq(interactionExtraInfo.az, author$project$Types$NoInfoYet)) {
+								if (_Utils_eq(interactionExtraInfo.ay, author$project$Types$NoInfoYet)) {
 									var newInteractionExtraInfoTwo = _Utils_update(
 										newInteractionExtraInfo,
-										{az: author$project$Types$WaitingForInfoRequested});
+										{ay: author$project$Types$WaitingForInfoRequested});
 									var newExtraInfoWithPendingChanges = {cm: newInteractionExtraInfoTwo, cG: extraInfoWithPendingChanges.cG, bf: extraInfoWithPendingChanges.bf};
-									var newAnswerBoxModel = A2(author$project$Theme$AnswerBox$update, '', model.k);
+									var newAnswerBoxModel = A2(author$project$Theme$AnswerBox$update, '', model.j);
 									var getTheUrl = function (strUrl_) {
 										return strUrl_;
 									};
@@ -14656,7 +14730,7 @@ var author$project$Main$update = F2(
 											{
 												d: _List_fromArray(
 													['___Checking_Answer___']),
-												k: newAnswerBoxModel,
+												j: newAnswerBoxModel,
 												i: A3(
 													elm$core$Dict$update,
 													interactableId,
@@ -14788,10 +14862,10 @@ var author$project$Main$update = F2(
 								}(
 									A2(
 										author$project$TypeConverterHelper$mbAttributeToDictStringString,
-										model.l,
+										model.k,
 										A3(author$project$Engine$getInteractableAttribute, 'suggestedInteractionCaption', interactableId, newEngineModel))));
 						};
-						var newAnswerBoxModel = A2(author$project$Theme$AnswerBox$update, '', model.k);
+						var newAnswerBoxModel = A2(author$project$Theme$AnswerBox$update, '', model.j);
 						var mergeToDictStoryLine = F2(
 							function (tup, storyLinesDict) {
 								var newStorySnippet = tup.b;
@@ -14893,12 +14967,12 @@ var author$project$Main$update = F2(
 									}(
 										A2(
 											author$project$TypeConverterHelper$mbAttributeToString,
-											model.l,
+											model.k,
 											A3(author$project$Engine$getInteractableAttribute, 'narrativeHeader', interactableId, newEngineModel)))));
 						};
 						var getMbsuggestInteractionId = A2(
 							author$project$TypeConverterHelper$mbAttributeToMbString,
-							model.l,
+							model.k,
 							A3(author$project$Engine$getInteractableAttribute, 'suggestedInteraction', interactableId, model.b));
 						var exitsNamesAndCoords = A2(
 							elm$core$List$filterMap,
@@ -14963,7 +15037,7 @@ var author$project$Main$update = F2(
 										A2(
 											elm$core$Maybe$map,
 											function (rec) {
-												return _Utils_Tuple2(rec.as, rec.au);
+												return _Utils_Tuple2(rec.ar, rec.at);
 											},
 											model.B)),
 									c7: _Utils_ap(exitsNamesAndCoords, currentStageNameAndCoordsList)
@@ -14972,7 +15046,7 @@ var author$project$Main$update = F2(
 								if (!mbCurrentStageNameAndCoords.$) {
 									var currInfo = mbCurrentStageNameAndCoords.a;
 									return author$project$Leaflet$Ports$setView(
-										_Utils_Tuple3(currInfo.bU, model.aI, model.aJ));
+										_Utils_Tuple3(currInfo.bU, model.aG, model.aH));
 								} else {
 									return elm$core$Platform$Cmd$none;
 								}
@@ -14980,7 +15054,7 @@ var author$project$Main$update = F2(
 							]);
 						var _n13 = A2(
 							author$project$TypeConverterHelper$mbAttributeToBool,
-							model.l,
+							model.k,
 							A3(author$project$Engine$getInteractableAttribute, 'gameHasEnded', 'gameStateItem', model.b));
 						var hasEnded = _n13.a;
 						var incidentOnHasEndedConversion = _n13.b;
@@ -14991,7 +15065,7 @@ var author$project$Main$update = F2(
 						var _n15 = function () {
 							var _n16 = A2(
 								author$project$TypeConverterHelper$mbAttributeToDictStringListString,
-								model.l,
+								model.k,
 								A3(author$project$Engine$getInteractableAttribute, 'warningMessage', interactableId, model.b));
 							var thedict = _n16.a;
 							var incidentOnGetDict = _n16.b;
@@ -15007,7 +15081,7 @@ var author$project$Main$update = F2(
 						var incidentOnGetAlertMessage2 = _n15.b;
 						var _n17 = A2(
 							author$project$TypeConverterHelper$mbAttributeToDictStringListString,
-							model.l,
+							model.k,
 							A3(author$project$Engine$getInteractableAttribute, 'additionalTextDict', interactableId, model.b));
 						var additionalTextDict = _n17.a;
 						var incidentOnGetAdditionalTextDict = _n17.b;
@@ -15110,7 +15184,7 @@ var author$project$Main$update = F2(
 						var theNarratives = _n18.a;
 						var lincidentsOnNarratives = _n18.b;
 						var narrativesForThisInteraction = {
-							aW: A2(
+							aU: A2(
 								elm$core$Dict$map,
 								F2(
 									function (lgId, val) {
@@ -15126,12 +15200,12 @@ var author$project$Main$update = F2(
 									A2(
 										elm$core$Maybe$andThen,
 										function (ruleId) {
-											return A2(elm$core$Dict$get, ruleId, model.aF);
+											return A2(elm$core$Dict$get, ruleId, model.aD);
 										},
 										maybeMatchedRuleId))),
 							a5: author$project$Components$getClassName(
 								A2(author$project$Main$findEntity, model, interactableId)),
-							aE: A2(
+							aC: A2(
 								author$project$Components$getDictLgNames,
 								author$project$OurStory$Narrative$desiredLanguages,
 								A2(author$project$Main$findEntity, model, interactableId)),
@@ -15172,8 +15246,8 @@ var author$project$Main$update = F2(
 												A2(
 													elm$core$Maybe$withDefault,
 													'noName',
-													A2(elm$core$Dict$get, 'en', nfti.aE)),
-												A2(elm$core$Dict$get, lgId, nfti.aE)),
+													A2(elm$core$Dict$get, 'en', nfti.aC)),
+												A2(elm$core$Dict$get, lgId, nfti.aC)),
 											cn: A2(
 												elm$core$Maybe$withDefault,
 												true,
@@ -15184,7 +15258,7 @@ var author$project$Main$update = F2(
 											co: A2(author$project$Engine$isWritable, interactableId, model.b) && _Utils_eq(
 												interactionExtraInfo.bX,
 												author$project$Engine$getCurrentLocation(model.b)),
-											cC: A2(elm$core$Dict$get, lgId, nfti.aW),
+											cC: A2(elm$core$Dict$get, lgId, nfti.aU),
 											cI: nfti.cI,
 											cJ: A2(elm$core$Dict$get, lgId, nfti.br),
 											cM: A2(
@@ -15218,13 +15292,13 @@ var author$project$Main$update = F2(
 										_Utils_ap(
 											getAlertMessage2,
 											_Utils_ap(getAlertMessages3, lincidentsOnNarratives))),
-									k: newAnswerBoxModel,
+									j: newAnswerBoxModel,
 									b: newEngineModel,
 									M: updatedContent,
 									_: newLanguageStoryLines,
 									c: newSettingsModel2
 								}),
-							((!model.V) && (_Utils_cmp(
+							((!model.W) && (_Utils_cmp(
 								author$project$Engine$getRandomElemsListSize(newEngineModel),
 								model.ad) < 0)) ? elm$core$Platform$Cmd$batch(
 								_Utils_ap(
@@ -15255,11 +15329,11 @@ var author$project$Main$update = F2(
 						return _Utils_Tuple2(newModel, elm$core$Platform$Cmd$none);
 					case 7:
 						var theText = msg.a;
-						var newAnswerBoxModel = A2(author$project$Theme$AnswerBox$update, theText, model.k);
+						var newAnswerBoxModel = A2(author$project$Theme$AnswerBox$update, theText, model.j);
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{k: newAnswerBoxModel}),
+								{j: newAnswerBoxModel}),
 							elm$core$Platform$Cmd$none);
 					case 8:
 						var theLanguage = msg.a;
@@ -15335,8 +15409,8 @@ var author$project$Main$update = F2(
 						var obj = msg.a;
 						var savedSettings = A2(author$project$Theme$Settings$update, author$project$ClientTypes$SettingsHideExitToFinalScreenButton, model.c);
 						var playerName = obj.w;
-						var newlist = author$project$Main$convertToListIdExtraInfo(obj.aq);
-						var lPrandomFloats = obj.ar;
+						var newlist = author$project$Main$convertToListIdExtraInfo(obj.ap);
+						var lPrandomFloats = obj.aq;
 						var _n35 = A5(
 							author$project$Main$initWithMbPlayerNameAndMbHistoryList,
 							A2(author$project$Main$Flags, model.q, model.y),
@@ -15374,7 +15448,7 @@ var author$project$Main$update = F2(
 										_Utils_Tuple2(
 											_Utils_update(
 												model,
-												{V: true}),
+												{W: true}),
 											elm$core$Platform$Cmd$none)));
 							}
 						}();
@@ -15383,19 +15457,19 @@ var author$project$Main$update = F2(
 						return _Utils_Tuple2(
 							_Utils_update(
 								newModel,
-								{V: false, c: savedSettings}),
+								{W: false, c: savedSettings}),
 							cmds);
 					case 22:
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{am: true}),
+								{al: true}),
 							elm$core$Platform$Cmd$none);
 					default:
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{at: true}),
+								{as: true}),
 							elm$core$Platform$Cmd$none);
 				}
 			}
@@ -15424,7 +15498,7 @@ var author$project$Main$getGeolocationFromBrowser = _Platform_incomingPort(
 						elm$json$Json$Decode$andThen,
 						function (interactableId) {
 							return elm$json$Json$Decode$succeed(
-								{a6: interactableId, as: latitude, au: longitude});
+								{a6: interactableId, ar: latitude, at: longitude});
 						},
 						A2(elm$json$Json$Decode$field, 'interactableId', elm$json$Json$Decode$string));
 				},
@@ -15443,7 +15517,7 @@ var author$project$Main$getHistoryFromStorage = _Platform_incomingPort(
 						elm$json$Json$Decode$andThen,
 						function (lInteractions) {
 							return elm$json$Json$Decode$succeed(
-								{aq: lInteractions, ar: lPrandomFloats, w: playerName});
+								{ap: lInteractions, aq: lPrandomFloats, w: playerName});
 						},
 						A2(
 							elm$json$Json$Decode$field,
@@ -15499,11 +15573,11 @@ var author$project$Main$subscriptions = function (a) {
 };
 var author$project$Engine$getCharactersInCurrentLocation = function (_n0) {
 	var story = _n0;
-	return A2(author$project$Engine$Manifest$getCharactersInLocation, story.bX, story.j);
+	return A2(author$project$Engine$Manifest$getCharactersInLocation, story.bX, story.l);
 };
 var author$project$Engine$getEndingText = function (_n0) {
 	var story = _n0;
-	var _n1 = story.ag;
+	var _n1 = story.au;
 	if (_n1.$ === 1) {
 		return elm$core$Maybe$Nothing;
 	} else {
@@ -15515,11 +15589,11 @@ var author$project$Engine$getEndingText = function (_n0) {
 };
 var author$project$Engine$getItemsInCurrentLocation = function (_n0) {
 	var story = _n0;
-	return A2(author$project$Engine$Manifest$getItemsInLocation, story.bX, story.j);
+	return A2(author$project$Engine$Manifest$getItemsInLocation, story.bX, story.l);
 };
 var author$project$Engine$getItemsInInventory = function (_n0) {
 	var story = _n0;
-	return A2(author$project$Engine$Manifest$getItemsInCharacterInventory, story.aM, story.j);
+	return A2(author$project$Engine$Manifest$getItemsInCharacterInventory, story.aK, story.l);
 };
 var author$project$ClientTypes$CloseAlert = {$: 13};
 var elm$core$List$intersperse = F2(
@@ -15616,6 +15690,27 @@ var author$project$Theme$AlertMessages$viewAlertMessages = F2(
 								elm$html$Html$text('X')
 							]))
 					]))) : elm$html$Html$text('');
+	});
+var elm$core$List$drop = F2(
+	function (n, list) {
+		drop:
+		while (true) {
+			if (n <= 0) {
+				return list;
+			} else {
+				if (!list.b) {
+					return list;
+				} else {
+					var x = list.a;
+					var xs = list.b;
+					var $temp$n = n - 1,
+						$temp$list = xs;
+					n = $temp$n;
+					list = $temp$list;
+					continue drop;
+				}
+			}
+		}
 	});
 var elm$html$Html$h1 = _VirtualDom_node('h1');
 var elm$html$Html$p = _VirtualDom_node('p');
@@ -16868,7 +16963,7 @@ var author$project$Main$viewMainGame = function (model) {
 			var interactableId = mbInteactableIdAtTop.a;
 			return A2(
 				author$project$TypeConverterHelper$mbAttributeToMbString,
-				model.l,
+				model.k,
 				A3(author$project$Engine$getInteractableAttribute, 'placeholderText', interactableId, model.b));
 		}
 	}();
@@ -16879,7 +16974,7 @@ var author$project$Main$viewMainGame = function (model) {
 		_Utils_Tuple2(elm$core$Dict$empty, ''),
 		A2(
 			elm$core$Maybe$map,
-			author$project$TypeConverterHelper$mbAttributeToDictStringListStringString(model.l),
+			author$project$TypeConverterHelper$mbAttributeToDictStringListStringString(model.k),
 			A2(
 				elm$core$Maybe$map,
 				function (x) {
@@ -16898,7 +16993,7 @@ var author$project$Main$viewMainGame = function (model) {
 				model.d,
 				_List_fromArray(
 					[incidentOnPlaceholderTextConversion, incidentOnGetAnswerOptionsDict]))),
-		bv: model.k.bw,
+		bv: model.j.bw,
 		bz: answerOptionsDict_,
 		bC: model.c.bC,
 		bG: function () {
@@ -16949,7 +17044,7 @@ var author$project$Main$viewMainGame = function (model) {
 		c: model.c,
 		da: theStoryLine
 	};
-	return (!model.at) ? A2(
+	return (!model.as) ? A2(
 		elm$html$Html$div,
 		_List_fromArray(
 			[
@@ -17070,7 +17165,7 @@ var author$project$Theme$StartScreen$view = F3(
 	});
 var author$project$Main$viewStartScreen = F2(
 	function (baseImgUrl, model) {
-		return A3(author$project$Theme$StartScreen$view, baseImgUrl, model.aR, model.k);
+		return A3(author$project$Theme$StartScreen$view, baseImgUrl, model.aP, model.j);
 	});
 var author$project$Theme$EndScreen$view = F2(
 	function (baseImgUrl, endScreenInfo) {
@@ -17122,7 +17217,7 @@ var author$project$Theme$EndScreen$view = F2(
 				]));
 	});
 var author$project$Main$view = function (model) {
-	return model.an ? A2(author$project$Main$viewStartScreen, model.q, model) : (model.am ? A2(author$project$Theme$EndScreen$view, model.q, model.aD) : author$project$Main$viewMainGame(model));
+	return model.am ? A2(author$project$Main$viewStartScreen, model.q, model) : (model.al ? A2(author$project$Theme$EndScreen$view, model.q, model.aB) : author$project$Main$viewMainGame(model));
 };
 var elm$browser$Browser$External = function (a) {
 	return {$: 1, a: a};
