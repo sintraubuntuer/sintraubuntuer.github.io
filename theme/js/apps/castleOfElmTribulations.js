@@ -16411,7 +16411,7 @@ var author$project$GameView$viewHelpMode = function (model) {
 				A2(elm$html$Html$br, _List_Nil, _List_Nil),
 				A2(elm$html$Html$br, _List_Nil, _List_Nil),
 				A2(elm$html$Html$br, _List_Nil, _List_Nil),
-				elm$html$Html$text('Use Arrow keys to move '),
+				elm$html$Html$text('Use Q (up) , A (down) , O (left) , P (right ) ,  or Arrow keys , to move '),
 				A2(elm$html$Html$br, _List_Nil, _List_Nil),
 				elm$html$Html$text('U to pick up items'),
 				A2(elm$html$Html$br, _List_Nil, _List_Nil),
