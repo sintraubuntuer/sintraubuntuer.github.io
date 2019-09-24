@@ -2449,7 +2449,7 @@ function _Http_configureRequest(xhr, request)
 	}
 
 	xhr.responseType = request.b5.b;
-	xhr.withCredentials = request.$7;
+	xhr.withCredentials = request.dq;
 
 	elm$core$Maybe$isJust(request.dh) && (xhr.timeout = request.dh.a);
 }
@@ -4332,7 +4332,7 @@ var _Browser_element = _Debugger_element || F4(function(impl, flagDecoder, debug
 		impl.dl,
 		impl.dc,
 		function(sendToApp, initialModel) {
-			var view = impl.dn;
+			var view = impl.$7;
 			/**/
 			var domNode = args['node'];
 			//*/
@@ -4369,7 +4369,7 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 		impl.dc,
 		function(sendToApp, initialModel) {
 			var divertHrefToApp = impl.ae && impl.ae(sendToApp)
-			var view = impl.dn;
+			var view = impl.$7;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
 			var currNode = _VirtualDom_virtualize(bodyNode);
@@ -4468,7 +4468,7 @@ function _Browser_application(impl)
 		{
 			return A3(impl.ch, flags, _Browser_getUrl(), key);
 		},
-		dn: impl.dn,
+		$7: impl.$7,
 		dl: impl.dl,
 		dc: impl.dc
 	});
@@ -4751,7 +4751,7 @@ function _Browser_load(url)
 	}));
 }
 var author$project$ClientTypes$FillRandomElemsList = function (a) {
-	return {$: 25, a: a};
+	return {$: 26, a: a};
 };
 var author$project$ClientTypes$Interact = function (a) {
 	return {$: 3, a: a};
@@ -4773,7 +4773,7 @@ var author$project$ClientTypes$NotInTheZone = F4(
 	});
 var author$project$ClientTypes$ProcessLoadHistory = F2(
 	function (a, b) {
-		return {$: 21, a: a, b: b};
+		return {$: 22, a: a, b: b};
 	});
 var author$project$ClientTypes$SetAvailableLanguages = function (a) {
 	return {$: 2, a: a};
@@ -4784,14 +4784,17 @@ var author$project$ClientTypes$SetDisplayLanguage = function (a) {
 var author$project$ClientTypes$SetDontNeedToBeInZone = function (a) {
 	return {$: 0, a: a};
 };
+var author$project$ClientTypes$SettingsButtonsOption = function (a) {
+	return {$: 7, a: a};
+};
 var author$project$ClientTypes$SettingsChangeOptionAutoplay = function (a) {
 	return {$: 4, a: a};
 };
-var author$project$ClientTypes$SettingsHideExitToFinalScreenButton = {$: 8};
+var author$project$ClientTypes$SettingsHideExitToFinalScreenButton = {$: 9};
 var author$project$ClientTypes$SettingsLayoutWithSidebar = function (a) {
 	return {$: 6, a: a};
 };
-var author$project$ClientTypes$SettingsShowExitToFinalScreenButton = {$: 7};
+var author$project$ClientTypes$SettingsShowExitToFinalScreenButton = {$: 8};
 var author$project$ClientTypes$SettingsToggleShowExpanded = {$: 3};
 var author$project$ClientTypes$SettingsToggleShowHideSaveLoadBtns = {$: 5};
 var author$project$ClientTypes$StartMainGame = {$: 0};
@@ -9487,20 +9490,20 @@ var author$project$Leaflet$Ports$setView = _Platform_outgoingPort(
 												'animate',
 												elm$json$Json$Encode$bool($.ax))
 											]));
-								}($.dq))
+								}($.ds))
 							]));
 				}(c)
 				]));
 	});
 var author$project$Leaflet$Types$defaultPanOptions = {ax: true, b$: 0.25, b0: 0.25, cP: false};
 var author$project$Leaflet$Types$defaultZoomOptions = {ax: true};
-var author$project$Leaflet$Types$defaultZoomPanOptions = {ax: true, cU: author$project$Leaflet$Types$defaultPanOptions, cZ: false, dq: author$project$Leaflet$Types$defaultZoomOptions};
+var author$project$Leaflet$Types$defaultZoomPanOptions = {ax: true, cU: author$project$Leaflet$Types$defaultPanOptions, cZ: false, ds: author$project$Leaflet$Types$defaultZoomOptions};
 var author$project$Main$Flags = F2(
 	function (baseImgUrl, baseSoundUrl) {
 		return {q: baseImgUrl, y: baseSoundUrl};
 	});
 var author$project$ClientTypes$NewRandomElemsAtGameStart = function (a) {
-	return {$: 24, a: a};
+	return {$: 25, a: a};
 };
 var elm$core$Bitwise$and = _Bitwise_and;
 var elm$random$Random$Generator = elm$core$Basics$identity;
@@ -10014,7 +10017,7 @@ var author$project$Main$getBackendAnswerInfo = F3(
 				cL: 'POST',
 				dh: elm$core$Maybe$Nothing,
 				dm: strUrl,
-				$7: false
+				dq: false
 			});
 		return A2(
 			elm$http$Http$send,
@@ -10194,7 +10197,7 @@ var author$project$OurStory$Narrative$desiredLanguages = _List_fromArray(
 	['pt', 'en']);
 var author$project$Main$getExtraInfoFromModel = F2(
 	function (model, interactableId) {
-		var currLocationStrId = author$project$Engine$getCurrentLocation(model.b);
+		var currLocationStrId = author$project$Engine$getCurrentLocation(model.c);
 		var currLocNameAndCoords = A2(
 			author$project$Components$getDictLgNamesAndCoords,
 			author$project$OurStory$Narrative$desiredLanguages,
@@ -10270,6 +10273,7 @@ var author$project$Types$MoveCharacterToLocation = F2(
 		return {$: 27, a: a, b: b};
 	});
 var author$project$Engine$moveCharacterToLocation = author$project$Types$MoveCharacterToLocation;
+var author$project$Engine$moveItemToCharacterInventory = author$project$Types$MoveItemToCharacterInventory;
 var author$project$Types$MoveItemToLocation = F2(
 	function (a, b) {
 		return {$: 6, a: a, b: b};
@@ -10285,7 +10289,7 @@ var author$project$OurStory$Rules$startingState = _Utils_ap(
 	_List_fromArray(
 		[
 			author$project$Engine$moveTo('largoDrCarlosFranca'),
-			A2(author$project$Engine$moveItemToLocation, 'gps', 'largoDrCarlosFranca'),
+			A2(author$project$Engine$moveItemToCharacterInventory, 'playerOne', 'gps'),
 			A2(author$project$Engine$moveItemToLocationFixed, 'questionAtVillaRoma', 'villaRoma'),
 			A2(author$project$Engine$moveItemToLocationFixed, 'questionAtSeteaisAboutVillaRoma', 'palacioSeteais'),
 			A2(author$project$Engine$moveItemToLocationFixed, 'questionAtFonteMataAlva', 'fonteDeMataAlva'),
@@ -10425,7 +10429,7 @@ var author$project$SomeTests$getAllPossibleIncidentsAboutCwcmds = F2(
 	});
 var author$project$Main$getNewModelAfterGameStartRandomElems = F2(
 	function (lfloats, model) {
-		var engineModel_ = A2(author$project$Engine$setRandomFloatElems, lfloats, model.b);
+		var engineModel_ = A2(author$project$Engine$setRandomFloatElems, lfloats, model.c);
 		var _n0 = A2(author$project$Engine$changeWorld, author$project$OurStory$Rules$startingState, engineModel_);
 		var newEngineModel = _n0.a;
 		var lincidents = _n0.b;
@@ -10439,7 +10443,7 @@ var author$project$Main$getNewModelAfterGameStartRandomElems = F2(
 			model,
 			{
 				d: _Utils_ap(model.d, alertMessages_),
-				b: newEngineModel,
+				c: newEngineModel,
 				L: lfloats
 			});
 		return newModel;
@@ -10462,14 +10466,14 @@ var author$project$Main$getNewModelAndInteractionExtraInfoByEngineUpdate = F3(
 				var _n1 = A2(
 					author$project$Engine$update,
 					A2(author$project$Engine$CompleteTheUpdate, interactableId, extraInfoWithPendingChanges),
-					model.b);
+					model.c);
 				if (_n1.$ === 1) {
 					var _n2 = _n1.a;
 					var newEngineModel_ = _n2.a;
 					var lInteractionIncidents_ = _n2.b;
 					return _Utils_Tuple2(newEngineModel_, lInteractionIncidents_);
 				} else {
-					return _Utils_Tuple2(model.b, _List_Nil);
+					return _Utils_Tuple2(model.c, _List_Nil);
 				}
 			}();
 			var newEngineModel = _n0.a;
@@ -10486,7 +10490,7 @@ var author$project$Main$getNewModelAndInteractionExtraInfoByEngineUpdate = F3(
 							return elm$core$Maybe$Just(author$project$Types$NoInfoYet);
 						},
 						model.i),
-					b: newEngineModel
+					c: newEngineModel
 				});
 			return _Utils_Tuple2(newInteractionExtraInfo, newModel);
 		}
@@ -10733,17 +10737,71 @@ var author$project$TranslationHelper$getInLanguage = F2(
 					_Utils_Tuple2('___SAVE_LOAD___', 'en'),
 					'Save/Load'),
 					_Utils_Tuple2(
-					_Utils_Tuple2('___Check_gps_coords___', 'pt'),
+					_Utils_Tuple2('___CLICK_TO_CHECK_GPS___', 'pt'),
+					'click para verificar coords'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_TO_CHECK_GPS___', 'en'),
+					'click to check gps coords'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_TO_NOT_CHECK_GPS___', 'pt'),
+					'click para não verificar coords'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_TO_NOT_CHECK_GPS___', 'en'),
+					'click to not check gps coords position'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_FOR_NO_AUTOPLAY___', 'pt'),
+					'click para desactivar autoplay'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_FOR_NO_AUTOPLAY___', 'en'),
+					'click to deactivate autoplay'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_FOR_AUTOPLAY___', 'pt'),
+					'click para activar autoplay'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_FOR_AUTOPLAY___', 'en'),
+					'click to activate autoplay'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CHECK_GPS_COORDS___', 'pt'),
 					'verificar coords'),
 					_Utils_Tuple2(
-					_Utils_Tuple2('___Check_gps_coords___', 'en'),
+					_Utils_Tuple2('___CHECK_GPS_COORDS___', 'en'),
 					'check gps coords'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_FOR_NO_SIDEBAR___', 'pt'),
+					'click para desactivar a sidebar'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_FOR_NO_SIDEBAR___', 'en'),
+					'click to deactivate sidebar'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_FOR_SIDEBAR___', 'pt'),
+					'click para activar a sidebar'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_FOR_SIDEBAR___', 'en'),
+					'click to activate sidebar'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_FOR_RADIO_BUTTONS___', 'pt'),
+					'click para utilizar radio buttons'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_FOR_RADIO_BUTTONS___', 'en'),
+					'click to use radio buttons'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_FOR_BUTTONS___', 'pt'),
+					'click para utilizar regular buttons'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___CLICK_FOR_BUTTONS___', 'en'),
+					'click to use regular buttons'),
 					_Utils_Tuple2(
 					_Utils_Tuple2('___LAYOUT_OPTIONS___', 'pt'),
 					'Layout'),
 					_Utils_Tuple2(
 					_Utils_Tuple2('___LAYOUT_OPTIONS___', 'en'),
 					'Layout'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___BUTTON_OPTIONS___', 'pt'),
+					'Opções Comandos'),
+					_Utils_Tuple2(
+					_Utils_Tuple2('___BUTTON_OPTIONS___', 'en'),
+					'Comand Options'),
 					_Utils_Tuple2(
 					_Utils_Tuple2('___NR_TRIES_LEFT___', 'pt'),
 					'numero de tentativas disponíveis : '),
@@ -10836,12 +10894,12 @@ var author$project$TranslationHelper$getInLanguage = F2(
 		}
 	});
 var author$project$Main$saveHistoryToStorageHelper = function (model) {
-	var storyHistory = author$project$Engine$getHistory(model.b);
+	var storyHistory = author$project$Engine$getHistory(model.c);
 	var lToSave = A2(
 		elm$core$List$map,
 		function (x) {
 			return {
-				bX: author$project$Engine$getCurrentLocation(model.b),
+				bX: author$project$Engine$getCurrentLocation(model.c),
 				b9: x.b.b9,
 				ci: A2(elm$core$Maybe$withDefault, '', x.b.N),
 				cj: A2(elm$core$Maybe$withDefault, '', x.b.ba),
@@ -10853,7 +10911,7 @@ var author$project$Main$saveHistoryToStorageHelper = function (model) {
 	var infoToSave = {
 		ap: lToSave,
 		aq: model.L,
-		w: A2(author$project$TranslationHelper$getInLanguage, model.c.bY, model.w)
+		w: A2(author$project$TranslationHelper$getInLanguage, model.b.bY, model.w)
 	};
 	return _Utils_Tuple2(
 		model,
@@ -10883,7 +10941,7 @@ var author$project$Main$updateInterExtraInfoWithGeoInfo = F2(
 			A2(
 				author$project$Main$findEntity,
 				model,
-				author$project$Engine$getCurrentLocation(model.b)));
+				author$project$Engine$getCurrentLocation(model.c)));
 		return _Utils_update(
 			extraInforecord,
 			{
@@ -11721,7 +11779,7 @@ var author$project$OurStory$Manifest$locations = _List_fromArray(
 	]);
 var author$project$OurStory$Manifest$playerId = 'playerOne';
 var author$project$OurStory$Narrative$endScreenInfo = {bS: 'Congratulations !!! ', bT: 'Good Luck on your quest in Serra de Sintra :)', b2: '....\n                        ', a9: 'finalImage.png'};
-var author$project$OurStory$Narrative$startScreenInfo = {bI: 'An Interactive Story by Sintra Ubuntuer', a9: 'estradaVelhaColares.png', c6: ' Estrada Velha de Colares and the different names it assumes between Sintra and Colares\n                       constitutes a brain cracking mystery that puzzled several brilliant minds\n                       throughout the ages ...\n                       Could this be the day ... ?\n                     ', dg: 'investigator', dj: 'O Mistério da Estrada Velha', dk: ' de Colares'};
+var author$project$OurStory$Narrative$startScreenInfo = {bI: 'An Interactive Story by Sintra Ubuntuer', a9: 'estradaVelhaColares.png', c6: ' Estrada Velha de Colares and the different names it assumes between Sintra and Colares\n                       constitutes a brain cracking mystery that puzzled several brilliant minds\n                       throughout the ages ...\n                       Could this be the day ... ?\n                     ', dg: 'investigator', dj: 'O Mistério da Estrada Velha', dk: ' de Colares', dp: ' \n\n__warning__ :  __This game is intended for persons older than 18 only__ !  \n\n  __This is not a kid or pet friendly game ! The physical locations are near a road  that doesn\'t have much traffic , but that might still be risky for kids and pets !__ \n\n  __Do not take kids or pets with you while on the info gathering phase__ .  \n\n  Depending on the way you choose to go to the physical locations you should consider wearing a reflective jacket !  \n  \n  After you solve the mistery and get the final location coordinates the game is played in off-road trails and that\'s up to you if you take kids or pets .\n\n  You can play this on your computer ( in order to get a better \'feel\' for the game , before actually going to the spot \n  to gather the required info ) by going to settings and selecting \'not check gps position\'  \n\n  You\'ll only need to go to 1 physical location to gather the required info\n  \n  If playing on a smartphone you probably should choose \'buttons\' ( last \'settings\' option)  \n\n  smartphone gps accuracy is not allways very good ,  consider taking a GPSr device with you if you have one ...\n  '};
 var author$project$OurStory$Narrative$startingNarrative = {a5: 'opening', a6: 'OnceUponAtime', a7: 'Once upon a time...', cn: true, co: false, cC: elm$core$Maybe$Nothing, cI: elm$core$Maybe$Nothing, cJ: elm$core$Maybe$Nothing, cM: 'Todas as histórias têm um começo , ainda que por vezes não seja fácil determinar\n          o momento exacto em que se iniciam ( ou terminam ) ...\n           Assim parecia ser também o caso da Estrada Velha de Colares\n           e os seus diferentes nomes entre Sintra e Colares ...\n    ', de: 'interacção sugerida : '};
 var author$project$OurStory$Narrative$startingNarrativeEn = {a5: 'opening', a6: 'OnceUponAtime', a7: 'Once upon a time...', cn: true, co: false, cC: elm$core$Maybe$Nothing, cI: elm$core$Maybe$Nothing, cJ: elm$core$Maybe$Nothing, cM: 'Every Story has a beginning , even though it\'s not allways easy to determine the exact moment\n        in which it starts ( or ends ) . That  seemed to also be the case with Estrada Velha de Colares\n        and its several different names between Sintra and Colares ...\n', de: 'interacção sugerida : '};
 var author$project$OurStory$Narrative$startingNarratives = elm$core$Dict$fromList(
@@ -11877,7 +11935,6 @@ var author$project$Types$MoveItemOffScreen = function (a) {
 	return {$: 26, a: a};
 };
 var author$project$Engine$moveItemOffScreen = author$project$Types$MoveItemOffScreen;
-var author$project$Engine$moveItemToCharacterInventory = author$project$Types$MoveItemToCharacterInventory;
 var author$project$Types$RemoveAttributeIfExists = F2(
 	function (a, b) {
 		return {$: 24, a: a, b: b};
@@ -12494,9 +12551,9 @@ var author$project$OurStory$Narrative$viewQuestionAtColaresDict = elm$core$Dict$
 			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$viewQuestionAtColaresEn)
 		]));
 var author$project$OurStory$Narrative$viewQuestionAtFonteMataAlva = _List_fromArray(
-	['\nEm que ano foi restaurada a Fonte de Mata-Alva ?\n( podes prosseguir sem responder mas não poderás terminar o jogo sem o fazer ...)\n    ']);
+	['\nEm que ano foi restaurada a Fonte de Mata-Alva ?\n( podes prosseguir sem responder mas não poderás terminar o jogo sem o fazer ... \n  possivelmente consegues obter esta informação pesquisando na internet  , não é estritamente necessário parar no próprio local ... \n)\n    ']);
 var author$project$OurStory$NarrativeEnglish$viewQuestionAtFonteMataAlvaEn = _List_fromArray(
-	['\nWhat year was the Fountain restored ?\n( you may proceed without answering but you won\'t be able to terminate the game without doing so ... )\n    ']);
+	['\nWhat year was the Fountain restored ?\n( you may proceed without answering but you won\'t be able to terminate the game without doing so ...\n  you can probably look for this information on the internet . it is not mandatory to stop at this location ...\n )\n    ']);
 var author$project$OurStory$Narrative$viewQuestionAtFonteMataAlvaDict = elm$core$Dict$fromList(
 	_List_fromArray(
 		[
@@ -12606,9 +12663,9 @@ var author$project$OurStory$Narrative$wiseManShowsFinalQuestionDict = elm$core$D
 			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$wiseManShowsFinalQuestionEn)
 		]));
 var author$project$OurStory$Narrative$wiseManTalksAboutSintra = _List_fromArray(
-	['\nO sábio de Colares estava por esta altura num excelente estado de espírito e\ncomeça a falar animadamente sobre Sintra :\n\n"Sabes que Sintra foi um palco priveligiado do Romantismo e  foi também um local\npor onde passaram e conviveram muito diferentes pessoas e culturas , que há sua maneira ,\numas mais outras menos marcaram este lugar . Não é assim difícil de imaginar que por aqui\ntenham existido grandes Paixões , Alianças , Traições ... e consequentemente .... Segredos ........ "\n   ', '\n\nrespondes : " sim , eu sei ,  estou a gostar muito de o ouvir , e quero escutar tudo o que tem para dizer ...\n\n mas há um mistério em particular para o qual gostaria de contar com a sua ajuda ?\n\nEsta estrada que acabei de percorrer parece ter três designações distintas :\n  - Estrada Velha de Colares\n  - Rua Barbosa du Bocage\n  - Estrada Nova da Rainha\n\n...\n  "\n      ', '\n"Ohhh ... apenas isso ? Não precisas da minha ajuda para solucionar esse mistério ... Quem cria e afixa essas placas toponímicas ???\n. És Inteligente . A tua explicação é tão boa como a minha . Se queres o meu conselho : Não te preocupes muito com isso .\nComo sabes e bem conheces existe um sistema fabuloso que permite identificar inequivocamente cada\npalmo à face da Terra pelas suas coordenadas de latitude e longitude ... Seja ele  GPS , Glonass , Beidou, IRNSS , GALILEO  , sabes do que estou a falar ....\nconcentra-te nisso e esquece nomes de Ruas ...  "\n      ', '\n"... mas já que gostas de mistérios de alguma forma relacionados com Estradas vou então apresentar-te um Enigma final.\n\n\nVou mostrar-te algumas fotografias bem como dar-te acesso ao ponto de vista de algumas pessoas ( ou grupos de pessoas )\nsobre a tua jornada de hoje na Estrada Velha de Colares ! (  settings - linguagem )\n\nSe adivinhares correctamente qual a solução do puzzle ( uma palavra ) partilharei contigo a localização de um tesouro muito especial escondido na Serra ... "\n      ', '\n...\n      ']);
+	['\nO sábio de Colares estava por esta altura num excelente estado de espírito e\ncomeça a falar animadamente sobre Sintra :\n\n"Sabes que Sintra foi um palco priveligiado do Romantismo e  foi também um local\npor onde passaram e conviveram muito diferentes pessoas e culturas , que há sua maneira ,\numas mais outras menos marcaram este lugar . Não é assim difícil de imaginar que por aqui\ntenham existido grandes Paixões , Alianças , Traições ... e consequentemente .... Segredos ........ "\n   ', '\n\nrespondes : " sim , eu sei ,  estou a gostar muito de o ouvir , e quero escutar tudo o que tem para dizer ...\n\n mas há um mistério em particular para o qual gostaria de contar com a sua ajuda ?\n\nEsta estrada que acabei de percorrer parece ter três designações distintas :\n  - Estrada Velha de Colares\n  - Rua Barbosa du Bocage\n  - Estrada Nova da Rainha\n\n...\n  "\n      ', '\n"Ohhh ... apenas isso ? Não precisas da minha ajuda para solucionar esse mistério ... Quem cria e afixa essas placas toponímicas ???\n. És Inteligente . A tua explicação é tão boa como a minha . Se queres o meu conselho : Não te preocupes muito com isso .\nComo sabes e bem conheces existe um sistema fabuloso que permite identificar inequivocamente cada\npalmo à face da Terra pelas suas coordenadas de latitude e longitude ... Seja ele  GPS , Glonass , Beidou, IRNSS , GALILEO  , sabes do que estou a falar ....\nconcentra-te nisso e esquece nomes de Ruas ...  "\n      ', '\n"... mas já que gostas de mistérios de alguma forma relacionados com Estradas vou então apresentar-te um Enigma final.\n\n\nVou mostrar-te algumas fotografias bem como dar-te acesso ao ponto de vista de algumas pessoas ( ou grupos de pessoas )\nsobre a tua jornada de hoje na Estrada Velha de Colares ! (  settings - linguagem )\n\nSe adivinhares correctamente qual a solução do puzzle ( uma palavra ) partilharei contigo a localização de um local da serra muito  especial ... "\n      ', '\n...\n      ']);
 var author$project$OurStory$NarrativeEnglish$wiseManTalksAboutSintraEn = _List_fromArray(
-	['\nColares Wise Man was by then in an excellent mood and started talking enthusiastically\nabout Sintra :\n\n"You know Sintra was one of the centre spots of  Romanticism and was also a place\nwhere a lot of people from diferent origins and cultures interacted and in their own way\ninfluenced this place. It is not difficult to imagine that Big passions ,\nalliances , treasons ,  here took place ... therefore generating a lot of secrets"\n', '\nYou answer : " yes , I know , I\'m really enjoying your enthusiastic description of Sintra\n, and want to listen to everything you have to say ...\n\nbut i would like your help regarding a  particular mistery ...\n\nThe road i just travelled has three different names :\n-  Estrada Velha de Colares\n-  Rua Barbosa du Bocage\n-  Estrada Nova da Rainha\n...\n', '\n"Ohhh ... that\'s what you really want ?? You don\'t need my help to solve that mistery .\nWho creates and posts those signs ??  If you want my advice : Don\'t worry too much about it .\nAs you well know there\'s this fabulous system that makes possible to uniquely identify each\nsquare inch on the face of the Earth by its latitude and longitude coordinates .\nBe it GPS, Glonass  , Beidou, IRNSS , GALILEO  ,\nyou know what i\'m talking about right ?\nFocus on that and forget about street names ...\n', '\n"... but given that you enjoy road related misterys i\'m going to present to you a Final Puzzle ...\n\nI will show you some pictures and also reveal to you the point of view of some persons\n( or groups of persons ) regarding your recent journey on Estrada Velha de Colares (  settings - language )\n\nIf you find the solution ( a word ) i will reveal to you  the location of a very special treasure hidden in Serra de Sintra\n', '\n...\n     ']);
+	['\nColares Wise Man was by then in an excellent mood and started talking enthusiastically\nabout Sintra :\n\n"You know Sintra was one of the centre spots of  Romanticism and was also a place\nwhere a lot of people from diferent origins and cultures interacted and in their own way\ninfluenced this place. It is not difficult to imagine that Big passions ,\nalliances , treasons ,  here took place ... therefore generating a lot of secrets"\n', '\nYou answer : " yes , I know , I\'m really enjoying your enthusiastic description of Sintra\n, and want to listen to everything you have to say ...\n\nbut i would like your help regarding a  particular mistery ...\n\nThe road i just travelled has three different names :\n-  Estrada Velha de Colares\n-  Rua Barbosa du Bocage\n-  Estrada Nova da Rainha\n...\n', '\n"Ohhh ... that\'s what you really want ?? You don\'t need my help to solve that mistery .\nWho creates and posts those signs ??  If you want my advice : Don\'t worry too much about it .\nAs you well know there\'s this fabulous system that makes possible to uniquely identify each\nsquare inch on the face of the Earth by its latitude and longitude coordinates .\nBe it GPS, Glonass  , Beidou, IRNSS , GALILEO  ,\nyou know what i\'m talking about right ?\nFocus on that and forget about street names ...\n', '\n"... but given that you enjoy road related misterys i\'m going to present to you a Final Puzzle ...\n\nI will show you some pictures and also reveal to you the point of view of some persons\n( or groups of persons ) regarding your recent journey on Estrada Velha de Colares (  settings - language )\n\nIf you find the solution ( a word ) i will reveal to you  the location of a very special place in Serra de Sintra \n', '\n...\n     ']);
 var author$project$OurStory$NarrativeObsOne$wiseManTalksAboutSintraVi = _List_fromArray(
 	[author$project$OurStory$NarrativeObsOne$playerOneNameToObsOne + '\n      has been talking with Colares local crazy man for a very long time. They\'re up to no good ...\n       ']);
 var author$project$OurStory$NarrativeObsTwo$wiseManTalksAboutSintraVw = _List_fromArray(
@@ -14086,7 +14143,7 @@ var author$project$OurStory$Rules$rules = elm$core$Dict$fromList(
 																						]))))))))))))))))))))));
 var author$project$Theme$AnswerBox$init = {bw: elm$core$Maybe$Nothing};
 var author$project$Theme$Settings$init = function (theLanguages) {
-	return {bC: false, bD: true, bE: theLanguages, bY: 'pt', b_: false, ca: true, ct: true, c0: true, c2: false, c3: false, c4: false, c5: false};
+	return {bC: false, bD: true, bE: theLanguages, bY: 'pt', b_: false, ca: true, ct: true, c0: true, c2: false, c3: false, c4: false, c5: false, dn: false};
 };
 var author$project$Theme$Settings$update = F2(
 	function (msg, model) {
@@ -14125,6 +14182,11 @@ var author$project$Theme$Settings$update = F2(
 					model,
 					{ct: bWithSidebar});
 			case 7:
+				var bUseButtons = msg.a;
+				return _Utils_update(
+					model,
+					{dn: bUseButtons});
+			case 8:
 				return _Utils_update(
 					model,
 					{c3: true});
@@ -14398,7 +14460,7 @@ var author$project$Main$initWithMbPlayerNameAndMbHistoryList = F5(
 				al: false,
 				am: displayStartScreen_,
 				aB: author$project$OurStory$Narrative$endScreenInfo,
-				b: engineModel,
+				c: engineModel,
 				H: _List_Nil,
 				Z: _Utils_ap(
 					author$project$OurStory$Manifest$items,
@@ -14428,21 +14490,21 @@ var author$project$Main$initWithMbPlayerNameAndMbHistoryList = F5(
 				O: elm$core$Maybe$Nothing,
 				w: A2(elm$core$Maybe$withDefault, '___investigator___', mbPlayerName),
 				ad: 100,
-				c: settingsmodel,
+				b: settingsmodel,
 				aP: author$project$OurStory$Narrative$startScreenInfo
 			});
 		return (!elm$core$List$length(historyList)) ? _Utils_Tuple2(
 			newModel,
 			author$project$Main$cmdForGeneratingListOfRandomFloats(newModel.ad)) : A2(
 			author$project$Main$update,
-			A2(author$project$ClientTypes$ProcessLoadHistory, historyList, newModel.c),
+			A2(author$project$ClientTypes$ProcessLoadHistory, historyList, newModel.b),
 			A2(author$project$Main$getNewModelAfterGameStartRandomElems, lPrandomFloats, newModel));
 	});
 var author$project$Main$update = F2(
 	function (msg, model) {
 		update:
 		while (true) {
-			var _n0 = author$project$Engine$hasFreezingEnd(model.b);
+			var _n0 = author$project$Engine$hasFreezingEnd(model.c);
 			if (_n0) {
 				return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 			} else {
@@ -14502,7 +14564,7 @@ var author$project$Main$update = F2(
 								function ($) {
 									return $.cO;
 								},
-								mbGpsZone)) && (!model.c.b_);
+								mbGpsZone)) && (!model.b.b_);
 						var interactionExtraInfo = A2(author$project$Main$getExtraInfoFromModel, model, interactableId);
 						var _n2 = (needCoords && (!needsToBeInZone)) ? _Utils_Tuple2(
 							nModel,
@@ -14539,7 +14601,7 @@ var author$project$Main$update = F2(
 									function ($) {
 										return $.cO;
 									},
-									mbGpsZone)) && (!model.c.b_);
+									mbGpsZone)) && (!model.b.b_);
 							var location = A2(author$project$GpsUtils$GeolocationInfo, latitude, longitude);
 							var distanceToClosestLocations = A3(
 								author$project$GpsUtils$getDistancesTo,
@@ -14547,12 +14609,12 @@ var author$project$Main$update = F2(
 								location,
 								A2(
 									elm$core$List$map,
-									elm$core$Dict$get(model.c.bY),
+									elm$core$Dict$get(model.b.bY),
 									A2(
 										elm$core$List$map,
 										author$project$Components$getDictLgNamesAndCoords(
 											_List_fromArray(
-												[model.c.bY])),
+												[model.b.bY])),
 										author$project$OurStory$Manifest$locations)));
 							var newModel = _Utils_update(
 								model,
@@ -14597,7 +14659,7 @@ var author$project$Main$update = F2(
 								function ($) {
 									return $.cO;
 								},
-								mbGpsZone)) && (!model.c.b_);
+								mbGpsZone)) && (!model.b.b_);
 						var interactionExtraInfo = A2(author$project$Main$getExtraInfoFromModel, model, interactableId);
 						var updatedInteractionExtraInfo = A2(author$project$Main$updateInterExtraInfoWithGeoInfo, interactionExtraInfo, model);
 						if (!needsToBeInZone) {
@@ -14623,7 +14685,7 @@ var author$project$Main$update = F2(
 								author$project$GpsUtils$getMbGpsZoneLatLon(mbGpsZone)));
 						var theName = A2(
 							author$project$Components$getSingleLgDisplayInfo,
-							model.c.bY,
+							model.b.bY,
 							A2(author$project$Main$findEntity, model, interactableId)).D;
 						var linfoStr = _List_fromArray(
 							[
@@ -14656,7 +14718,7 @@ var author$project$Main$update = F2(
 							var engResp1 = A2(
 								author$project$Engine$update,
 								A2(author$project$Engine$PreUpdate, interactableId, interactionExtraInfo),
-								model.b);
+								model.c);
 							var _n4 = function () {
 								if (!engResp1.$) {
 									var _n6 = engResp1.a;
@@ -14666,7 +14728,7 @@ var author$project$Main$update = F2(
 									return _Utils_Tuple3(newEngineModel_, extraInfoWithPendingChanges_, infoNeeded_);
 								} else {
 									return _Utils_Tuple3(
-										model.b,
+										model.c,
 										A3(author$project$Types$ExtraInfoWithPendingChanges, interactionExtraInfo, _List_Nil, elm$core$Maybe$Nothing),
 										author$project$Types$NoInfoNeeded);
 								}
@@ -14677,7 +14739,7 @@ var author$project$Main$update = F2(
 							var newInteractionExtraInfo = extraInfoWithPendingChanges.cm;
 							var newModel = _Utils_update(
 								model,
-								{b: newEngineModel});
+								{c: newEngineModel});
 							if (!infoNeeded.$) {
 								var _n8 = function () {
 									var _n9 = A2(
@@ -14708,7 +14770,7 @@ var author$project$Main$update = F2(
 												return elm$core$Maybe$Just(author$project$Types$NoInfoYet);
 											},
 											model.i),
-										b: newEngineModel2
+										c: newEngineModel2
 									});
 								msg = $temp$msg;
 								model = $temp$model;
@@ -14845,12 +14907,12 @@ var author$project$Main$update = F2(
 									},
 									theStr) : theStr;
 							});
-						var newEngineModel = model.b;
+						var newEngineModel = model.c;
 						var newSettingsModel = A2(
 							author$project$Theme$Settings$update,
 							author$project$ClientTypes$SetAvailableLanguages(
 								author$project$Engine$getChoiceLanguages(newEngineModel)),
-							model.c);
+							model.b);
 						var suggestInteractionCaption = function (lgId) {
 							return A2(
 								elm$core$Maybe$withDefault,
@@ -14897,7 +14959,7 @@ var author$project$Main$update = F2(
 										c8: name
 									};
 								},
-								A2(elm$core$Dict$get, model.c.bY, dict));
+								A2(elm$core$Dict$get, model.b.bY, dict));
 						}(
 							function (entity) {
 								return A2(author$project$Components$getDictLgNamesAndCoords, author$project$OurStory$Narrative$desiredLanguages, entity);
@@ -14905,7 +14967,7 @@ var author$project$Main$update = F2(
 								A2(
 									author$project$Main$findEntity,
 									model,
-									author$project$Engine$getCurrentLocation(model.b))));
+									author$project$Engine$getCurrentLocation(model.c))));
 						var maybeMatchedRuleId = interactionExtraInfo.cE;
 						var updatedContent = A2(
 							elm$core$Maybe$withDefault,
@@ -14973,7 +15035,7 @@ var author$project$Main$update = F2(
 						var getMbsuggestInteractionId = A2(
 							author$project$TypeConverterHelper$mbAttributeToMbString,
 							model.k,
-							A3(author$project$Engine$getInteractableAttribute, 'suggestedInteraction', interactableId, model.b));
+							A3(author$project$Engine$getInteractableAttribute, 'suggestedInteraction', interactableId, model.c));
 						var exitsNamesAndCoords = A2(
 							elm$core$List$filterMap,
 							function (x) {
@@ -14994,7 +15056,7 @@ var author$project$Main$update = F2(
 												c8: name
 											};
 										},
-										A2(elm$core$Dict$get, model.c.bY, dict));
+										A2(elm$core$Dict$get, model.b.bY, dict));
 								},
 								A2(
 									elm$core$List$map,
@@ -15015,8 +15077,8 @@ var author$project$Main$update = F2(
 												A2(
 													author$project$Main$findEntity,
 													model,
-													author$project$Engine$getCurrentLocation(model.b))))))));
-						var displayLanguage = model.c.bY;
+													author$project$Engine$getCurrentLocation(model.c))))))));
+						var displayLanguage = model.b.bY;
 						var currentStageNameAndCoordsList = A2(
 							elm$core$Maybe$withDefault,
 							_List_Nil,
@@ -15055,10 +15117,10 @@ var author$project$Main$update = F2(
 						var _n13 = A2(
 							author$project$TypeConverterHelper$mbAttributeToBool,
 							model.k,
-							A3(author$project$Engine$getInteractableAttribute, 'gameHasEnded', 'gameStateItem', model.b));
+							A3(author$project$Engine$getInteractableAttribute, 'gameHasEnded', 'gameStateItem', model.c));
 						var hasEnded = _n13.a;
 						var incidentOnHasEndedConversion = _n13.b;
-						var newSettingsModel2 = (hasEnded && (!model.c.c3)) ? A2(author$project$Theme$Settings$update, author$project$ClientTypes$SettingsShowExitToFinalScreenButton, newSettingsModel) : newSettingsModel;
+						var newSettingsModel2 = (hasEnded && (!model.b.c3)) ? A2(author$project$Theme$Settings$update, author$project$ClientTypes$SettingsShowExitToFinalScreenButton, newSettingsModel) : newSettingsModel;
 						var _n14 = getMbsuggestInteractionId;
 						var mbsuggestInteractionId = _n14.a;
 						var incidentOnGetsuggestedInteraction = _n14.b;
@@ -15066,7 +15128,7 @@ var author$project$Main$update = F2(
 							var _n16 = A2(
 								author$project$TypeConverterHelper$mbAttributeToDictStringListString,
 								model.k,
-								A3(author$project$Engine$getInteractableAttribute, 'warningMessage', interactableId, model.b));
+								A3(author$project$Engine$getInteractableAttribute, 'warningMessage', interactableId, model.c));
 							var thedict = _n16.a;
 							var incidentOnGetDict = _n16.b;
 							return _Utils_Tuple2(
@@ -15082,7 +15144,7 @@ var author$project$Main$update = F2(
 						var _n17 = A2(
 							author$project$TypeConverterHelper$mbAttributeToDictStringListString,
 							model.k,
-							A3(author$project$Engine$getInteractableAttribute, 'additionalTextDict', interactableId, model.b));
+							A3(author$project$Engine$getInteractableAttribute, 'additionalTextDict', interactableId, model.c));
 						var additionalTextDict = _n17.a;
 						var incidentOnGetAdditionalTextDict = _n17.b;
 						var wrapWithHeaderWrittenContentAndAdditionalText = F2(
@@ -15255,9 +15317,9 @@ var author$project$Main$update = F2(
 													elm$core$Maybe$map,
 													elm$core$Tuple$second,
 													A2(elm$core$Dict$get, lgId, nfti.ab))),
-											co: A2(author$project$Engine$isWritable, interactableId, model.b) && _Utils_eq(
+											co: A2(author$project$Engine$isWritable, interactableId, model.c) && _Utils_eq(
 												interactionExtraInfo.bX,
-												author$project$Engine$getCurrentLocation(model.b)),
+												author$project$Engine$getCurrentLocation(model.c)),
 											cC: A2(elm$core$Dict$get, lgId, nfti.aU),
 											cI: nfti.cI,
 											cJ: A2(elm$core$Dict$get, lgId, nfti.br),
@@ -15293,10 +15355,10 @@ var author$project$Main$update = F2(
 											getAlertMessage2,
 											_Utils_ap(getAlertMessages3, lincidentsOnNarratives))),
 									j: newAnswerBoxModel,
-									b: newEngineModel,
+									c: newEngineModel,
 									M: updatedContent,
 									_: newLanguageStoryLines,
-									c: newSettingsModel2
+									b: newSettingsModel2
 								}),
 							((!model.W) && (_Utils_cmp(
 								author$project$Engine$getRandomElemsListSize(newEngineModel),
@@ -15313,17 +15375,17 @@ var author$project$Main$update = F2(
 												A2(elm$random$Random$float, 0, 1)))
 										]),
 									lPortCmds)) : elm$core$Platform$Cmd$batch(lPortCmds));
-					case 25:
+					case 26:
 						var lfloats = msg.a;
-						var newEngineModel = A2(author$project$Engine$addToRandomElemsList, lfloats, model.b);
+						var newEngineModel = A2(author$project$Engine$addToRandomElemsList, lfloats, model.c);
 						var newModel = _Utils_update(
 							model,
 							{
-								b: newEngineModel,
+								c: newEngineModel,
 								L: _Utils_ap(model.L, lfloats)
 							});
 						return _Utils_Tuple2(newModel, elm$core$Platform$Cmd$none);
-					case 24:
+					case 25:
 						var lfloats = msg.a;
 						var newModel = A2(author$project$Main$getNewModelAfterGameStartRandomElems, lfloats, model);
 						return _Utils_Tuple2(newModel, elm$core$Platform$Cmd$none);
@@ -15340,22 +15402,22 @@ var author$project$Main$update = F2(
 						var newSettingsModel = A2(
 							author$project$Theme$Settings$update,
 							author$project$ClientTypes$SetDisplayLanguage(theLanguage),
-							model.c);
+							model.b);
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{c: newSettingsModel}),
+								{b: newSettingsModel}),
 							elm$core$Platform$Cmd$none);
 					case 9:
 						var bdontcheck = msg.a;
 						var newSettingsModel = A2(
 							author$project$Theme$Settings$update,
 							author$project$ClientTypes$SetDontNeedToBeInZone(bdontcheck),
-							model.c);
+							model.b);
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{c: newSettingsModel}),
+								{b: newSettingsModel}),
 							elm$core$Platform$Cmd$none);
 					case 13:
 						return _Utils_Tuple2(
@@ -15368,46 +15430,57 @@ var author$project$Main$update = F2(
 						var newSettingsModel = A2(
 							author$project$Theme$Settings$update,
 							author$project$ClientTypes$SettingsChangeOptionAutoplay(bautoplay),
-							model.c);
+							model.b);
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{c: newSettingsModel}),
+								{b: newSettingsModel}),
 							elm$core$Platform$Cmd$none);
 					case 16:
 						var bWithSidebar = msg.a;
 						var newSettingsModel = A2(
 							author$project$Theme$Settings$update,
 							author$project$ClientTypes$SettingsLayoutWithSidebar(bWithSidebar),
-							model.c);
+							model.b);
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{c: newSettingsModel}),
-							elm$core$Platform$Cmd$none);
-					case 14:
-						var newSettingsModel = A2(author$project$Theme$Settings$update, author$project$ClientTypes$SettingsToggleShowExpanded, model.c);
-						return _Utils_Tuple2(
-							_Utils_update(
-								model,
-								{c: newSettingsModel}),
+								{b: newSettingsModel}),
 							elm$core$Platform$Cmd$none);
 					case 17:
-						var newSettingsModel = A2(author$project$Theme$Settings$update, author$project$ClientTypes$SettingsToggleShowHideSaveLoadBtns, model.c);
+						var bUseOnlyButtons = msg.a;
+						var newSettingsModel = A2(
+							author$project$Theme$Settings$update,
+							author$project$ClientTypes$SettingsButtonsOption(bUseOnlyButtons),
+							model.b);
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{c: newSettingsModel}),
+								{b: newSettingsModel}),
+							elm$core$Platform$Cmd$none);
+					case 14:
+						var newSettingsModel = A2(author$project$Theme$Settings$update, author$project$ClientTypes$SettingsToggleShowExpanded, model.b);
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{b: newSettingsModel}),
 							elm$core$Platform$Cmd$none);
 					case 18:
-						return author$project$Main$saveHistoryToStorageHelper(model);
+						var newSettingsModel = A2(author$project$Theme$Settings$update, author$project$ClientTypes$SettingsToggleShowHideSaveLoadBtns, model.b);
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{b: newSettingsModel}),
+							elm$core$Platform$Cmd$none);
 					case 19:
+						return author$project$Main$saveHistoryToStorageHelper(model);
+					case 20:
 						return _Utils_Tuple2(
 							model,
 							author$project$Main$sendRequestForStoredHistory(''));
-					case 20:
+					case 21:
 						var obj = msg.a;
-						var savedSettings = A2(author$project$Theme$Settings$update, author$project$ClientTypes$SettingsHideExitToFinalScreenButton, model.c);
+						var savedSettings = A2(author$project$Theme$Settings$update, author$project$ClientTypes$SettingsHideExitToFinalScreenButton, model.b);
 						var playerName = obj.w;
 						var newlist = author$project$Main$convertToListIdExtraInfo(obj.ap);
 						var lPrandomFloats = obj.aq;
@@ -15428,7 +15501,7 @@ var author$project$Main$update = F2(
 							newModel,
 							{d: _List_Nil});
 						return _Utils_Tuple2(newModel_, cmds);
-					case 21:
+					case 22:
 						var ltups = msg.a;
 						var savedSettings = msg.b;
 						var _n36 = function () {
@@ -15457,9 +15530,9 @@ var author$project$Main$update = F2(
 						return _Utils_Tuple2(
 							_Utils_update(
 								newModel,
-								{W: false, c: savedSettings}),
+								{W: false, b: savedSettings}),
 							cmds);
-					case 22:
+					case 23:
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
@@ -15479,7 +15552,7 @@ var author$project$Main$init = function (flags) {
 	return A5(author$project$Main$initWithMbPlayerNameAndMbHistoryList, flags, true, _List_Nil, elm$core$Maybe$Nothing, _List_Nil);
 };
 var author$project$ClientTypes$LoadHistory = function (a) {
-	return {$: 20, a: a};
+	return {$: 21, a: a};
 };
 var author$project$ClientTypes$NewCoordsForInterId = function (a) {
 	return {$: 10, a: a};
@@ -15712,26 +15785,41 @@ var elm$core$List$drop = F2(
 			}
 		}
 	});
+var elm$html$Html$button = _VirtualDom_node('button');
 var elm$html$Html$h1 = _VirtualDom_node('h1');
 var elm$html$Html$p = _VirtualDom_node('p');
-var author$project$Theme$CurrentSummary$view = F5(
-	function (currentLocation, props, characters, lAlertMessages, lgId) {
+var author$project$Theme$CurrentSummary$view = F6(
+	function (currentLocation, props, characters, lAlertMessages, useButtons, lgId) {
 		var isEmpty = elm$core$List$isEmpty(characters) && elm$core$List$isEmpty(props);
-		var interactableView = F2(
-			function (msg, entity) {
-				return A2(
+		var interactableView = F3(
+			function (msg, useButtons_, entity) {
+				var theText = elm$html$Html$text(
+					A2(author$project$Components$getSingleLgDisplayInfo, lgId, entity).D);
+				var _do = elm$html$Html$Events$onClick(
+					msg(entity.a));
+				return useButtons ? A2(
+					elm$html$Html$span,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$class('CurrentSummary__StoryElement u-selectable')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							elm$html$Html$button,
+							_List_fromArray(
+								[_do]),
+							_List_fromArray(
+								[theText]))
+						])) : A2(
 					elm$html$Html$span,
 					_List_fromArray(
 						[
 							elm$html$Html$Attributes$class('CurrentSummary__StoryElement u-selectable'),
-							elm$html$Html$Events$onClick(
-							msg(entity.a))
+							_do
 						]),
 					_List_fromArray(
-						[
-							elm$html$Html$text(
-							A2(author$project$Components$getSingleLgDisplayInfo, lgId, entity).D)
-						]));
+						[theText]));
 			});
 		var format = function (list) {
 			var interactables = (elm$core$List$length(list) > 2) ? _Utils_ap(
@@ -15771,7 +15859,7 @@ var author$project$Theme$CurrentSummary$view = F5(
 				format(
 					A2(
 						elm$core$List$map,
-						interactableView(author$project$ClientTypes$Interact),
+						A2(interactableView, author$project$ClientTypes$Interact, useButtons),
 						props)))) : A2(elm$html$Html$span, _List_Nil, _List_Nil);
 		var charactersList = (!elm$core$List$isEmpty(characters)) ? A2(
 			elm$html$Html$p,
@@ -15783,7 +15871,7 @@ var author$project$Theme$CurrentSummary$view = F5(
 				format(
 					A2(
 						elm$core$List$map,
-						interactableView(author$project$ClientTypes$Interact),
+						A2(interactableView, author$project$ClientTypes$Interact, useButtons),
 						characters)))) : A2(elm$html$Html$span, _List_Nil, _List_Nil);
 		return A2(
 			elm$html$Html$div,
@@ -15821,32 +15909,48 @@ var elm$virtual_dom$VirtualDom$keyedNode = function (tag) {
 };
 var elm$html$Html$Keyed$node = elm$virtual_dom$VirtualDom$keyedNode;
 var elm$html$Html$Keyed$ol = elm$html$Html$Keyed$node('ol');
-var author$project$Theme$Inventory$view = F3(
-	function (items, lgId, bWithSidebar) {
+var author$project$Theme$Inventory$view = F4(
+	function (items, lgId, bWithSidebar, useButtons_) {
 		var numItems = elm$core$List$length(items);
 		var inventoryItemClasses = bWithSidebar ? 'Inventory__Item u-selectable' : 'Inventory__Item__NoSidebar u-selectable';
 		var inventoryClass = bWithSidebar ? 'Inventory' : 'Inventory__NoSidebar';
 		var elem = bWithSidebar ? elm$html$Html$li : elm$html$Html$span;
-		var inventoryItem = F2(
-			function (i, entity) {
+		var inventoryItem = F3(
+			function (useButtons, i, entity) {
+				var theText = elm$html$Html$text(
+					A2(author$project$Components$getSingleLgDisplayInfo, lgId, entity).D);
 				var key = _Utils_ap(
 					entity.a,
 					elm$core$String$fromInt(numItems - i));
-				return _Utils_Tuple2(
+				var _do = elm$html$Html$Events$onClick(
+					author$project$ClientTypes$Interact(entity.a));
+				return useButtons ? _Utils_Tuple2(
+					key,
+					A2(
+						elem,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class(inventoryItemClasses)
+							]),
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$button,
+								_List_fromArray(
+									[_do]),
+								_List_fromArray(
+									[theText]))
+							]))) : _Utils_Tuple2(
 					key,
 					A2(
 						elem,
 						_List_fromArray(
 							[
 								elm$html$Html$Attributes$class(inventoryItemClasses),
-								elm$html$Html$Events$onClick(
-								author$project$ClientTypes$Interact(entity.a))
+								_do
 							]),
 						_List_fromArray(
-							[
-								elm$html$Html$text(
-								A2(author$project$Components$getSingleLgDisplayInfo, lgId, entity).D)
-							])));
+							[theText])));
 			});
 		return A2(
 			elm$html$Html$div,
@@ -15875,7 +15979,10 @@ var author$project$Theme$Inventory$view = F3(
 							bWithSidebar ? A2(
 							elm$html$Html$Keyed$ol,
 							_List_Nil,
-							A2(elm$core$List$indexedMap, inventoryItem, items)) : A2(
+							A2(
+								elm$core$List$indexedMap,
+								inventoryItem(useButtons_),
+								items)) : A2(
 							elm$html$Html$p,
 							_List_Nil,
 							A2(
@@ -15888,7 +15995,10 @@ var author$project$Theme$Inventory$view = F3(
 									A2(
 										elm$core$List$map,
 										elm$core$Tuple$second,
-										A2(elm$core$List$indexedMap, inventoryItem, items)))))
+										A2(
+											elm$core$List$indexedMap,
+											inventoryItem(useButtons_),
+											items)))))
 						]))
 				]));
 	});
@@ -15912,18 +16022,19 @@ var author$project$GpsUtils$directionToString = function (direction) {
 			return 'West';
 	}
 };
-var author$project$Theme$Locations$view = F4(
-	function (exits, currentLocation, lgId, bWithSidebar) {
+var author$project$Theme$Locations$view = F5(
+	function (exits, currentLocation, lgId, bWithSidebar, bUseButtons) {
 		var locationsClass = bWithSidebar ? 'Locations' : 'Locations__NoSidebar';
-		var interactableView = F3(
-			function (msg, entity, direction) {
+		var interactableView = F4(
+			function (msg, entity, direction, bUseButtons_) {
+				var elem = bUseButtons_ ? elm$html$Html$button : elm$html$Html$span;
 				return A2(
 					elm$html$Html$span,
 					_List_Nil,
 					_List_fromArray(
 						[
 							A2(
-							elm$html$Html$span,
+							elem,
 							_List_fromArray(
 								[
 									elm$html$Html$Attributes$class('CurrentSummary__StoryElement u-selectable'),
@@ -15970,7 +16081,7 @@ var author$project$Theme$Locations$view = F4(
 				function (_n0) {
 					var direction = _n0.a;
 					var entity = _n0.b;
-					return A3(interactableView, author$project$ClientTypes$Interact, entity, direction);
+					return A4(interactableView, author$project$ClientTypes$Interact, entity, direction, bUseButtons);
 				},
 				exits)) : A2(elm$html$Html$span, _List_Nil, _List_Nil);
 		return A2(
@@ -15998,8 +16109,7 @@ var author$project$Theme$Locations$view = F4(
 						[theExitsList]))
 				]));
 	});
-var author$project$ClientTypes$ExitToFinalScreen = {$: 22};
-var elm$html$Html$button = _VirtualDom_node('button');
+var author$project$ClientTypes$ExitToFinalScreen = {$: 23};
 var author$project$Theme$Settings$viewExitToFinalScreenButton = function (model) {
 	return A2(
 		elm$html$Html$div,
@@ -16079,64 +16189,108 @@ var author$project$Theme$Settings$radio = F4(
 			]);
 	});
 var elm$html$Html$label = _VirtualDom_node('label');
-var author$project$Theme$Settings$optionAudioAutoplay = F2(
-	function (bautoplay, displayLanguageId) {
-		return A2(
-			elm$html$Html$div,
-			_List_fromArray(
-				[
-					elm$html$Html$Attributes$class('form-group')
-				]),
-			_List_fromArray(
-				[
-					A2(
-					elm$html$Html$label,
-					_List_fromArray(
-						[
-							elm$html$Html$Attributes$class('col-form-label')
-						]),
-					_List_fromArray(
-						[
-							elm$html$Html$text(
-							A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___AUDIO___'))
-						])),
-					A2(
-					elm$html$Html$div,
-					_List_Nil,
-					_List_fromArray(
-						[
-							A2(
-							elm$html$Html$div,
-							_List_fromArray(
-								[
-									elm$html$Html$Attributes$class('theradios')
-								]),
-							A4(
-								author$project$Theme$Settings$radio,
-								bautoplay,
-								true,
-								'autoplay',
-								author$project$ClientTypes$ChangeOptionAudioAutoplay(true))),
-							A2(
-							elm$html$Html$div,
-							_List_fromArray(
-								[
-									elm$html$Html$Attributes$class('theradios')
-								]),
-							A4(
-								author$project$Theme$Settings$radio,
-								bautoplay,
-								false,
-								'dont autoplay',
-								author$project$ClientTypes$ChangeOptionAudioAutoplay(false)))
-						]))
-				]));
+var author$project$Theme$Settings$optionAudioAutoplay = F3(
+	function (bautoplay, useOnlyButtons, displayLanguageId) {
+		if (useOnlyButtons) {
+			var buttonTxt = bautoplay ? elm$html$Html$text(
+				A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___CLICK_FOR_NO_AUTOPLAY___')) : elm$html$Html$text(
+				A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___CLICK_FOR_AUTOPLAY___'));
+			return A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('form-group')
+					]),
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$label,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('col-form-label')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text(
+								A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___AUDIO___'))
+							])),
+						A2(
+						elm$html$Html$div,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$button,
+								_List_fromArray(
+									[
+										elm$html$Html$Events$onClick(
+										author$project$ClientTypes$ChangeOptionAudioAutoplay(!bautoplay))
+									]),
+								_List_fromArray(
+									[buttonTxt]))
+							]))
+					]));
+		} else {
+			return A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('form-group')
+					]),
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$label,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('col-form-label')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text(
+								A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___AUDIO___'))
+							])),
+						A2(
+						elm$html$Html$div,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('theradios')
+									]),
+								A4(
+									author$project$Theme$Settings$radio,
+									bautoplay,
+									true,
+									'autoplay',
+									author$project$ClientTypes$ChangeOptionAudioAutoplay(true))),
+								A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('theradios')
+									]),
+								A4(
+									author$project$Theme$Settings$radio,
+									bautoplay,
+									false,
+									'dont autoplay',
+									author$project$ClientTypes$ChangeOptionAudioAutoplay(false)))
+							]))
+					]));
+		}
 	});
 var author$project$ClientTypes$ChangeOptionDontCheckGps = function (a) {
 	return {$: 9, a: a};
 };
-var author$project$Theme$Settings$optionGpsCheckZone = F2(
-	function (bdontcheck, displayLanguageId) {
+var author$project$Theme$Settings$optionGpsCheckZone = function (model) {
+	if (model.dn) {
+		var buttonTxt = model.b_ ? elm$html$Html$text(
+			A2(author$project$TranslationHelper$getInLanguage, model.bY, '___CLICK_TO_CHECK_GPS___')) : elm$html$Html$text(
+			A2(author$project$TranslationHelper$getInLanguage, model.bY, '___CLICK_TO_NOT_CHECK_GPS___'));
 		return A2(
 			elm$html$Html$div,
 			_List_fromArray(
@@ -16154,7 +16308,43 @@ var author$project$Theme$Settings$optionGpsCheckZone = F2(
 					_List_fromArray(
 						[
 							elm$html$Html$text(
-							A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___Check_gps_coords___'))
+							A2(author$project$TranslationHelper$getInLanguage, model.bY, '___CHECK_GPS_COORDS___'))
+						])),
+					A2(
+					elm$html$Html$div,
+					_List_Nil,
+					_List_fromArray(
+						[
+							A2(
+							elm$html$Html$button,
+							_List_fromArray(
+								[
+									elm$html$Html$Events$onClick(
+									author$project$ClientTypes$ChangeOptionDontCheckGps(!model.b_))
+								]),
+							_List_fromArray(
+								[buttonTxt]))
+						]))
+				]));
+	} else {
+		return A2(
+			elm$html$Html$div,
+			_List_fromArray(
+				[
+					elm$html$Html$Attributes$class('form-group')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					elm$html$Html$label,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$class('col-form-label')
+						]),
+					_List_fromArray(
+						[
+							elm$html$Html$text(
+							A2(author$project$TranslationHelper$getInLanguage, model.bY, '___CHECK_GPS_COORDS___'))
 						])),
 					A2(
 					elm$html$Html$div,
@@ -16169,7 +16359,7 @@ var author$project$Theme$Settings$optionGpsCheckZone = F2(
 								]),
 							A4(
 								author$project$Theme$Settings$radio,
-								bdontcheck,
+								model.b_,
 								true,
 								'dont check gps',
 								author$project$ClientTypes$ChangeOptionDontCheckGps(true))),
@@ -16181,13 +16371,14 @@ var author$project$Theme$Settings$optionGpsCheckZone = F2(
 								]),
 							A4(
 								author$project$Theme$Settings$radio,
-								bdontcheck,
+								model.b_,
 								false,
 								'check',
 								author$project$ClientTypes$ChangeOptionDontCheckGps(false)))
 						]))
 				]));
-	});
+	}
+};
 var author$project$ClientTypes$ChangeOptionDisplayLanguage = function (a) {
 	return {$: 8, a: a};
 };
@@ -16201,9 +16392,99 @@ var elm$core$Dict$values = function (dict) {
 		_List_Nil,
 		dict);
 };
-var author$project$Theme$Settings$optionLanguagesView = F2(
-	function (availableLanguages, displayLanguageId) {
+var elm$html$Html$option = _VirtualDom_node('option');
+var elm$html$Html$select = _VirtualDom_node('select');
+var elm$html$Html$Attributes$selected = elm$html$Html$Attributes$boolProperty('selected');
+var elm$html$Html$Attributes$value = elm$html$Html$Attributes$stringProperty('value');
+var elm$html$Html$Events$alwaysStop = function (x) {
+	return _Utils_Tuple2(x, true);
+};
+var elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
+	return {$: 1, a: a};
+};
+var elm$html$Html$Events$stopPropagationOn = F2(
+	function (event, decoder) {
 		return A2(
+			elm$virtual_dom$VirtualDom$on,
+			event,
+			elm$virtual_dom$VirtualDom$MayStopPropagation(decoder));
+	});
+var elm$html$Html$Events$targetValue = A2(
+	elm$json$Json$Decode$at,
+	_List_fromArray(
+		['target', 'value']),
+	elm$json$Json$Decode$string);
+var elm$html$Html$Events$onInput = function (tagger) {
+	return A2(
+		elm$html$Html$Events$stopPropagationOn,
+		'input',
+		A2(
+			elm$json$Json$Decode$map,
+			elm$html$Html$Events$alwaysStop,
+			A2(elm$json$Json$Decode$map, tagger, elm$html$Html$Events$targetValue)));
+};
+var author$project$Theme$Settings$optionLanguagesView = F3(
+	function (availableLanguages, useOnlyButtons, displayLanguageId) {
+		return useOnlyButtons ? A2(
+			elm$html$Html$div,
+			_List_fromArray(
+				[
+					elm$html$Html$Attributes$class('form-group')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					elm$html$Html$label,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$class('col-form-label')
+						]),
+					_List_fromArray(
+						[
+							elm$html$Html$text(
+							A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___Language___'))
+						])),
+					A2(
+					elm$html$Html$div,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$class('')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							elm$html$Html$select,
+							_List_fromArray(
+								[
+									elm$html$Html$Attributes$class('form-control'),
+									elm$html$Html$Events$onInput(author$project$ClientTypes$ChangeOptionDisplayLanguage)
+								]),
+							A2(
+								elm$core$List$map,
+								function (item) {
+									return A2(
+										elm$html$Html$option,
+										_List_fromArray(
+											[
+												elm$html$Html$Attributes$selected(
+												_Utils_eq(item.a4, displayLanguageId)),
+												elm$html$Html$Attributes$value(item.a4)
+											]),
+										_List_fromArray(
+											[
+												elm$html$Html$text(item.D)
+											]));
+								},
+								elm$core$Dict$values(
+									A2(
+										elm$core$Dict$map,
+										F2(
+											function (k, v) {
+												return {a4: k, D: v};
+											}),
+										availableLanguages))))
+						]))
+				])) : A2(
 			elm$html$Html$div,
 			_List_fromArray(
 				[
@@ -16252,8 +16533,108 @@ var author$project$Theme$Settings$optionLanguagesView = F2(
 var author$project$ClientTypes$LayoutWithSideBar = function (a) {
 	return {$: 16, a: a};
 };
-var author$project$Theme$Settings$optionLayout = F2(
-	function (bWithSidebar, displayLanguageId) {
+var author$project$Theme$Settings$optionLayout = F3(
+	function (bWithSidebar, useOnlyButtons, displayLanguageId) {
+		if (useOnlyButtons) {
+			var buttonTxt = bWithSidebar ? elm$html$Html$text(
+				A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___CLICK_FOR_NO_SIDEBAR___')) : elm$html$Html$text(
+				A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___CLICK_FOR_SIDEBAR___'));
+			return A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('form-group')
+					]),
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$label,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('col-form-label')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text(
+								A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___LAYOUT_OPTIONS___'))
+							])),
+						A2(
+						elm$html$Html$div,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$button,
+								_List_fromArray(
+									[
+										elm$html$Html$Events$onClick(
+										author$project$ClientTypes$LayoutWithSideBar(!bWithSidebar))
+									]),
+								_List_fromArray(
+									[buttonTxt]))
+							]))
+					]));
+		} else {
+			return A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('form-group')
+					]),
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$label,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('col-form-label')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text(
+								A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___LAYOUT_OPTIONS___'))
+							])),
+						A2(
+						elm$html$Html$div,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('theradios')
+									]),
+								A4(
+									author$project$Theme$Settings$radio,
+									bWithSidebar,
+									true,
+									'with Sidebar',
+									author$project$ClientTypes$LayoutWithSideBar(true))),
+								A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('theradios')
+									]),
+								A4(
+									author$project$Theme$Settings$radio,
+									bWithSidebar,
+									false,
+									'no Sidebar',
+									author$project$ClientTypes$LayoutWithSideBar(false)))
+							]))
+					]));
+		}
+	});
+var author$project$ClientTypes$AlterButtonsOption = function (a) {
+	return {$: 17, a: a};
+};
+var author$project$Theme$Settings$optionOnlyButtons = F2(
+	function (useOnlyButtons, displayLanguageId) {
+		var buttonTxt = useOnlyButtons ? elm$html$Html$text(
+			A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___CLICK_FOR_RADIO_BUTTONS___')) : elm$html$Html$text(
+			A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___CLICK_FOR_BUTTONS___'));
 		return A2(
 			elm$html$Html$div,
 			_List_fromArray(
@@ -16271,7 +16652,7 @@ var author$project$Theme$Settings$optionLayout = F2(
 					_List_fromArray(
 						[
 							elm$html$Html$text(
-							A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___LAYOUT_OPTIONS___'))
+							A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___BUTTON_OPTIONS___'))
 						])),
 					A2(
 					elm$html$Html$div,
@@ -16279,29 +16660,14 @@ var author$project$Theme$Settings$optionLayout = F2(
 					_List_fromArray(
 						[
 							A2(
-							elm$html$Html$div,
+							elm$html$Html$button,
 							_List_fromArray(
 								[
-									elm$html$Html$Attributes$class('theradios')
+									elm$html$Html$Events$onClick(
+									author$project$ClientTypes$AlterButtonsOption(!useOnlyButtons))
 								]),
-							A4(
-								author$project$Theme$Settings$radio,
-								bWithSidebar,
-								true,
-								'with Sidebar',
-								author$project$ClientTypes$LayoutWithSideBar(true))),
-							A2(
-							elm$html$Html$div,
 							_List_fromArray(
-								[
-									elm$html$Html$Attributes$class('theradios')
-								]),
-							A4(
-								author$project$Theme$Settings$radio,
-								bWithSidebar,
-								false,
-								'no Sidebar',
-								author$project$ClientTypes$LayoutWithSideBar(false)))
+								[buttonTxt]))
 						]))
 				]));
 	});
@@ -16311,15 +16677,16 @@ var author$project$Theme$Settings$viewLanguageGpsAudioAndLayoutOptions = functio
 		_List_Nil,
 		_List_fromArray(
 			[
-				A2(author$project$Theme$Settings$optionLanguagesView, model.bE, model.bY),
-				model.ca ? A2(author$project$Theme$Settings$optionGpsCheckZone, model.b_, model.bY) : elm$html$Html$text(''),
-				model.bD ? A2(author$project$Theme$Settings$optionAudioAutoplay, model.bC, model.bY) : elm$html$Html$text(''),
-				A2(author$project$Theme$Settings$optionLayout, model.ct, model.bY)
+				A3(author$project$Theme$Settings$optionLanguagesView, model.bE, model.dn, model.bY),
+				model.ca ? author$project$Theme$Settings$optionGpsCheckZone(model) : elm$html$Html$text(''),
+				model.bD ? A3(author$project$Theme$Settings$optionAudioAutoplay, model.bC, model.dn, model.bY) : elm$html$Html$text(''),
+				A3(author$project$Theme$Settings$optionLayout, model.ct, model.dn, model.bY),
+				A2(author$project$Theme$Settings$optionOnlyButtons, model.dn, model.bY)
 			]));
 };
-var author$project$ClientTypes$RequestForStoredHistory = {$: 19};
-var author$project$ClientTypes$SaveHistory = {$: 18};
-var author$project$ClientTypes$ToggleShowHideSaveLoadBtns = {$: 17};
+var author$project$ClientTypes$RequestForStoredHistory = {$: 20};
+var author$project$ClientTypes$SaveHistory = {$: 19};
+var author$project$ClientTypes$ToggleShowHideSaveLoadBtns = {$: 18};
 var author$project$Theme$Settings$viewShowHideSaveLoad = function (model) {
 	var theText = model.c5 ? 'Hide' : 'Show';
 	return A2(
@@ -16475,9 +16842,9 @@ var author$project$Theme$Layout$viewExtraInfo = F2(
 				]),
 			_List_fromArray(
 				[
-					A4(author$project$Theme$Locations$view, displayState.b4, displayState.bX, displayState.c.bY, displayState.c.ct),
-					A3(author$project$Theme$Inventory$view, displayState.cr, displayState.c.bY, displayState.c.ct),
-					displayState.c.ct ? author$project$Theme$Settings$view(displayState.c) : elm$html$Html$text('')
+					A5(author$project$Theme$Locations$view, displayState.b4, displayState.bX, displayState.b.bY, displayState.b.ct, displayState.b.dn),
+					A4(author$project$Theme$Inventory$view, displayState.cr, displayState.b.bY, displayState.b.ct, displayState.b.dn),
+					displayState.b.ct ? author$project$Theme$Settings$view(displayState.b) : elm$html$Html$text('')
 				]));
 	});
 var elm$html$Html$audio = _VirtualDom_node('audio');
@@ -16545,34 +16912,6 @@ var author$project$ClientTypes$NewUserSubmitedText = function (a) {
 };
 var elm$html$Html$Attributes$autofocus = elm$html$Html$Attributes$boolProperty('autofocus');
 var elm$html$Html$Attributes$placeholder = elm$html$Html$Attributes$stringProperty('placeholder');
-var elm$html$Html$Attributes$value = elm$html$Html$Attributes$stringProperty('value');
-var elm$html$Html$Events$alwaysStop = function (x) {
-	return _Utils_Tuple2(x, true);
-};
-var elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
-	return {$: 1, a: a};
-};
-var elm$html$Html$Events$stopPropagationOn = F2(
-	function (event, decoder) {
-		return A2(
-			elm$virtual_dom$VirtualDom$on,
-			event,
-			elm$virtual_dom$VirtualDom$MayStopPropagation(decoder));
-	});
-var elm$html$Html$Events$targetValue = A2(
-	elm$json$Json$Decode$at,
-	_List_fromArray(
-		['target', 'value']),
-	elm$json$Json$Decode$string);
-var elm$html$Html$Events$onInput = function (tagger) {
-	return A2(
-		elm$html$Html$Events$stopPropagationOn,
-		'input',
-		A2(
-			elm$json$Json$Decode$map,
-			elm$html$Html$Events$alwaysStop,
-			A2(elm$json$Json$Decode$map, tagger, elm$html$Html$Events$targetValue)));
-};
 var author$project$Theme$AnswerBox$view = F6(
 	function (answerboxtext, lgId, showHeaders, mbInteractableId, mbPlaceHolderText, className) {
 		var placeHolderText = function () {
@@ -16895,7 +17234,7 @@ var author$project$Theme$Layout$view = function (displayState) {
 							]),
 						_List_fromArray(
 							[
-								(!displayState.c.ct) ? A2(
+								(!displayState.b.ct) ? A2(
 								elm$html$Html$div,
 								_List_fromArray(
 									[
@@ -16903,13 +17242,13 @@ var author$project$Theme$Layout$view = function (displayState) {
 									]),
 								_List_fromArray(
 									[
-										author$project$Theme$Settings$view(displayState.c)
+										author$project$Theme$Settings$view(displayState.b)
 									])) : elm$html$Html$text(''),
-								A5(author$project$Theme$CurrentSummary$view, displayState.bX, displayState.cq, displayState.bN, displayState.d, displayState.c.bY),
+								A6(author$project$Theme$CurrentSummary$view, displayState.bX, displayState.cq, displayState.bN, displayState.d, displayState.b.dn, displayState.b.bY),
 								(!displayState.ct) ? A2(author$project$Theme$Layout$viewExtraInfo, displayState, 'Layout__NoSidebar__ExtraInfo') : elm$html$Html$text(''),
 								A2(author$project$Theme$Layout$viewMbAudioFile, displayState.cD, displayState.bC),
-								A2(author$project$Theme$AlertMessages$viewAlertMessages, displayState.d, displayState.c.bY),
-								A7(author$project$Theme$Storyline$view, displayState.da, displayState.c.bY, displayState.bG, displayState.cK, displayState.bv, displayState.bz, displayState.b3)
+								A2(author$project$Theme$AlertMessages$viewAlertMessages, displayState.d, displayState.b.bY),
+								A7(author$project$Theme$Storyline$view, displayState.da, displayState.b.bY, displayState.bG, displayState.cK, displayState.bv, displayState.bz, displayState.b3)
 							])),
 						displayState.ct ? A2(author$project$Theme$Layout$viewExtraInfo, displayState, 'Layout__Sidebar') : elm$html$Html$text('')
 					]))
@@ -16945,7 +17284,7 @@ var author$project$Main$viewMainGame = function (model) {
 	var theStoryLine = A2(
 		elm$core$Maybe$withDefault,
 		_List_Nil,
-		A2(elm$core$Dict$get, model.c.bY, model._));
+		A2(elm$core$Dict$get, model.b.bY, model._));
 	var mbInteactableIdAtTop = A2(
 		elm$core$Maybe$map,
 		function ($) {
@@ -16955,7 +17294,7 @@ var author$project$Main$viewMainGame = function (model) {
 	var currentLocation = A2(
 		author$project$Main$findEntity,
 		model,
-		author$project$Engine$getCurrentLocation(model.b));
+		author$project$Engine$getCurrentLocation(model.c));
 	var _n0 = function () {
 		if (mbInteactableIdAtTop.$ === 1) {
 			return _Utils_Tuple2(elm$core$Maybe$Nothing, '');
@@ -16964,7 +17303,7 @@ var author$project$Main$viewMainGame = function (model) {
 			return A2(
 				author$project$TypeConverterHelper$mbAttributeToMbString,
 				model.k,
-				A3(author$project$Engine$getInteractableAttribute, 'placeholderText', interactableId, model.b));
+				A3(author$project$Engine$getInteractableAttribute, 'placeholderText', interactableId, model.c));
 		}
 	}();
 	var mbTextBoxPlaceholderText_ = _n0.a;
@@ -16978,7 +17317,7 @@ var author$project$Main$viewMainGame = function (model) {
 			A2(
 				elm$core$Maybe$map,
 				function (x) {
-					return A3(author$project$Engine$getInteractableAttribute, 'answerOptionsList', x, model.b);
+					return A3(author$project$Engine$getInteractableAttribute, 'answerOptionsList', x, model.c);
 				},
 				mbInteactableIdAtTop)));
 	var answerOptionsDict_ = _n2.a;
@@ -16995,13 +17334,13 @@ var author$project$Main$viewMainGame = function (model) {
 					[incidentOnPlaceholderTextConversion, incidentOnGetAnswerOptionsDict]))),
 		bv: model.j.bw,
 		bz: answerOptionsDict_,
-		bC: model.c.bC,
+		bC: model.b.bC,
 		bG: function () {
 			if (mbInteactableIdAtTop.$ === 1) {
 				return false;
 			} else {
 				var interactableId = mbInteactableIdAtTop.a;
-				return A2(author$project$Engine$isWritable, interactableId, model.b) && (!_Utils_eq(
+				return A2(author$project$Engine$isWritable, interactableId, model.c) && (!_Utils_eq(
 					A2(elm$core$Dict$get, interactableId, model.i),
 					elm$core$Maybe$Just(author$project$Types$WaitingForInfoRequested)));
 			}
@@ -17009,9 +17348,9 @@ var author$project$Main$viewMainGame = function (model) {
 		bN: A2(
 			elm$core$List$map,
 			author$project$Main$findEntity(model),
-			author$project$Engine$getCharactersInCurrentLocation(model.b)),
+			author$project$Engine$getCharactersInCurrentLocation(model.c)),
 		bX: currentLocation,
-		b3: author$project$Engine$getEndingText(model.b),
+		b3: author$project$Engine$getEndingText(model.c),
 		b4: A2(
 			elm$core$List$map,
 			function (_n4) {
@@ -17025,12 +17364,12 @@ var author$project$Main$viewMainGame = function (model) {
 		cq: A2(
 			elm$core$List$map,
 			author$project$Main$findEntity(model),
-			author$project$Engine$getItemsInCurrentLocation(model.b)),
+			author$project$Engine$getItemsInCurrentLocation(model.c)),
 		cr: A2(
 			elm$core$List$map,
 			author$project$Main$findEntity(model),
-			author$project$Engine$getItemsInInventory(model.b)),
-		ct: model.c.ct,
+			author$project$Engine$getItemsInInventory(model.c)),
+		ct: model.b.ct,
 		cD: A2(
 			elm$core$Maybe$withDefault,
 			elm$core$Maybe$Nothing,
@@ -17041,7 +17380,7 @@ var author$project$Main$viewMainGame = function (model) {
 				},
 				elm$core$List$head(theStoryLine))),
 		cK: mbTextBoxPlaceholderText_,
-		c: model.c,
+		b: model.b,
 		da: theStoryLine
 	};
 	return (!model.as) ? A2(
@@ -17058,6 +17397,12 @@ var author$project$Main$viewMainGame = function (model) {
 var author$project$ClientTypes$StartMainGameNewPlayerName = function (a) {
 	return {$: 1, a: a};
 };
+var author$project$Theme$StartScreen$options = function () {
+	var dOptions = elm_explorations$markdown$Markdown$defaultOptions;
+	return _Utils_update(
+		dOptions,
+		{c$: true});
+}();
 var elm$html$Html$img = _VirtualDom_node('img');
 var author$project$Theme$StartScreen$view = F3(
 	function (baseImgUrl, startScreenInfo, answerBoxModel) {
@@ -17107,6 +17452,8 @@ var author$project$Theme$StartScreen$view = F3(
 								[
 									elm$html$Html$text(startScreenInfo.c6)
 								])),
+							A2(elm$html$Html$br, _List_Nil, _List_Nil),
+							A2(elm$html$Html$br, _List_Nil, _List_Nil),
 							A2(
 							elm$html$Html$img,
 							_List_fromArray(
@@ -17114,7 +17461,11 @@ var author$project$Theme$StartScreen$view = F3(
 									elm$html$Html$Attributes$src(imgUrl),
 									elm$html$Html$Attributes$class('StartScreenImage')
 								]),
-							_List_Nil)
+							_List_Nil),
+							A2(elm$html$Html$br, _List_Nil, _List_Nil),
+							A2(elm$html$Html$br, _List_Nil, _List_Nil),
+							A2(elm$html$Html$br, _List_Nil, _List_Nil),
+							A3(elm_explorations$markdown$Markdown$toHtmlWith, author$project$Theme$StartScreen$options, _List_Nil, startScreenInfo.dp)
 						])),
 					A2(
 					elm$html$Html$div,
@@ -17370,7 +17721,7 @@ var elm$url$Url$fromString = function (str) {
 };
 var elm$browser$Browser$element = _Browser_element;
 var author$project$Main$main = elm$browser$Browser$element(
-	{ch: author$project$Main$init, dc: author$project$Main$subscriptions, dl: author$project$Main$update, dn: author$project$Main$view});
+	{ch: author$project$Main$init, dc: author$project$Main$subscriptions, dl: author$project$Main$update, $7: author$project$Main$view});
 _Platform_export({'Main':{'init':author$project$Main$main(
 	A2(
 		elm$json$Json$Decode$andThen,
