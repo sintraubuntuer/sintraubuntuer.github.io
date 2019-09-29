@@ -14150,6 +14150,11 @@ var author$project$GameUpdate$update = F2(
 									model,
 									{dk: !model.dk}) : model;
 								return _Utils_Tuple2(newModel, elm$core$Platform$Cmd$none);
+							case 11:
+								var newModel = _Utils_eq(model.b9, author$project$GameModel$DisplayRegularGame) ? _Utils_update(
+									model,
+									{c0: !model.c0}) : model;
+								return _Utils_Tuple2(newModel, elm$core$Platform$Cmd$none);
 							default:
 								return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 						}
@@ -16423,6 +16428,8 @@ var author$project$GameView$viewHelpMode = function (model) {
 				A2(elm$html$Html$br, _List_Nil, _List_Nil),
 				elm$html$Html$text('F to turn fog on and off'),
 				A2(elm$html$Html$br, _List_Nil, _List_Nil),
+				elm$html$Html$text('B to turn opponent\'s blood on and off'),
+				A2(elm$html$Html$br, _List_Nil, _List_Nil),
 				elm$html$Html$text('M for map ( use with caution - algo is still being optimized - right now it takes about 3 secs to render the map ) '),
 				A2(elm$html$Html$br, _List_Nil, _List_Nil),
 				elm$html$Html$text('and H for Help'),
@@ -17636,11 +17643,12 @@ var author$project$GameUpdate$KeyDown = function (a) {
 };
 var author$project$GameModel$Down = 1;
 var author$project$GameModel$Left = 2;
-var author$project$GameModel$Nop = 11;
+var author$project$GameModel$Nop = 12;
 var author$project$GameModel$PickUpItem = 4;
 var author$project$GameModel$Right = 3;
 var author$project$GameModel$Up = 0;
 var author$project$GameModel$ViewHelpMode = 8;
+var author$project$GameModel$ViewHideBlood = 11;
 var author$project$GameModel$ViewHideFog = 10;
 var author$project$GameModel$ViewInventory = 5;
 var author$project$GameModel$ViewMap = 9;
@@ -17678,8 +17686,10 @@ var author$project$Main$fromCode = function (keyCode) {
 			return 9;
 		case 70:
 			return 10;
-		default:
+		case 66:
 			return 11;
+		default:
+			return 12;
 	}
 };
 var elm$browser$Browser$Events$Document = 0;
