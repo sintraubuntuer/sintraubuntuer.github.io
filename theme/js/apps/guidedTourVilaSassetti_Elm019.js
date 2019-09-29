@@ -13460,8 +13460,8 @@ var author$project$GeoCipher$GeoCipher$augmentedKeyedCaesarDecrypt = F3(
 			return author$project$GeoCipher$GeoCipher$BadGeoCipherInputs('Bad Augmented Caesar Alphabet Key');
 		}
 	});
-var author$project$OurStory$Narrative$hintEn = '( XP XFB MBCX PC XFB XUVGM ... KMGNL 6 NBXBU ... ZOYBU XFB UPKJW )';
-var author$project$OurStory$Narrative$hintPT = '( YP MVYP BWRZBUYP YP XUGMFP ... WPLB 6 NBXUP ... YBLVG2P YVW QBYUVW )';
+var author$project$OurStory$Narrative$hintEn = '( XP XFB MBCX PC XFB XUVGM ... KMGNL 6 NBXBU ... ZOYBU XFB UPKJW ) ';
+var author$project$OurStory$Narrative$hintPT = '( YP MVYP BWRZBUYP YP XUGMFP ... WPLB 6 NBXUP ... YBLVG2P YVW QBYUVW ) ';
 var author$project$OurStory$Narrative$encriptedMsg = function (lgId) {
 	var encCoords = ' O8T 9E.898 155I 78.A9E ';
 	return (lgId === 'pt') ? ('Coordinates : ' + (encCoords + author$project$OurStory$Narrative$hintPT)) : ('Coordinates : ' + (encCoords + author$project$OurStory$Narrative$hintEn));
