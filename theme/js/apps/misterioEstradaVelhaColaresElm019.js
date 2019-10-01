@@ -12178,7 +12178,7 @@ var author$project$Engine$write_GpsInfoToItem = function (interactableId) {
 	var oneArgToCmdWriteGpsInfoToItem = author$project$Engine$createCmdWriteGpsInfoToItem(interactableId);
 	return author$project$Types$CurriedCmd(oneArgToCmdWriteGpsInfoToItem);
 };
-var author$project$InfoForBkendApiRequests$backendAnswerCheckerUrl = 'http://127.0.0.1:5000/answerchecker/';
+var author$project$InfoForBkendApiRequests$backendAnswerCheckerUrl = 'https://questionanswerntapp.herokuapp.com/answerchecker/';
 var elm$core$List$drop = F2(
 	function (n, list) {
 		drop:
