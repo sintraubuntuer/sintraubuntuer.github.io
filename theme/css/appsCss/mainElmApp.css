@@ -520,6 +520,7 @@ a.suggestedInteractionLink {
   padding: 2px 20px 2px;
   margin-bottom: 15px;
   color: black;
+  background-color : #DDD ;
   font-size: 14px;
 }
 
@@ -530,6 +531,69 @@ a.suggestedInteractionLink {
   background-color : #666 ;
   color: #FFF ;
 
+}
+
+.showHideBtnNoSidebar {
+  padding: 8px 20px 8px;
+  margin-bottom: 15px;
+  background-color : #333 ;
+  color: #EEE;
+  font-size: 14px;
+}
+
+.saveBtnNoSidebar , .loadBtnNoSidebar {
+  padding: 4px 15px 4px;
+  margin-bottom: 2px;
+  /*background-color : #9caf90 ; */
+  background-color : #333 ;
+  color: #EEE ;
+
+}
+
+
+.languagesDropdown {
+  padding: 4px 15px 4px;
+  background-color : #DDD ;
+  color: #000 ;
+}
+
+.languagesDropdownNoSidebar {
+  padding: 4px 15px 4px;
+  
+  background-color : #333 ;
+  color: #EEE ;
+
+}
+
+
+.settingsButton {
+  padding: 4px 5px 4px;
+  margin-bottom: 2px;
+  /*background-color : #9caf90 ; */
+  background-color : #DDD ;
+  color: #000 ;
+
+}
+
+.settingsButtonNoSidebar {
+  padding: 10px 5px 10px;
+  margin-bottom: 2px;
+  /*background-color : #9caf90 ; */
+  background-color : #333 ;
+  color: #EEE ;
+
+}
+
+.buttonInventoryClass {
+  padding: 10px 5px 10px;
+}
+
+.buttonLocationClass {
+  padding: 10px 5px 10px;
+}
+
+.buttonCharacterClass {
+  padding: 10px 5px 10px;
 }
 
 .Inventory__Item {
