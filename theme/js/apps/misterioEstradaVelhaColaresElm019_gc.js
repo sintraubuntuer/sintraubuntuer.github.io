@@ -12902,7 +12902,7 @@ var author$project$OurStory$Narrative$viewQuestionAtVillaRomaDict = elm$core$Dic
 			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$viewQuestionAtVillaRomaEn)
 		]));
 var author$project$OurStory$Narrative$viewQuestionOneAtLimiteSaoMartinhoColares = _List_fromArray(
-	['\nNo placard do lado direito da estrada ( para quem viaja no sentido Sintra-Colares) quais as palavras \ninscritas no azulejo na parte de trás do plcard ( 4 palavras )\n    ']);
+	['\nNo placard do lado direito da estrada ( para quem viaja no sentido Sintra-Colares) quais as palavras \ninscritas no azulejo na parte de trás do placard ( 4 palavras )\n    ']);
 var author$project$OurStory$NarrativeEnglish$viewQuestionOneAtLimiteSaoMartinhoColaresEn = _List_fromArray(
 	['\nWhat are the words ( 4 words ) written in the tile on the back of the placard ?\n( the placard to the right of the road when travelling from Sintra to Colares )\n    ']);
 var author$project$OurStory$Narrative$viewQuestionOneAtLimiteSaoMartinhoColaresDict = elm$core$Dict$fromList(
