@@ -3,7 +3,7 @@
 <head>
 
         <meta charset="utf-8" />
-        <title>Mistério da Estrada Velha de Colares // Sintra Ubuntuer</title>
+        <title>Mistério da Estrada Velha de Colares GC // Sintra Ubuntuer</title>
         <link rel="stylesheet" href="https://sintraubuntuer.github.io/theme/css/main.css" />
 
         <!-- Mobile Meta -->
@@ -15,20 +15,24 @@
         <!-- Font Awesome CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-<link rel="stylesheet" type="text/css" href="https://sintraubuntuer.github.io/theme/css/appsCss/mainElmApp.css" />
-<link rel="stylesheet" type="text/css" href="https://sintraubuntuer.github.io/theme/css/appsCss/reset.css" />
-<link rel="stylesheet" type="text/css" href="https://sintraubuntuer.github.io/theme/css/appsCss/story.css" />
-<link rel="stylesheet" type="text/css" href="https://sintraubuntuer.github.io/theme/css/appsCss/github-markdown.css" />
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
-<style>
-    #mapid {
-        height: 400px;
-        width: 800px;
-        margin: auto;
-    }
-</style>
+
+        <link rel="stylesheet" type="text/css" href="https://sintraubuntuer.github.io/theme/css/appsCss/mainElmApp.css" />
+        <link rel="stylesheet" type="text/css" href="https://sintraubuntuer.github.io/theme/css/appsCss/reset.css" />
+        <link rel="stylesheet" type="text/css" href="https://sintraubuntuer.github.io/theme/css/appsCss/story.css" />
+        <link rel="stylesheet" type="text/css" href="https://sintraubuntuer.github.io/theme/css/appsCss/github-markdown.css" />
+
+
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+                <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+                <style>
+                    #mapid {
+                        height: 400px;
+                        width: 800px;
+                        margin: auto;
+                    }
+                </style>
+
 
 
 
@@ -118,22 +122,38 @@
 <!-- banner end -->
 
  <div id="MainContent">
-<div class="pure-g-r" id="layout">
-    <!-- include 'sidebar.html'  -->
-    <div class="pure-u-1">
-        <div class="content">
-            <h1 class="content-subhead">Mistério da Estrada Velha de Colares</h1>
-            <p><h1>Mistério da Estrada Velha de Colares</h1></p>
-            <div id="mapAndApp">
+    <div class="pure-g-r" id="layout">
+        <!-- include 'sidebar.html'  -->
+        <div class="pure-u-1">
+            <div class="content">
+                <h1 class="content-subhead">Mistério da Estrada Velha de Colares GC</h1>
+                <div class="post-info-block" style="font-size: 0.8em;" >
+                         <!-- <time class="published" datetime="2019-10-06T00:00:00+01:00"> -->
+                        <div class="post-info"  >
+                            <span> Published: </span>
+                            <i class="fa fa-calendar"></i> 
+                             <time class="published" datetime="2019-10-06T00:00:00+01:00">
+                                  
+                                 Sun 06 October 2019
+                             </time>
+                        </div>    
 
-                <div id="mapid"></div>
-                <div id="elmAppOutputArea"> </div>
+
+                </div>    
+                <br/>
+                <p><p>this game/narrative is also part of a geocache  ( published 06 Oct 2019 ) :
+<a href="https://www.geocaching.com/geocache/GC8E951_misterio-da-estrada-velha-de-colares" target="_blank">GC8E951</a></p></p>
+                <br/>
+
+                    <div id="mapAndApp">
+
+                        <div id="mapid"></div>
+                        <div id="elmAppOutputArea"> </div>
+                    </div>
+
             </div>
-
-
         </div>
     </div>
-</div>
 
 
 </div>
@@ -152,6 +172,7 @@
                         <ul>
 
                             <li><a href="https://github.com/sintraubuntuer">Github</a></li>
+                            <li><a href="https://instagram.com/serrot73">Instagram</a></li>
                         </ul>
                 </div><  !-- /.social
 
@@ -182,6 +203,7 @@
 
                                <ul class="list-unstyled">
                                    <li><a href="https://github.com/sintraubuntuer" target="_blank">Github</a></li>
+                                   <li><a href="https://instagram.com/serrot73" target="_blank">Instagram</a></li>
                                    <li><a  href="https://sintraubuntuer.github.io/pages/contacts.html">email</a></li>
                                </ul>
                            </div>
@@ -262,130 +284,133 @@
 
     </script>
 
-<script type="text/javascript" src="https://sintraubuntuer.github.io/theme/js/apps/misterioEstradaVelhaColaresElm019_gc.js"></script>
-<script type="text/javascript">
-    var node1 = document.getElementById('elmAppOutputArea');
-
-    var initial_latitude;
-    var initial_longitude;
-
-    initial_latitude = parseFloat(38.79503);
-    initial_longitude = parseFloat(-9.39289);
-
-    var mymap = L.map('mapid').setView([initial_latitude, initial_longitude], 18);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mymap);
+        <script type="text/javascript" src="https://sintraubuntuer.github.io/theme/js/apps/misterioEstradaVelhaColaresElm019_gc.js"></script>
+        <script type="text/javascript">
+            var node1 = document.getElementById('elmAppOutputArea');
 
 
-    var saveName = "misterioEstradaVelhaColares" + "_historyStr";
+                var initial_latitude;
+                var initial_longitude;
+
+                    initial_latitude = parseFloat(38.79503);
+
+                    initial_longitude = parseFloat(-9.39289);
+
+                    var mymap = L.map('mapid').setView([initial_latitude, initial_longitude], 18);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mymap);
 
 
-    var elmApp = Elm.Main.init({
-        node: document.getElementById('elmAppOutputArea')
-        , flags: {
-            baseImgUrl: "https://sintraubuntuer.github.io/theme/images/estradaVelhaColaresAppImages/"
-            , baseSoundUrl: "https://sintraubuntuer.github.io/theme/sound/estradaVelhaColaresAppSound/"
-        }
-    }
-    );
+                var saveName = "misterioEstradaVelhaColares" + "_historyStr";
 
 
-    elmApp.ports.saveHistoryToStorage.subscribe(function (history) {
-
-        localStorage.setItem(saveName, JSON.stringify(history));
-
-    });
-
-    elmApp.ports.sendRequestForStoredHistory.subscribe(function (data) {
-        var storedState = localStorage.getItem(saveName);
-        var storedHistory = storedState ? JSON.parse(storedState) : ({ "playerName": "", "lInteractions": new Array() ,  "lPrandomFloats" : new Array() } );
-        elmApp.ports.getHistoryFromStorage.send(storedHistory)
-    });
+                    var elmApp = Elm.Main.init({
+                        node: document.getElementById('elmAppOutputArea')
+                        , flags: {
+                            baseImgUrl: "https://sintraubuntuer.github.io/theme/images/estradaVelhaColaresAppImages/"
+                            , baseSoundUrl: "https://sintraubuntuer.github.io/theme/sound/estradaVelhaColaresAppSound/"
+                        }
+                    }
+                    );
 
 
+                    elmApp.ports.saveHistoryToStorage.subscribe(function (history) {
 
-    elmApp.ports.sendRequestForGeolocation.subscribe(function (interactableId) {
-        if (!navigator.geolocation) {
-            console.log("Geolocation is not supported by your browser");
-            var failed_geolocation_info = { "interactableId": interactableId, "latitude": -999, "longitude": -999 };
+                        localStorage.setItem(saveName, JSON.stringify(history));
 
-            elmApp.ports.getGeolocationFromBrowser.send(failed_geolocation_info);
-            //return ;
-        } else {
+                    });
 
-            navigator.geolocation.getCurrentPosition(success, error);
-        }
-
-        function success(position) {
-            var latitude = position.coords.latitude;
-            var longitude = position.coords.longitude;
-
-            var geolocation_info = { "interactableId": interactableId, "latitude": latitude, "longitude": longitude };
-            elmApp.ports.getGeolocationFromBrowser.send(geolocation_info);
-
-        }
-
-        function error() {
-            //output.innerHTML = "Unable to retrieve your location";
-            console.log("Unable to retrieve your location");
-        }
-    });
-
-
-    elmApp.ports.setView.subscribe(function (data) {
-        mymap.setView.apply(mymap, data);
-    });
-
-
-    var myIcon = L.icon({
-
-        iconUrl: "https://sintraubuntuer.github.io/theme/images/estradaVelhaColaresAppImages/markers/mapmarker.png",
-        iconSize: [32, 32],
-    });
-
-    var myIconCurrent = L.icon({
-        iconUrl: "https://sintraubuntuer.github.io/theme/images/estradaVelhaColaresAppImages/markers/mapmarker_currentStage.png",
-        iconSize: [32, 32],
-    });
-
-    var myIconPlayer = L.icon({
-        iconUrl: "https://sintraubuntuer.github.io/theme/images/estradaVelhaColaresAppImages/markers/mapmarker_player.png",
-        iconSize: [32, 32],
-    });
-
-    var markerArray = new Array();
-
-    elmApp.ports.filterMarkersCmdPort.subscribe(function (data) {
-
-        markerArray.forEach(function (themarker) {
-            themarker.removeFrom(mymap);
-        });
-
-        var stageMarkerInfo = data.stageMarkerInfo;
-        stageMarkerInfo.forEach(function (coordsObj) {
-            var coords = coordsObj.coords;
-            var themarker;
-
-            if (coordsObj.marker_type == "current") {
-                themarker = L.marker(coords, { icon: myIconCurrent }).bindTooltip("current location :  \n  " + coordsObj.stageName + " ");
-            } else {
-                themarker = L.marker(coords, { icon: myIcon }).bindTooltip(" " + coordsObj.stageName + " ");
-            }
-            markerArray.push(themarker);
-            themarker.addTo(mymap);
-
-
-        });
-        // playerMarker
-        var thePlayerMarker = L.marker(data.playerCoords, { icon: myIconPlayer }).bindTooltip(" Player ");
-
-        markerArray.push(thePlayerMarker);
-        thePlayerMarker.addTo(mymap);
-    });
+                    elmApp.ports.sendRequestForStoredHistory.subscribe(function (data) {
+                        var storedState = localStorage.getItem(saveName);
+                        var storedHistory = storedState ? JSON.parse(storedState) : ({ "playerName": "", "lInteractions": new Array() , "lPrandomFloats" : new Array() });
+                        elmApp.ports.getHistoryFromStorage.send(storedHistory)
+                    });
 
 
 
+                    elmApp.ports.sendRequestForGeolocation.subscribe(function (interactableId) {
+                        if (!navigator.geolocation) {
+                            console.log("Geolocation is not supported by your browser");
+                            var failed_geolocation_info = { "interactableId": interactableId, "latitude": -999, "longitude": -999 };
 
-</script>
+                            elmApp.ports.getGeolocationFromBrowser.send(failed_geolocation_info);
+                            //return ;
+                        } else {
+
+                            navigator.geolocation.getCurrentPosition(success, error);
+                        }
+
+                        function success(position) {
+                            var latitude = position.coords.latitude;
+                            var longitude = position.coords.longitude;
+
+                            var geolocation_info = { "interactableId": interactableId, "latitude": latitude, "longitude": longitude };
+                            elmApp.ports.getGeolocationFromBrowser.send(geolocation_info);
+
+                        }
+
+                        function error() {
+                            //output.innerHTML = "Unable to retrieve your location";
+                            console.log("Unable to retrieve your location");
+                        }
+                    });
+
+
+                    elmApp.ports.setView.subscribe(function (data) {
+                        mymap.setView.apply(mymap, data);
+                    });
+
+
+                    var myIcon = L.icon({
+
+                        iconUrl: "https://sintraubuntuer.github.io/theme/images/estradaVelhaColaresAppImages/markers/mapmarker.png",
+                        iconSize: [32, 32],
+                    });
+
+                    var myIconCurrent = L.icon({
+                        iconUrl: "https://sintraubuntuer.github.io/theme/images/estradaVelhaColaresAppImages/markers/mapmarker_currentStage.png",
+                        iconSize: [32, 32],
+                    });
+
+                    var myIconPlayer = L.icon({
+                        iconUrl: "https://sintraubuntuer.github.io/theme/images/estradaVelhaColaresAppImages/markers/mapmarker_player.png",
+                        iconSize: [32, 32],
+                    });
+
+                    var markerArray = new Array();
+
+                    elmApp.ports.filterMarkersCmdPort.subscribe(function (data) {
+
+                        markerArray.forEach(function (themarker) {
+                            themarker.removeFrom(mymap);
+                        });
+
+                        var stageMarkerInfo = data.stageMarkerInfo;
+                        stageMarkerInfo.forEach(function (coordsObj) {
+                            var coords = coordsObj.coords;
+                            var themarker;
+
+                            if (coordsObj.marker_type == "current") {
+                                themarker = L.marker(coords, { icon: myIconCurrent }).bindTooltip("current location :  \n  " + coordsObj.stageName + " ");
+                            } else {
+                                themarker = L.marker(coords, { icon: myIcon }).bindTooltip(" " + coordsObj.stageName + " ");
+                            }
+                            markerArray.push(themarker);
+                            themarker.addTo(mymap);
+
+
+                        });
+                        // playerMarker
+                        var thePlayerMarker = L.marker(data.playerCoords, { icon: myIconPlayer }).bindTooltip(" Player ");
+
+                        markerArray.push(thePlayerMarker);
+                        thePlayerMarker.addTo(mymap);
+                    });
+
+
+
+
+        </script>
+
 
 
 
