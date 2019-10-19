@@ -12798,7 +12798,7 @@ var author$project$OurStory$Narrative$talkToTuristAtPalacioSeteaisDict = elm$cor
 var author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresAppears = _List_fromArray(
 	['\nPensa cuidadosamente sobre tudo o que te foi revelado\ne escreve na folha de papel  a resposta ...\n      ']);
 var author$project$OurStory$NarrativeEnglish$talkToWiseManAfterQuestionColaresAppearsEn = _List_fromArray(
-	['\nThink carefully about everything that has been revealed to you\nand write what you think is the answer on that piece of paper  \n\n  ( it will be easier to answer  if you know a bit about portuguese culture ... if not just concentrate on the curves ... \n      ']);
+	['\nThink carefully about everything that has been revealed to you\nand write what you think is the answer on that piece of paper \n      ']);
 var author$project$OurStory$Narrative$talkToWiseManAfterQuestionColaresAppearsDict = elm$core$Dict$fromList(
 	_List_fromArray(
 		[
@@ -12864,7 +12864,7 @@ var author$project$OurStory$Narrative$viewPhotosEstradaVelhaColaresDict = elm$co
 var author$project$OurStory$Narrative$viewQuestionAtColares = _List_fromArray(
 	['\nPensa cuidadosamente sobre tudo o que te foi revelado\ne escreve na folha de papel  a resposta ...\n      ']);
 var author$project$OurStory$NarrativeEnglish$viewQuestionAtColaresEn = _List_fromArray(
-	['\nThink carefully about everything that has been revealed to you\nand write what you think is the answer on that piece of paper  \n\n  ( it will be easier to answer  if you know a bit about portuguese culture ... if not just concentrate on the curves ...\n      ']);
+	['\nThink carefully about everything that has been revealed to you\nand write what you think is the answer on that piece of paper  \n      ']);
 var author$project$OurStory$Narrative$viewQuestionAtColaresDict = elm$core$Dict$fromList(
 	_List_fromArray(
 		[
