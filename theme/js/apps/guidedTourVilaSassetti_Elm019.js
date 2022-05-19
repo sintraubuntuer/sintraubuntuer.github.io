@@ -10659,13 +10659,11 @@ var author$project$OurStory$NarrativeDataStructures$theQuestionsDict = elm$core$
 				additionalTextIfIncorrectAnswer: author$project$Types$NoFeedbackText,
 				availableChoices: _List_fromArray(
 					[
-						_Utils_Tuple2('2', 'Dois (2)'),
-						_Utils_Tuple2('3', 'Tres (3)'),
-						_Utils_Tuple2('4', 'Quatro (4)'),
-						_Utils_Tuple2('5', 'Cinco (5)')
+						_Utils_Tuple2('0 a 4', 'Zero a Quatro (0-4)'),
+						_Utils_Tuple2('5 a 10', 'Cinco a Dez (5-10)')
 					]),
 				questionAnswers: _List_fromArray(
-					['2', 'dois']),
+					['0 a 4']),
 				questionBody: 'Quantos troncos ( cortados ) podes observar junto ao rochedo ?',
 				questionName: 'questão 7'
 			}),
@@ -10676,13 +10674,11 @@ var author$project$OurStory$NarrativeDataStructures$theQuestionsDict = elm$core$
 				additionalTextIfIncorrectAnswer: author$project$Types$NoFeedbackText,
 				availableChoices: _List_fromArray(
 					[
-						_Utils_Tuple2('2', 'Two (2)'),
-						_Utils_Tuple2('3', 'Three (3)'),
-						_Utils_Tuple2('4', 'Four (4)'),
-						_Utils_Tuple2('5', 'Five (5)')
+						_Utils_Tuple2('0 to 4', 'Zero to Four (0-4)'),
+						_Utils_Tuple2('5 to 10', 'Five to Ten (5-10)')
 					]),
 				questionAnswers: _List_fromArray(
-					['two']),
+					['0 to 4']),
 				questionBody: 'how many ( chopped ) logs can you see near the big rock',
 				questionName: 'question 7'
 			}),
@@ -13119,13 +13115,13 @@ var author$project$OurStory$NarrativeDataStructures$questionsMaxNrTries = elm$co
 			_Utils_Tuple2(201, elm$core$Maybe$Nothing),
 			_Utils_Tuple2(
 			301,
-			elm$core$Maybe$Just(3)),
+			elm$core$Maybe$Just(5)),
 			_Utils_Tuple2(
 			401,
 			elm$core$Maybe$Just(5)),
 			_Utils_Tuple2(
 			402,
-			elm$core$Maybe$Just(5)),
+			elm$core$Maybe$Just(6)),
 			_Utils_Tuple2(
 			501,
 			elm$core$Maybe$Just(5)),
@@ -13134,7 +13130,7 @@ var author$project$OurStory$NarrativeDataStructures$questionsMaxNrTries = elm$co
 			elm$core$Maybe$Just(5)),
 			_Utils_Tuple2(
 			701,
-			elm$core$Maybe$Just(5)),
+			elm$core$Maybe$Just(2)),
 			_Utils_Tuple2(
 			801,
 			elm$core$Maybe$Just(5)),
@@ -14526,7 +14522,7 @@ var author$project$OurStory$Rules$rules = function () {
 }();
 var author$project$Theme$AnswerBox$init = {answerBoxText: elm$core$Maybe$Nothing};
 var author$project$Theme$Settings$init = function (theLanguages) {
-	return {audioAutoplay: false, audioOptionsEnabled: true, availableLanguages: theLanguages, displayLanguage: 'pt', dontNeedToBeInZone: false, gpsOptionsEnabled: true, layoutWithSidebar: true, saveLoadEnabled: true, showAnswerBoxInSideBar: false, showExitToFinalScreenButton: false, showExpandedSettings: false, showSaveLoad: false, useOnlyButtons: false};
+	return {audioAutoplay: false, audioOptionsEnabled: true, availableLanguages: theLanguages, displayLanguage: 'pt', dontNeedToBeInZone: true, gpsOptionsEnabled: true, layoutWithSidebar: true, saveLoadEnabled: true, showAnswerBoxInSideBar: false, showExitToFinalScreenButton: false, showExpandedSettings: false, showSaveLoad: false, useOnlyButtons: false};
 };
 var author$project$Theme$Settings$update = F2(
 	function (msg, model) {
