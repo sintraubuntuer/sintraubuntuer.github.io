@@ -10637,7 +10637,7 @@ var author$project$OurStory$NarrativeDataStructures$theQuestionsDict = elm$core$
 				additionalTextIfIncorrectAnswer: author$project$Types$NoFeedbackText,
 				availableChoices: _List_Nil,
 				questionAnswers: _List_fromArray(
-					['sim', 'não', 'nao']),
+					['sim', 'não', 'nao', 'sim e não', 'sim e nao', 'nem sim nem não']),
 				questionBody: 'Parece-te uma cadeira confortável ?',
 				questionName: 'questão 6'
 			}),
@@ -10648,7 +10648,7 @@ var author$project$OurStory$NarrativeDataStructures$theQuestionsDict = elm$core$
 				additionalTextIfIncorrectAnswer: author$project$Types$NoFeedbackText,
 				availableChoices: _List_Nil,
 				questionAnswers: _List_fromArray(
-					['yes', 'no']),
+					['yes', 'no', 'yes and no', 'neither yes nor no']),
 				questionBody: 'Does it seem like a comfortable chair  ?',
 				questionName: 'question 6'
 			}),
@@ -10659,8 +10659,8 @@ var author$project$OurStory$NarrativeDataStructures$theQuestionsDict = elm$core$
 				additionalTextIfIncorrectAnswer: author$project$Types$NoFeedbackText,
 				availableChoices: _List_fromArray(
 					[
-						_Utils_Tuple2('0 a 4', 'Zero a Quatro (0-4)'),
-						_Utils_Tuple2('5 a 10', 'Cinco a Dez (5-10)')
+						_Utils_Tuple2('0 a 4', 'zero a quatro (0-4)'),
+						_Utils_Tuple2('5 a 10', 'cinco a dez (5-10)')
 					]),
 				questionAnswers: _List_fromArray(
 					['0 a 4']),
@@ -10674,8 +10674,8 @@ var author$project$OurStory$NarrativeDataStructures$theQuestionsDict = elm$core$
 				additionalTextIfIncorrectAnswer: author$project$Types$NoFeedbackText,
 				availableChoices: _List_fromArray(
 					[
-						_Utils_Tuple2('0 to 4', 'Zero to Four (0-4)'),
-						_Utils_Tuple2('5 to 10', 'Five to Ten (5-10)')
+						_Utils_Tuple2('0 to 4', 'zero to four (0-4)'),
+						_Utils_Tuple2('5 to 10', 'five to ten (5-10)')
 					]),
 				questionAnswers: _List_fromArray(
 					['0 to 4']),
