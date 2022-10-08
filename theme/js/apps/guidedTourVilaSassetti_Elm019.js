@@ -10637,7 +10637,7 @@ var author$project$OurStory$NarrativeDataStructures$theQuestionsDict = elm$core$
 				additionalTextIfIncorrectAnswer: author$project$Types$NoFeedbackText,
 				availableChoices: _List_Nil,
 				questionAnswers: _List_fromArray(
-					['sim', 'não', 'nao', 'sim e não', 'sim e nao', 'nem sim nem não']),
+					['sim', 'não', 'nao', 'sim e não', 'sim e nao', 'nem sim nem não', 'talvez']),
 				questionBody: 'Parece-te uma cadeira confortável ?',
 				questionName: 'questão 6'
 			}),
@@ -10648,7 +10648,7 @@ var author$project$OurStory$NarrativeDataStructures$theQuestionsDict = elm$core$
 				additionalTextIfIncorrectAnswer: author$project$Types$NoFeedbackText,
 				availableChoices: _List_Nil,
 				questionAnswers: _List_fromArray(
-					['yes', 'no', 'yes and no', 'neither yes nor no']),
+					['yes', 'no', 'yes and no', 'neither yes nor no', 'maybe']),
 				questionBody: 'Does it seem like a comfortable chair  ?',
 				questionName: 'question 6'
 			}),
@@ -12616,7 +12616,32 @@ var author$project$OurStory$Manifest$initialLocations = _List_fromArray(
 var author$project$OurStory$Manifest$locations = A2(author$project$OurStory$Manifest$getListOfLocations, author$project$OurStory$Manifest$initialLocations, author$project$OurStory$NarrativeDSFuncs$getNumberOfDesiredStages);
 var author$project$OurStory$Manifest$playerId = 'playerOne';
 var author$project$OurStory$Narrative$endScreenInfo = {congratsMessage1: 'Congratulations !!! ', congratsMessage2: 'Now go look for that cache  :)', endScreenText: '....\n                        ', mainImage: 'finalImage.png'};
-var author$project$OurStory$Narrative$startScreenInfo = {byLine: 'An Interactive Story by Sintra Ubuntuer', mainImage: 'introImage.png', smallIntro: ' a guided tour through Vila Sassetti ( Quinta da Amizade ) - Sintra  \n                     ', tboxNamePlaceholder: 'investigator', title_line1: 'A Guided Tour Through Vila Sassetti - Sintra', title_line2: '', warningNotes: ' \n\n__warning__ : You can play this on your computer ( before actually going to the spot  \n  \n  to gather the required info ) by going to settings and selecting \'not check gps position\'  \n\n  Do not press the browser\'s back or forward buttons while playing . Narrative (game) takes place on a single page . If you leave , game will be restarted ( and your progress lost ) when you return to the page !\n  \n  Villa Sassetti is open 10h - 18h : High Season , and  9h -17h - Low Season\n\n  If playing on a smartphone you should probably  choose \'buttons\' ( last \'settings\' option ) \n\n  smartphone gps accuracy is not allways very good ,  consider taking a GPSr device with you if you have one ...  \n\n  (tested on pc and android with chrome , chromium  and firefox browsers )\n  '};
+var author$project$OurStory$Narrative$warningNotesEnglish = '\n\n__warning__ : You can ( and probably should  ) solve this mystery at home on your computer before actually going to the spot :\n\nit guarantees that you already have the geocache final coordinates and don\'t have to travel to the spot more than once.\nAll questions can be answered without going to the physical location by reading and searching carefully for the required info.\n\n\nDo not press the browser\'s back or forward buttons while playing . Narrative (game) takes place on a single page .\n\nIf you leave , game will be restarted ( and your progress lost ) when you return to the page !\n\nVilla Sassetti is open 10h - 18h : High Season , and  9h -17h - Low Season\n\n  \n\nIf playing on a smartphone you should probably  choose \'buttons\' ( last \'settings\' option )\n\nsmartphone gps accuracy is not allways very good ,  consider taking a GPSr device with you if you have one ...\n\n(tested on pc and android with chrome , chromium  and firefox browsers )\n';
+var author$project$OurStory$Narrative$warningNotesPortuguese = '\n\n__aviso__ : Pode ( e possivelmente deve ) resolver o mistério em casa no seu computador antes de ir fisicamente ao local :\n\ndessa forma garante que tem as coordenadas finais da geocache não tendo que se deslocar mais do que uma vez ao local.\n\nTodas as questões podem ser respondidas sem a necessidade de ir fisicamente ao local lendo atentamente e pesquisando pela informação necessária .\n\n\nNão pressione os botões back ou forward do browser. A narrativa (jogo) decorre numa única página . Se abandonar a página , o jogo será recomeçado ( e o seu progresso perdido ) quando regressar à página !\n\nVilla Sassetti está aberta das 10h às 18h : Temporada Alta , e das  9h às 17h - Temporada Baixa\n\n\n\nSe utilizar o smartphone deve possivelmente escolher  \'regular buttons\' ( a última opção em \'settings\' )\n\na precisão do gps do smartphone nem sempre é muito boa , pelo que deve considerar levar também um gps portátil caso possua um ...\n\n(testado no pc e android nos browsers chrome , chromium  e firefox )\n';
+var author$project$OurStory$Narrative$startScreenInfo = {
+	byLine: elm$core$Dict$fromList(
+		_List_fromArray(
+			[
+				_Utils_Tuple2('pt', 'Uma história Interactiva por Sintra Ubuntuer'),
+				_Utils_Tuple2('en', 'An Interactive Story by Sintra Ubuntuer')
+			])),
+	mainImage: 'introImage.png',
+	smallIntro: elm$core$Dict$fromList(
+		_List_fromArray(
+			[
+				_Utils_Tuple2('en', ' a guided tour through Vila Sassetti ( Quinta da Amizade ) - Sintra\n                     '),
+				_Utils_Tuple2('pt', ' uma visita guiada a Vila Sassetti ( Quinta da Amizade ) - Sintra\n                          ')
+			])),
+	tboxNamePlaceholder: 'investigator',
+	title_line1: 'A Guided Tour Through Vila Sassetti - Sintra',
+	title_line2: '',
+	warningNotes: elm$core$Dict$fromList(
+		_List_fromArray(
+			[
+				_Utils_Tuple2('pt', author$project$OurStory$Narrative$warningNotesPortuguese),
+				_Utils_Tuple2('en', author$project$OurStory$Narrative$warningNotesEnglish)
+			]))
+};
 var author$project$OurStory$Narrative$startingNarrative = {interactableCssSelector: 'opening', interactableId: 'onceUponAtime', interactableName: 'Percurso Pedestre Vila Sassetti...', isLastInZipper: true, isWritable: false, mbAudio: elm$core$Maybe$Nothing, mbSuggestedInteractionId: elm$core$Maybe$Nothing, mbSuggestedInteractionName: elm$core$Maybe$Nothing, narrative: 'Num  dia luminoso de Setembro encontras-te na\n            bela Vila de Sintra prestes a iniciar o percurso pedestre de Vila Sassetti\n            ( Quinta da Amizade )\n         ', suggestedInteractionCaption: 'interacção sugerida : '};
 var author$project$OurStory$Narrative$startingNarrativeEn = {interactableCssSelector: 'opening', interactableId: 'onceUponAtime', interactableName: 'Pedestrian Footpath...', isLastInZipper: true, isWritable: false, mbAudio: elm$core$Maybe$Nothing, mbSuggestedInteractionId: elm$core$Maybe$Nothing, mbSuggestedInteractionName: elm$core$Maybe$Nothing, narrative: 'On a shiny September day you find yourself in the magnificent Vila de Sintra\n             about to start Vila Sassetti ( Quinta da Amizade ) pedestrian footpath ...\n       ', suggestedInteractionCaption: 'suggested interaction : '};
 var author$project$OurStory$Narrative$startingNarratives = elm$core$Dict$fromList(
@@ -13559,8 +13584,8 @@ var author$project$GeoCipher$GeoCipher$augmentedKeyedCaesarDecrypt = F3(
 	});
 var author$project$OurStory$Narrative$hintEn = '( XP XFB MBCX PC XFB XUVGM ... KMGNL 6 NBXBU ... ZOYBU XFB UPKJW ) ';
 var author$project$OurStory$Narrative$hintPT = '( YP MVYP BWRZBUYP YP XUGMFP ... WPLB 6 NBXUP ... YBLVG2P YVW QBYUVW ) ';
-var author$project$OurStory$Narrative$suggestedPathToCacheEn = ' _  \n\n\nWZDDBWXBY QVXF : CPMMP1 XFGW XUVGM ZOXGM 3PZ UBVKF 1V3QPGOX 6 : O8T 9E.99S , 155I 78.9TT ,  \n  \nXZUO UGDFX XP 1V3QPGOX 7 : O8T 9E.8AE , 155I 78.S9I   ,  \n\nXZUO UGDFX VOY 1VMJ XP KVKFB KPPUYGOVXBW !\n\n    ';
-var author$project$OurStory$Narrative$suggestedPathToCachePT = '  _  \n\n\nKVNGOFP WZDBUGYP : WBDZB OBWXB XUGMFP VXÉ VP 1V3QPGOX 6 : O8T 9E.99S , 155I 78.9TT ,  \n  \nWBDZB QVUV V YGUBGXV VXÉ VP 1V3QPGOX 7 : O8T 9E.8AE , 155I 78.S9I   ,  \n\nWBDZB QVUV V YGUBGXV VXÉ À KVKFB !\n    ';
+var author$project$OurStory$Narrative$suggestedPathToCacheEn = ' _\n\n\nWZDDBWXBY QVXF : CPMMP1 XFGW XUVGM ZOXGM 3PZ UBVKF 1V3QPGOX 6 : O8T 9E.99S , 155I 78.9TT ,\n\nXZUO UGDFX XP 1V3QPGOX 7 : O8T 9E.8AE , 155I 78.S9I   ,\n\nXZUO UGDFX VOY 1VMJ XP KVKFB KPPUYGOVXBW !\n\n    ';
+var author$project$OurStory$Narrative$suggestedPathToCachePT = '  _\n\n\nKVNGOFP WZDBUGYP : WBDZB OBWXB XUGMFP VXÉ VP 1V3QPGOX 6 : O8T 9E.99S , 155I 78.9TT ,\n\nWBDZB QVUV V YGUBGXV VXÉ VP 1V3QPGOX 7 : O8T 9E.8AE , 155I 78.S9I   ,\n\nWBDZB QVUV V YGUBGXV VXÉ À KVKFB !\n    ';
 var author$project$OurStory$Narrative$encriptedMsg = function (lgId) {
 	var encCoords = ' O8T 9E.898 155I 78.A9E ';
 	return (lgId === 'pt') ? ('KPPUYGOVXBW : ' + (encCoords + (author$project$OurStory$Narrative$hintPT + author$project$OurStory$Narrative$suggestedPathToCachePT))) : ('KPPUYGOVXBW : ' + (encCoords + (author$project$OurStory$Narrative$hintEn + author$project$OurStory$Narrative$suggestedPathToCacheEn)));
@@ -13581,11 +13606,11 @@ var author$project$OurStory$Narrative$finalMessage = function (lgId) {
 };
 var author$project$OurStory$Narrative$interactingWithFinalPaperEn = _List_fromArray(
 	[
-		'\nCongratulations ! You overcome all challenges.  \n\n...  ' + author$project$OurStory$Narrative$finalMessage('en')
+		'\nCongratulations ! You overcome all challenges.\n\n...  ' + author$project$OurStory$Narrative$finalMessage('en')
 	]);
 var author$project$OurStory$Narrative$interactingWithFinalPaperPt = _List_fromArray(
 	[
-		'\nParabéns ! Superaste todos os desafios propostos.  \n\n...  ' + author$project$OurStory$Narrative$finalMessage('pt')
+		'\nParabéns ! Superaste todos os desafios propostos.\n\n...  ' + author$project$OurStory$Narrative$finalMessage('pt')
 	]);
 var author$project$OurStory$Narrative$interactingWithFinalPaperDict = elm$core$Dict$fromList(
 	_List_fromArray(
@@ -17757,6 +17782,77 @@ var author$project$Main$viewMainGame = function (model) {
 var author$project$ClientTypes$StartMainGameNewPlayerName = function (a) {
 	return {$: 'StartMainGameNewPlayerName', a: a};
 };
+var author$project$Theme$StartScreen$chooseYourUsernameEn = 'Please type your username to start game : ';
+var author$project$Theme$StartScreen$chooseYourUsername = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', 'Por favor escolha o seu nome de utilizador para iniciar o jogo : '),
+			_Utils_Tuple2('en', author$project$Theme$StartScreen$chooseYourUsernameEn)
+		]));
+var author$project$Theme$StartScreen$optionLanguagesView = F2(
+	function (availableLanguages, displayLanguageId) {
+		var languagesDropdownCssClass = 'form-control languagesDropdown';
+		return A2(
+			elm$html$Html$div,
+			_List_fromArray(
+				[
+					elm$html$Html$Attributes$class('form-group')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					elm$html$Html$label,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$class('col-form-label')
+						]),
+					_List_fromArray(
+						[
+							elm$html$Html$text(
+							A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___Language___'))
+						])),
+					A2(
+					elm$html$Html$div,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$class('')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							elm$html$Html$select,
+							_List_fromArray(
+								[
+									elm$html$Html$Attributes$class(languagesDropdownCssClass),
+									elm$html$Html$Events$onInput(author$project$ClientTypes$ChangeOptionDisplayLanguage)
+								]),
+							A2(
+								elm$core$List$map,
+								function (item) {
+									return A2(
+										elm$html$Html$option,
+										_List_fromArray(
+											[
+												elm$html$Html$Attributes$selected(
+												_Utils_eq(item.id, displayLanguageId)),
+												elm$html$Html$Attributes$value(item.id)
+											]),
+										_List_fromArray(
+											[
+												elm$html$Html$text(item.name)
+											]));
+								},
+								elm$core$Dict$values(
+									A2(
+										elm$core$Dict$map,
+										F2(
+											function (k, v) {
+												return {id: k, name: v};
+											}),
+										availableLanguages))))
+						]))
+				]));
+	});
 var author$project$Theme$StartScreen$options = function () {
 	var dOptions = elm_explorations$markdown$Markdown$defaultOptions;
 	return _Utils_update(
@@ -17764,8 +17860,8 @@ var author$project$Theme$StartScreen$options = function () {
 		{sanitize: true});
 }();
 var elm$html$Html$img = _VirtualDom_node('img');
-var author$project$Theme$StartScreen$view = F3(
-	function (baseImgUrl, startScreenInfo, answerBoxModel) {
+var author$project$Theme$StartScreen$view = F5(
+	function (baseImgUrl, startScreenInfo, availableLanguages, displayLanguageId, answerBoxModel) {
 		var imgUrl = (baseImgUrl === '') ? ('img/' + startScreenInfo.mainImage) : _Utils_ap(baseImgUrl, startScreenInfo.mainImage);
 		return A2(
 			elm$html$Html$div,
@@ -17795,7 +17891,11 @@ var author$project$Theme$StartScreen$view = F3(
 						]),
 					_List_fromArray(
 						[
-							elm$html$Html$text(startScreenInfo.byLine)
+							elm$html$Html$text(
+							A2(
+								elm$core$Maybe$withDefault,
+								'creator info not available in selected language',
+								A2(elm$core$Dict$get, displayLanguageId, startScreenInfo.byLine)))
 						])),
 					A2(
 					elm$html$Html$div,
@@ -17806,11 +17906,24 @@ var author$project$Theme$StartScreen$view = F3(
 					_List_fromArray(
 						[
 							A2(
-							elm$html$Html$p,
-							_List_Nil,
+							elm$html$Html$div,
 							_List_fromArray(
 								[
-									elm$html$Html$text(startScreenInfo.smallIntro)
+									elm$html$Html$Attributes$class('textCenter')
+								]),
+							_List_fromArray(
+								[
+									A2(
+									elm$html$Html$p,
+									_List_Nil,
+									_List_fromArray(
+										[
+											elm$html$Html$text(
+											A2(
+												elm$core$Maybe$withDefault,
+												'intro not available in selected language',
+												A2(elm$core$Dict$get, displayLanguageId, startScreenInfo.smallIntro)))
+										]))
 								])),
 							A2(elm$html$Html$br, _List_Nil, _List_Nil),
 							A2(elm$html$Html$br, _List_Nil, _List_Nil),
@@ -17824,8 +17937,26 @@ var author$project$Theme$StartScreen$view = F3(
 							_List_Nil),
 							A2(elm$html$Html$br, _List_Nil, _List_Nil),
 							A2(elm$html$Html$br, _List_Nil, _List_Nil),
+							A2(
+							elm$html$Html$div,
+							_List_fromArray(
+								[
+									elm$html$Html$Attributes$class('textCenter')
+								]),
+							_List_fromArray(
+								[
+									A2(author$project$Theme$StartScreen$optionLanguagesView, availableLanguages, displayLanguageId)
+								])),
 							A2(elm$html$Html$br, _List_Nil, _List_Nil),
-							A3(elm_explorations$markdown$Markdown$toHtmlWith, author$project$Theme$StartScreen$options, _List_Nil, startScreenInfo.warningNotes)
+							A2(elm$html$Html$br, _List_Nil, _List_Nil),
+							A3(
+							elm_explorations$markdown$Markdown$toHtmlWith,
+							author$project$Theme$StartScreen$options,
+							_List_Nil,
+							A2(
+								elm$core$Maybe$withDefault,
+								'warnings not available in selected language',
+								A2(elm$core$Dict$get, displayLanguageId, startScreenInfo.warningNotes)))
 						])),
 					A2(
 					elm$html$Html$div,
@@ -17840,7 +17971,11 @@ var author$project$Theme$StartScreen$view = F3(
 							_List_Nil,
 							_List_fromArray(
 								[
-									elm$html$Html$text('Please type your name to start game : ')
+									elm$html$Html$text(
+									A2(
+										elm$core$Maybe$withDefault,
+										author$project$Theme$StartScreen$chooseYourUsernameEn,
+										A2(elm$core$Dict$get, displayLanguageId, author$project$Theme$StartScreen$chooseYourUsername)))
 								])),
 							A6(
 							author$project$Theme$AnswerBox$view,
@@ -17876,7 +18011,7 @@ var author$project$Theme$StartScreen$view = F3(
 	});
 var author$project$Main$viewStartScreen = F2(
 	function (baseImgUrl, model) {
-		return A3(author$project$Theme$StartScreen$view, baseImgUrl, model.startScreenInfo, model.answerBoxModel);
+		return A5(author$project$Theme$StartScreen$view, baseImgUrl, model.startScreenInfo, model.settingsModel.availableLanguages, model.settingsModel.displayLanguage, model.answerBoxModel);
 	});
 var author$project$Theme$EndScreen$view = F2(
 	function (baseImgUrl, endScreenInfo) {

@@ -11957,7 +11957,34 @@ var author$project$OurStory$Manifest$locations = _List_fromArray(
 	]);
 var author$project$OurStory$Manifest$playerId = 'playerOne';
 var author$project$OurStory$Narrative$endScreenInfo = {bT: 'Congratulations !!! ', bU: '', b3: '....\n                        ', ba: 'finalImage.png'};
-var author$project$OurStory$Narrative$startScreenInfo = {bJ: 'An Interactive Story by Sintra Ubuntuer', ba: 'estradaVelhaColares.png', c8: ' Estrada Velha de Colares and the different names it assumes between Sintra and Colares\n                       constitutes a brain cracking mystery that puzzled several brilliant minds\n                       throughout the ages ...\n\n                     ', di: 'investigator', dl: 'O Mistério da Estrada Velha', dm: ' de Colares', dr: '\n\n__warning__ :  __There are two possible ways to play this game__ :\n\n  i ) the recommended way : solve the mystery on your computer before going to the physical location ( by  going to settings and selecting \'do not check gps position\' )\n  which is Safer and guarantees that you will not have to travel to the place more than once ( remember this is a hard to solve mystery )\n  . All questions can be answered without going to the physical location by reading carefully all the text and/or researching on the internet .\n\n  ii ) the not so recommended way : going to the physical location and travelling from Sintra to Colares.\n  again : this is a hard to solve mystery and this might mean you have to travel back and forth for a long time and a lot of miles !\n  You should only choose this option if you are more than 18 years old  , and be extra carefull if you decide to take kids or pets with you -\n  This is a road that doesn\'t have much traffic ,  but that might still be risky for kids and pets !\n\n  Depending on the way you choose to go to the physical locations you should consider wearing a reflective jacket !\n\n  After you solve the mistery and get the final location coordinates the game is played in off-road trails ( which probably makes it ok for everyone with a good physical condition )\n\n  Do not press the browser\'s back or forward buttons while playing . Narrative (game) takes place on a single page . If you leave , game will be restarted ( and your progress lost ) when you return to the page !\n\n\n  If playing on a smartphone you probably should choose \'buttons\' ( last \'settings\' option)\n\n  smartphone gps accuracy is not allways very good ,  consider taking a GPSr device with you if you have one ...\n\n  (tested on pc and android with chrome , chromium  and firefox browsers )\n  '};
+var author$project$OurStory$Narrative$warningNotesEnglish = _List_fromArray(
+	['\n\n__warning__ :  __There are two possible ways to play this game__ :\n\ni ) the recommended way : solve the mystery on your computer before going to the physical location ( by  going to settings and selecting \'do not check gps position\' )\nwhich is Safer and guarantees that you will not have to travel to the place more than once ( remember this is a hard to solve mystery )\n. All questions can be answered without going to the physical location by reading carefully all the text and/or researching on the internet .\n\nii ) the not so recommended way : going to the physical location and travelling from Sintra to Colares.\nagain : this is a hard to solve mystery and this might mean you have to travel back and forth for a long time and a lot of miles !\nYou should only choose this option if you are more than 18 years old  , and be extra carefull if you decide to take kids or pets with you -\nThis is a road that doesn\'t have much traffic ,  but that might still be risky for kids and pets !\n\nDepending on the way you choose to go to the physical locations you should consider wearing a reflective jacket !\n', '\n\nAfter you solve the mistery and get the geocache coordinates the game is played in off-road trails ( which probably makes it ok for everyone with a good physical condition )\n\n', '\n\nDo not press the browser\'s back or forward buttons while playing . Narrative (game) takes place on a single page . If you leave , game will be restarted ( and your progress lost ) when you return to the page !\n\n\nIf playing on a smartphone you probably should choose \'buttons\' ( last \'settings\' option)\n\nsmartphone gps accuracy is not allways very good ,  consider taking a GPSr device with you if you have one ...\n\n(tested on pc and android with chrome , chromium  and firefox browsers )\n']);
+var author$project$OurStory$Narrative$warningNotesPortuguese = _List_fromArray(
+	['\n\n__aviso__ :  __Existem duas formas possíveis de jogar__ :\n\ni ) a forma recomendada : resolver o enigma no seu computador antes de ir fisicamente ao local ( nos settings escolha \'do not check gps position\' )\no que é mais seguro e garante que não terá que viajar ao local mais do que uma vez ( lembre-se que este é um mistério de difícil resolução )\n. Todas as questões podem ser respondidas sem a necessidade de ir fisicamente ao local lendo atentamente todo o texto e/ou pesquisando na net .\n\nii ) a forma não muito recomendada : ir fisicamente ao local e viajar entre Sintra e Colares.\nnovamente: este é um mistério de difícil resolução o que pode implicar que tenha que se deslocar para a frente e para trás percorrendo no total um grande número de km !\nDeve escolher esta opção apenas se tiver mais de 18 anos de idade  , e ser extremamente cauteloso se decidir levar animais ou crianças consigo -\nEsta é uma estrada com pouco trânsito , mas que poderá ainda assim ser arriscada para crianças e animais !\n\nDependendo da sua escolha poderá ser recomendável a utilização de um colete reflector !\n', '\nApós a resolução do mistério e a obtenção das coordenadas finais a caminhada até à geocache decorre em trilhos da Serra ( sendo acessível a todos os que não estejam em má condição física  )\n', '\nNão pressione os botões back ou forward do browser. A narrativa (jogo) decorre numa única página . Se abandonar a página , o jogo será recomeçado ( e o seu progresso perdido ) quando regressar à página !\n\n\nSe utilizar o smartphone deve possivelmente escolher  \'regular buttons\' ( a última opção em \'settings\' )\n\na precisão do gps do smartphone nem sempre é muito boa , pelo que deve considerar levar também um gps portátil caso possua um ...\n\n(testado no pc e android nos browsers chrome , chromium  e firefox )\n']);
+var author$project$OurStory$Narrative$startScreenInfo = {
+	bJ: elm$core$Dict$fromList(
+		_List_fromArray(
+			[
+				_Utils_Tuple2('pt', 'Uma história Interactiva por Sintra Ubuntuer'),
+				_Utils_Tuple2('en', 'An Interactive Story by Sintra Ubuntuer')
+			])),
+	ba: 'estradaVelhaColares.png',
+	c8: elm$core$Dict$fromList(
+		_List_fromArray(
+			[
+				_Utils_Tuple2('pt', ' Estrada Velha de Colares e as suas diferentes designações entre Sintra e Colares\n                          constituem um intrincado mistério que perturba/perturbou muitos cérebros brilhantes ao longo dos tempos\n                          ...\n\n                       '),
+				_Utils_Tuple2('en', ' Estrada Velha de Colares and the different names it assumes between Sintra and Colares\n                            constitutes a brain cracking mystery that puzzled several brilliant minds\n                            throughout the ages ...\n\n                         ')
+			])),
+	di: 'investigator',
+	dl: 'O Mistério da Estrada Velha',
+	dm: ' de Colares',
+	dr: elm$core$Dict$fromList(
+		_List_fromArray(
+			[
+				_Utils_Tuple2('pt', author$project$OurStory$Narrative$warningNotesPortuguese),
+				_Utils_Tuple2('en', author$project$OurStory$Narrative$warningNotesEnglish)
+			]))
+};
 var author$project$OurStory$Narrative$startingNarrative = {a6: 'opening', a7: 'OnceUponAtime', a8: 'Once upon a time...', co: true, cp: false, cD: elm$core$Maybe$Nothing, cJ: elm$core$Maybe$Nothing, cK: elm$core$Maybe$Nothing, cN: 'Todas as histórias têm um começo , ainda que por vezes não seja fácil determinar\n          o momento exacto em que se iniciam ( ou terminam ) ...\n           Assim parecia ser também o caso da Estrada Velha de Colares\n           e os seus diferentes nomes entre Sintra e Colares ...\n    ', dg: 'interacção sugerida : '};
 var author$project$OurStory$Narrative$startingNarrativeEn = {a6: 'opening', a7: 'OnceUponAtime', a8: 'Once upon a time...', co: true, cp: false, cD: elm$core$Maybe$Nothing, cJ: elm$core$Maybe$Nothing, cK: elm$core$Maybe$Nothing, cN: 'Every Story has a beginning , even though it\'s not allways easy to determine the exact moment\n        in which it starts ( or ends ) . That  seemed to also be the case with Estrada Velha de Colares\n        and its several different names between Sintra and Colares ...\n', dg: 'interacção sugerida : '};
 var author$project$OurStory$Narrative$startingNarratives = elm$core$Dict$fromList(
@@ -12607,6 +12634,24 @@ var author$project$OurStory$Narrative$byronsPoemMonserrateDict = elm$core$Dict$f
 			_Utils_Tuple2('pt', author$project$OurStory$Narrative$byronsPoemMonserrate),
 			_Utils_Tuple2('en', author$project$OurStory$NarrativeEnglish$byronsPoemMonserrateEn)
 		]));
+var author$project$OurStory$MisterioCustomFuncs$decCongrats = function (themsg) {
+	return A3(author$project$OurStory$MisterioCustomFuncs$decFunc, 8, 'byronmonserrate', themsg);
+};
+var author$project$OurStory$Narrative$decCongratMessageEn = A2(
+	elm$core$Maybe$withDefault,
+	'',
+	author$project$OurStory$MisterioCustomFuncs$decCongrats('\n\n\nLFFW 1IJ0 CVDF, 6V2 4JPP UFFD J1 GVZ G212ZF AD3FU12ZF0.\n\nCVUHZA12PA1JVU0 !\n'));
+var author$project$OurStory$Narrative$decCongratMessagePt = A2(
+	elm$core$Maybe$withDefault,
+	'',
+	author$project$OurStory$MisterioCustomFuncs$decCongrats('\n\n\nH2AZDF F01F CVDJHV , WZFCJ0AZA DFPF WAZA G212ZA0 A3FU12ZA0.\n\nWAZATFU0 !\n'));
+var author$project$OurStory$MisterioCustomFuncs$decSecretCode = function (themsg) {
+	return A3(author$project$OurStory$MisterioCustomFuncs$decFunc, 11, 'byronmonserrate', themsg);
+};
+var author$project$OurStory$Narrative$decriptSecretCode = A2(
+	elm$core$Maybe$withDefault,
+	'',
+	author$project$OurStory$MisterioCustomFuncs$decSecretCode('\n\n\nD15PWDP35WD6IB3ID02IXHIWIHP4DXHZ\n\n'));
 var author$project$OurStory$MisterioCustomFuncs$sCoordsGPSFormatStr = function (scoordsTuple) {
 	return A2(author$project$GpsUnitConverter$convertDecimalTupleToGps, scoordsTuple, false);
 };
@@ -14859,11 +14904,11 @@ var author$project$OurStory$Rules$rules = elm$core$Dict$fromList(
 																										_Utils_Tuple2(
 																										'pt',
 																										_List_fromArray(
-																											['Um papel antigo com algo escrito : Parabéns ! '])),
+																											['Um papel antigo com algo escrito : ' + (author$project$OurStory$Narrative$decriptSecretCode + author$project$OurStory$Narrative$decCongratMessagePt)])),
 																										_Utils_Tuple2(
 																										'en',
 																										_List_fromArray(
-																											['An ancient piece of paper with something written in it : Congratulations !  ']))
+																											['An ancient piece of paper with something written in it : ' + (author$project$OurStory$Narrative$decriptSecretCode + author$project$OurStory$Narrative$decCongratMessageEn)]))
 																									]))),
 																							A3(
 																							author$project$OurStory$Rules$rule,
@@ -18377,15 +18422,107 @@ var author$project$Main$viewMainGame = function (model) {
 var author$project$ClientTypes$StartMainGameNewPlayerName = function (a) {
 	return {$: 1, a: a};
 };
+var author$project$Theme$StartScreen$chooseYourUsernameEn = 'Please type your username to start game : ';
+var author$project$Theme$StartScreen$chooseYourUsername = elm$core$Dict$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2('pt', 'Por favor escolha o seu nome de utilizador para iniciar o jogo : '),
+			_Utils_Tuple2('en', author$project$Theme$StartScreen$chooseYourUsernameEn)
+		]));
+var author$project$Theme$StartScreen$optionLanguagesView = F2(
+	function (availableLanguages, displayLanguageId) {
+		var languagesDropdownCssClass = 'form-control languagesDropdown';
+		return A2(
+			elm$html$Html$div,
+			_List_fromArray(
+				[
+					elm$html$Html$Attributes$class('form-group')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					elm$html$Html$label,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$class('col-form-label')
+						]),
+					_List_fromArray(
+						[
+							elm$html$Html$text(
+							A2(author$project$TranslationHelper$getInLanguage, displayLanguageId, '___Language___'))
+						])),
+					A2(
+					elm$html$Html$div,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$class('')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							elm$html$Html$select,
+							_List_fromArray(
+								[
+									elm$html$Html$Attributes$class(languagesDropdownCssClass),
+									elm$html$Html$Events$onInput(author$project$ClientTypes$ChangeOptionDisplayLanguage)
+								]),
+							A2(
+								elm$core$List$map,
+								function (item) {
+									return A2(
+										elm$html$Html$option,
+										_List_fromArray(
+											[
+												elm$html$Html$Attributes$selected(
+												_Utils_eq(item.a5, displayLanguageId)),
+												elm$html$Html$Attributes$value(item.a5)
+											]),
+										_List_fromArray(
+											[
+												elm$html$Html$text(item.D)
+											]));
+								},
+								elm$core$Dict$values(
+									A2(
+										elm$core$Dict$map,
+										F2(
+											function (k, v) {
+												return {a5: k, D: v};
+											}),
+										availableLanguages))))
+						]))
+				]));
+	});
 var author$project$Theme$StartScreen$options = function () {
 	var dOptions = elm_explorations$markdown$Markdown$defaultOptions;
 	return _Utils_update(
 		dOptions,
 		{c0: true});
 }();
+var elm$core$String$contains = _String_contains;
 var elm$html$Html$img = _VirtualDom_node('img');
-var author$project$Theme$StartScreen$view = F3(
-	function (baseImgUrl, startScreenInfo, answerBoxModel) {
+var author$project$Theme$StartScreen$view = F6(
+	function (baseImgUrl, startScreenInfo, availableLanguages, displayLanguageId, isGC, answerBoxModel) {
+		var warningNotes = isGC ? A2(
+			elm$core$String$join,
+			' ',
+			A2(
+				elm$core$Maybe$withDefault,
+				_List_fromArray(
+					['warnings not available in selected language']),
+				A2(elm$core$Dict$get, displayLanguageId, startScreenInfo.dr))) : A2(
+			elm$core$String$join,
+			' ',
+			A2(
+				elm$core$List$filter,
+				function (x) {
+					return !A2(elm$core$String$contains, 'geocache', x);
+				},
+				A2(
+					elm$core$Maybe$withDefault,
+					_List_fromArray(
+						['warnings not available in selected language']),
+					A2(elm$core$Dict$get, displayLanguageId, startScreenInfo.dr))));
 		var imgUrl = (baseImgUrl === '') ? ('img/' + startScreenInfo.ba) : _Utils_ap(baseImgUrl, startScreenInfo.ba);
 		return A2(
 			elm$html$Html$div,
@@ -18415,7 +18552,11 @@ var author$project$Theme$StartScreen$view = F3(
 						]),
 					_List_fromArray(
 						[
-							elm$html$Html$text(startScreenInfo.bJ)
+							elm$html$Html$text(
+							A2(
+								elm$core$Maybe$withDefault,
+								'creator info not available in selected language',
+								A2(elm$core$Dict$get, displayLanguageId, startScreenInfo.bJ)))
 						])),
 					A2(
 					elm$html$Html$div,
@@ -18430,7 +18571,11 @@ var author$project$Theme$StartScreen$view = F3(
 							_List_Nil,
 							_List_fromArray(
 								[
-									elm$html$Html$text(startScreenInfo.c8)
+									elm$html$Html$text(
+									A2(
+										elm$core$Maybe$withDefault,
+										'intro not available in selected language',
+										A2(elm$core$Dict$get, displayLanguageId, startScreenInfo.c8)))
 								])),
 							A2(elm$html$Html$br, _List_Nil, _List_Nil),
 							A2(elm$html$Html$br, _List_Nil, _List_Nil),
@@ -18444,8 +18589,19 @@ var author$project$Theme$StartScreen$view = F3(
 							_List_Nil),
 							A2(elm$html$Html$br, _List_Nil, _List_Nil),
 							A2(elm$html$Html$br, _List_Nil, _List_Nil),
+							A2(
+							elm$html$Html$div,
+							_List_fromArray(
+								[
+									elm$html$Html$Attributes$class('textCenter')
+								]),
+							_List_fromArray(
+								[
+									A2(author$project$Theme$StartScreen$optionLanguagesView, availableLanguages, displayLanguageId)
+								])),
 							A2(elm$html$Html$br, _List_Nil, _List_Nil),
-							A3(elm_explorations$markdown$Markdown$toHtmlWith, author$project$Theme$StartScreen$options, _List_Nil, startScreenInfo.dr)
+							A2(elm$html$Html$br, _List_Nil, _List_Nil),
+							A3(elm_explorations$markdown$Markdown$toHtmlWith, author$project$Theme$StartScreen$options, _List_Nil, warningNotes)
 						])),
 					A2(
 					elm$html$Html$div,
@@ -18460,7 +18616,11 @@ var author$project$Theme$StartScreen$view = F3(
 							_List_Nil,
 							_List_fromArray(
 								[
-									elm$html$Html$text('Please type your name to start game : ')
+									elm$html$Html$text(
+									A2(
+										elm$core$Maybe$withDefault,
+										author$project$Theme$StartScreen$chooseYourUsernameEn,
+										A2(elm$core$Dict$get, displayLanguageId, author$project$Theme$StartScreen$chooseYourUsername)))
 								])),
 							A6(
 							author$project$Theme$AnswerBox$view,
@@ -18496,7 +18656,11 @@ var author$project$Theme$StartScreen$view = F3(
 	});
 var author$project$Main$viewStartScreen = F2(
 	function (baseImgUrl, model) {
-		return A3(author$project$Theme$StartScreen$view, baseImgUrl, model.aQ, model.k);
+		var isGC = !A2(
+			author$project$TypeConverterHelper$mbAttributeToBool,
+			model.l,
+			A3(author$project$Engine$getInteractableAttribute, 'notaGCversion', 'gameStateItem', model.a)).a;
+		return A6(author$project$Theme$StartScreen$view, baseImgUrl, model.aQ, model.c.bF, model.c.bZ, isGC, model.k);
 	});
 var author$project$Theme$EndScreen$view = F2(
 	function (baseImgUrl, endScreenInfo) {
@@ -18581,7 +18745,6 @@ var elm$core$String$left = F2(
 	function (n, string) {
 		return (n < 1) ? '' : A3(elm$core$String$slice, 0, n, string);
 	});
-var elm$core$String$contains = _String_contains;
 var elm$core$String$toInt = _String_toInt;
 var elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
